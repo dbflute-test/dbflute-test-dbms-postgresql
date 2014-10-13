@@ -1,0 +1,75 @@
+# /---------------------------------------------------------------------------
+# classificationDefinitionMap: (NotRequired - Default map:{})
+#
+# The definition of classification.
+#
+# Specification:
+# map: {
+#     [classification-name] = list:{
+#         ; map:{
+#             ; topComment=[comment]; codeType=[String(default) or Number or Boolean]}
+#             ; isCheckImplicitSet=[true or false(default)]
+#             ; isUseDocumentOnly=[true or false(default)]
+#             ; isSuppressAutoDeploy=[true or false(default)]
+#         ; map:{code=[code]; name=[name]; alias=[alias]; comment=[comment]}
+#         ; map:{
+#             ; table=[table-name]
+#             ; code=[column-name for code]; name=[column-name for name]
+#             ; alias=[column-name for alias]; comment=[column-name for comment]}
+#             ; where=[condition for select]; orderBy=[column-name for ordering]
+#             ; exceptCodeList=[the list of except code]
+#         }
+#     }
+# }
+#
+# *The line that starts with '#' means comment-out.
+#
+map:{
+    # example for implicit classification
+    ; Flg = list:{
+        # for the test of number data type
+        ; map:{topComment=general boolean classification for every flg-column; codeType=Number}
+        ; map:{code=1;name=True ;alias=Yes;comment=means valid}
+        ; map:{code=0;name=False;alias=No ;comment=means invalid}
+    }
+    # example for table classification
+    ; MemberStatus = list:{
+        ; map:{
+            ; topComment=status of member from entry to withdrawal
+            ; codeType=String
+            # because this has its own outsideSql
+            ; isSuppressDBAccessClass=false
+        }
+        ; map:{
+            ; table=MEMBER_STATUS
+            ; code=MEMBER_STATUS_CODE; name=MEMBER_STATUS_NAME
+            ; comment=DESCRIPTION; orderBy=DISPLAY_ORDER
+        }
+    }
+    ; PaymentMethod = list:{
+        ; map:{
+            ; topComment=method of payment for purchase; codeType=String
+            ; isCheckImplicitSet=true
+            ; groupingMap = map:{
+                ; recommended = map:{
+                    ; groupComment = the most recommended method
+                    ; elementList = list:{ByHand}
+                }
+            }
+        }
+        ; map:{code=HAN; name=ByHand; alias=by hand; comment=payment by hand, face-to-face}
+        ; map:{code=BAK; name=BankTransfer; alias=bank transfer; comment=bank transfer payment}
+        ; map:{code=CRC; name=CreditCard; alias=credit card; comment=credit card payment}
+    }
+
+	# - - - - - - - - - - - - - - - - - - - - - - - 
+	# for the column that its data type is boolean
+	# - - - - - - - - - - - - - - - - - - - - - - - 
+	; TrueFalse = list:{
+		; map:{topComment=boolean type classification; codeType=Boolean}
+		; map:{code=true ;name=True ;alias=Yes;comment=means valid}
+		; map:{code=false;name=False;alias=No ;comment=means invalid}
+	}
+}
+# ----------------/
+
