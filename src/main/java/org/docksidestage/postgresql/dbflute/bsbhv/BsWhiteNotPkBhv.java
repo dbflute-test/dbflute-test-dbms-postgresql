@@ -79,13 +79,13 @@ public abstract class BsWhiteNotPkBhv extends AbstractBehaviorReadable<WhiteNotP
      * <pre>
      * WhiteNotPkCB cb = new WhiteNotPkCB();
      * cb.query().setFoo...(value);
-     * int count = whiteNotPkBhv.<span style="color: #DD4747">selectCount</span>(cb);
+     * int count = whiteNotPkBhv.<span style="color: #CC4747">selectCount</span>(cb);
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteNotPk. (NotNull)
      * @return The count for the condition. (NotMinus)
      */
     public int selectCount(CBCall<WhiteNotPkCB> cbLambda) {
-        return facadeSelectCount(handleCBCall(cbLambda));
+        return facadeSelectCount(createCB(cbLambda));
     }
 
     /**
@@ -94,7 +94,7 @@ public abstract class BsWhiteNotPkBhv extends AbstractBehaviorReadable<WhiteNotP
      * <pre>
      * WhiteNotPkCB cb = new WhiteNotPkCB();
      * cb.query().setFoo...(value);
-     * int count = whiteNotPkBhv.<span style="color: #DD4747">selectCount</span>(cb);
+     * int count = whiteNotPkBhv.<span style="color: #CC4747">selectCount</span>(cb);
      * </pre>
      * @param cb The condition-bean of WhiteNotPk. (NotNull)
      * @return The count for the condition. (NotMinus)
@@ -109,11 +109,11 @@ public abstract class BsWhiteNotPkBhv extends AbstractBehaviorReadable<WhiteNotP
     /**
      * Select the entity by the condition-bean. #beforejava8 <br />
      * <span style="color: #AD4747; font-size: 120%">The return might be null if no data, so you should have null check.</span> <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, use selectEntityWithDeletedCheck().</span>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, use selectEntityWithDeletedCheck().</span>
      * <pre>
-     * WhiteNotPkCB cb = new WhiteNotPkCB();
-     * cb.query().setFoo...(value);
-     * WhiteNotPk whiteNotPk = whiteNotPkBhv.<span style="color: #DD4747">selectEntity</span>(cb);
+     * WhiteNotPk whiteNotPk = whiteNotPkBhv.<span style="color: #CC4747">selectEntity</span>(cb -&gt; {
+     *     cb.query().set...
+     * });
      * if (whiteNotPk != null) { <span style="color: #3F7E5E">// null check</span>
      *     ... = whiteNotPk.get...();
      * } else {
@@ -126,7 +126,7 @@ public abstract class BsWhiteNotPkBhv extends AbstractBehaviorReadable<WhiteNotP
      * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public WhiteNotPk selectEntity(CBCall<WhiteNotPkCB> cbLambda) {
-        return facadeSelectEntity(handleCBCall(cbLambda));
+        return facadeSelectEntity(createCB(cbLambda));
     }
 
     /**
@@ -164,11 +164,11 @@ public abstract class BsWhiteNotPkBhv extends AbstractBehaviorReadable<WhiteNotP
 
     /**
      * Select the entity by the condition-bean with deleted check. <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, this method is good.</span>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
      * WhiteNotPkCB cb = new WhiteNotPkCB();
      * cb.query().setFoo...(value);
-     * WhiteNotPk whiteNotPk = whiteNotPkBhv.<span style="color: #DD4747">selectEntityWithDeletedCheck</span>(cb);
+     * WhiteNotPk whiteNotPk = whiteNotPkBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
      * ... = whiteNotPk.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteNotPk. (NotNull)
@@ -178,16 +178,16 @@ public abstract class BsWhiteNotPkBhv extends AbstractBehaviorReadable<WhiteNotP
      * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public WhiteNotPk selectEntityWithDeletedCheck(CBCall<WhiteNotPkCB> cbLambda) {
-        return facadeSelectEntityWithDeletedCheck(handleCBCall(cbLambda));
+        return facadeSelectEntityWithDeletedCheck(createCB(cbLambda));
     }
 
     /**
      * Select the entity by the condition-bean with deleted check. <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, this method is good.</span>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
      * WhiteNotPkCB cb = new WhiteNotPkCB();
      * cb.query().setFoo...(value);
-     * WhiteNotPk whiteNotPk = whiteNotPkBhv.<span style="color: #DD4747">selectEntityWithDeletedCheck</span>(cb);
+     * WhiteNotPk whiteNotPk = whiteNotPkBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
      * ... = whiteNotPk.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cb The condition-bean of WhiteNotPk. (NotNull)
@@ -206,20 +206,20 @@ public abstract class BsWhiteNotPkBhv extends AbstractBehaviorReadable<WhiteNotP
     /**
      * Select the list as result bean.
      * <pre>
-     * WhiteNotPkCB cb = new WhiteNotPkCB();
-     * cb.query().setFoo...(value);
-     * cb.query().addOrderBy_Bar...();
-     * ListResultBean&lt;WhiteNotPk&gt; whiteNotPkList = whiteNotPkBhv.<span style="color: #DD4747">selectList</span>(cb);
-     * for (WhiteNotPk whiteNotPk : whiteNotPkList) {
+     * ListResultBean&lt;WhiteNotPk&gt; whiteNotPkList = whiteNotPkBhv.<span style="color: #CC4747">selectList</span>(cb -&gt; {
+     *     cb.query().set...;
+     *     cb.query().addOrderBy...;
+     * });
+     * whiteNotPkList.forEach(whiteNotPk -&gt; {
      *     ... = whiteNotPk.get...();
-     * }
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteNotPk. (NotNull)
      * @return The result bean of selected list. (NotNull: if no data, returns empty list)
      * @exception DangerousResultSizeException When the result size is over the specified safety size.
      */
     public ListResultBean<WhiteNotPk> selectList(CBCall<WhiteNotPkCB> cbLambda) {
-        return facadeSelectList(handleCBCall(cbLambda));
+        return facadeSelectList(createCB(cbLambda));
     }
 
     /**
@@ -228,7 +228,7 @@ public abstract class BsWhiteNotPkBhv extends AbstractBehaviorReadable<WhiteNotP
      * WhiteNotPkCB cb = new WhiteNotPkCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
-     * ListResultBean&lt;WhiteNotPk&gt; whiteNotPkList = whiteNotPkBhv.<span style="color: #DD4747">selectList</span>(cb);
+     * ListResultBean&lt;WhiteNotPk&gt; whiteNotPkList = whiteNotPkBhv.<span style="color: #CC4747">selectList</span>(cb);
      * for (WhiteNotPk whiteNotPk : whiteNotPkList) {
      *     ... = whiteNotPk.get...();
      * }
@@ -254,8 +254,8 @@ public abstract class BsWhiteNotPkBhv extends AbstractBehaviorReadable<WhiteNotP
      * WhiteNotPkCB cb = new WhiteNotPkCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
-     * cb.<span style="color: #DD4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;WhiteNotPk&gt; page = whiteNotPkBhv.<span style="color: #DD4747">selectPage</span>(cb);
+     * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
+     * PagingResultBean&lt;WhiteNotPk&gt; page = whiteNotPkBhv.<span style="color: #CC4747">selectPage</span>(cb);
      * int allRecordCount = page.getAllRecordCount();
      * int allPageCount = page.getAllPageCount();
      * boolean isExistPrePage = page.isExistPrePage();
@@ -270,7 +270,7 @@ public abstract class BsWhiteNotPkBhv extends AbstractBehaviorReadable<WhiteNotP
      * @exception DangerousResultSizeException When the result size is over the specified safety size.
      */
     public PagingResultBean<WhiteNotPk> selectPage(CBCall<WhiteNotPkCB> cbLambda) {
-        return facadeSelectPage(handleCBCall(cbLambda));
+        return facadeSelectPage(createCB(cbLambda));
     }
 
     /**
@@ -280,8 +280,8 @@ public abstract class BsWhiteNotPkBhv extends AbstractBehaviorReadable<WhiteNotP
      * WhiteNotPkCB cb = new WhiteNotPkCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
-     * cb.<span style="color: #DD4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;WhiteNotPk&gt; page = whiteNotPkBhv.<span style="color: #DD4747">selectPage</span>(cb);
+     * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
+     * PagingResultBean&lt;WhiteNotPk&gt; page = whiteNotPkBhv.<span style="color: #CC4747">selectPage</span>(cb);
      * int allRecordCount = page.getAllRecordCount();
      * int allPageCount = page.getAllPageCount();
      * boolean isExistPrePage = page.isExistPrePage();
@@ -307,7 +307,7 @@ public abstract class BsWhiteNotPkBhv extends AbstractBehaviorReadable<WhiteNotP
      * <pre>
      * WhiteNotPkCB cb = new WhiteNotPkCB();
      * cb.query().setFoo...(value);
-     * whiteNotPkBhv.<span style="color: #DD4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteNotPk&gt;() {
+     * whiteNotPkBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteNotPk&gt;() {
      *     public void handle(WhiteNotPk entity) {
      *         ... = entity.getFoo...();
      *     }
@@ -317,7 +317,7 @@ public abstract class BsWhiteNotPkBhv extends AbstractBehaviorReadable<WhiteNotP
      * @param entityLambda The handler of entity row of WhiteNotPk. (NotNull)
      */
     public void selectCursor(CBCall<WhiteNotPkCB> cbLambda, EntityRowHandler<WhiteNotPk> entityLambda) {
-        facadeSelectCursor(handleCBCall(cbLambda), entityLambda);
+        facadeSelectCursor(createCB(cbLambda), entityLambda);
     }
 
     /**
@@ -325,7 +325,7 @@ public abstract class BsWhiteNotPkBhv extends AbstractBehaviorReadable<WhiteNotP
      * <pre>
      * WhiteNotPkCB cb = new WhiteNotPkCB();
      * cb.query().setFoo...(value);
-     * whiteNotPkBhv.<span style="color: #DD4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteNotPk&gt;() {
+     * whiteNotPkBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteNotPk&gt;() {
      *     public void handle(WhiteNotPk entity) {
      *         ... = entity.getFoo...();
      *     }
@@ -345,9 +345,9 @@ public abstract class BsWhiteNotPkBhv extends AbstractBehaviorReadable<WhiteNotP
      * Select the scalar value derived by a function from uniquely-selected records. <br />
      * You should call a function method after this method called like as follows:
      * <pre>
-     * whiteNotPkBhv.<span style="color: #DD4747">scalarSelect</span>(Date.class).max(new ScalarQuery() {
+     * whiteNotPkBhv.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(new ScalarQuery() {
      *     public void query(WhiteNotPkCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFooDatetime()</span>; <span style="color: #3F7E5E">// required for a function</span>
+     *         cb.specify().<span style="color: #CC4747">columnFooDatetime()</span>; <span style="color: #3F7E5E">// required for a function</span>
      *         cb.query().setBarName_PrefixSearch("S");
      *     }
      * });
@@ -378,8 +378,8 @@ public abstract class BsWhiteNotPkBhv extends AbstractBehaviorReadable<WhiteNotP
      * MemberCB cb = new MemberCB();
      * cb.query().set...
      * List&lt;Member&gt; memberList = memberBhv.selectList(cb);
-     * memberBhv.<span style="color: #DD4747">load</span>(memberList, loader -&gt; {
-     *     loader.<span style="color: #DD4747">loadPurchaseList</span>(purchaseCB -&gt; {
+     * memberBhv.<span style="color: #CC4747">load</span>(memberList, loader -&gt; {
+     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
      *         purchaseCB.query().set...
      *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
@@ -392,7 +392,7 @@ public abstract class BsWhiteNotPkBhv extends AbstractBehaviorReadable<WhiteNotP
      *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
      * }
      * for (Member member : memberList) {
-     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #DD4747">getPurchaseList()</span>;
+     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
      *     for (Purchase purchase : purchaseList) {
      *         ...
      *     }
@@ -414,8 +414,8 @@ public abstract class BsWhiteNotPkBhv extends AbstractBehaviorReadable<WhiteNotP
      * MemberCB cb = new MemberCB();
      * cb.query().set...
      * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * memberBhv.<span style="color: #DD4747">load</span>(member, loader -&gt; {
-     *     loader.<span style="color: #DD4747">loadPurchaseList</span>(purchaseCB -&gt; {
+     * memberBhv.<span style="color: #CC4747">load</span>(member, loader -&gt; {
+     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
      *         purchaseCB.query().set...
      *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
@@ -428,7 +428,7 @@ public abstract class BsWhiteNotPkBhv extends AbstractBehaviorReadable<WhiteNotP
      *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
      * }
      * for (Member member : memberList) {
-     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #DD4747">getPurchaseList()</span>;
+     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
      *     for (Purchase purchase : purchaseList) {
      *         ...
      *     }
@@ -461,7 +461,7 @@ public abstract class BsWhiteNotPkBhv extends AbstractBehaviorReadable<WhiteNotP
      * WhiteNotPk whiteNotPk = new WhiteNotPk();
      * whiteNotPk.setFoo...(value);
      * whiteNotPk.setBar...(value);
-     * whiteNotPkBhv.<span style="color: #DD4747">insert</span>(whiteNotPk);
+     * whiteNotPkBhv.<span style="color: #CC4747">insert</span>(whiteNotPk);
      * </pre>
      * @param whiteNotPk The entity for insert. (NotNull)
      */
@@ -503,7 +503,7 @@ public abstract class BsWhiteNotPkBhv extends AbstractBehaviorReadable<WhiteNotP
      */
     public OutsideSqlBasicExecutor<WhiteNotPkBhv> outsideSql() {
         OutsideSqlAllFacadeExecutor<WhiteNotPkBhv> facadeExecutor = doOutsideSql();
-        return facadeExecutor.xbasicExecutor();
+        return facadeExecutor.xbasicExecutor(); // variable to resolve generic type
     }
 
     // ===================================================================================

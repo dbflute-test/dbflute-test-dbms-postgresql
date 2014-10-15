@@ -80,13 +80,13 @@ public abstract class BsWhiteXlsManBhv extends AbstractBehaviorWritable<WhiteXls
      * <pre>
      * WhiteXlsManCB cb = new WhiteXlsManCB();
      * cb.query().setFoo...(value);
-     * int count = whiteXlsManBhv.<span style="color: #DD4747">selectCount</span>(cb);
+     * int count = whiteXlsManBhv.<span style="color: #CC4747">selectCount</span>(cb);
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteXlsMan. (NotNull)
      * @return The count for the condition. (NotMinus)
      */
     public int selectCount(CBCall<WhiteXlsManCB> cbLambda) {
-        return facadeSelectCount(handleCBCall(cbLambda));
+        return facadeSelectCount(createCB(cbLambda));
     }
 
     /**
@@ -95,7 +95,7 @@ public abstract class BsWhiteXlsManBhv extends AbstractBehaviorWritable<WhiteXls
      * <pre>
      * WhiteXlsManCB cb = new WhiteXlsManCB();
      * cb.query().setFoo...(value);
-     * int count = whiteXlsManBhv.<span style="color: #DD4747">selectCount</span>(cb);
+     * int count = whiteXlsManBhv.<span style="color: #CC4747">selectCount</span>(cb);
      * </pre>
      * @param cb The condition-bean of WhiteXlsMan. (NotNull)
      * @return The count for the condition. (NotMinus)
@@ -110,11 +110,11 @@ public abstract class BsWhiteXlsManBhv extends AbstractBehaviorWritable<WhiteXls
     /**
      * Select the entity by the condition-bean. #beforejava8 <br />
      * <span style="color: #AD4747; font-size: 120%">The return might be null if no data, so you should have null check.</span> <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, use selectEntityWithDeletedCheck().</span>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, use selectEntityWithDeletedCheck().</span>
      * <pre>
-     * WhiteXlsManCB cb = new WhiteXlsManCB();
-     * cb.query().setFoo...(value);
-     * WhiteXlsMan whiteXlsMan = whiteXlsManBhv.<span style="color: #DD4747">selectEntity</span>(cb);
+     * WhiteXlsMan whiteXlsMan = whiteXlsManBhv.<span style="color: #CC4747">selectEntity</span>(cb -&gt; {
+     *     cb.query().set...
+     * });
      * if (whiteXlsMan != null) { <span style="color: #3F7E5E">// null check</span>
      *     ... = whiteXlsMan.get...();
      * } else {
@@ -127,7 +127,7 @@ public abstract class BsWhiteXlsManBhv extends AbstractBehaviorWritable<WhiteXls
      * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public WhiteXlsMan selectEntity(CBCall<WhiteXlsManCB> cbLambda) {
-        return facadeSelectEntity(handleCBCall(cbLambda));
+        return facadeSelectEntity(createCB(cbLambda));
     }
 
     /**
@@ -165,11 +165,11 @@ public abstract class BsWhiteXlsManBhv extends AbstractBehaviorWritable<WhiteXls
 
     /**
      * Select the entity by the condition-bean with deleted check. <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, this method is good.</span>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
      * WhiteXlsManCB cb = new WhiteXlsManCB();
      * cb.query().setFoo...(value);
-     * WhiteXlsMan whiteXlsMan = whiteXlsManBhv.<span style="color: #DD4747">selectEntityWithDeletedCheck</span>(cb);
+     * WhiteXlsMan whiteXlsMan = whiteXlsManBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
      * ... = whiteXlsMan.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteXlsMan. (NotNull)
@@ -179,16 +179,16 @@ public abstract class BsWhiteXlsManBhv extends AbstractBehaviorWritable<WhiteXls
      * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public WhiteXlsMan selectEntityWithDeletedCheck(CBCall<WhiteXlsManCB> cbLambda) {
-        return facadeSelectEntityWithDeletedCheck(handleCBCall(cbLambda));
+        return facadeSelectEntityWithDeletedCheck(createCB(cbLambda));
     }
 
     /**
      * Select the entity by the condition-bean with deleted check. <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, this method is good.</span>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
      * WhiteXlsManCB cb = new WhiteXlsManCB();
      * cb.query().setFoo...(value);
-     * WhiteXlsMan whiteXlsMan = whiteXlsManBhv.<span style="color: #DD4747">selectEntityWithDeletedCheck</span>(cb);
+     * WhiteXlsMan whiteXlsMan = whiteXlsManBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
      * ... = whiteXlsMan.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cb The condition-bean of WhiteXlsMan. (NotNull)
@@ -235,20 +235,20 @@ public abstract class BsWhiteXlsManBhv extends AbstractBehaviorWritable<WhiteXls
     /**
      * Select the list as result bean.
      * <pre>
-     * WhiteXlsManCB cb = new WhiteXlsManCB();
-     * cb.query().setFoo...(value);
-     * cb.query().addOrderBy_Bar...();
-     * ListResultBean&lt;WhiteXlsMan&gt; whiteXlsManList = whiteXlsManBhv.<span style="color: #DD4747">selectList</span>(cb);
-     * for (WhiteXlsMan whiteXlsMan : whiteXlsManList) {
+     * ListResultBean&lt;WhiteXlsMan&gt; whiteXlsManList = whiteXlsManBhv.<span style="color: #CC4747">selectList</span>(cb -&gt; {
+     *     cb.query().set...;
+     *     cb.query().addOrderBy...;
+     * });
+     * whiteXlsManList.forEach(whiteXlsMan -&gt; {
      *     ... = whiteXlsMan.get...();
-     * }
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteXlsMan. (NotNull)
      * @return The result bean of selected list. (NotNull: if no data, returns empty list)
      * @exception DangerousResultSizeException When the result size is over the specified safety size.
      */
     public ListResultBean<WhiteXlsMan> selectList(CBCall<WhiteXlsManCB> cbLambda) {
-        return facadeSelectList(handleCBCall(cbLambda));
+        return facadeSelectList(createCB(cbLambda));
     }
 
     /**
@@ -257,7 +257,7 @@ public abstract class BsWhiteXlsManBhv extends AbstractBehaviorWritable<WhiteXls
      * WhiteXlsManCB cb = new WhiteXlsManCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
-     * ListResultBean&lt;WhiteXlsMan&gt; whiteXlsManList = whiteXlsManBhv.<span style="color: #DD4747">selectList</span>(cb);
+     * ListResultBean&lt;WhiteXlsMan&gt; whiteXlsManList = whiteXlsManBhv.<span style="color: #CC4747">selectList</span>(cb);
      * for (WhiteXlsMan whiteXlsMan : whiteXlsManList) {
      *     ... = whiteXlsMan.get...();
      * }
@@ -283,8 +283,8 @@ public abstract class BsWhiteXlsManBhv extends AbstractBehaviorWritable<WhiteXls
      * WhiteXlsManCB cb = new WhiteXlsManCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
-     * cb.<span style="color: #DD4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;WhiteXlsMan&gt; page = whiteXlsManBhv.<span style="color: #DD4747">selectPage</span>(cb);
+     * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
+     * PagingResultBean&lt;WhiteXlsMan&gt; page = whiteXlsManBhv.<span style="color: #CC4747">selectPage</span>(cb);
      * int allRecordCount = page.getAllRecordCount();
      * int allPageCount = page.getAllPageCount();
      * boolean isExistPrePage = page.isExistPrePage();
@@ -299,7 +299,7 @@ public abstract class BsWhiteXlsManBhv extends AbstractBehaviorWritable<WhiteXls
      * @exception DangerousResultSizeException When the result size is over the specified safety size.
      */
     public PagingResultBean<WhiteXlsMan> selectPage(CBCall<WhiteXlsManCB> cbLambda) {
-        return facadeSelectPage(handleCBCall(cbLambda));
+        return facadeSelectPage(createCB(cbLambda));
     }
 
     /**
@@ -309,8 +309,8 @@ public abstract class BsWhiteXlsManBhv extends AbstractBehaviorWritable<WhiteXls
      * WhiteXlsManCB cb = new WhiteXlsManCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
-     * cb.<span style="color: #DD4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;WhiteXlsMan&gt; page = whiteXlsManBhv.<span style="color: #DD4747">selectPage</span>(cb);
+     * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
+     * PagingResultBean&lt;WhiteXlsMan&gt; page = whiteXlsManBhv.<span style="color: #CC4747">selectPage</span>(cb);
      * int allRecordCount = page.getAllRecordCount();
      * int allPageCount = page.getAllPageCount();
      * boolean isExistPrePage = page.isExistPrePage();
@@ -336,7 +336,7 @@ public abstract class BsWhiteXlsManBhv extends AbstractBehaviorWritable<WhiteXls
      * <pre>
      * WhiteXlsManCB cb = new WhiteXlsManCB();
      * cb.query().setFoo...(value);
-     * whiteXlsManBhv.<span style="color: #DD4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteXlsMan&gt;() {
+     * whiteXlsManBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteXlsMan&gt;() {
      *     public void handle(WhiteXlsMan entity) {
      *         ... = entity.getFoo...();
      *     }
@@ -346,7 +346,7 @@ public abstract class BsWhiteXlsManBhv extends AbstractBehaviorWritable<WhiteXls
      * @param entityLambda The handler of entity row of WhiteXlsMan. (NotNull)
      */
     public void selectCursor(CBCall<WhiteXlsManCB> cbLambda, EntityRowHandler<WhiteXlsMan> entityLambda) {
-        facadeSelectCursor(handleCBCall(cbLambda), entityLambda);
+        facadeSelectCursor(createCB(cbLambda), entityLambda);
     }
 
     /**
@@ -354,7 +354,7 @@ public abstract class BsWhiteXlsManBhv extends AbstractBehaviorWritable<WhiteXls
      * <pre>
      * WhiteXlsManCB cb = new WhiteXlsManCB();
      * cb.query().setFoo...(value);
-     * whiteXlsManBhv.<span style="color: #DD4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteXlsMan&gt;() {
+     * whiteXlsManBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteXlsMan&gt;() {
      *     public void handle(WhiteXlsMan entity) {
      *         ... = entity.getFoo...();
      *     }
@@ -374,9 +374,9 @@ public abstract class BsWhiteXlsManBhv extends AbstractBehaviorWritable<WhiteXls
      * Select the scalar value derived by a function from uniquely-selected records. <br />
      * You should call a function method after this method called like as follows:
      * <pre>
-     * whiteXlsManBhv.<span style="color: #DD4747">scalarSelect</span>(Date.class).max(new ScalarQuery() {
+     * whiteXlsManBhv.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(new ScalarQuery() {
      *     public void query(WhiteXlsManCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFooDatetime()</span>; <span style="color: #3F7E5E">// required for a function</span>
+     *         cb.specify().<span style="color: #CC4747">columnFooDatetime()</span>; <span style="color: #3F7E5E">// required for a function</span>
      *         cb.query().setBarName_PrefixSearch("S");
      *     }
      * });
@@ -407,8 +407,8 @@ public abstract class BsWhiteXlsManBhv extends AbstractBehaviorWritable<WhiteXls
      * MemberCB cb = new MemberCB();
      * cb.query().set...
      * List&lt;Member&gt; memberList = memberBhv.selectList(cb);
-     * memberBhv.<span style="color: #DD4747">load</span>(memberList, loader -&gt; {
-     *     loader.<span style="color: #DD4747">loadPurchaseList</span>(purchaseCB -&gt; {
+     * memberBhv.<span style="color: #CC4747">load</span>(memberList, loader -&gt; {
+     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
      *         purchaseCB.query().set...
      *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
@@ -421,7 +421,7 @@ public abstract class BsWhiteXlsManBhv extends AbstractBehaviorWritable<WhiteXls
      *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
      * }
      * for (Member member : memberList) {
-     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #DD4747">getPurchaseList()</span>;
+     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
      *     for (Purchase purchase : purchaseList) {
      *         ...
      *     }
@@ -443,8 +443,8 @@ public abstract class BsWhiteXlsManBhv extends AbstractBehaviorWritable<WhiteXls
      * MemberCB cb = new MemberCB();
      * cb.query().set...
      * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * memberBhv.<span style="color: #DD4747">load</span>(member, loader -&gt; {
-     *     loader.<span style="color: #DD4747">loadPurchaseList</span>(purchaseCB -&gt; {
+     * memberBhv.<span style="color: #CC4747">load</span>(member, loader -&gt; {
+     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
      *         purchaseCB.query().set...
      *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
@@ -457,7 +457,7 @@ public abstract class BsWhiteXlsManBhv extends AbstractBehaviorWritable<WhiteXls
      *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
      * }
      * for (Member member : memberList) {
-     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #DD4747">getPurchaseList()</span>;
+     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
      *     for (Purchase purchase : purchaseList) {
      *         ...
      *     }
@@ -500,7 +500,7 @@ public abstract class BsWhiteXlsManBhv extends AbstractBehaviorWritable<WhiteXls
      * <span style="color: #3F7E5E">// you don't need to set values of common columns</span>
      * <span style="color: #3F7E5E">//whiteXlsMan.setRegisterUser(value);</span>
      * <span style="color: #3F7E5E">//whiteXlsMan.set...;</span>
-     * whiteXlsManBhv.<span style="color: #DD4747">insert</span>(whiteXlsMan);
+     * whiteXlsManBhv.<span style="color: #CC4747">insert</span>(whiteXlsMan);
      * ... = whiteXlsMan.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * <p>While, when the entity is created by select, all columns are registered.</p>
@@ -521,9 +521,9 @@ public abstract class BsWhiteXlsManBhv extends AbstractBehaviorWritable<WhiteXls
      * <span style="color: #3F7E5E">//whiteXlsMan.setRegisterUser(value);</span>
      * <span style="color: #3F7E5E">//whiteXlsMan.set...;</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
-     * whiteXlsMan.<span style="color: #DD4747">setVersionNo</span>(value);
+     * whiteXlsMan.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     whiteXlsManBhv.<span style="color: #DD4747">update</span>(whiteXlsMan);
+     *     whiteXlsManBhv.<span style="color: #CC4747">update</span>(whiteXlsMan);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
@@ -540,7 +540,7 @@ public abstract class BsWhiteXlsManBhv extends AbstractBehaviorWritable<WhiteXls
     /**
      * Insert or update the entity modified-only. (DefaultConstraintsEnabled, NonExclusiveControl) <br />
      * if (the entity has no PK) { insert() } else { update(), but no data, insert() } <br />
-     * <p><span style="color: #DD4747; font-size: 120%">Attention, you cannot update by unique keys instead of PK.</span></p>
+     * <p><span style="color: #CC4747; font-size: 120%">Attention, you cannot update by unique keys instead of PK.</span></p>
      * @param whiteXlsMan The entity of insert or update. (NotNull, ...depends on insert or update)
      * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @exception EntityDuplicatedException When the entity has been duplicated.
@@ -556,9 +556,9 @@ public abstract class BsWhiteXlsManBhv extends AbstractBehaviorWritable<WhiteXls
      * WhiteXlsMan whiteXlsMan = new WhiteXlsMan();
      * whiteXlsMan.setPK...(value); <span style="color: #3F7E5E">// required</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
-     * whiteXlsMan.<span style="color: #DD4747">setVersionNo</span>(value);
+     * whiteXlsMan.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     whiteXlsManBhv.<span style="color: #DD4747">delete</span>(whiteXlsMan);
+     *     whiteXlsManBhv.<span style="color: #CC4747">delete</span>(whiteXlsMan);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
@@ -577,7 +577,7 @@ public abstract class BsWhiteXlsManBhv extends AbstractBehaviorWritable<WhiteXls
     /**
      * Batch-insert the entity list modified-only of same-set columns. (DefaultConstraintsEnabled) <br />
      * This method uses executeBatch() of java.sql.PreparedStatement. <br />
-     * <p><span style="color: #DD4747; font-size: 120%">The columns of least common multiple are registered like this:</span></p>
+     * <p><span style="color: #CC4747; font-size: 120%">The columns of least common multiple are registered like this:</span></p>
      * <pre>
      * for (... : ...) {
      *     WhiteXlsMan whiteXlsMan = new WhiteXlsMan();
@@ -590,7 +590,7 @@ public abstract class BsWhiteXlsManBhv extends AbstractBehaviorWritable<WhiteXls
      *     <span style="color: #3F7E5E">// columns not-called in all entities are registered as null or default value</span>
      *     whiteXlsManList.add(whiteXlsMan);
      * }
-     * whiteXlsManBhv.<span style="color: #DD4747">batchInsert</span>(whiteXlsManList);
+     * whiteXlsManBhv.<span style="color: #CC4747">batchInsert</span>(whiteXlsManList);
      * </pre>
      * <p>While, when the entities are created by select, all columns are registered.</p>
      * <p>And if the table has an identity, entities after the process don't have incremented values.
@@ -605,7 +605,7 @@ public abstract class BsWhiteXlsManBhv extends AbstractBehaviorWritable<WhiteXls
     /**
      * Batch-update the entity list modified-only of same-set columns. (NonExclusiveControl) <br />
      * This method uses executeBatch() of java.sql.PreparedStatement. <br />
-     * <span style="color: #DD4747; font-size: 120%">You should specify same-set columns to all entities like this:</span>
+     * <span style="color: #CC4747; font-size: 120%">You should specify same-set columns to all entities like this:</span>
      * <pre>
      * for (... : ...) {
      *     WhiteXlsMan whiteXlsMan = new WhiteXlsMan();
@@ -620,7 +620,7 @@ public abstract class BsWhiteXlsManBhv extends AbstractBehaviorWritable<WhiteXls
      *     <span style="color: #3F7E5E">// (others are not updated: their values are kept)</span>
      *     whiteXlsManList.add(whiteXlsMan);
      * }
-     * whiteXlsManBhv.<span style="color: #DD4747">batchUpdate</span>(whiteXlsManList);
+     * whiteXlsManBhv.<span style="color: #CC4747">batchUpdate</span>(whiteXlsManList);
      * </pre>
      * @param whiteXlsManList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
@@ -647,7 +647,7 @@ public abstract class BsWhiteXlsManBhv extends AbstractBehaviorWritable<WhiteXls
     /**
      * Insert the several entities by query (modified-only for fixed value).
      * <pre>
-     * whiteXlsManBhv.<span style="color: #DD4747">queryInsert</span>(new QueryInsertSetupper&lt;WhiteXlsMan, WhiteXlsManCB&gt;() {
+     * whiteXlsManBhv.<span style="color: #CC4747">queryInsert</span>(new QueryInsertSetupper&lt;WhiteXlsMan, WhiteXlsManCB&gt;() {
      *     public ConditionBean setup(WhiteXlsMan entity, WhiteXlsManCB intoCB) {
      *         FooCB cb = FooCB();
      *         cb.setupSelect_Bar();
@@ -689,7 +689,7 @@ public abstract class BsWhiteXlsManBhv extends AbstractBehaviorWritable<WhiteXls
      * <span style="color: #3F7E5E">//whiteXlsMan.setVersionNo(value);</span>
      * WhiteXlsManCB cb = new WhiteXlsManCB();
      * cb.query().setFoo...(value);
-     * whiteXlsManBhv.<span style="color: #DD4747">queryUpdate</span>(whiteXlsMan, cb);
+     * whiteXlsManBhv.<span style="color: #CC4747">queryUpdate</span>(whiteXlsMan, cb);
      * </pre>
      * @param whiteXlsMan The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cbLambda The callback for condition-bean of WhiteXlsMan. (NotNull)
@@ -697,7 +697,7 @@ public abstract class BsWhiteXlsManBhv extends AbstractBehaviorWritable<WhiteXls
      * @exception NonQueryUpdateNotAllowedException When the query has no condition.
      */
     public int queryUpdate(WhiteXlsMan whiteXlsMan, CBCall<WhiteXlsManCB> cbLambda) {
-        return doQueryUpdate(whiteXlsMan, handleCBCall(cbLambda), null);
+        return doQueryUpdate(whiteXlsMan, createCB(cbLambda), null);
     }
 
     /**
@@ -715,7 +715,7 @@ public abstract class BsWhiteXlsManBhv extends AbstractBehaviorWritable<WhiteXls
      * <span style="color: #3F7E5E">//whiteXlsMan.setVersionNo(value);</span>
      * WhiteXlsManCB cb = new WhiteXlsManCB();
      * cb.query().setFoo...(value);
-     * whiteXlsManBhv.<span style="color: #DD4747">queryUpdate</span>(whiteXlsMan, cb);
+     * whiteXlsManBhv.<span style="color: #CC4747">queryUpdate</span>(whiteXlsMan, cb);
      * </pre>
      * @param whiteXlsMan The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cb The condition-bean of WhiteXlsMan. (NotNull)
@@ -731,14 +731,14 @@ public abstract class BsWhiteXlsManBhv extends AbstractBehaviorWritable<WhiteXls
      * <pre>
      * WhiteXlsManCB cb = new WhiteXlsManCB();
      * cb.query().setFoo...(value);
-     * whiteXlsManBhv.<span style="color: #DD4747">queryDelete</span>(whiteXlsMan, cb);
+     * whiteXlsManBhv.<span style="color: #CC4747">queryDelete</span>(whiteXlsMan, cb);
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteXlsMan. (NotNull)
      * @return The deleted count.
      * @exception NonQueryDeleteNotAllowedException When the query has no condition.
      */
     public int queryDelete(CBCall<WhiteXlsManCB> cbLambda) {
-        return doQueryDelete(handleCBCall(cbLambda), null);
+        return doQueryDelete(createCB(cbLambda), null);
     }
 
     /**
@@ -746,7 +746,7 @@ public abstract class BsWhiteXlsManBhv extends AbstractBehaviorWritable<WhiteXls
      * <pre>
      * WhiteXlsManCB cb = new WhiteXlsManCB();
      * cb.query().setFoo...(value);
-     * whiteXlsManBhv.<span style="color: #DD4747">queryDelete</span>(whiteXlsMan, cb);
+     * whiteXlsManBhv.<span style="color: #CC4747">queryDelete</span>(whiteXlsMan, cb);
      * </pre>
      * @param cb The condition-bean of WhiteXlsMan. (NotNull)
      * @return The deleted count.
@@ -774,15 +774,15 @@ public abstract class BsWhiteXlsManBhv extends AbstractBehaviorWritable<WhiteXls
      * InsertOption<WhiteXlsManCB> option = new InsertOption<WhiteXlsManCB>();
      * <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
      * option.disableCommonColumnAutoSetup();
-     * whiteXlsManBhv.<span style="color: #DD4747">varyingInsert</span>(whiteXlsMan, option);
+     * whiteXlsManBhv.<span style="color: #CC4747">varyingInsert</span>(whiteXlsMan, option);
      * ... = whiteXlsMan.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * @param whiteXlsMan The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
      * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void varyingInsert(WhiteXlsMan whiteXlsMan, WOptionCall<WhiteXlsManCB, InsertOption<WhiteXlsManCB>> opLambda) {
-        doInsert(whiteXlsMan, handleInsertOpCall(opLambda));
+    public void varyingInsert(WhiteXlsMan whiteXlsMan, WritableOptionCall<WhiteXlsManCB, InsertOption<WhiteXlsManCB>> opLambda) {
+        doInsert(whiteXlsMan, createInsertOption(opLambda));
     }
 
     /**
@@ -794,16 +794,16 @@ public abstract class BsWhiteXlsManBhv extends AbstractBehaviorWritable<WhiteXls
      * whiteXlsMan.setPK...(value); <span style="color: #3F7E5E">// required</span>
      * whiteXlsMan.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
-     * whiteXlsMan.<span style="color: #DD4747">setVersionNo</span>(value);
+     * whiteXlsMan.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
      *     <span style="color: #3F7E5E">// you can update by self calculation values</span>
      *     UpdateOption&lt;WhiteXlsManCB&gt; option = new UpdateOption&lt;WhiteXlsManCB&gt;();
      *     option.self(new SpecifyQuery&lt;WhiteXlsManCB&gt;() {
      *         public void specify(WhiteXlsManCB cb) {
-     *             cb.specify().<span style="color: #DD4747">columnXxxCount()</span>;
+     *             cb.specify().<span style="color: #CC4747">columnXxxCount()</span>;
      *         }
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
-     *     whiteXlsManBhv.<span style="color: #DD4747">varyingUpdate</span>(whiteXlsMan, option);
+     *     whiteXlsManBhv.<span style="color: #CC4747">varyingUpdate</span>(whiteXlsMan, option);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
@@ -814,8 +814,8 @@ public abstract class BsWhiteXlsManBhv extends AbstractBehaviorWritable<WhiteXls
      * @exception EntityDuplicatedException When the entity has been duplicated.
      * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void varyingUpdate(WhiteXlsMan whiteXlsMan, WOptionCall<WhiteXlsManCB, UpdateOption<WhiteXlsManCB>> opLambda) {
-        doUpdate(whiteXlsMan, handleUpdateOpCall(opLambda));
+    public void varyingUpdate(WhiteXlsMan whiteXlsMan, WritableOptionCall<WhiteXlsManCB, UpdateOption<WhiteXlsManCB>> opLambda) {
+        doUpdate(whiteXlsMan, createUpdateOption(opLambda));
     }
 
     /**
@@ -828,8 +828,8 @@ public abstract class BsWhiteXlsManBhv extends AbstractBehaviorWritable<WhiteXls
      * @exception EntityDuplicatedException When the entity has been duplicated.
      * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void varyingInsertOrUpdate(WhiteXlsMan whiteXlsMan, WOptionCall<WhiteXlsManCB, InsertOption<WhiteXlsManCB>> insertOpLambda, WOptionCall<WhiteXlsManCB, UpdateOption<WhiteXlsManCB>> updateOpLambda) {
-        doInsertOrUpdate(whiteXlsMan, handleInsertOpCall(insertOpLambda), handleUpdateOpCall(updateOpLambda));
+    public void varyingInsertOrUpdate(WhiteXlsMan whiteXlsMan, WritableOptionCall<WhiteXlsManCB, InsertOption<WhiteXlsManCB>> insertOpLambda, WritableOptionCall<WhiteXlsManCB, UpdateOption<WhiteXlsManCB>> updateOpLambda) {
+        doInsertOrUpdate(whiteXlsMan, createInsertOption(insertOpLambda), createUpdateOption(updateOpLambda));
     }
 
     /**
@@ -841,8 +841,8 @@ public abstract class BsWhiteXlsManBhv extends AbstractBehaviorWritable<WhiteXls
      * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @exception EntityDuplicatedException When the entity has been duplicated.
      */
-    public void varyingDelete(WhiteXlsMan whiteXlsMan, WOptionCall<WhiteXlsManCB, DeleteOption<WhiteXlsManCB>> opLambda) {
-        doDelete(whiteXlsMan, handleDeleteOpCall(opLambda));
+    public void varyingDelete(WhiteXlsMan whiteXlsMan, WritableOptionCall<WhiteXlsManCB, DeleteOption<WhiteXlsManCB>> opLambda) {
+        doDelete(whiteXlsMan, createDeleteOption(opLambda));
     }
 
     // -----------------------------------------------------
@@ -857,8 +857,8 @@ public abstract class BsWhiteXlsManBhv extends AbstractBehaviorWritable<WhiteXls
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
      */
-    public int[] varyingBatchInsert(List<WhiteXlsMan> whiteXlsManList, WOptionCall<WhiteXlsManCB, InsertOption<WhiteXlsManCB>> opLambda) {
-        return doBatchInsert(whiteXlsManList, handleInsertOpCall(opLambda));
+    public int[] varyingBatchInsert(List<WhiteXlsMan> whiteXlsManList, WritableOptionCall<WhiteXlsManCB, InsertOption<WhiteXlsManCB>> opLambda) {
+        return doBatchInsert(whiteXlsManList, createInsertOption(opLambda));
     }
 
     /**
@@ -870,8 +870,8 @@ public abstract class BsWhiteXlsManBhv extends AbstractBehaviorWritable<WhiteXls
      * @param opLambda The callback for option of update for varying requests. (NotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
      */
-    public int[] varyingBatchUpdate(List<WhiteXlsMan> whiteXlsManList, WOptionCall<WhiteXlsManCB, UpdateOption<WhiteXlsManCB>> opLambda) {
-        return doBatchUpdate(whiteXlsManList, handleUpdateOpCall(opLambda));
+    public int[] varyingBatchUpdate(List<WhiteXlsMan> whiteXlsManList, WritableOptionCall<WhiteXlsManCB, UpdateOption<WhiteXlsManCB>> opLambda) {
+        return doBatchUpdate(whiteXlsManList, createUpdateOption(opLambda));
     }
 
     /**
@@ -882,8 +882,8 @@ public abstract class BsWhiteXlsManBhv extends AbstractBehaviorWritable<WhiteXls
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The array of deleted count. (NotNull, EmptyAllowed)
      */
-    public int[] varyingBatchDelete(List<WhiteXlsMan> whiteXlsManList, WOptionCall<WhiteXlsManCB, DeleteOption<WhiteXlsManCB>> opLambda) {
-        return doBatchDelete(whiteXlsManList, handleDeleteOpCall(opLambda));
+    public int[] varyingBatchDelete(List<WhiteXlsMan> whiteXlsManList, WritableOptionCall<WhiteXlsManCB, DeleteOption<WhiteXlsManCB>> opLambda) {
+        return doBatchDelete(whiteXlsManList, createDeleteOption(opLambda));
     }
 
     // -----------------------------------------------------
@@ -897,8 +897,8 @@ public abstract class BsWhiteXlsManBhv extends AbstractBehaviorWritable<WhiteXls
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
      * @return The inserted count.
      */
-    public int varyingQueryInsert(QueryInsertSetupper<WhiteXlsMan, WhiteXlsManCB> manyArgLambda, WOptionCall<WhiteXlsManCB, InsertOption<WhiteXlsManCB>> opLambda) {
-        return doQueryInsert(manyArgLambda, handleInsertOpCall(opLambda));
+    public int varyingQueryInsert(QueryInsertSetupper<WhiteXlsMan, WhiteXlsManCB> manyArgLambda, WritableOptionCall<WhiteXlsManCB, InsertOption<WhiteXlsManCB>> opLambda) {
+        return doQueryInsert(manyArgLambda, createInsertOption(opLambda));
     }
 
     /**
@@ -920,10 +920,10 @@ public abstract class BsWhiteXlsManBhv extends AbstractBehaviorWritable<WhiteXls
      * UpdateOption&lt;WhiteXlsManCB&gt; option = new UpdateOption&lt;WhiteXlsManCB&gt;();
      * option.self(new SpecifyQuery&lt;WhiteXlsManCB&gt;() {
      *     public void specify(WhiteXlsManCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFooCount()</span>;
+     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * whiteXlsManBhv.<span style="color: #DD4747">varyingQueryUpdate</span>(whiteXlsMan, cb, option);
+     * whiteXlsManBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteXlsMan, cb, option);
      * </pre>
      * @param whiteXlsMan The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cbLambda The callback for condition-bean of WhiteXlsMan. (NotNull)
@@ -931,8 +931,8 @@ public abstract class BsWhiteXlsManBhv extends AbstractBehaviorWritable<WhiteXls
      * @return The updated count.
      * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryUpdate(WhiteXlsMan whiteXlsMan, CBCall<WhiteXlsManCB> cbLambda, WOptionCall<WhiteXlsManCB, UpdateOption<WhiteXlsManCB>> opLambda) {
-        return doQueryUpdate(whiteXlsMan, handleCBCall(cbLambda), handleUpdateOpCall(opLambda));
+    public int varyingQueryUpdate(WhiteXlsMan whiteXlsMan, CBCall<WhiteXlsManCB> cbLambda, WritableOptionCall<WhiteXlsManCB, UpdateOption<WhiteXlsManCB>> opLambda) {
+        return doQueryUpdate(whiteXlsMan, createCB(cbLambda), createUpdateOption(opLambda));
     }
 
     /**
@@ -954,10 +954,10 @@ public abstract class BsWhiteXlsManBhv extends AbstractBehaviorWritable<WhiteXls
      * UpdateOption&lt;WhiteXlsManCB&gt; option = new UpdateOption&lt;WhiteXlsManCB&gt;();
      * option.self(new SpecifyQuery&lt;WhiteXlsManCB&gt;() {
      *     public void specify(WhiteXlsManCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFooCount()</span>;
+     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * whiteXlsManBhv.<span style="color: #DD4747">varyingQueryUpdate</span>(whiteXlsMan, cb, option);
+     * whiteXlsManBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteXlsMan, cb, option);
      * </pre>
      * @param whiteXlsMan The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cb The condition-bean of WhiteXlsMan. (NotNull)
@@ -965,8 +965,8 @@ public abstract class BsWhiteXlsManBhv extends AbstractBehaviorWritable<WhiteXls
      * @return The updated count.
      * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryUpdate(WhiteXlsMan whiteXlsMan, WhiteXlsManCB cb, WOptionCall<WhiteXlsManCB, UpdateOption<WhiteXlsManCB>> opLambda) {
-        return doQueryUpdate(whiteXlsMan, cb, handleUpdateOpCall(opLambda));
+    public int varyingQueryUpdate(WhiteXlsMan whiteXlsMan, WhiteXlsManCB cb, WritableOptionCall<WhiteXlsManCB, UpdateOption<WhiteXlsManCB>> opLambda) {
+        return doQueryUpdate(whiteXlsMan, cb, createUpdateOption(opLambda));
     }
 
     /**
@@ -978,8 +978,8 @@ public abstract class BsWhiteXlsManBhv extends AbstractBehaviorWritable<WhiteXls
      * @return The deleted count.
      * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryDelete(CBCall<WhiteXlsManCB> cbLambda, WOptionCall<WhiteXlsManCB, DeleteOption<WhiteXlsManCB>> opLambda) {
-        return doQueryDelete(handleCBCall(cbLambda), handleDeleteOpCall(opLambda));
+    public int varyingQueryDelete(CBCall<WhiteXlsManCB> cbLambda, WritableOptionCall<WhiteXlsManCB, DeleteOption<WhiteXlsManCB>> opLambda) {
+        return doQueryDelete(createCB(cbLambda), createDeleteOption(opLambda));
     }
 
     /**
@@ -991,8 +991,8 @@ public abstract class BsWhiteXlsManBhv extends AbstractBehaviorWritable<WhiteXls
      * @return The deleted count.
      * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryDelete(WhiteXlsManCB cb, WOptionCall<WhiteXlsManCB, DeleteOption<WhiteXlsManCB>> opLambda) {
-        return doQueryDelete(cb, handleDeleteOpCall(opLambda));
+    public int varyingQueryDelete(WhiteXlsManCB cb, WritableOptionCall<WhiteXlsManCB, DeleteOption<WhiteXlsManCB>> opLambda) {
+        return doQueryDelete(cb, createDeleteOption(opLambda));
     }
 
     // ===================================================================================
@@ -1028,7 +1028,7 @@ public abstract class BsWhiteXlsManBhv extends AbstractBehaviorWritable<WhiteXls
      */
     public OutsideSqlBasicExecutor<WhiteXlsManBhv> outsideSql() {
         OutsideSqlAllFacadeExecutor<WhiteXlsManBhv> facadeExecutor = doOutsideSql();
-        return facadeExecutor.xbasicExecutor();
+        return facadeExecutor.xbasicExecutor(); // variable to resolve generic type
     }
 
     // ===================================================================================

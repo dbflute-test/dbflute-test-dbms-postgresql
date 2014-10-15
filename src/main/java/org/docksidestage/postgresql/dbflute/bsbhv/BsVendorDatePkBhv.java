@@ -80,13 +80,13 @@ public abstract class BsVendorDatePkBhv extends AbstractBehaviorWritable<VendorD
      * <pre>
      * VendorDatePkCB cb = new VendorDatePkCB();
      * cb.query().setFoo...(value);
-     * int count = vendorDatePkBhv.<span style="color: #DD4747">selectCount</span>(cb);
+     * int count = vendorDatePkBhv.<span style="color: #CC4747">selectCount</span>(cb);
      * </pre>
      * @param cbLambda The callback for condition-bean of VendorDatePk. (NotNull)
      * @return The count for the condition. (NotMinus)
      */
     public int selectCount(CBCall<VendorDatePkCB> cbLambda) {
-        return facadeSelectCount(handleCBCall(cbLambda));
+        return facadeSelectCount(createCB(cbLambda));
     }
 
     /**
@@ -95,7 +95,7 @@ public abstract class BsVendorDatePkBhv extends AbstractBehaviorWritable<VendorD
      * <pre>
      * VendorDatePkCB cb = new VendorDatePkCB();
      * cb.query().setFoo...(value);
-     * int count = vendorDatePkBhv.<span style="color: #DD4747">selectCount</span>(cb);
+     * int count = vendorDatePkBhv.<span style="color: #CC4747">selectCount</span>(cb);
      * </pre>
      * @param cb The condition-bean of VendorDatePk. (NotNull)
      * @return The count for the condition. (NotMinus)
@@ -110,11 +110,11 @@ public abstract class BsVendorDatePkBhv extends AbstractBehaviorWritable<VendorD
     /**
      * Select the entity by the condition-bean. #beforejava8 <br />
      * <span style="color: #AD4747; font-size: 120%">The return might be null if no data, so you should have null check.</span> <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, use selectEntityWithDeletedCheck().</span>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, use selectEntityWithDeletedCheck().</span>
      * <pre>
-     * VendorDatePkCB cb = new VendorDatePkCB();
-     * cb.query().setFoo...(value);
-     * VendorDatePk vendorDatePk = vendorDatePkBhv.<span style="color: #DD4747">selectEntity</span>(cb);
+     * VendorDatePk vendorDatePk = vendorDatePkBhv.<span style="color: #CC4747">selectEntity</span>(cb -&gt; {
+     *     cb.query().set...
+     * });
      * if (vendorDatePk != null) { <span style="color: #3F7E5E">// null check</span>
      *     ... = vendorDatePk.get...();
      * } else {
@@ -127,7 +127,7 @@ public abstract class BsVendorDatePkBhv extends AbstractBehaviorWritable<VendorD
      * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public VendorDatePk selectEntity(CBCall<VendorDatePkCB> cbLambda) {
-        return facadeSelectEntity(handleCBCall(cbLambda));
+        return facadeSelectEntity(createCB(cbLambda));
     }
 
     /**
@@ -165,11 +165,11 @@ public abstract class BsVendorDatePkBhv extends AbstractBehaviorWritable<VendorD
 
     /**
      * Select the entity by the condition-bean with deleted check. <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, this method is good.</span>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
      * VendorDatePkCB cb = new VendorDatePkCB();
      * cb.query().setFoo...(value);
-     * VendorDatePk vendorDatePk = vendorDatePkBhv.<span style="color: #DD4747">selectEntityWithDeletedCheck</span>(cb);
+     * VendorDatePk vendorDatePk = vendorDatePkBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
      * ... = vendorDatePk.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cbLambda The callback for condition-bean of VendorDatePk. (NotNull)
@@ -179,16 +179,16 @@ public abstract class BsVendorDatePkBhv extends AbstractBehaviorWritable<VendorD
      * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public VendorDatePk selectEntityWithDeletedCheck(CBCall<VendorDatePkCB> cbLambda) {
-        return facadeSelectEntityWithDeletedCheck(handleCBCall(cbLambda));
+        return facadeSelectEntityWithDeletedCheck(createCB(cbLambda));
     }
 
     /**
      * Select the entity by the condition-bean with deleted check. <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, this method is good.</span>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
      * VendorDatePkCB cb = new VendorDatePkCB();
      * cb.query().setFoo...(value);
-     * VendorDatePk vendorDatePk = vendorDatePkBhv.<span style="color: #DD4747">selectEntityWithDeletedCheck</span>(cb);
+     * VendorDatePk vendorDatePk = vendorDatePkBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
      * ... = vendorDatePk.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cb The condition-bean of VendorDatePk. (NotNull)
@@ -235,20 +235,20 @@ public abstract class BsVendorDatePkBhv extends AbstractBehaviorWritable<VendorD
     /**
      * Select the list as result bean.
      * <pre>
-     * VendorDatePkCB cb = new VendorDatePkCB();
-     * cb.query().setFoo...(value);
-     * cb.query().addOrderBy_Bar...();
-     * ListResultBean&lt;VendorDatePk&gt; vendorDatePkList = vendorDatePkBhv.<span style="color: #DD4747">selectList</span>(cb);
-     * for (VendorDatePk vendorDatePk : vendorDatePkList) {
+     * ListResultBean&lt;VendorDatePk&gt; vendorDatePkList = vendorDatePkBhv.<span style="color: #CC4747">selectList</span>(cb -&gt; {
+     *     cb.query().set...;
+     *     cb.query().addOrderBy...;
+     * });
+     * vendorDatePkList.forEach(vendorDatePk -&gt; {
      *     ... = vendorDatePk.get...();
-     * }
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of VendorDatePk. (NotNull)
      * @return The result bean of selected list. (NotNull: if no data, returns empty list)
      * @exception DangerousResultSizeException When the result size is over the specified safety size.
      */
     public ListResultBean<VendorDatePk> selectList(CBCall<VendorDatePkCB> cbLambda) {
-        return facadeSelectList(handleCBCall(cbLambda));
+        return facadeSelectList(createCB(cbLambda));
     }
 
     /**
@@ -257,7 +257,7 @@ public abstract class BsVendorDatePkBhv extends AbstractBehaviorWritable<VendorD
      * VendorDatePkCB cb = new VendorDatePkCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
-     * ListResultBean&lt;VendorDatePk&gt; vendorDatePkList = vendorDatePkBhv.<span style="color: #DD4747">selectList</span>(cb);
+     * ListResultBean&lt;VendorDatePk&gt; vendorDatePkList = vendorDatePkBhv.<span style="color: #CC4747">selectList</span>(cb);
      * for (VendorDatePk vendorDatePk : vendorDatePkList) {
      *     ... = vendorDatePk.get...();
      * }
@@ -283,8 +283,8 @@ public abstract class BsVendorDatePkBhv extends AbstractBehaviorWritable<VendorD
      * VendorDatePkCB cb = new VendorDatePkCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
-     * cb.<span style="color: #DD4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;VendorDatePk&gt; page = vendorDatePkBhv.<span style="color: #DD4747">selectPage</span>(cb);
+     * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
+     * PagingResultBean&lt;VendorDatePk&gt; page = vendorDatePkBhv.<span style="color: #CC4747">selectPage</span>(cb);
      * int allRecordCount = page.getAllRecordCount();
      * int allPageCount = page.getAllPageCount();
      * boolean isExistPrePage = page.isExistPrePage();
@@ -299,7 +299,7 @@ public abstract class BsVendorDatePkBhv extends AbstractBehaviorWritable<VendorD
      * @exception DangerousResultSizeException When the result size is over the specified safety size.
      */
     public PagingResultBean<VendorDatePk> selectPage(CBCall<VendorDatePkCB> cbLambda) {
-        return facadeSelectPage(handleCBCall(cbLambda));
+        return facadeSelectPage(createCB(cbLambda));
     }
 
     /**
@@ -309,8 +309,8 @@ public abstract class BsVendorDatePkBhv extends AbstractBehaviorWritable<VendorD
      * VendorDatePkCB cb = new VendorDatePkCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
-     * cb.<span style="color: #DD4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;VendorDatePk&gt; page = vendorDatePkBhv.<span style="color: #DD4747">selectPage</span>(cb);
+     * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
+     * PagingResultBean&lt;VendorDatePk&gt; page = vendorDatePkBhv.<span style="color: #CC4747">selectPage</span>(cb);
      * int allRecordCount = page.getAllRecordCount();
      * int allPageCount = page.getAllPageCount();
      * boolean isExistPrePage = page.isExistPrePage();
@@ -336,7 +336,7 @@ public abstract class BsVendorDatePkBhv extends AbstractBehaviorWritable<VendorD
      * <pre>
      * VendorDatePkCB cb = new VendorDatePkCB();
      * cb.query().setFoo...(value);
-     * vendorDatePkBhv.<span style="color: #DD4747">selectCursor</span>(cb, new EntityRowHandler&lt;VendorDatePk&gt;() {
+     * vendorDatePkBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;VendorDatePk&gt;() {
      *     public void handle(VendorDatePk entity) {
      *         ... = entity.getFoo...();
      *     }
@@ -346,7 +346,7 @@ public abstract class BsVendorDatePkBhv extends AbstractBehaviorWritable<VendorD
      * @param entityLambda The handler of entity row of VendorDatePk. (NotNull)
      */
     public void selectCursor(CBCall<VendorDatePkCB> cbLambda, EntityRowHandler<VendorDatePk> entityLambda) {
-        facadeSelectCursor(handleCBCall(cbLambda), entityLambda);
+        facadeSelectCursor(createCB(cbLambda), entityLambda);
     }
 
     /**
@@ -354,7 +354,7 @@ public abstract class BsVendorDatePkBhv extends AbstractBehaviorWritable<VendorD
      * <pre>
      * VendorDatePkCB cb = new VendorDatePkCB();
      * cb.query().setFoo...(value);
-     * vendorDatePkBhv.<span style="color: #DD4747">selectCursor</span>(cb, new EntityRowHandler&lt;VendorDatePk&gt;() {
+     * vendorDatePkBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;VendorDatePk&gt;() {
      *     public void handle(VendorDatePk entity) {
      *         ... = entity.getFoo...();
      *     }
@@ -374,9 +374,9 @@ public abstract class BsVendorDatePkBhv extends AbstractBehaviorWritable<VendorD
      * Select the scalar value derived by a function from uniquely-selected records. <br />
      * You should call a function method after this method called like as follows:
      * <pre>
-     * vendorDatePkBhv.<span style="color: #DD4747">scalarSelect</span>(Date.class).max(new ScalarQuery() {
+     * vendorDatePkBhv.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(new ScalarQuery() {
      *     public void query(VendorDatePkCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFooDatetime()</span>; <span style="color: #3F7E5E">// required for a function</span>
+     *         cb.specify().<span style="color: #CC4747">columnFooDatetime()</span>; <span style="color: #3F7E5E">// required for a function</span>
      *         cb.query().setBarName_PrefixSearch("S");
      *     }
      * });
@@ -407,8 +407,8 @@ public abstract class BsVendorDatePkBhv extends AbstractBehaviorWritable<VendorD
      * MemberCB cb = new MemberCB();
      * cb.query().set...
      * List&lt;Member&gt; memberList = memberBhv.selectList(cb);
-     * memberBhv.<span style="color: #DD4747">load</span>(memberList, loader -&gt; {
-     *     loader.<span style="color: #DD4747">loadPurchaseList</span>(purchaseCB -&gt; {
+     * memberBhv.<span style="color: #CC4747">load</span>(memberList, loader -&gt; {
+     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
      *         purchaseCB.query().set...
      *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
@@ -421,7 +421,7 @@ public abstract class BsVendorDatePkBhv extends AbstractBehaviorWritable<VendorD
      *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
      * }
      * for (Member member : memberList) {
-     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #DD4747">getPurchaseList()</span>;
+     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
      *     for (Purchase purchase : purchaseList) {
      *         ...
      *     }
@@ -443,8 +443,8 @@ public abstract class BsVendorDatePkBhv extends AbstractBehaviorWritable<VendorD
      * MemberCB cb = new MemberCB();
      * cb.query().set...
      * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * memberBhv.<span style="color: #DD4747">load</span>(member, loader -&gt; {
-     *     loader.<span style="color: #DD4747">loadPurchaseList</span>(purchaseCB -&gt; {
+     * memberBhv.<span style="color: #CC4747">load</span>(member, loader -&gt; {
+     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
      *         purchaseCB.query().set...
      *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
@@ -457,7 +457,7 @@ public abstract class BsVendorDatePkBhv extends AbstractBehaviorWritable<VendorD
      *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
      * }
      * for (Member member : memberList) {
-     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #DD4747">getPurchaseList()</span>;
+     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
      *     for (Purchase purchase : purchaseList) {
      *         ...
      *     }
@@ -477,7 +477,7 @@ public abstract class BsVendorDatePkBhv extends AbstractBehaviorWritable<VendorD
      * Load referrer of vendorDateFkList by the set-upper of referrer. <br />
      * vendor_date_fk by bar_date, named 'vendorDateFkList'.
      * <pre>
-     * vendorDatePkBhv.<span style="color: #DD4747">loadVendorDateFkList</span>(vendorDatePkList, fkCB -&gt; {
+     * vendorDatePkBhv.<span style="color: #CC4747">loadVendorDateFkList</span>(vendorDatePkList, fkCB -&gt; {
      *     fkCB.setupSelect...();
      *     fkCB.query().setFoo...(value);
      *     fkCB.query().addOrderBy_Bar...();
@@ -486,7 +486,7 @@ public abstract class BsVendorDatePkBhv extends AbstractBehaviorWritable<VendorD
      * <span style="color: #3F7E5E">//    ...</span>
      * <span style="color: #3F7E5E">//});</span>
      * for (VendorDatePk vendorDatePk : vendorDatePkList) {
-     *     ... = vendorDatePk.<span style="color: #DD4747">getVendorDateFkList()</span>;
+     *     ... = vendorDatePk.<span style="color: #CC4747">getVendorDateFkList()</span>;
      * }
      * </pre>
      * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
@@ -508,7 +508,7 @@ public abstract class BsVendorDatePkBhv extends AbstractBehaviorWritable<VendorD
      * Load referrer of vendorDateFkList by the set-upper of referrer. <br />
      * vendor_date_fk by bar_date, named 'vendorDateFkList'.
      * <pre>
-     * vendorDatePkBhv.<span style="color: #DD4747">loadVendorDateFkList</span>(vendorDatePkList, fkCB -&gt; {
+     * vendorDatePkBhv.<span style="color: #CC4747">loadVendorDateFkList</span>(vendorDatePkList, fkCB -&gt; {
      *     fkCB.setupSelect...();
      *     fkCB.query().setFoo...(value);
      *     fkCB.query().addOrderBy_Bar...();
@@ -516,7 +516,7 @@ public abstract class BsVendorDatePkBhv extends AbstractBehaviorWritable<VendorD
      * <span style="color: #3F7E5E">//}).withNestedList(referrerList -&gt {</span>
      * <span style="color: #3F7E5E">//    ...</span>
      * <span style="color: #3F7E5E">//});</span>
-     * ... = vendorDatePk.<span style="color: #DD4747">getVendorDateFkList()</span>;
+     * ... = vendorDatePk.<span style="color: #CC4747">getVendorDateFkList()</span>;
      * </pre>
      * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
      * The condition-bean, which the set-upper provides, has settings before callback as follows:
@@ -588,7 +588,7 @@ public abstract class BsVendorDatePkBhv extends AbstractBehaviorWritable<VendorD
      * <span style="color: #3F7E5E">// you don't need to set values of common columns</span>
      * <span style="color: #3F7E5E">//vendorDatePk.setRegisterUser(value);</span>
      * <span style="color: #3F7E5E">//vendorDatePk.set...;</span>
-     * vendorDatePkBhv.<span style="color: #DD4747">insert</span>(vendorDatePk);
+     * vendorDatePkBhv.<span style="color: #CC4747">insert</span>(vendorDatePk);
      * ... = vendorDatePk.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * <p>While, when the entity is created by select, all columns are registered.</p>
@@ -609,9 +609,9 @@ public abstract class BsVendorDatePkBhv extends AbstractBehaviorWritable<VendorD
      * <span style="color: #3F7E5E">//vendorDatePk.setRegisterUser(value);</span>
      * <span style="color: #3F7E5E">//vendorDatePk.set...;</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
-     * vendorDatePk.<span style="color: #DD4747">setVersionNo</span>(value);
+     * vendorDatePk.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     vendorDatePkBhv.<span style="color: #DD4747">update</span>(vendorDatePk);
+     *     vendorDatePkBhv.<span style="color: #CC4747">update</span>(vendorDatePk);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
@@ -628,7 +628,7 @@ public abstract class BsVendorDatePkBhv extends AbstractBehaviorWritable<VendorD
     /**
      * Insert or update the entity modified-only. (DefaultConstraintsEnabled, NonExclusiveControl) <br />
      * if (the entity has no PK) { insert() } else { update(), but no data, insert() } <br />
-     * <p><span style="color: #DD4747; font-size: 120%">Attention, you cannot update by unique keys instead of PK.</span></p>
+     * <p><span style="color: #CC4747; font-size: 120%">Attention, you cannot update by unique keys instead of PK.</span></p>
      * @param vendorDatePk The entity of insert or update. (NotNull, ...depends on insert or update)
      * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @exception EntityDuplicatedException When the entity has been duplicated.
@@ -644,9 +644,9 @@ public abstract class BsVendorDatePkBhv extends AbstractBehaviorWritable<VendorD
      * VendorDatePk vendorDatePk = new VendorDatePk();
      * vendorDatePk.setPK...(value); <span style="color: #3F7E5E">// required</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
-     * vendorDatePk.<span style="color: #DD4747">setVersionNo</span>(value);
+     * vendorDatePk.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     vendorDatePkBhv.<span style="color: #DD4747">delete</span>(vendorDatePk);
+     *     vendorDatePkBhv.<span style="color: #CC4747">delete</span>(vendorDatePk);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
@@ -665,7 +665,7 @@ public abstract class BsVendorDatePkBhv extends AbstractBehaviorWritable<VendorD
     /**
      * Batch-insert the entity list modified-only of same-set columns. (DefaultConstraintsEnabled) <br />
      * This method uses executeBatch() of java.sql.PreparedStatement. <br />
-     * <p><span style="color: #DD4747; font-size: 120%">The columns of least common multiple are registered like this:</span></p>
+     * <p><span style="color: #CC4747; font-size: 120%">The columns of least common multiple are registered like this:</span></p>
      * <pre>
      * for (... : ...) {
      *     VendorDatePk vendorDatePk = new VendorDatePk();
@@ -678,7 +678,7 @@ public abstract class BsVendorDatePkBhv extends AbstractBehaviorWritable<VendorD
      *     <span style="color: #3F7E5E">// columns not-called in all entities are registered as null or default value</span>
      *     vendorDatePkList.add(vendorDatePk);
      * }
-     * vendorDatePkBhv.<span style="color: #DD4747">batchInsert</span>(vendorDatePkList);
+     * vendorDatePkBhv.<span style="color: #CC4747">batchInsert</span>(vendorDatePkList);
      * </pre>
      * <p>While, when the entities are created by select, all columns are registered.</p>
      * <p>And if the table has an identity, entities after the process don't have incremented values.
@@ -693,7 +693,7 @@ public abstract class BsVendorDatePkBhv extends AbstractBehaviorWritable<VendorD
     /**
      * Batch-update the entity list modified-only of same-set columns. (NonExclusiveControl) <br />
      * This method uses executeBatch() of java.sql.PreparedStatement. <br />
-     * <span style="color: #DD4747; font-size: 120%">You should specify same-set columns to all entities like this:</span>
+     * <span style="color: #CC4747; font-size: 120%">You should specify same-set columns to all entities like this:</span>
      * <pre>
      * for (... : ...) {
      *     VendorDatePk vendorDatePk = new VendorDatePk();
@@ -708,7 +708,7 @@ public abstract class BsVendorDatePkBhv extends AbstractBehaviorWritable<VendorD
      *     <span style="color: #3F7E5E">// (others are not updated: their values are kept)</span>
      *     vendorDatePkList.add(vendorDatePk);
      * }
-     * vendorDatePkBhv.<span style="color: #DD4747">batchUpdate</span>(vendorDatePkList);
+     * vendorDatePkBhv.<span style="color: #CC4747">batchUpdate</span>(vendorDatePkList);
      * </pre>
      * @param vendorDatePkList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
@@ -735,7 +735,7 @@ public abstract class BsVendorDatePkBhv extends AbstractBehaviorWritable<VendorD
     /**
      * Insert the several entities by query (modified-only for fixed value).
      * <pre>
-     * vendorDatePkBhv.<span style="color: #DD4747">queryInsert</span>(new QueryInsertSetupper&lt;VendorDatePk, VendorDatePkCB&gt;() {
+     * vendorDatePkBhv.<span style="color: #CC4747">queryInsert</span>(new QueryInsertSetupper&lt;VendorDatePk, VendorDatePkCB&gt;() {
      *     public ConditionBean setup(VendorDatePk entity, VendorDatePkCB intoCB) {
      *         FooCB cb = FooCB();
      *         cb.setupSelect_Bar();
@@ -777,7 +777,7 @@ public abstract class BsVendorDatePkBhv extends AbstractBehaviorWritable<VendorD
      * <span style="color: #3F7E5E">//vendorDatePk.setVersionNo(value);</span>
      * VendorDatePkCB cb = new VendorDatePkCB();
      * cb.query().setFoo...(value);
-     * vendorDatePkBhv.<span style="color: #DD4747">queryUpdate</span>(vendorDatePk, cb);
+     * vendorDatePkBhv.<span style="color: #CC4747">queryUpdate</span>(vendorDatePk, cb);
      * </pre>
      * @param vendorDatePk The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cbLambda The callback for condition-bean of VendorDatePk. (NotNull)
@@ -785,7 +785,7 @@ public abstract class BsVendorDatePkBhv extends AbstractBehaviorWritable<VendorD
      * @exception NonQueryUpdateNotAllowedException When the query has no condition.
      */
     public int queryUpdate(VendorDatePk vendorDatePk, CBCall<VendorDatePkCB> cbLambda) {
-        return doQueryUpdate(vendorDatePk, handleCBCall(cbLambda), null);
+        return doQueryUpdate(vendorDatePk, createCB(cbLambda), null);
     }
 
     /**
@@ -803,7 +803,7 @@ public abstract class BsVendorDatePkBhv extends AbstractBehaviorWritable<VendorD
      * <span style="color: #3F7E5E">//vendorDatePk.setVersionNo(value);</span>
      * VendorDatePkCB cb = new VendorDatePkCB();
      * cb.query().setFoo...(value);
-     * vendorDatePkBhv.<span style="color: #DD4747">queryUpdate</span>(vendorDatePk, cb);
+     * vendorDatePkBhv.<span style="color: #CC4747">queryUpdate</span>(vendorDatePk, cb);
      * </pre>
      * @param vendorDatePk The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cb The condition-bean of VendorDatePk. (NotNull)
@@ -819,14 +819,14 @@ public abstract class BsVendorDatePkBhv extends AbstractBehaviorWritable<VendorD
      * <pre>
      * VendorDatePkCB cb = new VendorDatePkCB();
      * cb.query().setFoo...(value);
-     * vendorDatePkBhv.<span style="color: #DD4747">queryDelete</span>(vendorDatePk, cb);
+     * vendorDatePkBhv.<span style="color: #CC4747">queryDelete</span>(vendorDatePk, cb);
      * </pre>
      * @param cbLambda The callback for condition-bean of VendorDatePk. (NotNull)
      * @return The deleted count.
      * @exception NonQueryDeleteNotAllowedException When the query has no condition.
      */
     public int queryDelete(CBCall<VendorDatePkCB> cbLambda) {
-        return doQueryDelete(handleCBCall(cbLambda), null);
+        return doQueryDelete(createCB(cbLambda), null);
     }
 
     /**
@@ -834,7 +834,7 @@ public abstract class BsVendorDatePkBhv extends AbstractBehaviorWritable<VendorD
      * <pre>
      * VendorDatePkCB cb = new VendorDatePkCB();
      * cb.query().setFoo...(value);
-     * vendorDatePkBhv.<span style="color: #DD4747">queryDelete</span>(vendorDatePk, cb);
+     * vendorDatePkBhv.<span style="color: #CC4747">queryDelete</span>(vendorDatePk, cb);
      * </pre>
      * @param cb The condition-bean of VendorDatePk. (NotNull)
      * @return The deleted count.
@@ -862,15 +862,15 @@ public abstract class BsVendorDatePkBhv extends AbstractBehaviorWritable<VendorD
      * InsertOption<VendorDatePkCB> option = new InsertOption<VendorDatePkCB>();
      * <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
      * option.disableCommonColumnAutoSetup();
-     * vendorDatePkBhv.<span style="color: #DD4747">varyingInsert</span>(vendorDatePk, option);
+     * vendorDatePkBhv.<span style="color: #CC4747">varyingInsert</span>(vendorDatePk, option);
      * ... = vendorDatePk.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * @param vendorDatePk The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
      * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void varyingInsert(VendorDatePk vendorDatePk, WOptionCall<VendorDatePkCB, InsertOption<VendorDatePkCB>> opLambda) {
-        doInsert(vendorDatePk, handleInsertOpCall(opLambda));
+    public void varyingInsert(VendorDatePk vendorDatePk, WritableOptionCall<VendorDatePkCB, InsertOption<VendorDatePkCB>> opLambda) {
+        doInsert(vendorDatePk, createInsertOption(opLambda));
     }
 
     /**
@@ -882,16 +882,16 @@ public abstract class BsVendorDatePkBhv extends AbstractBehaviorWritable<VendorD
      * vendorDatePk.setPK...(value); <span style="color: #3F7E5E">// required</span>
      * vendorDatePk.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
-     * vendorDatePk.<span style="color: #DD4747">setVersionNo</span>(value);
+     * vendorDatePk.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
      *     <span style="color: #3F7E5E">// you can update by self calculation values</span>
      *     UpdateOption&lt;VendorDatePkCB&gt; option = new UpdateOption&lt;VendorDatePkCB&gt;();
      *     option.self(new SpecifyQuery&lt;VendorDatePkCB&gt;() {
      *         public void specify(VendorDatePkCB cb) {
-     *             cb.specify().<span style="color: #DD4747">columnXxxCount()</span>;
+     *             cb.specify().<span style="color: #CC4747">columnXxxCount()</span>;
      *         }
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
-     *     vendorDatePkBhv.<span style="color: #DD4747">varyingUpdate</span>(vendorDatePk, option);
+     *     vendorDatePkBhv.<span style="color: #CC4747">varyingUpdate</span>(vendorDatePk, option);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
@@ -902,8 +902,8 @@ public abstract class BsVendorDatePkBhv extends AbstractBehaviorWritable<VendorD
      * @exception EntityDuplicatedException When the entity has been duplicated.
      * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void varyingUpdate(VendorDatePk vendorDatePk, WOptionCall<VendorDatePkCB, UpdateOption<VendorDatePkCB>> opLambda) {
-        doUpdate(vendorDatePk, handleUpdateOpCall(opLambda));
+    public void varyingUpdate(VendorDatePk vendorDatePk, WritableOptionCall<VendorDatePkCB, UpdateOption<VendorDatePkCB>> opLambda) {
+        doUpdate(vendorDatePk, createUpdateOption(opLambda));
     }
 
     /**
@@ -916,8 +916,8 @@ public abstract class BsVendorDatePkBhv extends AbstractBehaviorWritable<VendorD
      * @exception EntityDuplicatedException When the entity has been duplicated.
      * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void varyingInsertOrUpdate(VendorDatePk vendorDatePk, WOptionCall<VendorDatePkCB, InsertOption<VendorDatePkCB>> insertOpLambda, WOptionCall<VendorDatePkCB, UpdateOption<VendorDatePkCB>> updateOpLambda) {
-        doInsertOrUpdate(vendorDatePk, handleInsertOpCall(insertOpLambda), handleUpdateOpCall(updateOpLambda));
+    public void varyingInsertOrUpdate(VendorDatePk vendorDatePk, WritableOptionCall<VendorDatePkCB, InsertOption<VendorDatePkCB>> insertOpLambda, WritableOptionCall<VendorDatePkCB, UpdateOption<VendorDatePkCB>> updateOpLambda) {
+        doInsertOrUpdate(vendorDatePk, createInsertOption(insertOpLambda), createUpdateOption(updateOpLambda));
     }
 
     /**
@@ -929,8 +929,8 @@ public abstract class BsVendorDatePkBhv extends AbstractBehaviorWritable<VendorD
      * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @exception EntityDuplicatedException When the entity has been duplicated.
      */
-    public void varyingDelete(VendorDatePk vendorDatePk, WOptionCall<VendorDatePkCB, DeleteOption<VendorDatePkCB>> opLambda) {
-        doDelete(vendorDatePk, handleDeleteOpCall(opLambda));
+    public void varyingDelete(VendorDatePk vendorDatePk, WritableOptionCall<VendorDatePkCB, DeleteOption<VendorDatePkCB>> opLambda) {
+        doDelete(vendorDatePk, createDeleteOption(opLambda));
     }
 
     // -----------------------------------------------------
@@ -945,8 +945,8 @@ public abstract class BsVendorDatePkBhv extends AbstractBehaviorWritable<VendorD
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
      */
-    public int[] varyingBatchInsert(List<VendorDatePk> vendorDatePkList, WOptionCall<VendorDatePkCB, InsertOption<VendorDatePkCB>> opLambda) {
-        return doBatchInsert(vendorDatePkList, handleInsertOpCall(opLambda));
+    public int[] varyingBatchInsert(List<VendorDatePk> vendorDatePkList, WritableOptionCall<VendorDatePkCB, InsertOption<VendorDatePkCB>> opLambda) {
+        return doBatchInsert(vendorDatePkList, createInsertOption(opLambda));
     }
 
     /**
@@ -958,8 +958,8 @@ public abstract class BsVendorDatePkBhv extends AbstractBehaviorWritable<VendorD
      * @param opLambda The callback for option of update for varying requests. (NotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
      */
-    public int[] varyingBatchUpdate(List<VendorDatePk> vendorDatePkList, WOptionCall<VendorDatePkCB, UpdateOption<VendorDatePkCB>> opLambda) {
-        return doBatchUpdate(vendorDatePkList, handleUpdateOpCall(opLambda));
+    public int[] varyingBatchUpdate(List<VendorDatePk> vendorDatePkList, WritableOptionCall<VendorDatePkCB, UpdateOption<VendorDatePkCB>> opLambda) {
+        return doBatchUpdate(vendorDatePkList, createUpdateOption(opLambda));
     }
 
     /**
@@ -970,8 +970,8 @@ public abstract class BsVendorDatePkBhv extends AbstractBehaviorWritable<VendorD
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The array of deleted count. (NotNull, EmptyAllowed)
      */
-    public int[] varyingBatchDelete(List<VendorDatePk> vendorDatePkList, WOptionCall<VendorDatePkCB, DeleteOption<VendorDatePkCB>> opLambda) {
-        return doBatchDelete(vendorDatePkList, handleDeleteOpCall(opLambda));
+    public int[] varyingBatchDelete(List<VendorDatePk> vendorDatePkList, WritableOptionCall<VendorDatePkCB, DeleteOption<VendorDatePkCB>> opLambda) {
+        return doBatchDelete(vendorDatePkList, createDeleteOption(opLambda));
     }
 
     // -----------------------------------------------------
@@ -985,8 +985,8 @@ public abstract class BsVendorDatePkBhv extends AbstractBehaviorWritable<VendorD
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
      * @return The inserted count.
      */
-    public int varyingQueryInsert(QueryInsertSetupper<VendorDatePk, VendorDatePkCB> manyArgLambda, WOptionCall<VendorDatePkCB, InsertOption<VendorDatePkCB>> opLambda) {
-        return doQueryInsert(manyArgLambda, handleInsertOpCall(opLambda));
+    public int varyingQueryInsert(QueryInsertSetupper<VendorDatePk, VendorDatePkCB> manyArgLambda, WritableOptionCall<VendorDatePkCB, InsertOption<VendorDatePkCB>> opLambda) {
+        return doQueryInsert(manyArgLambda, createInsertOption(opLambda));
     }
 
     /**
@@ -1008,10 +1008,10 @@ public abstract class BsVendorDatePkBhv extends AbstractBehaviorWritable<VendorD
      * UpdateOption&lt;VendorDatePkCB&gt; option = new UpdateOption&lt;VendorDatePkCB&gt;();
      * option.self(new SpecifyQuery&lt;VendorDatePkCB&gt;() {
      *     public void specify(VendorDatePkCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFooCount()</span>;
+     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * vendorDatePkBhv.<span style="color: #DD4747">varyingQueryUpdate</span>(vendorDatePk, cb, option);
+     * vendorDatePkBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(vendorDatePk, cb, option);
      * </pre>
      * @param vendorDatePk The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cbLambda The callback for condition-bean of VendorDatePk. (NotNull)
@@ -1019,8 +1019,8 @@ public abstract class BsVendorDatePkBhv extends AbstractBehaviorWritable<VendorD
      * @return The updated count.
      * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryUpdate(VendorDatePk vendorDatePk, CBCall<VendorDatePkCB> cbLambda, WOptionCall<VendorDatePkCB, UpdateOption<VendorDatePkCB>> opLambda) {
-        return doQueryUpdate(vendorDatePk, handleCBCall(cbLambda), handleUpdateOpCall(opLambda));
+    public int varyingQueryUpdate(VendorDatePk vendorDatePk, CBCall<VendorDatePkCB> cbLambda, WritableOptionCall<VendorDatePkCB, UpdateOption<VendorDatePkCB>> opLambda) {
+        return doQueryUpdate(vendorDatePk, createCB(cbLambda), createUpdateOption(opLambda));
     }
 
     /**
@@ -1042,10 +1042,10 @@ public abstract class BsVendorDatePkBhv extends AbstractBehaviorWritable<VendorD
      * UpdateOption&lt;VendorDatePkCB&gt; option = new UpdateOption&lt;VendorDatePkCB&gt;();
      * option.self(new SpecifyQuery&lt;VendorDatePkCB&gt;() {
      *     public void specify(VendorDatePkCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFooCount()</span>;
+     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * vendorDatePkBhv.<span style="color: #DD4747">varyingQueryUpdate</span>(vendorDatePk, cb, option);
+     * vendorDatePkBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(vendorDatePk, cb, option);
      * </pre>
      * @param vendorDatePk The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cb The condition-bean of VendorDatePk. (NotNull)
@@ -1053,8 +1053,8 @@ public abstract class BsVendorDatePkBhv extends AbstractBehaviorWritable<VendorD
      * @return The updated count.
      * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryUpdate(VendorDatePk vendorDatePk, VendorDatePkCB cb, WOptionCall<VendorDatePkCB, UpdateOption<VendorDatePkCB>> opLambda) {
-        return doQueryUpdate(vendorDatePk, cb, handleUpdateOpCall(opLambda));
+    public int varyingQueryUpdate(VendorDatePk vendorDatePk, VendorDatePkCB cb, WritableOptionCall<VendorDatePkCB, UpdateOption<VendorDatePkCB>> opLambda) {
+        return doQueryUpdate(vendorDatePk, cb, createUpdateOption(opLambda));
     }
 
     /**
@@ -1066,8 +1066,8 @@ public abstract class BsVendorDatePkBhv extends AbstractBehaviorWritable<VendorD
      * @return The deleted count.
      * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryDelete(CBCall<VendorDatePkCB> cbLambda, WOptionCall<VendorDatePkCB, DeleteOption<VendorDatePkCB>> opLambda) {
-        return doQueryDelete(handleCBCall(cbLambda), handleDeleteOpCall(opLambda));
+    public int varyingQueryDelete(CBCall<VendorDatePkCB> cbLambda, WritableOptionCall<VendorDatePkCB, DeleteOption<VendorDatePkCB>> opLambda) {
+        return doQueryDelete(createCB(cbLambda), createDeleteOption(opLambda));
     }
 
     /**
@@ -1079,8 +1079,8 @@ public abstract class BsVendorDatePkBhv extends AbstractBehaviorWritable<VendorD
      * @return The deleted count.
      * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryDelete(VendorDatePkCB cb, WOptionCall<VendorDatePkCB, DeleteOption<VendorDatePkCB>> opLambda) {
-        return doQueryDelete(cb, handleDeleteOpCall(opLambda));
+    public int varyingQueryDelete(VendorDatePkCB cb, WritableOptionCall<VendorDatePkCB, DeleteOption<VendorDatePkCB>> opLambda) {
+        return doQueryDelete(cb, createDeleteOption(opLambda));
     }
 
     // ===================================================================================
@@ -1116,7 +1116,7 @@ public abstract class BsVendorDatePkBhv extends AbstractBehaviorWritable<VendorD
      */
     public OutsideSqlBasicExecutor<VendorDatePkBhv> outsideSql() {
         OutsideSqlAllFacadeExecutor<VendorDatePkBhv> facadeExecutor = doOutsideSql();
-        return facadeExecutor.xbasicExecutor();
+        return facadeExecutor.xbasicExecutor(); // variable to resolve generic type
     }
 
     // ===================================================================================

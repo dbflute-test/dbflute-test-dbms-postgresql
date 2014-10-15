@@ -80,13 +80,13 @@ public abstract class BsVendorInheritNekoBhv extends AbstractBehaviorWritable<Ve
      * <pre>
      * VendorInheritNekoCB cb = new VendorInheritNekoCB();
      * cb.query().setFoo...(value);
-     * int count = vendorInheritNekoBhv.<span style="color: #DD4747">selectCount</span>(cb);
+     * int count = vendorInheritNekoBhv.<span style="color: #CC4747">selectCount</span>(cb);
      * </pre>
      * @param cbLambda The callback for condition-bean of VendorInheritNeko. (NotNull)
      * @return The count for the condition. (NotMinus)
      */
     public int selectCount(CBCall<VendorInheritNekoCB> cbLambda) {
-        return facadeSelectCount(handleCBCall(cbLambda));
+        return facadeSelectCount(createCB(cbLambda));
     }
 
     /**
@@ -95,7 +95,7 @@ public abstract class BsVendorInheritNekoBhv extends AbstractBehaviorWritable<Ve
      * <pre>
      * VendorInheritNekoCB cb = new VendorInheritNekoCB();
      * cb.query().setFoo...(value);
-     * int count = vendorInheritNekoBhv.<span style="color: #DD4747">selectCount</span>(cb);
+     * int count = vendorInheritNekoBhv.<span style="color: #CC4747">selectCount</span>(cb);
      * </pre>
      * @param cb The condition-bean of VendorInheritNeko. (NotNull)
      * @return The count for the condition. (NotMinus)
@@ -110,11 +110,11 @@ public abstract class BsVendorInheritNekoBhv extends AbstractBehaviorWritable<Ve
     /**
      * Select the entity by the condition-bean. #beforejava8 <br />
      * <span style="color: #AD4747; font-size: 120%">The return might be null if no data, so you should have null check.</span> <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, use selectEntityWithDeletedCheck().</span>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, use selectEntityWithDeletedCheck().</span>
      * <pre>
-     * VendorInheritNekoCB cb = new VendorInheritNekoCB();
-     * cb.query().setFoo...(value);
-     * VendorInheritNeko vendorInheritNeko = vendorInheritNekoBhv.<span style="color: #DD4747">selectEntity</span>(cb);
+     * VendorInheritNeko vendorInheritNeko = vendorInheritNekoBhv.<span style="color: #CC4747">selectEntity</span>(cb -&gt; {
+     *     cb.query().set...
+     * });
      * if (vendorInheritNeko != null) { <span style="color: #3F7E5E">// null check</span>
      *     ... = vendorInheritNeko.get...();
      * } else {
@@ -127,7 +127,7 @@ public abstract class BsVendorInheritNekoBhv extends AbstractBehaviorWritable<Ve
      * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public VendorInheritNeko selectEntity(CBCall<VendorInheritNekoCB> cbLambda) {
-        return facadeSelectEntity(handleCBCall(cbLambda));
+        return facadeSelectEntity(createCB(cbLambda));
     }
 
     /**
@@ -165,11 +165,11 @@ public abstract class BsVendorInheritNekoBhv extends AbstractBehaviorWritable<Ve
 
     /**
      * Select the entity by the condition-bean with deleted check. <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, this method is good.</span>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
      * VendorInheritNekoCB cb = new VendorInheritNekoCB();
      * cb.query().setFoo...(value);
-     * VendorInheritNeko vendorInheritNeko = vendorInheritNekoBhv.<span style="color: #DD4747">selectEntityWithDeletedCheck</span>(cb);
+     * VendorInheritNeko vendorInheritNeko = vendorInheritNekoBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
      * ... = vendorInheritNeko.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cbLambda The callback for condition-bean of VendorInheritNeko. (NotNull)
@@ -179,16 +179,16 @@ public abstract class BsVendorInheritNekoBhv extends AbstractBehaviorWritable<Ve
      * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public VendorInheritNeko selectEntityWithDeletedCheck(CBCall<VendorInheritNekoCB> cbLambda) {
-        return facadeSelectEntityWithDeletedCheck(handleCBCall(cbLambda));
+        return facadeSelectEntityWithDeletedCheck(createCB(cbLambda));
     }
 
     /**
      * Select the entity by the condition-bean with deleted check. <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, this method is good.</span>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
      * VendorInheritNekoCB cb = new VendorInheritNekoCB();
      * cb.query().setFoo...(value);
-     * VendorInheritNeko vendorInheritNeko = vendorInheritNekoBhv.<span style="color: #DD4747">selectEntityWithDeletedCheck</span>(cb);
+     * VendorInheritNeko vendorInheritNeko = vendorInheritNekoBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
      * ... = vendorInheritNeko.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cb The condition-bean of VendorInheritNeko. (NotNull)
@@ -235,20 +235,20 @@ public abstract class BsVendorInheritNekoBhv extends AbstractBehaviorWritable<Ve
     /**
      * Select the list as result bean.
      * <pre>
-     * VendorInheritNekoCB cb = new VendorInheritNekoCB();
-     * cb.query().setFoo...(value);
-     * cb.query().addOrderBy_Bar...();
-     * ListResultBean&lt;VendorInheritNeko&gt; vendorInheritNekoList = vendorInheritNekoBhv.<span style="color: #DD4747">selectList</span>(cb);
-     * for (VendorInheritNeko vendorInheritNeko : vendorInheritNekoList) {
+     * ListResultBean&lt;VendorInheritNeko&gt; vendorInheritNekoList = vendorInheritNekoBhv.<span style="color: #CC4747">selectList</span>(cb -&gt; {
+     *     cb.query().set...;
+     *     cb.query().addOrderBy...;
+     * });
+     * vendorInheritNekoList.forEach(vendorInheritNeko -&gt; {
      *     ... = vendorInheritNeko.get...();
-     * }
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of VendorInheritNeko. (NotNull)
      * @return The result bean of selected list. (NotNull: if no data, returns empty list)
      * @exception DangerousResultSizeException When the result size is over the specified safety size.
      */
     public ListResultBean<VendorInheritNeko> selectList(CBCall<VendorInheritNekoCB> cbLambda) {
-        return facadeSelectList(handleCBCall(cbLambda));
+        return facadeSelectList(createCB(cbLambda));
     }
 
     /**
@@ -257,7 +257,7 @@ public abstract class BsVendorInheritNekoBhv extends AbstractBehaviorWritable<Ve
      * VendorInheritNekoCB cb = new VendorInheritNekoCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
-     * ListResultBean&lt;VendorInheritNeko&gt; vendorInheritNekoList = vendorInheritNekoBhv.<span style="color: #DD4747">selectList</span>(cb);
+     * ListResultBean&lt;VendorInheritNeko&gt; vendorInheritNekoList = vendorInheritNekoBhv.<span style="color: #CC4747">selectList</span>(cb);
      * for (VendorInheritNeko vendorInheritNeko : vendorInheritNekoList) {
      *     ... = vendorInheritNeko.get...();
      * }
@@ -283,8 +283,8 @@ public abstract class BsVendorInheritNekoBhv extends AbstractBehaviorWritable<Ve
      * VendorInheritNekoCB cb = new VendorInheritNekoCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
-     * cb.<span style="color: #DD4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;VendorInheritNeko&gt; page = vendorInheritNekoBhv.<span style="color: #DD4747">selectPage</span>(cb);
+     * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
+     * PagingResultBean&lt;VendorInheritNeko&gt; page = vendorInheritNekoBhv.<span style="color: #CC4747">selectPage</span>(cb);
      * int allRecordCount = page.getAllRecordCount();
      * int allPageCount = page.getAllPageCount();
      * boolean isExistPrePage = page.isExistPrePage();
@@ -299,7 +299,7 @@ public abstract class BsVendorInheritNekoBhv extends AbstractBehaviorWritable<Ve
      * @exception DangerousResultSizeException When the result size is over the specified safety size.
      */
     public PagingResultBean<VendorInheritNeko> selectPage(CBCall<VendorInheritNekoCB> cbLambda) {
-        return facadeSelectPage(handleCBCall(cbLambda));
+        return facadeSelectPage(createCB(cbLambda));
     }
 
     /**
@@ -309,8 +309,8 @@ public abstract class BsVendorInheritNekoBhv extends AbstractBehaviorWritable<Ve
      * VendorInheritNekoCB cb = new VendorInheritNekoCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
-     * cb.<span style="color: #DD4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;VendorInheritNeko&gt; page = vendorInheritNekoBhv.<span style="color: #DD4747">selectPage</span>(cb);
+     * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
+     * PagingResultBean&lt;VendorInheritNeko&gt; page = vendorInheritNekoBhv.<span style="color: #CC4747">selectPage</span>(cb);
      * int allRecordCount = page.getAllRecordCount();
      * int allPageCount = page.getAllPageCount();
      * boolean isExistPrePage = page.isExistPrePage();
@@ -336,7 +336,7 @@ public abstract class BsVendorInheritNekoBhv extends AbstractBehaviorWritable<Ve
      * <pre>
      * VendorInheritNekoCB cb = new VendorInheritNekoCB();
      * cb.query().setFoo...(value);
-     * vendorInheritNekoBhv.<span style="color: #DD4747">selectCursor</span>(cb, new EntityRowHandler&lt;VendorInheritNeko&gt;() {
+     * vendorInheritNekoBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;VendorInheritNeko&gt;() {
      *     public void handle(VendorInheritNeko entity) {
      *         ... = entity.getFoo...();
      *     }
@@ -346,7 +346,7 @@ public abstract class BsVendorInheritNekoBhv extends AbstractBehaviorWritable<Ve
      * @param entityLambda The handler of entity row of VendorInheritNeko. (NotNull)
      */
     public void selectCursor(CBCall<VendorInheritNekoCB> cbLambda, EntityRowHandler<VendorInheritNeko> entityLambda) {
-        facadeSelectCursor(handleCBCall(cbLambda), entityLambda);
+        facadeSelectCursor(createCB(cbLambda), entityLambda);
     }
 
     /**
@@ -354,7 +354,7 @@ public abstract class BsVendorInheritNekoBhv extends AbstractBehaviorWritable<Ve
      * <pre>
      * VendorInheritNekoCB cb = new VendorInheritNekoCB();
      * cb.query().setFoo...(value);
-     * vendorInheritNekoBhv.<span style="color: #DD4747">selectCursor</span>(cb, new EntityRowHandler&lt;VendorInheritNeko&gt;() {
+     * vendorInheritNekoBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;VendorInheritNeko&gt;() {
      *     public void handle(VendorInheritNeko entity) {
      *         ... = entity.getFoo...();
      *     }
@@ -374,9 +374,9 @@ public abstract class BsVendorInheritNekoBhv extends AbstractBehaviorWritable<Ve
      * Select the scalar value derived by a function from uniquely-selected records. <br />
      * You should call a function method after this method called like as follows:
      * <pre>
-     * vendorInheritNekoBhv.<span style="color: #DD4747">scalarSelect</span>(Date.class).max(new ScalarQuery() {
+     * vendorInheritNekoBhv.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(new ScalarQuery() {
      *     public void query(VendorInheritNekoCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFooDatetime()</span>; <span style="color: #3F7E5E">// required for a function</span>
+     *         cb.specify().<span style="color: #CC4747">columnFooDatetime()</span>; <span style="color: #3F7E5E">// required for a function</span>
      *         cb.query().setBarName_PrefixSearch("S");
      *     }
      * });
@@ -407,8 +407,8 @@ public abstract class BsVendorInheritNekoBhv extends AbstractBehaviorWritable<Ve
      * MemberCB cb = new MemberCB();
      * cb.query().set...
      * List&lt;Member&gt; memberList = memberBhv.selectList(cb);
-     * memberBhv.<span style="color: #DD4747">load</span>(memberList, loader -&gt; {
-     *     loader.<span style="color: #DD4747">loadPurchaseList</span>(purchaseCB -&gt; {
+     * memberBhv.<span style="color: #CC4747">load</span>(memberList, loader -&gt; {
+     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
      *         purchaseCB.query().set...
      *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
@@ -421,7 +421,7 @@ public abstract class BsVendorInheritNekoBhv extends AbstractBehaviorWritable<Ve
      *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
      * }
      * for (Member member : memberList) {
-     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #DD4747">getPurchaseList()</span>;
+     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
      *     for (Purchase purchase : purchaseList) {
      *         ...
      *     }
@@ -443,8 +443,8 @@ public abstract class BsVendorInheritNekoBhv extends AbstractBehaviorWritable<Ve
      * MemberCB cb = new MemberCB();
      * cb.query().set...
      * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * memberBhv.<span style="color: #DD4747">load</span>(member, loader -&gt; {
-     *     loader.<span style="color: #DD4747">loadPurchaseList</span>(purchaseCB -&gt; {
+     * memberBhv.<span style="color: #CC4747">load</span>(member, loader -&gt; {
+     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
      *         purchaseCB.query().set...
      *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
@@ -457,7 +457,7 @@ public abstract class BsVendorInheritNekoBhv extends AbstractBehaviorWritable<Ve
      *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
      * }
      * for (Member member : memberList) {
-     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #DD4747">getPurchaseList()</span>;
+     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
      *     for (Purchase purchase : purchaseList) {
      *         ...
      *     }
@@ -500,7 +500,7 @@ public abstract class BsVendorInheritNekoBhv extends AbstractBehaviorWritable<Ve
      * <span style="color: #3F7E5E">// you don't need to set values of common columns</span>
      * <span style="color: #3F7E5E">//vendorInheritNeko.setRegisterUser(value);</span>
      * <span style="color: #3F7E5E">//vendorInheritNeko.set...;</span>
-     * vendorInheritNekoBhv.<span style="color: #DD4747">insert</span>(vendorInheritNeko);
+     * vendorInheritNekoBhv.<span style="color: #CC4747">insert</span>(vendorInheritNeko);
      * ... = vendorInheritNeko.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * <p>While, when the entity is created by select, all columns are registered.</p>
@@ -521,9 +521,9 @@ public abstract class BsVendorInheritNekoBhv extends AbstractBehaviorWritable<Ve
      * <span style="color: #3F7E5E">//vendorInheritNeko.setRegisterUser(value);</span>
      * <span style="color: #3F7E5E">//vendorInheritNeko.set...;</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
-     * vendorInheritNeko.<span style="color: #DD4747">setVersionNo</span>(value);
+     * vendorInheritNeko.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     vendorInheritNekoBhv.<span style="color: #DD4747">update</span>(vendorInheritNeko);
+     *     vendorInheritNekoBhv.<span style="color: #CC4747">update</span>(vendorInheritNeko);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
@@ -540,7 +540,7 @@ public abstract class BsVendorInheritNekoBhv extends AbstractBehaviorWritable<Ve
     /**
      * Insert or update the entity modified-only. (DefaultConstraintsEnabled, NonExclusiveControl) <br />
      * if (the entity has no PK) { insert() } else { update(), but no data, insert() } <br />
-     * <p><span style="color: #DD4747; font-size: 120%">Attention, you cannot update by unique keys instead of PK.</span></p>
+     * <p><span style="color: #CC4747; font-size: 120%">Attention, you cannot update by unique keys instead of PK.</span></p>
      * @param vendorInheritNeko The entity of insert or update. (NotNull, ...depends on insert or update)
      * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @exception EntityDuplicatedException When the entity has been duplicated.
@@ -556,9 +556,9 @@ public abstract class BsVendorInheritNekoBhv extends AbstractBehaviorWritable<Ve
      * VendorInheritNeko vendorInheritNeko = new VendorInheritNeko();
      * vendorInheritNeko.setPK...(value); <span style="color: #3F7E5E">// required</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
-     * vendorInheritNeko.<span style="color: #DD4747">setVersionNo</span>(value);
+     * vendorInheritNeko.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     vendorInheritNekoBhv.<span style="color: #DD4747">delete</span>(vendorInheritNeko);
+     *     vendorInheritNekoBhv.<span style="color: #CC4747">delete</span>(vendorInheritNeko);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
@@ -577,7 +577,7 @@ public abstract class BsVendorInheritNekoBhv extends AbstractBehaviorWritable<Ve
     /**
      * Batch-insert the entity list modified-only of same-set columns. (DefaultConstraintsEnabled) <br />
      * This method uses executeBatch() of java.sql.PreparedStatement. <br />
-     * <p><span style="color: #DD4747; font-size: 120%">The columns of least common multiple are registered like this:</span></p>
+     * <p><span style="color: #CC4747; font-size: 120%">The columns of least common multiple are registered like this:</span></p>
      * <pre>
      * for (... : ...) {
      *     VendorInheritNeko vendorInheritNeko = new VendorInheritNeko();
@@ -590,7 +590,7 @@ public abstract class BsVendorInheritNekoBhv extends AbstractBehaviorWritable<Ve
      *     <span style="color: #3F7E5E">// columns not-called in all entities are registered as null or default value</span>
      *     vendorInheritNekoList.add(vendorInheritNeko);
      * }
-     * vendorInheritNekoBhv.<span style="color: #DD4747">batchInsert</span>(vendorInheritNekoList);
+     * vendorInheritNekoBhv.<span style="color: #CC4747">batchInsert</span>(vendorInheritNekoList);
      * </pre>
      * <p>While, when the entities are created by select, all columns are registered.</p>
      * <p>And if the table has an identity, entities after the process don't have incremented values.
@@ -605,7 +605,7 @@ public abstract class BsVendorInheritNekoBhv extends AbstractBehaviorWritable<Ve
     /**
      * Batch-update the entity list modified-only of same-set columns. (NonExclusiveControl) <br />
      * This method uses executeBatch() of java.sql.PreparedStatement. <br />
-     * <span style="color: #DD4747; font-size: 120%">You should specify same-set columns to all entities like this:</span>
+     * <span style="color: #CC4747; font-size: 120%">You should specify same-set columns to all entities like this:</span>
      * <pre>
      * for (... : ...) {
      *     VendorInheritNeko vendorInheritNeko = new VendorInheritNeko();
@@ -620,7 +620,7 @@ public abstract class BsVendorInheritNekoBhv extends AbstractBehaviorWritable<Ve
      *     <span style="color: #3F7E5E">// (others are not updated: their values are kept)</span>
      *     vendorInheritNekoList.add(vendorInheritNeko);
      * }
-     * vendorInheritNekoBhv.<span style="color: #DD4747">batchUpdate</span>(vendorInheritNekoList);
+     * vendorInheritNekoBhv.<span style="color: #CC4747">batchUpdate</span>(vendorInheritNekoList);
      * </pre>
      * @param vendorInheritNekoList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
@@ -647,7 +647,7 @@ public abstract class BsVendorInheritNekoBhv extends AbstractBehaviorWritable<Ve
     /**
      * Insert the several entities by query (modified-only for fixed value).
      * <pre>
-     * vendorInheritNekoBhv.<span style="color: #DD4747">queryInsert</span>(new QueryInsertSetupper&lt;VendorInheritNeko, VendorInheritNekoCB&gt;() {
+     * vendorInheritNekoBhv.<span style="color: #CC4747">queryInsert</span>(new QueryInsertSetupper&lt;VendorInheritNeko, VendorInheritNekoCB&gt;() {
      *     public ConditionBean setup(VendorInheritNeko entity, VendorInheritNekoCB intoCB) {
      *         FooCB cb = FooCB();
      *         cb.setupSelect_Bar();
@@ -689,7 +689,7 @@ public abstract class BsVendorInheritNekoBhv extends AbstractBehaviorWritable<Ve
      * <span style="color: #3F7E5E">//vendorInheritNeko.setVersionNo(value);</span>
      * VendorInheritNekoCB cb = new VendorInheritNekoCB();
      * cb.query().setFoo...(value);
-     * vendorInheritNekoBhv.<span style="color: #DD4747">queryUpdate</span>(vendorInheritNeko, cb);
+     * vendorInheritNekoBhv.<span style="color: #CC4747">queryUpdate</span>(vendorInheritNeko, cb);
      * </pre>
      * @param vendorInheritNeko The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cbLambda The callback for condition-bean of VendorInheritNeko. (NotNull)
@@ -697,7 +697,7 @@ public abstract class BsVendorInheritNekoBhv extends AbstractBehaviorWritable<Ve
      * @exception NonQueryUpdateNotAllowedException When the query has no condition.
      */
     public int queryUpdate(VendorInheritNeko vendorInheritNeko, CBCall<VendorInheritNekoCB> cbLambda) {
-        return doQueryUpdate(vendorInheritNeko, handleCBCall(cbLambda), null);
+        return doQueryUpdate(vendorInheritNeko, createCB(cbLambda), null);
     }
 
     /**
@@ -715,7 +715,7 @@ public abstract class BsVendorInheritNekoBhv extends AbstractBehaviorWritable<Ve
      * <span style="color: #3F7E5E">//vendorInheritNeko.setVersionNo(value);</span>
      * VendorInheritNekoCB cb = new VendorInheritNekoCB();
      * cb.query().setFoo...(value);
-     * vendorInheritNekoBhv.<span style="color: #DD4747">queryUpdate</span>(vendorInheritNeko, cb);
+     * vendorInheritNekoBhv.<span style="color: #CC4747">queryUpdate</span>(vendorInheritNeko, cb);
      * </pre>
      * @param vendorInheritNeko The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cb The condition-bean of VendorInheritNeko. (NotNull)
@@ -731,14 +731,14 @@ public abstract class BsVendorInheritNekoBhv extends AbstractBehaviorWritable<Ve
      * <pre>
      * VendorInheritNekoCB cb = new VendorInheritNekoCB();
      * cb.query().setFoo...(value);
-     * vendorInheritNekoBhv.<span style="color: #DD4747">queryDelete</span>(vendorInheritNeko, cb);
+     * vendorInheritNekoBhv.<span style="color: #CC4747">queryDelete</span>(vendorInheritNeko, cb);
      * </pre>
      * @param cbLambda The callback for condition-bean of VendorInheritNeko. (NotNull)
      * @return The deleted count.
      * @exception NonQueryDeleteNotAllowedException When the query has no condition.
      */
     public int queryDelete(CBCall<VendorInheritNekoCB> cbLambda) {
-        return doQueryDelete(handleCBCall(cbLambda), null);
+        return doQueryDelete(createCB(cbLambda), null);
     }
 
     /**
@@ -746,7 +746,7 @@ public abstract class BsVendorInheritNekoBhv extends AbstractBehaviorWritable<Ve
      * <pre>
      * VendorInheritNekoCB cb = new VendorInheritNekoCB();
      * cb.query().setFoo...(value);
-     * vendorInheritNekoBhv.<span style="color: #DD4747">queryDelete</span>(vendorInheritNeko, cb);
+     * vendorInheritNekoBhv.<span style="color: #CC4747">queryDelete</span>(vendorInheritNeko, cb);
      * </pre>
      * @param cb The condition-bean of VendorInheritNeko. (NotNull)
      * @return The deleted count.
@@ -774,15 +774,15 @@ public abstract class BsVendorInheritNekoBhv extends AbstractBehaviorWritable<Ve
      * InsertOption<VendorInheritNekoCB> option = new InsertOption<VendorInheritNekoCB>();
      * <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
      * option.disableCommonColumnAutoSetup();
-     * vendorInheritNekoBhv.<span style="color: #DD4747">varyingInsert</span>(vendorInheritNeko, option);
+     * vendorInheritNekoBhv.<span style="color: #CC4747">varyingInsert</span>(vendorInheritNeko, option);
      * ... = vendorInheritNeko.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * @param vendorInheritNeko The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
      * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void varyingInsert(VendorInheritNeko vendorInheritNeko, WOptionCall<VendorInheritNekoCB, InsertOption<VendorInheritNekoCB>> opLambda) {
-        doInsert(vendorInheritNeko, handleInsertOpCall(opLambda));
+    public void varyingInsert(VendorInheritNeko vendorInheritNeko, WritableOptionCall<VendorInheritNekoCB, InsertOption<VendorInheritNekoCB>> opLambda) {
+        doInsert(vendorInheritNeko, createInsertOption(opLambda));
     }
 
     /**
@@ -794,16 +794,16 @@ public abstract class BsVendorInheritNekoBhv extends AbstractBehaviorWritable<Ve
      * vendorInheritNeko.setPK...(value); <span style="color: #3F7E5E">// required</span>
      * vendorInheritNeko.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
-     * vendorInheritNeko.<span style="color: #DD4747">setVersionNo</span>(value);
+     * vendorInheritNeko.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
      *     <span style="color: #3F7E5E">// you can update by self calculation values</span>
      *     UpdateOption&lt;VendorInheritNekoCB&gt; option = new UpdateOption&lt;VendorInheritNekoCB&gt;();
      *     option.self(new SpecifyQuery&lt;VendorInheritNekoCB&gt;() {
      *         public void specify(VendorInheritNekoCB cb) {
-     *             cb.specify().<span style="color: #DD4747">columnXxxCount()</span>;
+     *             cb.specify().<span style="color: #CC4747">columnXxxCount()</span>;
      *         }
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
-     *     vendorInheritNekoBhv.<span style="color: #DD4747">varyingUpdate</span>(vendorInheritNeko, option);
+     *     vendorInheritNekoBhv.<span style="color: #CC4747">varyingUpdate</span>(vendorInheritNeko, option);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
@@ -814,8 +814,8 @@ public abstract class BsVendorInheritNekoBhv extends AbstractBehaviorWritable<Ve
      * @exception EntityDuplicatedException When the entity has been duplicated.
      * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void varyingUpdate(VendorInheritNeko vendorInheritNeko, WOptionCall<VendorInheritNekoCB, UpdateOption<VendorInheritNekoCB>> opLambda) {
-        doUpdate(vendorInheritNeko, handleUpdateOpCall(opLambda));
+    public void varyingUpdate(VendorInheritNeko vendorInheritNeko, WritableOptionCall<VendorInheritNekoCB, UpdateOption<VendorInheritNekoCB>> opLambda) {
+        doUpdate(vendorInheritNeko, createUpdateOption(opLambda));
     }
 
     /**
@@ -828,8 +828,8 @@ public abstract class BsVendorInheritNekoBhv extends AbstractBehaviorWritable<Ve
      * @exception EntityDuplicatedException When the entity has been duplicated.
      * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void varyingInsertOrUpdate(VendorInheritNeko vendorInheritNeko, WOptionCall<VendorInheritNekoCB, InsertOption<VendorInheritNekoCB>> insertOpLambda, WOptionCall<VendorInheritNekoCB, UpdateOption<VendorInheritNekoCB>> updateOpLambda) {
-        doInsertOrUpdate(vendorInheritNeko, handleInsertOpCall(insertOpLambda), handleUpdateOpCall(updateOpLambda));
+    public void varyingInsertOrUpdate(VendorInheritNeko vendorInheritNeko, WritableOptionCall<VendorInheritNekoCB, InsertOption<VendorInheritNekoCB>> insertOpLambda, WritableOptionCall<VendorInheritNekoCB, UpdateOption<VendorInheritNekoCB>> updateOpLambda) {
+        doInsertOrUpdate(vendorInheritNeko, createInsertOption(insertOpLambda), createUpdateOption(updateOpLambda));
     }
 
     /**
@@ -841,8 +841,8 @@ public abstract class BsVendorInheritNekoBhv extends AbstractBehaviorWritable<Ve
      * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @exception EntityDuplicatedException When the entity has been duplicated.
      */
-    public void varyingDelete(VendorInheritNeko vendorInheritNeko, WOptionCall<VendorInheritNekoCB, DeleteOption<VendorInheritNekoCB>> opLambda) {
-        doDelete(vendorInheritNeko, handleDeleteOpCall(opLambda));
+    public void varyingDelete(VendorInheritNeko vendorInheritNeko, WritableOptionCall<VendorInheritNekoCB, DeleteOption<VendorInheritNekoCB>> opLambda) {
+        doDelete(vendorInheritNeko, createDeleteOption(opLambda));
     }
 
     // -----------------------------------------------------
@@ -857,8 +857,8 @@ public abstract class BsVendorInheritNekoBhv extends AbstractBehaviorWritable<Ve
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
      */
-    public int[] varyingBatchInsert(List<VendorInheritNeko> vendorInheritNekoList, WOptionCall<VendorInheritNekoCB, InsertOption<VendorInheritNekoCB>> opLambda) {
-        return doBatchInsert(vendorInheritNekoList, handleInsertOpCall(opLambda));
+    public int[] varyingBatchInsert(List<VendorInheritNeko> vendorInheritNekoList, WritableOptionCall<VendorInheritNekoCB, InsertOption<VendorInheritNekoCB>> opLambda) {
+        return doBatchInsert(vendorInheritNekoList, createInsertOption(opLambda));
     }
 
     /**
@@ -870,8 +870,8 @@ public abstract class BsVendorInheritNekoBhv extends AbstractBehaviorWritable<Ve
      * @param opLambda The callback for option of update for varying requests. (NotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
      */
-    public int[] varyingBatchUpdate(List<VendorInheritNeko> vendorInheritNekoList, WOptionCall<VendorInheritNekoCB, UpdateOption<VendorInheritNekoCB>> opLambda) {
-        return doBatchUpdate(vendorInheritNekoList, handleUpdateOpCall(opLambda));
+    public int[] varyingBatchUpdate(List<VendorInheritNeko> vendorInheritNekoList, WritableOptionCall<VendorInheritNekoCB, UpdateOption<VendorInheritNekoCB>> opLambda) {
+        return doBatchUpdate(vendorInheritNekoList, createUpdateOption(opLambda));
     }
 
     /**
@@ -882,8 +882,8 @@ public abstract class BsVendorInheritNekoBhv extends AbstractBehaviorWritable<Ve
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The array of deleted count. (NotNull, EmptyAllowed)
      */
-    public int[] varyingBatchDelete(List<VendorInheritNeko> vendorInheritNekoList, WOptionCall<VendorInheritNekoCB, DeleteOption<VendorInheritNekoCB>> opLambda) {
-        return doBatchDelete(vendorInheritNekoList, handleDeleteOpCall(opLambda));
+    public int[] varyingBatchDelete(List<VendorInheritNeko> vendorInheritNekoList, WritableOptionCall<VendorInheritNekoCB, DeleteOption<VendorInheritNekoCB>> opLambda) {
+        return doBatchDelete(vendorInheritNekoList, createDeleteOption(opLambda));
     }
 
     // -----------------------------------------------------
@@ -897,8 +897,8 @@ public abstract class BsVendorInheritNekoBhv extends AbstractBehaviorWritable<Ve
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
      * @return The inserted count.
      */
-    public int varyingQueryInsert(QueryInsertSetupper<VendorInheritNeko, VendorInheritNekoCB> manyArgLambda, WOptionCall<VendorInheritNekoCB, InsertOption<VendorInheritNekoCB>> opLambda) {
-        return doQueryInsert(manyArgLambda, handleInsertOpCall(opLambda));
+    public int varyingQueryInsert(QueryInsertSetupper<VendorInheritNeko, VendorInheritNekoCB> manyArgLambda, WritableOptionCall<VendorInheritNekoCB, InsertOption<VendorInheritNekoCB>> opLambda) {
+        return doQueryInsert(manyArgLambda, createInsertOption(opLambda));
     }
 
     /**
@@ -920,10 +920,10 @@ public abstract class BsVendorInheritNekoBhv extends AbstractBehaviorWritable<Ve
      * UpdateOption&lt;VendorInheritNekoCB&gt; option = new UpdateOption&lt;VendorInheritNekoCB&gt;();
      * option.self(new SpecifyQuery&lt;VendorInheritNekoCB&gt;() {
      *     public void specify(VendorInheritNekoCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFooCount()</span>;
+     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * vendorInheritNekoBhv.<span style="color: #DD4747">varyingQueryUpdate</span>(vendorInheritNeko, cb, option);
+     * vendorInheritNekoBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(vendorInheritNeko, cb, option);
      * </pre>
      * @param vendorInheritNeko The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cbLambda The callback for condition-bean of VendorInheritNeko. (NotNull)
@@ -931,8 +931,8 @@ public abstract class BsVendorInheritNekoBhv extends AbstractBehaviorWritable<Ve
      * @return The updated count.
      * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryUpdate(VendorInheritNeko vendorInheritNeko, CBCall<VendorInheritNekoCB> cbLambda, WOptionCall<VendorInheritNekoCB, UpdateOption<VendorInheritNekoCB>> opLambda) {
-        return doQueryUpdate(vendorInheritNeko, handleCBCall(cbLambda), handleUpdateOpCall(opLambda));
+    public int varyingQueryUpdate(VendorInheritNeko vendorInheritNeko, CBCall<VendorInheritNekoCB> cbLambda, WritableOptionCall<VendorInheritNekoCB, UpdateOption<VendorInheritNekoCB>> opLambda) {
+        return doQueryUpdate(vendorInheritNeko, createCB(cbLambda), createUpdateOption(opLambda));
     }
 
     /**
@@ -954,10 +954,10 @@ public abstract class BsVendorInheritNekoBhv extends AbstractBehaviorWritable<Ve
      * UpdateOption&lt;VendorInheritNekoCB&gt; option = new UpdateOption&lt;VendorInheritNekoCB&gt;();
      * option.self(new SpecifyQuery&lt;VendorInheritNekoCB&gt;() {
      *     public void specify(VendorInheritNekoCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFooCount()</span>;
+     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * vendorInheritNekoBhv.<span style="color: #DD4747">varyingQueryUpdate</span>(vendorInheritNeko, cb, option);
+     * vendorInheritNekoBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(vendorInheritNeko, cb, option);
      * </pre>
      * @param vendorInheritNeko The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cb The condition-bean of VendorInheritNeko. (NotNull)
@@ -965,8 +965,8 @@ public abstract class BsVendorInheritNekoBhv extends AbstractBehaviorWritable<Ve
      * @return The updated count.
      * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryUpdate(VendorInheritNeko vendorInheritNeko, VendorInheritNekoCB cb, WOptionCall<VendorInheritNekoCB, UpdateOption<VendorInheritNekoCB>> opLambda) {
-        return doQueryUpdate(vendorInheritNeko, cb, handleUpdateOpCall(opLambda));
+    public int varyingQueryUpdate(VendorInheritNeko vendorInheritNeko, VendorInheritNekoCB cb, WritableOptionCall<VendorInheritNekoCB, UpdateOption<VendorInheritNekoCB>> opLambda) {
+        return doQueryUpdate(vendorInheritNeko, cb, createUpdateOption(opLambda));
     }
 
     /**
@@ -978,8 +978,8 @@ public abstract class BsVendorInheritNekoBhv extends AbstractBehaviorWritable<Ve
      * @return The deleted count.
      * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryDelete(CBCall<VendorInheritNekoCB> cbLambda, WOptionCall<VendorInheritNekoCB, DeleteOption<VendorInheritNekoCB>> opLambda) {
-        return doQueryDelete(handleCBCall(cbLambda), handleDeleteOpCall(opLambda));
+    public int varyingQueryDelete(CBCall<VendorInheritNekoCB> cbLambda, WritableOptionCall<VendorInheritNekoCB, DeleteOption<VendorInheritNekoCB>> opLambda) {
+        return doQueryDelete(createCB(cbLambda), createDeleteOption(opLambda));
     }
 
     /**
@@ -991,8 +991,8 @@ public abstract class BsVendorInheritNekoBhv extends AbstractBehaviorWritable<Ve
      * @return The deleted count.
      * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryDelete(VendorInheritNekoCB cb, WOptionCall<VendorInheritNekoCB, DeleteOption<VendorInheritNekoCB>> opLambda) {
-        return doQueryDelete(cb, handleDeleteOpCall(opLambda));
+    public int varyingQueryDelete(VendorInheritNekoCB cb, WritableOptionCall<VendorInheritNekoCB, DeleteOption<VendorInheritNekoCB>> opLambda) {
+        return doQueryDelete(cb, createDeleteOption(opLambda));
     }
 
     // ===================================================================================
@@ -1028,7 +1028,7 @@ public abstract class BsVendorInheritNekoBhv extends AbstractBehaviorWritable<Ve
      */
     public OutsideSqlBasicExecutor<VendorInheritNekoBhv> outsideSql() {
         OutsideSqlAllFacadeExecutor<VendorInheritNekoBhv> facadeExecutor = doOutsideSql();
-        return facadeExecutor.xbasicExecutor();
+        return facadeExecutor.xbasicExecutor(); // variable to resolve generic type
     }
 
     // ===================================================================================

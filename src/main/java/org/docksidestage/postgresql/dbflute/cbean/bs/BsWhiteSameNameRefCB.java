@@ -212,7 +212,7 @@ public class BsWhiteSameNameRefCB extends AbstractConditionBean {
      * You don't need to call SetupSelect in union-query,
      * because it inherits calls before. (Don't call SetupSelect after here)
      * <pre>
-     * cb.query().<span style="color: #DD4747">union</span>(new UnionQuery&lt;WhiteSameNameRefCB&gt;() {
+     * cb.query().<span style="color: #CC4747">union</span>(new UnionQuery&lt;WhiteSameNameRefCB&gt;() {
      *     public void query(WhiteSameNameRefCB unionCB) {
      *         unionCB.query().setXxx...
      *     }
@@ -231,7 +231,7 @@ public class BsWhiteSameNameRefCB extends AbstractConditionBean {
      * You don't need to call SetupSelect in union-query,
      * because it inherits calls before. (Don't call SetupSelect after here)
      * <pre>
-     * cb.query().<span style="color: #DD4747">unionAll</span>(new UnionQuery&lt;WhiteSameNameRefCB&gt;() {
+     * cb.query().<span style="color: #CC4747">unionAll</span>(new UnionQuery&lt;WhiteSameNameRefCB&gt;() {
      *     public void query(WhiteSameNameRefCB unionCB) {
      *         unionCB.query().setXxx...
      *     }
@@ -272,10 +272,10 @@ public class BsWhiteSameNameRefCB extends AbstractConditionBean {
      * white_same_name by my same_name_id, named 'whiteSameName'.
      * <pre>
      * WhiteSameNameRefCB cb = new WhiteSameNameRefCB();
-     * cb.<span style="color: #DD4747">setupSelect_WhiteSameName()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     * cb.<span style="color: #CC4747">setupSelect_WhiteSameName()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
      * cb.query().setFoo...(value);
      * WhiteSameNameRef whiteSameNameRef = whiteSameNameRefBhv.selectEntityWithDeletedCheck(cb);
-     * ... = whiteSameNameRef.<span style="color: #DD4747">getWhiteSameName()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * ... = whiteSameNameRef.<span style="color: #CC4747">getWhiteSameName()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
      * </pre>
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
      */
@@ -319,7 +319,7 @@ public class BsWhiteSameNameRefCB extends AbstractConditionBean {
                 public boolean has() { return true; }
                 public WhiteSameNameRefCQ qy() { return getConditionQuery(); }
             }
-            , _purpose, getDBMetaProvider(), xcFofSDROp()); }
+            , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
     }
 
@@ -335,8 +335,8 @@ public class BsWhiteSameNameRefCB extends AbstractConditionBean {
         protected WhiteSameNameCB.HpSpecification _whiteSameName;
         public HpSpecification(ConditionBean baseCB, HpSpQyCall<WhiteSameNameRefCQ> qyCall
                              , HpCBPurpose purpose, DBMetaProvider dbmetaProvider
-                             , FactoryOfDerivedReferrerOption sdrOpFactory)
-        { super(baseCB, qyCall, purpose, dbmetaProvider, sdrOpFactory); }
+                             , HpSDRFunctionFactory sdrFuncFactory)
+        { super(baseCB, qyCall, purpose, dbmetaProvider, sdrFuncFactory); }
         /**
          * same_name_ref_id: {PK, NotNull, int4(10)}
          * @return The information object of specified column. (NotNull)
@@ -375,7 +375,7 @@ public class BsWhiteSameNameRefCB extends AbstractConditionBean {
                 _whiteSameName = new WhiteSameNameCB.HpSpecification(_baseCB, new HpSpQyCall<WhiteSameNameCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryWhiteSameName(); }
                     public WhiteSameNameCQ qy() { return _qyCall.qy().queryWhiteSameName(); } }
-                    , _purpose, _dbmetaProvider, xgetFofSDROp());
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _whiteSameName.xsetSyncQyCall(new HpSpQyCall<WhiteSameNameCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryWhiteSameName(); }
@@ -405,13 +405,13 @@ public class BsWhiteSameNameRefCB extends AbstractConditionBean {
      * Set up column-query. {column1 = column2}
      * <pre>
      * <span style="color: #3F7E5E">// where FOO &lt; BAR</span>
-     * cb.<span style="color: #DD4747">columnQuery</span>(new SpecifyQuery&lt;WhiteSameNameRefCB&gt;() {
+     * cb.<span style="color: #CC4747">columnQuery</span>(new SpecifyQuery&lt;WhiteSameNameRefCB&gt;() {
      *     public void query(WhiteSameNameRefCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFoo()</span>; <span style="color: #3F7E5E">// left column</span>
+     *         cb.specify().<span style="color: #CC4747">columnFoo()</span>; <span style="color: #3F7E5E">// left column</span>
      *     }
      * }).lessThan(new SpecifyQuery&lt;WhiteSameNameRefCB&gt;() {
      *     public void query(WhiteSameNameRefCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnBar()</span>; <span style="color: #3F7E5E">// right column</span>
+     *         cb.specify().<span style="color: #CC4747">columnBar()</span>; <span style="color: #3F7E5E">// right column</span>
      *     }
      * }); <span style="color: #3F7E5E">// you can calculate for right column like '}).plus(3);'</span>
      * </pre>
@@ -459,7 +459,7 @@ public class BsWhiteSameNameRefCB extends AbstractConditionBean {
      * (Same-column-and-same-condition-key conditions are allowed in or-scope)
      * <pre>
      * <span style="color: #3F7E5E">// where (FOO = '...' or BAR = '...')</span>
-     * cb.<span style="color: #DD4747">orScopeQuery</span>(new OrQuery&lt;WhiteSameNameRefCB&gt;() {
+     * cb.<span style="color: #CC4747">orScopeQuery</span>(new OrQuery&lt;WhiteSameNameRefCB&gt;() {
      *     public void query(WhiteSameNameRefCB orCB) {
      *         orCB.query().setFOO_Equal...
      *         orCB.query().setBAR_Equal...
@@ -477,10 +477,10 @@ public class BsWhiteSameNameRefCB extends AbstractConditionBean {
      * (However nested or-scope query and as-or-split of like-search in and-part are unsupported)
      * <pre>
      * <span style="color: #3F7E5E">// where (FOO = '...' or (BAR = '...' and QUX = '...'))</span>
-     * cb.<span style="color: #DD4747">orScopeQuery</span>(new OrQuery&lt;WhiteSameNameRefCB&gt;() {
+     * cb.<span style="color: #CC4747">orScopeQuery</span>(new OrQuery&lt;WhiteSameNameRefCB&gt;() {
      *     public void query(WhiteSameNameRefCB orCB) {
      *         orCB.query().setFOO_Equal...
-     *         orCB.<span style="color: #DD4747">orScopeQueryAndPart</span>(new AndQuery&lt;WhiteSameNameRefCB&gt;() {
+     *         orCB.<span style="color: #CC4747">orScopeQueryAndPart</span>(new AndQuery&lt;WhiteSameNameRefCB&gt;() {
      *             public void query(WhiteSameNameRefCB andCB) {
      *                 andCB.query().setBar_...
      *                 andCB.query().setQux_...

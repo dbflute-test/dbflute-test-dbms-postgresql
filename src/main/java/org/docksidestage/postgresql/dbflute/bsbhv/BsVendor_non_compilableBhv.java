@@ -80,13 +80,13 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      * <pre>
      * Vendor_non_compilableCB cb = new Vendor_non_compilableCB();
      * cb.query().setFoo...(value);
-     * int count = vendor_non_compilableBhv.<span style="color: #DD4747">selectCount</span>(cb);
+     * int count = vendor_non_compilableBhv.<span style="color: #CC4747">selectCount</span>(cb);
      * </pre>
      * @param cbLambda The callback for condition-bean of Vendor_non_compilable. (NotNull)
      * @return The count for the condition. (NotMinus)
      */
     public int selectCount(CBCall<Vendor_non_compilableCB> cbLambda) {
-        return facadeSelectCount(handleCBCall(cbLambda));
+        return facadeSelectCount(createCB(cbLambda));
     }
 
     /**
@@ -95,7 +95,7 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      * <pre>
      * Vendor_non_compilableCB cb = new Vendor_non_compilableCB();
      * cb.query().setFoo...(value);
-     * int count = vendor_non_compilableBhv.<span style="color: #DD4747">selectCount</span>(cb);
+     * int count = vendor_non_compilableBhv.<span style="color: #CC4747">selectCount</span>(cb);
      * </pre>
      * @param cb The condition-bean of Vendor_non_compilable. (NotNull)
      * @return The count for the condition. (NotMinus)
@@ -110,11 +110,11 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
     /**
      * Select the entity by the condition-bean. #beforejava8 <br />
      * <span style="color: #AD4747; font-size: 120%">The return might be null if no data, so you should have null check.</span> <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, use selectEntityWithDeletedCheck().</span>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, use selectEntityWithDeletedCheck().</span>
      * <pre>
-     * Vendor_non_compilableCB cb = new Vendor_non_compilableCB();
-     * cb.query().setFoo...(value);
-     * Vendor_non_compilable vendor_non_compilable = vendor_non_compilableBhv.<span style="color: #DD4747">selectEntity</span>(cb);
+     * Vendor_non_compilable vendor_non_compilable = vendor_non_compilableBhv.<span style="color: #CC4747">selectEntity</span>(cb -&gt; {
+     *     cb.query().set...
+     * });
      * if (vendor_non_compilable != null) { <span style="color: #3F7E5E">// null check</span>
      *     ... = vendor_non_compilable.get...();
      * } else {
@@ -127,7 +127,7 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public Vendor_non_compilable selectEntity(CBCall<Vendor_non_compilableCB> cbLambda) {
-        return facadeSelectEntity(handleCBCall(cbLambda));
+        return facadeSelectEntity(createCB(cbLambda));
     }
 
     /**
@@ -165,11 +165,11 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
 
     /**
      * Select the entity by the condition-bean with deleted check. <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, this method is good.</span>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
      * Vendor_non_compilableCB cb = new Vendor_non_compilableCB();
      * cb.query().setFoo...(value);
-     * Vendor_non_compilable vendor_non_compilable = vendor_non_compilableBhv.<span style="color: #DD4747">selectEntityWithDeletedCheck</span>(cb);
+     * Vendor_non_compilable vendor_non_compilable = vendor_non_compilableBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
      * ... = vendor_non_compilable.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cbLambda The callback for condition-bean of Vendor_non_compilable. (NotNull)
@@ -179,16 +179,16 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public Vendor_non_compilable selectEntityWithDeletedCheck(CBCall<Vendor_non_compilableCB> cbLambda) {
-        return facadeSelectEntityWithDeletedCheck(handleCBCall(cbLambda));
+        return facadeSelectEntityWithDeletedCheck(createCB(cbLambda));
     }
 
     /**
      * Select the entity by the condition-bean with deleted check. <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, this method is good.</span>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
      * Vendor_non_compilableCB cb = new Vendor_non_compilableCB();
      * cb.query().setFoo...(value);
-     * Vendor_non_compilable vendor_non_compilable = vendor_non_compilableBhv.<span style="color: #DD4747">selectEntityWithDeletedCheck</span>(cb);
+     * Vendor_non_compilable vendor_non_compilable = vendor_non_compilableBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
      * ... = vendor_non_compilable.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cb The condition-bean of Vendor_non_compilable. (NotNull)
@@ -260,20 +260,20 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
     /**
      * Select the list as result bean.
      * <pre>
-     * Vendor_non_compilableCB cb = new Vendor_non_compilableCB();
-     * cb.query().setFoo...(value);
-     * cb.query().addOrderBy_Bar...();
-     * ListResultBean&lt;Vendor_non_compilable&gt; vendor_non_compilableList = vendor_non_compilableBhv.<span style="color: #DD4747">selectList</span>(cb);
-     * for (Vendor_non_compilable vendor_non_compilable : vendor_non_compilableList) {
+     * ListResultBean&lt;Vendor_non_compilable&gt; vendor_non_compilableList = vendor_non_compilableBhv.<span style="color: #CC4747">selectList</span>(cb -&gt; {
+     *     cb.query().set...;
+     *     cb.query().addOrderBy...;
+     * });
+     * vendor_non_compilableList.forEach(vendor_non_compilable -&gt; {
      *     ... = vendor_non_compilable.get...();
-     * }
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of Vendor_non_compilable. (NotNull)
      * @return The result bean of selected list. (NotNull: if no data, returns empty list)
      * @exception DangerousResultSizeException When the result size is over the specified safety size.
      */
     public ListResultBean<Vendor_non_compilable> selectList(CBCall<Vendor_non_compilableCB> cbLambda) {
-        return facadeSelectList(handleCBCall(cbLambda));
+        return facadeSelectList(createCB(cbLambda));
     }
 
     /**
@@ -282,7 +282,7 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      * Vendor_non_compilableCB cb = new Vendor_non_compilableCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
-     * ListResultBean&lt;Vendor_non_compilable&gt; vendor_non_compilableList = vendor_non_compilableBhv.<span style="color: #DD4747">selectList</span>(cb);
+     * ListResultBean&lt;Vendor_non_compilable&gt; vendor_non_compilableList = vendor_non_compilableBhv.<span style="color: #CC4747">selectList</span>(cb);
      * for (Vendor_non_compilable vendor_non_compilable : vendor_non_compilableList) {
      *     ... = vendor_non_compilable.get...();
      * }
@@ -308,8 +308,8 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      * Vendor_non_compilableCB cb = new Vendor_non_compilableCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
-     * cb.<span style="color: #DD4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;Vendor_non_compilable&gt; page = vendor_non_compilableBhv.<span style="color: #DD4747">selectPage</span>(cb);
+     * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
+     * PagingResultBean&lt;Vendor_non_compilable&gt; page = vendor_non_compilableBhv.<span style="color: #CC4747">selectPage</span>(cb);
      * int allRecordCount = page.getAllRecordCount();
      * int allPageCount = page.getAllPageCount();
      * boolean isExistPrePage = page.isExistPrePage();
@@ -324,7 +324,7 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      * @exception DangerousResultSizeException When the result size is over the specified safety size.
      */
     public PagingResultBean<Vendor_non_compilable> selectPage(CBCall<Vendor_non_compilableCB> cbLambda) {
-        return facadeSelectPage(handleCBCall(cbLambda));
+        return facadeSelectPage(createCB(cbLambda));
     }
 
     /**
@@ -334,8 +334,8 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      * Vendor_non_compilableCB cb = new Vendor_non_compilableCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
-     * cb.<span style="color: #DD4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;Vendor_non_compilable&gt; page = vendor_non_compilableBhv.<span style="color: #DD4747">selectPage</span>(cb);
+     * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
+     * PagingResultBean&lt;Vendor_non_compilable&gt; page = vendor_non_compilableBhv.<span style="color: #CC4747">selectPage</span>(cb);
      * int allRecordCount = page.getAllRecordCount();
      * int allPageCount = page.getAllPageCount();
      * boolean isExistPrePage = page.isExistPrePage();
@@ -361,7 +361,7 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      * <pre>
      * Vendor_non_compilableCB cb = new Vendor_non_compilableCB();
      * cb.query().setFoo...(value);
-     * vendor_non_compilableBhv.<span style="color: #DD4747">selectCursor</span>(cb, new EntityRowHandler&lt;Vendor_non_compilable&gt;() {
+     * vendor_non_compilableBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;Vendor_non_compilable&gt;() {
      *     public void handle(Vendor_non_compilable entity) {
      *         ... = entity.getFoo...();
      *     }
@@ -371,7 +371,7 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      * @param entityLambda The handler of entity row of Vendor_non_compilable. (NotNull)
      */
     public void selectCursor(CBCall<Vendor_non_compilableCB> cbLambda, EntityRowHandler<Vendor_non_compilable> entityLambda) {
-        facadeSelectCursor(handleCBCall(cbLambda), entityLambda);
+        facadeSelectCursor(createCB(cbLambda), entityLambda);
     }
 
     /**
@@ -379,7 +379,7 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      * <pre>
      * Vendor_non_compilableCB cb = new Vendor_non_compilableCB();
      * cb.query().setFoo...(value);
-     * vendor_non_compilableBhv.<span style="color: #DD4747">selectCursor</span>(cb, new EntityRowHandler&lt;Vendor_non_compilable&gt;() {
+     * vendor_non_compilableBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;Vendor_non_compilable&gt;() {
      *     public void handle(Vendor_non_compilable entity) {
      *         ... = entity.getFoo...();
      *     }
@@ -399,9 +399,9 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      * Select the scalar value derived by a function from uniquely-selected records. <br />
      * You should call a function method after this method called like as follows:
      * <pre>
-     * vendor_non_compilableBhv.<span style="color: #DD4747">scalarSelect</span>(Date.class).max(new ScalarQuery() {
+     * vendor_non_compilableBhv.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(new ScalarQuery() {
      *     public void query(Vendor_non_compilableCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFooDatetime()</span>; <span style="color: #3F7E5E">// required for a function</span>
+     *         cb.specify().<span style="color: #CC4747">columnFooDatetime()</span>; <span style="color: #3F7E5E">// required for a function</span>
      *         cb.query().setBarName_PrefixSearch("S");
      *     }
      * });
@@ -432,8 +432,8 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      * MemberCB cb = new MemberCB();
      * cb.query().set...
      * List&lt;Member&gt; memberList = memberBhv.selectList(cb);
-     * memberBhv.<span style="color: #DD4747">load</span>(memberList, loader -&gt; {
-     *     loader.<span style="color: #DD4747">loadPurchaseList</span>(purchaseCB -&gt; {
+     * memberBhv.<span style="color: #CC4747">load</span>(memberList, loader -&gt; {
+     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
      *         purchaseCB.query().set...
      *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
@@ -446,7 +446,7 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
      * }
      * for (Member member : memberList) {
-     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #DD4747">getPurchaseList()</span>;
+     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
      *     for (Purchase purchase : purchaseList) {
      *         ...
      *     }
@@ -468,8 +468,8 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      * MemberCB cb = new MemberCB();
      * cb.query().set...
      * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * memberBhv.<span style="color: #DD4747">load</span>(member, loader -&gt; {
-     *     loader.<span style="color: #DD4747">loadPurchaseList</span>(purchaseCB -&gt; {
+     * memberBhv.<span style="color: #CC4747">load</span>(member, loader -&gt; {
+     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
      *         purchaseCB.query().set...
      *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
@@ -482,7 +482,7 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
      * }
      * for (Member member : memberList) {
-     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #DD4747">getPurchaseList()</span>;
+     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
      *     for (Purchase purchase : purchaseList) {
      *         ...
      *     }
@@ -502,7 +502,7 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      * Load referrer of vendor_non_compilableByNextParentidSelfList by the set-upper of referrer. <br />
      * VENDOR-NON COMPILABLE by Next_ParentID, named 'vendor_non_compilableByNextParentidSelfList'.
      * <pre>
-     * vendor_non_compilableBhv.<span style="color: #DD4747">loadVendor_non_compilableByNextParentidSelfList</span>(vendor_non_compilableList, entityCB -&gt; {
+     * vendor_non_compilableBhv.<span style="color: #CC4747">loadVendor_non_compilableByNextParentidSelfList</span>(vendor_non_compilableList, entityCB -&gt; {
      *     entityCB.setupSelect...();
      *     entityCB.query().setFoo...(value);
      *     entityCB.query().addOrderBy_Bar...();
@@ -511,7 +511,7 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      * <span style="color: #3F7E5E">//    ...</span>
      * <span style="color: #3F7E5E">//});</span>
      * for (Vendor_non_compilable vendor_non_compilable : vendor_non_compilableList) {
-     *     ... = vendor_non_compilable.<span style="color: #DD4747">getVendor_non_compilableByNextParentidSelfList()</span>;
+     *     ... = vendor_non_compilable.<span style="color: #CC4747">getVendor_non_compilableByNextParentidSelfList()</span>;
      * }
      * </pre>
      * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
@@ -533,7 +533,7 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      * Load referrer of vendor_non_compilableByNextParentidSelfList by the set-upper of referrer. <br />
      * VENDOR-NON COMPILABLE by Next_ParentID, named 'vendor_non_compilableByNextParentidSelfList'.
      * <pre>
-     * vendor_non_compilableBhv.<span style="color: #DD4747">loadVendor_non_compilableByNextParentidSelfList</span>(vendor_non_compilableList, entityCB -&gt; {
+     * vendor_non_compilableBhv.<span style="color: #CC4747">loadVendor_non_compilableByNextParentidSelfList</span>(vendor_non_compilableList, entityCB -&gt; {
      *     entityCB.setupSelect...();
      *     entityCB.query().setFoo...(value);
      *     entityCB.query().addOrderBy_Bar...();
@@ -541,7 +541,7 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      * <span style="color: #3F7E5E">//}).withNestedList(referrerList -&gt {</span>
      * <span style="color: #3F7E5E">//    ...</span>
      * <span style="color: #3F7E5E">//});</span>
-     * ... = vendor_non_compilable.<span style="color: #DD4747">getVendor_non_compilableByNextParentidSelfList()</span>;
+     * ... = vendor_non_compilable.<span style="color: #CC4747">getVendor_non_compilableByNextParentidSelfList()</span>;
      * </pre>
      * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
      * The condition-bean, which the set-upper provides, has settings before callback as follows:
@@ -590,7 +590,7 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      * Load referrer of vendor_non_compilableByParent_idSelfList by the set-upper of referrer. <br />
      * VENDOR-NON COMPILABLE by PARENT-ID, named 'vendor_non_compilableByParent_idSelfList'.
      * <pre>
-     * vendor_non_compilableBhv.<span style="color: #DD4747">loadVendor_non_compilableByParent_idSelfList</span>(vendor_non_compilableList, entityCB -&gt; {
+     * vendor_non_compilableBhv.<span style="color: #CC4747">loadVendor_non_compilableByParent_idSelfList</span>(vendor_non_compilableList, entityCB -&gt; {
      *     entityCB.setupSelect...();
      *     entityCB.query().setFoo...(value);
      *     entityCB.query().addOrderBy_Bar...();
@@ -599,7 +599,7 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      * <span style="color: #3F7E5E">//    ...</span>
      * <span style="color: #3F7E5E">//});</span>
      * for (Vendor_non_compilable vendor_non_compilable : vendor_non_compilableList) {
-     *     ... = vendor_non_compilable.<span style="color: #DD4747">getVendor_non_compilableByParent_idSelfList()</span>;
+     *     ... = vendor_non_compilable.<span style="color: #CC4747">getVendor_non_compilableByParent_idSelfList()</span>;
      * }
      * </pre>
      * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
@@ -621,7 +621,7 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      * Load referrer of vendor_non_compilableByParent_idSelfList by the set-upper of referrer. <br />
      * VENDOR-NON COMPILABLE by PARENT-ID, named 'vendor_non_compilableByParent_idSelfList'.
      * <pre>
-     * vendor_non_compilableBhv.<span style="color: #DD4747">loadVendor_non_compilableByParent_idSelfList</span>(vendor_non_compilableList, entityCB -&gt; {
+     * vendor_non_compilableBhv.<span style="color: #CC4747">loadVendor_non_compilableByParent_idSelfList</span>(vendor_non_compilableList, entityCB -&gt; {
      *     entityCB.setupSelect...();
      *     entityCB.query().setFoo...(value);
      *     entityCB.query().addOrderBy_Bar...();
@@ -629,7 +629,7 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      * <span style="color: #3F7E5E">//}).withNestedList(referrerList -&gt {</span>
      * <span style="color: #3F7E5E">//    ...</span>
      * <span style="color: #3F7E5E">//});</span>
-     * ... = vendor_non_compilable.<span style="color: #DD4747">getVendor_non_compilableByParent_idSelfList()</span>;
+     * ... = vendor_non_compilable.<span style="color: #CC4747">getVendor_non_compilableByParent_idSelfList()</span>;
      * </pre>
      * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
      * The condition-bean, which the set-upper provides, has settings before callback as follows:
@@ -717,7 +717,7 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      * <span style="color: #3F7E5E">// you don't need to set values of common columns</span>
      * <span style="color: #3F7E5E">//vendor_non_compilable.setRegisterUser(value);</span>
      * <span style="color: #3F7E5E">//vendor_non_compilable.set...;</span>
-     * vendor_non_compilableBhv.<span style="color: #DD4747">insert</span>(vendor_non_compilable);
+     * vendor_non_compilableBhv.<span style="color: #CC4747">insert</span>(vendor_non_compilable);
      * ... = vendor_non_compilable.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * <p>While, when the entity is created by select, all columns are registered.</p>
@@ -738,9 +738,9 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      * <span style="color: #3F7E5E">//vendor_non_compilable.setRegisterUser(value);</span>
      * <span style="color: #3F7E5E">//vendor_non_compilable.set...;</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
-     * vendor_non_compilable.<span style="color: #DD4747">setVersionNo</span>(value);
+     * vendor_non_compilable.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     vendor_non_compilableBhv.<span style="color: #DD4747">update</span>(vendor_non_compilable);
+     *     vendor_non_compilableBhv.<span style="color: #CC4747">update</span>(vendor_non_compilable);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
@@ -757,7 +757,7 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
     /**
      * Insert or update the entity modified-only. (DefaultConstraintsEnabled, NonExclusiveControl) <br />
      * if (the entity has no PK) { insert() } else { update(), but no data, insert() } <br />
-     * <p><span style="color: #DD4747; font-size: 120%">Attention, you cannot update by unique keys instead of PK.</span></p>
+     * <p><span style="color: #CC4747; font-size: 120%">Attention, you cannot update by unique keys instead of PK.</span></p>
      * @param vendor_non_compilable The entity of insert or update. (NotNull, ...depends on insert or update)
      * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @exception EntityDuplicatedException When the entity has been duplicated.
@@ -773,9 +773,9 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      * Vendor_non_compilable vendor_non_compilable = new Vendor_non_compilable();
      * vendor_non_compilable.setPK...(value); <span style="color: #3F7E5E">// required</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
-     * vendor_non_compilable.<span style="color: #DD4747">setVersionNo</span>(value);
+     * vendor_non_compilable.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     vendor_non_compilableBhv.<span style="color: #DD4747">delete</span>(vendor_non_compilable);
+     *     vendor_non_compilableBhv.<span style="color: #CC4747">delete</span>(vendor_non_compilable);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
@@ -794,7 +794,7 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
     /**
      * Batch-insert the entity list modified-only of same-set columns. (DefaultConstraintsEnabled) <br />
      * This method uses executeBatch() of java.sql.PreparedStatement. <br />
-     * <p><span style="color: #DD4747; font-size: 120%">The columns of least common multiple are registered like this:</span></p>
+     * <p><span style="color: #CC4747; font-size: 120%">The columns of least common multiple are registered like this:</span></p>
      * <pre>
      * for (... : ...) {
      *     Vendor_non_compilable vendor_non_compilable = new Vendor_non_compilable();
@@ -807,7 +807,7 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      *     <span style="color: #3F7E5E">// columns not-called in all entities are registered as null or default value</span>
      *     vendor_non_compilableList.add(vendor_non_compilable);
      * }
-     * vendor_non_compilableBhv.<span style="color: #DD4747">batchInsert</span>(vendor_non_compilableList);
+     * vendor_non_compilableBhv.<span style="color: #CC4747">batchInsert</span>(vendor_non_compilableList);
      * </pre>
      * <p>While, when the entities are created by select, all columns are registered.</p>
      * <p>And if the table has an identity, entities after the process don't have incremented values.
@@ -822,7 +822,7 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
     /**
      * Batch-update the entity list modified-only of same-set columns. (NonExclusiveControl) <br />
      * This method uses executeBatch() of java.sql.PreparedStatement. <br />
-     * <span style="color: #DD4747; font-size: 120%">You should specify same-set columns to all entities like this:</span>
+     * <span style="color: #CC4747; font-size: 120%">You should specify same-set columns to all entities like this:</span>
      * <pre>
      * for (... : ...) {
      *     Vendor_non_compilable vendor_non_compilable = new Vendor_non_compilable();
@@ -837,7 +837,7 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      *     <span style="color: #3F7E5E">// (others are not updated: their values are kept)</span>
      *     vendor_non_compilableList.add(vendor_non_compilable);
      * }
-     * vendor_non_compilableBhv.<span style="color: #DD4747">batchUpdate</span>(vendor_non_compilableList);
+     * vendor_non_compilableBhv.<span style="color: #CC4747">batchUpdate</span>(vendor_non_compilableList);
      * </pre>
      * @param vendor_non_compilableList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
@@ -864,7 +864,7 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
     /**
      * Insert the several entities by query (modified-only for fixed value).
      * <pre>
-     * vendor_non_compilableBhv.<span style="color: #DD4747">queryInsert</span>(new QueryInsertSetupper&lt;Vendor_non_compilable, Vendor_non_compilableCB&gt;() {
+     * vendor_non_compilableBhv.<span style="color: #CC4747">queryInsert</span>(new QueryInsertSetupper&lt;Vendor_non_compilable, Vendor_non_compilableCB&gt;() {
      *     public ConditionBean setup(Vendor_non_compilable entity, Vendor_non_compilableCB intoCB) {
      *         FooCB cb = FooCB();
      *         cb.setupSelect_Bar();
@@ -906,7 +906,7 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      * <span style="color: #3F7E5E">//vendor_non_compilable.setVersionNo(value);</span>
      * Vendor_non_compilableCB cb = new Vendor_non_compilableCB();
      * cb.query().setFoo...(value);
-     * vendor_non_compilableBhv.<span style="color: #DD4747">queryUpdate</span>(vendor_non_compilable, cb);
+     * vendor_non_compilableBhv.<span style="color: #CC4747">queryUpdate</span>(vendor_non_compilable, cb);
      * </pre>
      * @param vendor_non_compilable The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cbLambda The callback for condition-bean of Vendor_non_compilable. (NotNull)
@@ -914,7 +914,7 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      * @exception NonQueryUpdateNotAllowedException When the query has no condition.
      */
     public int queryUpdate(Vendor_non_compilable vendor_non_compilable, CBCall<Vendor_non_compilableCB> cbLambda) {
-        return doQueryUpdate(vendor_non_compilable, handleCBCall(cbLambda), null);
+        return doQueryUpdate(vendor_non_compilable, createCB(cbLambda), null);
     }
 
     /**
@@ -932,7 +932,7 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      * <span style="color: #3F7E5E">//vendor_non_compilable.setVersionNo(value);</span>
      * Vendor_non_compilableCB cb = new Vendor_non_compilableCB();
      * cb.query().setFoo...(value);
-     * vendor_non_compilableBhv.<span style="color: #DD4747">queryUpdate</span>(vendor_non_compilable, cb);
+     * vendor_non_compilableBhv.<span style="color: #CC4747">queryUpdate</span>(vendor_non_compilable, cb);
      * </pre>
      * @param vendor_non_compilable The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cb The condition-bean of Vendor_non_compilable. (NotNull)
@@ -948,14 +948,14 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      * <pre>
      * Vendor_non_compilableCB cb = new Vendor_non_compilableCB();
      * cb.query().setFoo...(value);
-     * vendor_non_compilableBhv.<span style="color: #DD4747">queryDelete</span>(vendor_non_compilable, cb);
+     * vendor_non_compilableBhv.<span style="color: #CC4747">queryDelete</span>(vendor_non_compilable, cb);
      * </pre>
      * @param cbLambda The callback for condition-bean of Vendor_non_compilable. (NotNull)
      * @return The deleted count.
      * @exception NonQueryDeleteNotAllowedException When the query has no condition.
      */
     public int queryDelete(CBCall<Vendor_non_compilableCB> cbLambda) {
-        return doQueryDelete(handleCBCall(cbLambda), null);
+        return doQueryDelete(createCB(cbLambda), null);
     }
 
     /**
@@ -963,7 +963,7 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      * <pre>
      * Vendor_non_compilableCB cb = new Vendor_non_compilableCB();
      * cb.query().setFoo...(value);
-     * vendor_non_compilableBhv.<span style="color: #DD4747">queryDelete</span>(vendor_non_compilable, cb);
+     * vendor_non_compilableBhv.<span style="color: #CC4747">queryDelete</span>(vendor_non_compilable, cb);
      * </pre>
      * @param cb The condition-bean of Vendor_non_compilable. (NotNull)
      * @return The deleted count.
@@ -991,15 +991,15 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      * InsertOption<Vendor_non_compilableCB> option = new InsertOption<Vendor_non_compilableCB>();
      * <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
      * option.disableCommonColumnAutoSetup();
-     * vendor_non_compilableBhv.<span style="color: #DD4747">varyingInsert</span>(vendor_non_compilable, option);
+     * vendor_non_compilableBhv.<span style="color: #CC4747">varyingInsert</span>(vendor_non_compilable, option);
      * ... = vendor_non_compilable.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * @param vendor_non_compilable The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
      * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void varyingInsert(Vendor_non_compilable vendor_non_compilable, WOptionCall<Vendor_non_compilableCB, InsertOption<Vendor_non_compilableCB>> opLambda) {
-        doInsert(vendor_non_compilable, handleInsertOpCall(opLambda));
+    public void varyingInsert(Vendor_non_compilable vendor_non_compilable, WritableOptionCall<Vendor_non_compilableCB, InsertOption<Vendor_non_compilableCB>> opLambda) {
+        doInsert(vendor_non_compilable, createInsertOption(opLambda));
     }
 
     /**
@@ -1011,16 +1011,16 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      * vendor_non_compilable.setPK...(value); <span style="color: #3F7E5E">// required</span>
      * vendor_non_compilable.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
-     * vendor_non_compilable.<span style="color: #DD4747">setVersionNo</span>(value);
+     * vendor_non_compilable.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
      *     <span style="color: #3F7E5E">// you can update by self calculation values</span>
      *     UpdateOption&lt;Vendor_non_compilableCB&gt; option = new UpdateOption&lt;Vendor_non_compilableCB&gt;();
      *     option.self(new SpecifyQuery&lt;Vendor_non_compilableCB&gt;() {
      *         public void specify(Vendor_non_compilableCB cb) {
-     *             cb.specify().<span style="color: #DD4747">columnXxxCount()</span>;
+     *             cb.specify().<span style="color: #CC4747">columnXxxCount()</span>;
      *         }
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
-     *     vendor_non_compilableBhv.<span style="color: #DD4747">varyingUpdate</span>(vendor_non_compilable, option);
+     *     vendor_non_compilableBhv.<span style="color: #CC4747">varyingUpdate</span>(vendor_non_compilable, option);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
@@ -1031,8 +1031,8 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      * @exception EntityDuplicatedException When the entity has been duplicated.
      * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void varyingUpdate(Vendor_non_compilable vendor_non_compilable, WOptionCall<Vendor_non_compilableCB, UpdateOption<Vendor_non_compilableCB>> opLambda) {
-        doUpdate(vendor_non_compilable, handleUpdateOpCall(opLambda));
+    public void varyingUpdate(Vendor_non_compilable vendor_non_compilable, WritableOptionCall<Vendor_non_compilableCB, UpdateOption<Vendor_non_compilableCB>> opLambda) {
+        doUpdate(vendor_non_compilable, createUpdateOption(opLambda));
     }
 
     /**
@@ -1045,8 +1045,8 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      * @exception EntityDuplicatedException When the entity has been duplicated.
      * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void varyingInsertOrUpdate(Vendor_non_compilable vendor_non_compilable, WOptionCall<Vendor_non_compilableCB, InsertOption<Vendor_non_compilableCB>> insertOpLambda, WOptionCall<Vendor_non_compilableCB, UpdateOption<Vendor_non_compilableCB>> updateOpLambda) {
-        doInsertOrUpdate(vendor_non_compilable, handleInsertOpCall(insertOpLambda), handleUpdateOpCall(updateOpLambda));
+    public void varyingInsertOrUpdate(Vendor_non_compilable vendor_non_compilable, WritableOptionCall<Vendor_non_compilableCB, InsertOption<Vendor_non_compilableCB>> insertOpLambda, WritableOptionCall<Vendor_non_compilableCB, UpdateOption<Vendor_non_compilableCB>> updateOpLambda) {
+        doInsertOrUpdate(vendor_non_compilable, createInsertOption(insertOpLambda), createUpdateOption(updateOpLambda));
     }
 
     /**
@@ -1058,8 +1058,8 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @exception EntityDuplicatedException When the entity has been duplicated.
      */
-    public void varyingDelete(Vendor_non_compilable vendor_non_compilable, WOptionCall<Vendor_non_compilableCB, DeleteOption<Vendor_non_compilableCB>> opLambda) {
-        doDelete(vendor_non_compilable, handleDeleteOpCall(opLambda));
+    public void varyingDelete(Vendor_non_compilable vendor_non_compilable, WritableOptionCall<Vendor_non_compilableCB, DeleteOption<Vendor_non_compilableCB>> opLambda) {
+        doDelete(vendor_non_compilable, createDeleteOption(opLambda));
     }
 
     // -----------------------------------------------------
@@ -1074,8 +1074,8 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
      */
-    public int[] varyingBatchInsert(List<Vendor_non_compilable> vendor_non_compilableList, WOptionCall<Vendor_non_compilableCB, InsertOption<Vendor_non_compilableCB>> opLambda) {
-        return doBatchInsert(vendor_non_compilableList, handleInsertOpCall(opLambda));
+    public int[] varyingBatchInsert(List<Vendor_non_compilable> vendor_non_compilableList, WritableOptionCall<Vendor_non_compilableCB, InsertOption<Vendor_non_compilableCB>> opLambda) {
+        return doBatchInsert(vendor_non_compilableList, createInsertOption(opLambda));
     }
 
     /**
@@ -1087,8 +1087,8 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      * @param opLambda The callback for option of update for varying requests. (NotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
      */
-    public int[] varyingBatchUpdate(List<Vendor_non_compilable> vendor_non_compilableList, WOptionCall<Vendor_non_compilableCB, UpdateOption<Vendor_non_compilableCB>> opLambda) {
-        return doBatchUpdate(vendor_non_compilableList, handleUpdateOpCall(opLambda));
+    public int[] varyingBatchUpdate(List<Vendor_non_compilable> vendor_non_compilableList, WritableOptionCall<Vendor_non_compilableCB, UpdateOption<Vendor_non_compilableCB>> opLambda) {
+        return doBatchUpdate(vendor_non_compilableList, createUpdateOption(opLambda));
     }
 
     /**
@@ -1099,8 +1099,8 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The array of deleted count. (NotNull, EmptyAllowed)
      */
-    public int[] varyingBatchDelete(List<Vendor_non_compilable> vendor_non_compilableList, WOptionCall<Vendor_non_compilableCB, DeleteOption<Vendor_non_compilableCB>> opLambda) {
-        return doBatchDelete(vendor_non_compilableList, handleDeleteOpCall(opLambda));
+    public int[] varyingBatchDelete(List<Vendor_non_compilable> vendor_non_compilableList, WritableOptionCall<Vendor_non_compilableCB, DeleteOption<Vendor_non_compilableCB>> opLambda) {
+        return doBatchDelete(vendor_non_compilableList, createDeleteOption(opLambda));
     }
 
     // -----------------------------------------------------
@@ -1114,8 +1114,8 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
      * @return The inserted count.
      */
-    public int varyingQueryInsert(QueryInsertSetupper<Vendor_non_compilable, Vendor_non_compilableCB> manyArgLambda, WOptionCall<Vendor_non_compilableCB, InsertOption<Vendor_non_compilableCB>> opLambda) {
-        return doQueryInsert(manyArgLambda, handleInsertOpCall(opLambda));
+    public int varyingQueryInsert(QueryInsertSetupper<Vendor_non_compilable, Vendor_non_compilableCB> manyArgLambda, WritableOptionCall<Vendor_non_compilableCB, InsertOption<Vendor_non_compilableCB>> opLambda) {
+        return doQueryInsert(manyArgLambda, createInsertOption(opLambda));
     }
 
     /**
@@ -1137,10 +1137,10 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      * UpdateOption&lt;Vendor_non_compilableCB&gt; option = new UpdateOption&lt;Vendor_non_compilableCB&gt;();
      * option.self(new SpecifyQuery&lt;Vendor_non_compilableCB&gt;() {
      *     public void specify(Vendor_non_compilableCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFooCount()</span>;
+     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * vendor_non_compilableBhv.<span style="color: #DD4747">varyingQueryUpdate</span>(vendor_non_compilable, cb, option);
+     * vendor_non_compilableBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(vendor_non_compilable, cb, option);
      * </pre>
      * @param vendor_non_compilable The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cbLambda The callback for condition-bean of Vendor_non_compilable. (NotNull)
@@ -1148,8 +1148,8 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      * @return The updated count.
      * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryUpdate(Vendor_non_compilable vendor_non_compilable, CBCall<Vendor_non_compilableCB> cbLambda, WOptionCall<Vendor_non_compilableCB, UpdateOption<Vendor_non_compilableCB>> opLambda) {
-        return doQueryUpdate(vendor_non_compilable, handleCBCall(cbLambda), handleUpdateOpCall(opLambda));
+    public int varyingQueryUpdate(Vendor_non_compilable vendor_non_compilable, CBCall<Vendor_non_compilableCB> cbLambda, WritableOptionCall<Vendor_non_compilableCB, UpdateOption<Vendor_non_compilableCB>> opLambda) {
+        return doQueryUpdate(vendor_non_compilable, createCB(cbLambda), createUpdateOption(opLambda));
     }
 
     /**
@@ -1171,10 +1171,10 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      * UpdateOption&lt;Vendor_non_compilableCB&gt; option = new UpdateOption&lt;Vendor_non_compilableCB&gt;();
      * option.self(new SpecifyQuery&lt;Vendor_non_compilableCB&gt;() {
      *     public void specify(Vendor_non_compilableCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFooCount()</span>;
+     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * vendor_non_compilableBhv.<span style="color: #DD4747">varyingQueryUpdate</span>(vendor_non_compilable, cb, option);
+     * vendor_non_compilableBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(vendor_non_compilable, cb, option);
      * </pre>
      * @param vendor_non_compilable The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cb The condition-bean of Vendor_non_compilable. (NotNull)
@@ -1182,8 +1182,8 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      * @return The updated count.
      * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryUpdate(Vendor_non_compilable vendor_non_compilable, Vendor_non_compilableCB cb, WOptionCall<Vendor_non_compilableCB, UpdateOption<Vendor_non_compilableCB>> opLambda) {
-        return doQueryUpdate(vendor_non_compilable, cb, handleUpdateOpCall(opLambda));
+    public int varyingQueryUpdate(Vendor_non_compilable vendor_non_compilable, Vendor_non_compilableCB cb, WritableOptionCall<Vendor_non_compilableCB, UpdateOption<Vendor_non_compilableCB>> opLambda) {
+        return doQueryUpdate(vendor_non_compilable, cb, createUpdateOption(opLambda));
     }
 
     /**
@@ -1195,8 +1195,8 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      * @return The deleted count.
      * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryDelete(CBCall<Vendor_non_compilableCB> cbLambda, WOptionCall<Vendor_non_compilableCB, DeleteOption<Vendor_non_compilableCB>> opLambda) {
-        return doQueryDelete(handleCBCall(cbLambda), handleDeleteOpCall(opLambda));
+    public int varyingQueryDelete(CBCall<Vendor_non_compilableCB> cbLambda, WritableOptionCall<Vendor_non_compilableCB, DeleteOption<Vendor_non_compilableCB>> opLambda) {
+        return doQueryDelete(createCB(cbLambda), createDeleteOption(opLambda));
     }
 
     /**
@@ -1208,8 +1208,8 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      * @return The deleted count.
      * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryDelete(Vendor_non_compilableCB cb, WOptionCall<Vendor_non_compilableCB, DeleteOption<Vendor_non_compilableCB>> opLambda) {
-        return doQueryDelete(cb, handleDeleteOpCall(opLambda));
+    public int varyingQueryDelete(Vendor_non_compilableCB cb, WritableOptionCall<Vendor_non_compilableCB, DeleteOption<Vendor_non_compilableCB>> opLambda) {
+        return doQueryDelete(cb, createDeleteOption(opLambda));
     }
 
     // ===================================================================================
@@ -1245,7 +1245,7 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      */
     public OutsideSqlBasicExecutor<Vendor_non_compilableBhv> outsideSql() {
         OutsideSqlAllFacadeExecutor<Vendor_non_compilableBhv> facadeExecutor = doOutsideSql();
-        return facadeExecutor.xbasicExecutor();
+        return facadeExecutor.xbasicExecutor(); // variable to resolve generic type
     }
 
     // ===================================================================================

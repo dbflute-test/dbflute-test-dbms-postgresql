@@ -80,13 +80,13 @@ public abstract class BsWhiteSameNameBhv extends AbstractBehaviorWritable<WhiteS
      * <pre>
      * WhiteSameNameCB cb = new WhiteSameNameCB();
      * cb.query().setFoo...(value);
-     * int count = whiteSameNameBhv.<span style="color: #DD4747">selectCount</span>(cb);
+     * int count = whiteSameNameBhv.<span style="color: #CC4747">selectCount</span>(cb);
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteSameName. (NotNull)
      * @return The count for the condition. (NotMinus)
      */
     public int selectCount(CBCall<WhiteSameNameCB> cbLambda) {
-        return facadeSelectCount(handleCBCall(cbLambda));
+        return facadeSelectCount(createCB(cbLambda));
     }
 
     /**
@@ -95,7 +95,7 @@ public abstract class BsWhiteSameNameBhv extends AbstractBehaviorWritable<WhiteS
      * <pre>
      * WhiteSameNameCB cb = new WhiteSameNameCB();
      * cb.query().setFoo...(value);
-     * int count = whiteSameNameBhv.<span style="color: #DD4747">selectCount</span>(cb);
+     * int count = whiteSameNameBhv.<span style="color: #CC4747">selectCount</span>(cb);
      * </pre>
      * @param cb The condition-bean of WhiteSameName. (NotNull)
      * @return The count for the condition. (NotMinus)
@@ -110,11 +110,11 @@ public abstract class BsWhiteSameNameBhv extends AbstractBehaviorWritable<WhiteS
     /**
      * Select the entity by the condition-bean. #beforejava8 <br />
      * <span style="color: #AD4747; font-size: 120%">The return might be null if no data, so you should have null check.</span> <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, use selectEntityWithDeletedCheck().</span>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, use selectEntityWithDeletedCheck().</span>
      * <pre>
-     * WhiteSameNameCB cb = new WhiteSameNameCB();
-     * cb.query().setFoo...(value);
-     * WhiteSameName whiteSameName = whiteSameNameBhv.<span style="color: #DD4747">selectEntity</span>(cb);
+     * WhiteSameName whiteSameName = whiteSameNameBhv.<span style="color: #CC4747">selectEntity</span>(cb -&gt; {
+     *     cb.query().set...
+     * });
      * if (whiteSameName != null) { <span style="color: #3F7E5E">// null check</span>
      *     ... = whiteSameName.get...();
      * } else {
@@ -127,7 +127,7 @@ public abstract class BsWhiteSameNameBhv extends AbstractBehaviorWritable<WhiteS
      * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public WhiteSameName selectEntity(CBCall<WhiteSameNameCB> cbLambda) {
-        return facadeSelectEntity(handleCBCall(cbLambda));
+        return facadeSelectEntity(createCB(cbLambda));
     }
 
     /**
@@ -165,11 +165,11 @@ public abstract class BsWhiteSameNameBhv extends AbstractBehaviorWritable<WhiteS
 
     /**
      * Select the entity by the condition-bean with deleted check. <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, this method is good.</span>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
      * WhiteSameNameCB cb = new WhiteSameNameCB();
      * cb.query().setFoo...(value);
-     * WhiteSameName whiteSameName = whiteSameNameBhv.<span style="color: #DD4747">selectEntityWithDeletedCheck</span>(cb);
+     * WhiteSameName whiteSameName = whiteSameNameBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
      * ... = whiteSameName.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteSameName. (NotNull)
@@ -179,16 +179,16 @@ public abstract class BsWhiteSameNameBhv extends AbstractBehaviorWritable<WhiteS
      * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public WhiteSameName selectEntityWithDeletedCheck(CBCall<WhiteSameNameCB> cbLambda) {
-        return facadeSelectEntityWithDeletedCheck(handleCBCall(cbLambda));
+        return facadeSelectEntityWithDeletedCheck(createCB(cbLambda));
     }
 
     /**
      * Select the entity by the condition-bean with deleted check. <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, this method is good.</span>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
      * WhiteSameNameCB cb = new WhiteSameNameCB();
      * cb.query().setFoo...(value);
-     * WhiteSameName whiteSameName = whiteSameNameBhv.<span style="color: #DD4747">selectEntityWithDeletedCheck</span>(cb);
+     * WhiteSameName whiteSameName = whiteSameNameBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
      * ... = whiteSameName.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cb The condition-bean of WhiteSameName. (NotNull)
@@ -235,20 +235,20 @@ public abstract class BsWhiteSameNameBhv extends AbstractBehaviorWritable<WhiteS
     /**
      * Select the list as result bean.
      * <pre>
-     * WhiteSameNameCB cb = new WhiteSameNameCB();
-     * cb.query().setFoo...(value);
-     * cb.query().addOrderBy_Bar...();
-     * ListResultBean&lt;WhiteSameName&gt; whiteSameNameList = whiteSameNameBhv.<span style="color: #DD4747">selectList</span>(cb);
-     * for (WhiteSameName whiteSameName : whiteSameNameList) {
+     * ListResultBean&lt;WhiteSameName&gt; whiteSameNameList = whiteSameNameBhv.<span style="color: #CC4747">selectList</span>(cb -&gt; {
+     *     cb.query().set...;
+     *     cb.query().addOrderBy...;
+     * });
+     * whiteSameNameList.forEach(whiteSameName -&gt; {
      *     ... = whiteSameName.get...();
-     * }
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteSameName. (NotNull)
      * @return The result bean of selected list. (NotNull: if no data, returns empty list)
      * @exception DangerousResultSizeException When the result size is over the specified safety size.
      */
     public ListResultBean<WhiteSameName> selectList(CBCall<WhiteSameNameCB> cbLambda) {
-        return facadeSelectList(handleCBCall(cbLambda));
+        return facadeSelectList(createCB(cbLambda));
     }
 
     /**
@@ -257,7 +257,7 @@ public abstract class BsWhiteSameNameBhv extends AbstractBehaviorWritable<WhiteS
      * WhiteSameNameCB cb = new WhiteSameNameCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
-     * ListResultBean&lt;WhiteSameName&gt; whiteSameNameList = whiteSameNameBhv.<span style="color: #DD4747">selectList</span>(cb);
+     * ListResultBean&lt;WhiteSameName&gt; whiteSameNameList = whiteSameNameBhv.<span style="color: #CC4747">selectList</span>(cb);
      * for (WhiteSameName whiteSameName : whiteSameNameList) {
      *     ... = whiteSameName.get...();
      * }
@@ -283,8 +283,8 @@ public abstract class BsWhiteSameNameBhv extends AbstractBehaviorWritable<WhiteS
      * WhiteSameNameCB cb = new WhiteSameNameCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
-     * cb.<span style="color: #DD4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;WhiteSameName&gt; page = whiteSameNameBhv.<span style="color: #DD4747">selectPage</span>(cb);
+     * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
+     * PagingResultBean&lt;WhiteSameName&gt; page = whiteSameNameBhv.<span style="color: #CC4747">selectPage</span>(cb);
      * int allRecordCount = page.getAllRecordCount();
      * int allPageCount = page.getAllPageCount();
      * boolean isExistPrePage = page.isExistPrePage();
@@ -299,7 +299,7 @@ public abstract class BsWhiteSameNameBhv extends AbstractBehaviorWritable<WhiteS
      * @exception DangerousResultSizeException When the result size is over the specified safety size.
      */
     public PagingResultBean<WhiteSameName> selectPage(CBCall<WhiteSameNameCB> cbLambda) {
-        return facadeSelectPage(handleCBCall(cbLambda));
+        return facadeSelectPage(createCB(cbLambda));
     }
 
     /**
@@ -309,8 +309,8 @@ public abstract class BsWhiteSameNameBhv extends AbstractBehaviorWritable<WhiteS
      * WhiteSameNameCB cb = new WhiteSameNameCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
-     * cb.<span style="color: #DD4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;WhiteSameName&gt; page = whiteSameNameBhv.<span style="color: #DD4747">selectPage</span>(cb);
+     * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
+     * PagingResultBean&lt;WhiteSameName&gt; page = whiteSameNameBhv.<span style="color: #CC4747">selectPage</span>(cb);
      * int allRecordCount = page.getAllRecordCount();
      * int allPageCount = page.getAllPageCount();
      * boolean isExistPrePage = page.isExistPrePage();
@@ -336,7 +336,7 @@ public abstract class BsWhiteSameNameBhv extends AbstractBehaviorWritable<WhiteS
      * <pre>
      * WhiteSameNameCB cb = new WhiteSameNameCB();
      * cb.query().setFoo...(value);
-     * whiteSameNameBhv.<span style="color: #DD4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteSameName&gt;() {
+     * whiteSameNameBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteSameName&gt;() {
      *     public void handle(WhiteSameName entity) {
      *         ... = entity.getFoo...();
      *     }
@@ -346,7 +346,7 @@ public abstract class BsWhiteSameNameBhv extends AbstractBehaviorWritable<WhiteS
      * @param entityLambda The handler of entity row of WhiteSameName. (NotNull)
      */
     public void selectCursor(CBCall<WhiteSameNameCB> cbLambda, EntityRowHandler<WhiteSameName> entityLambda) {
-        facadeSelectCursor(handleCBCall(cbLambda), entityLambda);
+        facadeSelectCursor(createCB(cbLambda), entityLambda);
     }
 
     /**
@@ -354,7 +354,7 @@ public abstract class BsWhiteSameNameBhv extends AbstractBehaviorWritable<WhiteS
      * <pre>
      * WhiteSameNameCB cb = new WhiteSameNameCB();
      * cb.query().setFoo...(value);
-     * whiteSameNameBhv.<span style="color: #DD4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteSameName&gt;() {
+     * whiteSameNameBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;WhiteSameName&gt;() {
      *     public void handle(WhiteSameName entity) {
      *         ... = entity.getFoo...();
      *     }
@@ -374,9 +374,9 @@ public abstract class BsWhiteSameNameBhv extends AbstractBehaviorWritable<WhiteS
      * Select the scalar value derived by a function from uniquely-selected records. <br />
      * You should call a function method after this method called like as follows:
      * <pre>
-     * whiteSameNameBhv.<span style="color: #DD4747">scalarSelect</span>(Date.class).max(new ScalarQuery() {
+     * whiteSameNameBhv.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(new ScalarQuery() {
      *     public void query(WhiteSameNameCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFooDatetime()</span>; <span style="color: #3F7E5E">// required for a function</span>
+     *         cb.specify().<span style="color: #CC4747">columnFooDatetime()</span>; <span style="color: #3F7E5E">// required for a function</span>
      *         cb.query().setBarName_PrefixSearch("S");
      *     }
      * });
@@ -407,8 +407,8 @@ public abstract class BsWhiteSameNameBhv extends AbstractBehaviorWritable<WhiteS
      * MemberCB cb = new MemberCB();
      * cb.query().set...
      * List&lt;Member&gt; memberList = memberBhv.selectList(cb);
-     * memberBhv.<span style="color: #DD4747">load</span>(memberList, loader -&gt; {
-     *     loader.<span style="color: #DD4747">loadPurchaseList</span>(purchaseCB -&gt; {
+     * memberBhv.<span style="color: #CC4747">load</span>(memberList, loader -&gt; {
+     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
      *         purchaseCB.query().set...
      *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
@@ -421,7 +421,7 @@ public abstract class BsWhiteSameNameBhv extends AbstractBehaviorWritable<WhiteS
      *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
      * }
      * for (Member member : memberList) {
-     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #DD4747">getPurchaseList()</span>;
+     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
      *     for (Purchase purchase : purchaseList) {
      *         ...
      *     }
@@ -443,8 +443,8 @@ public abstract class BsWhiteSameNameBhv extends AbstractBehaviorWritable<WhiteS
      * MemberCB cb = new MemberCB();
      * cb.query().set...
      * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * memberBhv.<span style="color: #DD4747">load</span>(member, loader -&gt; {
-     *     loader.<span style="color: #DD4747">loadPurchaseList</span>(purchaseCB -&gt; {
+     * memberBhv.<span style="color: #CC4747">load</span>(member, loader -&gt; {
+     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
      *         purchaseCB.query().set...
      *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
@@ -457,7 +457,7 @@ public abstract class BsWhiteSameNameBhv extends AbstractBehaviorWritable<WhiteS
      *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
      * }
      * for (Member member : memberList) {
-     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #DD4747">getPurchaseList()</span>;
+     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
      *     for (Purchase purchase : purchaseList) {
      *         ...
      *     }
@@ -477,7 +477,7 @@ public abstract class BsWhiteSameNameBhv extends AbstractBehaviorWritable<WhiteS
      * Load referrer of whiteSameNameRefList by the set-upper of referrer. <br />
      * white_same_name_ref by same_name_id, named 'whiteSameNameRefList'.
      * <pre>
-     * whiteSameNameBhv.<span style="color: #DD4747">loadWhiteSameNameRefList</span>(whiteSameNameList, refCB -&gt; {
+     * whiteSameNameBhv.<span style="color: #CC4747">loadWhiteSameNameRefList</span>(whiteSameNameList, refCB -&gt; {
      *     refCB.setupSelect...();
      *     refCB.query().setFoo...(value);
      *     refCB.query().addOrderBy_Bar...();
@@ -486,7 +486,7 @@ public abstract class BsWhiteSameNameBhv extends AbstractBehaviorWritable<WhiteS
      * <span style="color: #3F7E5E">//    ...</span>
      * <span style="color: #3F7E5E">//});</span>
      * for (WhiteSameName whiteSameName : whiteSameNameList) {
-     *     ... = whiteSameName.<span style="color: #DD4747">getWhiteSameNameRefList()</span>;
+     *     ... = whiteSameName.<span style="color: #CC4747">getWhiteSameNameRefList()</span>;
      * }
      * </pre>
      * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
@@ -508,7 +508,7 @@ public abstract class BsWhiteSameNameBhv extends AbstractBehaviorWritable<WhiteS
      * Load referrer of whiteSameNameRefList by the set-upper of referrer. <br />
      * white_same_name_ref by same_name_id, named 'whiteSameNameRefList'.
      * <pre>
-     * whiteSameNameBhv.<span style="color: #DD4747">loadWhiteSameNameRefList</span>(whiteSameNameList, refCB -&gt; {
+     * whiteSameNameBhv.<span style="color: #CC4747">loadWhiteSameNameRefList</span>(whiteSameNameList, refCB -&gt; {
      *     refCB.setupSelect...();
      *     refCB.query().setFoo...(value);
      *     refCB.query().addOrderBy_Bar...();
@@ -516,7 +516,7 @@ public abstract class BsWhiteSameNameBhv extends AbstractBehaviorWritable<WhiteS
      * <span style="color: #3F7E5E">//}).withNestedList(referrerList -&gt {</span>
      * <span style="color: #3F7E5E">//    ...</span>
      * <span style="color: #3F7E5E">//});</span>
-     * ... = whiteSameName.<span style="color: #DD4747">getWhiteSameNameRefList()</span>;
+     * ... = whiteSameName.<span style="color: #CC4747">getWhiteSameNameRefList()</span>;
      * </pre>
      * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
      * The condition-bean, which the set-upper provides, has settings before callback as follows:
@@ -596,7 +596,7 @@ public abstract class BsWhiteSameNameBhv extends AbstractBehaviorWritable<WhiteS
      * <span style="color: #3F7E5E">// you don't need to set values of common columns</span>
      * <span style="color: #3F7E5E">//whiteSameName.setRegisterUser(value);</span>
      * <span style="color: #3F7E5E">//whiteSameName.set...;</span>
-     * whiteSameNameBhv.<span style="color: #DD4747">insert</span>(whiteSameName);
+     * whiteSameNameBhv.<span style="color: #CC4747">insert</span>(whiteSameName);
      * ... = whiteSameName.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * <p>While, when the entity is created by select, all columns are registered.</p>
@@ -617,9 +617,9 @@ public abstract class BsWhiteSameNameBhv extends AbstractBehaviorWritable<WhiteS
      * <span style="color: #3F7E5E">//whiteSameName.setRegisterUser(value);</span>
      * <span style="color: #3F7E5E">//whiteSameName.set...;</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
-     * whiteSameName.<span style="color: #DD4747">setVersionNo</span>(value);
+     * whiteSameName.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     whiteSameNameBhv.<span style="color: #DD4747">update</span>(whiteSameName);
+     *     whiteSameNameBhv.<span style="color: #CC4747">update</span>(whiteSameName);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
@@ -636,7 +636,7 @@ public abstract class BsWhiteSameNameBhv extends AbstractBehaviorWritable<WhiteS
     /**
      * Insert or update the entity modified-only. (DefaultConstraintsEnabled, NonExclusiveControl) <br />
      * if (the entity has no PK) { insert() } else { update(), but no data, insert() } <br />
-     * <p><span style="color: #DD4747; font-size: 120%">Attention, you cannot update by unique keys instead of PK.</span></p>
+     * <p><span style="color: #CC4747; font-size: 120%">Attention, you cannot update by unique keys instead of PK.</span></p>
      * @param whiteSameName The entity of insert or update. (NotNull, ...depends on insert or update)
      * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @exception EntityDuplicatedException When the entity has been duplicated.
@@ -652,9 +652,9 @@ public abstract class BsWhiteSameNameBhv extends AbstractBehaviorWritable<WhiteS
      * WhiteSameName whiteSameName = new WhiteSameName();
      * whiteSameName.setPK...(value); <span style="color: #3F7E5E">// required</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
-     * whiteSameName.<span style="color: #DD4747">setVersionNo</span>(value);
+     * whiteSameName.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     whiteSameNameBhv.<span style="color: #DD4747">delete</span>(whiteSameName);
+     *     whiteSameNameBhv.<span style="color: #CC4747">delete</span>(whiteSameName);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
@@ -673,7 +673,7 @@ public abstract class BsWhiteSameNameBhv extends AbstractBehaviorWritable<WhiteS
     /**
      * Batch-insert the entity list modified-only of same-set columns. (DefaultConstraintsEnabled) <br />
      * This method uses executeBatch() of java.sql.PreparedStatement. <br />
-     * <p><span style="color: #DD4747; font-size: 120%">The columns of least common multiple are registered like this:</span></p>
+     * <p><span style="color: #CC4747; font-size: 120%">The columns of least common multiple are registered like this:</span></p>
      * <pre>
      * for (... : ...) {
      *     WhiteSameName whiteSameName = new WhiteSameName();
@@ -686,7 +686,7 @@ public abstract class BsWhiteSameNameBhv extends AbstractBehaviorWritable<WhiteS
      *     <span style="color: #3F7E5E">// columns not-called in all entities are registered as null or default value</span>
      *     whiteSameNameList.add(whiteSameName);
      * }
-     * whiteSameNameBhv.<span style="color: #DD4747">batchInsert</span>(whiteSameNameList);
+     * whiteSameNameBhv.<span style="color: #CC4747">batchInsert</span>(whiteSameNameList);
      * </pre>
      * <p>While, when the entities are created by select, all columns are registered.</p>
      * <p>And if the table has an identity, entities after the process don't have incremented values.
@@ -701,7 +701,7 @@ public abstract class BsWhiteSameNameBhv extends AbstractBehaviorWritable<WhiteS
     /**
      * Batch-update the entity list modified-only of same-set columns. (NonExclusiveControl) <br />
      * This method uses executeBatch() of java.sql.PreparedStatement. <br />
-     * <span style="color: #DD4747; font-size: 120%">You should specify same-set columns to all entities like this:</span>
+     * <span style="color: #CC4747; font-size: 120%">You should specify same-set columns to all entities like this:</span>
      * <pre>
      * for (... : ...) {
      *     WhiteSameName whiteSameName = new WhiteSameName();
@@ -716,7 +716,7 @@ public abstract class BsWhiteSameNameBhv extends AbstractBehaviorWritable<WhiteS
      *     <span style="color: #3F7E5E">// (others are not updated: their values are kept)</span>
      *     whiteSameNameList.add(whiteSameName);
      * }
-     * whiteSameNameBhv.<span style="color: #DD4747">batchUpdate</span>(whiteSameNameList);
+     * whiteSameNameBhv.<span style="color: #CC4747">batchUpdate</span>(whiteSameNameList);
      * </pre>
      * @param whiteSameNameList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
@@ -743,7 +743,7 @@ public abstract class BsWhiteSameNameBhv extends AbstractBehaviorWritable<WhiteS
     /**
      * Insert the several entities by query (modified-only for fixed value).
      * <pre>
-     * whiteSameNameBhv.<span style="color: #DD4747">queryInsert</span>(new QueryInsertSetupper&lt;WhiteSameName, WhiteSameNameCB&gt;() {
+     * whiteSameNameBhv.<span style="color: #CC4747">queryInsert</span>(new QueryInsertSetupper&lt;WhiteSameName, WhiteSameNameCB&gt;() {
      *     public ConditionBean setup(WhiteSameName entity, WhiteSameNameCB intoCB) {
      *         FooCB cb = FooCB();
      *         cb.setupSelect_Bar();
@@ -785,7 +785,7 @@ public abstract class BsWhiteSameNameBhv extends AbstractBehaviorWritable<WhiteS
      * <span style="color: #3F7E5E">//whiteSameName.setVersionNo(value);</span>
      * WhiteSameNameCB cb = new WhiteSameNameCB();
      * cb.query().setFoo...(value);
-     * whiteSameNameBhv.<span style="color: #DD4747">queryUpdate</span>(whiteSameName, cb);
+     * whiteSameNameBhv.<span style="color: #CC4747">queryUpdate</span>(whiteSameName, cb);
      * </pre>
      * @param whiteSameName The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cbLambda The callback for condition-bean of WhiteSameName. (NotNull)
@@ -793,7 +793,7 @@ public abstract class BsWhiteSameNameBhv extends AbstractBehaviorWritable<WhiteS
      * @exception NonQueryUpdateNotAllowedException When the query has no condition.
      */
     public int queryUpdate(WhiteSameName whiteSameName, CBCall<WhiteSameNameCB> cbLambda) {
-        return doQueryUpdate(whiteSameName, handleCBCall(cbLambda), null);
+        return doQueryUpdate(whiteSameName, createCB(cbLambda), null);
     }
 
     /**
@@ -811,7 +811,7 @@ public abstract class BsWhiteSameNameBhv extends AbstractBehaviorWritable<WhiteS
      * <span style="color: #3F7E5E">//whiteSameName.setVersionNo(value);</span>
      * WhiteSameNameCB cb = new WhiteSameNameCB();
      * cb.query().setFoo...(value);
-     * whiteSameNameBhv.<span style="color: #DD4747">queryUpdate</span>(whiteSameName, cb);
+     * whiteSameNameBhv.<span style="color: #CC4747">queryUpdate</span>(whiteSameName, cb);
      * </pre>
      * @param whiteSameName The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cb The condition-bean of WhiteSameName. (NotNull)
@@ -827,14 +827,14 @@ public abstract class BsWhiteSameNameBhv extends AbstractBehaviorWritable<WhiteS
      * <pre>
      * WhiteSameNameCB cb = new WhiteSameNameCB();
      * cb.query().setFoo...(value);
-     * whiteSameNameBhv.<span style="color: #DD4747">queryDelete</span>(whiteSameName, cb);
+     * whiteSameNameBhv.<span style="color: #CC4747">queryDelete</span>(whiteSameName, cb);
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteSameName. (NotNull)
      * @return The deleted count.
      * @exception NonQueryDeleteNotAllowedException When the query has no condition.
      */
     public int queryDelete(CBCall<WhiteSameNameCB> cbLambda) {
-        return doQueryDelete(handleCBCall(cbLambda), null);
+        return doQueryDelete(createCB(cbLambda), null);
     }
 
     /**
@@ -842,7 +842,7 @@ public abstract class BsWhiteSameNameBhv extends AbstractBehaviorWritable<WhiteS
      * <pre>
      * WhiteSameNameCB cb = new WhiteSameNameCB();
      * cb.query().setFoo...(value);
-     * whiteSameNameBhv.<span style="color: #DD4747">queryDelete</span>(whiteSameName, cb);
+     * whiteSameNameBhv.<span style="color: #CC4747">queryDelete</span>(whiteSameName, cb);
      * </pre>
      * @param cb The condition-bean of WhiteSameName. (NotNull)
      * @return The deleted count.
@@ -870,15 +870,15 @@ public abstract class BsWhiteSameNameBhv extends AbstractBehaviorWritable<WhiteS
      * InsertOption<WhiteSameNameCB> option = new InsertOption<WhiteSameNameCB>();
      * <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
      * option.disableCommonColumnAutoSetup();
-     * whiteSameNameBhv.<span style="color: #DD4747">varyingInsert</span>(whiteSameName, option);
+     * whiteSameNameBhv.<span style="color: #CC4747">varyingInsert</span>(whiteSameName, option);
      * ... = whiteSameName.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * @param whiteSameName The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
      * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void varyingInsert(WhiteSameName whiteSameName, WOptionCall<WhiteSameNameCB, InsertOption<WhiteSameNameCB>> opLambda) {
-        doInsert(whiteSameName, handleInsertOpCall(opLambda));
+    public void varyingInsert(WhiteSameName whiteSameName, WritableOptionCall<WhiteSameNameCB, InsertOption<WhiteSameNameCB>> opLambda) {
+        doInsert(whiteSameName, createInsertOption(opLambda));
     }
 
     /**
@@ -890,16 +890,16 @@ public abstract class BsWhiteSameNameBhv extends AbstractBehaviorWritable<WhiteS
      * whiteSameName.setPK...(value); <span style="color: #3F7E5E">// required</span>
      * whiteSameName.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
-     * whiteSameName.<span style="color: #DD4747">setVersionNo</span>(value);
+     * whiteSameName.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
      *     <span style="color: #3F7E5E">// you can update by self calculation values</span>
      *     UpdateOption&lt;WhiteSameNameCB&gt; option = new UpdateOption&lt;WhiteSameNameCB&gt;();
      *     option.self(new SpecifyQuery&lt;WhiteSameNameCB&gt;() {
      *         public void specify(WhiteSameNameCB cb) {
-     *             cb.specify().<span style="color: #DD4747">columnXxxCount()</span>;
+     *             cb.specify().<span style="color: #CC4747">columnXxxCount()</span>;
      *         }
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
-     *     whiteSameNameBhv.<span style="color: #DD4747">varyingUpdate</span>(whiteSameName, option);
+     *     whiteSameNameBhv.<span style="color: #CC4747">varyingUpdate</span>(whiteSameName, option);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
@@ -910,8 +910,8 @@ public abstract class BsWhiteSameNameBhv extends AbstractBehaviorWritable<WhiteS
      * @exception EntityDuplicatedException When the entity has been duplicated.
      * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void varyingUpdate(WhiteSameName whiteSameName, WOptionCall<WhiteSameNameCB, UpdateOption<WhiteSameNameCB>> opLambda) {
-        doUpdate(whiteSameName, handleUpdateOpCall(opLambda));
+    public void varyingUpdate(WhiteSameName whiteSameName, WritableOptionCall<WhiteSameNameCB, UpdateOption<WhiteSameNameCB>> opLambda) {
+        doUpdate(whiteSameName, createUpdateOption(opLambda));
     }
 
     /**
@@ -924,8 +924,8 @@ public abstract class BsWhiteSameNameBhv extends AbstractBehaviorWritable<WhiteS
      * @exception EntityDuplicatedException When the entity has been duplicated.
      * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
-    public void varyingInsertOrUpdate(WhiteSameName whiteSameName, WOptionCall<WhiteSameNameCB, InsertOption<WhiteSameNameCB>> insertOpLambda, WOptionCall<WhiteSameNameCB, UpdateOption<WhiteSameNameCB>> updateOpLambda) {
-        doInsertOrUpdate(whiteSameName, handleInsertOpCall(insertOpLambda), handleUpdateOpCall(updateOpLambda));
+    public void varyingInsertOrUpdate(WhiteSameName whiteSameName, WritableOptionCall<WhiteSameNameCB, InsertOption<WhiteSameNameCB>> insertOpLambda, WritableOptionCall<WhiteSameNameCB, UpdateOption<WhiteSameNameCB>> updateOpLambda) {
+        doInsertOrUpdate(whiteSameName, createInsertOption(insertOpLambda), createUpdateOption(updateOpLambda));
     }
 
     /**
@@ -937,8 +937,8 @@ public abstract class BsWhiteSameNameBhv extends AbstractBehaviorWritable<WhiteS
      * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      * @exception EntityDuplicatedException When the entity has been duplicated.
      */
-    public void varyingDelete(WhiteSameName whiteSameName, WOptionCall<WhiteSameNameCB, DeleteOption<WhiteSameNameCB>> opLambda) {
-        doDelete(whiteSameName, handleDeleteOpCall(opLambda));
+    public void varyingDelete(WhiteSameName whiteSameName, WritableOptionCall<WhiteSameNameCB, DeleteOption<WhiteSameNameCB>> opLambda) {
+        doDelete(whiteSameName, createDeleteOption(opLambda));
     }
 
     // -----------------------------------------------------
@@ -953,8 +953,8 @@ public abstract class BsWhiteSameNameBhv extends AbstractBehaviorWritable<WhiteS
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
      */
-    public int[] varyingBatchInsert(List<WhiteSameName> whiteSameNameList, WOptionCall<WhiteSameNameCB, InsertOption<WhiteSameNameCB>> opLambda) {
-        return doBatchInsert(whiteSameNameList, handleInsertOpCall(opLambda));
+    public int[] varyingBatchInsert(List<WhiteSameName> whiteSameNameList, WritableOptionCall<WhiteSameNameCB, InsertOption<WhiteSameNameCB>> opLambda) {
+        return doBatchInsert(whiteSameNameList, createInsertOption(opLambda));
     }
 
     /**
@@ -966,8 +966,8 @@ public abstract class BsWhiteSameNameBhv extends AbstractBehaviorWritable<WhiteS
      * @param opLambda The callback for option of update for varying requests. (NotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
      */
-    public int[] varyingBatchUpdate(List<WhiteSameName> whiteSameNameList, WOptionCall<WhiteSameNameCB, UpdateOption<WhiteSameNameCB>> opLambda) {
-        return doBatchUpdate(whiteSameNameList, handleUpdateOpCall(opLambda));
+    public int[] varyingBatchUpdate(List<WhiteSameName> whiteSameNameList, WritableOptionCall<WhiteSameNameCB, UpdateOption<WhiteSameNameCB>> opLambda) {
+        return doBatchUpdate(whiteSameNameList, createUpdateOption(opLambda));
     }
 
     /**
@@ -978,8 +978,8 @@ public abstract class BsWhiteSameNameBhv extends AbstractBehaviorWritable<WhiteS
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The array of deleted count. (NotNull, EmptyAllowed)
      */
-    public int[] varyingBatchDelete(List<WhiteSameName> whiteSameNameList, WOptionCall<WhiteSameNameCB, DeleteOption<WhiteSameNameCB>> opLambda) {
-        return doBatchDelete(whiteSameNameList, handleDeleteOpCall(opLambda));
+    public int[] varyingBatchDelete(List<WhiteSameName> whiteSameNameList, WritableOptionCall<WhiteSameNameCB, DeleteOption<WhiteSameNameCB>> opLambda) {
+        return doBatchDelete(whiteSameNameList, createDeleteOption(opLambda));
     }
 
     // -----------------------------------------------------
@@ -993,8 +993,8 @@ public abstract class BsWhiteSameNameBhv extends AbstractBehaviorWritable<WhiteS
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
      * @return The inserted count.
      */
-    public int varyingQueryInsert(QueryInsertSetupper<WhiteSameName, WhiteSameNameCB> manyArgLambda, WOptionCall<WhiteSameNameCB, InsertOption<WhiteSameNameCB>> opLambda) {
-        return doQueryInsert(manyArgLambda, handleInsertOpCall(opLambda));
+    public int varyingQueryInsert(QueryInsertSetupper<WhiteSameName, WhiteSameNameCB> manyArgLambda, WritableOptionCall<WhiteSameNameCB, InsertOption<WhiteSameNameCB>> opLambda) {
+        return doQueryInsert(manyArgLambda, createInsertOption(opLambda));
     }
 
     /**
@@ -1016,10 +1016,10 @@ public abstract class BsWhiteSameNameBhv extends AbstractBehaviorWritable<WhiteS
      * UpdateOption&lt;WhiteSameNameCB&gt; option = new UpdateOption&lt;WhiteSameNameCB&gt;();
      * option.self(new SpecifyQuery&lt;WhiteSameNameCB&gt;() {
      *     public void specify(WhiteSameNameCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFooCount()</span>;
+     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * whiteSameNameBhv.<span style="color: #DD4747">varyingQueryUpdate</span>(whiteSameName, cb, option);
+     * whiteSameNameBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteSameName, cb, option);
      * </pre>
      * @param whiteSameName The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cbLambda The callback for condition-bean of WhiteSameName. (NotNull)
@@ -1027,8 +1027,8 @@ public abstract class BsWhiteSameNameBhv extends AbstractBehaviorWritable<WhiteS
      * @return The updated count.
      * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryUpdate(WhiteSameName whiteSameName, CBCall<WhiteSameNameCB> cbLambda, WOptionCall<WhiteSameNameCB, UpdateOption<WhiteSameNameCB>> opLambda) {
-        return doQueryUpdate(whiteSameName, handleCBCall(cbLambda), handleUpdateOpCall(opLambda));
+    public int varyingQueryUpdate(WhiteSameName whiteSameName, CBCall<WhiteSameNameCB> cbLambda, WritableOptionCall<WhiteSameNameCB, UpdateOption<WhiteSameNameCB>> opLambda) {
+        return doQueryUpdate(whiteSameName, createCB(cbLambda), createUpdateOption(opLambda));
     }
 
     /**
@@ -1050,10 +1050,10 @@ public abstract class BsWhiteSameNameBhv extends AbstractBehaviorWritable<WhiteS
      * UpdateOption&lt;WhiteSameNameCB&gt; option = new UpdateOption&lt;WhiteSameNameCB&gt;();
      * option.self(new SpecifyQuery&lt;WhiteSameNameCB&gt;() {
      *     public void specify(WhiteSameNameCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFooCount()</span>;
+     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * whiteSameNameBhv.<span style="color: #DD4747">varyingQueryUpdate</span>(whiteSameName, cb, option);
+     * whiteSameNameBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteSameName, cb, option);
      * </pre>
      * @param whiteSameName The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cb The condition-bean of WhiteSameName. (NotNull)
@@ -1061,8 +1061,8 @@ public abstract class BsWhiteSameNameBhv extends AbstractBehaviorWritable<WhiteS
      * @return The updated count.
      * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryUpdate(WhiteSameName whiteSameName, WhiteSameNameCB cb, WOptionCall<WhiteSameNameCB, UpdateOption<WhiteSameNameCB>> opLambda) {
-        return doQueryUpdate(whiteSameName, cb, handleUpdateOpCall(opLambda));
+    public int varyingQueryUpdate(WhiteSameName whiteSameName, WhiteSameNameCB cb, WritableOptionCall<WhiteSameNameCB, UpdateOption<WhiteSameNameCB>> opLambda) {
+        return doQueryUpdate(whiteSameName, cb, createUpdateOption(opLambda));
     }
 
     /**
@@ -1074,8 +1074,8 @@ public abstract class BsWhiteSameNameBhv extends AbstractBehaviorWritable<WhiteS
      * @return The deleted count.
      * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryDelete(CBCall<WhiteSameNameCB> cbLambda, WOptionCall<WhiteSameNameCB, DeleteOption<WhiteSameNameCB>> opLambda) {
-        return doQueryDelete(handleCBCall(cbLambda), handleDeleteOpCall(opLambda));
+    public int varyingQueryDelete(CBCall<WhiteSameNameCB> cbLambda, WritableOptionCall<WhiteSameNameCB, DeleteOption<WhiteSameNameCB>> opLambda) {
+        return doQueryDelete(createCB(cbLambda), createDeleteOption(opLambda));
     }
 
     /**
@@ -1087,8 +1087,8 @@ public abstract class BsWhiteSameNameBhv extends AbstractBehaviorWritable<WhiteS
      * @return The deleted count.
      * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
-    public int varyingQueryDelete(WhiteSameNameCB cb, WOptionCall<WhiteSameNameCB, DeleteOption<WhiteSameNameCB>> opLambda) {
-        return doQueryDelete(cb, handleDeleteOpCall(opLambda));
+    public int varyingQueryDelete(WhiteSameNameCB cb, WritableOptionCall<WhiteSameNameCB, DeleteOption<WhiteSameNameCB>> opLambda) {
+        return doQueryDelete(cb, createDeleteOption(opLambda));
     }
 
     // ===================================================================================
@@ -1124,7 +1124,7 @@ public abstract class BsWhiteSameNameBhv extends AbstractBehaviorWritable<WhiteS
      */
     public OutsideSqlBasicExecutor<WhiteSameNameBhv> outsideSql() {
         OutsideSqlAllFacadeExecutor<WhiteSameNameBhv> facadeExecutor = doOutsideSql();
-        return facadeExecutor.xbasicExecutor();
+        return facadeExecutor.xbasicExecutor(); // variable to resolve generic type
     }
 
     // ===================================================================================

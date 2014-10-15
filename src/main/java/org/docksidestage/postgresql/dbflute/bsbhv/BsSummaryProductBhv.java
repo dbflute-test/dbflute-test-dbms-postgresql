@@ -79,13 +79,13 @@ public abstract class BsSummaryProductBhv extends AbstractBehaviorReadable<Summa
      * <pre>
      * SummaryProductCB cb = new SummaryProductCB();
      * cb.query().setFoo...(value);
-     * int count = summaryProductBhv.<span style="color: #DD4747">selectCount</span>(cb);
+     * int count = summaryProductBhv.<span style="color: #CC4747">selectCount</span>(cb);
      * </pre>
      * @param cbLambda The callback for condition-bean of SummaryProduct. (NotNull)
      * @return The count for the condition. (NotMinus)
      */
     public int selectCount(CBCall<SummaryProductCB> cbLambda) {
-        return facadeSelectCount(handleCBCall(cbLambda));
+        return facadeSelectCount(createCB(cbLambda));
     }
 
     /**
@@ -94,7 +94,7 @@ public abstract class BsSummaryProductBhv extends AbstractBehaviorReadable<Summa
      * <pre>
      * SummaryProductCB cb = new SummaryProductCB();
      * cb.query().setFoo...(value);
-     * int count = summaryProductBhv.<span style="color: #DD4747">selectCount</span>(cb);
+     * int count = summaryProductBhv.<span style="color: #CC4747">selectCount</span>(cb);
      * </pre>
      * @param cb The condition-bean of SummaryProduct. (NotNull)
      * @return The count for the condition. (NotMinus)
@@ -109,11 +109,11 @@ public abstract class BsSummaryProductBhv extends AbstractBehaviorReadable<Summa
     /**
      * Select the entity by the condition-bean. #beforejava8 <br />
      * <span style="color: #AD4747; font-size: 120%">The return might be null if no data, so you should have null check.</span> <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, use selectEntityWithDeletedCheck().</span>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, use selectEntityWithDeletedCheck().</span>
      * <pre>
-     * SummaryProductCB cb = new SummaryProductCB();
-     * cb.query().setFoo...(value);
-     * SummaryProduct summaryProduct = summaryProductBhv.<span style="color: #DD4747">selectEntity</span>(cb);
+     * SummaryProduct summaryProduct = summaryProductBhv.<span style="color: #CC4747">selectEntity</span>(cb -&gt; {
+     *     cb.query().set...
+     * });
      * if (summaryProduct != null) { <span style="color: #3F7E5E">// null check</span>
      *     ... = summaryProduct.get...();
      * } else {
@@ -126,7 +126,7 @@ public abstract class BsSummaryProductBhv extends AbstractBehaviorReadable<Summa
      * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public SummaryProduct selectEntity(CBCall<SummaryProductCB> cbLambda) {
-        return facadeSelectEntity(handleCBCall(cbLambda));
+        return facadeSelectEntity(createCB(cbLambda));
     }
 
     /**
@@ -164,11 +164,11 @@ public abstract class BsSummaryProductBhv extends AbstractBehaviorReadable<Summa
 
     /**
      * Select the entity by the condition-bean with deleted check. <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, this method is good.</span>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
      * SummaryProductCB cb = new SummaryProductCB();
      * cb.query().setFoo...(value);
-     * SummaryProduct summaryProduct = summaryProductBhv.<span style="color: #DD4747">selectEntityWithDeletedCheck</span>(cb);
+     * SummaryProduct summaryProduct = summaryProductBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
      * ... = summaryProduct.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cbLambda The callback for condition-bean of SummaryProduct. (NotNull)
@@ -178,16 +178,16 @@ public abstract class BsSummaryProductBhv extends AbstractBehaviorReadable<Summa
      * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public SummaryProduct selectEntityWithDeletedCheck(CBCall<SummaryProductCB> cbLambda) {
-        return facadeSelectEntityWithDeletedCheck(handleCBCall(cbLambda));
+        return facadeSelectEntityWithDeletedCheck(createCB(cbLambda));
     }
 
     /**
      * Select the entity by the condition-bean with deleted check. <br />
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, this method is good.</span>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
      * SummaryProductCB cb = new SummaryProductCB();
      * cb.query().setFoo...(value);
-     * SummaryProduct summaryProduct = summaryProductBhv.<span style="color: #DD4747">selectEntityWithDeletedCheck</span>(cb);
+     * SummaryProduct summaryProduct = summaryProductBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
      * ... = summaryProduct.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cb The condition-bean of SummaryProduct. (NotNull)
@@ -206,20 +206,20 @@ public abstract class BsSummaryProductBhv extends AbstractBehaviorReadable<Summa
     /**
      * Select the list as result bean.
      * <pre>
-     * SummaryProductCB cb = new SummaryProductCB();
-     * cb.query().setFoo...(value);
-     * cb.query().addOrderBy_Bar...();
-     * ListResultBean&lt;SummaryProduct&gt; summaryProductList = summaryProductBhv.<span style="color: #DD4747">selectList</span>(cb);
-     * for (SummaryProduct summaryProduct : summaryProductList) {
+     * ListResultBean&lt;SummaryProduct&gt; summaryProductList = summaryProductBhv.<span style="color: #CC4747">selectList</span>(cb -&gt; {
+     *     cb.query().set...;
+     *     cb.query().addOrderBy...;
+     * });
+     * summaryProductList.forEach(summaryProduct -&gt; {
      *     ... = summaryProduct.get...();
-     * }
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of SummaryProduct. (NotNull)
      * @return The result bean of selected list. (NotNull: if no data, returns empty list)
      * @exception DangerousResultSizeException When the result size is over the specified safety size.
      */
     public ListResultBean<SummaryProduct> selectList(CBCall<SummaryProductCB> cbLambda) {
-        return facadeSelectList(handleCBCall(cbLambda));
+        return facadeSelectList(createCB(cbLambda));
     }
 
     /**
@@ -228,7 +228,7 @@ public abstract class BsSummaryProductBhv extends AbstractBehaviorReadable<Summa
      * SummaryProductCB cb = new SummaryProductCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
-     * ListResultBean&lt;SummaryProduct&gt; summaryProductList = summaryProductBhv.<span style="color: #DD4747">selectList</span>(cb);
+     * ListResultBean&lt;SummaryProduct&gt; summaryProductList = summaryProductBhv.<span style="color: #CC4747">selectList</span>(cb);
      * for (SummaryProduct summaryProduct : summaryProductList) {
      *     ... = summaryProduct.get...();
      * }
@@ -254,8 +254,8 @@ public abstract class BsSummaryProductBhv extends AbstractBehaviorReadable<Summa
      * SummaryProductCB cb = new SummaryProductCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
-     * cb.<span style="color: #DD4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;SummaryProduct&gt; page = summaryProductBhv.<span style="color: #DD4747">selectPage</span>(cb);
+     * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
+     * PagingResultBean&lt;SummaryProduct&gt; page = summaryProductBhv.<span style="color: #CC4747">selectPage</span>(cb);
      * int allRecordCount = page.getAllRecordCount();
      * int allPageCount = page.getAllPageCount();
      * boolean isExistPrePage = page.isExistPrePage();
@@ -270,7 +270,7 @@ public abstract class BsSummaryProductBhv extends AbstractBehaviorReadable<Summa
      * @exception DangerousResultSizeException When the result size is over the specified safety size.
      */
     public PagingResultBean<SummaryProduct> selectPage(CBCall<SummaryProductCB> cbLambda) {
-        return facadeSelectPage(handleCBCall(cbLambda));
+        return facadeSelectPage(createCB(cbLambda));
     }
 
     /**
@@ -280,8 +280,8 @@ public abstract class BsSummaryProductBhv extends AbstractBehaviorReadable<Summa
      * SummaryProductCB cb = new SummaryProductCB();
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
-     * cb.<span style="color: #DD4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;SummaryProduct&gt; page = summaryProductBhv.<span style="color: #DD4747">selectPage</span>(cb);
+     * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
+     * PagingResultBean&lt;SummaryProduct&gt; page = summaryProductBhv.<span style="color: #CC4747">selectPage</span>(cb);
      * int allRecordCount = page.getAllRecordCount();
      * int allPageCount = page.getAllPageCount();
      * boolean isExistPrePage = page.isExistPrePage();
@@ -307,7 +307,7 @@ public abstract class BsSummaryProductBhv extends AbstractBehaviorReadable<Summa
      * <pre>
      * SummaryProductCB cb = new SummaryProductCB();
      * cb.query().setFoo...(value);
-     * summaryProductBhv.<span style="color: #DD4747">selectCursor</span>(cb, new EntityRowHandler&lt;SummaryProduct&gt;() {
+     * summaryProductBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;SummaryProduct&gt;() {
      *     public void handle(SummaryProduct entity) {
      *         ... = entity.getFoo...();
      *     }
@@ -317,7 +317,7 @@ public abstract class BsSummaryProductBhv extends AbstractBehaviorReadable<Summa
      * @param entityLambda The handler of entity row of SummaryProduct. (NotNull)
      */
     public void selectCursor(CBCall<SummaryProductCB> cbLambda, EntityRowHandler<SummaryProduct> entityLambda) {
-        facadeSelectCursor(handleCBCall(cbLambda), entityLambda);
+        facadeSelectCursor(createCB(cbLambda), entityLambda);
     }
 
     /**
@@ -325,7 +325,7 @@ public abstract class BsSummaryProductBhv extends AbstractBehaviorReadable<Summa
      * <pre>
      * SummaryProductCB cb = new SummaryProductCB();
      * cb.query().setFoo...(value);
-     * summaryProductBhv.<span style="color: #DD4747">selectCursor</span>(cb, new EntityRowHandler&lt;SummaryProduct&gt;() {
+     * summaryProductBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;SummaryProduct&gt;() {
      *     public void handle(SummaryProduct entity) {
      *         ... = entity.getFoo...();
      *     }
@@ -345,9 +345,9 @@ public abstract class BsSummaryProductBhv extends AbstractBehaviorReadable<Summa
      * Select the scalar value derived by a function from uniquely-selected records. <br />
      * You should call a function method after this method called like as follows:
      * <pre>
-     * summaryProductBhv.<span style="color: #DD4747">scalarSelect</span>(Date.class).max(new ScalarQuery() {
+     * summaryProductBhv.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(new ScalarQuery() {
      *     public void query(SummaryProductCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFooDatetime()</span>; <span style="color: #3F7E5E">// required for a function</span>
+     *         cb.specify().<span style="color: #CC4747">columnFooDatetime()</span>; <span style="color: #3F7E5E">// required for a function</span>
      *         cb.query().setBarName_PrefixSearch("S");
      *     }
      * });
@@ -378,8 +378,8 @@ public abstract class BsSummaryProductBhv extends AbstractBehaviorReadable<Summa
      * MemberCB cb = new MemberCB();
      * cb.query().set...
      * List&lt;Member&gt; memberList = memberBhv.selectList(cb);
-     * memberBhv.<span style="color: #DD4747">load</span>(memberList, loader -&gt; {
-     *     loader.<span style="color: #DD4747">loadPurchaseList</span>(purchaseCB -&gt; {
+     * memberBhv.<span style="color: #CC4747">load</span>(memberList, loader -&gt; {
+     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
      *         purchaseCB.query().set...
      *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
@@ -392,7 +392,7 @@ public abstract class BsSummaryProductBhv extends AbstractBehaviorReadable<Summa
      *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
      * }
      * for (Member member : memberList) {
-     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #DD4747">getPurchaseList()</span>;
+     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
      *     for (Purchase purchase : purchaseList) {
      *         ...
      *     }
@@ -414,8 +414,8 @@ public abstract class BsSummaryProductBhv extends AbstractBehaviorReadable<Summa
      * MemberCB cb = new MemberCB();
      * cb.query().set...
      * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * memberBhv.<span style="color: #DD4747">load</span>(member, loader -&gt; {
-     *     loader.<span style="color: #DD4747">loadPurchaseList</span>(purchaseCB -&gt; {
+     * memberBhv.<span style="color: #CC4747">load</span>(member, loader -&gt; {
+     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
      *         purchaseCB.query().set...
      *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
@@ -428,7 +428,7 @@ public abstract class BsSummaryProductBhv extends AbstractBehaviorReadable<Summa
      *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
      * }
      * for (Member member : memberList) {
-     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #DD4747">getPurchaseList()</span>;
+     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
      *     for (Purchase purchase : purchaseList) {
      *         ...
      *     }
@@ -461,7 +461,7 @@ public abstract class BsSummaryProductBhv extends AbstractBehaviorReadable<Summa
      * SummaryProduct summaryProduct = new SummaryProduct();
      * summaryProduct.setFoo...(value);
      * summaryProduct.setBar...(value);
-     * summaryProductBhv.<span style="color: #DD4747">insert</span>(summaryProduct);
+     * summaryProductBhv.<span style="color: #CC4747">insert</span>(summaryProduct);
      * </pre>
      * @param summaryProduct The entity for insert. (NotNull)
      */
@@ -503,7 +503,7 @@ public abstract class BsSummaryProductBhv extends AbstractBehaviorReadable<Summa
      */
     public OutsideSqlBasicExecutor<SummaryProductBhv> outsideSql() {
         OutsideSqlAllFacadeExecutor<SummaryProductBhv> facadeExecutor = doOutsideSql();
-        return facadeExecutor.xbasicExecutor();
+        return facadeExecutor.xbasicExecutor(); // variable to resolve generic type
     }
 
     // ===================================================================================

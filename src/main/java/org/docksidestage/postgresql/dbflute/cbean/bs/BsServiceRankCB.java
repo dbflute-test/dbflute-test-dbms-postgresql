@@ -223,7 +223,7 @@ public class BsServiceRankCB extends AbstractConditionBean {
      * You don't need to call SetupSelect in union-query,
      * because it inherits calls before. (Don't call SetupSelect after here)
      * <pre>
-     * cb.query().<span style="color: #DD4747">union</span>(new UnionQuery&lt;ServiceRankCB&gt;() {
+     * cb.query().<span style="color: #CC4747">union</span>(new UnionQuery&lt;ServiceRankCB&gt;() {
      *     public void query(ServiceRankCB unionCB) {
      *         unionCB.query().setXxx...
      *     }
@@ -242,7 +242,7 @@ public class BsServiceRankCB extends AbstractConditionBean {
      * You don't need to call SetupSelect in union-query,
      * because it inherits calls before. (Don't call SetupSelect after here)
      * <pre>
-     * cb.query().<span style="color: #DD4747">unionAll</span>(new UnionQuery&lt;ServiceRankCB&gt;() {
+     * cb.query().<span style="color: #CC4747">unionAll</span>(new UnionQuery&lt;ServiceRankCB&gt;() {
      *     public void query(ServiceRankCB unionCB) {
      *         unionCB.query().setXxx...
      *     }
@@ -302,7 +302,7 @@ public class BsServiceRankCB extends AbstractConditionBean {
                 public boolean has() { return true; }
                 public ServiceRankCQ qy() { return getConditionQuery(); }
             }
-            , _purpose, getDBMetaProvider(), xcFofSDROp()); }
+            , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
     }
 
@@ -317,8 +317,8 @@ public class BsServiceRankCB extends AbstractConditionBean {
     public static class HpSpecification extends HpAbstractSpecification<ServiceRankCQ> {
         public HpSpecification(ConditionBean baseCB, HpSpQyCall<ServiceRankCQ> qyCall
                              , HpCBPurpose purpose, DBMetaProvider dbmetaProvider
-                             , FactoryOfDerivedReferrerOption sdrOpFactory)
-        { super(baseCB, qyCall, purpose, dbmetaProvider, sdrOpFactory); }
+                             , HpSDRFunctionFactory sdrFuncFactory)
+        { super(baseCB, qyCall, purpose, dbmetaProvider, sdrFuncFactory); }
         /**
          * (サービスランクコード)service_rank_code: {PK, NotNull, bpchar(3)}
          * @return The information object of specified column. (NotNull)
@@ -362,12 +362,10 @@ public class BsServiceRankCB extends AbstractConditionBean {
          * {select max(FOO) from member_service where ...) as FOO_MAX} <br />
          * (会員サービス)member_service by service_rank_code, named 'memberServiceList'.
          * <pre>
-         * cb.specify().<span style="color: #DD4747">derivedMemberServiceList()</span>.<span style="color: #DD4747">max</span>(new SubQuery&lt;MemberServiceCB&gt;() {
-         *     public void query(MemberServiceCB subCB) {
-         *         subCB.specify().<span style="color: #DD4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
-         *         subCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
-         *     }
-         * }, MemberService.<span style="color: #DD4747">ALIAS_foo...</span>);
+         * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(serviceCB -&gt; {
+         *     serviceCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
+         *     serviceCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
+         * }, MemberService.<span style="color: #CC4747">ALIAS_foo...</span>);
          * </pre>
          * @return The object to set up a function for referrer table. (NotNull)
          */
@@ -397,13 +395,13 @@ public class BsServiceRankCB extends AbstractConditionBean {
      * Set up column-query. {column1 = column2}
      * <pre>
      * <span style="color: #3F7E5E">// where FOO &lt; BAR</span>
-     * cb.<span style="color: #DD4747">columnQuery</span>(new SpecifyQuery&lt;ServiceRankCB&gt;() {
+     * cb.<span style="color: #CC4747">columnQuery</span>(new SpecifyQuery&lt;ServiceRankCB&gt;() {
      *     public void query(ServiceRankCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFoo()</span>; <span style="color: #3F7E5E">// left column</span>
+     *         cb.specify().<span style="color: #CC4747">columnFoo()</span>; <span style="color: #3F7E5E">// left column</span>
      *     }
      * }).lessThan(new SpecifyQuery&lt;ServiceRankCB&gt;() {
      *     public void query(ServiceRankCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnBar()</span>; <span style="color: #3F7E5E">// right column</span>
+     *         cb.specify().<span style="color: #CC4747">columnBar()</span>; <span style="color: #3F7E5E">// right column</span>
      *     }
      * }); <span style="color: #3F7E5E">// you can calculate for right column like '}).plus(3);'</span>
      * </pre>
@@ -451,7 +449,7 @@ public class BsServiceRankCB extends AbstractConditionBean {
      * (Same-column-and-same-condition-key conditions are allowed in or-scope)
      * <pre>
      * <span style="color: #3F7E5E">// where (FOO = '...' or BAR = '...')</span>
-     * cb.<span style="color: #DD4747">orScopeQuery</span>(new OrQuery&lt;ServiceRankCB&gt;() {
+     * cb.<span style="color: #CC4747">orScopeQuery</span>(new OrQuery&lt;ServiceRankCB&gt;() {
      *     public void query(ServiceRankCB orCB) {
      *         orCB.query().setFOO_Equal...
      *         orCB.query().setBAR_Equal...
@@ -469,10 +467,10 @@ public class BsServiceRankCB extends AbstractConditionBean {
      * (However nested or-scope query and as-or-split of like-search in and-part are unsupported)
      * <pre>
      * <span style="color: #3F7E5E">// where (FOO = '...' or (BAR = '...' and QUX = '...'))</span>
-     * cb.<span style="color: #DD4747">orScopeQuery</span>(new OrQuery&lt;ServiceRankCB&gt;() {
+     * cb.<span style="color: #CC4747">orScopeQuery</span>(new OrQuery&lt;ServiceRankCB&gt;() {
      *     public void query(ServiceRankCB orCB) {
      *         orCB.query().setFOO_Equal...
-     *         orCB.<span style="color: #DD4747">orScopeQueryAndPart</span>(new AndQuery&lt;ServiceRankCB&gt;() {
+     *         orCB.<span style="color: #CC4747">orScopeQueryAndPart</span>(new AndQuery&lt;ServiceRankCB&gt;() {
      *             public void query(ServiceRankCB andCB) {
      *                 andCB.query().setBar_...
      *                 andCB.query().setQux_...

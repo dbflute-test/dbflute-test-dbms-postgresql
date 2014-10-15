@@ -104,7 +104,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
      * @param maxNumber The max number of non_compilable_id. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
-    public void setNon_compilable_id_RangeOf(Integer minNumber, Integer maxNumber, COptionCall<RangeOfOption> opLambda) {
+    public void setNon_compilable_id_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
         setNon_compilable_id_RangeOf(minNumber, maxNumber, xcROOP(opLambda));
     }
 
@@ -152,10 +152,8 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
      * {exists (select Next_ParentID from VENDOR-NON COMPILABLE where ...)} <br />
      * VENDOR-NON COMPILABLE by Next_ParentID, named 'vendor_non_compilableByNextParentidSelfAsOne'.
      * <pre>
-     * cb.query().<span style="color: #DD4747">existsVendor_non_compilableByNextParentidSelfList</span>(new SubQuery&lt;Vendor_non_compilableCB&gt;() {
-     *     public void query(Vendor_non_compilableCB subCB) {
-     *         subCB.query().setXxx...
-     *     }
+     * cb.query().<span style="color: #CC4747">existsVendor_non_compilableByNextParentidSelfList</span>(entityCB -&gt; {
+     *     entityCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of Vendor_non_compilableByNextParentidSelfList for 'exists'. (NotNull)
@@ -174,10 +172,8 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
      * {exists (select PARENT-ID from VENDOR-NON COMPILABLE where ...)} <br />
      * VENDOR-NON COMPILABLE by PARENT-ID, named 'vendor_non_compilableByParent_idSelfAsOne'.
      * <pre>
-     * cb.query().<span style="color: #DD4747">existsVendor_non_compilableByParent_idSelfList</span>(new SubQuery&lt;Vendor_non_compilableCB&gt;() {
-     *     public void query(Vendor_non_compilableCB subCB) {
-     *         subCB.query().setXxx...
-     *     }
+     * cb.query().<span style="color: #CC4747">existsVendor_non_compilableByParent_idSelfList</span>(entityCB -&gt; {
+     *     entityCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of Vendor_non_compilableByParent_idSelfList for 'exists'. (NotNull)
@@ -196,7 +192,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
      * {not exists (select Next_ParentID from VENDOR-NON COMPILABLE where ...)} <br />
      * VENDOR-NON COMPILABLE by Next_ParentID, named 'vendor_non_compilableByNextParentidSelfAsOne'.
      * <pre>
-     * cb.query().<span style="color: #DD4747">notExistsVendor_non_compilableByNextParentidSelfList</span>(new SubQuery&lt;Vendor_non_compilableCB&gt;() {
+     * cb.query().<span style="color: #CC4747">notExistsVendor_non_compilableByNextParentidSelfList</span>(new SubQuery&lt;Vendor_non_compilableCB&gt;() {
      *     public void query(Vendor_non_compilableCB subCB) {
      *         subCB.query().setXxx...
      *     }
@@ -218,7 +214,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
      * {not exists (select PARENT-ID from VENDOR-NON COMPILABLE where ...)} <br />
      * VENDOR-NON COMPILABLE by PARENT-ID, named 'vendor_non_compilableByParent_idSelfAsOne'.
      * <pre>
-     * cb.query().<span style="color: #DD4747">notExistsVendor_non_compilableByParent_idSelfList</span>(new SubQuery&lt;Vendor_non_compilableCB&gt;() {
+     * cb.query().<span style="color: #CC4747">notExistsVendor_non_compilableByParent_idSelfList</span>(new SubQuery&lt;Vendor_non_compilableCB&gt;() {
      *     public void query(Vendor_non_compilableCB subCB) {
      *         subCB.query().setXxx...
      *     }
@@ -258,10 +254,10 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
      * {FOO &lt;= (select max(BAR) from VENDOR-NON COMPILABLE where ...)} <br />
      * VENDOR-NON COMPILABLE by Next_ParentID, named 'vendor_non_compilableByNextParentidSelfAsOne'.
      * <pre>
-     * cb.query().<span style="color: #DD4747">derivedVendor_non_compilableByNextParentidSelfList()</span>.<span style="color: #DD4747">max</span>(entityCB -&gt; {
-     *     entityCB.specify().<span style="color: #DD4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
+     * cb.query().<span style="color: #CC4747">derivedVendor_non_compilableByNextParentidSelfList()</span>.<span style="color: #CC4747">max</span>(entityCB -&gt; {
+     *     entityCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *     entityCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
-     * }).<span style="color: #DD4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
+     * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
      * </pre>
      * @return The object to set up a function for referrer table. (NotNull)
      */
@@ -290,10 +286,10 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
      * {FOO &lt;= (select max(BAR) from VENDOR-NON COMPILABLE where ...)} <br />
      * VENDOR-NON COMPILABLE by PARENT-ID, named 'vendor_non_compilableByParent_idSelfAsOne'.
      * <pre>
-     * cb.query().<span style="color: #DD4747">derivedVendor_non_compilableByParent_idSelfList()</span>.<span style="color: #DD4747">max</span>(entityCB -&gt; {
-     *     entityCB.specify().<span style="color: #DD4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
+     * cb.query().<span style="color: #CC4747">derivedVendor_non_compilableByParent_idSelfList()</span>.<span style="color: #CC4747">max</span>(entityCB -&gt; {
+     *     entityCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *     entityCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
-     * }).<span style="color: #DD4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
+     * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
      * </pre>
      * @return The object to set up a function for referrer table. (NotNull)
      */
@@ -387,18 +383,18 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * NON COMPILABLE-NAME: {varchar(64)} <br />
-     * <pre>e.g. setNon_compilable_name_LikeSearch("xxx", new <span style="color: #DD4747">LikeSearchOption</span>().likeContain());</pre>
+     * <pre>e.g. setNon_compilable_name_LikeSearch("xxx", op -&gt; op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param non_compilable_name The value of non_compilable_name as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
-    public void setNon_compilable_name_LikeSearch(String non_compilable_name, COptionCall<LikeSearchOption> opLambda) {
+    public void setNon_compilable_name_LikeSearch(String non_compilable_name, ConditionOptionCall<LikeSearchOption> opLambda) {
         setNon_compilable_name_LikeSearch(non_compilable_name, xcLSOP(opLambda));
     }
 
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * NON COMPILABLE-NAME: {varchar(64)} <br />
-     * <pre>e.g. setNon_compilable_name_LikeSearch("xxx", new <span style="color: #DD4747">LikeSearchOption</span>().likeContain());</pre>
+     * <pre>e.g. setNon_compilable_name_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param non_compilable_name The value of non_compilable_name as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
@@ -413,7 +409,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
      * @param non_compilable_name The value of non_compilable_name as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
-    public void setNon_compilable_name_NotLikeSearch(String non_compilable_name, COptionCall<LikeSearchOption> opLambda) {
+    public void setNon_compilable_name_NotLikeSearch(String non_compilable_name, ConditionOptionCall<LikeSearchOption> opLambda) {
         setNon_compilable_name_NotLikeSearch(non_compilable_name, xcLSOP(opLambda));
     }
 
@@ -516,7 +512,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
      * @param maxNumber The max number of parent_id. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
-    public void setParent_id_RangeOf(Integer minNumber, Integer maxNumber, COptionCall<RangeOfOption> opLambda) {
+    public void setParent_id_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
         setParent_id_RangeOf(minNumber, maxNumber, xcROOP(opLambda));
     }
 
@@ -632,7 +628,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
      * @param maxNumber The max number of nextParentid. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
-    public void setNextParentid_RangeOf(Integer minNumber, Integer maxNumber, COptionCall<RangeOfOption> opLambda) {
+    public void setNextParentid_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
         setNextParentid_RangeOf(minNumber, maxNumber, xcROOP(opLambda));
     }
 
@@ -697,7 +693,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
      * Prepare ScalarCondition as equal. <br />
      * {where FOO = (select max(BAR) from ...)
      * <pre>
-     * cb.query().<span style="color: #DD4747">scalar_Equal()</span>.max(new SubQuery&lt;Vendor_non_compilableCB&gt;() {
+     * cb.query().<span style="color: #CC4747">scalar_Equal()</span>.max(new SubQuery&lt;Vendor_non_compilableCB&gt;() {
      *     public void query(Vendor_non_compilableCB subCB) {
      *         subCB.specify().setXxx... <span style="color: #3F7E5E">// derived column for function</span>
      *         subCB.query().setYyy...
@@ -714,7 +710,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
      * Prepare ScalarCondition as equal. <br />
      * {where FOO &lt;&gt; (select max(BAR) from ...)
      * <pre>
-     * cb.query().<span style="color: #DD4747">scalar_NotEqual()</span>.max(new SubQuery&lt;Vendor_non_compilableCB&gt;() {
+     * cb.query().<span style="color: #CC4747">scalar_NotEqual()</span>.max(new SubQuery&lt;Vendor_non_compilableCB&gt;() {
      *     public void query(Vendor_non_compilableCB subCB) {
      *         subCB.specify().setXxx... <span style="color: #3F7E5E">// derived column for function</span>
      *         subCB.query().setYyy...
@@ -731,7 +727,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
      * Prepare ScalarCondition as greaterThan. <br />
      * {where FOO &gt; (select max(BAR) from ...)
      * <pre>
-     * cb.query().<span style="color: #DD4747">scalar_GreaterThan()</span>.max(new SubQuery&lt;Vendor_non_compilableCB&gt;() {
+     * cb.query().<span style="color: #CC4747">scalar_GreaterThan()</span>.max(new SubQuery&lt;Vendor_non_compilableCB&gt;() {
      *     public void query(Vendor_non_compilableCB subCB) {
      *         subCB.specify().setFoo... <span style="color: #3F7E5E">// derived column for function</span>
      *         subCB.query().setBar...
@@ -748,7 +744,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
      * Prepare ScalarCondition as lessThan. <br />
      * {where FOO &lt; (select max(BAR) from ...)
      * <pre>
-     * cb.query().<span style="color: #DD4747">scalar_LessThan()</span>.max(new SubQuery&lt;Vendor_non_compilableCB&gt;() {
+     * cb.query().<span style="color: #CC4747">scalar_LessThan()</span>.max(new SubQuery&lt;Vendor_non_compilableCB&gt;() {
      *     public void query(Vendor_non_compilableCB subCB) {
      *         subCB.specify().setFoo... <span style="color: #3F7E5E">// derived column for function</span>
      *         subCB.query().setBar...
@@ -765,7 +761,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
      * Prepare ScalarCondition as greaterEqual. <br />
      * {where FOO &gt;= (select max(BAR) from ...)
      * <pre>
-     * cb.query().<span style="color: #DD4747">scalar_GreaterEqual()</span>.max(new SubQuery&lt;Vendor_non_compilableCB&gt;() {
+     * cb.query().<span style="color: #CC4747">scalar_GreaterEqual()</span>.max(new SubQuery&lt;Vendor_non_compilableCB&gt;() {
      *     public void query(Vendor_non_compilableCB subCB) {
      *         subCB.specify().setFoo... <span style="color: #3F7E5E">// derived column for function</span>
      *         subCB.query().setBar...
@@ -782,7 +778,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
      * Prepare ScalarCondition as lessEqual. <br />
      * {where FOO &lt;= (select max(BAR) from ...)
      * <pre>
-     * cb.query().<span style="color: #DD4747">scalar_LessEqual()</span>.max(new SubQuery&lt;Vendor_non_compilableCB&gt;() {
+     * cb.query().<span style="color: #CC4747">scalar_LessEqual()</span>.max(new SubQuery&lt;Vendor_non_compilableCB&gt;() {
      *     public void query(Vendor_non_compilableCB subCB) {
      *         subCB.specify().setFoo... <span style="color: #3F7E5E">// derived column for function</span>
      *         subCB.query().setBar...
@@ -906,8 +902,8 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
      * <pre>
      * MemberCB cb = new MemberCB();
      * ManualOrderBean mob = new ManualOrderBean();
-     * mob.<span style="color: #DD4747">when_GreaterEqual</span>(priorityDate); <span style="color: #3F7E5E">// e.g. 2000/01/01</span>
-     * cb.query().addOrderBy_Birthdate_Asc().<span style="color: #DD4747">withManualOrder(mob)</span>;
+     * mob.<span style="color: #CC4747">when_GreaterEqual</span>(priorityDate); <span style="color: #3F7E5E">// e.g. 2000/01/01</span>
+     * cb.query().addOrderBy_Birthdate_Asc().<span style="color: #CC4747">withManualOrder(mob)</span>;
      * <span style="color: #3F7E5E">// order by </span>
      * <span style="color: #3F7E5E">//   case</span>
      * <span style="color: #3F7E5E">//     when BIRTHDATE &gt;= '2000/01/01' then 0</span>
@@ -916,10 +912,10 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
      *
      * MemberCB cb = new MemberCB();
      * ManualOrderBean mob = new ManualOrderBean();
-     * mob.<span style="color: #DD4747">when_Equal</span>(CDef.MemberStatus.Withdrawal);
-     * mob.<span style="color: #DD4747">when_Equal</span>(CDef.MemberStatus.Formalized);
-     * mob.<span style="color: #DD4747">when_Equal</span>(CDef.MemberStatus.Provisional);
-     * cb.query().addOrderBy_MemberStatusCode_Asc().<span style="color: #DD4747">withManualOrder(mob)</span>;
+     * mob.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Withdrawal);
+     * mob.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Formalized);
+     * mob.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Provisional);
+     * cb.query().addOrderBy_MemberStatusCode_Asc().<span style="color: #CC4747">withManualOrder(mob)</span>;
      * <span style="color: #3F7E5E">// order by </span>
      * <span style="color: #3F7E5E">//   case</span>
      * <span style="color: #3F7E5E">//     when MEMBER_STATUS_CODE = 'WDL' then 0</span>
@@ -932,7 +928,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
      * <p>The order values are bound (treated as bind parameter).</p>
      * @param opLambda The callback for option of manual-order containing order values. (NotNull)
      */
-    public void withManualOrder(MOOptionCall opLambda) { // is user public!
+    public void withManualOrder(ManualOrderOptionCall opLambda) { // is user public!
         xdoWithManualOrder(cMOO(opLambda));
     }
 
@@ -941,8 +937,8 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
      * <pre>
      * MemberCB cb = new MemberCB();
      * ManualOrderBean mob = new ManualOrderBean();
-     * mob.<span style="color: #DD4747">when_GreaterEqual</span>(priorityDate); <span style="color: #3F7E5E">// e.g. 2000/01/01</span>
-     * cb.query().addOrderBy_Birthdate_Asc().<span style="color: #DD4747">withManualOrder(mob)</span>;
+     * mob.<span style="color: #CC4747">when_GreaterEqual</span>(priorityDate); <span style="color: #3F7E5E">// e.g. 2000/01/01</span>
+     * cb.query().addOrderBy_Birthdate_Asc().<span style="color: #CC4747">withManualOrder(mob)</span>;
      * <span style="color: #3F7E5E">// order by </span>
      * <span style="color: #3F7E5E">//   case</span>
      * <span style="color: #3F7E5E">//     when BIRTHDATE &gt;= '2000/01/01' then 0</span>
@@ -951,10 +947,10 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
      *
      * MemberCB cb = new MemberCB();
      * ManualOrderBean mob = new ManualOrderBean();
-     * mob.<span style="color: #DD4747">when_Equal</span>(CDef.MemberStatus.Withdrawal);
-     * mob.<span style="color: #DD4747">when_Equal</span>(CDef.MemberStatus.Formalized);
-     * mob.<span style="color: #DD4747">when_Equal</span>(CDef.MemberStatus.Provisional);
-     * cb.query().addOrderBy_MemberStatusCode_Asc().<span style="color: #DD4747">withManualOrder(mob)</span>;
+     * mob.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Withdrawal);
+     * mob.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Formalized);
+     * mob.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Provisional);
+     * cb.query().addOrderBy_MemberStatusCode_Asc().<span style="color: #CC4747">withManualOrder(mob)</span>;
      * <span style="color: #3F7E5E">// order by </span>
      * <span style="color: #3F7E5E">//   case</span>
      * <span style="color: #3F7E5E">//     when MEMBER_STATUS_CODE = 'WDL' then 0</span>

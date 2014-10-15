@@ -211,7 +211,7 @@ public class BsVendorPartManHighCB extends AbstractConditionBean {
      * You don't need to call SetupSelect in union-query,
      * because it inherits calls before. (Don't call SetupSelect after here)
      * <pre>
-     * cb.query().<span style="color: #DD4747">union</span>(new UnionQuery&lt;VendorPartManHighCB&gt;() {
+     * cb.query().<span style="color: #CC4747">union</span>(new UnionQuery&lt;VendorPartManHighCB&gt;() {
      *     public void query(VendorPartManHighCB unionCB) {
      *         unionCB.query().setXxx...
      *     }
@@ -230,7 +230,7 @@ public class BsVendorPartManHighCB extends AbstractConditionBean {
      * You don't need to call SetupSelect in union-query,
      * because it inherits calls before. (Don't call SetupSelect after here)
      * <pre>
-     * cb.query().<span style="color: #DD4747">unionAll</span>(new UnionQuery&lt;VendorPartManHighCB&gt;() {
+     * cb.query().<span style="color: #CC4747">unionAll</span>(new UnionQuery&lt;VendorPartManHighCB&gt;() {
      *     public void query(VendorPartManHighCB unionCB) {
      *         unionCB.query().setXxx...
      *     }
@@ -290,7 +290,7 @@ public class BsVendorPartManHighCB extends AbstractConditionBean {
                 public boolean has() { return true; }
                 public VendorPartManHighCQ qy() { return getConditionQuery(); }
             }
-            , _purpose, getDBMetaProvider(), xcFofSDROp()); }
+            , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
     }
 
@@ -305,8 +305,8 @@ public class BsVendorPartManHighCB extends AbstractConditionBean {
     public static class HpSpecification extends HpAbstractSpecification<VendorPartManHighCQ> {
         public HpSpecification(ConditionBean baseCB, HpSpQyCall<VendorPartManHighCQ> qyCall
                              , HpCBPurpose purpose, DBMetaProvider dbmetaProvider
-                             , FactoryOfDerivedReferrerOption sdrOpFactory)
-        { super(baseCB, qyCall, purpose, dbmetaProvider, sdrOpFactory); }
+                             , HpSDRFunctionFactory sdrFuncFactory)
+        { super(baseCB, qyCall, purpose, dbmetaProvider, sdrFuncFactory); }
         /**
          * part_man_id: {PK, NotNull, int4(10)}
          * @return The information object of specified column. (NotNull)
@@ -355,13 +355,13 @@ public class BsVendorPartManHighCB extends AbstractConditionBean {
      * Set up column-query. {column1 = column2}
      * <pre>
      * <span style="color: #3F7E5E">// where FOO &lt; BAR</span>
-     * cb.<span style="color: #DD4747">columnQuery</span>(new SpecifyQuery&lt;VendorPartManHighCB&gt;() {
+     * cb.<span style="color: #CC4747">columnQuery</span>(new SpecifyQuery&lt;VendorPartManHighCB&gt;() {
      *     public void query(VendorPartManHighCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFoo()</span>; <span style="color: #3F7E5E">// left column</span>
+     *         cb.specify().<span style="color: #CC4747">columnFoo()</span>; <span style="color: #3F7E5E">// left column</span>
      *     }
      * }).lessThan(new SpecifyQuery&lt;VendorPartManHighCB&gt;() {
      *     public void query(VendorPartManHighCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnBar()</span>; <span style="color: #3F7E5E">// right column</span>
+     *         cb.specify().<span style="color: #CC4747">columnBar()</span>; <span style="color: #3F7E5E">// right column</span>
      *     }
      * }); <span style="color: #3F7E5E">// you can calculate for right column like '}).plus(3);'</span>
      * </pre>
@@ -409,7 +409,7 @@ public class BsVendorPartManHighCB extends AbstractConditionBean {
      * (Same-column-and-same-condition-key conditions are allowed in or-scope)
      * <pre>
      * <span style="color: #3F7E5E">// where (FOO = '...' or BAR = '...')</span>
-     * cb.<span style="color: #DD4747">orScopeQuery</span>(new OrQuery&lt;VendorPartManHighCB&gt;() {
+     * cb.<span style="color: #CC4747">orScopeQuery</span>(new OrQuery&lt;VendorPartManHighCB&gt;() {
      *     public void query(VendorPartManHighCB orCB) {
      *         orCB.query().setFOO_Equal...
      *         orCB.query().setBAR_Equal...
@@ -427,10 +427,10 @@ public class BsVendorPartManHighCB extends AbstractConditionBean {
      * (However nested or-scope query and as-or-split of like-search in and-part are unsupported)
      * <pre>
      * <span style="color: #3F7E5E">// where (FOO = '...' or (BAR = '...' and QUX = '...'))</span>
-     * cb.<span style="color: #DD4747">orScopeQuery</span>(new OrQuery&lt;VendorPartManHighCB&gt;() {
+     * cb.<span style="color: #CC4747">orScopeQuery</span>(new OrQuery&lt;VendorPartManHighCB&gt;() {
      *     public void query(VendorPartManHighCB orCB) {
      *         orCB.query().setFOO_Equal...
-     *         orCB.<span style="color: #DD4747">orScopeQueryAndPart</span>(new AndQuery&lt;VendorPartManHighCB&gt;() {
+     *         orCB.<span style="color: #CC4747">orScopeQueryAndPart</span>(new AndQuery&lt;VendorPartManHighCB&gt;() {
      *             public void query(VendorPartManHighCB andCB) {
      *                 andCB.query().setBar_...
      *                 andCB.query().setQux_...

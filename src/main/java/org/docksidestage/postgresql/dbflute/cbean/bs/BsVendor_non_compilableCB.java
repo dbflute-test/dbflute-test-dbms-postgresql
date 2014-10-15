@@ -224,7 +224,7 @@ public class BsVendor_non_compilableCB extends AbstractConditionBean {
      * You don't need to call SetupSelect in union-query,
      * because it inherits calls before. (Don't call SetupSelect after here)
      * <pre>
-     * cb.query().<span style="color: #DD4747">union</span>(new UnionQuery&lt;Vendor_non_compilableCB&gt;() {
+     * cb.query().<span style="color: #CC4747">union</span>(new UnionQuery&lt;Vendor_non_compilableCB&gt;() {
      *     public void query(Vendor_non_compilableCB unionCB) {
      *         unionCB.query().setXxx...
      *     }
@@ -243,7 +243,7 @@ public class BsVendor_non_compilableCB extends AbstractConditionBean {
      * You don't need to call SetupSelect in union-query,
      * because it inherits calls before. (Don't call SetupSelect after here)
      * <pre>
-     * cb.query().<span style="color: #DD4747">unionAll</span>(new UnionQuery&lt;Vendor_non_compilableCB&gt;() {
+     * cb.query().<span style="color: #CC4747">unionAll</span>(new UnionQuery&lt;Vendor_non_compilableCB&gt;() {
      *     public void query(Vendor_non_compilableCB unionCB) {
      *         unionCB.query().setXxx...
      *     }
@@ -284,10 +284,10 @@ public class BsVendor_non_compilableCB extends AbstractConditionBean {
      * VENDOR-NON COMPILABLE by my Next_ParentID, named 'vendor_non_compilableByNextParentidSelf'.
      * <pre>
      * Vendor_non_compilableCB cb = new Vendor_non_compilableCB();
-     * cb.<span style="color: #DD4747">setupSelect_Vendor_non_compilableByNextParentidSelf()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     * cb.<span style="color: #CC4747">setupSelect_Vendor_non_compilableByNextParentidSelf()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
      * cb.query().setFoo...(value);
      * Vendor_non_compilable vendor_non_compilable = vendor_non_compilableBhv.selectEntityWithDeletedCheck(cb);
-     * ... = vendor_non_compilable.<span style="color: #DD4747">getVendor_non_compilableByNextParentidSelf()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * ... = vendor_non_compilable.<span style="color: #CC4747">getVendor_non_compilableByNextParentidSelf()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
      * </pre>
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
      */
@@ -312,10 +312,10 @@ public class BsVendor_non_compilableCB extends AbstractConditionBean {
      * VENDOR-NON COMPILABLE by my PARENT-ID, named 'vendor_non_compilableByParent_idSelf'.
      * <pre>
      * Vendor_non_compilableCB cb = new Vendor_non_compilableCB();
-     * cb.<span style="color: #DD4747">setupSelect_Vendor_non_compilableByParent_idSelf()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     * cb.<span style="color: #CC4747">setupSelect_Vendor_non_compilableByParent_idSelf()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
      * cb.query().setFoo...(value);
      * Vendor_non_compilable vendor_non_compilable = vendor_non_compilableBhv.selectEntityWithDeletedCheck(cb);
-     * ... = vendor_non_compilable.<span style="color: #DD4747">getVendor_non_compilableByParent_idSelf()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * ... = vendor_non_compilable.<span style="color: #CC4747">getVendor_non_compilableByParent_idSelf()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
      * </pre>
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
      */
@@ -359,7 +359,7 @@ public class BsVendor_non_compilableCB extends AbstractConditionBean {
                 public boolean has() { return true; }
                 public Vendor_non_compilableCQ qy() { return getConditionQuery(); }
             }
-            , _purpose, getDBMetaProvider(), xcFofSDROp()); }
+            , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
     }
 
@@ -376,8 +376,8 @@ public class BsVendor_non_compilableCB extends AbstractConditionBean {
         protected Vendor_non_compilableCB.HpSpecification _vendor_non_compilableByParent_idSelf;
         public HpSpecification(ConditionBean baseCB, HpSpQyCall<Vendor_non_compilableCQ> qyCall
                              , HpCBPurpose purpose, DBMetaProvider dbmetaProvider
-                             , FactoryOfDerivedReferrerOption sdrOpFactory)
-        { super(baseCB, qyCall, purpose, dbmetaProvider, sdrOpFactory); }
+                             , HpSDRFunctionFactory sdrFuncFactory)
+        { super(baseCB, qyCall, purpose, dbmetaProvider, sdrFuncFactory); }
         /**
          * NON-COMPILABLE ID: {PK, NotNull, int4(10)}
          * @return The information object of specified column. (NotNull)
@@ -425,7 +425,7 @@ public class BsVendor_non_compilableCB extends AbstractConditionBean {
                 _vendor_non_compilableByNextParentidSelf = new Vendor_non_compilableCB.HpSpecification(_baseCB, new HpSpQyCall<Vendor_non_compilableCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryVendor_non_compilableByNextParentidSelf(); }
                     public Vendor_non_compilableCQ qy() { return _qyCall.qy().queryVendor_non_compilableByNextParentidSelf(); } }
-                    , _purpose, _dbmetaProvider, xgetFofSDROp());
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _vendor_non_compilableByNextParentidSelf.xsetSyncQyCall(new HpSpQyCall<Vendor_non_compilableCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryVendor_non_compilableByNextParentidSelf(); }
@@ -446,7 +446,7 @@ public class BsVendor_non_compilableCB extends AbstractConditionBean {
                 _vendor_non_compilableByParent_idSelf = new Vendor_non_compilableCB.HpSpecification(_baseCB, new HpSpQyCall<Vendor_non_compilableCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryVendor_non_compilableByParent_idSelf(); }
                     public Vendor_non_compilableCQ qy() { return _qyCall.qy().queryVendor_non_compilableByParent_idSelf(); } }
-                    , _purpose, _dbmetaProvider, xgetFofSDROp());
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _vendor_non_compilableByParent_idSelf.xsetSyncQyCall(new HpSpQyCall<Vendor_non_compilableCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryVendor_non_compilableByParent_idSelf(); }
@@ -461,12 +461,10 @@ public class BsVendor_non_compilableCB extends AbstractConditionBean {
          * {select max(FOO) from VENDOR-NON COMPILABLE where ...) as FOO_MAX} <br />
          * VENDOR-NON COMPILABLE by Next_ParentID, named 'vendor_non_compilableByNextParentidSelfList'.
          * <pre>
-         * cb.specify().<span style="color: #DD4747">derivedVendor_non_compilableByNextParentidSelfList()</span>.<span style="color: #DD4747">max</span>(new SubQuery&lt;Vendor_non_compilableCB&gt;() {
-         *     public void query(Vendor_non_compilableCB subCB) {
-         *         subCB.specify().<span style="color: #DD4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
-         *         subCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
-         *     }
-         * }, Vendor_non_compilable.<span style="color: #DD4747">ALIAS_foo...</span>);
+         * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(entityCB -&gt; {
+         *     entityCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
+         *     entityCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
+         * }, Vendor_non_compilable.<span style="color: #CC4747">ALIAS_foo...</span>);
          * </pre>
          * @return The object to set up a function for referrer table. (NotNull)
          */
@@ -481,12 +479,10 @@ public class BsVendor_non_compilableCB extends AbstractConditionBean {
          * {select max(FOO) from VENDOR-NON COMPILABLE where ...) as FOO_MAX} <br />
          * VENDOR-NON COMPILABLE by PARENT-ID, named 'vendor_non_compilableByParent_idSelfList'.
          * <pre>
-         * cb.specify().<span style="color: #DD4747">derivedVendor_non_compilableByParent_idSelfList()</span>.<span style="color: #DD4747">max</span>(new SubQuery&lt;Vendor_non_compilableCB&gt;() {
-         *     public void query(Vendor_non_compilableCB subCB) {
-         *         subCB.specify().<span style="color: #DD4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
-         *         subCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
-         *     }
-         * }, Vendor_non_compilable.<span style="color: #DD4747">ALIAS_foo...</span>);
+         * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(entityCB -&gt; {
+         *     entityCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
+         *     entityCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
+         * }, Vendor_non_compilable.<span style="color: #CC4747">ALIAS_foo...</span>);
          * </pre>
          * @return The object to set up a function for referrer table. (NotNull)
          */
@@ -516,13 +512,13 @@ public class BsVendor_non_compilableCB extends AbstractConditionBean {
      * Set up column-query. {column1 = column2}
      * <pre>
      * <span style="color: #3F7E5E">// where FOO &lt; BAR</span>
-     * cb.<span style="color: #DD4747">columnQuery</span>(new SpecifyQuery&lt;Vendor_non_compilableCB&gt;() {
+     * cb.<span style="color: #CC4747">columnQuery</span>(new SpecifyQuery&lt;Vendor_non_compilableCB&gt;() {
      *     public void query(Vendor_non_compilableCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFoo()</span>; <span style="color: #3F7E5E">// left column</span>
+     *         cb.specify().<span style="color: #CC4747">columnFoo()</span>; <span style="color: #3F7E5E">// left column</span>
      *     }
      * }).lessThan(new SpecifyQuery&lt;Vendor_non_compilableCB&gt;() {
      *     public void query(Vendor_non_compilableCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnBar()</span>; <span style="color: #3F7E5E">// right column</span>
+     *         cb.specify().<span style="color: #CC4747">columnBar()</span>; <span style="color: #3F7E5E">// right column</span>
      *     }
      * }); <span style="color: #3F7E5E">// you can calculate for right column like '}).plus(3);'</span>
      * </pre>
@@ -570,7 +566,7 @@ public class BsVendor_non_compilableCB extends AbstractConditionBean {
      * (Same-column-and-same-condition-key conditions are allowed in or-scope)
      * <pre>
      * <span style="color: #3F7E5E">// where (FOO = '...' or BAR = '...')</span>
-     * cb.<span style="color: #DD4747">orScopeQuery</span>(new OrQuery&lt;Vendor_non_compilableCB&gt;() {
+     * cb.<span style="color: #CC4747">orScopeQuery</span>(new OrQuery&lt;Vendor_non_compilableCB&gt;() {
      *     public void query(Vendor_non_compilableCB orCB) {
      *         orCB.query().setFOO_Equal...
      *         orCB.query().setBAR_Equal...
@@ -588,10 +584,10 @@ public class BsVendor_non_compilableCB extends AbstractConditionBean {
      * (However nested or-scope query and as-or-split of like-search in and-part are unsupported)
      * <pre>
      * <span style="color: #3F7E5E">// where (FOO = '...' or (BAR = '...' and QUX = '...'))</span>
-     * cb.<span style="color: #DD4747">orScopeQuery</span>(new OrQuery&lt;Vendor_non_compilableCB&gt;() {
+     * cb.<span style="color: #CC4747">orScopeQuery</span>(new OrQuery&lt;Vendor_non_compilableCB&gt;() {
      *     public void query(Vendor_non_compilableCB orCB) {
      *         orCB.query().setFOO_Equal...
-     *         orCB.<span style="color: #DD4747">orScopeQueryAndPart</span>(new AndQuery&lt;Vendor_non_compilableCB&gt;() {
+     *         orCB.<span style="color: #CC4747">orScopeQueryAndPart</span>(new AndQuery&lt;Vendor_non_compilableCB&gt;() {
      *             public void query(Vendor_non_compilableCB andCB) {
      *                 andCB.query().setBar_...
      *                 andCB.query().setQux_...

@@ -212,7 +212,7 @@ public class BsProductCategoryCB extends AbstractConditionBean {
      * You don't need to call SetupSelect in union-query,
      * because it inherits calls before. (Don't call SetupSelect after here)
      * <pre>
-     * cb.query().<span style="color: #DD4747">union</span>(new UnionQuery&lt;ProductCategoryCB&gt;() {
+     * cb.query().<span style="color: #CC4747">union</span>(new UnionQuery&lt;ProductCategoryCB&gt;() {
      *     public void query(ProductCategoryCB unionCB) {
      *         unionCB.query().setXxx...
      *     }
@@ -231,7 +231,7 @@ public class BsProductCategoryCB extends AbstractConditionBean {
      * You don't need to call SetupSelect in union-query,
      * because it inherits calls before. (Don't call SetupSelect after here)
      * <pre>
-     * cb.query().<span style="color: #DD4747">unionAll</span>(new UnionQuery&lt;ProductCategoryCB&gt;() {
+     * cb.query().<span style="color: #CC4747">unionAll</span>(new UnionQuery&lt;ProductCategoryCB&gt;() {
      *     public void query(ProductCategoryCB unionCB) {
      *         unionCB.query().setXxx...
      *     }
@@ -272,10 +272,10 @@ public class BsProductCategoryCB extends AbstractConditionBean {
      * (商品カテゴリ)product_category by my parent_category_code, named 'productCategorySelf'.
      * <pre>
      * ProductCategoryCB cb = new ProductCategoryCB();
-     * cb.<span style="color: #DD4747">setupSelect_ProductCategorySelf()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
+     * cb.<span style="color: #CC4747">setupSelect_ProductCategorySelf()</span>; <span style="color: #3F7E5E">// ...().with[nested-relation]()</span>
      * cb.query().setFoo...(value);
      * ProductCategory productCategory = productCategoryBhv.selectEntityWithDeletedCheck(cb);
-     * ... = productCategory.<span style="color: #DD4747">getProductCategorySelf()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
+     * ... = productCategory.<span style="color: #CC4747">getProductCategorySelf()</span>; <span style="color: #3F7E5E">// you can get by using SetupSelect</span>
      * </pre>
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
      */
@@ -319,7 +319,7 @@ public class BsProductCategoryCB extends AbstractConditionBean {
                 public boolean has() { return true; }
                 public ProductCategoryCQ qy() { return getConditionQuery(); }
             }
-            , _purpose, getDBMetaProvider(), xcFofSDROp()); }
+            , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
     }
 
@@ -335,8 +335,8 @@ public class BsProductCategoryCB extends AbstractConditionBean {
         protected ProductCategoryCB.HpSpecification _productCategorySelf;
         public HpSpecification(ConditionBean baseCB, HpSpQyCall<ProductCategoryCQ> qyCall
                              , HpCBPurpose purpose, DBMetaProvider dbmetaProvider
-                             , FactoryOfDerivedReferrerOption sdrOpFactory)
-        { super(baseCB, qyCall, purpose, dbmetaProvider, sdrOpFactory); }
+                             , HpSDRFunctionFactory sdrFuncFactory)
+        { super(baseCB, qyCall, purpose, dbmetaProvider, sdrFuncFactory); }
         /**
          * (商品カテゴリコード)product_category_code: {PK, NotNull, bpchar(3)}
          * @return The information object of specified column. (NotNull)
@@ -375,7 +375,7 @@ public class BsProductCategoryCB extends AbstractConditionBean {
                 _productCategorySelf = new ProductCategoryCB.HpSpecification(_baseCB, new HpSpQyCall<ProductCategoryCQ>() {
                     public boolean has() { return _qyCall.has() && _qyCall.qy().hasConditionQueryProductCategorySelf(); }
                     public ProductCategoryCQ qy() { return _qyCall.qy().queryProductCategorySelf(); } }
-                    , _purpose, _dbmetaProvider, xgetFofSDROp());
+                    , _purpose, _dbmetaProvider, xgetSDRFnFc());
                 if (xhasSyncQyCall()) { // inherits it
                     _productCategorySelf.xsetSyncQyCall(new HpSpQyCall<ProductCategoryCQ>() {
                         public boolean has() { return xsyncQyCall().has() && xsyncQyCall().qy().hasConditionQueryProductCategorySelf(); }
@@ -390,12 +390,10 @@ public class BsProductCategoryCB extends AbstractConditionBean {
          * {select max(FOO) from product where ...) as FOO_MAX} <br />
          * (商品)product by product_category_code, named 'productList'.
          * <pre>
-         * cb.specify().<span style="color: #DD4747">derivedProductList()</span>.<span style="color: #DD4747">max</span>(new SubQuery&lt;ProductCB&gt;() {
-         *     public void query(ProductCB subCB) {
-         *         subCB.specify().<span style="color: #DD4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
-         *         subCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
-         *     }
-         * }, Product.<span style="color: #DD4747">ALIAS_foo...</span>);
+         * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(productCB -&gt; {
+         *     productCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
+         *     productCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
+         * }, Product.<span style="color: #CC4747">ALIAS_foo...</span>);
          * </pre>
          * @return The object to set up a function for referrer table. (NotNull)
          */
@@ -410,12 +408,10 @@ public class BsProductCategoryCB extends AbstractConditionBean {
          * {select max(FOO) from product_category where ...) as FOO_MAX} <br />
          * (商品カテゴリ)product_category by parent_category_code, named 'productCategorySelfList'.
          * <pre>
-         * cb.specify().<span style="color: #DD4747">derivedProductCategorySelfList()</span>.<span style="color: #DD4747">max</span>(new SubQuery&lt;ProductCategoryCB&gt;() {
-         *     public void query(ProductCategoryCB subCB) {
-         *         subCB.specify().<span style="color: #DD4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
-         *         subCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
-         *     }
-         * }, ProductCategory.<span style="color: #DD4747">ALIAS_foo...</span>);
+         * cb.specify().<span style="color: #CC4747">derived${relationMethodIdentityName}()</span>.<span style="color: #CC4747">max</span>(categoryCB -&gt; {
+         *     categoryCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
+         *     categoryCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
+         * }, ProductCategory.<span style="color: #CC4747">ALIAS_foo...</span>);
          * </pre>
          * @return The object to set up a function for referrer table. (NotNull)
          */
@@ -445,13 +441,13 @@ public class BsProductCategoryCB extends AbstractConditionBean {
      * Set up column-query. {column1 = column2}
      * <pre>
      * <span style="color: #3F7E5E">// where FOO &lt; BAR</span>
-     * cb.<span style="color: #DD4747">columnQuery</span>(new SpecifyQuery&lt;ProductCategoryCB&gt;() {
+     * cb.<span style="color: #CC4747">columnQuery</span>(new SpecifyQuery&lt;ProductCategoryCB&gt;() {
      *     public void query(ProductCategoryCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnFoo()</span>; <span style="color: #3F7E5E">// left column</span>
+     *         cb.specify().<span style="color: #CC4747">columnFoo()</span>; <span style="color: #3F7E5E">// left column</span>
      *     }
      * }).lessThan(new SpecifyQuery&lt;ProductCategoryCB&gt;() {
      *     public void query(ProductCategoryCB cb) {
-     *         cb.specify().<span style="color: #DD4747">columnBar()</span>; <span style="color: #3F7E5E">// right column</span>
+     *         cb.specify().<span style="color: #CC4747">columnBar()</span>; <span style="color: #3F7E5E">// right column</span>
      *     }
      * }); <span style="color: #3F7E5E">// you can calculate for right column like '}).plus(3);'</span>
      * </pre>
@@ -499,7 +495,7 @@ public class BsProductCategoryCB extends AbstractConditionBean {
      * (Same-column-and-same-condition-key conditions are allowed in or-scope)
      * <pre>
      * <span style="color: #3F7E5E">// where (FOO = '...' or BAR = '...')</span>
-     * cb.<span style="color: #DD4747">orScopeQuery</span>(new OrQuery&lt;ProductCategoryCB&gt;() {
+     * cb.<span style="color: #CC4747">orScopeQuery</span>(new OrQuery&lt;ProductCategoryCB&gt;() {
      *     public void query(ProductCategoryCB orCB) {
      *         orCB.query().setFOO_Equal...
      *         orCB.query().setBAR_Equal...
@@ -517,10 +513,10 @@ public class BsProductCategoryCB extends AbstractConditionBean {
      * (However nested or-scope query and as-or-split of like-search in and-part are unsupported)
      * <pre>
      * <span style="color: #3F7E5E">// where (FOO = '...' or (BAR = '...' and QUX = '...'))</span>
-     * cb.<span style="color: #DD4747">orScopeQuery</span>(new OrQuery&lt;ProductCategoryCB&gt;() {
+     * cb.<span style="color: #CC4747">orScopeQuery</span>(new OrQuery&lt;ProductCategoryCB&gt;() {
      *     public void query(ProductCategoryCB orCB) {
      *         orCB.query().setFOO_Equal...
-     *         orCB.<span style="color: #DD4747">orScopeQueryAndPart</span>(new AndQuery&lt;ProductCategoryCB&gt;() {
+     *         orCB.<span style="color: #CC4747">orScopeQueryAndPart</span>(new AndQuery&lt;ProductCategoryCB&gt;() {
      *             public void query(ProductCategoryCB andCB) {
      *                 andCB.query().setBar_...
      *                 andCB.query().setQux_...
