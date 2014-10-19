@@ -74,10 +74,10 @@ public class BsVendor$DollarCQ extends AbstractBsVendor$DollarCQ {
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _vendor$DollarId;
-    public ConditionValue getVendor$DollarId()
+    public ConditionValue xdfgetVendor$DollarId()
     { if (_vendor$DollarId == null) { _vendor$DollarId = nCV(); }
       return _vendor$DollarId; }
-    protected ConditionValue getCValueVendor$DollarId() { return getVendor$DollarId(); }
+    protected ConditionValue xgetCValueVendor$DollarId() { return xdfgetVendor$DollarId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -94,10 +94,10 @@ public class BsVendor$DollarCQ extends AbstractBsVendor$DollarCQ {
     public BsVendor$DollarCQ addOrderBy_Vendor$DollarId_Desc() { regOBD("vendor_$_dollar_id"); return this; }
 
     protected ConditionValue _vendor$DollarName;
-    public ConditionValue getVendor$DollarName()
+    public ConditionValue xdfgetVendor$DollarName()
     { if (_vendor$DollarName == null) { _vendor$DollarName = nCV(); }
       return _vendor$DollarName; }
-    protected ConditionValue getCValueVendor$DollarName() { return getVendor$DollarName(); }
+    protected ConditionValue xgetCValueVendor$DollarName() { return xdfgetVendor$DollarName(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -164,31 +164,31 @@ public class BsVendor$DollarCQ extends AbstractBsVendor$DollarCQ {
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, Vendor$DollarCQ> getScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public Map<String, Vendor$DollarCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(Vendor$DollarCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
     //                                                                       MyselfDerived
     //                                                                       =============
-    public Map<String, Vendor$DollarCQ> getSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
+    public Map<String, Vendor$DollarCQ> xdfgetSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
     public String keepSpecifyMyselfDerived(Vendor$DollarCQ sq) { return xkeepSQue("specifyMyselfDerived", sq); }
 
-    public Map<String, Vendor$DollarCQ> getQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
+    public Map<String, Vendor$DollarCQ> xdfgetQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerived(Vendor$DollarCQ sq) { return xkeepSQue("queryMyselfDerived", sq); }
-    public Map<String, Object> getQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
+    public Map<String, Object> xdfgetQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerivedParameter(Object pm) { return xkeepSQuePm("queryMyselfDerived", pm); }
 
     // ===================================================================================
     //                                                                        MyselfExists
     //                                                                        ============
     protected Map<String, Vendor$DollarCQ> _myselfExistsMap;
-    public Map<String, Vendor$DollarCQ> getMyselfExists() { return xgetSQueMap("myselfExists"); }
+    public Map<String, Vendor$DollarCQ> xdfgetMyselfExists() { return xgetSQueMap("myselfExists"); }
     public String keepMyselfExists(Vendor$DollarCQ sq) { return xkeepSQue("myselfExists", sq); }
 
     // ===================================================================================
     //                                                                       MyselfInScope
     //                                                                       =============
-    public Map<String, Vendor$DollarCQ> getMyselfInScope() { return xgetSQueMap("myselfInScope"); }
+    public Map<String, Vendor$DollarCQ> xdfgetMyselfInScope() { return xgetSQueMap("myselfInScope"); }
     public String keepMyselfInScope(Vendor$DollarCQ sq) { return xkeepSQue("myselfInScope", sq); }
 
     // ===================================================================================
@@ -197,7 +197,7 @@ public class BsVendor$DollarCQ extends AbstractBsVendor$DollarCQ {
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return Vendor$DollarCB.class.getName(); }
     protected String xCQ() { return Vendor$DollarCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }

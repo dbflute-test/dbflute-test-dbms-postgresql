@@ -118,7 +118,7 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setProductId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueProductId(), "product_id", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueProductId(), "product_id", rangeOfOption);
     }
 
     /**
@@ -131,7 +131,7 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
     }
 
     protected void doSetProductId_InScope(Collection<Integer> productIdList) {
-        regINS(CK_INS, cTL(productIdList), getCValueProductId(), "product_id");
+        regINS(CK_INS, cTL(productIdList), xgetCValueProductId(), "product_id");
     }
 
     /**
@@ -144,7 +144,7 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
     }
 
     protected void doSetProductId_NotInScope(Collection<Integer> productIdList) {
-        regINS(CK_NINS, cTL(productIdList), getCValueProductId(), "product_id");
+        regINS(CK_NINS, cTL(productIdList), xgetCValueProductId(), "product_id");
     }
 
     /**
@@ -242,8 +242,8 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
      */
     public void setProductId_IsNotNull() { regProductId(CK_ISNN, DOBJ); }
 
-    protected void regProductId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueProductId(), "product_id"); }
-    protected abstract ConditionValue getCValueProductId();
+    protected void regProductId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueProductId(), "product_id"); }
+    protected abstract ConditionValue xgetCValueProductId();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -281,7 +281,7 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
     }
 
     protected void doSetProductName_InScope(Collection<String> productNameList) {
-        regINS(CK_INS, cTL(productNameList), getCValueProductName(), "product_name");
+        regINS(CK_INS, cTL(productNameList), xgetCValueProductName(), "product_name");
     }
 
     /**
@@ -294,7 +294,7 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
     }
 
     protected void doSetProductName_NotInScope(Collection<String> productNameList) {
-        regINS(CK_NINS, cTL(productNameList), getCValueProductName(), "product_name");
+        regINS(CK_NINS, cTL(productNameList), xgetCValueProductName(), "product_name");
     }
 
     /**
@@ -316,7 +316,7 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setProductName_LikeSearch(String productName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(productName), getCValueProductName(), "product_name", likeSearchOption);
+        regLSQ(CK_LS, fRES(productName), xgetCValueProductName(), "product_name", likeSearchOption);
     }
 
     /**
@@ -338,7 +338,7 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setProductName_NotLikeSearch(String productName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(productName), getCValueProductName(), "product_name", likeSearchOption);
+        regLSQ(CK_NLS, fRES(productName), xgetCValueProductName(), "product_name", likeSearchOption);
     }
 
     /**
@@ -350,8 +350,8 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
         setProductName_LikeSearch(productName, xcLSOPPre());
     }
 
-    protected void regProductName(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueProductName(), "product_name"); }
-    protected abstract ConditionValue getCValueProductName();
+    protected void regProductName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueProductName(), "product_name"); }
+    protected abstract ConditionValue xgetCValueProductName();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -389,7 +389,7 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
     }
 
     protected void doSetProductHandleCode_InScope(Collection<String> productHandleCodeList) {
-        regINS(CK_INS, cTL(productHandleCodeList), getCValueProductHandleCode(), "product_handle_code");
+        regINS(CK_INS, cTL(productHandleCodeList), xgetCValueProductHandleCode(), "product_handle_code");
     }
 
     /**
@@ -402,7 +402,7 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
     }
 
     protected void doSetProductHandleCode_NotInScope(Collection<String> productHandleCodeList) {
-        regINS(CK_NINS, cTL(productHandleCodeList), getCValueProductHandleCode(), "product_handle_code");
+        regINS(CK_NINS, cTL(productHandleCodeList), xgetCValueProductHandleCode(), "product_handle_code");
     }
 
     /**
@@ -424,7 +424,7 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setProductHandleCode_LikeSearch(String productHandleCode, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(productHandleCode), getCValueProductHandleCode(), "product_handle_code", likeSearchOption);
+        regLSQ(CK_LS, fRES(productHandleCode), xgetCValueProductHandleCode(), "product_handle_code", likeSearchOption);
     }
 
     /**
@@ -446,7 +446,7 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setProductHandleCode_NotLikeSearch(String productHandleCode, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(productHandleCode), getCValueProductHandleCode(), "product_handle_code", likeSearchOption);
+        regLSQ(CK_NLS, fRES(productHandleCode), xgetCValueProductHandleCode(), "product_handle_code", likeSearchOption);
     }
 
     /**
@@ -458,8 +458,8 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
         setProductHandleCode_LikeSearch(productHandleCode, xcLSOPPre());
     }
 
-    protected void regProductHandleCode(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueProductHandleCode(), "product_handle_code"); }
-    protected abstract ConditionValue getCValueProductHandleCode();
+    protected void regProductHandleCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueProductHandleCode(), "product_handle_code"); }
+    protected abstract ConditionValue xgetCValueProductHandleCode();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -497,7 +497,7 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
     }
 
     protected void doSetProductCategoryCode_InScope(Collection<String> productCategoryCodeList) {
-        regINS(CK_INS, cTL(productCategoryCodeList), getCValueProductCategoryCode(), "product_category_code");
+        regINS(CK_INS, cTL(productCategoryCodeList), xgetCValueProductCategoryCode(), "product_category_code");
     }
 
     /**
@@ -510,7 +510,7 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
     }
 
     protected void doSetProductCategoryCode_NotInScope(Collection<String> productCategoryCodeList) {
-        regINS(CK_NINS, cTL(productCategoryCodeList), getCValueProductCategoryCode(), "product_category_code");
+        regINS(CK_NINS, cTL(productCategoryCodeList), xgetCValueProductCategoryCode(), "product_category_code");
     }
 
     /**
@@ -532,7 +532,7 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setProductCategoryCode_LikeSearch(String productCategoryCode, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(productCategoryCode), getCValueProductCategoryCode(), "product_category_code", likeSearchOption);
+        regLSQ(CK_LS, fRES(productCategoryCode), xgetCValueProductCategoryCode(), "product_category_code", likeSearchOption);
     }
 
     /**
@@ -554,7 +554,7 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setProductCategoryCode_NotLikeSearch(String productCategoryCode, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(productCategoryCode), getCValueProductCategoryCode(), "product_category_code", likeSearchOption);
+        regLSQ(CK_NLS, fRES(productCategoryCode), xgetCValueProductCategoryCode(), "product_category_code", likeSearchOption);
     }
 
     /**
@@ -566,8 +566,8 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
         setProductCategoryCode_LikeSearch(productCategoryCode, xcLSOPPre());
     }
 
-    protected void regProductCategoryCode(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueProductCategoryCode(), "product_category_code"); }
-    protected abstract ConditionValue getCValueProductCategoryCode();
+    protected void regProductCategoryCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueProductCategoryCode(), "product_category_code"); }
+    protected abstract ConditionValue xgetCValueProductCategoryCode();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -605,7 +605,7 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
     }
 
     protected void doSetProductStatusCode_InScope(Collection<String> productStatusCodeList) {
-        regINS(CK_INS, cTL(productStatusCodeList), getCValueProductStatusCode(), "product_status_code");
+        regINS(CK_INS, cTL(productStatusCodeList), xgetCValueProductStatusCode(), "product_status_code");
     }
 
     /**
@@ -618,7 +618,7 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
     }
 
     protected void doSetProductStatusCode_NotInScope(Collection<String> productStatusCodeList) {
-        regINS(CK_NINS, cTL(productStatusCodeList), getCValueProductStatusCode(), "product_status_code");
+        regINS(CK_NINS, cTL(productStatusCodeList), xgetCValueProductStatusCode(), "product_status_code");
     }
 
     /**
@@ -640,7 +640,7 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setProductStatusCode_LikeSearch(String productStatusCode, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(productStatusCode), getCValueProductStatusCode(), "product_status_code", likeSearchOption);
+        regLSQ(CK_LS, fRES(productStatusCode), xgetCValueProductStatusCode(), "product_status_code", likeSearchOption);
     }
 
     /**
@@ -662,7 +662,7 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setProductStatusCode_NotLikeSearch(String productStatusCode, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(productStatusCode), getCValueProductStatusCode(), "product_status_code", likeSearchOption);
+        regLSQ(CK_NLS, fRES(productStatusCode), xgetCValueProductStatusCode(), "product_status_code", likeSearchOption);
     }
 
     /**
@@ -674,8 +674,8 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
         setProductStatusCode_LikeSearch(productStatusCode, xcLSOPPre());
     }
 
-    protected void regProductStatusCode(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueProductStatusCode(), "product_status_code"); }
-    protected abstract ConditionValue getCValueProductStatusCode();
+    protected void regProductStatusCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueProductStatusCode(), "product_status_code"); }
+    protected abstract ConditionValue xgetCValueProductStatusCode();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -749,7 +749,7 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setRegularPrice_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueRegularPrice(), "regular_price", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueRegularPrice(), "regular_price", rangeOfOption);
     }
 
     /**
@@ -762,7 +762,7 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
     }
 
     protected void doSetRegularPrice_InScope(Collection<Integer> regularPriceList) {
-        regINS(CK_INS, cTL(regularPriceList), getCValueRegularPrice(), "regular_price");
+        regINS(CK_INS, cTL(regularPriceList), xgetCValueRegularPrice(), "regular_price");
     }
 
     /**
@@ -775,11 +775,11 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
     }
 
     protected void doSetRegularPrice_NotInScope(Collection<Integer> regularPriceList) {
-        regINS(CK_NINS, cTL(regularPriceList), getCValueRegularPrice(), "regular_price");
+        regINS(CK_NINS, cTL(regularPriceList), xgetCValueRegularPrice(), "regular_price");
     }
 
-    protected void regRegularPrice(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueRegularPrice(), "regular_price"); }
-    protected abstract ConditionValue getCValueRegularPrice();
+    protected void regRegularPrice(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueRegularPrice(), "regular_price"); }
+    protected abstract ConditionValue xgetCValueRegularPrice();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -849,7 +849,7 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
      * @param fromToOption The option of from-to. (NotNull)
      */
     public void setRegisterDatetime_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ((fromDatetime != null ? new java.sql.Timestamp(fromDatetime.getTime()) : null), (toDatetime != null ? new java.sql.Timestamp(toDatetime.getTime()) : null), getCValueRegisterDatetime(), "register_datetime", fromToOption);
+        regFTQ((fromDatetime != null ? new java.sql.Timestamp(fromDatetime.getTime()) : null), (toDatetime != null ? new java.sql.Timestamp(toDatetime.getTime()) : null), xgetCValueRegisterDatetime(), "register_datetime", fromToOption);
     }
 
     /**
@@ -867,8 +867,8 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
         setRegisterDatetime_FromTo(fromDate, toDate, xcDFTOP());
     }
 
-    protected void regRegisterDatetime(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueRegisterDatetime(), "register_datetime"); }
-    protected abstract ConditionValue getCValueRegisterDatetime();
+    protected void regRegisterDatetime(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueRegisterDatetime(), "register_datetime"); }
+    protected abstract ConditionValue xgetCValueRegisterDatetime();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -906,7 +906,7 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
     }
 
     protected void doSetRegisterUser_InScope(Collection<String> registerUserList) {
-        regINS(CK_INS, cTL(registerUserList), getCValueRegisterUser(), "register_user");
+        regINS(CK_INS, cTL(registerUserList), xgetCValueRegisterUser(), "register_user");
     }
 
     /**
@@ -919,7 +919,7 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
     }
 
     protected void doSetRegisterUser_NotInScope(Collection<String> registerUserList) {
-        regINS(CK_NINS, cTL(registerUserList), getCValueRegisterUser(), "register_user");
+        regINS(CK_NINS, cTL(registerUserList), xgetCValueRegisterUser(), "register_user");
     }
 
     /**
@@ -941,7 +941,7 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setRegisterUser_LikeSearch(String registerUser, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(registerUser), getCValueRegisterUser(), "register_user", likeSearchOption);
+        regLSQ(CK_LS, fRES(registerUser), xgetCValueRegisterUser(), "register_user", likeSearchOption);
     }
 
     /**
@@ -963,7 +963,7 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setRegisterUser_NotLikeSearch(String registerUser, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(registerUser), getCValueRegisterUser(), "register_user", likeSearchOption);
+        regLSQ(CK_NLS, fRES(registerUser), xgetCValueRegisterUser(), "register_user", likeSearchOption);
     }
 
     /**
@@ -975,8 +975,8 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
         setRegisterUser_LikeSearch(registerUser, xcLSOPPre());
     }
 
-    protected void regRegisterUser(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueRegisterUser(), "register_user"); }
-    protected abstract ConditionValue getCValueRegisterUser();
+    protected void regRegisterUser(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueRegisterUser(), "register_user"); }
+    protected abstract ConditionValue xgetCValueRegisterUser();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -1014,7 +1014,7 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
     }
 
     protected void doSetRegisterProcess_InScope(Collection<String> registerProcessList) {
-        regINS(CK_INS, cTL(registerProcessList), getCValueRegisterProcess(), "register_process");
+        regINS(CK_INS, cTL(registerProcessList), xgetCValueRegisterProcess(), "register_process");
     }
 
     /**
@@ -1027,7 +1027,7 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
     }
 
     protected void doSetRegisterProcess_NotInScope(Collection<String> registerProcessList) {
-        regINS(CK_NINS, cTL(registerProcessList), getCValueRegisterProcess(), "register_process");
+        regINS(CK_NINS, cTL(registerProcessList), xgetCValueRegisterProcess(), "register_process");
     }
 
     /**
@@ -1049,7 +1049,7 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setRegisterProcess_LikeSearch(String registerProcess, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(registerProcess), getCValueRegisterProcess(), "register_process", likeSearchOption);
+        regLSQ(CK_LS, fRES(registerProcess), xgetCValueRegisterProcess(), "register_process", likeSearchOption);
     }
 
     /**
@@ -1071,7 +1071,7 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setRegisterProcess_NotLikeSearch(String registerProcess, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(registerProcess), getCValueRegisterProcess(), "register_process", likeSearchOption);
+        regLSQ(CK_NLS, fRES(registerProcess), xgetCValueRegisterProcess(), "register_process", likeSearchOption);
     }
 
     /**
@@ -1083,8 +1083,8 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
         setRegisterProcess_LikeSearch(registerProcess, xcLSOPPre());
     }
 
-    protected void regRegisterProcess(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueRegisterProcess(), "register_process"); }
-    protected abstract ConditionValue getCValueRegisterProcess();
+    protected void regRegisterProcess(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueRegisterProcess(), "register_process"); }
+    protected abstract ConditionValue xgetCValueRegisterProcess();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -1154,7 +1154,7 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
      * @param fromToOption The option of from-to. (NotNull)
      */
     public void setUpdateDatetime_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ((fromDatetime != null ? new java.sql.Timestamp(fromDatetime.getTime()) : null), (toDatetime != null ? new java.sql.Timestamp(toDatetime.getTime()) : null), getCValueUpdateDatetime(), "update_datetime", fromToOption);
+        regFTQ((fromDatetime != null ? new java.sql.Timestamp(fromDatetime.getTime()) : null), (toDatetime != null ? new java.sql.Timestamp(toDatetime.getTime()) : null), xgetCValueUpdateDatetime(), "update_datetime", fromToOption);
     }
 
     /**
@@ -1172,8 +1172,8 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
         setUpdateDatetime_FromTo(fromDate, toDate, xcDFTOP());
     }
 
-    protected void regUpdateDatetime(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueUpdateDatetime(), "update_datetime"); }
-    protected abstract ConditionValue getCValueUpdateDatetime();
+    protected void regUpdateDatetime(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueUpdateDatetime(), "update_datetime"); }
+    protected abstract ConditionValue xgetCValueUpdateDatetime();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -1211,7 +1211,7 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
     }
 
     protected void doSetUpdateUser_InScope(Collection<String> updateUserList) {
-        regINS(CK_INS, cTL(updateUserList), getCValueUpdateUser(), "update_user");
+        regINS(CK_INS, cTL(updateUserList), xgetCValueUpdateUser(), "update_user");
     }
 
     /**
@@ -1224,7 +1224,7 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
     }
 
     protected void doSetUpdateUser_NotInScope(Collection<String> updateUserList) {
-        regINS(CK_NINS, cTL(updateUserList), getCValueUpdateUser(), "update_user");
+        regINS(CK_NINS, cTL(updateUserList), xgetCValueUpdateUser(), "update_user");
     }
 
     /**
@@ -1246,7 +1246,7 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setUpdateUser_LikeSearch(String updateUser, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(updateUser), getCValueUpdateUser(), "update_user", likeSearchOption);
+        regLSQ(CK_LS, fRES(updateUser), xgetCValueUpdateUser(), "update_user", likeSearchOption);
     }
 
     /**
@@ -1268,7 +1268,7 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setUpdateUser_NotLikeSearch(String updateUser, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(updateUser), getCValueUpdateUser(), "update_user", likeSearchOption);
+        regLSQ(CK_NLS, fRES(updateUser), xgetCValueUpdateUser(), "update_user", likeSearchOption);
     }
 
     /**
@@ -1280,8 +1280,8 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
         setUpdateUser_LikeSearch(updateUser, xcLSOPPre());
     }
 
-    protected void regUpdateUser(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueUpdateUser(), "update_user"); }
-    protected abstract ConditionValue getCValueUpdateUser();
+    protected void regUpdateUser(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueUpdateUser(), "update_user"); }
+    protected abstract ConditionValue xgetCValueUpdateUser();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -1319,7 +1319,7 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
     }
 
     protected void doSetUpdateProcess_InScope(Collection<String> updateProcessList) {
-        regINS(CK_INS, cTL(updateProcessList), getCValueUpdateProcess(), "update_process");
+        regINS(CK_INS, cTL(updateProcessList), xgetCValueUpdateProcess(), "update_process");
     }
 
     /**
@@ -1332,7 +1332,7 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
     }
 
     protected void doSetUpdateProcess_NotInScope(Collection<String> updateProcessList) {
-        regINS(CK_NINS, cTL(updateProcessList), getCValueUpdateProcess(), "update_process");
+        regINS(CK_NINS, cTL(updateProcessList), xgetCValueUpdateProcess(), "update_process");
     }
 
     /**
@@ -1354,7 +1354,7 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setUpdateProcess_LikeSearch(String updateProcess, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(updateProcess), getCValueUpdateProcess(), "update_process", likeSearchOption);
+        regLSQ(CK_LS, fRES(updateProcess), xgetCValueUpdateProcess(), "update_process", likeSearchOption);
     }
 
     /**
@@ -1376,7 +1376,7 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setUpdateProcess_NotLikeSearch(String updateProcess, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(updateProcess), getCValueUpdateProcess(), "update_process", likeSearchOption);
+        regLSQ(CK_NLS, fRES(updateProcess), xgetCValueUpdateProcess(), "update_process", likeSearchOption);
     }
 
     /**
@@ -1388,8 +1388,8 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
         setUpdateProcess_LikeSearch(updateProcess, xcLSOPPre());
     }
 
-    protected void regUpdateProcess(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueUpdateProcess(), "update_process"); }
-    protected abstract ConditionValue getCValueUpdateProcess();
+    protected void regUpdateProcess(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueUpdateProcess(), "update_process"); }
+    protected abstract ConditionValue xgetCValueUpdateProcess();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -1463,7 +1463,7 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setVersionNo_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueVersionNo(), "version_no", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueVersionNo(), "version_no", rangeOfOption);
     }
 
     /**
@@ -1476,7 +1476,7 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
     }
 
     protected void doSetVersionNo_InScope(Collection<Long> versionNoList) {
-        regINS(CK_INS, cTL(versionNoList), getCValueVersionNo(), "version_no");
+        regINS(CK_INS, cTL(versionNoList), xgetCValueVersionNo(), "version_no");
     }
 
     /**
@@ -1489,11 +1489,11 @@ public abstract class AbstractBsProductCQ extends AbstractConditionQuery {
     }
 
     protected void doSetVersionNo_NotInScope(Collection<Long> versionNoList) {
-        regINS(CK_NINS, cTL(versionNoList), getCValueVersionNo(), "version_no");
+        regINS(CK_NINS, cTL(versionNoList), xgetCValueVersionNo(), "version_no");
     }
 
-    protected void regVersionNo(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueVersionNo(), "version_no"); }
-    protected abstract ConditionValue getCValueVersionNo();
+    protected void regVersionNo(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueVersionNo(), "version_no"); }
+    protected abstract ConditionValue xgetCValueVersionNo();
 
     // ===================================================================================
     //                                                                     ScalarCondition

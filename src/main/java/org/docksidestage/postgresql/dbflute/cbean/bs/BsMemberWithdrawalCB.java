@@ -5,6 +5,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -176,10 +177,14 @@ public class BsMemberWithdrawalCB extends AbstractConditionBean {
      */
     public MemberWithdrawalCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public MemberWithdrawalCQ getConditionQuery() { // public for parameter comment and internal
+    public MemberWithdrawalCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected MemberWithdrawalCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -200,8 +205,11 @@ public class BsMemberWithdrawalCB extends AbstractConditionBean {
         return new MemberWithdrawalCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -263,7 +271,7 @@ public class BsMemberWithdrawalCB extends AbstractConditionBean {
     //                                                                         SetupSelect
     //                                                                         ===========
     protected MemberNss _nssMember;
-    public MemberNss getNssMember() {
+    public MemberNss xdfgetNssMember() {
         if (_nssMember == null) { _nssMember = new MemberNss(null); }
         return _nssMember;
     }
@@ -288,7 +296,7 @@ public class BsMemberWithdrawalCB extends AbstractConditionBean {
     }
 
     protected WithdrawalReasonNss _nssWithdrawalReason;
-    public WithdrawalReasonNss getNssWithdrawalReason() {
+    public WithdrawalReasonNss xdfgetNssWithdrawalReason() {
         if (_nssWithdrawalReason == null) { _nssWithdrawalReason = new WithdrawalReasonNss(null); }
         return _nssWithdrawalReason;
     }
@@ -342,7 +350,7 @@ public class BsMemberWithdrawalCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<MemberWithdrawalCQ>() {
                 public boolean has() { return true; }
-                public MemberWithdrawalCQ qy() { return getConditionQuery(); }
+                public MemberWithdrawalCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -367,52 +375,52 @@ public class BsMemberWithdrawalCB extends AbstractConditionBean {
          * member_id: {PK, NotNull, int4(10), FK to member}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnMemberId() { return doColumn("member_id"); }
+        public SpecifiedColumn columnMemberId() { return doColumn("member_id"); }
         /**
          * (退会理由コード)withdrawal_reason_code: {bpchar(3), FK to withdrawal_reason}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnWithdrawalReasonCode() { return doColumn("withdrawal_reason_code"); }
+        public SpecifiedColumn columnWithdrawalReasonCode() { return doColumn("withdrawal_reason_code"); }
         /**
          * (退会理由入力テキスト)withdrawal_reason_input_text: {text(2147483647)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnWithdrawalReasonInputText() { return doColumn("withdrawal_reason_input_text"); }
+        public SpecifiedColumn columnWithdrawalReasonInputText() { return doColumn("withdrawal_reason_input_text"); }
         /**
          * (退会日時)withdrawal_datetime: {NotNull, timestamp(26, 3)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnWithdrawalDatetime() { return doColumn("withdrawal_datetime"); }
+        public SpecifiedColumn columnWithdrawalDatetime() { return doColumn("withdrawal_datetime"); }
         /**
          * register_datetime: {NotNull, timestamp(26, 3)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnRegisterDatetime() { return doColumn("register_datetime"); }
+        public SpecifiedColumn columnRegisterDatetime() { return doColumn("register_datetime"); }
         /**
          * register_process: {NotNull, varchar(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnRegisterProcess() { return doColumn("register_process"); }
+        public SpecifiedColumn columnRegisterProcess() { return doColumn("register_process"); }
         /**
          * register_user: {NotNull, varchar(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnRegisterUser() { return doColumn("register_user"); }
+        public SpecifiedColumn columnRegisterUser() { return doColumn("register_user"); }
         /**
          * update_datetime: {NotNull, timestamp(26, 3)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnUpdateDatetime() { return doColumn("update_datetime"); }
+        public SpecifiedColumn columnUpdateDatetime() { return doColumn("update_datetime"); }
         /**
          * update_process: {NotNull, varchar(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnUpdateProcess() { return doColumn("update_process"); }
+        public SpecifiedColumn columnUpdateProcess() { return doColumn("update_process"); }
         /**
          * update_user: {NotNull, varchar(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnUpdateUser() { return doColumn("update_user"); }
+        public SpecifiedColumn columnUpdateUser() { return doColumn("update_user"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -502,7 +510,7 @@ public class BsMemberWithdrawalCB extends AbstractConditionBean {
      */
     public HpColQyOperand<MemberWithdrawalCB> columnQuery(final SpecifyQuery<MemberWithdrawalCB> colCBLambda) {
         return xcreateColQyOperand(new HpColQyHandler<MemberWithdrawalCB>() {
-            public HpCalculator handle(SpecifyQuery<MemberWithdrawalCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<MemberWithdrawalCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -620,8 +628,8 @@ public class BsMemberWithdrawalCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return MemberWithdrawalCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return MemberWithdrawalCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return MemberWithdrawalCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return MemberWithdrawalCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

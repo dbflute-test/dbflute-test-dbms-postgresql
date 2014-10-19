@@ -74,10 +74,10 @@ public class BsWhiteNotPkCQ extends AbstractBsWhiteNotPkCQ {
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _notPkId;
-    public ConditionValue getNotPkId()
+    public ConditionValue xdfgetNotPkId()
     { if (_notPkId == null) { _notPkId = nCV(); }
       return _notPkId; }
-    protected ConditionValue getCValueNotPkId() { return getNotPkId(); }
+    protected ConditionValue xgetCValueNotPkId() { return xdfgetNotPkId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -94,10 +94,10 @@ public class BsWhiteNotPkCQ extends AbstractBsWhiteNotPkCQ {
     public BsWhiteNotPkCQ addOrderBy_NotPkId_Desc() { regOBD("not_pk_id"); return this; }
 
     protected ConditionValue _notPkName;
-    public ConditionValue getNotPkName()
+    public ConditionValue xdfgetNotPkName()
     { if (_notPkName == null) { _notPkName = nCV(); }
       return _notPkName; }
-    protected ConditionValue getCValueNotPkName() { return getNotPkName(); }
+    protected ConditionValue xgetCValueNotPkName() { return xdfgetNotPkName(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -114,10 +114,10 @@ public class BsWhiteNotPkCQ extends AbstractBsWhiteNotPkCQ {
     public BsWhiteNotPkCQ addOrderBy_NotPkName_Desc() { regOBD("not_pk_name"); return this; }
 
     protected ConditionValue _notPkInteger;
-    public ConditionValue getNotPkInteger()
+    public ConditionValue xdfgetNotPkInteger()
     { if (_notPkInteger == null) { _notPkInteger = nCV(); }
       return _notPkInteger; }
-    protected ConditionValue getCValueNotPkInteger() { return getNotPkInteger(); }
+    protected ConditionValue xgetCValueNotPkInteger() { return xdfgetNotPkInteger(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -184,7 +184,7 @@ public class BsWhiteNotPkCQ extends AbstractBsWhiteNotPkCQ {
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, WhiteNotPkCQ> getScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public Map<String, WhiteNotPkCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(WhiteNotPkCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
@@ -193,7 +193,7 @@ public class BsWhiteNotPkCQ extends AbstractBsWhiteNotPkCQ {
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return WhiteNotPkCB.class.getName(); }
     protected String xCQ() { return WhiteNotPkCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }

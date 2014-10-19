@@ -5,6 +5,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -188,10 +189,14 @@ public class BsMemberStatusCB extends AbstractConditionBean {
      */
     public MemberStatusCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public MemberStatusCQ getConditionQuery() { // public for parameter comment and internal
+    public MemberStatusCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected MemberStatusCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -212,8 +217,11 @@ public class BsMemberStatusCB extends AbstractConditionBean {
         return new MemberStatusCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -301,7 +309,7 @@ public class BsMemberStatusCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<MemberStatusCQ>() {
                 public boolean has() { return true; }
-                public MemberStatusCQ qy() { return getConditionQuery(); }
+                public MemberStatusCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -324,22 +332,22 @@ public class BsMemberStatusCB extends AbstractConditionBean {
          * (会員ステータスコード)member_status_code: {PK, NotNull, bpchar(3), classification=MemberStatus}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnMemberStatusCode() { return doColumn("member_status_code"); }
+        public SpecifiedColumn columnMemberStatusCode() { return doColumn("member_status_code"); }
         /**
          * (会員ステータス名称)member_status_name: {NotNull, varchar(50)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnMemberStatusName() { return doColumn("member_status_name"); }
+        public SpecifiedColumn columnMemberStatusName() { return doColumn("member_status_name"); }
         /**
          * (説明)description: {NotNull, varchar(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnDescription() { return doColumn("description"); }
+        public SpecifiedColumn columnDescription() { return doColumn("description"); }
         /**
          * (表示順)display_order: {UQ, NotNull, int4(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnDisplayOrder() { return doColumn("display_order"); }
+        public SpecifiedColumn columnDisplayOrder() { return doColumn("display_order"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -419,7 +427,7 @@ public class BsMemberStatusCB extends AbstractConditionBean {
      */
     public HpColQyOperand<MemberStatusCB> columnQuery(final SpecifyQuery<MemberStatusCB> colCBLambda) {
         return xcreateColQyOperand(new HpColQyHandler<MemberStatusCB>() {
-            public HpCalculator handle(SpecifyQuery<MemberStatusCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<MemberStatusCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -537,8 +545,8 @@ public class BsMemberStatusCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return MemberStatusCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return MemberStatusCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return MemberStatusCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return MemberStatusCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

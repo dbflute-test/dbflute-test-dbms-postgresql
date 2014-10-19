@@ -74,10 +74,10 @@ public class BsMemberWithdrawalCQ extends AbstractBsMemberWithdrawalCQ {
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _memberId;
-    public ConditionValue getMemberId()
+    public ConditionValue xdfgetMemberId()
     { if (_memberId == null) { _memberId = nCV(); }
       return _memberId; }
-    protected ConditionValue getCValueMemberId() { return getMemberId(); }
+    protected ConditionValue xgetCValueMemberId() { return xdfgetMemberId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -94,10 +94,10 @@ public class BsMemberWithdrawalCQ extends AbstractBsMemberWithdrawalCQ {
     public BsMemberWithdrawalCQ addOrderBy_MemberId_Desc() { regOBD("member_id"); return this; }
 
     protected ConditionValue _withdrawalReasonCode;
-    public ConditionValue getWithdrawalReasonCode()
+    public ConditionValue xdfgetWithdrawalReasonCode()
     { if (_withdrawalReasonCode == null) { _withdrawalReasonCode = nCV(); }
       return _withdrawalReasonCode; }
-    protected ConditionValue getCValueWithdrawalReasonCode() { return getWithdrawalReasonCode(); }
+    protected ConditionValue xgetCValueWithdrawalReasonCode() { return xdfgetWithdrawalReasonCode(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -114,10 +114,10 @@ public class BsMemberWithdrawalCQ extends AbstractBsMemberWithdrawalCQ {
     public BsMemberWithdrawalCQ addOrderBy_WithdrawalReasonCode_Desc() { regOBD("withdrawal_reason_code"); return this; }
 
     protected ConditionValue _withdrawalReasonInputText;
-    public ConditionValue getWithdrawalReasonInputText()
+    public ConditionValue xdfgetWithdrawalReasonInputText()
     { if (_withdrawalReasonInputText == null) { _withdrawalReasonInputText = nCV(); }
       return _withdrawalReasonInputText; }
-    protected ConditionValue getCValueWithdrawalReasonInputText() { return getWithdrawalReasonInputText(); }
+    protected ConditionValue xgetCValueWithdrawalReasonInputText() { return xdfgetWithdrawalReasonInputText(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -134,10 +134,10 @@ public class BsMemberWithdrawalCQ extends AbstractBsMemberWithdrawalCQ {
     public BsMemberWithdrawalCQ addOrderBy_WithdrawalReasonInputText_Desc() { regOBD("withdrawal_reason_input_text"); return this; }
 
     protected ConditionValue _withdrawalDatetime;
-    public ConditionValue getWithdrawalDatetime()
+    public ConditionValue xdfgetWithdrawalDatetime()
     { if (_withdrawalDatetime == null) { _withdrawalDatetime = nCV(); }
       return _withdrawalDatetime; }
-    protected ConditionValue getCValueWithdrawalDatetime() { return getWithdrawalDatetime(); }
+    protected ConditionValue xgetCValueWithdrawalDatetime() { return xdfgetWithdrawalDatetime(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -154,10 +154,10 @@ public class BsMemberWithdrawalCQ extends AbstractBsMemberWithdrawalCQ {
     public BsMemberWithdrawalCQ addOrderBy_WithdrawalDatetime_Desc() { regOBD("withdrawal_datetime"); return this; }
 
     protected ConditionValue _registerDatetime;
-    public ConditionValue getRegisterDatetime()
+    public ConditionValue xdfgetRegisterDatetime()
     { if (_registerDatetime == null) { _registerDatetime = nCV(); }
       return _registerDatetime; }
-    protected ConditionValue getCValueRegisterDatetime() { return getRegisterDatetime(); }
+    protected ConditionValue xgetCValueRegisterDatetime() { return xdfgetRegisterDatetime(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -174,10 +174,10 @@ public class BsMemberWithdrawalCQ extends AbstractBsMemberWithdrawalCQ {
     public BsMemberWithdrawalCQ addOrderBy_RegisterDatetime_Desc() { regOBD("register_datetime"); return this; }
 
     protected ConditionValue _registerProcess;
-    public ConditionValue getRegisterProcess()
+    public ConditionValue xdfgetRegisterProcess()
     { if (_registerProcess == null) { _registerProcess = nCV(); }
       return _registerProcess; }
-    protected ConditionValue getCValueRegisterProcess() { return getRegisterProcess(); }
+    protected ConditionValue xgetCValueRegisterProcess() { return xdfgetRegisterProcess(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -194,10 +194,10 @@ public class BsMemberWithdrawalCQ extends AbstractBsMemberWithdrawalCQ {
     public BsMemberWithdrawalCQ addOrderBy_RegisterProcess_Desc() { regOBD("register_process"); return this; }
 
     protected ConditionValue _registerUser;
-    public ConditionValue getRegisterUser()
+    public ConditionValue xdfgetRegisterUser()
     { if (_registerUser == null) { _registerUser = nCV(); }
       return _registerUser; }
-    protected ConditionValue getCValueRegisterUser() { return getRegisterUser(); }
+    protected ConditionValue xgetCValueRegisterUser() { return xdfgetRegisterUser(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -214,10 +214,10 @@ public class BsMemberWithdrawalCQ extends AbstractBsMemberWithdrawalCQ {
     public BsMemberWithdrawalCQ addOrderBy_RegisterUser_Desc() { regOBD("register_user"); return this; }
 
     protected ConditionValue _updateDatetime;
-    public ConditionValue getUpdateDatetime()
+    public ConditionValue xdfgetUpdateDatetime()
     { if (_updateDatetime == null) { _updateDatetime = nCV(); }
       return _updateDatetime; }
-    protected ConditionValue getCValueUpdateDatetime() { return getUpdateDatetime(); }
+    protected ConditionValue xgetCValueUpdateDatetime() { return xdfgetUpdateDatetime(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -234,10 +234,10 @@ public class BsMemberWithdrawalCQ extends AbstractBsMemberWithdrawalCQ {
     public BsMemberWithdrawalCQ addOrderBy_UpdateDatetime_Desc() { regOBD("update_datetime"); return this; }
 
     protected ConditionValue _updateProcess;
-    public ConditionValue getUpdateProcess()
+    public ConditionValue xdfgetUpdateProcess()
     { if (_updateProcess == null) { _updateProcess = nCV(); }
       return _updateProcess; }
-    protected ConditionValue getCValueUpdateProcess() { return getUpdateProcess(); }
+    protected ConditionValue xgetCValueUpdateProcess() { return xdfgetUpdateProcess(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -254,10 +254,10 @@ public class BsMemberWithdrawalCQ extends AbstractBsMemberWithdrawalCQ {
     public BsMemberWithdrawalCQ addOrderBy_UpdateProcess_Desc() { regOBD("update_process"); return this; }
 
     protected ConditionValue _updateUser;
-    public ConditionValue getUpdateUser()
+    public ConditionValue xdfgetUpdateUser()
     { if (_updateUser == null) { _updateUser = nCV(); }
       return _updateUser; }
-    protected ConditionValue getCValueUpdateUser() { return getUpdateUser(); }
+    protected ConditionValue xgetCValueUpdateUser() { return xdfgetUpdateUser(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -331,9 +331,9 @@ public class BsMemberWithdrawalCQ extends AbstractBsMemberWithdrawalCQ {
      * @return The instance of condition-query. (NotNull)
      */
     public MemberCQ queryMember() {
-        return getConditionQueryMember();
+        return xdfgetConditionQueryMember();
     }
-    public MemberCQ getConditionQueryMember() {
+    public MemberCQ xdfgetConditionQueryMember() {
         String prop = "member";
         if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryMember()); xsetupOuterJoinMember(); }
         return xgetQueRlMap(prop);
@@ -351,9 +351,9 @@ public class BsMemberWithdrawalCQ extends AbstractBsMemberWithdrawalCQ {
      * @return The instance of condition-query. (NotNull)
      */
     public WithdrawalReasonCQ queryWithdrawalReason() {
-        return getConditionQueryWithdrawalReason();
+        return xdfgetConditionQueryWithdrawalReason();
     }
-    public WithdrawalReasonCQ getConditionQueryWithdrawalReason() {
+    public WithdrawalReasonCQ xdfgetConditionQueryWithdrawalReason() {
         String prop = "withdrawalReason";
         if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryWithdrawalReason()); xsetupOuterJoinWithdrawalReason(); }
         return xgetQueRlMap(prop);
@@ -372,31 +372,31 @@ public class BsMemberWithdrawalCQ extends AbstractBsMemberWithdrawalCQ {
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, MemberWithdrawalCQ> getScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public Map<String, MemberWithdrawalCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(MemberWithdrawalCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
     //                                                                       MyselfDerived
     //                                                                       =============
-    public Map<String, MemberWithdrawalCQ> getSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
+    public Map<String, MemberWithdrawalCQ> xdfgetSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
     public String keepSpecifyMyselfDerived(MemberWithdrawalCQ sq) { return xkeepSQue("specifyMyselfDerived", sq); }
 
-    public Map<String, MemberWithdrawalCQ> getQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
+    public Map<String, MemberWithdrawalCQ> xdfgetQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerived(MemberWithdrawalCQ sq) { return xkeepSQue("queryMyselfDerived", sq); }
-    public Map<String, Object> getQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
+    public Map<String, Object> xdfgetQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerivedParameter(Object pm) { return xkeepSQuePm("queryMyselfDerived", pm); }
 
     // ===================================================================================
     //                                                                        MyselfExists
     //                                                                        ============
     protected Map<String, MemberWithdrawalCQ> _myselfExistsMap;
-    public Map<String, MemberWithdrawalCQ> getMyselfExists() { return xgetSQueMap("myselfExists"); }
+    public Map<String, MemberWithdrawalCQ> xdfgetMyselfExists() { return xgetSQueMap("myselfExists"); }
     public String keepMyselfExists(MemberWithdrawalCQ sq) { return xkeepSQue("myselfExists", sq); }
 
     // ===================================================================================
     //                                                                       MyselfInScope
     //                                                                       =============
-    public Map<String, MemberWithdrawalCQ> getMyselfInScope() { return xgetSQueMap("myselfInScope"); }
+    public Map<String, MemberWithdrawalCQ> xdfgetMyselfInScope() { return xgetSQueMap("myselfInScope"); }
     public String keepMyselfInScope(MemberWithdrawalCQ sq) { return xkeepSQue("myselfInScope", sq); }
 
     // ===================================================================================
@@ -405,7 +405,7 @@ public class BsMemberWithdrawalCQ extends AbstractBsMemberWithdrawalCQ {
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return MemberWithdrawalCB.class.getName(); }
     protected String xCQ() { return MemberWithdrawalCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }

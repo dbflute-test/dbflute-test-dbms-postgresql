@@ -118,7 +118,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameRefCQ extends AbstractCon
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setSameNameRefId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueSameNameRefId(), "same_name_ref_id", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueSameNameRefId(), "same_name_ref_id", rangeOfOption);
     }
 
     /**
@@ -131,7 +131,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameRefCQ extends AbstractCon
     }
 
     protected void doSetSameNameRefId_InScope(Collection<Long> sameNameRefIdList) {
-        regINS(CK_INS, cTL(sameNameRefIdList), getCValueSameNameRefId(), "same_name_ref_id");
+        regINS(CK_INS, cTL(sameNameRefIdList), xgetCValueSameNameRefId(), "same_name_ref_id");
     }
 
     /**
@@ -144,7 +144,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameRefCQ extends AbstractCon
     }
 
     protected void doSetSameNameRefId_NotInScope(Collection<Long> sameNameRefIdList) {
-        regINS(CK_NINS, cTL(sameNameRefIdList), getCValueSameNameRefId(), "same_name_ref_id");
+        regINS(CK_NINS, cTL(sameNameRefIdList), xgetCValueSameNameRefId(), "same_name_ref_id");
     }
 
     /**
@@ -159,8 +159,8 @@ public abstract class AbstractBsNextschemaWhiteSameNameRefCQ extends AbstractCon
      */
     public void setSameNameRefId_IsNotNull() { regSameNameRefId(CK_ISNN, DOBJ); }
 
-    protected void regSameNameRefId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueSameNameRefId(), "same_name_ref_id"); }
-    protected abstract ConditionValue getCValueSameNameRefId();
+    protected void regSameNameRefId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueSameNameRefId(), "same_name_ref_id"); }
+    protected abstract ConditionValue xgetCValueSameNameRefId();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -234,7 +234,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameRefCQ extends AbstractCon
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setSameNameId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueSameNameId(), "same_name_id", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueSameNameId(), "same_name_id", rangeOfOption);
     }
 
     /**
@@ -247,7 +247,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameRefCQ extends AbstractCon
     }
 
     protected void doSetSameNameId_InScope(Collection<Integer> sameNameIdList) {
-        regINS(CK_INS, cTL(sameNameIdList), getCValueSameNameId(), "same_name_id");
+        regINS(CK_INS, cTL(sameNameIdList), xgetCValueSameNameId(), "same_name_id");
     }
 
     /**
@@ -260,11 +260,11 @@ public abstract class AbstractBsNextschemaWhiteSameNameRefCQ extends AbstractCon
     }
 
     protected void doSetSameNameId_NotInScope(Collection<Integer> sameNameIdList) {
-        regINS(CK_NINS, cTL(sameNameIdList), getCValueSameNameId(), "same_name_id");
+        regINS(CK_NINS, cTL(sameNameIdList), xgetCValueSameNameId(), "same_name_id");
     }
 
-    protected void regSameNameId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueSameNameId(), "same_name_id"); }
-    protected abstract ConditionValue getCValueSameNameId();
+    protected void regSameNameId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueSameNameId(), "same_name_id"); }
+    protected abstract ConditionValue xgetCValueSameNameId();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -334,7 +334,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameRefCQ extends AbstractCon
      * @param fromToOption The option of from-to. (NotNull)
      */
     public void setNextRefDate_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ(fCTPD(fromDatetime), fCTPD(toDatetime), getCValueNextRefDate(), "next_ref_date", fromToOption);
+        regFTQ(fCTPD(fromDatetime), fCTPD(toDatetime), xgetCValueNextRefDate(), "next_ref_date", fromToOption);
     }
 
     /**
@@ -364,8 +364,8 @@ public abstract class AbstractBsNextschemaWhiteSameNameRefCQ extends AbstractCon
      */
     public void setNextRefDate_IsNotNull() { regNextRefDate(CK_ISNN, DOBJ); }
 
-    protected void regNextRefDate(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueNextRefDate(), "next_ref_date"); }
-    protected abstract ConditionValue getCValueNextRefDate();
+    protected void regNextRefDate(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueNextRefDate(), "next_ref_date"); }
+    protected abstract ConditionValue xgetCValueNextRefDate();
 
     // ===================================================================================
     //                                                                     ScalarCondition

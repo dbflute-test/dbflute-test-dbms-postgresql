@@ -61,7 +61,7 @@ public abstract class AbstractBsVendorUuidBarCQ extends AbstractConditionQuery {
      * @param barIdList The collection of barId as inScope. (NullAllowed: if null (or empty), no condition)
      */
     public void setBarId_InScope(Collection<java.util.UUID> barIdList) {
-        regINS(CK_INS, cTL(barIdList), getCValueBarId(), "bar_id");
+        regINS(CK_INS, cTL(barIdList), xgetCValueBarId(), "bar_id");
     }
 
     /**
@@ -76,8 +76,8 @@ public abstract class AbstractBsVendorUuidBarCQ extends AbstractConditionQuery {
      */
     public void setBarId_IsNotNull() { regBarId(CK_ISNN, DOBJ); }
 
-    protected void regBarId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueBarId(), "bar_id"); }
-    protected abstract ConditionValue getCValueBarId();
+    protected void regBarId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueBarId(), "bar_id"); }
+    protected abstract ConditionValue xgetCValueBarId();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -115,7 +115,7 @@ public abstract class AbstractBsVendorUuidBarCQ extends AbstractConditionQuery {
     }
 
     protected void doSetBarName_InScope(Collection<String> barNameList) {
-        regINS(CK_INS, cTL(barNameList), getCValueBarName(), "bar_name");
+        regINS(CK_INS, cTL(barNameList), xgetCValueBarName(), "bar_name");
     }
 
     /**
@@ -128,7 +128,7 @@ public abstract class AbstractBsVendorUuidBarCQ extends AbstractConditionQuery {
     }
 
     protected void doSetBarName_NotInScope(Collection<String> barNameList) {
-        regINS(CK_NINS, cTL(barNameList), getCValueBarName(), "bar_name");
+        regINS(CK_NINS, cTL(barNameList), xgetCValueBarName(), "bar_name");
     }
 
     /**
@@ -150,7 +150,7 @@ public abstract class AbstractBsVendorUuidBarCQ extends AbstractConditionQuery {
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setBarName_LikeSearch(String barName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(barName), getCValueBarName(), "bar_name", likeSearchOption);
+        regLSQ(CK_LS, fRES(barName), xgetCValueBarName(), "bar_name", likeSearchOption);
     }
 
     /**
@@ -172,7 +172,7 @@ public abstract class AbstractBsVendorUuidBarCQ extends AbstractConditionQuery {
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setBarName_NotLikeSearch(String barName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(barName), getCValueBarName(), "bar_name", likeSearchOption);
+        regLSQ(CK_NLS, fRES(barName), xgetCValueBarName(), "bar_name", likeSearchOption);
     }
 
     /**
@@ -184,8 +184,8 @@ public abstract class AbstractBsVendorUuidBarCQ extends AbstractConditionQuery {
         setBarName_LikeSearch(barName, xcLSOPPre());
     }
 
-    protected void regBarName(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueBarName(), "bar_name"); }
-    protected abstract ConditionValue getCValueBarName();
+    protected void regBarName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueBarName(), "bar_name"); }
+    protected abstract ConditionValue xgetCValueBarName();
 
     // ===================================================================================
     //                                                                     ScalarCondition

@@ -5,6 +5,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -187,10 +188,14 @@ public class BsWithdrawalReasonCB extends AbstractConditionBean {
      */
     public WithdrawalReasonCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public WithdrawalReasonCQ getConditionQuery() { // public for parameter comment and internal
+    public WithdrawalReasonCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected WithdrawalReasonCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -211,8 +216,11 @@ public class BsWithdrawalReasonCB extends AbstractConditionBean {
         return new WithdrawalReasonCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -300,7 +308,7 @@ public class BsWithdrawalReasonCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<WithdrawalReasonCQ>() {
                 public boolean has() { return true; }
-                public WithdrawalReasonCQ qy() { return getConditionQuery(); }
+                public WithdrawalReasonCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -323,17 +331,17 @@ public class BsWithdrawalReasonCB extends AbstractConditionBean {
          * (退会理由コード)withdrawal_reason_code: {PK, NotNull, bpchar(3)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnWithdrawalReasonCode() { return doColumn("withdrawal_reason_code"); }
+        public SpecifiedColumn columnWithdrawalReasonCode() { return doColumn("withdrawal_reason_code"); }
         /**
          * (退会理由テキスト)withdrawal_reason_text: {NotNull, text(2147483647)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnWithdrawalReasonText() { return doColumn("withdrawal_reason_text"); }
+        public SpecifiedColumn columnWithdrawalReasonText() { return doColumn("withdrawal_reason_text"); }
         /**
          * display_order: {UQ, NotNull, int4(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnDisplayOrder() { return doColumn("display_order"); }
+        public SpecifiedColumn columnDisplayOrder() { return doColumn("display_order"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -395,7 +403,7 @@ public class BsWithdrawalReasonCB extends AbstractConditionBean {
      */
     public HpColQyOperand<WithdrawalReasonCB> columnQuery(final SpecifyQuery<WithdrawalReasonCB> colCBLambda) {
         return xcreateColQyOperand(new HpColQyHandler<WithdrawalReasonCB>() {
-            public HpCalculator handle(SpecifyQuery<WithdrawalReasonCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<WithdrawalReasonCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -513,8 +521,8 @@ public class BsWithdrawalReasonCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return WithdrawalReasonCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return WithdrawalReasonCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return WithdrawalReasonCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return WithdrawalReasonCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

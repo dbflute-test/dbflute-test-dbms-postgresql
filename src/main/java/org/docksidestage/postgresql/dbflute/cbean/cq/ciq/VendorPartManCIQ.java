@@ -61,10 +61,10 @@ public class VendorPartManCIQ extends AbstractBsVendorPartManCQ {
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValuePartManId() { return _myCQ.getPartManId(); }
-    protected ConditionValue getCValuePartManName() { return _myCQ.getPartManName(); }
-    protected ConditionValue getCValuePartManPoint() { return _myCQ.getPartManPoint(); }
-    protected ConditionValue getCValuePartManDate() { return _myCQ.getPartManDate(); }
+    protected ConditionValue xgetCValuePartManId() { return _myCQ.xdfgetPartManId(); }
+    protected ConditionValue xgetCValuePartManName() { return _myCQ.xdfgetPartManName(); }
+    protected ConditionValue xgetCValuePartManPoint() { return _myCQ.xdfgetPartManPoint(); }
+    protected ConditionValue xgetCValuePartManDate() { return _myCQ.xdfgetPartManDate(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(VendorPartManCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

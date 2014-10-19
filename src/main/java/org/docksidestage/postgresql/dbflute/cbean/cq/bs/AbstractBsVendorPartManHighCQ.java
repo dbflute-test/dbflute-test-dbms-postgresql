@@ -118,7 +118,7 @@ public abstract class AbstractBsVendorPartManHighCQ extends AbstractConditionQue
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setPartManId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValuePartManId(), "part_man_id", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValuePartManId(), "part_man_id", rangeOfOption);
     }
 
     /**
@@ -131,7 +131,7 @@ public abstract class AbstractBsVendorPartManHighCQ extends AbstractConditionQue
     }
 
     protected void doSetPartManId_InScope(Collection<Integer> partManIdList) {
-        regINS(CK_INS, cTL(partManIdList), getCValuePartManId(), "part_man_id");
+        regINS(CK_INS, cTL(partManIdList), xgetCValuePartManId(), "part_man_id");
     }
 
     /**
@@ -144,7 +144,7 @@ public abstract class AbstractBsVendorPartManHighCQ extends AbstractConditionQue
     }
 
     protected void doSetPartManId_NotInScope(Collection<Integer> partManIdList) {
-        regINS(CK_NINS, cTL(partManIdList), getCValuePartManId(), "part_man_id");
+        regINS(CK_NINS, cTL(partManIdList), xgetCValuePartManId(), "part_man_id");
     }
 
     /**
@@ -159,8 +159,8 @@ public abstract class AbstractBsVendorPartManHighCQ extends AbstractConditionQue
      */
     public void setPartManId_IsNotNull() { regPartManId(CK_ISNN, DOBJ); }
 
-    protected void regPartManId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValuePartManId(), "part_man_id"); }
-    protected abstract ConditionValue getCValuePartManId();
+    protected void regPartManId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValuePartManId(), "part_man_id"); }
+    protected abstract ConditionValue xgetCValuePartManId();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -198,7 +198,7 @@ public abstract class AbstractBsVendorPartManHighCQ extends AbstractConditionQue
     }
 
     protected void doSetPartManName_InScope(Collection<String> partManNameList) {
-        regINS(CK_INS, cTL(partManNameList), getCValuePartManName(), "part_man_name");
+        regINS(CK_INS, cTL(partManNameList), xgetCValuePartManName(), "part_man_name");
     }
 
     /**
@@ -211,7 +211,7 @@ public abstract class AbstractBsVendorPartManHighCQ extends AbstractConditionQue
     }
 
     protected void doSetPartManName_NotInScope(Collection<String> partManNameList) {
-        regINS(CK_NINS, cTL(partManNameList), getCValuePartManName(), "part_man_name");
+        regINS(CK_NINS, cTL(partManNameList), xgetCValuePartManName(), "part_man_name");
     }
 
     /**
@@ -233,7 +233,7 @@ public abstract class AbstractBsVendorPartManHighCQ extends AbstractConditionQue
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setPartManName_LikeSearch(String partManName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(partManName), getCValuePartManName(), "part_man_name", likeSearchOption);
+        regLSQ(CK_LS, fRES(partManName), xgetCValuePartManName(), "part_man_name", likeSearchOption);
     }
 
     /**
@@ -255,7 +255,7 @@ public abstract class AbstractBsVendorPartManHighCQ extends AbstractConditionQue
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setPartManName_NotLikeSearch(String partManName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(partManName), getCValuePartManName(), "part_man_name", likeSearchOption);
+        regLSQ(CK_NLS, fRES(partManName), xgetCValuePartManName(), "part_man_name", likeSearchOption);
     }
 
     /**
@@ -267,8 +267,8 @@ public abstract class AbstractBsVendorPartManHighCQ extends AbstractConditionQue
         setPartManName_LikeSearch(partManName, xcLSOPPre());
     }
 
-    protected void regPartManName(ConditionKey ky, Object vl) { regQ(ky, vl, getCValuePartManName(), "part_man_name"); }
-    protected abstract ConditionValue getCValuePartManName();
+    protected void regPartManName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValuePartManName(), "part_man_name"); }
+    protected abstract ConditionValue xgetCValuePartManName();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -342,7 +342,7 @@ public abstract class AbstractBsVendorPartManHighCQ extends AbstractConditionQue
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setPartManPoint_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValuePartManPoint(), "part_man_point", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValuePartManPoint(), "part_man_point", rangeOfOption);
     }
 
     /**
@@ -355,7 +355,7 @@ public abstract class AbstractBsVendorPartManHighCQ extends AbstractConditionQue
     }
 
     protected void doSetPartManPoint_InScope(Collection<Integer> partManPointList) {
-        regINS(CK_INS, cTL(partManPointList), getCValuePartManPoint(), "part_man_point");
+        regINS(CK_INS, cTL(partManPointList), xgetCValuePartManPoint(), "part_man_point");
     }
 
     /**
@@ -368,11 +368,11 @@ public abstract class AbstractBsVendorPartManHighCQ extends AbstractConditionQue
     }
 
     protected void doSetPartManPoint_NotInScope(Collection<Integer> partManPointList) {
-        regINS(CK_NINS, cTL(partManPointList), getCValuePartManPoint(), "part_man_point");
+        regINS(CK_NINS, cTL(partManPointList), xgetCValuePartManPoint(), "part_man_point");
     }
 
-    protected void regPartManPoint(ConditionKey ky, Object vl) { regQ(ky, vl, getCValuePartManPoint(), "part_man_point"); }
-    protected abstract ConditionValue getCValuePartManPoint();
+    protected void regPartManPoint(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValuePartManPoint(), "part_man_point"); }
+    protected abstract ConditionValue xgetCValuePartManPoint();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -442,7 +442,7 @@ public abstract class AbstractBsVendorPartManHighCQ extends AbstractConditionQue
      * @param fromToOption The option of from-to. (NotNull)
      */
     public void setPartManDate_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ(fCTPD(fromDatetime), fCTPD(toDatetime), getCValuePartManDate(), "part_man_date", fromToOption);
+        regFTQ(fCTPD(fromDatetime), fCTPD(toDatetime), xgetCValuePartManDate(), "part_man_date", fromToOption);
     }
 
     /**
@@ -472,8 +472,8 @@ public abstract class AbstractBsVendorPartManHighCQ extends AbstractConditionQue
      */
     public void setPartManDate_IsNotNull() { regPartManDate(CK_ISNN, DOBJ); }
 
-    protected void regPartManDate(ConditionKey ky, Object vl) { regQ(ky, vl, getCValuePartManDate(), "part_man_date"); }
-    protected abstract ConditionValue getCValuePartManDate();
+    protected void regPartManDate(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValuePartManDate(), "part_man_date"); }
+    protected abstract ConditionValue xgetCValuePartManDate();
 
     // ===================================================================================
     //                                                                     ScalarCondition

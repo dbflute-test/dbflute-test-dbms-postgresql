@@ -74,10 +74,10 @@ public class BsVendorPartManCQ extends AbstractBsVendorPartManCQ {
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _partManId;
-    public ConditionValue getPartManId()
+    public ConditionValue xdfgetPartManId()
     { if (_partManId == null) { _partManId = nCV(); }
       return _partManId; }
-    protected ConditionValue getCValuePartManId() { return getPartManId(); }
+    protected ConditionValue xgetCValuePartManId() { return xdfgetPartManId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -94,10 +94,10 @@ public class BsVendorPartManCQ extends AbstractBsVendorPartManCQ {
     public BsVendorPartManCQ addOrderBy_PartManId_Desc() { regOBD("part_man_id"); return this; }
 
     protected ConditionValue _partManName;
-    public ConditionValue getPartManName()
+    public ConditionValue xdfgetPartManName()
     { if (_partManName == null) { _partManName = nCV(); }
       return _partManName; }
-    protected ConditionValue getCValuePartManName() { return getPartManName(); }
+    protected ConditionValue xgetCValuePartManName() { return xdfgetPartManName(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -114,10 +114,10 @@ public class BsVendorPartManCQ extends AbstractBsVendorPartManCQ {
     public BsVendorPartManCQ addOrderBy_PartManName_Desc() { regOBD("part_man_name"); return this; }
 
     protected ConditionValue _partManPoint;
-    public ConditionValue getPartManPoint()
+    public ConditionValue xdfgetPartManPoint()
     { if (_partManPoint == null) { _partManPoint = nCV(); }
       return _partManPoint; }
-    protected ConditionValue getCValuePartManPoint() { return getPartManPoint(); }
+    protected ConditionValue xgetCValuePartManPoint() { return xdfgetPartManPoint(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -134,10 +134,10 @@ public class BsVendorPartManCQ extends AbstractBsVendorPartManCQ {
     public BsVendorPartManCQ addOrderBy_PartManPoint_Desc() { regOBD("part_man_point"); return this; }
 
     protected ConditionValue _partManDate;
-    public ConditionValue getPartManDate()
+    public ConditionValue xdfgetPartManDate()
     { if (_partManDate == null) { _partManDate = nCV(); }
       return _partManDate; }
-    protected ConditionValue getCValuePartManDate() { return getPartManDate(); }
+    protected ConditionValue xgetCValuePartManDate() { return xdfgetPartManDate(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -204,31 +204,31 @@ public class BsVendorPartManCQ extends AbstractBsVendorPartManCQ {
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, VendorPartManCQ> getScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public Map<String, VendorPartManCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(VendorPartManCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
     //                                                                       MyselfDerived
     //                                                                       =============
-    public Map<String, VendorPartManCQ> getSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
+    public Map<String, VendorPartManCQ> xdfgetSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
     public String keepSpecifyMyselfDerived(VendorPartManCQ sq) { return xkeepSQue("specifyMyselfDerived", sq); }
 
-    public Map<String, VendorPartManCQ> getQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
+    public Map<String, VendorPartManCQ> xdfgetQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerived(VendorPartManCQ sq) { return xkeepSQue("queryMyselfDerived", sq); }
-    public Map<String, Object> getQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
+    public Map<String, Object> xdfgetQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerivedParameter(Object pm) { return xkeepSQuePm("queryMyselfDerived", pm); }
 
     // ===================================================================================
     //                                                                        MyselfExists
     //                                                                        ============
     protected Map<String, VendorPartManCQ> _myselfExistsMap;
-    public Map<String, VendorPartManCQ> getMyselfExists() { return xgetSQueMap("myselfExists"); }
+    public Map<String, VendorPartManCQ> xdfgetMyselfExists() { return xgetSQueMap("myselfExists"); }
     public String keepMyselfExists(VendorPartManCQ sq) { return xkeepSQue("myselfExists", sq); }
 
     // ===================================================================================
     //                                                                       MyselfInScope
     //                                                                       =============
-    public Map<String, VendorPartManCQ> getMyselfInScope() { return xgetSQueMap("myselfInScope"); }
+    public Map<String, VendorPartManCQ> xdfgetMyselfInScope() { return xgetSQueMap("myselfInScope"); }
     public String keepMyselfInScope(VendorPartManCQ sq) { return xkeepSQue("myselfInScope", sq); }
 
     // ===================================================================================
@@ -237,7 +237,7 @@ public class BsVendorPartManCQ extends AbstractBsVendorPartManCQ {
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return VendorPartManCB.class.getName(); }
     protected String xCQ() { return VendorPartManCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }

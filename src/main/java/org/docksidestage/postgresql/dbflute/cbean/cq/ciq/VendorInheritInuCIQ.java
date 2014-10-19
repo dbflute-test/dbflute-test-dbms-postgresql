@@ -61,9 +61,9 @@ public class VendorInheritInuCIQ extends AbstractBsVendorInheritInuCQ {
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueInuId() { return _myCQ.getInuId(); }
-    protected ConditionValue getCValueInuName() { return _myCQ.getInuName(); }
-    protected ConditionValue getCValueInuDate() { return _myCQ.getInuDate(); }
+    protected ConditionValue xgetCValueInuId() { return _myCQ.xdfgetInuId(); }
+    protected ConditionValue xgetCValueInuName() { return _myCQ.xdfgetInuName(); }
+    protected ConditionValue xgetCValueInuDate() { return _myCQ.xdfgetInuDate(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(VendorInheritInuCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

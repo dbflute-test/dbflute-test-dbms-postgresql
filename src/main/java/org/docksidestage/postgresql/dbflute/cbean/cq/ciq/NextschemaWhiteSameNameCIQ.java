@@ -61,7 +61,7 @@ public class NextschemaWhiteSameNameCIQ extends AbstractBsNextschemaWhiteSameNam
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueSameNameId() { return _myCQ.getSameNameId(); }
+    protected ConditionValue xgetCValueSameNameId() { return _myCQ.xdfgetSameNameId(); }
     public String keepSameNameId_ExistsReferrer_WhiteSameNameRefList(NextschemaWhiteSameNameRefCQ sq)
     { throwIICBOE("ExistsReferrer"); return null; }
     public String keepSameNameId_NotExistsReferrer_WhiteSameNameRefList(NextschemaWhiteSameNameRefCQ sq)
@@ -72,8 +72,8 @@ public class NextschemaWhiteSameNameCIQ extends AbstractBsNextschemaWhiteSameNam
     { throwIICBOE("(Query)DerivedReferrer"); return null; }
     public String keepSameNameId_QueryDerivedReferrer_WhiteSameNameRefListParameter(Object vl)
     { throwIICBOE("(Query)DerivedReferrer"); return null; }
-    protected ConditionValue getCValueSameNameName() { return _myCQ.getSameNameName(); }
-    protected ConditionValue getCValueSameNameLong() { return _myCQ.getSameNameLong(); }
+    protected ConditionValue xgetCValueSameNameName() { return _myCQ.xdfgetSameNameName(); }
+    protected ConditionValue xgetCValueSameNameLong() { return _myCQ.xdfgetSameNameLong(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(NextschemaWhiteSameNameCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

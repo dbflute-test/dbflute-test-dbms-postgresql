@@ -436,8 +436,9 @@ public class VendorTypeTest extends UnitContainerTestCase {
         VendorCheckCB deleteCB = new VendorCheckCB();
         deleteCB.query().setTypeOfBool_Equal_True();
         log("deleted(true)=" + vendorCheckBhv.queryDelete(deleteCB));
-        deleteCB.enableOverridingQuery();
-        deleteCB.query().setTypeOfBool_Equal_False();
+        deleteCB.enableOverridingQuery(() -> {
+            deleteCB.query().setTypeOfBool_Equal_False();
+        });
         log("deleted(false)=" + vendorCheckBhv.queryDelete(deleteCB));
 
         VendorCheck vendorCheck = new VendorCheck();

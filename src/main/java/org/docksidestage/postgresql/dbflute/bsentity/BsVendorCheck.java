@@ -1,16 +1,11 @@
 package org.docksidestage.postgresql.dbflute.bsentity;
 
-import java.io.Serializable;
 import java.util.List;
 import java.util.ArrayList;
-import java.util.Set;
-import java.util.Date;
-import java.util.TimeZone;
 
-import org.dbflute.Entity;
 import org.dbflute.dbmeta.DBMeta;
+import org.dbflute.dbmeta.AbstractEntity;
 import org.dbflute.dbmeta.MappingValueType;
-import org.dbflute.dbmeta.derived.DerivedMappable;
 import org.docksidestage.postgresql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.postgresql.dbflute.allcommon.CDef;
 import org.docksidestage.postgresql.dbflute.exentity.*;
@@ -105,7 +100,7 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsVendorCheck implements Entity, Serializable, Cloneable, DerivedMappable {
+public abstract class BsVendorCheck extends AbstractEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -116,9 +111,6 @@ public abstract class BsVendorCheck implements Entity, Serializable, Cloneable, 
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    // -----------------------------------------------------
-    //                                                Column
-    //                                                ------
     /** vendor_check_id: {PK, NotNull, numeric(16)} */
     protected Long _vendorCheckId;
 
@@ -200,44 +192,24 @@ public abstract class BsVendorCheck implements Entity, Serializable, Cloneable, 
     /** type_of_xml: {xml(2147483647)} */
     protected org.docksidestage.postgresql.mytype.MyXML _typeOfXml;
 
-    // -----------------------------------------------------
-    //                                              Internal
-    //                                              --------
-    /** The unique-driven properties for this entity. (NotNull) */
-    protected final EntityUniqueDrivenProperties __uniqueDrivenProperties = newUniqueDrivenProperties();
-
-    /** The modified properties for this entity. (NotNull) */
-    protected final EntityModifiedProperties __modifiedProperties = newModifiedProperties();
-
-    /** The map of derived value, key is alias name. (NullAllowed: lazy-loaded) */
-    protected EntityDerivedMap __derivedMap;
-
-    /** Is the entity created by DBFlute select process? */
-    protected boolean __createdBySelect;
 
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     public String getTableDbName() {
         return "vendor_check";
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    public String getTablePropertyName() { // according to Java Beans rule
+    /** {@inheritDoc} */
+    public String getTablePropertyName() {
         return "vendorCheck";
     }
 
     // ===================================================================================
     //                                                                              DBMeta
     //                                                                              ======
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     public DBMeta getDBMeta() {
         return DBMetaInstanceHandler.findDBMeta(getTableDbName());
     }
@@ -245,23 +217,10 @@ public abstract class BsVendorCheck implements Entity, Serializable, Cloneable, 
     // ===================================================================================
     //                                                                         Primary Key
     //                                                                         ===========
-    /**
-     * {@inheritDoc}
-     */
+    /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
-        if (getVendorCheckId() == null) { return false; }
+        if (_vendorCheckId == null) { return false; }
         return true;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public Set<String> myuniqueDrivenProperties() {
-        return __uniqueDrivenProperties.getPropertyNames();
-    }
-
-    protected EntityUniqueDrivenProperties newUniqueDrivenProperties() {
-        return new EntityUniqueDrivenProperties();
     }
 
     // ===================================================================================
@@ -285,7 +244,7 @@ public abstract class BsVendorCheck implements Entity, Serializable, Cloneable, 
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, null value is set to the column)
      */
     public void setTypeOfBoolAsTrueFalse(CDef.TrueFalse cdef) {
-        setTypeOfBool(cdef != null ? FunCustodial.toBoolean(cdef.code()) : null);
+        setTypeOfBool(cdef != null ? toBoolean(cdef.code()) : null);
     }
 
     // ===================================================================================
@@ -355,215 +314,77 @@ public abstract class BsVendorCheck implements Entity, Serializable, Cloneable, 
     }
 
     // ===================================================================================
-    //                                                                 Modified Properties
-    //                                                                 ===================
-    /**
-     * {@inheritDoc}
-     */
-    public Set<String> modifiedProperties() {
-        return __modifiedProperties.getPropertyNames();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public void clearModifiedInfo() {
-        __modifiedProperties.clear();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public boolean hasModification() {
-        return !__modifiedProperties.isEmpty();
-    }
-
-    protected EntityModifiedProperties newModifiedProperties() {
-        return new EntityModifiedProperties();
-    }
-
-    // ===================================================================================
-    //                                                                     Birthplace Mark
-    //                                                                     ===============
-    /**
-     * {@inheritDoc}
-     */
-    public void markAsSelect() {
-        __createdBySelect = true;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public boolean createdBySelect() {
-        return __createdBySelect;
-    }
-
-    // ===================================================================================
-    //                                                                    Derived Mappable
-    //                                                                    ================
-    /**
-     * {@inheritDoc}
-     */
-    public void registerDerivedValue(String aliasName, Object selectedValue) {
-        if (__derivedMap == null) { __derivedMap = newDerivedMap(); }
-        __derivedMap.registerDerivedValue(aliasName, selectedValue);
-    }
-
-    /**
-     * Find the derived value from derived map.
-     * <pre>
-     * mapping type:
-     *  count()      : Integer
-     *  max(), min() : (same as property type of the column)
-     *  sum(), avg() : BigDecimal
-     *
-     * e.g. use count()
-     *  Integer loginCount = member.derived("$LOGIN_COUNT");
-     * </pre>
-     * @param <VALUE> The type of the value.
-     * @param aliasName The alias name of derived-referrer. (NotNull)
-     * @return The derived value found in the map. (NullAllowed: when null selected)
-     */
-    public <VALUE> VALUE derived(String aliasName) {
-        if (__derivedMap == null) { __derivedMap = newDerivedMap(); }
-        return __derivedMap.findDerivedValue(aliasName);
-    }
-
-    protected EntityDerivedMap newDerivedMap() {
-        return new EntityDerivedMap();
-    }
-
-    // ===================================================================================
     //                                                                      Basic Override
     //                                                                      ==============
-    /**
-     * Determine the object is equal with this. <br />
-     * If primary-keys or columns of the other are same as this one, returns true.
-     * @param obj The object as other entity. (NullAllowed: if null, returns false fixedly)
-     * @return Comparing result.
-     */
-    public boolean equals(Object obj) {
-        if (obj == null || !(obj instanceof BsVendorCheck)) { return false; }
-        BsVendorCheck other = (BsVendorCheck)obj;
-        if (!xSV(getVendorCheckId(), other.getVendorCheckId())) { return false; }
-        return true;
-    }
-    protected boolean xSV(Object v1, Object v2) {
-        return FunCustodial.isSameValue(v1, v2);
+    @Override
+    protected boolean doEquals(Object obj) {
+        if (obj instanceof BsVendorCheck) {
+            BsVendorCheck other = (BsVendorCheck)obj;
+            if (!xSV(_vendorCheckId, other._vendorCheckId)) { return false; }
+            return true;
+        } else {
+            return false;
+        }
     }
 
-    /**
-     * Calculate the hash-code from primary-keys or columns.
-     * @return The hash-code from primary-key or columns.
-     */
-    public int hashCode() {
-        int hs = 17;
+    @Override
+    protected int doHashCode(int initial) {
+        int hs = initial;
         hs = xCH(hs, getTableDbName());
-        hs = xCH(hs, getVendorCheckId());
+        hs = xCH(hs, _vendorCheckId);
         return hs;
     }
-    protected int xCH(int hs, Object vl) {
-        return FunCustodial.calculateHashcode(hs, vl);
+
+    @Override
+    protected String doBuildStringWithRelation(String li) {
+        return "";
     }
 
-    /**
-     * {@inheritDoc}
-     */
-    public int instanceHash() {
-        return super.hashCode();
-    }
-
-    /**
-     * Convert to display string of entity's data. (no relation data)
-     * @return The display string of all columns and relation existences. (NotNull)
-     */
-    public String toString() {
-        return buildDisplayString(FunCustodial.toClassTitle(this), true, true);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public String toStringWithRelation() {
+    @Override
+    protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(toString());
-        return sb.toString();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public String buildDisplayString(String name, boolean column, boolean relation) {
-        StringBuilder sb = new StringBuilder();
-        if (name != null) { sb.append(name).append(column || relation ? ":" : ""); }
-        if (column) { sb.append(buildColumnString()); }
-        if (relation) { sb.append(buildRelationString()); }
-        sb.append("@").append(Integer.toHexString(hashCode()));
-        return sb.toString();
-    }
-    protected String buildColumnString() {
-        StringBuilder sb = new StringBuilder();
-        String dm = ", ";
-        sb.append(dm).append(getVendorCheckId());
-        sb.append(dm).append(getTypeOfChar());
-        sb.append(dm).append(getTypeOfVarchar());
-        sb.append(dm).append(getTypeOfVcArray());
-        sb.append(dm).append(getTypeOfText());
-        sb.append(dm).append(getTypeOfNumericInteger());
-        sb.append(dm).append(getTypeOfNumericBigint());
-        sb.append(dm).append(getTypeOfNumericDecimal());
-        sb.append(dm).append(getTypeOfDecimal());
-        sb.append(dm).append(getTypeOfInt8());
-        sb.append(dm).append(getTypeOfIntArray());
-        sb.append(dm).append(getTypeOfInt4());
-        sb.append(dm).append(getTypeOfBigint());
-        sb.append(dm).append(getTypeOfReal());
-        sb.append(dm).append(getTypeOfFloat());
-        sb.append(dm).append(getTypeOfMoney());
-        sb.append(dm).append(xfUD(getTypeOfDate()));
-        sb.append(dm).append(getTypeOfTimestamp());
-        sb.append(dm).append(getTypeOfTime());
-        sb.append(dm).append(getTypeOfTimetz());
-        sb.append(dm).append(getTypeOfInterval());
-        sb.append(dm).append(getTypeOfBool());
-        sb.append(dm).append(getTypeOfBit());
-        sb.append(dm).append(xfBA(getTypeOfBytea()));
-        sb.append(dm).append(xfBA(getTypeOfOid()));
-        sb.append(dm).append(getTypeOfUuid());
-        sb.append(dm).append(getTypeOfXml());
+        sb.append(dm).append(_vendorCheckId);
+        sb.append(dm).append(_typeOfChar);
+        sb.append(dm).append(_typeOfVarchar);
+        sb.append(dm).append(_typeOfVcArray);
+        sb.append(dm).append(_typeOfText);
+        sb.append(dm).append(_typeOfNumericInteger);
+        sb.append(dm).append(_typeOfNumericBigint);
+        sb.append(dm).append(_typeOfNumericDecimal);
+        sb.append(dm).append(_typeOfDecimal);
+        sb.append(dm).append(_typeOfInt8);
+        sb.append(dm).append(_typeOfIntArray);
+        sb.append(dm).append(_typeOfInt4);
+        sb.append(dm).append(_typeOfBigint);
+        sb.append(dm).append(_typeOfReal);
+        sb.append(dm).append(_typeOfFloat);
+        sb.append(dm).append(_typeOfMoney);
+        sb.append(dm).append(xfUD(_typeOfDate));
+        sb.append(dm).append(_typeOfTimestamp);
+        sb.append(dm).append(_typeOfTime);
+        sb.append(dm).append(_typeOfTimetz);
+        sb.append(dm).append(_typeOfInterval);
+        sb.append(dm).append(_typeOfBool);
+        sb.append(dm).append(_typeOfBit);
+        sb.append(dm).append(xfBA(_typeOfBytea));
+        sb.append(dm).append(xfBA(_typeOfOid));
+        sb.append(dm).append(_typeOfUuid);
+        sb.append(dm).append(_typeOfXml);
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
         sb.insert(0, "{").append("}");
         return sb.toString();
     }
-    protected String xfUD(Date date) { // formatUtilDate()
-        return FunCustodial.toStringDate(date, xgDP(), mytimeZone());
-    }
-    protected String xgDP() { // getDatePattern()
-        return "yyyy-MM-dd";
-    }
-    protected TimeZone mytimeZone() {
-        return null; // as default
-    }
-    protected String xfBA(byte[] bytes) { // formatByteArray()
-        return FunCustodial.toStringBytes(bytes);
-    }
-    protected String buildRelationString() {
+
+    @Override
+    protected String doBuildRelationString(String dm) {
         return "";
     }
 
-    /**
-     * Clone entity instance using super.clone(). (shallow copy) 
-     * @return The cloned instance of this entity. (NotNull)
-     */
+    @Override
     public VendorCheck clone() {
-        try {
-            return (VendorCheck)super.clone();
-        } catch (CloneNotSupportedException e) {
-            throw new IllegalStateException("Failed to clone the entity: " + toString(), e);
-        }
+        return (VendorCheck)super.clone();
     }
 
     // ===================================================================================
@@ -1036,9 +857,5 @@ public abstract class BsVendorCheck implements Entity, Serializable, Cloneable, 
      */
     public void mynativeMappingTypeOfBool(Boolean typeOfBool) {
         setTypeOfBool(typeOfBool);
-    }
-
-    protected void checkClassificationCode(String columnDbName, CDef.DefMeta meta, Object value) {
-        FunCustodial.checkClassificationCode(this, columnDbName, meta, value);
     }
 }

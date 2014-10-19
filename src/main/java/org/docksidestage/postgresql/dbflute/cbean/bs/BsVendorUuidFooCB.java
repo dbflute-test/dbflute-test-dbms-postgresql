@@ -5,6 +5,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -176,10 +177,14 @@ public class BsVendorUuidFooCB extends AbstractConditionBean {
      */
     public VendorUuidFooCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public VendorUuidFooCQ getConditionQuery() { // public for parameter comment and internal
+    public VendorUuidFooCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected VendorUuidFooCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -200,8 +205,11 @@ public class BsVendorUuidFooCB extends AbstractConditionBean {
         return new VendorUuidFooCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -263,7 +271,7 @@ public class BsVendorUuidFooCB extends AbstractConditionBean {
     //                                                                         SetupSelect
     //                                                                         ===========
     protected VendorUuidBarNss _nssVendorUuidBar;
-    public VendorUuidBarNss getNssVendorUuidBar() {
+    public VendorUuidBarNss xdfgetNssVendorUuidBar() {
         if (_nssVendorUuidBar == null) { _nssVendorUuidBar = new VendorUuidBarNss(null); }
         return _nssVendorUuidBar;
     }
@@ -317,7 +325,7 @@ public class BsVendorUuidFooCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<VendorUuidFooCQ>() {
                 public boolean has() { return true; }
-                public VendorUuidFooCQ qy() { return getConditionQuery(); }
+                public VendorUuidFooCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -341,17 +349,17 @@ public class BsVendorUuidFooCB extends AbstractConditionBean {
          * foo_id: {PK, NotNull, uuid(2147483647)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnFooId() { return doColumn("foo_id"); }
+        public SpecifiedColumn columnFooId() { return doColumn("foo_id"); }
         /**
          * foo_name: {NotNull, varchar(2147483647)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnFooName() { return doColumn("foo_name"); }
+        public SpecifiedColumn columnFooName() { return doColumn("foo_name"); }
         /**
          * bar_id: {NotNull, uuid(2147483647), FK to vendor_uuid_bar}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnBarId() { return doColumn("bar_id"); }
+        public SpecifiedColumn columnBarId() { return doColumn("bar_id"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -420,7 +428,7 @@ public class BsVendorUuidFooCB extends AbstractConditionBean {
      */
     public HpColQyOperand<VendorUuidFooCB> columnQuery(final SpecifyQuery<VendorUuidFooCB> colCBLambda) {
         return xcreateColQyOperand(new HpColQyHandler<VendorUuidFooCB>() {
-            public HpCalculator handle(SpecifyQuery<VendorUuidFooCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<VendorUuidFooCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -538,8 +546,8 @@ public class BsVendorUuidFooCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return VendorUuidFooCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return VendorUuidFooCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return VendorUuidFooCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return VendorUuidFooCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

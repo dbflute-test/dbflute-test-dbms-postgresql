@@ -63,14 +63,8 @@ public class LoaderOfVendorUuidBar {
     //                                                                       =============
     protected List<VendorUuidFoo> _referrerVendorUuidFooList;
     public NestedReferrerLoaderGateway<LoaderOfVendorUuidFoo> loadVendorUuidFooList(ConditionBeanSetupper<VendorUuidFooCB> refCBLambda) {
-        myBhv().loadVendorUuidFooList(_selectedList, refCBLambda).withNestedReferrer(new ReferrerListHandler<VendorUuidFoo>() {
-            public void handle(List<VendorUuidFoo> referrerList) { _referrerVendorUuidFooList = referrerList; }
-        });
-        return new NestedReferrerLoaderGateway<LoaderOfVendorUuidFoo>() {
-            public void withNestedReferrer(ReferrerLoaderHandler<LoaderOfVendorUuidFoo> handler) {
-                handler.handle(new LoaderOfVendorUuidFoo().ready(_referrerVendorUuidFooList, _selector));
-            }
-        };
+        myBhv().loadVendorUuidFooList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerVendorUuidFooList = refLs);
+        return hd -> hd.handle(new LoaderOfVendorUuidFoo().ready(_referrerVendorUuidFooList, _selector));
     }
 
     // ===================================================================================

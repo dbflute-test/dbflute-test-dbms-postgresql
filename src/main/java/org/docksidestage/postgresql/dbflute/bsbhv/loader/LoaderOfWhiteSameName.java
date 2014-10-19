@@ -63,14 +63,8 @@ public class LoaderOfWhiteSameName {
     //                                                                       =============
     protected List<WhiteSameNameRef> _referrerWhiteSameNameRefList;
     public NestedReferrerLoaderGateway<LoaderOfWhiteSameNameRef> loadWhiteSameNameRefList(ConditionBeanSetupper<WhiteSameNameRefCB> refCBLambda) {
-        myBhv().loadWhiteSameNameRefList(_selectedList, refCBLambda).withNestedReferrer(new ReferrerListHandler<WhiteSameNameRef>() {
-            public void handle(List<WhiteSameNameRef> referrerList) { _referrerWhiteSameNameRefList = referrerList; }
-        });
-        return new NestedReferrerLoaderGateway<LoaderOfWhiteSameNameRef>() {
-            public void withNestedReferrer(ReferrerLoaderHandler<LoaderOfWhiteSameNameRef> handler) {
-                handler.handle(new LoaderOfWhiteSameNameRef().ready(_referrerWhiteSameNameRefList, _selector));
-            }
-        };
+        myBhv().loadWhiteSameNameRefList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhiteSameNameRefList = refLs);
+        return hd -> hd.handle(new LoaderOfWhiteSameNameRef().ready(_referrerWhiteSameNameRefList, _selector));
     }
 
     // ===================================================================================
@@ -78,9 +72,8 @@ public class LoaderOfWhiteSameName {
     //                                                                    ================
     protected LoaderOfNextSchemaProduct _foreignNextSchemaProductLoader;
     public LoaderOfNextSchemaProduct pulloutNextSchemaProduct() {
-        if (_foreignNextSchemaProductLoader != null) { return _foreignNextSchemaProductLoader; }
-        List<NextSchemaProduct> pulledList = myBhv().pulloutNextSchemaProduct(_selectedList);
-        _foreignNextSchemaProductLoader = new LoaderOfNextSchemaProduct().ready(pulledList, _selector);
+        if (_foreignNextSchemaProductLoader == null)
+        { _foreignNextSchemaProductLoader = new LoaderOfNextSchemaProduct().ready(myBhv().pulloutNextSchemaProduct(_selectedList), _selector); }
         return _foreignNextSchemaProductLoader;
     }
 

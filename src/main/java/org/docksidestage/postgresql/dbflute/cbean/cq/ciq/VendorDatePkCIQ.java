@@ -61,8 +61,8 @@ public class VendorDatePkCIQ extends AbstractBsVendorDatePkCQ {
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueFooDate() { return _myCQ.getFooDate(); }
-    protected ConditionValue getCValueFooName() { return _myCQ.getFooName(); }
+    protected ConditionValue xgetCValueFooDate() { return _myCQ.xdfgetFooDate(); }
+    protected ConditionValue xgetCValueFooName() { return _myCQ.xdfgetFooName(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(VendorDatePkCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

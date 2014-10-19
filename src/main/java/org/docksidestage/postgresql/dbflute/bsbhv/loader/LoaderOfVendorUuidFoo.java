@@ -61,9 +61,8 @@ public class LoaderOfVendorUuidFoo {
     //                                                                    ================
     protected LoaderOfVendorUuidBar _foreignVendorUuidBarLoader;
     public LoaderOfVendorUuidBar pulloutVendorUuidBar() {
-        if (_foreignVendorUuidBarLoader != null) { return _foreignVendorUuidBarLoader; }
-        List<VendorUuidBar> pulledList = myBhv().pulloutVendorUuidBar(_selectedList);
-        _foreignVendorUuidBarLoader = new LoaderOfVendorUuidBar().ready(pulledList, _selector);
+        if (_foreignVendorUuidBarLoader == null)
+        { _foreignVendorUuidBarLoader = new LoaderOfVendorUuidBar().ready(myBhv().pulloutVendorUuidBar(_selectedList), _selector); }
         return _foreignVendorUuidBarLoader;
     }
 

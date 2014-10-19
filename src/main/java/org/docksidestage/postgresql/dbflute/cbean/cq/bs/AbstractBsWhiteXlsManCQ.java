@@ -118,7 +118,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setXlsManId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueXlsManId(), "xls_man_id", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueXlsManId(), "xls_man_id", rangeOfOption);
     }
 
     /**
@@ -131,7 +131,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     }
 
     protected void doSetXlsManId_InScope(Collection<Long> xlsManIdList) {
-        regINS(CK_INS, cTL(xlsManIdList), getCValueXlsManId(), "xls_man_id");
+        regINS(CK_INS, cTL(xlsManIdList), xgetCValueXlsManId(), "xls_man_id");
     }
 
     /**
@@ -144,7 +144,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     }
 
     protected void doSetXlsManId_NotInScope(Collection<Long> xlsManIdList) {
-        regINS(CK_NINS, cTL(xlsManIdList), getCValueXlsManId(), "xls_man_id");
+        regINS(CK_NINS, cTL(xlsManIdList), xgetCValueXlsManId(), "xls_man_id");
     }
 
     /**
@@ -159,8 +159,8 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
      */
     public void setXlsManId_IsNotNull() { regXlsManId(CK_ISNN, DOBJ); }
 
-    protected void regXlsManId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueXlsManId(), "xls_man_id"); }
-    protected abstract ConditionValue getCValueXlsManId();
+    protected void regXlsManId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueXlsManId(), "xls_man_id"); }
+    protected abstract ConditionValue xgetCValueXlsManId();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -198,7 +198,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     }
 
     protected void doSetStringConverted_InScope(Collection<String> stringConvertedList) {
-        regINS(CK_INS, cTL(stringConvertedList), getCValueStringConverted(), "string_converted");
+        regINS(CK_INS, cTL(stringConvertedList), xgetCValueStringConverted(), "string_converted");
     }
 
     /**
@@ -211,7 +211,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     }
 
     protected void doSetStringConverted_NotInScope(Collection<String> stringConvertedList) {
-        regINS(CK_NINS, cTL(stringConvertedList), getCValueStringConverted(), "string_converted");
+        regINS(CK_NINS, cTL(stringConvertedList), xgetCValueStringConverted(), "string_converted");
     }
 
     /**
@@ -233,7 +233,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setStringConverted_LikeSearch(String stringConverted, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(stringConverted), getCValueStringConverted(), "string_converted", likeSearchOption);
+        regLSQ(CK_LS, fRES(stringConverted), xgetCValueStringConverted(), "string_converted", likeSearchOption);
     }
 
     /**
@@ -255,7 +255,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setStringConverted_NotLikeSearch(String stringConverted, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(stringConverted), getCValueStringConverted(), "string_converted", likeSearchOption);
+        regLSQ(CK_NLS, fRES(stringConverted), xgetCValueStringConverted(), "string_converted", likeSearchOption);
     }
 
     /**
@@ -285,8 +285,8 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
      */
     public void setStringConverted_IsNotNull() { regStringConverted(CK_ISNN, DOBJ); }
 
-    protected void regStringConverted(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueStringConverted(), "string_converted"); }
-    protected abstract ConditionValue getCValueStringConverted();
+    protected void regStringConverted(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueStringConverted(), "string_converted"); }
+    protected abstract ConditionValue xgetCValueStringConverted();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -356,7 +356,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
      * @param fromToOption The option of from-to. (NotNull)
      */
     public void setTimestampZeroDefaultMillis_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ((fromDatetime != null ? new java.sql.Timestamp(fromDatetime.getTime()) : null), (toDatetime != null ? new java.sql.Timestamp(toDatetime.getTime()) : null), getCValueTimestampZeroDefaultMillis(), "timestamp_zero_default_millis", fromToOption);
+        regFTQ((fromDatetime != null ? new java.sql.Timestamp(fromDatetime.getTime()) : null), (toDatetime != null ? new java.sql.Timestamp(toDatetime.getTime()) : null), xgetCValueTimestampZeroDefaultMillis(), "timestamp_zero_default_millis", fromToOption);
     }
 
     /**
@@ -386,8 +386,8 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
      */
     public void setTimestampZeroDefaultMillis_IsNotNull() { regTimestampZeroDefaultMillis(CK_ISNN, DOBJ); }
 
-    protected void regTimestampZeroDefaultMillis(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueTimestampZeroDefaultMillis(), "timestamp_zero_default_millis"); }
-    protected abstract ConditionValue getCValueTimestampZeroDefaultMillis();
+    protected void regTimestampZeroDefaultMillis(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueTimestampZeroDefaultMillis(), "timestamp_zero_default_millis"); }
+    protected abstract ConditionValue xgetCValueTimestampZeroDefaultMillis();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -457,7 +457,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
      * @param fromToOption The option of from-to. (NotNull)
      */
     public void setTimestampZeroPrefixMillis_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ((fromDatetime != null ? new java.sql.Timestamp(fromDatetime.getTime()) : null), (toDatetime != null ? new java.sql.Timestamp(toDatetime.getTime()) : null), getCValueTimestampZeroPrefixMillis(), "timestamp_zero_prefix_millis", fromToOption);
+        regFTQ((fromDatetime != null ? new java.sql.Timestamp(fromDatetime.getTime()) : null), (toDatetime != null ? new java.sql.Timestamp(toDatetime.getTime()) : null), xgetCValueTimestampZeroPrefixMillis(), "timestamp_zero_prefix_millis", fromToOption);
     }
 
     /**
@@ -487,8 +487,8 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
      */
     public void setTimestampZeroPrefixMillis_IsNotNull() { regTimestampZeroPrefixMillis(CK_ISNN, DOBJ); }
 
-    protected void regTimestampZeroPrefixMillis(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueTimestampZeroPrefixMillis(), "timestamp_zero_prefix_millis"); }
-    protected abstract ConditionValue getCValueTimestampZeroPrefixMillis();
+    protected void regTimestampZeroPrefixMillis(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueTimestampZeroPrefixMillis(), "timestamp_zero_prefix_millis"); }
+    protected abstract ConditionValue xgetCValueTimestampZeroPrefixMillis();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -558,7 +558,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
      * @param fromToOption The option of from-to. (NotNull)
      */
     public void setTimestampZeroSuffixMillis_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ((fromDatetime != null ? new java.sql.Timestamp(fromDatetime.getTime()) : null), (toDatetime != null ? new java.sql.Timestamp(toDatetime.getTime()) : null), getCValueTimestampZeroSuffixMillis(), "timestamp_zero_suffix_millis", fromToOption);
+        regFTQ((fromDatetime != null ? new java.sql.Timestamp(fromDatetime.getTime()) : null), (toDatetime != null ? new java.sql.Timestamp(toDatetime.getTime()) : null), xgetCValueTimestampZeroSuffixMillis(), "timestamp_zero_suffix_millis", fromToOption);
     }
 
     /**
@@ -588,8 +588,8 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
      */
     public void setTimestampZeroSuffixMillis_IsNotNull() { regTimestampZeroSuffixMillis(CK_ISNN, DOBJ); }
 
-    protected void regTimestampZeroSuffixMillis(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueTimestampZeroSuffixMillis(), "timestamp_zero_suffix_millis"); }
-    protected abstract ConditionValue getCValueTimestampZeroSuffixMillis();
+    protected void regTimestampZeroSuffixMillis(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueTimestampZeroSuffixMillis(), "timestamp_zero_suffix_millis"); }
+    protected abstract ConditionValue xgetCValueTimestampZeroSuffixMillis();
 
     // ===================================================================================
     //                                                                     ScalarCondition

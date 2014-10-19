@@ -63,14 +63,8 @@ public class LoaderOfProductStatus {
     //                                                                       =============
     protected List<Product> _referrerProductList;
     public NestedReferrerLoaderGateway<LoaderOfProduct> loadProductList(ConditionBeanSetupper<ProductCB> refCBLambda) {
-        myBhv().loadProductList(_selectedList, refCBLambda).withNestedReferrer(new ReferrerListHandler<Product>() {
-            public void handle(List<Product> referrerList) { _referrerProductList = referrerList; }
-        });
-        return new NestedReferrerLoaderGateway<LoaderOfProduct>() {
-            public void withNestedReferrer(ReferrerLoaderHandler<LoaderOfProduct> handler) {
-                handler.handle(new LoaderOfProduct().ready(_referrerProductList, _selector));
-            }
-        };
+        myBhv().loadProductList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerProductList = refLs);
+        return hd -> hd.handle(new LoaderOfProduct().ready(_referrerProductList, _selector));
     }
 
     // ===================================================================================

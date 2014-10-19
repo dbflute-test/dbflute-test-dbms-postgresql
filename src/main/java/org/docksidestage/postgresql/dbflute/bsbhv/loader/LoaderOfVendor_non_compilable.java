@@ -63,26 +63,14 @@ public class LoaderOfVendor_non_compilable {
     //                                                                       =============
     protected List<Vendor_non_compilable> _referrerVendor_non_compilableByNextParentidSelfList;
     public NestedReferrerLoaderGateway<LoaderOfVendor_non_compilable> loadVendor_non_compilableByNextParentidSelfList(ConditionBeanSetupper<Vendor_non_compilableCB> refCBLambda) {
-        myBhv().loadVendor_non_compilableByNextParentidSelfList(_selectedList, refCBLambda).withNestedReferrer(new ReferrerListHandler<Vendor_non_compilable>() {
-            public void handle(List<Vendor_non_compilable> referrerList) { _referrerVendor_non_compilableByNextParentidSelfList = referrerList; }
-        });
-        return new NestedReferrerLoaderGateway<LoaderOfVendor_non_compilable>() {
-            public void withNestedReferrer(ReferrerLoaderHandler<LoaderOfVendor_non_compilable> handler) {
-                handler.handle(new LoaderOfVendor_non_compilable().ready(_referrerVendor_non_compilableByNextParentidSelfList, _selector));
-            }
-        };
+        myBhv().loadVendor_non_compilableByNextParentidSelfList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerVendor_non_compilableByNextParentidSelfList = refLs);
+        return hd -> hd.handle(new LoaderOfVendor_non_compilable().ready(_referrerVendor_non_compilableByNextParentidSelfList, _selector));
     }
 
     protected List<Vendor_non_compilable> _referrerVendor_non_compilableByParent_idSelfList;
     public NestedReferrerLoaderGateway<LoaderOfVendor_non_compilable> loadVendor_non_compilableByParent_idSelfList(ConditionBeanSetupper<Vendor_non_compilableCB> refCBLambda) {
-        myBhv().loadVendor_non_compilableByParent_idSelfList(_selectedList, refCBLambda).withNestedReferrer(new ReferrerListHandler<Vendor_non_compilable>() {
-            public void handle(List<Vendor_non_compilable> referrerList) { _referrerVendor_non_compilableByParent_idSelfList = referrerList; }
-        });
-        return new NestedReferrerLoaderGateway<LoaderOfVendor_non_compilable>() {
-            public void withNestedReferrer(ReferrerLoaderHandler<LoaderOfVendor_non_compilable> handler) {
-                handler.handle(new LoaderOfVendor_non_compilable().ready(_referrerVendor_non_compilableByParent_idSelfList, _selector));
-            }
-        };
+        myBhv().loadVendor_non_compilableByParent_idSelfList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerVendor_non_compilableByParent_idSelfList = refLs);
+        return hd -> hd.handle(new LoaderOfVendor_non_compilable().ready(_referrerVendor_non_compilableByParent_idSelfList, _selector));
     }
 
     // ===================================================================================
@@ -90,17 +78,15 @@ public class LoaderOfVendor_non_compilable {
     //                                                                    ================
     protected LoaderOfVendor_non_compilable _foreignVendor_non_compilableByNextParentidSelfLoader;
     public LoaderOfVendor_non_compilable pulloutVendor_non_compilableByNextParentidSelf() {
-        if (_foreignVendor_non_compilableByNextParentidSelfLoader != null) { return _foreignVendor_non_compilableByNextParentidSelfLoader; }
-        List<Vendor_non_compilable> pulledList = myBhv().pulloutVendor_non_compilableByNextParentidSelf(_selectedList);
-        _foreignVendor_non_compilableByNextParentidSelfLoader = new LoaderOfVendor_non_compilable().ready(pulledList, _selector);
+        if (_foreignVendor_non_compilableByNextParentidSelfLoader == null)
+        { _foreignVendor_non_compilableByNextParentidSelfLoader = new LoaderOfVendor_non_compilable().ready(myBhv().pulloutVendor_non_compilableByNextParentidSelf(_selectedList), _selector); }
         return _foreignVendor_non_compilableByNextParentidSelfLoader;
     }
 
     protected LoaderOfVendor_non_compilable _foreignVendor_non_compilableByParent_idSelfLoader;
     public LoaderOfVendor_non_compilable pulloutVendor_non_compilableByParent_idSelf() {
-        if (_foreignVendor_non_compilableByParent_idSelfLoader != null) { return _foreignVendor_non_compilableByParent_idSelfLoader; }
-        List<Vendor_non_compilable> pulledList = myBhv().pulloutVendor_non_compilableByParent_idSelf(_selectedList);
-        _foreignVendor_non_compilableByParent_idSelfLoader = new LoaderOfVendor_non_compilable().ready(pulledList, _selector);
+        if (_foreignVendor_non_compilableByParent_idSelfLoader == null)
+        { _foreignVendor_non_compilableByParent_idSelfLoader = new LoaderOfVendor_non_compilable().ready(myBhv().pulloutVendor_non_compilableByParent_idSelf(_selectedList), _selector); }
         return _foreignVendor_non_compilableByParent_idSelfLoader;
     }
 

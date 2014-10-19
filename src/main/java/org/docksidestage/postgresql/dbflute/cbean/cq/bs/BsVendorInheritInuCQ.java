@@ -74,10 +74,10 @@ public class BsVendorInheritInuCQ extends AbstractBsVendorInheritInuCQ {
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _inuId;
-    public ConditionValue getInuId()
+    public ConditionValue xdfgetInuId()
     { if (_inuId == null) { _inuId = nCV(); }
       return _inuId; }
-    protected ConditionValue getCValueInuId() { return getInuId(); }
+    protected ConditionValue xgetCValueInuId() { return xdfgetInuId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -94,10 +94,10 @@ public class BsVendorInheritInuCQ extends AbstractBsVendorInheritInuCQ {
     public BsVendorInheritInuCQ addOrderBy_InuId_Desc() { regOBD("inu_id"); return this; }
 
     protected ConditionValue _inuName;
-    public ConditionValue getInuName()
+    public ConditionValue xdfgetInuName()
     { if (_inuName == null) { _inuName = nCV(); }
       return _inuName; }
-    protected ConditionValue getCValueInuName() { return getInuName(); }
+    protected ConditionValue xgetCValueInuName() { return xdfgetInuName(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -114,10 +114,10 @@ public class BsVendorInheritInuCQ extends AbstractBsVendorInheritInuCQ {
     public BsVendorInheritInuCQ addOrderBy_InuName_Desc() { regOBD("inu_name"); return this; }
 
     protected ConditionValue _inuDate;
-    public ConditionValue getInuDate()
+    public ConditionValue xdfgetInuDate()
     { if (_inuDate == null) { _inuDate = nCV(); }
       return _inuDate; }
-    protected ConditionValue getCValueInuDate() { return getInuDate(); }
+    protected ConditionValue xgetCValueInuDate() { return xdfgetInuDate(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -184,31 +184,31 @@ public class BsVendorInheritInuCQ extends AbstractBsVendorInheritInuCQ {
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, VendorInheritInuCQ> getScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public Map<String, VendorInheritInuCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(VendorInheritInuCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
     //                                                                       MyselfDerived
     //                                                                       =============
-    public Map<String, VendorInheritInuCQ> getSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
+    public Map<String, VendorInheritInuCQ> xdfgetSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
     public String keepSpecifyMyselfDerived(VendorInheritInuCQ sq) { return xkeepSQue("specifyMyselfDerived", sq); }
 
-    public Map<String, VendorInheritInuCQ> getQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
+    public Map<String, VendorInheritInuCQ> xdfgetQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerived(VendorInheritInuCQ sq) { return xkeepSQue("queryMyselfDerived", sq); }
-    public Map<String, Object> getQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
+    public Map<String, Object> xdfgetQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerivedParameter(Object pm) { return xkeepSQuePm("queryMyselfDerived", pm); }
 
     // ===================================================================================
     //                                                                        MyselfExists
     //                                                                        ============
     protected Map<String, VendorInheritInuCQ> _myselfExistsMap;
-    public Map<String, VendorInheritInuCQ> getMyselfExists() { return xgetSQueMap("myselfExists"); }
+    public Map<String, VendorInheritInuCQ> xdfgetMyselfExists() { return xgetSQueMap("myselfExists"); }
     public String keepMyselfExists(VendorInheritInuCQ sq) { return xkeepSQue("myselfExists", sq); }
 
     // ===================================================================================
     //                                                                       MyselfInScope
     //                                                                       =============
-    public Map<String, VendorInheritInuCQ> getMyselfInScope() { return xgetSQueMap("myselfInScope"); }
+    public Map<String, VendorInheritInuCQ> xdfgetMyselfInScope() { return xgetSQueMap("myselfInScope"); }
     public String keepMyselfInScope(VendorInheritInuCQ sq) { return xkeepSQue("myselfInScope", sq); }
 
     // ===================================================================================
@@ -217,7 +217,7 @@ public class BsVendorInheritInuCQ extends AbstractBsVendorInheritInuCQ {
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return VendorInheritInuCB.class.getName(); }
     protected String xCQ() { return VendorInheritInuCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }

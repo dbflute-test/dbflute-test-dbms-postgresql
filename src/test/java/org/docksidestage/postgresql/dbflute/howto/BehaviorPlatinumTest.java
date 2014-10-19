@@ -804,10 +804,9 @@ public class BehaviorPlatinumTest extends UnitContainerTestCase {
         member.setUpdateDatetime(expectedTimestamp);
         member.setUpdateUser("suppressUpdateUser");
         member.setUpdateProcess("suppressUpdateProcess");
-        member.disableCommonColumnAutoSetup();// *Point!
 
         // ## Act ##
-        memberBhv.insert(member);
+        memberBhv.varyingInsert(member, op -> op.disableCommonColumnAutoSetup());
 
         // ## Assert ##
         final MemberCB cb = new MemberCB();

@@ -61,9 +61,8 @@ public class LoaderOfVendorDateFk {
     //                                                                    ================
     protected LoaderOfVendorDatePk _foreignVendorDatePkLoader;
     public LoaderOfVendorDatePk pulloutVendorDatePk() {
-        if (_foreignVendorDatePkLoader != null) { return _foreignVendorDatePkLoader; }
-        List<VendorDatePk> pulledList = myBhv().pulloutVendorDatePk(_selectedList);
-        _foreignVendorDatePkLoader = new LoaderOfVendorDatePk().ready(pulledList, _selector);
+        if (_foreignVendorDatePkLoader == null)
+        { _foreignVendorDatePkLoader = new LoaderOfVendorDatePk().ready(myBhv().pulloutVendorDatePk(_selectedList), _selector); }
         return _foreignVendorDatePkLoader;
     }
 

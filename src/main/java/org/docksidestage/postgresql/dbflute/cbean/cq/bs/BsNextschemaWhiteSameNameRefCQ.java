@@ -74,10 +74,10 @@ public class BsNextschemaWhiteSameNameRefCQ extends AbstractBsNextschemaWhiteSam
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _sameNameRefId;
-    public ConditionValue getSameNameRefId()
+    public ConditionValue xdfgetSameNameRefId()
     { if (_sameNameRefId == null) { _sameNameRefId = nCV(); }
       return _sameNameRefId; }
-    protected ConditionValue getCValueSameNameRefId() { return getSameNameRefId(); }
+    protected ConditionValue xgetCValueSameNameRefId() { return xdfgetSameNameRefId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -94,10 +94,10 @@ public class BsNextschemaWhiteSameNameRefCQ extends AbstractBsNextschemaWhiteSam
     public BsNextschemaWhiteSameNameRefCQ addOrderBy_SameNameRefId_Desc() { regOBD("same_name_ref_id"); return this; }
 
     protected ConditionValue _sameNameId;
-    public ConditionValue getSameNameId()
+    public ConditionValue xdfgetSameNameId()
     { if (_sameNameId == null) { _sameNameId = nCV(); }
       return _sameNameId; }
-    protected ConditionValue getCValueSameNameId() { return getSameNameId(); }
+    protected ConditionValue xgetCValueSameNameId() { return xdfgetSameNameId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -114,10 +114,10 @@ public class BsNextschemaWhiteSameNameRefCQ extends AbstractBsNextschemaWhiteSam
     public BsNextschemaWhiteSameNameRefCQ addOrderBy_SameNameId_Desc() { regOBD("same_name_id"); return this; }
 
     protected ConditionValue _nextRefDate;
-    public ConditionValue getNextRefDate()
+    public ConditionValue xdfgetNextRefDate()
     { if (_nextRefDate == null) { _nextRefDate = nCV(); }
       return _nextRefDate; }
-    protected ConditionValue getCValueNextRefDate() { return getNextRefDate(); }
+    protected ConditionValue xgetCValueNextRefDate() { return xdfgetNextRefDate(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -188,9 +188,9 @@ public class BsNextschemaWhiteSameNameRefCQ extends AbstractBsNextschemaWhiteSam
      * @return The instance of condition-query. (NotNull)
      */
     public NextschemaWhiteSameNameCQ queryWhiteSameName() {
-        return getConditionQueryWhiteSameName();
+        return xdfgetConditionQueryWhiteSameName();
     }
-    public NextschemaWhiteSameNameCQ getConditionQueryWhiteSameName() {
+    public NextschemaWhiteSameNameCQ xdfgetConditionQueryWhiteSameName() {
         String prop = "whiteSameName";
         if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryWhiteSameName()); xsetupOuterJoinWhiteSameName(); }
         return xgetQueRlMap(prop);
@@ -209,31 +209,31 @@ public class BsNextschemaWhiteSameNameRefCQ extends AbstractBsNextschemaWhiteSam
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, NextschemaWhiteSameNameRefCQ> getScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public Map<String, NextschemaWhiteSameNameRefCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(NextschemaWhiteSameNameRefCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
     //                                                                       MyselfDerived
     //                                                                       =============
-    public Map<String, NextschemaWhiteSameNameRefCQ> getSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
+    public Map<String, NextschemaWhiteSameNameRefCQ> xdfgetSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
     public String keepSpecifyMyselfDerived(NextschemaWhiteSameNameRefCQ sq) { return xkeepSQue("specifyMyselfDerived", sq); }
 
-    public Map<String, NextschemaWhiteSameNameRefCQ> getQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
+    public Map<String, NextschemaWhiteSameNameRefCQ> xdfgetQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerived(NextschemaWhiteSameNameRefCQ sq) { return xkeepSQue("queryMyselfDerived", sq); }
-    public Map<String, Object> getQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
+    public Map<String, Object> xdfgetQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerivedParameter(Object pm) { return xkeepSQuePm("queryMyselfDerived", pm); }
 
     // ===================================================================================
     //                                                                        MyselfExists
     //                                                                        ============
     protected Map<String, NextschemaWhiteSameNameRefCQ> _myselfExistsMap;
-    public Map<String, NextschemaWhiteSameNameRefCQ> getMyselfExists() { return xgetSQueMap("myselfExists"); }
+    public Map<String, NextschemaWhiteSameNameRefCQ> xdfgetMyselfExists() { return xgetSQueMap("myselfExists"); }
     public String keepMyselfExists(NextschemaWhiteSameNameRefCQ sq) { return xkeepSQue("myselfExists", sq); }
 
     // ===================================================================================
     //                                                                       MyselfInScope
     //                                                                       =============
-    public Map<String, NextschemaWhiteSameNameRefCQ> getMyselfInScope() { return xgetSQueMap("myselfInScope"); }
+    public Map<String, NextschemaWhiteSameNameRefCQ> xdfgetMyselfInScope() { return xgetSQueMap("myselfInScope"); }
     public String keepMyselfInScope(NextschemaWhiteSameNameRefCQ sq) { return xkeepSQue("myselfInScope", sq); }
 
     // ===================================================================================
@@ -242,7 +242,7 @@ public class BsNextschemaWhiteSameNameRefCQ extends AbstractBsNextschemaWhiteSam
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return NextschemaWhiteSameNameRefCB.class.getName(); }
     protected String xCQ() { return NextschemaWhiteSameNameRefCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }

@@ -61,9 +61,9 @@ public class NextschemaWhiteSameNameRefCIQ extends AbstractBsNextschemaWhiteSame
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueSameNameRefId() { return _myCQ.getSameNameRefId(); }
-    protected ConditionValue getCValueSameNameId() { return _myCQ.getSameNameId(); }
-    protected ConditionValue getCValueNextRefDate() { return _myCQ.getNextRefDate(); }
+    protected ConditionValue xgetCValueSameNameRefId() { return _myCQ.xdfgetSameNameRefId(); }
+    protected ConditionValue xgetCValueSameNameId() { return _myCQ.xdfgetSameNameId(); }
+    protected ConditionValue xgetCValueNextRefDate() { return _myCQ.xdfgetNextRefDate(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(NextschemaWhiteSameNameRefCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

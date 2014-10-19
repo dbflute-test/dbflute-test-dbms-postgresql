@@ -118,7 +118,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setLargeDataRefId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueLargeDataRefId(), "large_data_ref_id", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueLargeDataRefId(), "large_data_ref_id", rangeOfOption);
     }
 
     /**
@@ -131,7 +131,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     protected void doSetLargeDataRefId_InScope(Collection<Long> largeDataRefIdList) {
-        regINS(CK_INS, cTL(largeDataRefIdList), getCValueLargeDataRefId(), "large_data_ref_id");
+        regINS(CK_INS, cTL(largeDataRefIdList), xgetCValueLargeDataRefId(), "large_data_ref_id");
     }
 
     /**
@@ -144,7 +144,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     protected void doSetLargeDataRefId_NotInScope(Collection<Long> largeDataRefIdList) {
-        regINS(CK_NINS, cTL(largeDataRefIdList), getCValueLargeDataRefId(), "large_data_ref_id");
+        regINS(CK_NINS, cTL(largeDataRefIdList), xgetCValueLargeDataRefId(), "large_data_ref_id");
     }
 
     /**
@@ -242,8 +242,8 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
      */
     public void setLargeDataRefId_IsNotNull() { regLargeDataRefId(CK_ISNN, DOBJ); }
 
-    protected void regLargeDataRefId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueLargeDataRefId(), "large_data_ref_id"); }
-    protected abstract ConditionValue getCValueLargeDataRefId();
+    protected void regLargeDataRefId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueLargeDataRefId(), "large_data_ref_id"); }
+    protected abstract ConditionValue xgetCValueLargeDataRefId();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -317,7 +317,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setLargeDataId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueLargeDataId(), "large_data_id", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueLargeDataId(), "large_data_id", rangeOfOption);
     }
 
     /**
@@ -330,7 +330,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     protected void doSetLargeDataId_InScope(Collection<Long> largeDataIdList) {
-        regINS(CK_INS, cTL(largeDataIdList), getCValueLargeDataId(), "large_data_id");
+        regINS(CK_INS, cTL(largeDataIdList), xgetCValueLargeDataId(), "large_data_id");
     }
 
     /**
@@ -343,11 +343,11 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     protected void doSetLargeDataId_NotInScope(Collection<Long> largeDataIdList) {
-        regINS(CK_NINS, cTL(largeDataIdList), getCValueLargeDataId(), "large_data_id");
+        regINS(CK_NINS, cTL(largeDataIdList), xgetCValueLargeDataId(), "large_data_id");
     }
 
-    protected void regLargeDataId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueLargeDataId(), "large_data_id"); }
-    protected abstract ConditionValue getCValueLargeDataId();
+    protected void regLargeDataId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueLargeDataId(), "large_data_id"); }
+    protected abstract ConditionValue xgetCValueLargeDataId();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -417,7 +417,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
      * @param fromToOption The option of from-to. (NotNull)
      */
     public void setDateIndex_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ(fCTPD(fromDatetime), fCTPD(toDatetime), getCValueDateIndex(), "date_index", fromToOption);
+        regFTQ(fCTPD(fromDatetime), fCTPD(toDatetime), xgetCValueDateIndex(), "date_index", fromToOption);
     }
 
     /**
@@ -435,8 +435,8 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
         setDateIndex_FromTo(fromDate, toDate, xcDFTOP());
     }
 
-    protected void regDateIndex(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueDateIndex(), "date_index"); }
-    protected abstract ConditionValue getCValueDateIndex();
+    protected void regDateIndex(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueDateIndex(), "date_index"); }
+    protected abstract ConditionValue xgetCValueDateIndex();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -506,7 +506,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
      * @param fromToOption The option of from-to. (NotNull)
      */
     public void setDateNoIndex_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ(fCTPD(fromDatetime), fCTPD(toDatetime), getCValueDateNoIndex(), "date_no_index", fromToOption);
+        regFTQ(fCTPD(fromDatetime), fCTPD(toDatetime), xgetCValueDateNoIndex(), "date_no_index", fromToOption);
     }
 
     /**
@@ -524,8 +524,8 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
         setDateNoIndex_FromTo(fromDate, toDate, xcDFTOP());
     }
 
-    protected void regDateNoIndex(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueDateNoIndex(), "date_no_index"); }
-    protected abstract ConditionValue getCValueDateNoIndex();
+    protected void regDateNoIndex(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueDateNoIndex(), "date_no_index"); }
+    protected abstract ConditionValue xgetCValueDateNoIndex();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -595,7 +595,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
      * @param fromToOption The option of from-to. (NotNull)
      */
     public void setTimestampIndex_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ((fromDatetime != null ? new java.sql.Timestamp(fromDatetime.getTime()) : null), (toDatetime != null ? new java.sql.Timestamp(toDatetime.getTime()) : null), getCValueTimestampIndex(), "timestamp_index", fromToOption);
+        regFTQ((fromDatetime != null ? new java.sql.Timestamp(fromDatetime.getTime()) : null), (toDatetime != null ? new java.sql.Timestamp(toDatetime.getTime()) : null), xgetCValueTimestampIndex(), "timestamp_index", fromToOption);
     }
 
     /**
@@ -613,8 +613,8 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
         setTimestampIndex_FromTo(fromDate, toDate, xcDFTOP());
     }
 
-    protected void regTimestampIndex(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueTimestampIndex(), "timestamp_index"); }
-    protected abstract ConditionValue getCValueTimestampIndex();
+    protected void regTimestampIndex(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueTimestampIndex(), "timestamp_index"); }
+    protected abstract ConditionValue xgetCValueTimestampIndex();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -684,7 +684,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
      * @param fromToOption The option of from-to. (NotNull)
      */
     public void setTimestampNoIndex_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ((fromDatetime != null ? new java.sql.Timestamp(fromDatetime.getTime()) : null), (toDatetime != null ? new java.sql.Timestamp(toDatetime.getTime()) : null), getCValueTimestampNoIndex(), "timestamp_no_index", fromToOption);
+        regFTQ((fromDatetime != null ? new java.sql.Timestamp(fromDatetime.getTime()) : null), (toDatetime != null ? new java.sql.Timestamp(toDatetime.getTime()) : null), xgetCValueTimestampNoIndex(), "timestamp_no_index", fromToOption);
     }
 
     /**
@@ -702,8 +702,8 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
         setTimestampNoIndex_FromTo(fromDate, toDate, xcDFTOP());
     }
 
-    protected void regTimestampNoIndex(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueTimestampNoIndex(), "timestamp_no_index"); }
-    protected abstract ConditionValue getCValueTimestampNoIndex();
+    protected void regTimestampNoIndex(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueTimestampNoIndex(), "timestamp_no_index"); }
+    protected abstract ConditionValue xgetCValueTimestampNoIndex();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -777,7 +777,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setNullableDecimalIndex_RangeOf(java.math.BigDecimal minNumber, java.math.BigDecimal maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueNullableDecimalIndex(), "nullable_decimal_index", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueNullableDecimalIndex(), "nullable_decimal_index", rangeOfOption);
     }
 
     /**
@@ -790,7 +790,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     protected void doSetNullableDecimalIndex_InScope(Collection<java.math.BigDecimal> nullableDecimalIndexList) {
-        regINS(CK_INS, cTL(nullableDecimalIndexList), getCValueNullableDecimalIndex(), "nullable_decimal_index");
+        regINS(CK_INS, cTL(nullableDecimalIndexList), xgetCValueNullableDecimalIndex(), "nullable_decimal_index");
     }
 
     /**
@@ -803,7 +803,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     protected void doSetNullableDecimalIndex_NotInScope(Collection<java.math.BigDecimal> nullableDecimalIndexList) {
-        regINS(CK_NINS, cTL(nullableDecimalIndexList), getCValueNullableDecimalIndex(), "nullable_decimal_index");
+        regINS(CK_NINS, cTL(nullableDecimalIndexList), xgetCValueNullableDecimalIndex(), "nullable_decimal_index");
     }
 
     /**
@@ -818,8 +818,8 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
      */
     public void setNullableDecimalIndex_IsNotNull() { regNullableDecimalIndex(CK_ISNN, DOBJ); }
 
-    protected void regNullableDecimalIndex(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueNullableDecimalIndex(), "nullable_decimal_index"); }
-    protected abstract ConditionValue getCValueNullableDecimalIndex();
+    protected void regNullableDecimalIndex(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueNullableDecimalIndex(), "nullable_decimal_index"); }
+    protected abstract ConditionValue xgetCValueNullableDecimalIndex();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -893,7 +893,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setNullableDecimalNoIndex_RangeOf(java.math.BigDecimal minNumber, java.math.BigDecimal maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueNullableDecimalNoIndex(), "nullable_decimal_no_index", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueNullableDecimalNoIndex(), "nullable_decimal_no_index", rangeOfOption);
     }
 
     /**
@@ -906,7 +906,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     protected void doSetNullableDecimalNoIndex_InScope(Collection<java.math.BigDecimal> nullableDecimalNoIndexList) {
-        regINS(CK_INS, cTL(nullableDecimalNoIndexList), getCValueNullableDecimalNoIndex(), "nullable_decimal_no_index");
+        regINS(CK_INS, cTL(nullableDecimalNoIndexList), xgetCValueNullableDecimalNoIndex(), "nullable_decimal_no_index");
     }
 
     /**
@@ -919,7 +919,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     protected void doSetNullableDecimalNoIndex_NotInScope(Collection<java.math.BigDecimal> nullableDecimalNoIndexList) {
-        regINS(CK_NINS, cTL(nullableDecimalNoIndexList), getCValueNullableDecimalNoIndex(), "nullable_decimal_no_index");
+        regINS(CK_NINS, cTL(nullableDecimalNoIndexList), xgetCValueNullableDecimalNoIndex(), "nullable_decimal_no_index");
     }
 
     /**
@@ -934,8 +934,8 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
      */
     public void setNullableDecimalNoIndex_IsNotNull() { regNullableDecimalNoIndex(CK_ISNN, DOBJ); }
 
-    protected void regNullableDecimalNoIndex(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueNullableDecimalNoIndex(), "nullable_decimal_no_index"); }
-    protected abstract ConditionValue getCValueNullableDecimalNoIndex();
+    protected void regNullableDecimalNoIndex(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueNullableDecimalNoIndex(), "nullable_decimal_no_index"); }
+    protected abstract ConditionValue xgetCValueNullableDecimalNoIndex();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -1009,7 +1009,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setSelfParentId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueSelfParentId(), "self_parent_id", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueSelfParentId(), "self_parent_id", rangeOfOption);
     }
 
     /**
@@ -1022,7 +1022,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     protected void doSetSelfParentId_InScope(Collection<Long> selfParentIdList) {
-        regINS(CK_INS, cTL(selfParentIdList), getCValueSelfParentId(), "self_parent_id");
+        regINS(CK_INS, cTL(selfParentIdList), xgetCValueSelfParentId(), "self_parent_id");
     }
 
     /**
@@ -1035,7 +1035,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     protected void doSetSelfParentId_NotInScope(Collection<Long> selfParentIdList) {
-        regINS(CK_NINS, cTL(selfParentIdList), getCValueSelfParentId(), "self_parent_id");
+        regINS(CK_NINS, cTL(selfParentIdList), xgetCValueSelfParentId(), "self_parent_id");
     }
 
     /**
@@ -1050,8 +1050,8 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
      */
     public void setSelfParentId_IsNotNull() { regSelfParentId(CK_ISNN, DOBJ); }
 
-    protected void regSelfParentId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueSelfParentId(), "self_parent_id"); }
-    protected abstract ConditionValue getCValueSelfParentId();
+    protected void regSelfParentId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueSelfParentId(), "self_parent_id"); }
+    protected abstract ConditionValue xgetCValueSelfParentId();
 
     // ===================================================================================
     //                                                                     ScalarCondition

@@ -118,7 +118,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setNon_compilable_id_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueNon_compilable_id(), "NON-COMPILABLE ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueNon_compilable_id(), "NON-COMPILABLE ID", rangeOfOption);
     }
 
     /**
@@ -131,7 +131,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     }
 
     protected void doSetNon_compilable_id_InScope(Collection<Integer> non_compilable_idList) {
-        regINS(CK_INS, cTL(non_compilable_idList), getCValueNon_compilable_id(), "NON-COMPILABLE ID");
+        regINS(CK_INS, cTL(non_compilable_idList), xgetCValueNon_compilable_id(), "NON-COMPILABLE ID");
     }
 
     /**
@@ -144,7 +144,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     }
 
     protected void doSetNon_compilable_id_NotInScope(Collection<Integer> non_compilable_idList) {
-        regINS(CK_NINS, cTL(non_compilable_idList), getCValueNon_compilable_id(), "NON-COMPILABLE ID");
+        regINS(CK_NINS, cTL(non_compilable_idList), xgetCValueNon_compilable_id(), "NON-COMPILABLE ID");
     }
 
     /**
@@ -325,8 +325,8 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
      */
     public void setNon_compilable_id_IsNotNull() { regNon_compilable_id(CK_ISNN, DOBJ); }
 
-    protected void regNon_compilable_id(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueNon_compilable_id(), "NON-COMPILABLE ID"); }
-    protected abstract ConditionValue getCValueNon_compilable_id();
+    protected void regNon_compilable_id(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueNon_compilable_id(), "NON-COMPILABLE ID"); }
+    protected abstract ConditionValue xgetCValueNon_compilable_id();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -364,7 +364,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     }
 
     protected void doSetNon_compilable_name_InScope(Collection<String> non_compilable_nameList) {
-        regINS(CK_INS, cTL(non_compilable_nameList), getCValueNon_compilable_name(), "NON COMPILABLE-NAME");
+        regINS(CK_INS, cTL(non_compilable_nameList), xgetCValueNon_compilable_name(), "NON COMPILABLE-NAME");
     }
 
     /**
@@ -377,7 +377,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     }
 
     protected void doSetNon_compilable_name_NotInScope(Collection<String> non_compilable_nameList) {
-        regINS(CK_NINS, cTL(non_compilable_nameList), getCValueNon_compilable_name(), "NON COMPILABLE-NAME");
+        regINS(CK_NINS, cTL(non_compilable_nameList), xgetCValueNon_compilable_name(), "NON COMPILABLE-NAME");
     }
 
     /**
@@ -399,7 +399,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setNon_compilable_name_LikeSearch(String non_compilable_name, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(non_compilable_name), getCValueNon_compilable_name(), "NON COMPILABLE-NAME", likeSearchOption);
+        regLSQ(CK_LS, fRES(non_compilable_name), xgetCValueNon_compilable_name(), "NON COMPILABLE-NAME", likeSearchOption);
     }
 
     /**
@@ -421,7 +421,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setNon_compilable_name_NotLikeSearch(String non_compilable_name, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(non_compilable_name), getCValueNon_compilable_name(), "NON COMPILABLE-NAME", likeSearchOption);
+        regLSQ(CK_NLS, fRES(non_compilable_name), xgetCValueNon_compilable_name(), "NON COMPILABLE-NAME", likeSearchOption);
     }
 
     /**
@@ -451,8 +451,8 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
      */
     public void setNon_compilable_name_IsNotNull() { regNon_compilable_name(CK_ISNN, DOBJ); }
 
-    protected void regNon_compilable_name(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueNon_compilable_name(), "NON COMPILABLE-NAME"); }
-    protected abstract ConditionValue getCValueNon_compilable_name();
+    protected void regNon_compilable_name(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueNon_compilable_name(), "NON COMPILABLE-NAME"); }
+    protected abstract ConditionValue xgetCValueNon_compilable_name();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -526,7 +526,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setParent_id_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueParent_id(), "PARENT-ID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueParent_id(), "PARENT-ID", rangeOfOption);
     }
 
     /**
@@ -539,7 +539,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     }
 
     protected void doSetParent_id_InScope(Collection<Integer> parent_idList) {
-        regINS(CK_INS, cTL(parent_idList), getCValueParent_id(), "PARENT-ID");
+        regINS(CK_INS, cTL(parent_idList), xgetCValueParent_id(), "PARENT-ID");
     }
 
     /**
@@ -552,7 +552,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     }
 
     protected void doSetParent_id_NotInScope(Collection<Integer> parent_idList) {
-        regINS(CK_NINS, cTL(parent_idList), getCValueParent_id(), "PARENT-ID");
+        regINS(CK_NINS, cTL(parent_idList), xgetCValueParent_id(), "PARENT-ID");
     }
 
     /**
@@ -567,8 +567,8 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
      */
     public void setParent_id_IsNotNull() { regParent_id(CK_ISNN, DOBJ); }
 
-    protected void regParent_id(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueParent_id(), "PARENT-ID"); }
-    protected abstract ConditionValue getCValueParent_id();
+    protected void regParent_id(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueParent_id(), "PARENT-ID"); }
+    protected abstract ConditionValue xgetCValueParent_id();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -642,7 +642,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setNextParentid_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueNextParentid(), "Next_ParentID", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueNextParentid(), "Next_ParentID", rangeOfOption);
     }
 
     /**
@@ -655,7 +655,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     }
 
     protected void doSetNextParentid_InScope(Collection<Integer> nextParentidList) {
-        regINS(CK_INS, cTL(nextParentidList), getCValueNextParentid(), "Next_ParentID");
+        regINS(CK_INS, cTL(nextParentidList), xgetCValueNextParentid(), "Next_ParentID");
     }
 
     /**
@@ -668,7 +668,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     }
 
     protected void doSetNextParentid_NotInScope(Collection<Integer> nextParentidList) {
-        regINS(CK_NINS, cTL(nextParentidList), getCValueNextParentid(), "Next_ParentID");
+        regINS(CK_NINS, cTL(nextParentidList), xgetCValueNextParentid(), "Next_ParentID");
     }
 
     /**
@@ -683,8 +683,8 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
      */
     public void setNextParentid_IsNotNull() { regNextParentid(CK_ISNN, DOBJ); }
 
-    protected void regNextParentid(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueNextParentid(), "Next_ParentID"); }
-    protected abstract ConditionValue getCValueNextParentid();
+    protected void regNextParentid(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueNextParentid(), "Next_ParentID"); }
+    protected abstract ConditionValue xgetCValueNextParentid();
 
     // ===================================================================================
     //                                                                     ScalarCondition

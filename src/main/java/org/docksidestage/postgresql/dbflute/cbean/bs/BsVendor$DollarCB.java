@@ -5,6 +5,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -187,10 +188,14 @@ public class BsVendor$DollarCB extends AbstractConditionBean {
      */
     public Vendor$DollarCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public Vendor$DollarCQ getConditionQuery() { // public for parameter comment and internal
+    public Vendor$DollarCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected Vendor$DollarCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -211,8 +216,11 @@ public class BsVendor$DollarCB extends AbstractConditionBean {
         return new Vendor$DollarCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -300,7 +308,7 @@ public class BsVendor$DollarCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<Vendor$DollarCQ>() {
                 public boolean has() { return true; }
-                public Vendor$DollarCQ qy() { return getConditionQuery(); }
+                public Vendor$DollarCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -323,12 +331,12 @@ public class BsVendor$DollarCB extends AbstractConditionBean {
          * vendor_$_dollar_id: {PK, NotNull, int4(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnVendor$DollarId() { return doColumn("vendor_$_dollar_id"); }
+        public SpecifiedColumn columnVendor$DollarId() { return doColumn("vendor_$_dollar_id"); }
         /**
          * vendor_$_dollar_name: {varchar(64)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnVendor$DollarName() { return doColumn("vendor_$_dollar_name"); }
+        public SpecifiedColumn columnVendor$DollarName() { return doColumn("vendor_$_dollar_name"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -372,7 +380,7 @@ public class BsVendor$DollarCB extends AbstractConditionBean {
      */
     public HpColQyOperand<Vendor$DollarCB> columnQuery(final SpecifyQuery<Vendor$DollarCB> colCBLambda) {
         return xcreateColQyOperand(new HpColQyHandler<Vendor$DollarCB>() {
-            public HpCalculator handle(SpecifyQuery<Vendor$DollarCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<Vendor$DollarCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -490,8 +498,8 @@ public class BsVendor$DollarCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return Vendor$DollarCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return Vendor$DollarCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return Vendor$DollarCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return Vendor$DollarCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

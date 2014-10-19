@@ -63,14 +63,8 @@ public class LoaderOfNextschemaWhiteSameName {
     //                                                                       =============
     protected List<NextschemaWhiteSameNameRef> _referrerWhiteSameNameRefList;
     public NestedReferrerLoaderGateway<LoaderOfNextschemaWhiteSameNameRef> loadWhiteSameNameRefList(ConditionBeanSetupper<NextschemaWhiteSameNameRefCB> refCBLambda) {
-        myBhv().loadWhiteSameNameRefList(_selectedList, refCBLambda).withNestedReferrer(new ReferrerListHandler<NextschemaWhiteSameNameRef>() {
-            public void handle(List<NextschemaWhiteSameNameRef> referrerList) { _referrerWhiteSameNameRefList = referrerList; }
-        });
-        return new NestedReferrerLoaderGateway<LoaderOfNextschemaWhiteSameNameRef>() {
-            public void withNestedReferrer(ReferrerLoaderHandler<LoaderOfNextschemaWhiteSameNameRef> handler) {
-                handler.handle(new LoaderOfNextschemaWhiteSameNameRef().ready(_referrerWhiteSameNameRefList, _selector));
-            }
-        };
+        myBhv().loadWhiteSameNameRefList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhiteSameNameRefList = refLs);
+        return hd -> hd.handle(new LoaderOfNextschemaWhiteSameNameRef().ready(_referrerWhiteSameNameRefList, _selector));
     }
 
     // ===================================================================================

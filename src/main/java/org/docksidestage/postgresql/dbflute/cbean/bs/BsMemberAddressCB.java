@@ -5,6 +5,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -189,10 +190,14 @@ public class BsMemberAddressCB extends AbstractConditionBean {
      */
     public MemberAddressCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public MemberAddressCQ getConditionQuery() { // public for parameter comment and internal
+    public MemberAddressCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected MemberAddressCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -213,8 +218,11 @@ public class BsMemberAddressCB extends AbstractConditionBean {
         return new MemberAddressCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -276,7 +284,7 @@ public class BsMemberAddressCB extends AbstractConditionBean {
     //                                                                         SetupSelect
     //                                                                         ===========
     protected MemberNss _nssMember;
-    public MemberNss getNssMember() {
+    public MemberNss xdfgetNssMember() {
         if (_nssMember == null) { _nssMember = new MemberNss(null); }
         return _nssMember;
     }
@@ -304,7 +312,7 @@ public class BsMemberAddressCB extends AbstractConditionBean {
     }
 
     protected RegionNss _nssRegion;
-    public RegionNss getNssRegion() {
+    public RegionNss xdfgetNssRegion() {
         if (_nssRegion == null) { _nssRegion = new RegionNss(null); }
         return _nssRegion;
     }
@@ -358,7 +366,7 @@ public class BsMemberAddressCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<MemberAddressCQ>() {
                 public boolean has() { return true; }
-                public MemberAddressCQ qy() { return getConditionQuery(); }
+                public MemberAddressCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -383,67 +391,67 @@ public class BsMemberAddressCB extends AbstractConditionBean {
          * (会員住所ID)member_address_id: {PK, ID, NotNull, serial(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnMemberAddressId() { return doColumn("member_address_id"); }
+        public SpecifiedColumn columnMemberAddressId() { return doColumn("member_address_id"); }
         /**
          * (会員ID)member_id: {UQ+, NotNull, int4(10), FK to member}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnMemberId() { return doColumn("member_id"); }
+        public SpecifiedColumn columnMemberId() { return doColumn("member_id"); }
         /**
          * (有効開始日)valid_begin_date: {+UQ, NotNull, date(13)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnValidBeginDate() { return doColumn("valid_begin_date"); }
+        public SpecifiedColumn columnValidBeginDate() { return doColumn("valid_begin_date"); }
         /**
          * (有効終了日)valid_end_date: {NotNull, date(13)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnValidEndDate() { return doColumn("valid_end_date"); }
+        public SpecifiedColumn columnValidEndDate() { return doColumn("valid_end_date"); }
         /**
          * (住所)address: {NotNull, varchar(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnAddress() { return doColumn("address"); }
+        public SpecifiedColumn columnAddress() { return doColumn("address"); }
         /**
          * (地域ID)region_id: {NotNull, int4(10), FK to region}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnRegionId() { return doColumn("region_id"); }
+        public SpecifiedColumn columnRegionId() { return doColumn("region_id"); }
         /**
          * register_datetime: {NotNull, timestamp(26, 3)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnRegisterDatetime() { return doColumn("register_datetime"); }
+        public SpecifiedColumn columnRegisterDatetime() { return doColumn("register_datetime"); }
         /**
          * register_process: {NotNull, varchar(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnRegisterProcess() { return doColumn("register_process"); }
+        public SpecifiedColumn columnRegisterProcess() { return doColumn("register_process"); }
         /**
          * register_user: {NotNull, varchar(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnRegisterUser() { return doColumn("register_user"); }
+        public SpecifiedColumn columnRegisterUser() { return doColumn("register_user"); }
         /**
          * update_datetime: {NotNull, timestamp(26, 3)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnUpdateDatetime() { return doColumn("update_datetime"); }
+        public SpecifiedColumn columnUpdateDatetime() { return doColumn("update_datetime"); }
         /**
          * update_process: {NotNull, varchar(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnUpdateProcess() { return doColumn("update_process"); }
+        public SpecifiedColumn columnUpdateProcess() { return doColumn("update_process"); }
         /**
          * update_user: {NotNull, varchar(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnUpdateUser() { return doColumn("update_user"); }
+        public SpecifiedColumn columnUpdateUser() { return doColumn("update_user"); }
         /**
          * version_no: {NotNull, int8(19)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnVersionNo() { return doColumn("version_no"); }
+        public SpecifiedColumn columnVersionNo() { return doColumn("version_no"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -537,7 +545,7 @@ public class BsMemberAddressCB extends AbstractConditionBean {
      */
     public HpColQyOperand<MemberAddressCB> columnQuery(final SpecifyQuery<MemberAddressCB> colCBLambda) {
         return xcreateColQyOperand(new HpColQyHandler<MemberAddressCB>() {
-            public HpCalculator handle(SpecifyQuery<MemberAddressCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<MemberAddressCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -655,8 +663,8 @@ public class BsMemberAddressCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return MemberAddressCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return MemberAddressCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return MemberAddressCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return MemberAddressCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

@@ -61,8 +61,8 @@ public class VendorUuidBarCIQ extends AbstractBsVendorUuidBarCQ {
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueBarId() { return _myCQ.getBarId(); }
-    protected ConditionValue getCValueBarName() { return _myCQ.getBarName(); }
+    protected ConditionValue xgetCValueBarId() { return _myCQ.xdfgetBarId(); }
+    protected ConditionValue xgetCValueBarName() { return _myCQ.xdfgetBarName(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(VendorUuidBarCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

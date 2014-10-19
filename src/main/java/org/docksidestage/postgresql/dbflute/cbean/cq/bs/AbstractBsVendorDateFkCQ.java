@@ -118,7 +118,7 @@ public abstract class AbstractBsVendorDateFkCQ extends AbstractConditionQuery {
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setBarId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueBarId(), "bar_id", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueBarId(), "bar_id", rangeOfOption);
     }
 
     /**
@@ -131,7 +131,7 @@ public abstract class AbstractBsVendorDateFkCQ extends AbstractConditionQuery {
     }
 
     protected void doSetBarId_InScope(Collection<Integer> barIdList) {
-        regINS(CK_INS, cTL(barIdList), getCValueBarId(), "bar_id");
+        regINS(CK_INS, cTL(barIdList), xgetCValueBarId(), "bar_id");
     }
 
     /**
@@ -144,7 +144,7 @@ public abstract class AbstractBsVendorDateFkCQ extends AbstractConditionQuery {
     }
 
     protected void doSetBarId_NotInScope(Collection<Integer> barIdList) {
-        regINS(CK_NINS, cTL(barIdList), getCValueBarId(), "bar_id");
+        regINS(CK_NINS, cTL(barIdList), xgetCValueBarId(), "bar_id");
     }
 
     /**
@@ -159,8 +159,8 @@ public abstract class AbstractBsVendorDateFkCQ extends AbstractConditionQuery {
      */
     public void setBarId_IsNotNull() { regBarId(CK_ISNN, DOBJ); }
 
-    protected void regBarId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueBarId(), "bar_id"); }
-    protected abstract ConditionValue getCValueBarId();
+    protected void regBarId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueBarId(), "bar_id"); }
+    protected abstract ConditionValue xgetCValueBarId();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -230,7 +230,7 @@ public abstract class AbstractBsVendorDateFkCQ extends AbstractConditionQuery {
      * @param fromToOption The option of from-to. (NotNull)
      */
     public void setBarDate_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ(fCTPD(fromDatetime), fCTPD(toDatetime), getCValueBarDate(), "bar_date", fromToOption);
+        regFTQ(fCTPD(fromDatetime), fCTPD(toDatetime), xgetCValueBarDate(), "bar_date", fromToOption);
     }
 
     /**
@@ -258,11 +258,11 @@ public abstract class AbstractBsVendorDateFkCQ extends AbstractConditionQuery {
     }
 
     protected void doSetBarDate_InScope(Collection<java.util.Date> barDateList) {
-        regINS(CK_INS, cTL(barDateList), getCValueBarDate(), "bar_date");
+        regINS(CK_INS, cTL(barDateList), xgetCValueBarDate(), "bar_date");
     }
 
-    protected void regBarDate(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueBarDate(), "bar_date"); }
-    protected abstract ConditionValue getCValueBarDate();
+    protected void regBarDate(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueBarDate(), "bar_date"); }
+    protected abstract ConditionValue xgetCValueBarDate();
 
     // ===================================================================================
     //                                                                     ScalarCondition

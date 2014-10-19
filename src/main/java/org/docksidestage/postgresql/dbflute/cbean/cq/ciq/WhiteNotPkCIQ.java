@@ -61,9 +61,9 @@ public class WhiteNotPkCIQ extends AbstractBsWhiteNotPkCQ {
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueNotPkId() { return _myCQ.getNotPkId(); }
-    protected ConditionValue getCValueNotPkName() { return _myCQ.getNotPkName(); }
-    protected ConditionValue getCValueNotPkInteger() { return _myCQ.getNotPkInteger(); }
+    protected ConditionValue xgetCValueNotPkId() { return _myCQ.xdfgetNotPkId(); }
+    protected ConditionValue xgetCValueNotPkName() { return _myCQ.xdfgetNotPkName(); }
+    protected ConditionValue xgetCValueNotPkInteger() { return _myCQ.xdfgetNotPkInteger(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(WhiteNotPkCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

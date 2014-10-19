@@ -71,7 +71,7 @@ public class DBFluteInitializer {
             DBFluteConfig.getInstance().lock();
         }
         if (!DBFluteSystem.isLocked()) {
-            DBFluteSystem.xlock();
+            DBFluteSystem.lock();
         }
     }
 

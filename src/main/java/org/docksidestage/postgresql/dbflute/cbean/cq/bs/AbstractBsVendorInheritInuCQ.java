@@ -118,7 +118,7 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setInuId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueInuId(), "inu_id", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueInuId(), "inu_id", rangeOfOption);
     }
 
     /**
@@ -131,7 +131,7 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
     }
 
     protected void doSetInuId_InScope(Collection<Integer> inuIdList) {
-        regINS(CK_INS, cTL(inuIdList), getCValueInuId(), "inu_id");
+        regINS(CK_INS, cTL(inuIdList), xgetCValueInuId(), "inu_id");
     }
 
     /**
@@ -144,7 +144,7 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
     }
 
     protected void doSetInuId_NotInScope(Collection<Integer> inuIdList) {
-        regINS(CK_NINS, cTL(inuIdList), getCValueInuId(), "inu_id");
+        regINS(CK_NINS, cTL(inuIdList), xgetCValueInuId(), "inu_id");
     }
 
     /**
@@ -159,8 +159,8 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
      */
     public void setInuId_IsNotNull() { regInuId(CK_ISNN, DOBJ); }
 
-    protected void regInuId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueInuId(), "inu_id"); }
-    protected abstract ConditionValue getCValueInuId();
+    protected void regInuId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueInuId(), "inu_id"); }
+    protected abstract ConditionValue xgetCValueInuId();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -198,7 +198,7 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
     }
 
     protected void doSetInuName_InScope(Collection<String> inuNameList) {
-        regINS(CK_INS, cTL(inuNameList), getCValueInuName(), "inu_name");
+        regINS(CK_INS, cTL(inuNameList), xgetCValueInuName(), "inu_name");
     }
 
     /**
@@ -211,7 +211,7 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
     }
 
     protected void doSetInuName_NotInScope(Collection<String> inuNameList) {
-        regINS(CK_NINS, cTL(inuNameList), getCValueInuName(), "inu_name");
+        regINS(CK_NINS, cTL(inuNameList), xgetCValueInuName(), "inu_name");
     }
 
     /**
@@ -233,7 +233,7 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setInuName_LikeSearch(String inuName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(inuName), getCValueInuName(), "inu_name", likeSearchOption);
+        regLSQ(CK_LS, fRES(inuName), xgetCValueInuName(), "inu_name", likeSearchOption);
     }
 
     /**
@@ -255,7 +255,7 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setInuName_NotLikeSearch(String inuName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(inuName), getCValueInuName(), "inu_name", likeSearchOption);
+        regLSQ(CK_NLS, fRES(inuName), xgetCValueInuName(), "inu_name", likeSearchOption);
     }
 
     /**
@@ -267,8 +267,8 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
         setInuName_LikeSearch(inuName, xcLSOPPre());
     }
 
-    protected void regInuName(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueInuName(), "inu_name"); }
-    protected abstract ConditionValue getCValueInuName();
+    protected void regInuName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueInuName(), "inu_name"); }
+    protected abstract ConditionValue xgetCValueInuName();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -338,7 +338,7 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
      * @param fromToOption The option of from-to. (NotNull)
      */
     public void setInuDate_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ(fCTPD(fromDatetime), fCTPD(toDatetime), getCValueInuDate(), "inu_date", fromToOption);
+        regFTQ(fCTPD(fromDatetime), fCTPD(toDatetime), xgetCValueInuDate(), "inu_date", fromToOption);
     }
 
     /**
@@ -368,8 +368,8 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
      */
     public void setInuDate_IsNotNull() { regInuDate(CK_ISNN, DOBJ); }
 
-    protected void regInuDate(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueInuDate(), "inu_date"); }
-    protected abstract ConditionValue getCValueInuDate();
+    protected void regInuDate(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueInuDate(), "inu_date"); }
+    protected abstract ConditionValue xgetCValueInuDate();
 
     // ===================================================================================
     //                                                                     ScalarCondition

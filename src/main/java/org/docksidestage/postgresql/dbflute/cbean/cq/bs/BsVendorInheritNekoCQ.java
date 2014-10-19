@@ -74,10 +74,10 @@ public class BsVendorInheritNekoCQ extends AbstractBsVendorInheritNekoCQ {
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _inuId;
-    public ConditionValue getInuId()
+    public ConditionValue xdfgetInuId()
     { if (_inuId == null) { _inuId = nCV(); }
       return _inuId; }
-    protected ConditionValue getCValueInuId() { return getInuId(); }
+    protected ConditionValue xgetCValueInuId() { return xdfgetInuId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -94,10 +94,10 @@ public class BsVendorInheritNekoCQ extends AbstractBsVendorInheritNekoCQ {
     public BsVendorInheritNekoCQ addOrderBy_InuId_Desc() { regOBD("inu_id"); return this; }
 
     protected ConditionValue _inuName;
-    public ConditionValue getInuName()
+    public ConditionValue xdfgetInuName()
     { if (_inuName == null) { _inuName = nCV(); }
       return _inuName; }
-    protected ConditionValue getCValueInuName() { return getInuName(); }
+    protected ConditionValue xgetCValueInuName() { return xdfgetInuName(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -114,10 +114,10 @@ public class BsVendorInheritNekoCQ extends AbstractBsVendorInheritNekoCQ {
     public BsVendorInheritNekoCQ addOrderBy_InuName_Desc() { regOBD("inu_name"); return this; }
 
     protected ConditionValue _inuDate;
-    public ConditionValue getInuDate()
+    public ConditionValue xdfgetInuDate()
     { if (_inuDate == null) { _inuDate = nCV(); }
       return _inuDate; }
-    protected ConditionValue getCValueInuDate() { return getInuDate(); }
+    protected ConditionValue xgetCValueInuDate() { return xdfgetInuDate(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -134,10 +134,10 @@ public class BsVendorInheritNekoCQ extends AbstractBsVendorInheritNekoCQ {
     public BsVendorInheritNekoCQ addOrderBy_InuDate_Desc() { regOBD("inu_date"); return this; }
 
     protected ConditionValue _nekoId;
-    public ConditionValue getNekoId()
+    public ConditionValue xdfgetNekoId()
     { if (_nekoId == null) { _nekoId = nCV(); }
       return _nekoId; }
-    protected ConditionValue getCValueNekoId() { return getNekoId(); }
+    protected ConditionValue xgetCValueNekoId() { return xdfgetNekoId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -154,10 +154,10 @@ public class BsVendorInheritNekoCQ extends AbstractBsVendorInheritNekoCQ {
     public BsVendorInheritNekoCQ addOrderBy_NekoId_Desc() { regOBD("neko_id"); return this; }
 
     protected ConditionValue _nekoName;
-    public ConditionValue getNekoName()
+    public ConditionValue xdfgetNekoName()
     { if (_nekoName == null) { _nekoName = nCV(); }
       return _nekoName; }
-    protected ConditionValue getCValueNekoName() { return getNekoName(); }
+    protected ConditionValue xgetCValueNekoName() { return xdfgetNekoName(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -174,10 +174,10 @@ public class BsVendorInheritNekoCQ extends AbstractBsVendorInheritNekoCQ {
     public BsVendorInheritNekoCQ addOrderBy_NekoName_Desc() { regOBD("neko_name"); return this; }
 
     protected ConditionValue _nekoDate;
-    public ConditionValue getNekoDate()
+    public ConditionValue xdfgetNekoDate()
     { if (_nekoDate == null) { _nekoDate = nCV(); }
       return _nekoDate; }
-    protected ConditionValue getCValueNekoDate() { return getNekoDate(); }
+    protected ConditionValue xgetCValueNekoDate() { return xdfgetNekoDate(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -244,31 +244,31 @@ public class BsVendorInheritNekoCQ extends AbstractBsVendorInheritNekoCQ {
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, VendorInheritNekoCQ> getScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public Map<String, VendorInheritNekoCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(VendorInheritNekoCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
     //                                                                       MyselfDerived
     //                                                                       =============
-    public Map<String, VendorInheritNekoCQ> getSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
+    public Map<String, VendorInheritNekoCQ> xdfgetSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
     public String keepSpecifyMyselfDerived(VendorInheritNekoCQ sq) { return xkeepSQue("specifyMyselfDerived", sq); }
 
-    public Map<String, VendorInheritNekoCQ> getQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
+    public Map<String, VendorInheritNekoCQ> xdfgetQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerived(VendorInheritNekoCQ sq) { return xkeepSQue("queryMyselfDerived", sq); }
-    public Map<String, Object> getQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
+    public Map<String, Object> xdfgetQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerivedParameter(Object pm) { return xkeepSQuePm("queryMyselfDerived", pm); }
 
     // ===================================================================================
     //                                                                        MyselfExists
     //                                                                        ============
     protected Map<String, VendorInheritNekoCQ> _myselfExistsMap;
-    public Map<String, VendorInheritNekoCQ> getMyselfExists() { return xgetSQueMap("myselfExists"); }
+    public Map<String, VendorInheritNekoCQ> xdfgetMyselfExists() { return xgetSQueMap("myselfExists"); }
     public String keepMyselfExists(VendorInheritNekoCQ sq) { return xkeepSQue("myselfExists", sq); }
 
     // ===================================================================================
     //                                                                       MyselfInScope
     //                                                                       =============
-    public Map<String, VendorInheritNekoCQ> getMyselfInScope() { return xgetSQueMap("myselfInScope"); }
+    public Map<String, VendorInheritNekoCQ> xdfgetMyselfInScope() { return xgetSQueMap("myselfInScope"); }
     public String keepMyselfInScope(VendorInheritNekoCQ sq) { return xkeepSQue("myselfInScope", sq); }
 
     // ===================================================================================
@@ -277,7 +277,7 @@ public class BsVendorInheritNekoCQ extends AbstractBsVendorInheritNekoCQ {
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return VendorInheritNekoCB.class.getName(); }
     protected String xCQ() { return VendorInheritNekoCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }

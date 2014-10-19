@@ -5,6 +5,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -176,10 +177,14 @@ public class BsMemberSecurityCB extends AbstractConditionBean {
      */
     public MemberSecurityCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public MemberSecurityCQ getConditionQuery() { // public for parameter comment and internal
+    public MemberSecurityCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected MemberSecurityCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -200,8 +205,11 @@ public class BsMemberSecurityCB extends AbstractConditionBean {
         return new MemberSecurityCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -263,7 +271,7 @@ public class BsMemberSecurityCB extends AbstractConditionBean {
     //                                                                         SetupSelect
     //                                                                         ===========
     protected MemberNss _nssMember;
-    public MemberNss getNssMember() {
+    public MemberNss xdfgetNssMember() {
         if (_nssMember == null) { _nssMember = new MemberNss(null); }
         return _nssMember;
     }
@@ -314,7 +322,7 @@ public class BsMemberSecurityCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<MemberSecurityCQ>() {
                 public boolean has() { return true; }
-                public MemberSecurityCQ qy() { return getConditionQuery(); }
+                public MemberSecurityCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -338,62 +346,62 @@ public class BsMemberSecurityCB extends AbstractConditionBean {
          * (会員ID)member_id: {PK, NotNull, int4(10), FK to member}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnMemberId() { return doColumn("member_id"); }
+        public SpecifiedColumn columnMemberId() { return doColumn("member_id"); }
         /**
          * (ログインパスワード)login_password: {NotNull, varchar(50)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnLoginPassword() { return doColumn("login_password"); }
+        public SpecifiedColumn columnLoginPassword() { return doColumn("login_password"); }
         /**
          * (リマインダ質問)reminder_question: {NotNull, varchar(50)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnReminderQuestion() { return doColumn("reminder_question"); }
+        public SpecifiedColumn columnReminderQuestion() { return doColumn("reminder_question"); }
         /**
          * (リマインダ回答)reminder_answer: {NotNull, varchar(50)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnReminderAnswer() { return doColumn("reminder_answer"); }
+        public SpecifiedColumn columnReminderAnswer() { return doColumn("reminder_answer"); }
         /**
          * (リマインダ利用回数)reminder_use_count: {NotNull, int4(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnReminderUseCount() { return doColumn("reminder_use_count"); }
+        public SpecifiedColumn columnReminderUseCount() { return doColumn("reminder_use_count"); }
         /**
          * register_datetime: {NotNull, timestamp(26, 3)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnRegisterDatetime() { return doColumn("register_datetime"); }
+        public SpecifiedColumn columnRegisterDatetime() { return doColumn("register_datetime"); }
         /**
          * register_process: {NotNull, varchar(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnRegisterProcess() { return doColumn("register_process"); }
+        public SpecifiedColumn columnRegisterProcess() { return doColumn("register_process"); }
         /**
          * register_user: {NotNull, varchar(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnRegisterUser() { return doColumn("register_user"); }
+        public SpecifiedColumn columnRegisterUser() { return doColumn("register_user"); }
         /**
          * update_datetime: {NotNull, timestamp(26, 3)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnUpdateDatetime() { return doColumn("update_datetime"); }
+        public SpecifiedColumn columnUpdateDatetime() { return doColumn("update_datetime"); }
         /**
          * update_process: {NotNull, varchar(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnUpdateProcess() { return doColumn("update_process"); }
+        public SpecifiedColumn columnUpdateProcess() { return doColumn("update_process"); }
         /**
          * update_user: {NotNull, varchar(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnUpdateUser() { return doColumn("update_user"); }
+        public SpecifiedColumn columnUpdateUser() { return doColumn("update_user"); }
         /**
          * version_no: {NotNull, int8(19)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnVersionNo() { return doColumn("version_no"); }
+        public SpecifiedColumn columnVersionNo() { return doColumn("version_no"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -458,7 +466,7 @@ public class BsMemberSecurityCB extends AbstractConditionBean {
      */
     public HpColQyOperand<MemberSecurityCB> columnQuery(final SpecifyQuery<MemberSecurityCB> colCBLambda) {
         return xcreateColQyOperand(new HpColQyHandler<MemberSecurityCB>() {
-            public HpCalculator handle(SpecifyQuery<MemberSecurityCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<MemberSecurityCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -576,8 +584,8 @@ public class BsMemberSecurityCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return MemberSecurityCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return MemberSecurityCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return MemberSecurityCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return MemberSecurityCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

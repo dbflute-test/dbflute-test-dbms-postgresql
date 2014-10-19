@@ -61,7 +61,7 @@ public abstract class AbstractBsVendorUuidFooCQ extends AbstractConditionQuery {
      * @param fooIdList The collection of fooId as inScope. (NullAllowed: if null (or empty), no condition)
      */
     public void setFooId_InScope(Collection<java.util.UUID> fooIdList) {
-        regINS(CK_INS, cTL(fooIdList), getCValueFooId(), "foo_id");
+        regINS(CK_INS, cTL(fooIdList), xgetCValueFooId(), "foo_id");
     }
 
     /**
@@ -76,8 +76,8 @@ public abstract class AbstractBsVendorUuidFooCQ extends AbstractConditionQuery {
      */
     public void setFooId_IsNotNull() { regFooId(CK_ISNN, DOBJ); }
 
-    protected void regFooId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueFooId(), "foo_id"); }
-    protected abstract ConditionValue getCValueFooId();
+    protected void regFooId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueFooId(), "foo_id"); }
+    protected abstract ConditionValue xgetCValueFooId();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -115,7 +115,7 @@ public abstract class AbstractBsVendorUuidFooCQ extends AbstractConditionQuery {
     }
 
     protected void doSetFooName_InScope(Collection<String> fooNameList) {
-        regINS(CK_INS, cTL(fooNameList), getCValueFooName(), "foo_name");
+        regINS(CK_INS, cTL(fooNameList), xgetCValueFooName(), "foo_name");
     }
 
     /**
@@ -128,7 +128,7 @@ public abstract class AbstractBsVendorUuidFooCQ extends AbstractConditionQuery {
     }
 
     protected void doSetFooName_NotInScope(Collection<String> fooNameList) {
-        regINS(CK_NINS, cTL(fooNameList), getCValueFooName(), "foo_name");
+        regINS(CK_NINS, cTL(fooNameList), xgetCValueFooName(), "foo_name");
     }
 
     /**
@@ -150,7 +150,7 @@ public abstract class AbstractBsVendorUuidFooCQ extends AbstractConditionQuery {
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setFooName_LikeSearch(String fooName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(fooName), getCValueFooName(), "foo_name", likeSearchOption);
+        regLSQ(CK_LS, fRES(fooName), xgetCValueFooName(), "foo_name", likeSearchOption);
     }
 
     /**
@@ -172,7 +172,7 @@ public abstract class AbstractBsVendorUuidFooCQ extends AbstractConditionQuery {
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setFooName_NotLikeSearch(String fooName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(fooName), getCValueFooName(), "foo_name", likeSearchOption);
+        regLSQ(CK_NLS, fRES(fooName), xgetCValueFooName(), "foo_name", likeSearchOption);
     }
 
     /**
@@ -184,8 +184,8 @@ public abstract class AbstractBsVendorUuidFooCQ extends AbstractConditionQuery {
         setFooName_LikeSearch(fooName, xcLSOPPre());
     }
 
-    protected void regFooName(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueFooName(), "foo_name"); }
-    protected abstract ConditionValue getCValueFooName();
+    protected void regFooName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueFooName(), "foo_name"); }
+    protected abstract ConditionValue xgetCValueFooName();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -202,11 +202,11 @@ public abstract class AbstractBsVendorUuidFooCQ extends AbstractConditionQuery {
      * @param barIdList The collection of barId as inScope. (NullAllowed: if null (or empty), no condition)
      */
     public void setBarId_InScope(Collection<java.util.UUID> barIdList) {
-        regINS(CK_INS, cTL(barIdList), getCValueBarId(), "bar_id");
+        regINS(CK_INS, cTL(barIdList), xgetCValueBarId(), "bar_id");
     }
 
-    protected void regBarId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueBarId(), "bar_id"); }
-    protected abstract ConditionValue getCValueBarId();
+    protected void regBarId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueBarId(), "bar_id"); }
+    protected abstract ConditionValue xgetCValueBarId();
 
     // ===================================================================================
     //                                                                     ScalarCondition

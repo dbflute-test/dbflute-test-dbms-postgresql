@@ -20,6 +20,7 @@ import org.dbflute.cbean.scoping.OrQuery;
 import org.dbflute.cbean.scoping.SubQuery;
 import org.dbflute.cbean.scoping.UnionQuery;
 import org.dbflute.dbmeta.info.ColumnInfo;
+import org.dbflute.helper.HandyDate;
 import org.dbflute.util.DfCollectionUtil;
 import org.dbflute.util.DfResourceUtil;
 import org.dbflute.util.DfTraceViewUtil;
@@ -87,8 +88,7 @@ public class VendorLargeDataTest extends UnitContainerTestCase {
     public void test_QueryRelation_or_with_InnerJoin_basic() throws Exception {
         // ## Arrange ##
         final Date fromDate = DfTypeUtil.toDate("2010/11/17");
-        final Date toDate = new Date(fromDate.getTime());
-        DfTypeUtil.addDateDay(toDate, 7);
+        final Date toDate = new HandyDate(fromDate).addDay(7).getDate();
 
         // ## Act ##
         compareByRef(new Callback<VendorLargeDataRefCB>() {
@@ -118,8 +118,7 @@ public class VendorLargeDataTest extends UnitContainerTestCase {
     public void test_OnClause_or_InlineView_basic() throws Exception {
         // ## Arrange ##
         final Date fromDate = DfTypeUtil.toDate("2010/11/17");
-        final Date toDate = new Date(fromDate.getTime());
-        DfTypeUtil.addDateDay(toDate, 7);
+        final Date toDate = new HandyDate(fromDate).addDay(7).getDate();
 
         // ## Act ##
         compareByRef(new Callback<VendorLargeDataRefCB>() {
@@ -152,8 +151,7 @@ public class VendorLargeDataTest extends UnitContainerTestCase {
     public void test_OrScopeQuery_or_UnionQuery_basic() throws Exception {
         // ## Arrange ##
         final Date fromDate = DfTypeUtil.toDate("2010/11/17");
-        final Date toDate = new Date(fromDate.getTime());
-        DfTypeUtil.addDateDay(toDate, 7);
+        final Date toDate = new HandyDate(fromDate).addDay(7).getDate();
 
         // ## Act ##
         compareByRef(new Callback<VendorLargeDataRefCB>() {

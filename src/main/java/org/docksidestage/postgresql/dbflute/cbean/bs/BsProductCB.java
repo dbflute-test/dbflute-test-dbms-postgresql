@@ -5,6 +5,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -188,10 +189,14 @@ public class BsProductCB extends AbstractConditionBean {
      */
     public ProductCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public ProductCQ getConditionQuery() { // public for parameter comment and internal
+    public ProductCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected ProductCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -212,8 +217,11 @@ public class BsProductCB extends AbstractConditionBean {
         return new ProductCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -275,7 +283,7 @@ public class BsProductCB extends AbstractConditionBean {
     //                                                                         SetupSelect
     //                                                                         ===========
     protected ProductCategoryNss _nssProductCategory;
-    public ProductCategoryNss getNssProductCategory() {
+    public ProductCategoryNss xdfgetNssProductCategory() {
         if (_nssProductCategory == null) { _nssProductCategory = new ProductCategoryNss(null); }
         return _nssProductCategory;
     }
@@ -303,7 +311,7 @@ public class BsProductCB extends AbstractConditionBean {
     }
 
     protected ProductStatusNss _nssProductStatus;
-    public ProductStatusNss getNssProductStatus() {
+    public ProductStatusNss xdfgetNssProductStatus() {
         if (_nssProductStatus == null) { _nssProductStatus = new ProductStatusNss(null); }
         return _nssProductStatus;
     }
@@ -357,7 +365,7 @@ public class BsProductCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<ProductCQ>() {
                 public boolean has() { return true; }
-                public ProductCQ qy() { return getConditionQuery(); }
+                public ProductCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -382,67 +390,67 @@ public class BsProductCB extends AbstractConditionBean {
          * product_id: {PK, ID, NotNull, serial(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnProductId() { return doColumn("product_id"); }
+        public SpecifiedColumn columnProductId() { return doColumn("product_id"); }
         /**
          * (商品名称)product_name: {IX, NotNull, varchar(50)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnProductName() { return doColumn("product_name"); }
+        public SpecifiedColumn columnProductName() { return doColumn("product_name"); }
         /**
          * (商品ハンドルコード)product_handle_code: {UQ, NotNull, varchar(100)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnProductHandleCode() { return doColumn("product_handle_code"); }
+        public SpecifiedColumn columnProductHandleCode() { return doColumn("product_handle_code"); }
         /**
          * product_category_code: {NotNull, bpchar(3), FK to product_category}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnProductCategoryCode() { return doColumn("product_category_code"); }
+        public SpecifiedColumn columnProductCategoryCode() { return doColumn("product_category_code"); }
         /**
          * product_status_code: {NotNull, bpchar(3), FK to product_status}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnProductStatusCode() { return doColumn("product_status_code"); }
+        public SpecifiedColumn columnProductStatusCode() { return doColumn("product_status_code"); }
         /**
          * regular_price: {NotNull, int4(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnRegularPrice() { return doColumn("regular_price"); }
+        public SpecifiedColumn columnRegularPrice() { return doColumn("regular_price"); }
         /**
          * register_datetime: {NotNull, timestamp(26, 3)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnRegisterDatetime() { return doColumn("register_datetime"); }
+        public SpecifiedColumn columnRegisterDatetime() { return doColumn("register_datetime"); }
         /**
          * register_user: {NotNull, varchar(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnRegisterUser() { return doColumn("register_user"); }
+        public SpecifiedColumn columnRegisterUser() { return doColumn("register_user"); }
         /**
          * register_process: {NotNull, varchar(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnRegisterProcess() { return doColumn("register_process"); }
+        public SpecifiedColumn columnRegisterProcess() { return doColumn("register_process"); }
         /**
          * update_datetime: {NotNull, timestamp(26, 3)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnUpdateDatetime() { return doColumn("update_datetime"); }
+        public SpecifiedColumn columnUpdateDatetime() { return doColumn("update_datetime"); }
         /**
          * update_user: {NotNull, varchar(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnUpdateUser() { return doColumn("update_user"); }
+        public SpecifiedColumn columnUpdateUser() { return doColumn("update_user"); }
         /**
          * update_process: {NotNull, varchar(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnUpdateProcess() { return doColumn("update_process"); }
+        public SpecifiedColumn columnUpdateProcess() { return doColumn("update_process"); }
         /**
          * version_no: {NotNull, int8(19)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnVersionNo() { return doColumn("version_no"); }
+        public SpecifiedColumn columnVersionNo() { return doColumn("version_no"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -554,7 +562,7 @@ public class BsProductCB extends AbstractConditionBean {
      */
     public HpColQyOperand<ProductCB> columnQuery(final SpecifyQuery<ProductCB> colCBLambda) {
         return xcreateColQyOperand(new HpColQyHandler<ProductCB>() {
-            public HpCalculator handle(SpecifyQuery<ProductCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<ProductCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -672,8 +680,8 @@ public class BsProductCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return ProductCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return ProductCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return ProductCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return ProductCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

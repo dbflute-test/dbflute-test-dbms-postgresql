@@ -118,7 +118,7 @@ public abstract class AbstractBsNextSchemaProductCQ extends AbstractConditionQue
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setProductId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueProductId(), "product_id", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueProductId(), "product_id", rangeOfOption);
     }
 
     /**
@@ -131,7 +131,7 @@ public abstract class AbstractBsNextSchemaProductCQ extends AbstractConditionQue
     }
 
     protected void doSetProductId_InScope(Collection<Integer> productIdList) {
-        regINS(CK_INS, cTL(productIdList), getCValueProductId(), "product_id");
+        regINS(CK_INS, cTL(productIdList), xgetCValueProductId(), "product_id");
     }
 
     /**
@@ -144,7 +144,7 @@ public abstract class AbstractBsNextSchemaProductCQ extends AbstractConditionQue
     }
 
     protected void doSetProductId_NotInScope(Collection<Integer> productIdList) {
-        regINS(CK_NINS, cTL(productIdList), getCValueProductId(), "product_id");
+        regINS(CK_NINS, cTL(productIdList), xgetCValueProductId(), "product_id");
     }
 
     /**
@@ -242,8 +242,8 @@ public abstract class AbstractBsNextSchemaProductCQ extends AbstractConditionQue
      */
     public void setProductId_IsNotNull() { regProductId(CK_ISNN, DOBJ); }
 
-    protected void regProductId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueProductId(), "product_id"); }
-    protected abstract ConditionValue getCValueProductId();
+    protected void regProductId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueProductId(), "product_id"); }
+    protected abstract ConditionValue xgetCValueProductId();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -281,7 +281,7 @@ public abstract class AbstractBsNextSchemaProductCQ extends AbstractConditionQue
     }
 
     protected void doSetProductName_InScope(Collection<String> productNameList) {
-        regINS(CK_INS, cTL(productNameList), getCValueProductName(), "product_name");
+        regINS(CK_INS, cTL(productNameList), xgetCValueProductName(), "product_name");
     }
 
     /**
@@ -294,7 +294,7 @@ public abstract class AbstractBsNextSchemaProductCQ extends AbstractConditionQue
     }
 
     protected void doSetProductName_NotInScope(Collection<String> productNameList) {
-        regINS(CK_NINS, cTL(productNameList), getCValueProductName(), "product_name");
+        regINS(CK_NINS, cTL(productNameList), xgetCValueProductName(), "product_name");
     }
 
     /**
@@ -316,7 +316,7 @@ public abstract class AbstractBsNextSchemaProductCQ extends AbstractConditionQue
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setProductName_LikeSearch(String productName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(productName), getCValueProductName(), "product_name", likeSearchOption);
+        regLSQ(CK_LS, fRES(productName), xgetCValueProductName(), "product_name", likeSearchOption);
     }
 
     /**
@@ -338,7 +338,7 @@ public abstract class AbstractBsNextSchemaProductCQ extends AbstractConditionQue
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setProductName_NotLikeSearch(String productName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(productName), getCValueProductName(), "product_name", likeSearchOption);
+        regLSQ(CK_NLS, fRES(productName), xgetCValueProductName(), "product_name", likeSearchOption);
     }
 
     /**
@@ -350,8 +350,8 @@ public abstract class AbstractBsNextSchemaProductCQ extends AbstractConditionQue
         setProductName_LikeSearch(productName, xcLSOPPre());
     }
 
-    protected void regProductName(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueProductName(), "product_name"); }
-    protected abstract ConditionValue getCValueProductName();
+    protected void regProductName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueProductName(), "product_name"); }
+    protected abstract ConditionValue xgetCValueProductName();
 
     // ===================================================================================
     //                                                                     ScalarCondition

@@ -5,6 +5,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -188,10 +189,14 @@ public class BsVendor_non_compilableCB extends AbstractConditionBean {
      */
     public Vendor_non_compilableCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public Vendor_non_compilableCQ getConditionQuery() { // public for parameter comment and internal
+    public Vendor_non_compilableCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected Vendor_non_compilableCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -212,8 +217,11 @@ public class BsVendor_non_compilableCB extends AbstractConditionBean {
         return new Vendor_non_compilableCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -275,7 +283,7 @@ public class BsVendor_non_compilableCB extends AbstractConditionBean {
     //                                                                         SetupSelect
     //                                                                         ===========
     protected Vendor_non_compilableNss _nssVendor_non_compilableByNextParentidSelf;
-    public Vendor_non_compilableNss getNssVendor_non_compilableByNextParentidSelf() {
+    public Vendor_non_compilableNss xdfgetNssVendor_non_compilableByNextParentidSelf() {
         if (_nssVendor_non_compilableByNextParentidSelf == null) { _nssVendor_non_compilableByNextParentidSelf = new Vendor_non_compilableNss(null); }
         return _nssVendor_non_compilableByNextParentidSelf;
     }
@@ -303,7 +311,7 @@ public class BsVendor_non_compilableCB extends AbstractConditionBean {
     }
 
     protected Vendor_non_compilableNss _nssVendor_non_compilableByParent_idSelf;
-    public Vendor_non_compilableNss getNssVendor_non_compilableByParent_idSelf() {
+    public Vendor_non_compilableNss xdfgetNssVendor_non_compilableByParent_idSelf() {
         if (_nssVendor_non_compilableByParent_idSelf == null) { _nssVendor_non_compilableByParent_idSelf = new Vendor_non_compilableNss(null); }
         return _nssVendor_non_compilableByParent_idSelf;
     }
@@ -357,7 +365,7 @@ public class BsVendor_non_compilableCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<Vendor_non_compilableCQ>() {
                 public boolean has() { return true; }
-                public Vendor_non_compilableCQ qy() { return getConditionQuery(); }
+                public Vendor_non_compilableCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -382,22 +390,22 @@ public class BsVendor_non_compilableCB extends AbstractConditionBean {
          * NON-COMPILABLE ID: {PK, NotNull, int4(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnNon_compilable_id() { return doColumn("NON-COMPILABLE ID"); }
+        public SpecifiedColumn columnNon_compilable_id() { return doColumn("NON-COMPILABLE ID"); }
         /**
          * NON COMPILABLE-NAME: {varchar(64)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnNon_compilable_name() { return doColumn("NON COMPILABLE-NAME"); }
+        public SpecifiedColumn columnNon_compilable_name() { return doColumn("NON COMPILABLE-NAME"); }
         /**
          * PARENT-ID: {int4(10), FK to VENDOR-NON COMPILABLE}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnParent_id() { return doColumn("PARENT-ID"); }
+        public SpecifiedColumn columnParent_id() { return doColumn("PARENT-ID"); }
         /**
          * Next_ParentID: {int4(10), FK to VENDOR-NON COMPILABLE}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnNextParentid() { return doColumn("Next_ParentID"); }
+        public SpecifiedColumn columnNextParentid() { return doColumn("Next_ParentID"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -527,7 +535,7 @@ public class BsVendor_non_compilableCB extends AbstractConditionBean {
      */
     public HpColQyOperand<Vendor_non_compilableCB> columnQuery(final SpecifyQuery<Vendor_non_compilableCB> colCBLambda) {
         return xcreateColQyOperand(new HpColQyHandler<Vendor_non_compilableCB>() {
-            public HpCalculator handle(SpecifyQuery<Vendor_non_compilableCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<Vendor_non_compilableCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -645,8 +653,8 @@ public class BsVendor_non_compilableCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return Vendor_non_compilableCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return Vendor_non_compilableCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return Vendor_non_compilableCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return Vendor_non_compilableCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

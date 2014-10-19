@@ -118,7 +118,7 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setRegionId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueRegionId(), "region_id", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueRegionId(), "region_id", rangeOfOption);
     }
 
     /**
@@ -131,7 +131,7 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
     }
 
     protected void doSetRegionId_InScope(Collection<Integer> regionIdList) {
-        regINS(CK_INS, cTL(regionIdList), getCValueRegionId(), "region_id");
+        regINS(CK_INS, cTL(regionIdList), xgetCValueRegionId(), "region_id");
     }
 
     /**
@@ -144,7 +144,7 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
     }
 
     protected void doSetRegionId_NotInScope(Collection<Integer> regionIdList) {
-        regINS(CK_NINS, cTL(regionIdList), getCValueRegionId(), "region_id");
+        regINS(CK_NINS, cTL(regionIdList), xgetCValueRegionId(), "region_id");
     }
 
     /**
@@ -242,8 +242,8 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
      */
     public void setRegionId_IsNotNull() { regRegionId(CK_ISNN, DOBJ); }
 
-    protected void regRegionId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueRegionId(), "region_id"); }
-    protected abstract ConditionValue getCValueRegionId();
+    protected void regRegionId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueRegionId(), "region_id"); }
+    protected abstract ConditionValue xgetCValueRegionId();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -281,7 +281,7 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
     }
 
     protected void doSetRegionName_InScope(Collection<String> regionNameList) {
-        regINS(CK_INS, cTL(regionNameList), getCValueRegionName(), "region_name");
+        regINS(CK_INS, cTL(regionNameList), xgetCValueRegionName(), "region_name");
     }
 
     /**
@@ -294,7 +294,7 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
     }
 
     protected void doSetRegionName_NotInScope(Collection<String> regionNameList) {
-        regINS(CK_NINS, cTL(regionNameList), getCValueRegionName(), "region_name");
+        regINS(CK_NINS, cTL(regionNameList), xgetCValueRegionName(), "region_name");
     }
 
     /**
@@ -316,7 +316,7 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setRegionName_LikeSearch(String regionName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(regionName), getCValueRegionName(), "region_name", likeSearchOption);
+        regLSQ(CK_LS, fRES(regionName), xgetCValueRegionName(), "region_name", likeSearchOption);
     }
 
     /**
@@ -338,7 +338,7 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setRegionName_NotLikeSearch(String regionName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(regionName), getCValueRegionName(), "region_name", likeSearchOption);
+        regLSQ(CK_NLS, fRES(regionName), xgetCValueRegionName(), "region_name", likeSearchOption);
     }
 
     /**
@@ -350,8 +350,8 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
         setRegionName_LikeSearch(regionName, xcLSOPPre());
     }
 
-    protected void regRegionName(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueRegionName(), "region_name"); }
-    protected abstract ConditionValue getCValueRegionName();
+    protected void regRegionName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueRegionName(), "region_name"); }
+    protected abstract ConditionValue xgetCValueRegionName();
 
     // ===================================================================================
     //                                                                     ScalarCondition

@@ -61,9 +61,8 @@ public class LoaderOfWhiteSameNameRef {
     //                                                                    ================
     protected LoaderOfWhiteSameName _foreignWhiteSameNameLoader;
     public LoaderOfWhiteSameName pulloutWhiteSameName() {
-        if (_foreignWhiteSameNameLoader != null) { return _foreignWhiteSameNameLoader; }
-        List<WhiteSameName> pulledList = myBhv().pulloutWhiteSameName(_selectedList);
-        _foreignWhiteSameNameLoader = new LoaderOfWhiteSameName().ready(pulledList, _selector);
+        if (_foreignWhiteSameNameLoader == null)
+        { _foreignWhiteSameNameLoader = new LoaderOfWhiteSameName().ready(myBhv().pulloutWhiteSameName(_selectedList), _selector); }
         return _foreignWhiteSameNameLoader;
     }
 

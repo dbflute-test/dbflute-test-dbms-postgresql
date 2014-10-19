@@ -74,23 +74,23 @@ public class BsProductCQ extends AbstractBsProductCQ {
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _productId;
-    public ConditionValue getProductId()
+    public ConditionValue xdfgetProductId()
     { if (_productId == null) { _productId = nCV(); }
       return _productId; }
-    protected ConditionValue getCValueProductId() { return getProductId(); }
+    protected ConditionValue xgetCValueProductId() { return xdfgetProductId(); }
 
-    public Map<String, PurchaseCQ> getProductId_ExistsReferrer_PurchaseList() { return xgetSQueMap("productId_ExistsReferrer_PurchaseList"); }
+    public Map<String, PurchaseCQ> xdfgetProductId_ExistsReferrer_PurchaseList() { return xgetSQueMap("productId_ExistsReferrer_PurchaseList"); }
     public String keepProductId_ExistsReferrer_PurchaseList(PurchaseCQ sq) { return xkeepSQue("productId_ExistsReferrer_PurchaseList", sq); }
 
-    public Map<String, PurchaseCQ> getProductId_NotExistsReferrer_PurchaseList() { return xgetSQueMap("productId_NotExistsReferrer_PurchaseList"); }
+    public Map<String, PurchaseCQ> xdfgetProductId_NotExistsReferrer_PurchaseList() { return xgetSQueMap("productId_NotExistsReferrer_PurchaseList"); }
     public String keepProductId_NotExistsReferrer_PurchaseList(PurchaseCQ sq) { return xkeepSQue("productId_NotExistsReferrer_PurchaseList", sq); }
 
-    public Map<String, PurchaseCQ> getProductId_SpecifyDerivedReferrer_PurchaseList() { return xgetSQueMap("productId_SpecifyDerivedReferrer_PurchaseList"); }
+    public Map<String, PurchaseCQ> xdfgetProductId_SpecifyDerivedReferrer_PurchaseList() { return xgetSQueMap("productId_SpecifyDerivedReferrer_PurchaseList"); }
     public String keepProductId_SpecifyDerivedReferrer_PurchaseList(PurchaseCQ sq) { return xkeepSQue("productId_SpecifyDerivedReferrer_PurchaseList", sq); }
 
-    public Map<String, PurchaseCQ> getProductId_QueryDerivedReferrer_PurchaseList() { return xgetSQueMap("productId_QueryDerivedReferrer_PurchaseList"); }
+    public Map<String, PurchaseCQ> xdfgetProductId_QueryDerivedReferrer_PurchaseList() { return xgetSQueMap("productId_QueryDerivedReferrer_PurchaseList"); }
     public String keepProductId_QueryDerivedReferrer_PurchaseList(PurchaseCQ sq) { return xkeepSQue("productId_QueryDerivedReferrer_PurchaseList", sq); }
-    public Map<String, Object> getProductId_QueryDerivedReferrer_PurchaseListParameter() { return xgetSQuePmMap("productId_QueryDerivedReferrer_PurchaseList"); }
+    public Map<String, Object> xdfgetProductId_QueryDerivedReferrer_PurchaseListParameter() { return xgetSQuePmMap("productId_QueryDerivedReferrer_PurchaseList"); }
     public String keepProductId_QueryDerivedReferrer_PurchaseListParameter(Object pm) { return xkeepSQuePm("productId_QueryDerivedReferrer_PurchaseList", pm); }
 
     /** 
@@ -108,10 +108,10 @@ public class BsProductCQ extends AbstractBsProductCQ {
     public BsProductCQ addOrderBy_ProductId_Desc() { regOBD("product_id"); return this; }
 
     protected ConditionValue _productName;
-    public ConditionValue getProductName()
+    public ConditionValue xdfgetProductName()
     { if (_productName == null) { _productName = nCV(); }
       return _productName; }
-    protected ConditionValue getCValueProductName() { return getProductName(); }
+    protected ConditionValue xgetCValueProductName() { return xdfgetProductName(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -128,10 +128,10 @@ public class BsProductCQ extends AbstractBsProductCQ {
     public BsProductCQ addOrderBy_ProductName_Desc() { regOBD("product_name"); return this; }
 
     protected ConditionValue _productHandleCode;
-    public ConditionValue getProductHandleCode()
+    public ConditionValue xdfgetProductHandleCode()
     { if (_productHandleCode == null) { _productHandleCode = nCV(); }
       return _productHandleCode; }
-    protected ConditionValue getCValueProductHandleCode() { return getProductHandleCode(); }
+    protected ConditionValue xgetCValueProductHandleCode() { return xdfgetProductHandleCode(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -148,10 +148,10 @@ public class BsProductCQ extends AbstractBsProductCQ {
     public BsProductCQ addOrderBy_ProductHandleCode_Desc() { regOBD("product_handle_code"); return this; }
 
     protected ConditionValue _productCategoryCode;
-    public ConditionValue getProductCategoryCode()
+    public ConditionValue xdfgetProductCategoryCode()
     { if (_productCategoryCode == null) { _productCategoryCode = nCV(); }
       return _productCategoryCode; }
-    protected ConditionValue getCValueProductCategoryCode() { return getProductCategoryCode(); }
+    protected ConditionValue xgetCValueProductCategoryCode() { return xdfgetProductCategoryCode(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -168,10 +168,10 @@ public class BsProductCQ extends AbstractBsProductCQ {
     public BsProductCQ addOrderBy_ProductCategoryCode_Desc() { regOBD("product_category_code"); return this; }
 
     protected ConditionValue _productStatusCode;
-    public ConditionValue getProductStatusCode()
+    public ConditionValue xdfgetProductStatusCode()
     { if (_productStatusCode == null) { _productStatusCode = nCV(); }
       return _productStatusCode; }
-    protected ConditionValue getCValueProductStatusCode() { return getProductStatusCode(); }
+    protected ConditionValue xgetCValueProductStatusCode() { return xdfgetProductStatusCode(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -188,10 +188,10 @@ public class BsProductCQ extends AbstractBsProductCQ {
     public BsProductCQ addOrderBy_ProductStatusCode_Desc() { regOBD("product_status_code"); return this; }
 
     protected ConditionValue _regularPrice;
-    public ConditionValue getRegularPrice()
+    public ConditionValue xdfgetRegularPrice()
     { if (_regularPrice == null) { _regularPrice = nCV(); }
       return _regularPrice; }
-    protected ConditionValue getCValueRegularPrice() { return getRegularPrice(); }
+    protected ConditionValue xgetCValueRegularPrice() { return xdfgetRegularPrice(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -208,10 +208,10 @@ public class BsProductCQ extends AbstractBsProductCQ {
     public BsProductCQ addOrderBy_RegularPrice_Desc() { regOBD("regular_price"); return this; }
 
     protected ConditionValue _registerDatetime;
-    public ConditionValue getRegisterDatetime()
+    public ConditionValue xdfgetRegisterDatetime()
     { if (_registerDatetime == null) { _registerDatetime = nCV(); }
       return _registerDatetime; }
-    protected ConditionValue getCValueRegisterDatetime() { return getRegisterDatetime(); }
+    protected ConditionValue xgetCValueRegisterDatetime() { return xdfgetRegisterDatetime(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -228,10 +228,10 @@ public class BsProductCQ extends AbstractBsProductCQ {
     public BsProductCQ addOrderBy_RegisterDatetime_Desc() { regOBD("register_datetime"); return this; }
 
     protected ConditionValue _registerUser;
-    public ConditionValue getRegisterUser()
+    public ConditionValue xdfgetRegisterUser()
     { if (_registerUser == null) { _registerUser = nCV(); }
       return _registerUser; }
-    protected ConditionValue getCValueRegisterUser() { return getRegisterUser(); }
+    protected ConditionValue xgetCValueRegisterUser() { return xdfgetRegisterUser(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -248,10 +248,10 @@ public class BsProductCQ extends AbstractBsProductCQ {
     public BsProductCQ addOrderBy_RegisterUser_Desc() { regOBD("register_user"); return this; }
 
     protected ConditionValue _registerProcess;
-    public ConditionValue getRegisterProcess()
+    public ConditionValue xdfgetRegisterProcess()
     { if (_registerProcess == null) { _registerProcess = nCV(); }
       return _registerProcess; }
-    protected ConditionValue getCValueRegisterProcess() { return getRegisterProcess(); }
+    protected ConditionValue xgetCValueRegisterProcess() { return xdfgetRegisterProcess(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -268,10 +268,10 @@ public class BsProductCQ extends AbstractBsProductCQ {
     public BsProductCQ addOrderBy_RegisterProcess_Desc() { regOBD("register_process"); return this; }
 
     protected ConditionValue _updateDatetime;
-    public ConditionValue getUpdateDatetime()
+    public ConditionValue xdfgetUpdateDatetime()
     { if (_updateDatetime == null) { _updateDatetime = nCV(); }
       return _updateDatetime; }
-    protected ConditionValue getCValueUpdateDatetime() { return getUpdateDatetime(); }
+    protected ConditionValue xgetCValueUpdateDatetime() { return xdfgetUpdateDatetime(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -288,10 +288,10 @@ public class BsProductCQ extends AbstractBsProductCQ {
     public BsProductCQ addOrderBy_UpdateDatetime_Desc() { regOBD("update_datetime"); return this; }
 
     protected ConditionValue _updateUser;
-    public ConditionValue getUpdateUser()
+    public ConditionValue xdfgetUpdateUser()
     { if (_updateUser == null) { _updateUser = nCV(); }
       return _updateUser; }
-    protected ConditionValue getCValueUpdateUser() { return getUpdateUser(); }
+    protected ConditionValue xgetCValueUpdateUser() { return xdfgetUpdateUser(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -308,10 +308,10 @@ public class BsProductCQ extends AbstractBsProductCQ {
     public BsProductCQ addOrderBy_UpdateUser_Desc() { regOBD("update_user"); return this; }
 
     protected ConditionValue _updateProcess;
-    public ConditionValue getUpdateProcess()
+    public ConditionValue xdfgetUpdateProcess()
     { if (_updateProcess == null) { _updateProcess = nCV(); }
       return _updateProcess; }
-    protected ConditionValue getCValueUpdateProcess() { return getUpdateProcess(); }
+    protected ConditionValue xgetCValueUpdateProcess() { return xdfgetUpdateProcess(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -328,10 +328,10 @@ public class BsProductCQ extends AbstractBsProductCQ {
     public BsProductCQ addOrderBy_UpdateProcess_Desc() { regOBD("update_process"); return this; }
 
     protected ConditionValue _versionNo;
-    public ConditionValue getVersionNo()
+    public ConditionValue xdfgetVersionNo()
     { if (_versionNo == null) { _versionNo = nCV(); }
       return _versionNo; }
-    protected ConditionValue getCValueVersionNo() { return getVersionNo(); }
+    protected ConditionValue xgetCValueVersionNo() { return xdfgetVersionNo(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -405,9 +405,9 @@ public class BsProductCQ extends AbstractBsProductCQ {
      * @return The instance of condition-query. (NotNull)
      */
     public ProductCategoryCQ queryProductCategory() {
-        return getConditionQueryProductCategory();
+        return xdfgetConditionQueryProductCategory();
     }
-    public ProductCategoryCQ getConditionQueryProductCategory() {
+    public ProductCategoryCQ xdfgetConditionQueryProductCategory() {
         String prop = "productCategory";
         if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryProductCategory()); xsetupOuterJoinProductCategory(); }
         return xgetQueRlMap(prop);
@@ -425,9 +425,9 @@ public class BsProductCQ extends AbstractBsProductCQ {
      * @return The instance of condition-query. (NotNull)
      */
     public ProductStatusCQ queryProductStatus() {
-        return getConditionQueryProductStatus();
+        return xdfgetConditionQueryProductStatus();
     }
-    public ProductStatusCQ getConditionQueryProductStatus() {
+    public ProductStatusCQ xdfgetConditionQueryProductStatus() {
         String prop = "productStatus";
         if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryProductStatus()); xsetupOuterJoinProductStatus(); }
         return xgetQueRlMap(prop);
@@ -446,31 +446,31 @@ public class BsProductCQ extends AbstractBsProductCQ {
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, ProductCQ> getScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public Map<String, ProductCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(ProductCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
     //                                                                       MyselfDerived
     //                                                                       =============
-    public Map<String, ProductCQ> getSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
+    public Map<String, ProductCQ> xdfgetSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
     public String keepSpecifyMyselfDerived(ProductCQ sq) { return xkeepSQue("specifyMyselfDerived", sq); }
 
-    public Map<String, ProductCQ> getQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
+    public Map<String, ProductCQ> xdfgetQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerived(ProductCQ sq) { return xkeepSQue("queryMyselfDerived", sq); }
-    public Map<String, Object> getQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
+    public Map<String, Object> xdfgetQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerivedParameter(Object pm) { return xkeepSQuePm("queryMyselfDerived", pm); }
 
     // ===================================================================================
     //                                                                        MyselfExists
     //                                                                        ============
     protected Map<String, ProductCQ> _myselfExistsMap;
-    public Map<String, ProductCQ> getMyselfExists() { return xgetSQueMap("myselfExists"); }
+    public Map<String, ProductCQ> xdfgetMyselfExists() { return xgetSQueMap("myselfExists"); }
     public String keepMyselfExists(ProductCQ sq) { return xkeepSQue("myselfExists", sq); }
 
     // ===================================================================================
     //                                                                       MyselfInScope
     //                                                                       =============
-    public Map<String, ProductCQ> getMyselfInScope() { return xgetSQueMap("myselfInScope"); }
+    public Map<String, ProductCQ> xdfgetMyselfInScope() { return xgetSQueMap("myselfInScope"); }
     public String keepMyselfInScope(ProductCQ sq) { return xkeepSQue("myselfInScope", sq); }
 
     // ===================================================================================
@@ -479,7 +479,7 @@ public class BsProductCQ extends AbstractBsProductCQ {
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return ProductCB.class.getName(); }
     protected String xCQ() { return ProductCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }

@@ -118,7 +118,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setLargeDataId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueLargeDataId(), "large_data_id", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueLargeDataId(), "large_data_id", rangeOfOption);
     }
 
     /**
@@ -131,7 +131,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
     }
 
     protected void doSetLargeDataId_InScope(Collection<Long> largeDataIdList) {
-        regINS(CK_INS, cTL(largeDataIdList), getCValueLargeDataId(), "large_data_id");
+        regINS(CK_INS, cTL(largeDataIdList), xgetCValueLargeDataId(), "large_data_id");
     }
 
     /**
@@ -144,7 +144,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
     }
 
     protected void doSetLargeDataId_NotInScope(Collection<Long> largeDataIdList) {
-        regINS(CK_NINS, cTL(largeDataIdList), getCValueLargeDataId(), "large_data_id");
+        regINS(CK_NINS, cTL(largeDataIdList), xgetCValueLargeDataId(), "large_data_id");
     }
 
     /**
@@ -242,8 +242,8 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
      */
     public void setLargeDataId_IsNotNull() { regLargeDataId(CK_ISNN, DOBJ); }
 
-    protected void regLargeDataId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueLargeDataId(), "large_data_id"); }
-    protected abstract ConditionValue getCValueLargeDataId();
+    protected void regLargeDataId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueLargeDataId(), "large_data_id"); }
+    protected abstract ConditionValue xgetCValueLargeDataId();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -281,7 +281,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
     }
 
     protected void doSetStringIndex_InScope(Collection<String> stringIndexList) {
-        regINS(CK_INS, cTL(stringIndexList), getCValueStringIndex(), "string_index");
+        regINS(CK_INS, cTL(stringIndexList), xgetCValueStringIndex(), "string_index");
     }
 
     /**
@@ -294,7 +294,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
     }
 
     protected void doSetStringIndex_NotInScope(Collection<String> stringIndexList) {
-        regINS(CK_NINS, cTL(stringIndexList), getCValueStringIndex(), "string_index");
+        regINS(CK_NINS, cTL(stringIndexList), xgetCValueStringIndex(), "string_index");
     }
 
     /**
@@ -316,7 +316,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setStringIndex_LikeSearch(String stringIndex, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(stringIndex), getCValueStringIndex(), "string_index", likeSearchOption);
+        regLSQ(CK_LS, fRES(stringIndex), xgetCValueStringIndex(), "string_index", likeSearchOption);
     }
 
     /**
@@ -338,7 +338,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setStringIndex_NotLikeSearch(String stringIndex, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(stringIndex), getCValueStringIndex(), "string_index", likeSearchOption);
+        regLSQ(CK_NLS, fRES(stringIndex), xgetCValueStringIndex(), "string_index", likeSearchOption);
     }
 
     /**
@@ -350,8 +350,8 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
         setStringIndex_LikeSearch(stringIndex, xcLSOPPre());
     }
 
-    protected void regStringIndex(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueStringIndex(), "string_index"); }
-    protected abstract ConditionValue getCValueStringIndex();
+    protected void regStringIndex(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueStringIndex(), "string_index"); }
+    protected abstract ConditionValue xgetCValueStringIndex();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -389,7 +389,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
     }
 
     protected void doSetStringNoIndex_InScope(Collection<String> stringNoIndexList) {
-        regINS(CK_INS, cTL(stringNoIndexList), getCValueStringNoIndex(), "string_no_index");
+        regINS(CK_INS, cTL(stringNoIndexList), xgetCValueStringNoIndex(), "string_no_index");
     }
 
     /**
@@ -402,7 +402,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
     }
 
     protected void doSetStringNoIndex_NotInScope(Collection<String> stringNoIndexList) {
-        regINS(CK_NINS, cTL(stringNoIndexList), getCValueStringNoIndex(), "string_no_index");
+        regINS(CK_NINS, cTL(stringNoIndexList), xgetCValueStringNoIndex(), "string_no_index");
     }
 
     /**
@@ -424,7 +424,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setStringNoIndex_LikeSearch(String stringNoIndex, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(stringNoIndex), getCValueStringNoIndex(), "string_no_index", likeSearchOption);
+        regLSQ(CK_LS, fRES(stringNoIndex), xgetCValueStringNoIndex(), "string_no_index", likeSearchOption);
     }
 
     /**
@@ -446,7 +446,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setStringNoIndex_NotLikeSearch(String stringNoIndex, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(stringNoIndex), getCValueStringNoIndex(), "string_no_index", likeSearchOption);
+        regLSQ(CK_NLS, fRES(stringNoIndex), xgetCValueStringNoIndex(), "string_no_index", likeSearchOption);
     }
 
     /**
@@ -458,8 +458,8 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
         setStringNoIndex_LikeSearch(stringNoIndex, xcLSOPPre());
     }
 
-    protected void regStringNoIndex(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueStringNoIndex(), "string_no_index"); }
-    protected abstract ConditionValue getCValueStringNoIndex();
+    protected void regStringNoIndex(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueStringNoIndex(), "string_no_index"); }
+    protected abstract ConditionValue xgetCValueStringNoIndex();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -497,7 +497,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
     }
 
     protected void doSetStringUniqueIndex_InScope(Collection<String> stringUniqueIndexList) {
-        regINS(CK_INS, cTL(stringUniqueIndexList), getCValueStringUniqueIndex(), "string_unique_index");
+        regINS(CK_INS, cTL(stringUniqueIndexList), xgetCValueStringUniqueIndex(), "string_unique_index");
     }
 
     /**
@@ -510,7 +510,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
     }
 
     protected void doSetStringUniqueIndex_NotInScope(Collection<String> stringUniqueIndexList) {
-        regINS(CK_NINS, cTL(stringUniqueIndexList), getCValueStringUniqueIndex(), "string_unique_index");
+        regINS(CK_NINS, cTL(stringUniqueIndexList), xgetCValueStringUniqueIndex(), "string_unique_index");
     }
 
     /**
@@ -532,7 +532,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setStringUniqueIndex_LikeSearch(String stringUniqueIndex, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(stringUniqueIndex), getCValueStringUniqueIndex(), "string_unique_index", likeSearchOption);
+        regLSQ(CK_LS, fRES(stringUniqueIndex), xgetCValueStringUniqueIndex(), "string_unique_index", likeSearchOption);
     }
 
     /**
@@ -554,7 +554,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setStringUniqueIndex_NotLikeSearch(String stringUniqueIndex, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(stringUniqueIndex), getCValueStringUniqueIndex(), "string_unique_index", likeSearchOption);
+        regLSQ(CK_NLS, fRES(stringUniqueIndex), xgetCValueStringUniqueIndex(), "string_unique_index", likeSearchOption);
     }
 
     /**
@@ -566,8 +566,8 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
         setStringUniqueIndex_LikeSearch(stringUniqueIndex, xcLSOPPre());
     }
 
-    protected void regStringUniqueIndex(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueStringUniqueIndex(), "string_unique_index"); }
-    protected abstract ConditionValue getCValueStringUniqueIndex();
+    protected void regStringUniqueIndex(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueStringUniqueIndex(), "string_unique_index"); }
+    protected abstract ConditionValue xgetCValueStringUniqueIndex();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -641,7 +641,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setIntflgIndex_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueIntflgIndex(), "intflg_index", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueIntflgIndex(), "intflg_index", rangeOfOption);
     }
 
     /**
@@ -654,7 +654,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
     }
 
     protected void doSetIntflgIndex_InScope(Collection<Integer> intflgIndexList) {
-        regINS(CK_INS, cTL(intflgIndexList), getCValueIntflgIndex(), "intflg_index");
+        regINS(CK_INS, cTL(intflgIndexList), xgetCValueIntflgIndex(), "intflg_index");
     }
 
     /**
@@ -667,11 +667,11 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
     }
 
     protected void doSetIntflgIndex_NotInScope(Collection<Integer> intflgIndexList) {
-        regINS(CK_NINS, cTL(intflgIndexList), getCValueIntflgIndex(), "intflg_index");
+        regINS(CK_NINS, cTL(intflgIndexList), xgetCValueIntflgIndex(), "intflg_index");
     }
 
-    protected void regIntflgIndex(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueIntflgIndex(), "intflg_index"); }
-    protected abstract ConditionValue getCValueIntflgIndex();
+    protected void regIntflgIndex(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueIntflgIndex(), "intflg_index"); }
+    protected abstract ConditionValue xgetCValueIntflgIndex();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -745,7 +745,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setNumericIntegerIndex_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueNumericIntegerIndex(), "numeric_integer_index", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueNumericIntegerIndex(), "numeric_integer_index", rangeOfOption);
     }
 
     /**
@@ -758,7 +758,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
     }
 
     protected void doSetNumericIntegerIndex_InScope(Collection<Integer> numericIntegerIndexList) {
-        regINS(CK_INS, cTL(numericIntegerIndexList), getCValueNumericIntegerIndex(), "numeric_integer_index");
+        regINS(CK_INS, cTL(numericIntegerIndexList), xgetCValueNumericIntegerIndex(), "numeric_integer_index");
     }
 
     /**
@@ -771,11 +771,11 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
     }
 
     protected void doSetNumericIntegerIndex_NotInScope(Collection<Integer> numericIntegerIndexList) {
-        regINS(CK_NINS, cTL(numericIntegerIndexList), getCValueNumericIntegerIndex(), "numeric_integer_index");
+        regINS(CK_NINS, cTL(numericIntegerIndexList), xgetCValueNumericIntegerIndex(), "numeric_integer_index");
     }
 
-    protected void regNumericIntegerIndex(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueNumericIntegerIndex(), "numeric_integer_index"); }
-    protected abstract ConditionValue getCValueNumericIntegerIndex();
+    protected void regNumericIntegerIndex(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueNumericIntegerIndex(), "numeric_integer_index"); }
+    protected abstract ConditionValue xgetCValueNumericIntegerIndex();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -849,7 +849,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setNumericIntegerNoIndex_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueNumericIntegerNoIndex(), "numeric_integer_no_index", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueNumericIntegerNoIndex(), "numeric_integer_no_index", rangeOfOption);
     }
 
     /**
@@ -862,7 +862,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
     }
 
     protected void doSetNumericIntegerNoIndex_InScope(Collection<Integer> numericIntegerNoIndexList) {
-        regINS(CK_INS, cTL(numericIntegerNoIndexList), getCValueNumericIntegerNoIndex(), "numeric_integer_no_index");
+        regINS(CK_INS, cTL(numericIntegerNoIndexList), xgetCValueNumericIntegerNoIndex(), "numeric_integer_no_index");
     }
 
     /**
@@ -875,11 +875,11 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
     }
 
     protected void doSetNumericIntegerNoIndex_NotInScope(Collection<Integer> numericIntegerNoIndexList) {
-        regINS(CK_NINS, cTL(numericIntegerNoIndexList), getCValueNumericIntegerNoIndex(), "numeric_integer_no_index");
+        regINS(CK_NINS, cTL(numericIntegerNoIndexList), xgetCValueNumericIntegerNoIndex(), "numeric_integer_no_index");
     }
 
-    protected void regNumericIntegerNoIndex(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueNumericIntegerNoIndex(), "numeric_integer_no_index"); }
-    protected abstract ConditionValue getCValueNumericIntegerNoIndex();
+    protected void regNumericIntegerNoIndex(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueNumericIntegerNoIndex(), "numeric_integer_no_index"); }
+    protected abstract ConditionValue xgetCValueNumericIntegerNoIndex();
 
     // ===================================================================================
     //                                                                     ScalarCondition

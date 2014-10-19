@@ -5,6 +5,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -187,10 +188,14 @@ public class BsProductStatusCB extends AbstractConditionBean {
      */
     public ProductStatusCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public ProductStatusCQ getConditionQuery() { // public for parameter comment and internal
+    public ProductStatusCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected ProductStatusCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -211,8 +216,11 @@ public class BsProductStatusCB extends AbstractConditionBean {
         return new ProductStatusCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -300,7 +308,7 @@ public class BsProductStatusCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<ProductStatusCQ>() {
                 public boolean has() { return true; }
-                public ProductStatusCQ qy() { return getConditionQuery(); }
+                public ProductStatusCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -323,17 +331,17 @@ public class BsProductStatusCB extends AbstractConditionBean {
          * (商品ステータスコード)product_status_code: {PK, NotNull, bpchar(3)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnProductStatusCode() { return doColumn("product_status_code"); }
+        public SpecifiedColumn columnProductStatusCode() { return doColumn("product_status_code"); }
         /**
          * product_status_name: {NotNull, varchar(50)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnProductStatusName() { return doColumn("product_status_name"); }
+        public SpecifiedColumn columnProductStatusName() { return doColumn("product_status_name"); }
         /**
          * display_order: {UQ, NotNull, int4(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnDisplayOrder() { return doColumn("display_order"); }
+        public SpecifiedColumn columnDisplayOrder() { return doColumn("display_order"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -395,7 +403,7 @@ public class BsProductStatusCB extends AbstractConditionBean {
      */
     public HpColQyOperand<ProductStatusCB> columnQuery(final SpecifyQuery<ProductStatusCB> colCBLambda) {
         return xcreateColQyOperand(new HpColQyHandler<ProductStatusCB>() {
-            public HpCalculator handle(SpecifyQuery<ProductStatusCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<ProductStatusCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -513,8 +521,8 @@ public class BsProductStatusCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return ProductStatusCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return ProductStatusCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return ProductStatusCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return ProductStatusCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

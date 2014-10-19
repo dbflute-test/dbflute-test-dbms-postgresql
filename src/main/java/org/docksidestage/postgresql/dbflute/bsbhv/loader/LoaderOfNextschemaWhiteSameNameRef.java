@@ -61,9 +61,8 @@ public class LoaderOfNextschemaWhiteSameNameRef {
     //                                                                    ================
     protected LoaderOfNextschemaWhiteSameName _foreignWhiteSameNameLoader;
     public LoaderOfNextschemaWhiteSameName pulloutWhiteSameName() {
-        if (_foreignWhiteSameNameLoader != null) { return _foreignWhiteSameNameLoader; }
-        List<NextschemaWhiteSameName> pulledList = myBhv().pulloutWhiteSameName(_selectedList);
-        _foreignWhiteSameNameLoader = new LoaderOfNextschemaWhiteSameName().ready(pulledList, _selector);
+        if (_foreignWhiteSameNameLoader == null)
+        { _foreignWhiteSameNameLoader = new LoaderOfNextschemaWhiteSameName().ready(myBhv().pulloutWhiteSameName(_selectedList), _selector); }
         return _foreignWhiteSameNameLoader;
     }
 

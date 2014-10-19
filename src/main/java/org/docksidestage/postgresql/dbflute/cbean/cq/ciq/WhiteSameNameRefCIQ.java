@@ -61,9 +61,9 @@ public class WhiteSameNameRefCIQ extends AbstractBsWhiteSameNameRefCQ {
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueSameNameRefId() { return _myCQ.getSameNameRefId(); }
-    protected ConditionValue getCValueSameNameId() { return _myCQ.getSameNameId(); }
-    protected ConditionValue getCValueNextSameNameId() { return _myCQ.getNextSameNameId(); }
+    protected ConditionValue xgetCValueSameNameRefId() { return _myCQ.xdfgetSameNameRefId(); }
+    protected ConditionValue xgetCValueSameNameId() { return _myCQ.xdfgetSameNameId(); }
+    protected ConditionValue xgetCValueNextSameNameId() { return _myCQ.xdfgetNextSameNameId(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(WhiteSameNameRefCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

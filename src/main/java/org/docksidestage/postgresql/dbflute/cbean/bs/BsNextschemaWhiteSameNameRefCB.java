@@ -5,6 +5,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -176,10 +177,14 @@ public class BsNextschemaWhiteSameNameRefCB extends AbstractConditionBean {
      */
     public NextschemaWhiteSameNameRefCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public NextschemaWhiteSameNameRefCQ getConditionQuery() { // public for parameter comment and internal
+    public NextschemaWhiteSameNameRefCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected NextschemaWhiteSameNameRefCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -200,8 +205,11 @@ public class BsNextschemaWhiteSameNameRefCB extends AbstractConditionBean {
         return new NextschemaWhiteSameNameRefCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -263,7 +271,7 @@ public class BsNextschemaWhiteSameNameRefCB extends AbstractConditionBean {
     //                                                                         SetupSelect
     //                                                                         ===========
     protected NextschemaWhiteSameNameNss _nssWhiteSameName;
-    public NextschemaWhiteSameNameNss getNssWhiteSameName() {
+    public NextschemaWhiteSameNameNss xdfgetNssWhiteSameName() {
         if (_nssWhiteSameName == null) { _nssWhiteSameName = new NextschemaWhiteSameNameNss(null); }
         return _nssWhiteSameName;
     }
@@ -317,7 +325,7 @@ public class BsNextschemaWhiteSameNameRefCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<NextschemaWhiteSameNameRefCQ>() {
                 public boolean has() { return true; }
-                public NextschemaWhiteSameNameRefCQ qy() { return getConditionQuery(); }
+                public NextschemaWhiteSameNameRefCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -341,17 +349,17 @@ public class BsNextschemaWhiteSameNameRefCB extends AbstractConditionBean {
          * same_name_ref_id: {PK, NotNull, int8(19)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnSameNameRefId() { return doColumn("same_name_ref_id"); }
+        public SpecifiedColumn columnSameNameRefId() { return doColumn("same_name_ref_id"); }
         /**
          * same_name_id: {NotNull, int4(10), FK to white_same_name}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnSameNameId() { return doColumn("same_name_id"); }
+        public SpecifiedColumn columnSameNameId() { return doColumn("same_name_id"); }
         /**
          * next_ref_date: {date(13)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnNextRefDate() { return doColumn("next_ref_date"); }
+        public SpecifiedColumn columnNextRefDate() { return doColumn("next_ref_date"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -420,7 +428,7 @@ public class BsNextschemaWhiteSameNameRefCB extends AbstractConditionBean {
      */
     public HpColQyOperand<NextschemaWhiteSameNameRefCB> columnQuery(final SpecifyQuery<NextschemaWhiteSameNameRefCB> colCBLambda) {
         return xcreateColQyOperand(new HpColQyHandler<NextschemaWhiteSameNameRefCB>() {
-            public HpCalculator handle(SpecifyQuery<NextschemaWhiteSameNameRefCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<NextschemaWhiteSameNameRefCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -538,8 +546,8 @@ public class BsNextschemaWhiteSameNameRefCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return NextschemaWhiteSameNameRefCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return NextschemaWhiteSameNameRefCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return NextschemaWhiteSameNameRefCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return NextschemaWhiteSameNameRefCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

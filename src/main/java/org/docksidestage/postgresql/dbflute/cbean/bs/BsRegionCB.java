@@ -5,6 +5,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -175,10 +176,14 @@ public class BsRegionCB extends AbstractConditionBean {
      */
     public RegionCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public RegionCQ getConditionQuery() { // public for parameter comment and internal
+    public RegionCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected RegionCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -199,8 +204,11 @@ public class BsRegionCB extends AbstractConditionBean {
         return new RegionCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -288,7 +296,7 @@ public class BsRegionCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<RegionCQ>() {
                 public boolean has() { return true; }
-                public RegionCQ qy() { return getConditionQuery(); }
+                public RegionCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -311,12 +319,12 @@ public class BsRegionCB extends AbstractConditionBean {
          * (地域ID)region_id: {PK, NotNull, int4(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnRegionId() { return doColumn("region_id"); }
+        public SpecifiedColumn columnRegionId() { return doColumn("region_id"); }
         /**
          * (地域名称)region_name: {NotNull, varchar(50)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnRegionName() { return doColumn("region_name"); }
+        public SpecifiedColumn columnRegionName() { return doColumn("region_name"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -378,7 +386,7 @@ public class BsRegionCB extends AbstractConditionBean {
      */
     public HpColQyOperand<RegionCB> columnQuery(final SpecifyQuery<RegionCB> colCBLambda) {
         return xcreateColQyOperand(new HpColQyHandler<RegionCB>() {
-            public HpCalculator handle(SpecifyQuery<RegionCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<RegionCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -496,8 +504,8 @@ public class BsRegionCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return RegionCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return RegionCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return RegionCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return RegionCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

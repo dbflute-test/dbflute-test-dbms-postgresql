@@ -5,7 +5,6 @@ import java.util.*;
 import org.dbflute.outsidesql.ProcedurePmb;
 import org.dbflute.jdbc.*;
 import org.dbflute.outsidesql.PmbCustodial;
-import org.dbflute.outsidesql.PmbCustodial.ShortCharHandlingMode;
 import org.dbflute.util.DfTypeUtil;
 import org.docksidestage.postgresql.dbflute.allcommon.*;
 
@@ -134,23 +133,17 @@ public class BsSpVariousTypeParameterPmb implements ProcedurePmb, FetchBean {
     /**
      * {@inheritDoc}
      */
-    public String getProcedureName() {
-        return "sp_various_type_parameter";
-    }
+    public String getProcedureName() { return "sp_various_type_parameter"; }
 
     /**
      * {@inheritDoc}
      */
-     public boolean isEscapeStatement() {
-         return true; // as default
-     }
+     public boolean isEscapeStatement() { return true; } // as default
 
     /**
      * {@inheritDoc}
      */
-     public boolean isCalledBySelect() {
-         return false; // resolved by generator
-     }
+     public boolean isCalledBySelect() { return false; } // resolved by generator
 
     // ===================================================================================
     //                                                                       Safety Result
@@ -175,72 +168,23 @@ public class BsSpVariousTypeParameterPmb implements ProcedurePmb, FetchBean {
     // -----------------------------------------------------
     //                                                String
     //                                                ------
-    protected String filterStringParameter(String value) {
-        return isEmptyStringParameterAllowed() ? value : convertEmptyToNull(value);
-    }
-
-    protected boolean isEmptyStringParameterAllowed() {
-	    return DBFluteConfig.getInstance().isEmptyStringParameterAllowed();
-    }
-
-    protected String convertEmptyToNull(String value) {
-	    return PmbCustodial.convertEmptyToNull(value);
-    }
-
-    protected String handleShortChar(String propertyName, String value, Integer size) {
-        ShortCharHandlingMode mode = chooseShortCharHandlingMode(propertyName, value, size);
-        return PmbCustodial.handleShortChar(propertyName, value, size, mode);
-    }
-
-    protected ShortCharHandlingMode chooseShortCharHandlingMode(String propertyName, String value, Integer size) {
-        return ShortCharHandlingMode.NONE;
-    }
-
+    protected String filterStringParameter(String value) { return isEmptyStringParameterAllowed() ? value : convertEmptyToNull(value); }
+    protected boolean isEmptyStringParameterAllowed() { return DBFluteConfig.getInstance().isEmptyStringParameterAllowed(); }
+    protected String convertEmptyToNull(String value) { return PmbCustodial.convertEmptyToNull(value); }
+    
     // -----------------------------------------------------
     //                                                  Date
     //                                                  ----
-    protected Date toUtilDate(Object date) {
-        return PmbCustodial.toUtilDate(date, _timeZone);
-    }
-
-    protected String formatUtilDate(Date date) {
-        String pattern = "yyyy-MM-dd";
-        return PmbCustodial.formatUtilDate(date, pattern, _timeZone);
-    }
-
-    protected TimeZone chooseRealTimeZone() {
-        return PmbCustodial.chooseRealTimeZone(_timeZone);
-    }
-
-    /**
-     * Set time-zone, basically for LocalDate conversion. <br />
-     * Normally you don't need to set this, you can adjust other ways. <br />
-     * (DBFlute system's time-zone is used as default)
-     * @param timeZone The time-zone for filtering. (NullAllowed: if null, default zone)
-     */
-    public void zone(TimeZone timeZone) {
-        _timeZone = timeZone;
-    }
+    protected Date toUtilDate(Object date) { return PmbCustodial.toUtilDate(date, _timeZone); }
 
     // -----------------------------------------------------
-    //                                               Various
-    //                                               -------
-    protected <NUMBER extends Number> NUMBER toNumber(Object obj, Class<NUMBER> type) { // might be called by option handling
-        return PmbCustodial.toNumber(obj, type);
-    }
-
-    protected Boolean toBoolean(Object obj) {
-        return PmbCustodial.toBoolean(obj);
-    }
-
-    protected String formatByteArray(byte[] bytes) {
-        return PmbCustodial.formatByteArray(bytes);
-    }
-
+    //                                    by Option Handling
+    //                                    ------------------
+    // might be called by option handling
+    protected <NUMBER extends Number> NUMBER toNumber(Object obj, Class<NUMBER> type) { return PmbCustodial.toNumber(obj, type); }
+    protected Boolean toBoolean(Object obj) { return PmbCustodial.toBoolean(obj); }
     @SuppressWarnings("unchecked")
-    protected <ELEMENT> ArrayList<ELEMENT> newArrayList(ELEMENT... elements) { // might be called by option handling
-        return PmbCustodial.newArrayList(elements);
-    }
+    protected <ELEMENT> ArrayList<ELEMENT> newArrayList(ELEMENT... elements) { return PmbCustodial.newArrayList(elements); }
 
     // ===================================================================================
     //                                                                      Basic Override
@@ -271,12 +215,12 @@ public class BsSpVariousTypeParameterPmb implements ProcedurePmb, FetchBean {
         sb.append(dm).append(_vvInoutInteger);
         sb.append(dm).append(_vvOutBigint);
         sb.append(dm).append(_vvInoutBigint);
-        sb.append(dm).append(formatUtilDate(_vvvInDate));
+        sb.append(dm).append(PmbCustodial.formatUtilDate(_vvvInDate, "yyyy-MM-dd", _timeZone));
         sb.append(dm).append(_vvvOutTimestamp);
         sb.append(dm).append(_vvvInTime);
         sb.append(dm).append(_vvvvInBool);
-        sb.append(dm).append(formatByteArray(_vvvvInBytea));
-        sb.append(dm).append(formatByteArray(_vvvvInOid));
+        sb.append(dm).append(PmbCustodial.formatByteArray(_vvvvInBytea));
+        sb.append(dm).append(PmbCustodial.formatByteArray(_vvvvInOid));
         sb.append(dm).append(_vvvvInUuid);
         if (sb.length() > 0) { sb.delete(0, dm.length()); }
         sb.insert(0, "{").append("}");

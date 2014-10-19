@@ -63,14 +63,8 @@ public class LoaderOfVendorDatePk {
     //                                                                       =============
     protected List<VendorDateFk> _referrerVendorDateFkList;
     public NestedReferrerLoaderGateway<LoaderOfVendorDateFk> loadVendorDateFkList(ConditionBeanSetupper<VendorDateFkCB> refCBLambda) {
-        myBhv().loadVendorDateFkList(_selectedList, refCBLambda).withNestedReferrer(new ReferrerListHandler<VendorDateFk>() {
-            public void handle(List<VendorDateFk> referrerList) { _referrerVendorDateFkList = referrerList; }
-        });
-        return new NestedReferrerLoaderGateway<LoaderOfVendorDateFk>() {
-            public void withNestedReferrer(ReferrerLoaderHandler<LoaderOfVendorDateFk> handler) {
-                handler.handle(new LoaderOfVendorDateFk().ready(_referrerVendorDateFkList, _selector));
-            }
-        };
+        myBhv().loadVendorDateFkList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerVendorDateFkList = refLs);
+        return hd -> hd.handle(new LoaderOfVendorDateFk().ready(_referrerVendorDateFkList, _selector));
     }
 
     // ===================================================================================

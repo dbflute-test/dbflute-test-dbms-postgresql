@@ -5,6 +5,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -175,10 +176,14 @@ public class BsVendorCheckCB extends AbstractConditionBean {
      */
     public VendorCheckCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public VendorCheckCQ getConditionQuery() { // public for parameter comment and internal
+    public VendorCheckCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected VendorCheckCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -199,8 +204,11 @@ public class BsVendorCheckCB extends AbstractConditionBean {
         return new VendorCheckCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -288,7 +296,7 @@ public class BsVendorCheckCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<VendorCheckCQ>() {
                 public boolean has() { return true; }
-                public VendorCheckCQ qy() { return getConditionQuery(); }
+                public VendorCheckCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -311,137 +319,137 @@ public class BsVendorCheckCB extends AbstractConditionBean {
          * vendor_check_id: {PK, NotNull, numeric(16)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnVendorCheckId() { return doColumn("vendor_check_id"); }
+        public SpecifiedColumn columnVendorCheckId() { return doColumn("vendor_check_id"); }
         /**
          * type_of_char: {bpchar(3)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnTypeOfChar() { return doColumn("type_of_char"); }
+        public SpecifiedColumn columnTypeOfChar() { return doColumn("type_of_char"); }
         /**
          * type_of_varchar: {varchar(2147483647)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnTypeOfVarchar() { return doColumn("type_of_varchar"); }
+        public SpecifiedColumn columnTypeOfVarchar() { return doColumn("type_of_varchar"); }
         /**
          * type_of_vc_array: {_varchar(2147483647)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnTypeOfVcArray() { return doColumn("type_of_vc_array"); }
+        public SpecifiedColumn columnTypeOfVcArray() { return doColumn("type_of_vc_array"); }
         /**
          * type_of_text: {text(2147483647)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnTypeOfText() { return doColumn("type_of_text"); }
+        public SpecifiedColumn columnTypeOfText() { return doColumn("type_of_text"); }
         /**
          * type_of_numeric_integer: {numeric(5)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnTypeOfNumericInteger() { return doColumn("type_of_numeric_integer"); }
+        public SpecifiedColumn columnTypeOfNumericInteger() { return doColumn("type_of_numeric_integer"); }
         /**
          * type_of_numeric_bigint: {numeric(12)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnTypeOfNumericBigint() { return doColumn("type_of_numeric_bigint"); }
+        public SpecifiedColumn columnTypeOfNumericBigint() { return doColumn("type_of_numeric_bigint"); }
         /**
          * type_of_numeric_decimal: {numeric(5, 3)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnTypeOfNumericDecimal() { return doColumn("type_of_numeric_decimal"); }
+        public SpecifiedColumn columnTypeOfNumericDecimal() { return doColumn("type_of_numeric_decimal"); }
         /**
          * type_of_decimal: {numeric(131089)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnTypeOfDecimal() { return doColumn("type_of_decimal"); }
+        public SpecifiedColumn columnTypeOfDecimal() { return doColumn("type_of_decimal"); }
         /**
          * type_of_int8: {int8(19)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnTypeOfInt8() { return doColumn("type_of_int8"); }
+        public SpecifiedColumn columnTypeOfInt8() { return doColumn("type_of_int8"); }
         /**
          * type_of_int_array: {_int8(19)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnTypeOfIntArray() { return doColumn("type_of_int_array"); }
+        public SpecifiedColumn columnTypeOfIntArray() { return doColumn("type_of_int_array"); }
         /**
          * type_of_int4: {int4(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnTypeOfInt4() { return doColumn("type_of_int4"); }
+        public SpecifiedColumn columnTypeOfInt4() { return doColumn("type_of_int4"); }
         /**
          * type_of_bigint: {int8(19)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnTypeOfBigint() { return doColumn("type_of_bigint"); }
+        public SpecifiedColumn columnTypeOfBigint() { return doColumn("type_of_bigint"); }
         /**
          * type_of_real: {float4(8, 8)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnTypeOfReal() { return doColumn("type_of_real"); }
+        public SpecifiedColumn columnTypeOfReal() { return doColumn("type_of_real"); }
         /**
          * type_of_float: {float8(17, 17)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnTypeOfFloat() { return doColumn("type_of_float"); }
+        public SpecifiedColumn columnTypeOfFloat() { return doColumn("type_of_float"); }
         /**
          * type_of_money: {money(2147483647)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnTypeOfMoney() { return doColumn("type_of_money"); }
+        public SpecifiedColumn columnTypeOfMoney() { return doColumn("type_of_money"); }
         /**
          * type_of_date: {date(13)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnTypeOfDate() { return doColumn("type_of_date"); }
+        public SpecifiedColumn columnTypeOfDate() { return doColumn("type_of_date"); }
         /**
          * type_of_timestamp: {timestamp(29, 6)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnTypeOfTimestamp() { return doColumn("type_of_timestamp"); }
+        public SpecifiedColumn columnTypeOfTimestamp() { return doColumn("type_of_timestamp"); }
         /**
          * type_of_time: {time(15, 6)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnTypeOfTime() { return doColumn("type_of_time"); }
+        public SpecifiedColumn columnTypeOfTime() { return doColumn("type_of_time"); }
         /**
          * type_of_timetz: {timetz(21, 6)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnTypeOfTimetz() { return doColumn("type_of_timetz"); }
+        public SpecifiedColumn columnTypeOfTimetz() { return doColumn("type_of_timetz"); }
         /**
          * type_of_interval: {interval(49, 6)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnTypeOfInterval() { return doColumn("type_of_interval"); }
+        public SpecifiedColumn columnTypeOfInterval() { return doColumn("type_of_interval"); }
         /**
          * type_of_bool: {bool(1), classification=TrueFalse}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnTypeOfBool() { return doColumn("type_of_bool"); }
+        public SpecifiedColumn columnTypeOfBool() { return doColumn("type_of_bool"); }
         /**
          * type_of_bit: {bit(1)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnTypeOfBit() { return doColumn("type_of_bit"); }
+        public SpecifiedColumn columnTypeOfBit() { return doColumn("type_of_bit"); }
         /**
          * type_of_bytea: {bytea(2147483647)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnTypeOfBytea() { return doColumn("type_of_bytea"); }
+        public SpecifiedColumn columnTypeOfBytea() { return doColumn("type_of_bytea"); }
         /**
          * type_of_oid: {oid(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnTypeOfOid() { return doColumn("type_of_oid"); }
+        public SpecifiedColumn columnTypeOfOid() { return doColumn("type_of_oid"); }
         /**
          * type_of_uuid: {uuid(2147483647)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnTypeOfUuid() { return doColumn("type_of_uuid"); }
+        public SpecifiedColumn columnTypeOfUuid() { return doColumn("type_of_uuid"); }
         /**
          * type_of_xml: {xml(2147483647)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnTypeOfXml() { return doColumn("type_of_xml"); }
+        public SpecifiedColumn columnTypeOfXml() { return doColumn("type_of_xml"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -485,7 +493,7 @@ public class BsVendorCheckCB extends AbstractConditionBean {
      */
     public HpColQyOperand<VendorCheckCB> columnQuery(final SpecifyQuery<VendorCheckCB> colCBLambda) {
         return xcreateColQyOperand(new HpColQyHandler<VendorCheckCB>() {
-            public HpCalculator handle(SpecifyQuery<VendorCheckCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<VendorCheckCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -603,8 +611,8 @@ public class BsVendorCheckCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return VendorCheckCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return VendorCheckCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return VendorCheckCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return VendorCheckCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

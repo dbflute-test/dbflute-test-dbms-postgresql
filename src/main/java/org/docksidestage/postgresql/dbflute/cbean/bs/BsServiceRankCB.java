@@ -5,6 +5,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -187,10 +188,14 @@ public class BsServiceRankCB extends AbstractConditionBean {
      */
     public ServiceRankCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public ServiceRankCQ getConditionQuery() { // public for parameter comment and internal
+    public ServiceRankCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected ServiceRankCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -211,8 +216,11 @@ public class BsServiceRankCB extends AbstractConditionBean {
         return new ServiceRankCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -300,7 +308,7 @@ public class BsServiceRankCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<ServiceRankCQ>() {
                 public boolean has() { return true; }
-                public ServiceRankCQ qy() { return getConditionQuery(); }
+                public ServiceRankCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -323,32 +331,32 @@ public class BsServiceRankCB extends AbstractConditionBean {
          * (サービスランクコード)service_rank_code: {PK, NotNull, bpchar(3)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnServiceRankCode() { return doColumn("service_rank_code"); }
+        public SpecifiedColumn columnServiceRankCode() { return doColumn("service_rank_code"); }
         /**
          * (サービスランク名称)service_rank_name: {NotNull, varchar(50)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnServiceRankName() { return doColumn("service_rank_name"); }
+        public SpecifiedColumn columnServiceRankName() { return doColumn("service_rank_name"); }
         /**
          * (サービスポイント発生率)service_point_incidence: {NotNull, numeric(5, 3)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnServicePointIncidence() { return doColumn("service_point_incidence"); }
+        public SpecifiedColumn columnServicePointIncidence() { return doColumn("service_point_incidence"); }
         /**
          * (新規受け入れ可能フラグ)new_acceptable_flg: {NotNull, int4(10), classification=Flg}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnNewAcceptableFlg() { return doColumn("new_acceptable_flg"); }
+        public SpecifiedColumn columnNewAcceptableFlg() { return doColumn("new_acceptable_flg"); }
         /**
          * (説明)description: {NotNull, varchar(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnDescription() { return doColumn("description"); }
+        public SpecifiedColumn columnDescription() { return doColumn("description"); }
         /**
          * (表示順)display_order: {UQ, NotNull, int4(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnDisplayOrder() { return doColumn("display_order"); }
+        public SpecifiedColumn columnDisplayOrder() { return doColumn("display_order"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -410,7 +418,7 @@ public class BsServiceRankCB extends AbstractConditionBean {
      */
     public HpColQyOperand<ServiceRankCB> columnQuery(final SpecifyQuery<ServiceRankCB> colCBLambda) {
         return xcreateColQyOperand(new HpColQyHandler<ServiceRankCB>() {
-            public HpCalculator handle(SpecifyQuery<ServiceRankCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<ServiceRankCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -528,8 +536,8 @@ public class BsServiceRankCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return ServiceRankCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return ServiceRankCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return ServiceRankCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return ServiceRankCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

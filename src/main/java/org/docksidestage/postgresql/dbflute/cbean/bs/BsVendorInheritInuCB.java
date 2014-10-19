@@ -5,6 +5,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -175,10 +176,14 @@ public class BsVendorInheritInuCB extends AbstractConditionBean {
      */
     public VendorInheritInuCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public VendorInheritInuCQ getConditionQuery() { // public for parameter comment and internal
+    public VendorInheritInuCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected VendorInheritInuCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -199,8 +204,11 @@ public class BsVendorInheritInuCB extends AbstractConditionBean {
         return new VendorInheritInuCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -288,7 +296,7 @@ public class BsVendorInheritInuCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<VendorInheritInuCQ>() {
                 public boolean has() { return true; }
-                public VendorInheritInuCQ qy() { return getConditionQuery(); }
+                public VendorInheritInuCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -311,17 +319,17 @@ public class BsVendorInheritInuCB extends AbstractConditionBean {
          * inu_id: {PK, NotNull, int4(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnInuId() { return doColumn("inu_id"); }
+        public SpecifiedColumn columnInuId() { return doColumn("inu_id"); }
         /**
          * inu_name: {NotNull, varchar(2147483647)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnInuName() { return doColumn("inu_name"); }
+        public SpecifiedColumn columnInuName() { return doColumn("inu_name"); }
         /**
          * inu_date: {date(13)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnInuDate() { return doColumn("inu_date"); }
+        public SpecifiedColumn columnInuDate() { return doColumn("inu_date"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -365,7 +373,7 @@ public class BsVendorInheritInuCB extends AbstractConditionBean {
      */
     public HpColQyOperand<VendorInheritInuCB> columnQuery(final SpecifyQuery<VendorInheritInuCB> colCBLambda) {
         return xcreateColQyOperand(new HpColQyHandler<VendorInheritInuCB>() {
-            public HpCalculator handle(SpecifyQuery<VendorInheritInuCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<VendorInheritInuCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -483,8 +491,8 @@ public class BsVendorInheritInuCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return VendorInheritInuCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return VendorInheritInuCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return VendorInheritInuCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return VendorInheritInuCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

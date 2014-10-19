@@ -114,7 +114,7 @@ public abstract class AbstractBsVendorDatePkCQ extends AbstractConditionQuery {
      * @param fromToOption The option of from-to. (NotNull)
      */
     public void setFooDate_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ(fCTPD(fromDatetime), fCTPD(toDatetime), getCValueFooDate(), "foo_date", fromToOption);
+        regFTQ(fCTPD(fromDatetime), fCTPD(toDatetime), xgetCValueFooDate(), "foo_date", fromToOption);
     }
 
     /**
@@ -142,7 +142,7 @@ public abstract class AbstractBsVendorDatePkCQ extends AbstractConditionQuery {
     }
 
     protected void doSetFooDate_InScope(Collection<java.util.Date> fooDateList) {
-        regINS(CK_INS, cTL(fooDateList), getCValueFooDate(), "foo_date");
+        regINS(CK_INS, cTL(fooDateList), xgetCValueFooDate(), "foo_date");
     }
 
     /**
@@ -157,8 +157,8 @@ public abstract class AbstractBsVendorDatePkCQ extends AbstractConditionQuery {
      */
     public void setFooDate_IsNotNull() { regFooDate(CK_ISNN, DOBJ); }
 
-    protected void regFooDate(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueFooDate(), "foo_date"); }
-    protected abstract ConditionValue getCValueFooDate();
+    protected void regFooDate(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueFooDate(), "foo_date"); }
+    protected abstract ConditionValue xgetCValueFooDate();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -196,7 +196,7 @@ public abstract class AbstractBsVendorDatePkCQ extends AbstractConditionQuery {
     }
 
     protected void doSetFooName_InScope(Collection<String> fooNameList) {
-        regINS(CK_INS, cTL(fooNameList), getCValueFooName(), "foo_name");
+        regINS(CK_INS, cTL(fooNameList), xgetCValueFooName(), "foo_name");
     }
 
     /**
@@ -209,7 +209,7 @@ public abstract class AbstractBsVendorDatePkCQ extends AbstractConditionQuery {
     }
 
     protected void doSetFooName_NotInScope(Collection<String> fooNameList) {
-        regINS(CK_NINS, cTL(fooNameList), getCValueFooName(), "foo_name");
+        regINS(CK_NINS, cTL(fooNameList), xgetCValueFooName(), "foo_name");
     }
 
     /**
@@ -231,7 +231,7 @@ public abstract class AbstractBsVendorDatePkCQ extends AbstractConditionQuery {
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setFooName_LikeSearch(String fooName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(fooName), getCValueFooName(), "foo_name", likeSearchOption);
+        regLSQ(CK_LS, fRES(fooName), xgetCValueFooName(), "foo_name", likeSearchOption);
     }
 
     /**
@@ -253,7 +253,7 @@ public abstract class AbstractBsVendorDatePkCQ extends AbstractConditionQuery {
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setFooName_NotLikeSearch(String fooName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(fooName), getCValueFooName(), "foo_name", likeSearchOption);
+        regLSQ(CK_NLS, fRES(fooName), xgetCValueFooName(), "foo_name", likeSearchOption);
     }
 
     /**
@@ -265,8 +265,8 @@ public abstract class AbstractBsVendorDatePkCQ extends AbstractConditionQuery {
         setFooName_LikeSearch(fooName, xcLSOPPre());
     }
 
-    protected void regFooName(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueFooName(), "foo_name"); }
-    protected abstract ConditionValue getCValueFooName();
+    protected void regFooName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueFooName(), "foo_name"); }
+    protected abstract ConditionValue xgetCValueFooName();
 
     // ===================================================================================
     //                                                                     ScalarCondition

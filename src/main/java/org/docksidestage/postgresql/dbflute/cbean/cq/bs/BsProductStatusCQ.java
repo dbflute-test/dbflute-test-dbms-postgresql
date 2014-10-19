@@ -74,23 +74,23 @@ public class BsProductStatusCQ extends AbstractBsProductStatusCQ {
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _productStatusCode;
-    public ConditionValue getProductStatusCode()
+    public ConditionValue xdfgetProductStatusCode()
     { if (_productStatusCode == null) { _productStatusCode = nCV(); }
       return _productStatusCode; }
-    protected ConditionValue getCValueProductStatusCode() { return getProductStatusCode(); }
+    protected ConditionValue xgetCValueProductStatusCode() { return xdfgetProductStatusCode(); }
 
-    public Map<String, ProductCQ> getProductStatusCode_ExistsReferrer_ProductList() { return xgetSQueMap("productStatusCode_ExistsReferrer_ProductList"); }
+    public Map<String, ProductCQ> xdfgetProductStatusCode_ExistsReferrer_ProductList() { return xgetSQueMap("productStatusCode_ExistsReferrer_ProductList"); }
     public String keepProductStatusCode_ExistsReferrer_ProductList(ProductCQ sq) { return xkeepSQue("productStatusCode_ExistsReferrer_ProductList", sq); }
 
-    public Map<String, ProductCQ> getProductStatusCode_NotExistsReferrer_ProductList() { return xgetSQueMap("productStatusCode_NotExistsReferrer_ProductList"); }
+    public Map<String, ProductCQ> xdfgetProductStatusCode_NotExistsReferrer_ProductList() { return xgetSQueMap("productStatusCode_NotExistsReferrer_ProductList"); }
     public String keepProductStatusCode_NotExistsReferrer_ProductList(ProductCQ sq) { return xkeepSQue("productStatusCode_NotExistsReferrer_ProductList", sq); }
 
-    public Map<String, ProductCQ> getProductStatusCode_SpecifyDerivedReferrer_ProductList() { return xgetSQueMap("productStatusCode_SpecifyDerivedReferrer_ProductList"); }
+    public Map<String, ProductCQ> xdfgetProductStatusCode_SpecifyDerivedReferrer_ProductList() { return xgetSQueMap("productStatusCode_SpecifyDerivedReferrer_ProductList"); }
     public String keepProductStatusCode_SpecifyDerivedReferrer_ProductList(ProductCQ sq) { return xkeepSQue("productStatusCode_SpecifyDerivedReferrer_ProductList", sq); }
 
-    public Map<String, ProductCQ> getProductStatusCode_QueryDerivedReferrer_ProductList() { return xgetSQueMap("productStatusCode_QueryDerivedReferrer_ProductList"); }
+    public Map<String, ProductCQ> xdfgetProductStatusCode_QueryDerivedReferrer_ProductList() { return xgetSQueMap("productStatusCode_QueryDerivedReferrer_ProductList"); }
     public String keepProductStatusCode_QueryDerivedReferrer_ProductList(ProductCQ sq) { return xkeepSQue("productStatusCode_QueryDerivedReferrer_ProductList", sq); }
-    public Map<String, Object> getProductStatusCode_QueryDerivedReferrer_ProductListParameter() { return xgetSQuePmMap("productStatusCode_QueryDerivedReferrer_ProductList"); }
+    public Map<String, Object> xdfgetProductStatusCode_QueryDerivedReferrer_ProductListParameter() { return xgetSQuePmMap("productStatusCode_QueryDerivedReferrer_ProductList"); }
     public String keepProductStatusCode_QueryDerivedReferrer_ProductListParameter(Object pm) { return xkeepSQuePm("productStatusCode_QueryDerivedReferrer_ProductList", pm); }
 
     /** 
@@ -108,10 +108,10 @@ public class BsProductStatusCQ extends AbstractBsProductStatusCQ {
     public BsProductStatusCQ addOrderBy_ProductStatusCode_Desc() { regOBD("product_status_code"); return this; }
 
     protected ConditionValue _productStatusName;
-    public ConditionValue getProductStatusName()
+    public ConditionValue xdfgetProductStatusName()
     { if (_productStatusName == null) { _productStatusName = nCV(); }
       return _productStatusName; }
-    protected ConditionValue getCValueProductStatusName() { return getProductStatusName(); }
+    protected ConditionValue xgetCValueProductStatusName() { return xdfgetProductStatusName(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -128,10 +128,10 @@ public class BsProductStatusCQ extends AbstractBsProductStatusCQ {
     public BsProductStatusCQ addOrderBy_ProductStatusName_Desc() { regOBD("product_status_name"); return this; }
 
     protected ConditionValue _displayOrder;
-    public ConditionValue getDisplayOrder()
+    public ConditionValue xdfgetDisplayOrder()
     { if (_displayOrder == null) { _displayOrder = nCV(); }
       return _displayOrder; }
-    protected ConditionValue getCValueDisplayOrder() { return getDisplayOrder(); }
+    protected ConditionValue xgetCValueDisplayOrder() { return xdfgetDisplayOrder(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -198,31 +198,31 @@ public class BsProductStatusCQ extends AbstractBsProductStatusCQ {
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, ProductStatusCQ> getScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public Map<String, ProductStatusCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(ProductStatusCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
     //                                                                       MyselfDerived
     //                                                                       =============
-    public Map<String, ProductStatusCQ> getSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
+    public Map<String, ProductStatusCQ> xdfgetSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
     public String keepSpecifyMyselfDerived(ProductStatusCQ sq) { return xkeepSQue("specifyMyselfDerived", sq); }
 
-    public Map<String, ProductStatusCQ> getQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
+    public Map<String, ProductStatusCQ> xdfgetQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerived(ProductStatusCQ sq) { return xkeepSQue("queryMyselfDerived", sq); }
-    public Map<String, Object> getQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
+    public Map<String, Object> xdfgetQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerivedParameter(Object pm) { return xkeepSQuePm("queryMyselfDerived", pm); }
 
     // ===================================================================================
     //                                                                        MyselfExists
     //                                                                        ============
     protected Map<String, ProductStatusCQ> _myselfExistsMap;
-    public Map<String, ProductStatusCQ> getMyselfExists() { return xgetSQueMap("myselfExists"); }
+    public Map<String, ProductStatusCQ> xdfgetMyselfExists() { return xgetSQueMap("myselfExists"); }
     public String keepMyselfExists(ProductStatusCQ sq) { return xkeepSQue("myselfExists", sq); }
 
     // ===================================================================================
     //                                                                       MyselfInScope
     //                                                                       =============
-    public Map<String, ProductStatusCQ> getMyselfInScope() { return xgetSQueMap("myselfInScope"); }
+    public Map<String, ProductStatusCQ> xdfgetMyselfInScope() { return xgetSQueMap("myselfInScope"); }
     public String keepMyselfInScope(ProductStatusCQ sq) { return xkeepSQue("myselfInScope", sq); }
 
     // ===================================================================================
@@ -231,7 +231,7 @@ public class BsProductStatusCQ extends AbstractBsProductStatusCQ {
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return ProductStatusCB.class.getName(); }
     protected String xCQ() { return ProductStatusCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }

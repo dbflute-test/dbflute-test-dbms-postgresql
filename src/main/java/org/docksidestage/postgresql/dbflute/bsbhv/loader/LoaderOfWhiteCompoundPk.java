@@ -63,14 +63,8 @@ public class LoaderOfWhiteCompoundPk {
     //                                                                       =============
     protected List<WhiteCompoundPkRef> _referrerWhiteCompoundPkRefList;
     public NestedReferrerLoaderGateway<LoaderOfWhiteCompoundPkRef> loadWhiteCompoundPkRefList(ConditionBeanSetupper<WhiteCompoundPkRefCB> refCBLambda) {
-        myBhv().loadWhiteCompoundPkRefList(_selectedList, refCBLambda).withNestedReferrer(new ReferrerListHandler<WhiteCompoundPkRef>() {
-            public void handle(List<WhiteCompoundPkRef> referrerList) { _referrerWhiteCompoundPkRefList = referrerList; }
-        });
-        return new NestedReferrerLoaderGateway<LoaderOfWhiteCompoundPkRef>() {
-            public void withNestedReferrer(ReferrerLoaderHandler<LoaderOfWhiteCompoundPkRef> handler) {
-                handler.handle(new LoaderOfWhiteCompoundPkRef().ready(_referrerWhiteCompoundPkRefList, _selector));
-            }
-        };
+        myBhv().loadWhiteCompoundPkRefList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhiteCompoundPkRefList = refLs);
+        return hd -> hd.handle(new LoaderOfWhiteCompoundPkRef().ready(_referrerWhiteCompoundPkRefList, _selector));
     }
 
     // ===================================================================================

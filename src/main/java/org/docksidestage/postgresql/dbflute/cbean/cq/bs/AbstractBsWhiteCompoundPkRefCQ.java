@@ -118,7 +118,7 @@ public abstract class AbstractBsWhiteCompoundPkRefCQ extends AbstractConditionQu
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setMultipleFirstId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueMultipleFirstId(), "multiple_first_id", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueMultipleFirstId(), "multiple_first_id", rangeOfOption);
     }
 
     /**
@@ -131,7 +131,7 @@ public abstract class AbstractBsWhiteCompoundPkRefCQ extends AbstractConditionQu
     }
 
     protected void doSetMultipleFirstId_InScope(Collection<Integer> multipleFirstIdList) {
-        regINS(CK_INS, cTL(multipleFirstIdList), getCValueMultipleFirstId(), "multiple_first_id");
+        regINS(CK_INS, cTL(multipleFirstIdList), xgetCValueMultipleFirstId(), "multiple_first_id");
     }
 
     /**
@@ -144,7 +144,7 @@ public abstract class AbstractBsWhiteCompoundPkRefCQ extends AbstractConditionQu
     }
 
     protected void doSetMultipleFirstId_NotInScope(Collection<Integer> multipleFirstIdList) {
-        regINS(CK_NINS, cTL(multipleFirstIdList), getCValueMultipleFirstId(), "multiple_first_id");
+        regINS(CK_NINS, cTL(multipleFirstIdList), xgetCValueMultipleFirstId(), "multiple_first_id");
     }
 
     /**
@@ -159,8 +159,8 @@ public abstract class AbstractBsWhiteCompoundPkRefCQ extends AbstractConditionQu
      */
     public void setMultipleFirstId_IsNotNull() { regMultipleFirstId(CK_ISNN, DOBJ); }
 
-    protected void regMultipleFirstId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueMultipleFirstId(), "multiple_first_id"); }
-    protected abstract ConditionValue getCValueMultipleFirstId();
+    protected void regMultipleFirstId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueMultipleFirstId(), "multiple_first_id"); }
+    protected abstract ConditionValue xgetCValueMultipleFirstId();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -234,7 +234,7 @@ public abstract class AbstractBsWhiteCompoundPkRefCQ extends AbstractConditionQu
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setMultipleSecondId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueMultipleSecondId(), "multiple_second_id", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueMultipleSecondId(), "multiple_second_id", rangeOfOption);
     }
 
     /**
@@ -247,7 +247,7 @@ public abstract class AbstractBsWhiteCompoundPkRefCQ extends AbstractConditionQu
     }
 
     protected void doSetMultipleSecondId_InScope(Collection<Integer> multipleSecondIdList) {
-        regINS(CK_INS, cTL(multipleSecondIdList), getCValueMultipleSecondId(), "multiple_second_id");
+        regINS(CK_INS, cTL(multipleSecondIdList), xgetCValueMultipleSecondId(), "multiple_second_id");
     }
 
     /**
@@ -260,7 +260,7 @@ public abstract class AbstractBsWhiteCompoundPkRefCQ extends AbstractConditionQu
     }
 
     protected void doSetMultipleSecondId_NotInScope(Collection<Integer> multipleSecondIdList) {
-        regINS(CK_NINS, cTL(multipleSecondIdList), getCValueMultipleSecondId(), "multiple_second_id");
+        regINS(CK_NINS, cTL(multipleSecondIdList), xgetCValueMultipleSecondId(), "multiple_second_id");
     }
 
     /**
@@ -275,8 +275,8 @@ public abstract class AbstractBsWhiteCompoundPkRefCQ extends AbstractConditionQu
      */
     public void setMultipleSecondId_IsNotNull() { regMultipleSecondId(CK_ISNN, DOBJ); }
 
-    protected void regMultipleSecondId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueMultipleSecondId(), "multiple_second_id"); }
-    protected abstract ConditionValue getCValueMultipleSecondId();
+    protected void regMultipleSecondId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueMultipleSecondId(), "multiple_second_id"); }
+    protected abstract ConditionValue xgetCValueMultipleSecondId();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -350,7 +350,7 @@ public abstract class AbstractBsWhiteCompoundPkRefCQ extends AbstractConditionQu
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setRefFirstId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueRefFirstId(), "ref_first_id", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueRefFirstId(), "ref_first_id", rangeOfOption);
     }
 
     /**
@@ -363,7 +363,7 @@ public abstract class AbstractBsWhiteCompoundPkRefCQ extends AbstractConditionQu
     }
 
     protected void doSetRefFirstId_InScope(Collection<Integer> refFirstIdList) {
-        regINS(CK_INS, cTL(refFirstIdList), getCValueRefFirstId(), "ref_first_id");
+        regINS(CK_INS, cTL(refFirstIdList), xgetCValueRefFirstId(), "ref_first_id");
     }
 
     /**
@@ -376,11 +376,11 @@ public abstract class AbstractBsWhiteCompoundPkRefCQ extends AbstractConditionQu
     }
 
     protected void doSetRefFirstId_NotInScope(Collection<Integer> refFirstIdList) {
-        regINS(CK_NINS, cTL(refFirstIdList), getCValueRefFirstId(), "ref_first_id");
+        regINS(CK_NINS, cTL(refFirstIdList), xgetCValueRefFirstId(), "ref_first_id");
     }
 
-    protected void regRefFirstId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueRefFirstId(), "ref_first_id"); }
-    protected abstract ConditionValue getCValueRefFirstId();
+    protected void regRefFirstId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueRefFirstId(), "ref_first_id"); }
+    protected abstract ConditionValue xgetCValueRefFirstId();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -454,7 +454,7 @@ public abstract class AbstractBsWhiteCompoundPkRefCQ extends AbstractConditionQu
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setRefSecondId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueRefSecondId(), "ref_second_id", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueRefSecondId(), "ref_second_id", rangeOfOption);
     }
 
     /**
@@ -467,7 +467,7 @@ public abstract class AbstractBsWhiteCompoundPkRefCQ extends AbstractConditionQu
     }
 
     protected void doSetRefSecondId_InScope(Collection<Integer> refSecondIdList) {
-        regINS(CK_INS, cTL(refSecondIdList), getCValueRefSecondId(), "ref_second_id");
+        regINS(CK_INS, cTL(refSecondIdList), xgetCValueRefSecondId(), "ref_second_id");
     }
 
     /**
@@ -480,11 +480,11 @@ public abstract class AbstractBsWhiteCompoundPkRefCQ extends AbstractConditionQu
     }
 
     protected void doSetRefSecondId_NotInScope(Collection<Integer> refSecondIdList) {
-        regINS(CK_NINS, cTL(refSecondIdList), getCValueRefSecondId(), "ref_second_id");
+        regINS(CK_NINS, cTL(refSecondIdList), xgetCValueRefSecondId(), "ref_second_id");
     }
 
-    protected void regRefSecondId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueRefSecondId(), "ref_second_id"); }
-    protected abstract ConditionValue getCValueRefSecondId();
+    protected void regRefSecondId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueRefSecondId(), "ref_second_id"); }
+    protected abstract ConditionValue xgetCValueRefSecondId();
 
     // ===================================================================================
     //                                                                     ScalarCondition

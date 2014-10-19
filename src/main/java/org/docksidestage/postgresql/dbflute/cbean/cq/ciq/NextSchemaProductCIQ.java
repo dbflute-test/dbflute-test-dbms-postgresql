@@ -61,7 +61,7 @@ public class NextSchemaProductCIQ extends AbstractBsNextSchemaProductCQ {
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueProductId() { return _myCQ.getProductId(); }
+    protected ConditionValue xgetCValueProductId() { return _myCQ.xdfgetProductId(); }
     public String keepProductId_ExistsReferrer_WhiteSameNameList(WhiteSameNameCQ sq)
     { throwIICBOE("ExistsReferrer"); return null; }
     public String keepProductId_NotExistsReferrer_WhiteSameNameList(WhiteSameNameCQ sq)
@@ -72,7 +72,7 @@ public class NextSchemaProductCIQ extends AbstractBsNextSchemaProductCQ {
     { throwIICBOE("(Query)DerivedReferrer"); return null; }
     public String keepProductId_QueryDerivedReferrer_WhiteSameNameListParameter(Object vl)
     { throwIICBOE("(Query)DerivedReferrer"); return null; }
-    protected ConditionValue getCValueProductName() { return _myCQ.getProductName(); }
+    protected ConditionValue xgetCValueProductName() { return _myCQ.xdfgetProductName(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(NextSchemaProductCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

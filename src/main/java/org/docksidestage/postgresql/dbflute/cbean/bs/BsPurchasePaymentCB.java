@@ -5,6 +5,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -176,10 +177,14 @@ public class BsPurchasePaymentCB extends AbstractConditionBean {
      */
     public PurchasePaymentCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public PurchasePaymentCQ getConditionQuery() { // public for parameter comment and internal
+    public PurchasePaymentCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected PurchasePaymentCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -200,8 +205,11 @@ public class BsPurchasePaymentCB extends AbstractConditionBean {
         return new PurchasePaymentCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -263,7 +271,7 @@ public class BsPurchasePaymentCB extends AbstractConditionBean {
     //                                                                         SetupSelect
     //                                                                         ===========
     protected PurchaseNss _nssPurchase;
-    public PurchaseNss getNssPurchase() {
+    public PurchaseNss xdfgetNssPurchase() {
         if (_nssPurchase == null) { _nssPurchase = new PurchaseNss(null); }
         return _nssPurchase;
     }
@@ -317,7 +325,7 @@ public class BsPurchasePaymentCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<PurchasePaymentCQ>() {
                 public boolean has() { return true; }
-                public PurchasePaymentCQ qy() { return getConditionQuery(); }
+                public PurchasePaymentCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -341,47 +349,47 @@ public class BsPurchasePaymentCB extends AbstractConditionBean {
          * (購入支払ID)purchase_payment_id: {PK, ID, NotNull, bigserial(19)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnPurchasePaymentId() { return doColumn("purchase_payment_id"); }
+        public SpecifiedColumn columnPurchasePaymentId() { return doColumn("purchase_payment_id"); }
         /**
          * (購入ID)purchase_id: {NotNull, int8(19), FK to purchase}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnPurchaseId() { return doColumn("purchase_id"); }
+        public SpecifiedColumn columnPurchaseId() { return doColumn("purchase_id"); }
         /**
          * (支払金額)payment_amount: {NotNull, numeric(10, 2)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnPaymentAmount() { return doColumn("payment_amount"); }
+        public SpecifiedColumn columnPaymentAmount() { return doColumn("payment_amount"); }
         /**
          * (支払日時)payment_datetime: {IX+, NotNull, timestamp(26, 3)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnPaymentDatetime() { return doColumn("payment_datetime"); }
+        public SpecifiedColumn columnPaymentDatetime() { return doColumn("payment_datetime"); }
         /**
          * (支払方法コード)payment_method_code: {NotNull, bpchar(3), classification=PaymentMethod}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnPaymentMethodCode() { return doColumn("payment_method_code"); }
+        public SpecifiedColumn columnPaymentMethodCode() { return doColumn("payment_method_code"); }
         /**
          * register_datetime: {NotNull, timestamp(26, 3)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnRegisterDatetime() { return doColumn("register_datetime"); }
+        public SpecifiedColumn columnRegisterDatetime() { return doColumn("register_datetime"); }
         /**
          * register_user: {NotNull, varchar(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnRegisterUser() { return doColumn("register_user"); }
+        public SpecifiedColumn columnRegisterUser() { return doColumn("register_user"); }
         /**
          * update_datetime: {NotNull, timestamp(26, 3)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnUpdateDatetime() { return doColumn("update_datetime"); }
+        public SpecifiedColumn columnUpdateDatetime() { return doColumn("update_datetime"); }
         /**
          * update_user: {NotNull, varchar(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnUpdateUser() { return doColumn("update_user"); }
+        public SpecifiedColumn columnUpdateUser() { return doColumn("update_user"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -450,7 +458,7 @@ public class BsPurchasePaymentCB extends AbstractConditionBean {
      */
     public HpColQyOperand<PurchasePaymentCB> columnQuery(final SpecifyQuery<PurchasePaymentCB> colCBLambda) {
         return xcreateColQyOperand(new HpColQyHandler<PurchasePaymentCB>() {
-            public HpCalculator handle(SpecifyQuery<PurchasePaymentCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<PurchasePaymentCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -568,8 +576,8 @@ public class BsPurchasePaymentCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return PurchasePaymentCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return PurchasePaymentCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return PurchasePaymentCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return PurchasePaymentCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

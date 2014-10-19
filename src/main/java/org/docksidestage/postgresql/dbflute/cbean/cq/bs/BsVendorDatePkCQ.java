@@ -74,10 +74,10 @@ public class BsVendorDatePkCQ extends AbstractBsVendorDatePkCQ {
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _fooDate;
-    public ConditionValue getFooDate()
+    public ConditionValue xdfgetFooDate()
     { if (_fooDate == null) { _fooDate = nCV(); }
       return _fooDate; }
-    protected ConditionValue getCValueFooDate() { return getFooDate(); }
+    protected ConditionValue xgetCValueFooDate() { return xdfgetFooDate(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -94,10 +94,10 @@ public class BsVendorDatePkCQ extends AbstractBsVendorDatePkCQ {
     public BsVendorDatePkCQ addOrderBy_FooDate_Desc() { regOBD("foo_date"); return this; }
 
     protected ConditionValue _fooName;
-    public ConditionValue getFooName()
+    public ConditionValue xdfgetFooName()
     { if (_fooName == null) { _fooName = nCV(); }
       return _fooName; }
-    protected ConditionValue getCValueFooName() { return getFooName(); }
+    protected ConditionValue xgetCValueFooName() { return xdfgetFooName(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -164,31 +164,31 @@ public class BsVendorDatePkCQ extends AbstractBsVendorDatePkCQ {
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, VendorDatePkCQ> getScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public Map<String, VendorDatePkCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(VendorDatePkCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
     //                                                                       MyselfDerived
     //                                                                       =============
-    public Map<String, VendorDatePkCQ> getSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
+    public Map<String, VendorDatePkCQ> xdfgetSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
     public String keepSpecifyMyselfDerived(VendorDatePkCQ sq) { return xkeepSQue("specifyMyselfDerived", sq); }
 
-    public Map<String, VendorDatePkCQ> getQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
+    public Map<String, VendorDatePkCQ> xdfgetQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerived(VendorDatePkCQ sq) { return xkeepSQue("queryMyselfDerived", sq); }
-    public Map<String, Object> getQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
+    public Map<String, Object> xdfgetQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerivedParameter(Object pm) { return xkeepSQuePm("queryMyselfDerived", pm); }
 
     // ===================================================================================
     //                                                                        MyselfExists
     //                                                                        ============
     protected Map<String, VendorDatePkCQ> _myselfExistsMap;
-    public Map<String, VendorDatePkCQ> getMyselfExists() { return xgetSQueMap("myselfExists"); }
+    public Map<String, VendorDatePkCQ> xdfgetMyselfExists() { return xgetSQueMap("myselfExists"); }
     public String keepMyselfExists(VendorDatePkCQ sq) { return xkeepSQue("myselfExists", sq); }
 
     // ===================================================================================
     //                                                                       MyselfInScope
     //                                                                       =============
-    public Map<String, VendorDatePkCQ> getMyselfInScope() { return xgetSQueMap("myselfInScope"); }
+    public Map<String, VendorDatePkCQ> xdfgetMyselfInScope() { return xgetSQueMap("myselfInScope"); }
     public String keepMyselfInScope(VendorDatePkCQ sq) { return xkeepSQue("myselfInScope", sq); }
 
     // ===================================================================================
@@ -197,7 +197,7 @@ public class BsVendorDatePkCQ extends AbstractBsVendorDatePkCQ {
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return VendorDatePkCB.class.getName(); }
     protected String xCQ() { return VendorDatePkCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }

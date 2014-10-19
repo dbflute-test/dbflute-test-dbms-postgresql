@@ -74,10 +74,10 @@ public class BsMemberSecurityCQ extends AbstractBsMemberSecurityCQ {
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _memberId;
-    public ConditionValue getMemberId()
+    public ConditionValue xdfgetMemberId()
     { if (_memberId == null) { _memberId = nCV(); }
       return _memberId; }
-    protected ConditionValue getCValueMemberId() { return getMemberId(); }
+    protected ConditionValue xgetCValueMemberId() { return xdfgetMemberId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -94,10 +94,10 @@ public class BsMemberSecurityCQ extends AbstractBsMemberSecurityCQ {
     public BsMemberSecurityCQ addOrderBy_MemberId_Desc() { regOBD("member_id"); return this; }
 
     protected ConditionValue _loginPassword;
-    public ConditionValue getLoginPassword()
+    public ConditionValue xdfgetLoginPassword()
     { if (_loginPassword == null) { _loginPassword = nCV(); }
       return _loginPassword; }
-    protected ConditionValue getCValueLoginPassword() { return getLoginPassword(); }
+    protected ConditionValue xgetCValueLoginPassword() { return xdfgetLoginPassword(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -114,10 +114,10 @@ public class BsMemberSecurityCQ extends AbstractBsMemberSecurityCQ {
     public BsMemberSecurityCQ addOrderBy_LoginPassword_Desc() { regOBD("login_password"); return this; }
 
     protected ConditionValue _reminderQuestion;
-    public ConditionValue getReminderQuestion()
+    public ConditionValue xdfgetReminderQuestion()
     { if (_reminderQuestion == null) { _reminderQuestion = nCV(); }
       return _reminderQuestion; }
-    protected ConditionValue getCValueReminderQuestion() { return getReminderQuestion(); }
+    protected ConditionValue xgetCValueReminderQuestion() { return xdfgetReminderQuestion(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -134,10 +134,10 @@ public class BsMemberSecurityCQ extends AbstractBsMemberSecurityCQ {
     public BsMemberSecurityCQ addOrderBy_ReminderQuestion_Desc() { regOBD("reminder_question"); return this; }
 
     protected ConditionValue _reminderAnswer;
-    public ConditionValue getReminderAnswer()
+    public ConditionValue xdfgetReminderAnswer()
     { if (_reminderAnswer == null) { _reminderAnswer = nCV(); }
       return _reminderAnswer; }
-    protected ConditionValue getCValueReminderAnswer() { return getReminderAnswer(); }
+    protected ConditionValue xgetCValueReminderAnswer() { return xdfgetReminderAnswer(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -154,10 +154,10 @@ public class BsMemberSecurityCQ extends AbstractBsMemberSecurityCQ {
     public BsMemberSecurityCQ addOrderBy_ReminderAnswer_Desc() { regOBD("reminder_answer"); return this; }
 
     protected ConditionValue _reminderUseCount;
-    public ConditionValue getReminderUseCount()
+    public ConditionValue xdfgetReminderUseCount()
     { if (_reminderUseCount == null) { _reminderUseCount = nCV(); }
       return _reminderUseCount; }
-    protected ConditionValue getCValueReminderUseCount() { return getReminderUseCount(); }
+    protected ConditionValue xgetCValueReminderUseCount() { return xdfgetReminderUseCount(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -174,10 +174,10 @@ public class BsMemberSecurityCQ extends AbstractBsMemberSecurityCQ {
     public BsMemberSecurityCQ addOrderBy_ReminderUseCount_Desc() { regOBD("reminder_use_count"); return this; }
 
     protected ConditionValue _registerDatetime;
-    public ConditionValue getRegisterDatetime()
+    public ConditionValue xdfgetRegisterDatetime()
     { if (_registerDatetime == null) { _registerDatetime = nCV(); }
       return _registerDatetime; }
-    protected ConditionValue getCValueRegisterDatetime() { return getRegisterDatetime(); }
+    protected ConditionValue xgetCValueRegisterDatetime() { return xdfgetRegisterDatetime(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -194,10 +194,10 @@ public class BsMemberSecurityCQ extends AbstractBsMemberSecurityCQ {
     public BsMemberSecurityCQ addOrderBy_RegisterDatetime_Desc() { regOBD("register_datetime"); return this; }
 
     protected ConditionValue _registerProcess;
-    public ConditionValue getRegisterProcess()
+    public ConditionValue xdfgetRegisterProcess()
     { if (_registerProcess == null) { _registerProcess = nCV(); }
       return _registerProcess; }
-    protected ConditionValue getCValueRegisterProcess() { return getRegisterProcess(); }
+    protected ConditionValue xgetCValueRegisterProcess() { return xdfgetRegisterProcess(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -214,10 +214,10 @@ public class BsMemberSecurityCQ extends AbstractBsMemberSecurityCQ {
     public BsMemberSecurityCQ addOrderBy_RegisterProcess_Desc() { regOBD("register_process"); return this; }
 
     protected ConditionValue _registerUser;
-    public ConditionValue getRegisterUser()
+    public ConditionValue xdfgetRegisterUser()
     { if (_registerUser == null) { _registerUser = nCV(); }
       return _registerUser; }
-    protected ConditionValue getCValueRegisterUser() { return getRegisterUser(); }
+    protected ConditionValue xgetCValueRegisterUser() { return xdfgetRegisterUser(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -234,10 +234,10 @@ public class BsMemberSecurityCQ extends AbstractBsMemberSecurityCQ {
     public BsMemberSecurityCQ addOrderBy_RegisterUser_Desc() { regOBD("register_user"); return this; }
 
     protected ConditionValue _updateDatetime;
-    public ConditionValue getUpdateDatetime()
+    public ConditionValue xdfgetUpdateDatetime()
     { if (_updateDatetime == null) { _updateDatetime = nCV(); }
       return _updateDatetime; }
-    protected ConditionValue getCValueUpdateDatetime() { return getUpdateDatetime(); }
+    protected ConditionValue xgetCValueUpdateDatetime() { return xdfgetUpdateDatetime(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -254,10 +254,10 @@ public class BsMemberSecurityCQ extends AbstractBsMemberSecurityCQ {
     public BsMemberSecurityCQ addOrderBy_UpdateDatetime_Desc() { regOBD("update_datetime"); return this; }
 
     protected ConditionValue _updateProcess;
-    public ConditionValue getUpdateProcess()
+    public ConditionValue xdfgetUpdateProcess()
     { if (_updateProcess == null) { _updateProcess = nCV(); }
       return _updateProcess; }
-    protected ConditionValue getCValueUpdateProcess() { return getUpdateProcess(); }
+    protected ConditionValue xgetCValueUpdateProcess() { return xdfgetUpdateProcess(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -274,10 +274,10 @@ public class BsMemberSecurityCQ extends AbstractBsMemberSecurityCQ {
     public BsMemberSecurityCQ addOrderBy_UpdateProcess_Desc() { regOBD("update_process"); return this; }
 
     protected ConditionValue _updateUser;
-    public ConditionValue getUpdateUser()
+    public ConditionValue xdfgetUpdateUser()
     { if (_updateUser == null) { _updateUser = nCV(); }
       return _updateUser; }
-    protected ConditionValue getCValueUpdateUser() { return getUpdateUser(); }
+    protected ConditionValue xgetCValueUpdateUser() { return xdfgetUpdateUser(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -294,10 +294,10 @@ public class BsMemberSecurityCQ extends AbstractBsMemberSecurityCQ {
     public BsMemberSecurityCQ addOrderBy_UpdateUser_Desc() { regOBD("update_user"); return this; }
 
     protected ConditionValue _versionNo;
-    public ConditionValue getVersionNo()
+    public ConditionValue xdfgetVersionNo()
     { if (_versionNo == null) { _versionNo = nCV(); }
       return _versionNo; }
-    protected ConditionValue getCValueVersionNo() { return getVersionNo(); }
+    protected ConditionValue xgetCValueVersionNo() { return xdfgetVersionNo(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -368,9 +368,9 @@ public class BsMemberSecurityCQ extends AbstractBsMemberSecurityCQ {
      * @return The instance of condition-query. (NotNull)
      */
     public MemberCQ queryMember() {
-        return getConditionQueryMember();
+        return xdfgetConditionQueryMember();
     }
-    public MemberCQ getConditionQueryMember() {
+    public MemberCQ xdfgetConditionQueryMember() {
         String prop = "member";
         if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryMember()); xsetupOuterJoinMember(); }
         return xgetQueRlMap(prop);
@@ -389,31 +389,31 @@ public class BsMemberSecurityCQ extends AbstractBsMemberSecurityCQ {
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, MemberSecurityCQ> getScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public Map<String, MemberSecurityCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(MemberSecurityCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
     //                                                                       MyselfDerived
     //                                                                       =============
-    public Map<String, MemberSecurityCQ> getSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
+    public Map<String, MemberSecurityCQ> xdfgetSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
     public String keepSpecifyMyselfDerived(MemberSecurityCQ sq) { return xkeepSQue("specifyMyselfDerived", sq); }
 
-    public Map<String, MemberSecurityCQ> getQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
+    public Map<String, MemberSecurityCQ> xdfgetQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerived(MemberSecurityCQ sq) { return xkeepSQue("queryMyselfDerived", sq); }
-    public Map<String, Object> getQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
+    public Map<String, Object> xdfgetQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerivedParameter(Object pm) { return xkeepSQuePm("queryMyselfDerived", pm); }
 
     // ===================================================================================
     //                                                                        MyselfExists
     //                                                                        ============
     protected Map<String, MemberSecurityCQ> _myselfExistsMap;
-    public Map<String, MemberSecurityCQ> getMyselfExists() { return xgetSQueMap("myselfExists"); }
+    public Map<String, MemberSecurityCQ> xdfgetMyselfExists() { return xgetSQueMap("myselfExists"); }
     public String keepMyselfExists(MemberSecurityCQ sq) { return xkeepSQue("myselfExists", sq); }
 
     // ===================================================================================
     //                                                                       MyselfInScope
     //                                                                       =============
-    public Map<String, MemberSecurityCQ> getMyselfInScope() { return xgetSQueMap("myselfInScope"); }
+    public Map<String, MemberSecurityCQ> xdfgetMyselfInScope() { return xgetSQueMap("myselfInScope"); }
     public String keepMyselfInScope(MemberSecurityCQ sq) { return xkeepSQue("myselfInScope", sq); }
 
     // ===================================================================================
@@ -422,7 +422,7 @@ public class BsMemberSecurityCQ extends AbstractBsMemberSecurityCQ {
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return MemberSecurityCB.class.getName(); }
     protected String xCQ() { return MemberSecurityCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }

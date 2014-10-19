@@ -5,6 +5,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -175,10 +176,14 @@ public class BsVendorInheritNekoCB extends AbstractConditionBean {
      */
     public VendorInheritNekoCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public VendorInheritNekoCQ getConditionQuery() { // public for parameter comment and internal
+    public VendorInheritNekoCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected VendorInheritNekoCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -199,8 +204,11 @@ public class BsVendorInheritNekoCB extends AbstractConditionBean {
         return new VendorInheritNekoCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -288,7 +296,7 @@ public class BsVendorInheritNekoCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<VendorInheritNekoCQ>() {
                 public boolean has() { return true; }
-                public VendorInheritNekoCQ qy() { return getConditionQuery(); }
+                public VendorInheritNekoCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -311,32 +319,32 @@ public class BsVendorInheritNekoCB extends AbstractConditionBean {
          * inu_id: {NotNull, int4(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnInuId() { return doColumn("inu_id"); }
+        public SpecifiedColumn columnInuId() { return doColumn("inu_id"); }
         /**
          * inu_name: {NotNull, varchar(2147483647)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnInuName() { return doColumn("inu_name"); }
+        public SpecifiedColumn columnInuName() { return doColumn("inu_name"); }
         /**
          * inu_date: {date(13)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnInuDate() { return doColumn("inu_date"); }
+        public SpecifiedColumn columnInuDate() { return doColumn("inu_date"); }
         /**
          * neko_id: {PK, NotNull, int4(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnNekoId() { return doColumn("neko_id"); }
+        public SpecifiedColumn columnNekoId() { return doColumn("neko_id"); }
         /**
          * neko_name: {NotNull, varchar(2147483647)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnNekoName() { return doColumn("neko_name"); }
+        public SpecifiedColumn columnNekoName() { return doColumn("neko_name"); }
         /**
          * neko_date: {date(13)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnNekoDate() { return doColumn("neko_date"); }
+        public SpecifiedColumn columnNekoDate() { return doColumn("neko_date"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -380,7 +388,7 @@ public class BsVendorInheritNekoCB extends AbstractConditionBean {
      */
     public HpColQyOperand<VendorInheritNekoCB> columnQuery(final SpecifyQuery<VendorInheritNekoCB> colCBLambda) {
         return xcreateColQyOperand(new HpColQyHandler<VendorInheritNekoCB>() {
-            public HpCalculator handle(SpecifyQuery<VendorInheritNekoCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<VendorInheritNekoCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -498,8 +506,8 @@ public class BsVendorInheritNekoCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return VendorInheritNekoCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return VendorInheritNekoCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return VendorInheritNekoCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return VendorInheritNekoCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

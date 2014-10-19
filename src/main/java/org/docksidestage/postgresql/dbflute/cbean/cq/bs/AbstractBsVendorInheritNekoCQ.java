@@ -118,7 +118,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setInuId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueInuId(), "inu_id", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueInuId(), "inu_id", rangeOfOption);
     }
 
     /**
@@ -131,7 +131,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     }
 
     protected void doSetInuId_InScope(Collection<Integer> inuIdList) {
-        regINS(CK_INS, cTL(inuIdList), getCValueInuId(), "inu_id");
+        regINS(CK_INS, cTL(inuIdList), xgetCValueInuId(), "inu_id");
     }
 
     /**
@@ -144,11 +144,11 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     }
 
     protected void doSetInuId_NotInScope(Collection<Integer> inuIdList) {
-        regINS(CK_NINS, cTL(inuIdList), getCValueInuId(), "inu_id");
+        regINS(CK_NINS, cTL(inuIdList), xgetCValueInuId(), "inu_id");
     }
 
-    protected void regInuId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueInuId(), "inu_id"); }
-    protected abstract ConditionValue getCValueInuId();
+    protected void regInuId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueInuId(), "inu_id"); }
+    protected abstract ConditionValue xgetCValueInuId();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -186,7 +186,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     }
 
     protected void doSetInuName_InScope(Collection<String> inuNameList) {
-        regINS(CK_INS, cTL(inuNameList), getCValueInuName(), "inu_name");
+        regINS(CK_INS, cTL(inuNameList), xgetCValueInuName(), "inu_name");
     }
 
     /**
@@ -199,7 +199,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     }
 
     protected void doSetInuName_NotInScope(Collection<String> inuNameList) {
-        regINS(CK_NINS, cTL(inuNameList), getCValueInuName(), "inu_name");
+        regINS(CK_NINS, cTL(inuNameList), xgetCValueInuName(), "inu_name");
     }
 
     /**
@@ -221,7 +221,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setInuName_LikeSearch(String inuName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(inuName), getCValueInuName(), "inu_name", likeSearchOption);
+        regLSQ(CK_LS, fRES(inuName), xgetCValueInuName(), "inu_name", likeSearchOption);
     }
 
     /**
@@ -243,7 +243,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setInuName_NotLikeSearch(String inuName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(inuName), getCValueInuName(), "inu_name", likeSearchOption);
+        regLSQ(CK_NLS, fRES(inuName), xgetCValueInuName(), "inu_name", likeSearchOption);
     }
 
     /**
@@ -255,8 +255,8 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
         setInuName_LikeSearch(inuName, xcLSOPPre());
     }
 
-    protected void regInuName(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueInuName(), "inu_name"); }
-    protected abstract ConditionValue getCValueInuName();
+    protected void regInuName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueInuName(), "inu_name"); }
+    protected abstract ConditionValue xgetCValueInuName();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -326,7 +326,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
      * @param fromToOption The option of from-to. (NotNull)
      */
     public void setInuDate_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ(fCTPD(fromDatetime), fCTPD(toDatetime), getCValueInuDate(), "inu_date", fromToOption);
+        regFTQ(fCTPD(fromDatetime), fCTPD(toDatetime), xgetCValueInuDate(), "inu_date", fromToOption);
     }
 
     /**
@@ -356,8 +356,8 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
      */
     public void setInuDate_IsNotNull() { regInuDate(CK_ISNN, DOBJ); }
 
-    protected void regInuDate(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueInuDate(), "inu_date"); }
-    protected abstract ConditionValue getCValueInuDate();
+    protected void regInuDate(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueInuDate(), "inu_date"); }
+    protected abstract ConditionValue xgetCValueInuDate();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -431,7 +431,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setNekoId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueNekoId(), "neko_id", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueNekoId(), "neko_id", rangeOfOption);
     }
 
     /**
@@ -444,7 +444,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     }
 
     protected void doSetNekoId_InScope(Collection<Integer> nekoIdList) {
-        regINS(CK_INS, cTL(nekoIdList), getCValueNekoId(), "neko_id");
+        regINS(CK_INS, cTL(nekoIdList), xgetCValueNekoId(), "neko_id");
     }
 
     /**
@@ -457,7 +457,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     }
 
     protected void doSetNekoId_NotInScope(Collection<Integer> nekoIdList) {
-        regINS(CK_NINS, cTL(nekoIdList), getCValueNekoId(), "neko_id");
+        regINS(CK_NINS, cTL(nekoIdList), xgetCValueNekoId(), "neko_id");
     }
 
     /**
@@ -472,8 +472,8 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
      */
     public void setNekoId_IsNotNull() { regNekoId(CK_ISNN, DOBJ); }
 
-    protected void regNekoId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueNekoId(), "neko_id"); }
-    protected abstract ConditionValue getCValueNekoId();
+    protected void regNekoId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueNekoId(), "neko_id"); }
+    protected abstract ConditionValue xgetCValueNekoId();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -511,7 +511,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     }
 
     protected void doSetNekoName_InScope(Collection<String> nekoNameList) {
-        regINS(CK_INS, cTL(nekoNameList), getCValueNekoName(), "neko_name");
+        regINS(CK_INS, cTL(nekoNameList), xgetCValueNekoName(), "neko_name");
     }
 
     /**
@@ -524,7 +524,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     }
 
     protected void doSetNekoName_NotInScope(Collection<String> nekoNameList) {
-        regINS(CK_NINS, cTL(nekoNameList), getCValueNekoName(), "neko_name");
+        regINS(CK_NINS, cTL(nekoNameList), xgetCValueNekoName(), "neko_name");
     }
 
     /**
@@ -546,7 +546,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setNekoName_LikeSearch(String nekoName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(nekoName), getCValueNekoName(), "neko_name", likeSearchOption);
+        regLSQ(CK_LS, fRES(nekoName), xgetCValueNekoName(), "neko_name", likeSearchOption);
     }
 
     /**
@@ -568,7 +568,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setNekoName_NotLikeSearch(String nekoName, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(nekoName), getCValueNekoName(), "neko_name", likeSearchOption);
+        regLSQ(CK_NLS, fRES(nekoName), xgetCValueNekoName(), "neko_name", likeSearchOption);
     }
 
     /**
@@ -580,8 +580,8 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
         setNekoName_LikeSearch(nekoName, xcLSOPPre());
     }
 
-    protected void regNekoName(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueNekoName(), "neko_name"); }
-    protected abstract ConditionValue getCValueNekoName();
+    protected void regNekoName(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueNekoName(), "neko_name"); }
+    protected abstract ConditionValue xgetCValueNekoName();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -651,7 +651,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
      * @param fromToOption The option of from-to. (NotNull)
      */
     public void setNekoDate_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ(fCTPD(fromDatetime), fCTPD(toDatetime), getCValueNekoDate(), "neko_date", fromToOption);
+        regFTQ(fCTPD(fromDatetime), fCTPD(toDatetime), xgetCValueNekoDate(), "neko_date", fromToOption);
     }
 
     /**
@@ -681,8 +681,8 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
      */
     public void setNekoDate_IsNotNull() { regNekoDate(CK_ISNN, DOBJ); }
 
-    protected void regNekoDate(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueNekoDate(), "neko_date"); }
-    protected abstract ConditionValue getCValueNekoDate();
+    protected void regNekoDate(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueNekoDate(), "neko_date"); }
+    protected abstract ConditionValue xgetCValueNekoDate();
 
     // ===================================================================================
     //                                                                     ScalarCondition

@@ -61,11 +61,11 @@ public class WhiteXlsManCIQ extends AbstractBsWhiteXlsManCQ {
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueXlsManId() { return _myCQ.getXlsManId(); }
-    protected ConditionValue getCValueStringConverted() { return _myCQ.getStringConverted(); }
-    protected ConditionValue getCValueTimestampZeroDefaultMillis() { return _myCQ.getTimestampZeroDefaultMillis(); }
-    protected ConditionValue getCValueTimestampZeroPrefixMillis() { return _myCQ.getTimestampZeroPrefixMillis(); }
-    protected ConditionValue getCValueTimestampZeroSuffixMillis() { return _myCQ.getTimestampZeroSuffixMillis(); }
+    protected ConditionValue xgetCValueXlsManId() { return _myCQ.xdfgetXlsManId(); }
+    protected ConditionValue xgetCValueStringConverted() { return _myCQ.xdfgetStringConverted(); }
+    protected ConditionValue xgetCValueTimestampZeroDefaultMillis() { return _myCQ.xdfgetTimestampZeroDefaultMillis(); }
+    protected ConditionValue xgetCValueTimestampZeroPrefixMillis() { return _myCQ.xdfgetTimestampZeroPrefixMillis(); }
+    protected ConditionValue xgetCValueTimestampZeroSuffixMillis() { return _myCQ.xdfgetTimestampZeroSuffixMillis(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(WhiteXlsManCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

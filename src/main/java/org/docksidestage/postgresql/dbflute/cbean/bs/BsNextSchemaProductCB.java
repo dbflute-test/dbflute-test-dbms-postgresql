@@ -5,6 +5,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -175,10 +176,14 @@ public class BsNextSchemaProductCB extends AbstractConditionBean {
      */
     public NextSchemaProductCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public NextSchemaProductCQ getConditionQuery() { // public for parameter comment and internal
+    public NextSchemaProductCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected NextSchemaProductCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -199,8 +204,11 @@ public class BsNextSchemaProductCB extends AbstractConditionBean {
         return new NextSchemaProductCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -288,7 +296,7 @@ public class BsNextSchemaProductCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<NextSchemaProductCQ>() {
                 public boolean has() { return true; }
-                public NextSchemaProductCQ qy() { return getConditionQuery(); }
+                public NextSchemaProductCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -311,12 +319,12 @@ public class BsNextSchemaProductCB extends AbstractConditionBean {
          * product_id: {PK, ID, NotNull, serial(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnProductId() { return doColumn("product_id"); }
+        public SpecifiedColumn columnProductId() { return doColumn("product_id"); }
         /**
          * product_name: {NotNull, varchar(200)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnProductName() { return doColumn("product_name"); }
+        public SpecifiedColumn columnProductName() { return doColumn("product_name"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -378,7 +386,7 @@ public class BsNextSchemaProductCB extends AbstractConditionBean {
      */
     public HpColQyOperand<NextSchemaProductCB> columnQuery(final SpecifyQuery<NextSchemaProductCB> colCBLambda) {
         return xcreateColQyOperand(new HpColQyHandler<NextSchemaProductCB>() {
-            public HpCalculator handle(SpecifyQuery<NextSchemaProductCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<NextSchemaProductCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -496,8 +504,8 @@ public class BsNextSchemaProductCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return NextSchemaProductCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return NextSchemaProductCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return NextSchemaProductCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return NextSchemaProductCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

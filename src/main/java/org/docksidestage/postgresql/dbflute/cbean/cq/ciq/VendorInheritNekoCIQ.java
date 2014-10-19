@@ -61,12 +61,12 @@ public class VendorInheritNekoCIQ extends AbstractBsVendorInheritNekoCQ {
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueInuId() { return _myCQ.getInuId(); }
-    protected ConditionValue getCValueInuName() { return _myCQ.getInuName(); }
-    protected ConditionValue getCValueInuDate() { return _myCQ.getInuDate(); }
-    protected ConditionValue getCValueNekoId() { return _myCQ.getNekoId(); }
-    protected ConditionValue getCValueNekoName() { return _myCQ.getNekoName(); }
-    protected ConditionValue getCValueNekoDate() { return _myCQ.getNekoDate(); }
+    protected ConditionValue xgetCValueInuId() { return _myCQ.xdfgetInuId(); }
+    protected ConditionValue xgetCValueInuName() { return _myCQ.xdfgetInuName(); }
+    protected ConditionValue xgetCValueInuDate() { return _myCQ.xdfgetInuDate(); }
+    protected ConditionValue xgetCValueNekoId() { return _myCQ.xdfgetNekoId(); }
+    protected ConditionValue xgetCValueNekoName() { return _myCQ.xdfgetNekoName(); }
+    protected ConditionValue xgetCValueNekoDate() { return _myCQ.xdfgetNekoDate(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(VendorInheritNekoCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

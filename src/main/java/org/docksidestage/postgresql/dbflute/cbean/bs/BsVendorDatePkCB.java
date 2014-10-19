@@ -5,6 +5,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -175,10 +176,14 @@ public class BsVendorDatePkCB extends AbstractConditionBean {
      */
     public VendorDatePkCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public VendorDatePkCQ getConditionQuery() { // public for parameter comment and internal
+    public VendorDatePkCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected VendorDatePkCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -199,8 +204,11 @@ public class BsVendorDatePkCB extends AbstractConditionBean {
         return new VendorDatePkCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -288,7 +296,7 @@ public class BsVendorDatePkCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<VendorDatePkCQ>() {
                 public boolean has() { return true; }
-                public VendorDatePkCQ qy() { return getConditionQuery(); }
+                public VendorDatePkCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -311,12 +319,12 @@ public class BsVendorDatePkCB extends AbstractConditionBean {
          * foo_date: {PK, NotNull, date(13)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnFooDate() { return doColumn("foo_date"); }
+        public SpecifiedColumn columnFooDate() { return doColumn("foo_date"); }
         /**
          * foo_name: {NotNull, varchar(2147483647)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnFooName() { return doColumn("foo_name"); }
+        public SpecifiedColumn columnFooName() { return doColumn("foo_name"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -360,7 +368,7 @@ public class BsVendorDatePkCB extends AbstractConditionBean {
      */
     public HpColQyOperand<VendorDatePkCB> columnQuery(final SpecifyQuery<VendorDatePkCB> colCBLambda) {
         return xcreateColQyOperand(new HpColQyHandler<VendorDatePkCB>() {
-            public HpCalculator handle(SpecifyQuery<VendorDatePkCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<VendorDatePkCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -478,8 +486,8 @@ public class BsVendorDatePkCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return VendorDatePkCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return VendorDatePkCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return VendorDatePkCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return VendorDatePkCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

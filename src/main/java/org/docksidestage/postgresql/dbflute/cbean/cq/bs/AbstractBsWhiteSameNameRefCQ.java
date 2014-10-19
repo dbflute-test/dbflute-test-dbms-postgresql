@@ -118,7 +118,7 @@ public abstract class AbstractBsWhiteSameNameRefCQ extends AbstractConditionQuer
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setSameNameRefId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueSameNameRefId(), "same_name_ref_id", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueSameNameRefId(), "same_name_ref_id", rangeOfOption);
     }
 
     /**
@@ -131,7 +131,7 @@ public abstract class AbstractBsWhiteSameNameRefCQ extends AbstractConditionQuer
     }
 
     protected void doSetSameNameRefId_InScope(Collection<Integer> sameNameRefIdList) {
-        regINS(CK_INS, cTL(sameNameRefIdList), getCValueSameNameRefId(), "same_name_ref_id");
+        regINS(CK_INS, cTL(sameNameRefIdList), xgetCValueSameNameRefId(), "same_name_ref_id");
     }
 
     /**
@@ -144,7 +144,7 @@ public abstract class AbstractBsWhiteSameNameRefCQ extends AbstractConditionQuer
     }
 
     protected void doSetSameNameRefId_NotInScope(Collection<Integer> sameNameRefIdList) {
-        regINS(CK_NINS, cTL(sameNameRefIdList), getCValueSameNameRefId(), "same_name_ref_id");
+        regINS(CK_NINS, cTL(sameNameRefIdList), xgetCValueSameNameRefId(), "same_name_ref_id");
     }
 
     /**
@@ -159,8 +159,8 @@ public abstract class AbstractBsWhiteSameNameRefCQ extends AbstractConditionQuer
      */
     public void setSameNameRefId_IsNotNull() { regSameNameRefId(CK_ISNN, DOBJ); }
 
-    protected void regSameNameRefId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueSameNameRefId(), "same_name_ref_id"); }
-    protected abstract ConditionValue getCValueSameNameRefId();
+    protected void regSameNameRefId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueSameNameRefId(), "same_name_ref_id"); }
+    protected abstract ConditionValue xgetCValueSameNameRefId();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -234,7 +234,7 @@ public abstract class AbstractBsWhiteSameNameRefCQ extends AbstractConditionQuer
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setSameNameId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueSameNameId(), "same_name_id", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueSameNameId(), "same_name_id", rangeOfOption);
     }
 
     /**
@@ -247,7 +247,7 @@ public abstract class AbstractBsWhiteSameNameRefCQ extends AbstractConditionQuer
     }
 
     protected void doSetSameNameId_InScope(Collection<Long> sameNameIdList) {
-        regINS(CK_INS, cTL(sameNameIdList), getCValueSameNameId(), "same_name_id");
+        regINS(CK_INS, cTL(sameNameIdList), xgetCValueSameNameId(), "same_name_id");
     }
 
     /**
@@ -260,11 +260,11 @@ public abstract class AbstractBsWhiteSameNameRefCQ extends AbstractConditionQuer
     }
 
     protected void doSetSameNameId_NotInScope(Collection<Long> sameNameIdList) {
-        regINS(CK_NINS, cTL(sameNameIdList), getCValueSameNameId(), "same_name_id");
+        regINS(CK_NINS, cTL(sameNameIdList), xgetCValueSameNameId(), "same_name_id");
     }
 
-    protected void regSameNameId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueSameNameId(), "same_name_id"); }
-    protected abstract ConditionValue getCValueSameNameId();
+    protected void regSameNameId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueSameNameId(), "same_name_id"); }
+    protected abstract ConditionValue xgetCValueSameNameId();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -338,7 +338,7 @@ public abstract class AbstractBsWhiteSameNameRefCQ extends AbstractConditionQuer
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setNextSameNameId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueNextSameNameId(), "next_same_name_id", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueNextSameNameId(), "next_same_name_id", rangeOfOption);
     }
 
     /**
@@ -351,7 +351,7 @@ public abstract class AbstractBsWhiteSameNameRefCQ extends AbstractConditionQuer
     }
 
     protected void doSetNextSameNameId_InScope(Collection<Long> nextSameNameIdList) {
-        regINS(CK_INS, cTL(nextSameNameIdList), getCValueNextSameNameId(), "next_same_name_id");
+        regINS(CK_INS, cTL(nextSameNameIdList), xgetCValueNextSameNameId(), "next_same_name_id");
     }
 
     /**
@@ -364,11 +364,11 @@ public abstract class AbstractBsWhiteSameNameRefCQ extends AbstractConditionQuer
     }
 
     protected void doSetNextSameNameId_NotInScope(Collection<Long> nextSameNameIdList) {
-        regINS(CK_NINS, cTL(nextSameNameIdList), getCValueNextSameNameId(), "next_same_name_id");
+        regINS(CK_NINS, cTL(nextSameNameIdList), xgetCValueNextSameNameId(), "next_same_name_id");
     }
 
-    protected void regNextSameNameId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueNextSameNameId(), "next_same_name_id"); }
-    protected abstract ConditionValue getCValueNextSameNameId();
+    protected void regNextSameNameId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueNextSameNameId(), "next_same_name_id"); }
+    protected abstract ConditionValue xgetCValueNextSameNameId();
 
     // ===================================================================================
     //                                                                     ScalarCondition

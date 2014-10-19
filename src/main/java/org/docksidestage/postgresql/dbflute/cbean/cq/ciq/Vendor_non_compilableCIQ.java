@@ -61,7 +61,7 @@ public class Vendor_non_compilableCIQ extends AbstractBsVendor_non_compilableCQ 
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueNon_compilable_id() { return _myCQ.getNon_compilable_id(); }
+    protected ConditionValue xgetCValueNon_compilable_id() { return _myCQ.xdfgetNon_compilable_id(); }
     public String keepNon_compilable_id_ExistsReferrer_Vendor_non_compilableByNextParentidSelfList(Vendor_non_compilableCQ sq)
     { throwIICBOE("ExistsReferrer"); return null; }
     public String keepNon_compilable_id_ExistsReferrer_Vendor_non_compilableByParent_idSelfList(Vendor_non_compilableCQ sq)
@@ -82,9 +82,9 @@ public class Vendor_non_compilableCIQ extends AbstractBsVendor_non_compilableCQ 
     { throwIICBOE("(Query)DerivedReferrer"); return null; }
     public String keepNon_compilable_id_QueryDerivedReferrer_Vendor_non_compilableByParent_idSelfListParameter(Object vl)
     { throwIICBOE("(Query)DerivedReferrer"); return null; }
-    protected ConditionValue getCValueNon_compilable_name() { return _myCQ.getNon_compilable_name(); }
-    protected ConditionValue getCValueParent_id() { return _myCQ.getParent_id(); }
-    protected ConditionValue getCValueNextParentid() { return _myCQ.getNextParentid(); }
+    protected ConditionValue xgetCValueNon_compilable_name() { return _myCQ.xdfgetNon_compilable_name(); }
+    protected ConditionValue xgetCValueParent_id() { return _myCQ.xdfgetParent_id(); }
+    protected ConditionValue xgetCValueNextParentid() { return _myCQ.xdfgetNextParentid(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(Vendor_non_compilableCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

@@ -61,33 +61,33 @@ public class VendorCheckCIQ extends AbstractBsVendorCheckCQ {
     // ===================================================================================
     //                                                                Override about Query
     //                                                                ====================
-    protected ConditionValue getCValueVendorCheckId() { return _myCQ.getVendorCheckId(); }
-    protected ConditionValue getCValueTypeOfChar() { return _myCQ.getTypeOfChar(); }
-    protected ConditionValue getCValueTypeOfVarchar() { return _myCQ.getTypeOfVarchar(); }
-    protected ConditionValue getCValueTypeOfVcArray() { return _myCQ.getTypeOfVcArray(); }
-    protected ConditionValue getCValueTypeOfText() { return _myCQ.getTypeOfText(); }
-    protected ConditionValue getCValueTypeOfNumericInteger() { return _myCQ.getTypeOfNumericInteger(); }
-    protected ConditionValue getCValueTypeOfNumericBigint() { return _myCQ.getTypeOfNumericBigint(); }
-    protected ConditionValue getCValueTypeOfNumericDecimal() { return _myCQ.getTypeOfNumericDecimal(); }
-    protected ConditionValue getCValueTypeOfDecimal() { return _myCQ.getTypeOfDecimal(); }
-    protected ConditionValue getCValueTypeOfInt8() { return _myCQ.getTypeOfInt8(); }
-    protected ConditionValue getCValueTypeOfIntArray() { return _myCQ.getTypeOfIntArray(); }
-    protected ConditionValue getCValueTypeOfInt4() { return _myCQ.getTypeOfInt4(); }
-    protected ConditionValue getCValueTypeOfBigint() { return _myCQ.getTypeOfBigint(); }
-    protected ConditionValue getCValueTypeOfReal() { return _myCQ.getTypeOfReal(); }
-    protected ConditionValue getCValueTypeOfFloat() { return _myCQ.getTypeOfFloat(); }
-    protected ConditionValue getCValueTypeOfMoney() { return _myCQ.getTypeOfMoney(); }
-    protected ConditionValue getCValueTypeOfDate() { return _myCQ.getTypeOfDate(); }
-    protected ConditionValue getCValueTypeOfTimestamp() { return _myCQ.getTypeOfTimestamp(); }
-    protected ConditionValue getCValueTypeOfTime() { return _myCQ.getTypeOfTime(); }
-    protected ConditionValue getCValueTypeOfTimetz() { return _myCQ.getTypeOfTimetz(); }
-    protected ConditionValue getCValueTypeOfInterval() { return _myCQ.getTypeOfInterval(); }
-    protected ConditionValue getCValueTypeOfBool() { return _myCQ.getTypeOfBool(); }
-    protected ConditionValue getCValueTypeOfBit() { return _myCQ.getTypeOfBit(); }
-    protected ConditionValue getCValueTypeOfBytea() { return _myCQ.getTypeOfBytea(); }
-    protected ConditionValue getCValueTypeOfOid() { return _myCQ.getTypeOfOid(); }
-    protected ConditionValue getCValueTypeOfUuid() { return _myCQ.getTypeOfUuid(); }
-    protected ConditionValue getCValueTypeOfXml() { return _myCQ.getTypeOfXml(); }
+    protected ConditionValue xgetCValueVendorCheckId() { return _myCQ.xdfgetVendorCheckId(); }
+    protected ConditionValue xgetCValueTypeOfChar() { return _myCQ.xdfgetTypeOfChar(); }
+    protected ConditionValue xgetCValueTypeOfVarchar() { return _myCQ.xdfgetTypeOfVarchar(); }
+    protected ConditionValue xgetCValueTypeOfVcArray() { return _myCQ.xdfgetTypeOfVcArray(); }
+    protected ConditionValue xgetCValueTypeOfText() { return _myCQ.xdfgetTypeOfText(); }
+    protected ConditionValue xgetCValueTypeOfNumericInteger() { return _myCQ.xdfgetTypeOfNumericInteger(); }
+    protected ConditionValue xgetCValueTypeOfNumericBigint() { return _myCQ.xdfgetTypeOfNumericBigint(); }
+    protected ConditionValue xgetCValueTypeOfNumericDecimal() { return _myCQ.xdfgetTypeOfNumericDecimal(); }
+    protected ConditionValue xgetCValueTypeOfDecimal() { return _myCQ.xdfgetTypeOfDecimal(); }
+    protected ConditionValue xgetCValueTypeOfInt8() { return _myCQ.xdfgetTypeOfInt8(); }
+    protected ConditionValue xgetCValueTypeOfIntArray() { return _myCQ.xdfgetTypeOfIntArray(); }
+    protected ConditionValue xgetCValueTypeOfInt4() { return _myCQ.xdfgetTypeOfInt4(); }
+    protected ConditionValue xgetCValueTypeOfBigint() { return _myCQ.xdfgetTypeOfBigint(); }
+    protected ConditionValue xgetCValueTypeOfReal() { return _myCQ.xdfgetTypeOfReal(); }
+    protected ConditionValue xgetCValueTypeOfFloat() { return _myCQ.xdfgetTypeOfFloat(); }
+    protected ConditionValue xgetCValueTypeOfMoney() { return _myCQ.xdfgetTypeOfMoney(); }
+    protected ConditionValue xgetCValueTypeOfDate() { return _myCQ.xdfgetTypeOfDate(); }
+    protected ConditionValue xgetCValueTypeOfTimestamp() { return _myCQ.xdfgetTypeOfTimestamp(); }
+    protected ConditionValue xgetCValueTypeOfTime() { return _myCQ.xdfgetTypeOfTime(); }
+    protected ConditionValue xgetCValueTypeOfTimetz() { return _myCQ.xdfgetTypeOfTimetz(); }
+    protected ConditionValue xgetCValueTypeOfInterval() { return _myCQ.xdfgetTypeOfInterval(); }
+    protected ConditionValue xgetCValueTypeOfBool() { return _myCQ.xdfgetTypeOfBool(); }
+    protected ConditionValue xgetCValueTypeOfBit() { return _myCQ.xdfgetTypeOfBit(); }
+    protected ConditionValue xgetCValueTypeOfBytea() { return _myCQ.xdfgetTypeOfBytea(); }
+    protected ConditionValue xgetCValueTypeOfOid() { return _myCQ.xdfgetTypeOfOid(); }
+    protected ConditionValue xgetCValueTypeOfUuid() { return _myCQ.xdfgetTypeOfUuid(); }
+    protected ConditionValue xgetCValueTypeOfXml() { return _myCQ.xdfgetTypeOfXml(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(VendorCheckCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

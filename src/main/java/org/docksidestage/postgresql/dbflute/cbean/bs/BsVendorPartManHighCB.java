@@ -5,6 +5,7 @@ import org.dbflute.cbean.ConditionBean;
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.chelper.*;
 import org.dbflute.cbean.coption.*;
+import org.dbflute.cbean.dream.*;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClauseCreator;
 import org.dbflute.cbean.scoping.*;
@@ -175,10 +176,14 @@ public class BsVendorPartManHighCB extends AbstractConditionBean {
      */
     public VendorPartManHighCQ query() {
         assertQueryPurpose(); // assert only when user-public query 
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
-    public VendorPartManHighCQ getConditionQuery() { // public for parameter comment and internal
+    public VendorPartManHighCQ xdfgetConditionQuery() { // public for parameter comment and internal
+        return doGetConditionQuery();
+    }
+
+    protected VendorPartManHighCQ doGetConditionQuery() {
         if (_conditionQuery == null) {
             _conditionQuery = createLocalCQ();
         }
@@ -199,8 +204,11 @@ public class BsVendorPartManHighCB extends AbstractConditionBean {
         return new VendorPartManHighCQ(childQuery, sqlClause, aliasName, nestLevel);
     }
 
+    /**
+     * {@inheritDoc}
+     */
     public ConditionQuery localCQ() {
-        return getConditionQuery();
+        return doGetConditionQuery();
     }
 
     // ===================================================================================
@@ -288,7 +296,7 @@ public class BsVendorPartManHighCB extends AbstractConditionBean {
         if (_specification == null) { _specification = new HpSpecification(this
             , new HpSpQyCall<VendorPartManHighCQ>() {
                 public boolean has() { return true; }
-                public VendorPartManHighCQ qy() { return getConditionQuery(); }
+                public VendorPartManHighCQ qy() { return xdfgetConditionQuery(); }
             }
             , _purpose, getDBMetaProvider(), xcSDRFnFc()); }
         return _specification;
@@ -311,22 +319,22 @@ public class BsVendorPartManHighCB extends AbstractConditionBean {
          * part_man_id: {PK, NotNull, int4(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnPartManId() { return doColumn("part_man_id"); }
+        public SpecifiedColumn columnPartManId() { return doColumn("part_man_id"); }
         /**
          * part_man_name: {NotNull, varchar(2147483647)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnPartManName() { return doColumn("part_man_name"); }
+        public SpecifiedColumn columnPartManName() { return doColumn("part_man_name"); }
         /**
          * part_man_point: {NotNull, int4(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnPartManPoint() { return doColumn("part_man_point"); }
+        public SpecifiedColumn columnPartManPoint() { return doColumn("part_man_point"); }
         /**
          * part_man_date: {date(13)}
          * @return The information object of specified column. (NotNull)
          */
-        public HpSpecifiedColumn columnPartManDate() { return doColumn("part_man_date"); }
+        public SpecifiedColumn columnPartManDate() { return doColumn("part_man_date"); }
         public void everyColumn() { doEveryColumn(); }
         public void exceptRecordMetaColumn() { doExceptRecordMetaColumn(); }
         @Override
@@ -370,7 +378,7 @@ public class BsVendorPartManHighCB extends AbstractConditionBean {
      */
     public HpColQyOperand<VendorPartManHighCB> columnQuery(final SpecifyQuery<VendorPartManHighCB> colCBLambda) {
         return xcreateColQyOperand(new HpColQyHandler<VendorPartManHighCB>() {
-            public HpCalculator handle(SpecifyQuery<VendorPartManHighCB> rightSp, String operand) {
+            public ColumnCalculator handle(SpecifyQuery<VendorPartManHighCB> rightSp, String operand) {
                 return xcolqy(xcreateColumnQueryCB(), xcreateColumnQueryCB(), colCBLambda, rightSp, operand);
             }
         });
@@ -488,8 +496,8 @@ public class BsVendorPartManHighCB extends AbstractConditionBean {
     //                                                                            Internal
     //                                                                            ========
     // very internal (for suppressing warn about 'Not Use Import')
-    protected String getConditionBeanClassNameInternally() { return VendorPartManHighCB.class.getName(); }
-    protected String getConditionQueryClassNameInternally() { return VendorPartManHighCQ.class.getName(); }
-    protected String getSubQueryClassNameInternally() { return SubQuery.class.getName(); }
-    protected String getConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
+    protected String xgetConditionBeanClassNameInternally() { return VendorPartManHighCB.class.getName(); }
+    protected String xgetConditionQueryClassNameInternally() { return VendorPartManHighCQ.class.getName(); }
+    protected String xgetSubQueryClassNameInternally() { return SubQuery.class.getName(); }
+    protected String xgetConditionOptionClassNameInternally() { return ConditionOption.class.getName(); }
 }

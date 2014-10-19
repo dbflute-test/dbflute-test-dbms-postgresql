@@ -74,10 +74,10 @@ public class BsWhiteXlsManCQ extends AbstractBsWhiteXlsManCQ {
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _xlsManId;
-    public ConditionValue getXlsManId()
+    public ConditionValue xdfgetXlsManId()
     { if (_xlsManId == null) { _xlsManId = nCV(); }
       return _xlsManId; }
-    protected ConditionValue getCValueXlsManId() { return getXlsManId(); }
+    protected ConditionValue xgetCValueXlsManId() { return xdfgetXlsManId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -94,10 +94,10 @@ public class BsWhiteXlsManCQ extends AbstractBsWhiteXlsManCQ {
     public BsWhiteXlsManCQ addOrderBy_XlsManId_Desc() { regOBD("xls_man_id"); return this; }
 
     protected ConditionValue _stringConverted;
-    public ConditionValue getStringConverted()
+    public ConditionValue xdfgetStringConverted()
     { if (_stringConverted == null) { _stringConverted = nCV(); }
       return _stringConverted; }
-    protected ConditionValue getCValueStringConverted() { return getStringConverted(); }
+    protected ConditionValue xgetCValueStringConverted() { return xdfgetStringConverted(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -114,10 +114,10 @@ public class BsWhiteXlsManCQ extends AbstractBsWhiteXlsManCQ {
     public BsWhiteXlsManCQ addOrderBy_StringConverted_Desc() { regOBD("string_converted"); return this; }
 
     protected ConditionValue _timestampZeroDefaultMillis;
-    public ConditionValue getTimestampZeroDefaultMillis()
+    public ConditionValue xdfgetTimestampZeroDefaultMillis()
     { if (_timestampZeroDefaultMillis == null) { _timestampZeroDefaultMillis = nCV(); }
       return _timestampZeroDefaultMillis; }
-    protected ConditionValue getCValueTimestampZeroDefaultMillis() { return getTimestampZeroDefaultMillis(); }
+    protected ConditionValue xgetCValueTimestampZeroDefaultMillis() { return xdfgetTimestampZeroDefaultMillis(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -134,10 +134,10 @@ public class BsWhiteXlsManCQ extends AbstractBsWhiteXlsManCQ {
     public BsWhiteXlsManCQ addOrderBy_TimestampZeroDefaultMillis_Desc() { regOBD("timestamp_zero_default_millis"); return this; }
 
     protected ConditionValue _timestampZeroPrefixMillis;
-    public ConditionValue getTimestampZeroPrefixMillis()
+    public ConditionValue xdfgetTimestampZeroPrefixMillis()
     { if (_timestampZeroPrefixMillis == null) { _timestampZeroPrefixMillis = nCV(); }
       return _timestampZeroPrefixMillis; }
-    protected ConditionValue getCValueTimestampZeroPrefixMillis() { return getTimestampZeroPrefixMillis(); }
+    protected ConditionValue xgetCValueTimestampZeroPrefixMillis() { return xdfgetTimestampZeroPrefixMillis(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -154,10 +154,10 @@ public class BsWhiteXlsManCQ extends AbstractBsWhiteXlsManCQ {
     public BsWhiteXlsManCQ addOrderBy_TimestampZeroPrefixMillis_Desc() { regOBD("timestamp_zero_prefix_millis"); return this; }
 
     protected ConditionValue _timestampZeroSuffixMillis;
-    public ConditionValue getTimestampZeroSuffixMillis()
+    public ConditionValue xdfgetTimestampZeroSuffixMillis()
     { if (_timestampZeroSuffixMillis == null) { _timestampZeroSuffixMillis = nCV(); }
       return _timestampZeroSuffixMillis; }
-    protected ConditionValue getCValueTimestampZeroSuffixMillis() { return getTimestampZeroSuffixMillis(); }
+    protected ConditionValue xgetCValueTimestampZeroSuffixMillis() { return xdfgetTimestampZeroSuffixMillis(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -224,31 +224,31 @@ public class BsWhiteXlsManCQ extends AbstractBsWhiteXlsManCQ {
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, WhiteXlsManCQ> getScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public Map<String, WhiteXlsManCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(WhiteXlsManCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
     //                                                                       MyselfDerived
     //                                                                       =============
-    public Map<String, WhiteXlsManCQ> getSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
+    public Map<String, WhiteXlsManCQ> xdfgetSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
     public String keepSpecifyMyselfDerived(WhiteXlsManCQ sq) { return xkeepSQue("specifyMyselfDerived", sq); }
 
-    public Map<String, WhiteXlsManCQ> getQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
+    public Map<String, WhiteXlsManCQ> xdfgetQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerived(WhiteXlsManCQ sq) { return xkeepSQue("queryMyselfDerived", sq); }
-    public Map<String, Object> getQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
+    public Map<String, Object> xdfgetQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerivedParameter(Object pm) { return xkeepSQuePm("queryMyselfDerived", pm); }
 
     // ===================================================================================
     //                                                                        MyselfExists
     //                                                                        ============
     protected Map<String, WhiteXlsManCQ> _myselfExistsMap;
-    public Map<String, WhiteXlsManCQ> getMyselfExists() { return xgetSQueMap("myselfExists"); }
+    public Map<String, WhiteXlsManCQ> xdfgetMyselfExists() { return xgetSQueMap("myselfExists"); }
     public String keepMyselfExists(WhiteXlsManCQ sq) { return xkeepSQue("myselfExists", sq); }
 
     // ===================================================================================
     //                                                                       MyselfInScope
     //                                                                       =============
-    public Map<String, WhiteXlsManCQ> getMyselfInScope() { return xgetSQueMap("myselfInScope"); }
+    public Map<String, WhiteXlsManCQ> xdfgetMyselfInScope() { return xgetSQueMap("myselfInScope"); }
     public String keepMyselfInScope(WhiteXlsManCQ sq) { return xkeepSQue("myselfInScope", sq); }
 
     // ===================================================================================
@@ -257,7 +257,7 @@ public class BsWhiteXlsManCQ extends AbstractBsWhiteXlsManCQ {
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return WhiteXlsManCB.class.getName(); }
     protected String xCQ() { return WhiteXlsManCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }

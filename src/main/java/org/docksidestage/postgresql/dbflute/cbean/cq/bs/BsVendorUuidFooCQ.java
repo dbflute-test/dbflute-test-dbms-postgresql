@@ -74,10 +74,10 @@ public class BsVendorUuidFooCQ extends AbstractBsVendorUuidFooCQ {
     //                                                                               Query
     //                                                                               =====
     protected ConditionValue _fooId;
-    public ConditionValue getFooId()
+    public ConditionValue xdfgetFooId()
     { if (_fooId == null) { _fooId = nCV(); }
       return _fooId; }
-    protected ConditionValue getCValueFooId() { return getFooId(); }
+    protected ConditionValue xgetCValueFooId() { return xdfgetFooId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -94,10 +94,10 @@ public class BsVendorUuidFooCQ extends AbstractBsVendorUuidFooCQ {
     public BsVendorUuidFooCQ addOrderBy_FooId_Desc() { regOBD("foo_id"); return this; }
 
     protected ConditionValue _fooName;
-    public ConditionValue getFooName()
+    public ConditionValue xdfgetFooName()
     { if (_fooName == null) { _fooName = nCV(); }
       return _fooName; }
-    protected ConditionValue getCValueFooName() { return getFooName(); }
+    protected ConditionValue xgetCValueFooName() { return xdfgetFooName(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -114,10 +114,10 @@ public class BsVendorUuidFooCQ extends AbstractBsVendorUuidFooCQ {
     public BsVendorUuidFooCQ addOrderBy_FooName_Desc() { regOBD("foo_name"); return this; }
 
     protected ConditionValue _barId;
-    public ConditionValue getBarId()
+    public ConditionValue xdfgetBarId()
     { if (_barId == null) { _barId = nCV(); }
       return _barId; }
-    protected ConditionValue getCValueBarId() { return getBarId(); }
+    protected ConditionValue xgetCValueBarId() { return xdfgetBarId(); }
 
     /** 
      * Add order-by as ascend. <br />
@@ -188,9 +188,9 @@ public class BsVendorUuidFooCQ extends AbstractBsVendorUuidFooCQ {
      * @return The instance of condition-query. (NotNull)
      */
     public VendorUuidBarCQ queryVendorUuidBar() {
-        return getConditionQueryVendorUuidBar();
+        return xdfgetConditionQueryVendorUuidBar();
     }
-    public VendorUuidBarCQ getConditionQueryVendorUuidBar() {
+    public VendorUuidBarCQ xdfgetConditionQueryVendorUuidBar() {
         String prop = "vendorUuidBar";
         if (!xhasQueRlMap(prop)) { xregQueRl(prop, xcreateQueryVendorUuidBar()); xsetupOuterJoinVendorUuidBar(); }
         return xgetQueRlMap(prop);
@@ -209,31 +209,31 @@ public class BsVendorUuidFooCQ extends AbstractBsVendorUuidFooCQ {
     // ===================================================================================
     //                                                                     ScalarCondition
     //                                                                     ===============
-    public Map<String, VendorUuidFooCQ> getScalarCondition() { return xgetSQueMap("scalarCondition"); }
+    public Map<String, VendorUuidFooCQ> xdfgetScalarCondition() { return xgetSQueMap("scalarCondition"); }
     public String keepScalarCondition(VendorUuidFooCQ sq) { return xkeepSQue("scalarCondition", sq); }
 
     // ===================================================================================
     //                                                                       MyselfDerived
     //                                                                       =============
-    public Map<String, VendorUuidFooCQ> getSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
+    public Map<String, VendorUuidFooCQ> xdfgetSpecifyMyselfDerived() { return xgetSQueMap("specifyMyselfDerived"); }
     public String keepSpecifyMyselfDerived(VendorUuidFooCQ sq) { return xkeepSQue("specifyMyselfDerived", sq); }
 
-    public Map<String, VendorUuidFooCQ> getQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
+    public Map<String, VendorUuidFooCQ> xdfgetQueryMyselfDerived() { return xgetSQueMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerived(VendorUuidFooCQ sq) { return xkeepSQue("queryMyselfDerived", sq); }
-    public Map<String, Object> getQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
+    public Map<String, Object> xdfgetQueryMyselfDerivedParameter() { return xgetSQuePmMap("queryMyselfDerived"); }
     public String keepQueryMyselfDerivedParameter(Object pm) { return xkeepSQuePm("queryMyselfDerived", pm); }
 
     // ===================================================================================
     //                                                                        MyselfExists
     //                                                                        ============
     protected Map<String, VendorUuidFooCQ> _myselfExistsMap;
-    public Map<String, VendorUuidFooCQ> getMyselfExists() { return xgetSQueMap("myselfExists"); }
+    public Map<String, VendorUuidFooCQ> xdfgetMyselfExists() { return xgetSQueMap("myselfExists"); }
     public String keepMyselfExists(VendorUuidFooCQ sq) { return xkeepSQue("myselfExists", sq); }
 
     // ===================================================================================
     //                                                                       MyselfInScope
     //                                                                       =============
-    public Map<String, VendorUuidFooCQ> getMyselfInScope() { return xgetSQueMap("myselfInScope"); }
+    public Map<String, VendorUuidFooCQ> xdfgetMyselfInScope() { return xgetSQueMap("myselfInScope"); }
     public String keepMyselfInScope(VendorUuidFooCQ sq) { return xkeepSQue("myselfInScope", sq); }
 
     // ===================================================================================
@@ -242,7 +242,7 @@ public class BsVendorUuidFooCQ extends AbstractBsVendorUuidFooCQ {
     // very internal (for suppressing warn about 'Not Use Import')
     protected String xCB() { return VendorUuidFooCB.class.getName(); }
     protected String xCQ() { return VendorUuidFooCQ.class.getName(); }
-    protected String xCHp() { return HpCalculator.class.getName(); }
+    protected String xCHp() { return HpQDRFunction.class.getName(); }
     protected String xCOp() { return ConditionOption.class.getName(); }
     protected String xMap() { return Map.class.getName(); }
 }

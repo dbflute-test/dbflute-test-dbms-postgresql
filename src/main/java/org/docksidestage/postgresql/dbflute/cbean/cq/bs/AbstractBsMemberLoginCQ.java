@@ -118,7 +118,7 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setMemberLoginId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueMemberLoginId(), "member_login_id", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueMemberLoginId(), "member_login_id", rangeOfOption);
     }
 
     /**
@@ -131,7 +131,7 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
     }
 
     protected void doSetMemberLoginId_InScope(Collection<Long> memberLoginIdList) {
-        regINS(CK_INS, cTL(memberLoginIdList), getCValueMemberLoginId(), "member_login_id");
+        regINS(CK_INS, cTL(memberLoginIdList), xgetCValueMemberLoginId(), "member_login_id");
     }
 
     /**
@@ -144,7 +144,7 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
     }
 
     protected void doSetMemberLoginId_NotInScope(Collection<Long> memberLoginIdList) {
-        regINS(CK_NINS, cTL(memberLoginIdList), getCValueMemberLoginId(), "member_login_id");
+        regINS(CK_NINS, cTL(memberLoginIdList), xgetCValueMemberLoginId(), "member_login_id");
     }
 
     /**
@@ -159,8 +159,8 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
      */
     public void setMemberLoginId_IsNotNull() { regMemberLoginId(CK_ISNN, DOBJ); }
 
-    protected void regMemberLoginId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueMemberLoginId(), "member_login_id"); }
-    protected abstract ConditionValue getCValueMemberLoginId();
+    protected void regMemberLoginId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueMemberLoginId(), "member_login_id"); }
+    protected abstract ConditionValue xgetCValueMemberLoginId();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -234,7 +234,7 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setMemberId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, getCValueMemberId(), "member_id", rangeOfOption);
+        regROO(minNumber, maxNumber, xgetCValueMemberId(), "member_id", rangeOfOption);
     }
 
     /**
@@ -247,7 +247,7 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
     }
 
     protected void doSetMemberId_InScope(Collection<Integer> memberIdList) {
-        regINS(CK_INS, cTL(memberIdList), getCValueMemberId(), "member_id");
+        regINS(CK_INS, cTL(memberIdList), xgetCValueMemberId(), "member_id");
     }
 
     /**
@@ -260,11 +260,11 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
     }
 
     protected void doSetMemberId_NotInScope(Collection<Integer> memberIdList) {
-        regINS(CK_NINS, cTL(memberIdList), getCValueMemberId(), "member_id");
+        regINS(CK_NINS, cTL(memberIdList), xgetCValueMemberId(), "member_id");
     }
 
-    protected void regMemberId(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueMemberId(), "member_id"); }
-    protected abstract ConditionValue getCValueMemberId();
+    protected void regMemberId(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueMemberId(), "member_id"); }
+    protected abstract ConditionValue xgetCValueMemberId();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -334,7 +334,7 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
      * @param fromToOption The option of from-to. (NotNull)
      */
     public void setLoginDatetime_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ((fromDatetime != null ? new java.sql.Timestamp(fromDatetime.getTime()) : null), (toDatetime != null ? new java.sql.Timestamp(toDatetime.getTime()) : null), getCValueLoginDatetime(), "login_datetime", fromToOption);
+        regFTQ((fromDatetime != null ? new java.sql.Timestamp(fromDatetime.getTime()) : null), (toDatetime != null ? new java.sql.Timestamp(toDatetime.getTime()) : null), xgetCValueLoginDatetime(), "login_datetime", fromToOption);
     }
 
     /**
@@ -352,8 +352,8 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
         setLoginDatetime_FromTo(fromDate, toDate, xcDFTOP());
     }
 
-    protected void regLoginDatetime(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueLoginDatetime(), "login_datetime"); }
-    protected abstract ConditionValue getCValueLoginDatetime();
+    protected void regLoginDatetime(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueLoginDatetime(), "login_datetime"); }
+    protected abstract ConditionValue xgetCValueLoginDatetime();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
@@ -414,7 +414,7 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
     }
 
     protected void doSetMobileLoginFlg_InScope(Collection<Integer> mobileLoginFlgList) {
-        regINS(CK_INS, cTL(mobileLoginFlgList), getCValueMobileLoginFlg(), "mobile_login_flg");
+        regINS(CK_INS, cTL(mobileLoginFlgList), xgetCValueMobileLoginFlg(), "mobile_login_flg");
     }
 
     /**
@@ -437,11 +437,11 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
     }
 
     protected void doSetMobileLoginFlg_NotInScope(Collection<Integer> mobileLoginFlgList) {
-        regINS(CK_NINS, cTL(mobileLoginFlgList), getCValueMobileLoginFlg(), "mobile_login_flg");
+        regINS(CK_NINS, cTL(mobileLoginFlgList), xgetCValueMobileLoginFlg(), "mobile_login_flg");
     }
 
-    protected void regMobileLoginFlg(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueMobileLoginFlg(), "mobile_login_flg"); }
-    protected abstract ConditionValue getCValueMobileLoginFlg();
+    protected void regMobileLoginFlg(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueMobileLoginFlg(), "mobile_login_flg"); }
+    protected abstract ConditionValue xgetCValueMobileLoginFlg();
 
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
@@ -557,7 +557,7 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
     }
 
     protected void doSetLoginMemberStatusCode_InScope(Collection<String> loginMemberStatusCodeList) {
-        regINS(CK_INS, cTL(loginMemberStatusCodeList), getCValueLoginMemberStatusCode(), "login_member_status_code");
+        regINS(CK_INS, cTL(loginMemberStatusCodeList), xgetCValueLoginMemberStatusCode(), "login_member_status_code");
     }
 
     /**
@@ -580,11 +580,11 @@ public abstract class AbstractBsMemberLoginCQ extends AbstractConditionQuery {
     }
 
     protected void doSetLoginMemberStatusCode_NotInScope(Collection<String> loginMemberStatusCodeList) {
-        regINS(CK_NINS, cTL(loginMemberStatusCodeList), getCValueLoginMemberStatusCode(), "login_member_status_code");
+        regINS(CK_NINS, cTL(loginMemberStatusCodeList), xgetCValueLoginMemberStatusCode(), "login_member_status_code");
     }
 
-    protected void regLoginMemberStatusCode(ConditionKey ky, Object vl) { regQ(ky, vl, getCValueLoginMemberStatusCode(), "login_member_status_code"); }
-    protected abstract ConditionValue getCValueLoginMemberStatusCode();
+    protected void regLoginMemberStatusCode(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueLoginMemberStatusCode(), "login_member_status_code"); }
+    protected abstract ConditionValue xgetCValueLoginMemberStatusCode();
 
     // ===================================================================================
     //                                                                     ScalarCondition
