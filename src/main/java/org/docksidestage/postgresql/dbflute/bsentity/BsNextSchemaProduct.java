@@ -65,7 +65,6 @@ public abstract class BsNextSchemaProduct extends AbstractEntity {
     /** product_name: {NotNull, varchar(200)} */
     protected String _productName;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -159,8 +158,8 @@ public abstract class BsNextSchemaProduct extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_productId);
-        sb.append(dm).append(_productName);
+        sb.append(dm).append(xfND(_productId));
+        sb.append(dm).append(xfND(_productName));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -192,6 +191,7 @@ public abstract class BsNextSchemaProduct extends AbstractEntity {
      * @return The value of the column 'product_id'. (basically NotNull if selected: for the constraint)
      */
     public Integer getProductId() {
+        checkSpecifiedProperty("productId");
         return _productId;
     }
 
@@ -200,7 +200,7 @@ public abstract class BsNextSchemaProduct extends AbstractEntity {
      * @param productId The value of the column 'product_id'. (basically NotNull if update: for the constraint)
      */
     public void setProductId(Integer productId) {
-        __modifiedProperties.addPropertyName("productId");
+        registerModifiedProperty("productId");
         _productId = productId;
     }
 
@@ -209,6 +209,7 @@ public abstract class BsNextSchemaProduct extends AbstractEntity {
      * @return The value of the column 'product_name'. (basically NotNull if selected: for the constraint)
      */
     public String getProductName() {
+        checkSpecifiedProperty("productName");
         return _productName;
     }
 
@@ -217,7 +218,7 @@ public abstract class BsNextSchemaProduct extends AbstractEntity {
      * @param productName The value of the column 'product_name'. (basically NotNull if update: for the constraint)
      */
     public void setProductName(String productName) {
-        __modifiedProperties.addPropertyName("productName");
+        registerModifiedProperty("productName");
         _productName = productName;
     }
 }

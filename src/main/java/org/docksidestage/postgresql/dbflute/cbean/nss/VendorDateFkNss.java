@@ -1,6 +1,5 @@
 package org.docksidestage.postgresql.dbflute.cbean.nss;
 
-import org.dbflute.cbean.ConditionQuery;
 import org.docksidestage.postgresql.dbflute.cbean.cq.VendorDateFkCQ;
 
 /**
@@ -25,7 +24,7 @@ public class VendorDateFkNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public VendorDatePkNss withVendorDatePk() {
-        _query.xdoNss(new VendorDateFkCQ.NssCall() { public ConditionQuery qf() { return _query.queryVendorDatePk(); }});
+        _query.xdoNss(() -> _query.queryVendorDatePk());
         return new VendorDatePkNss(_query.queryVendorDatePk());
     }
 }

@@ -5,9 +5,9 @@ import java.util.Map;
 
 import org.dbflute.Entity;
 import org.dbflute.dbmeta.AbstractDBMeta;
-import org.dbflute.dbmeta.PropertyGateway;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
+import org.dbflute.dbmeta.property.PropertyGateway;
 import org.dbflute.dbway.DBDef;
 import org.docksidestage.postgresql.dbflute.allcommon.*;
 import org.docksidestage.postgresql.dbflute.exentity.customize.*;
@@ -38,26 +38,10 @@ public class VendorUnsupportedAliasDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgVendorCheckId(), "vendorCheckId");
-        setupEpg(_epgMap, new EpgHyphen_exists(), "hyphen_exists");
-        setupEpg(_epgMap, new EpgSpace_exists(), "space_exists");
-        setupEpg(_epgMap, new EpgDollar$exists(), "dollar$exists");
-    }
-    public static class EpgVendorCheckId implements PropertyGateway {
-        public Object read(Entity et) { return ((VendorUnsupportedAlias)et).getVendorCheckId(); }
-        public void write(Entity et, Object vl) { ((VendorUnsupportedAlias)et).setVendorCheckId(ctl(vl)); }
-    }
-    public static class EpgHyphen_exists implements PropertyGateway {
-        public Object read(Entity et) { return ((VendorUnsupportedAlias)et).getHyphen_exists(); }
-        public void write(Entity et, Object vl) { ((VendorUnsupportedAlias)et).setHyphen_exists((String)vl); }
-    }
-    public static class EpgSpace_exists implements PropertyGateway {
-        public Object read(Entity et) { return ((VendorUnsupportedAlias)et).getSpace_exists(); }
-        public void write(Entity et, Object vl) { ((VendorUnsupportedAlias)et).setSpace_exists(cti(vl)); }
-    }
-    public static class EpgDollar$exists implements PropertyGateway {
-        public Object read(Entity et) { return ((VendorUnsupportedAlias)et).getDollar$exists(); }
-        public void write(Entity et, Object vl) { ((VendorUnsupportedAlias)et).setDollar$exists((java.util.Date)vl); }
+        setupEpg(_epgMap, et -> ((VendorUnsupportedAlias)et).getVendorCheckId(), (et, vl) -> ((VendorUnsupportedAlias)et).setVendorCheckId(ctl(vl)), "vendorCheckId");
+        setupEpg(_epgMap, et -> ((VendorUnsupportedAlias)et).getHyphen_exists(), (et, vl) -> ((VendorUnsupportedAlias)et).setHyphen_exists((String)vl), "hyphen_exists");
+        setupEpg(_epgMap, et -> ((VendorUnsupportedAlias)et).getSpace_exists(), (et, vl) -> ((VendorUnsupportedAlias)et).setSpace_exists(cti(vl)), "space_exists");
+        setupEpg(_epgMap, et -> ((VendorUnsupportedAlias)et).getDollar$exists(), (et, vl) -> ((VendorUnsupportedAlias)et).setDollar$exists((java.util.Date)vl), "dollar$exists");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }

@@ -103,7 +103,6 @@ public abstract class BsPurchasePayment extends AbstractEntity {
     /** update_user: {NotNull, varchar(200)} */
     protected String _updateUser;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -314,15 +313,15 @@ public abstract class BsPurchasePayment extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_purchasePaymentId);
-        sb.append(dm).append(_purchaseId);
-        sb.append(dm).append(_paymentAmount);
-        sb.append(dm).append(_paymentDatetime);
-        sb.append(dm).append(_paymentMethodCode);
-        sb.append(dm).append(_registerDatetime);
-        sb.append(dm).append(_registerUser);
-        sb.append(dm).append(_updateDatetime);
-        sb.append(dm).append(_updateUser);
+        sb.append(dm).append(xfND(_purchasePaymentId));
+        sb.append(dm).append(xfND(_purchaseId));
+        sb.append(dm).append(xfND(_paymentAmount));
+        sb.append(dm).append(xfND(_paymentDatetime));
+        sb.append(dm).append(xfND(_paymentMethodCode));
+        sb.append(dm).append(xfND(_registerDatetime));
+        sb.append(dm).append(xfND(_registerUser));
+        sb.append(dm).append(xfND(_updateDatetime));
+        sb.append(dm).append(xfND(_updateUser));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -354,6 +353,7 @@ public abstract class BsPurchasePayment extends AbstractEntity {
      * @return The value of the column 'purchase_payment_id'. (basically NotNull if selected: for the constraint)
      */
     public Long getPurchasePaymentId() {
+        checkSpecifiedProperty("purchasePaymentId");
         return _purchasePaymentId;
     }
 
@@ -363,7 +363,7 @@ public abstract class BsPurchasePayment extends AbstractEntity {
      * @param purchasePaymentId The value of the column 'purchase_payment_id'. (basically NotNull if update: for the constraint)
      */
     public void setPurchasePaymentId(Long purchasePaymentId) {
-        __modifiedProperties.addPropertyName("purchasePaymentId");
+        registerModifiedProperty("purchasePaymentId");
         _purchasePaymentId = purchasePaymentId;
     }
 
@@ -373,6 +373,7 @@ public abstract class BsPurchasePayment extends AbstractEntity {
      * @return The value of the column 'purchase_id'. (basically NotNull if selected: for the constraint)
      */
     public Long getPurchaseId() {
+        checkSpecifiedProperty("purchaseId");
         return _purchaseId;
     }
 
@@ -382,7 +383,7 @@ public abstract class BsPurchasePayment extends AbstractEntity {
      * @param purchaseId The value of the column 'purchase_id'. (basically NotNull if update: for the constraint)
      */
     public void setPurchaseId(Long purchaseId) {
-        __modifiedProperties.addPropertyName("purchaseId");
+        registerModifiedProperty("purchaseId");
         _purchaseId = purchaseId;
     }
 
@@ -392,6 +393,7 @@ public abstract class BsPurchasePayment extends AbstractEntity {
      * @return The value of the column 'payment_amount'. (basically NotNull if selected: for the constraint)
      */
     public java.math.BigDecimal getPaymentAmount() {
+        checkSpecifiedProperty("paymentAmount");
         return _paymentAmount;
     }
 
@@ -401,7 +403,7 @@ public abstract class BsPurchasePayment extends AbstractEntity {
      * @param paymentAmount The value of the column 'payment_amount'. (basically NotNull if update: for the constraint)
      */
     public void setPaymentAmount(java.math.BigDecimal paymentAmount) {
-        __modifiedProperties.addPropertyName("paymentAmount");
+        registerModifiedProperty("paymentAmount");
         _paymentAmount = paymentAmount;
     }
 
@@ -411,6 +413,7 @@ public abstract class BsPurchasePayment extends AbstractEntity {
      * @return The value of the column 'payment_datetime'. (basically NotNull if selected: for the constraint)
      */
     public java.sql.Timestamp getPaymentDatetime() {
+        checkSpecifiedProperty("paymentDatetime");
         return _paymentDatetime;
     }
 
@@ -420,7 +423,7 @@ public abstract class BsPurchasePayment extends AbstractEntity {
      * @param paymentDatetime The value of the column 'payment_datetime'. (basically NotNull if update: for the constraint)
      */
     public void setPaymentDatetime(java.sql.Timestamp paymentDatetime) {
-        __modifiedProperties.addPropertyName("paymentDatetime");
+        registerModifiedProperty("paymentDatetime");
         _paymentDatetime = paymentDatetime;
     }
 
@@ -430,6 +433,7 @@ public abstract class BsPurchasePayment extends AbstractEntity {
      * @return The value of the column 'payment_method_code'. (basically NotNull if selected: for the constraint)
      */
     public String getPaymentMethodCode() {
+        checkSpecifiedProperty("paymentMethodCode");
         return _paymentMethodCode;
     }
 
@@ -440,7 +444,7 @@ public abstract class BsPurchasePayment extends AbstractEntity {
      */
     protected void setPaymentMethodCode(String paymentMethodCode) {
         checkClassificationCode("payment_method_code", CDef.DefMeta.PaymentMethod, paymentMethodCode);
-        __modifiedProperties.addPropertyName("paymentMethodCode");
+        registerModifiedProperty("paymentMethodCode");
         _paymentMethodCode = paymentMethodCode;
     }
 
@@ -449,6 +453,7 @@ public abstract class BsPurchasePayment extends AbstractEntity {
      * @return The value of the column 'register_datetime'. (basically NotNull if selected: for the constraint)
      */
     public java.sql.Timestamp getRegisterDatetime() {
+        checkSpecifiedProperty("registerDatetime");
         return _registerDatetime;
     }
 
@@ -457,7 +462,7 @@ public abstract class BsPurchasePayment extends AbstractEntity {
      * @param registerDatetime The value of the column 'register_datetime'. (basically NotNull if update: for the constraint)
      */
     public void setRegisterDatetime(java.sql.Timestamp registerDatetime) {
-        __modifiedProperties.addPropertyName("registerDatetime");
+        registerModifiedProperty("registerDatetime");
         _registerDatetime = registerDatetime;
     }
 
@@ -466,6 +471,7 @@ public abstract class BsPurchasePayment extends AbstractEntity {
      * @return The value of the column 'register_user'. (basically NotNull if selected: for the constraint)
      */
     public String getRegisterUser() {
+        checkSpecifiedProperty("registerUser");
         return _registerUser;
     }
 
@@ -474,7 +480,7 @@ public abstract class BsPurchasePayment extends AbstractEntity {
      * @param registerUser The value of the column 'register_user'. (basically NotNull if update: for the constraint)
      */
     public void setRegisterUser(String registerUser) {
-        __modifiedProperties.addPropertyName("registerUser");
+        registerModifiedProperty("registerUser");
         _registerUser = registerUser;
     }
 
@@ -483,6 +489,7 @@ public abstract class BsPurchasePayment extends AbstractEntity {
      * @return The value of the column 'update_datetime'. (basically NotNull if selected: for the constraint)
      */
     public java.sql.Timestamp getUpdateDatetime() {
+        checkSpecifiedProperty("updateDatetime");
         return _updateDatetime;
     }
 
@@ -491,7 +498,7 @@ public abstract class BsPurchasePayment extends AbstractEntity {
      * @param updateDatetime The value of the column 'update_datetime'. (basically NotNull if update: for the constraint)
      */
     public void setUpdateDatetime(java.sql.Timestamp updateDatetime) {
-        __modifiedProperties.addPropertyName("updateDatetime");
+        registerModifiedProperty("updateDatetime");
         _updateDatetime = updateDatetime;
     }
 
@@ -500,6 +507,7 @@ public abstract class BsPurchasePayment extends AbstractEntity {
      * @return The value of the column 'update_user'. (basically NotNull if selected: for the constraint)
      */
     public String getUpdateUser() {
+        checkSpecifiedProperty("updateUser");
         return _updateUser;
     }
 
@@ -508,7 +516,7 @@ public abstract class BsPurchasePayment extends AbstractEntity {
      * @param updateUser The value of the column 'update_user'. (basically NotNull if update: for the constraint)
      */
     public void setUpdateUser(String updateUser) {
-        __modifiedProperties.addPropertyName("updateUser");
+        registerModifiedProperty("updateUser");
         _updateUser = updateUser;
     }
 

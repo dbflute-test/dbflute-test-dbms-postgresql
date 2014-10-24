@@ -75,7 +75,6 @@ public abstract class BsSummaryProduct extends AbstractEntity {
     /** latest_purchase_datetime: {timestamp(29, 6)} */
     protected java.sql.Timestamp _latestPurchaseDatetime;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -151,10 +150,10 @@ public abstract class BsSummaryProduct extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_productId);
-        sb.append(dm).append(_productName);
-        sb.append(dm).append(_productStatusCode);
-        sb.append(dm).append(_latestPurchaseDatetime);
+        sb.append(dm).append(xfND(_productId));
+        sb.append(dm).append(xfND(_productName));
+        sb.append(dm).append(xfND(_productStatusCode));
+        sb.append(dm).append(xfND(_latestPurchaseDatetime));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -180,6 +179,7 @@ public abstract class BsSummaryProduct extends AbstractEntity {
      * @return The value of the column 'product_id'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getProductId() {
+        checkSpecifiedProperty("productId");
         return _productId;
     }
 
@@ -188,7 +188,7 @@ public abstract class BsSummaryProduct extends AbstractEntity {
      * @param productId The value of the column 'product_id'. (NullAllowed: null update allowed for no constraint)
      */
     public void setProductId(Integer productId) {
-        __modifiedProperties.addPropertyName("productId");
+        registerModifiedProperty("productId");
         _productId = productId;
     }
 
@@ -197,6 +197,7 @@ public abstract class BsSummaryProduct extends AbstractEntity {
      * @return The value of the column 'product_name'. (NullAllowed even if selected: for no constraint)
      */
     public String getProductName() {
+        checkSpecifiedProperty("productName");
         return _productName;
     }
 
@@ -205,7 +206,7 @@ public abstract class BsSummaryProduct extends AbstractEntity {
      * @param productName The value of the column 'product_name'. (NullAllowed: null update allowed for no constraint)
      */
     public void setProductName(String productName) {
-        __modifiedProperties.addPropertyName("productName");
+        registerModifiedProperty("productName");
         _productName = productName;
     }
 
@@ -214,6 +215,7 @@ public abstract class BsSummaryProduct extends AbstractEntity {
      * @return The value of the column 'product_status_code'. (NullAllowed even if selected: for no constraint)
      */
     public String getProductStatusCode() {
+        checkSpecifiedProperty("productStatusCode");
         return _productStatusCode;
     }
 
@@ -222,7 +224,7 @@ public abstract class BsSummaryProduct extends AbstractEntity {
      * @param productStatusCode The value of the column 'product_status_code'. (NullAllowed: null update allowed for no constraint)
      */
     public void setProductStatusCode(String productStatusCode) {
-        __modifiedProperties.addPropertyName("productStatusCode");
+        registerModifiedProperty("productStatusCode");
         _productStatusCode = productStatusCode;
     }
 
@@ -231,6 +233,7 @@ public abstract class BsSummaryProduct extends AbstractEntity {
      * @return The value of the column 'latest_purchase_datetime'. (NullAllowed even if selected: for no constraint)
      */
     public java.sql.Timestamp getLatestPurchaseDatetime() {
+        checkSpecifiedProperty("latestPurchaseDatetime");
         return _latestPurchaseDatetime;
     }
 
@@ -239,7 +242,7 @@ public abstract class BsSummaryProduct extends AbstractEntity {
      * @param latestPurchaseDatetime The value of the column 'latest_purchase_datetime'. (NullAllowed: null update allowed for no constraint)
      */
     public void setLatestPurchaseDatetime(java.sql.Timestamp latestPurchaseDatetime) {
-        __modifiedProperties.addPropertyName("latestPurchaseDatetime");
+        registerModifiedProperty("latestPurchaseDatetime");
         _latestPurchaseDatetime = latestPurchaseDatetime;
     }
 }

@@ -5,9 +5,9 @@ import java.util.Map;
 
 import org.dbflute.Entity;
 import org.dbflute.dbmeta.AbstractDBMeta;
-import org.dbflute.dbmeta.PropertyGateway;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
+import org.dbflute.dbmeta.property.PropertyGateway;
 import org.dbflute.dbway.DBDef;
 import org.docksidestage.postgresql.dbflute.allcommon.*;
 import org.docksidestage.postgresql.dbflute.exentity.*;
@@ -38,36 +38,12 @@ public class VendorInheritNekoDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgInuId(), "inuId");
-        setupEpg(_epgMap, new EpgInuName(), "inuName");
-        setupEpg(_epgMap, new EpgInuDate(), "inuDate");
-        setupEpg(_epgMap, new EpgNekoId(), "nekoId");
-        setupEpg(_epgMap, new EpgNekoName(), "nekoName");
-        setupEpg(_epgMap, new EpgNekoDate(), "nekoDate");
-    }
-    public static class EpgInuId implements PropertyGateway {
-        public Object read(Entity et) { return ((VendorInheritNeko)et).getInuId(); }
-        public void write(Entity et, Object vl) { ((VendorInheritNeko)et).setInuId(cti(vl)); }
-    }
-    public static class EpgInuName implements PropertyGateway {
-        public Object read(Entity et) { return ((VendorInheritNeko)et).getInuName(); }
-        public void write(Entity et, Object vl) { ((VendorInheritNeko)et).setInuName((String)vl); }
-    }
-    public static class EpgInuDate implements PropertyGateway {
-        public Object read(Entity et) { return ((VendorInheritNeko)et).getInuDate(); }
-        public void write(Entity et, Object vl) { ((VendorInheritNeko)et).setInuDate((java.util.Date)vl); }
-    }
-    public static class EpgNekoId implements PropertyGateway {
-        public Object read(Entity et) { return ((VendorInheritNeko)et).getNekoId(); }
-        public void write(Entity et, Object vl) { ((VendorInheritNeko)et).setNekoId(cti(vl)); }
-    }
-    public static class EpgNekoName implements PropertyGateway {
-        public Object read(Entity et) { return ((VendorInheritNeko)et).getNekoName(); }
-        public void write(Entity et, Object vl) { ((VendorInheritNeko)et).setNekoName((String)vl); }
-    }
-    public static class EpgNekoDate implements PropertyGateway {
-        public Object read(Entity et) { return ((VendorInheritNeko)et).getNekoDate(); }
-        public void write(Entity et, Object vl) { ((VendorInheritNeko)et).setNekoDate((java.util.Date)vl); }
+        setupEpg(_epgMap, et -> ((VendorInheritNeko)et).getInuId(), (et, vl) -> ((VendorInheritNeko)et).setInuId(cti(vl)), "inuId");
+        setupEpg(_epgMap, et -> ((VendorInheritNeko)et).getInuName(), (et, vl) -> ((VendorInheritNeko)et).setInuName((String)vl), "inuName");
+        setupEpg(_epgMap, et -> ((VendorInheritNeko)et).getInuDate(), (et, vl) -> ((VendorInheritNeko)et).setInuDate((java.util.Date)vl), "inuDate");
+        setupEpg(_epgMap, et -> ((VendorInheritNeko)et).getNekoId(), (et, vl) -> ((VendorInheritNeko)et).setNekoId(cti(vl)), "nekoId");
+        setupEpg(_epgMap, et -> ((VendorInheritNeko)et).getNekoName(), (et, vl) -> ((VendorInheritNeko)et).setNekoName((String)vl), "nekoName");
+        setupEpg(_epgMap, et -> ((VendorInheritNeko)et).getNekoDate(), (et, vl) -> ((VendorInheritNeko)et).setNekoDate((java.util.Date)vl), "nekoDate");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }

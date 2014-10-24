@@ -1,6 +1,5 @@
 package org.docksidestage.postgresql.dbflute.cbean.nss;
 
-import org.dbflute.cbean.ConditionQuery;
 import org.docksidestage.postgresql.dbflute.cbean.cq.VendorUuidFooCQ;
 
 /**
@@ -25,7 +24,7 @@ public class VendorUuidFooNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public VendorUuidBarNss withVendorUuidBar() {
-        _query.xdoNss(new VendorUuidFooCQ.NssCall() { public ConditionQuery qf() { return _query.queryVendorUuidBar(); }});
+        _query.xdoNss(() -> _query.queryVendorUuidBar());
         return new VendorUuidBarNss(_query.queryVendorUuidBar());
     }
 }

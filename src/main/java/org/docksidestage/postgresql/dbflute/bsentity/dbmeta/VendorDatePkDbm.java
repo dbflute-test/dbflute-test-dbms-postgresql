@@ -5,9 +5,9 @@ import java.util.Map;
 
 import org.dbflute.Entity;
 import org.dbflute.dbmeta.AbstractDBMeta;
-import org.dbflute.dbmeta.PropertyGateway;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
+import org.dbflute.dbmeta.property.PropertyGateway;
 import org.dbflute.dbway.DBDef;
 import org.docksidestage.postgresql.dbflute.allcommon.*;
 import org.docksidestage.postgresql.dbflute.exentity.*;
@@ -38,16 +38,8 @@ public class VendorDatePkDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgFooDate(), "fooDate");
-        setupEpg(_epgMap, new EpgFooName(), "fooName");
-    }
-    public static class EpgFooDate implements PropertyGateway {
-        public Object read(Entity et) { return ((VendorDatePk)et).getFooDate(); }
-        public void write(Entity et, Object vl) { ((VendorDatePk)et).setFooDate((java.util.Date)vl); }
-    }
-    public static class EpgFooName implements PropertyGateway {
-        public Object read(Entity et) { return ((VendorDatePk)et).getFooName(); }
-        public void write(Entity et, Object vl) { ((VendorDatePk)et).setFooName((String)vl); }
+        setupEpg(_epgMap, et -> ((VendorDatePk)et).getFooDate(), (et, vl) -> ((VendorDatePk)et).setFooDate((java.util.Date)vl), "fooDate");
+        setupEpg(_epgMap, et -> ((VendorDatePk)et).getFooName(), (et, vl) -> ((VendorDatePk)et).setFooName((String)vl), "fooName");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }

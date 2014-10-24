@@ -70,7 +70,6 @@ public abstract class BsNextschemaWhiteSameName extends AbstractEntity {
     /** same_name_long: {int8(19)} */
     protected Long _sameNameLong;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -164,9 +163,9 @@ public abstract class BsNextschemaWhiteSameName extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_sameNameId);
-        sb.append(dm).append(_sameNameName);
-        sb.append(dm).append(_sameNameLong);
+        sb.append(dm).append(xfND(_sameNameId));
+        sb.append(dm).append(xfND(_sameNameName));
+        sb.append(dm).append(xfND(_sameNameLong));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -198,6 +197,7 @@ public abstract class BsNextschemaWhiteSameName extends AbstractEntity {
      * @return The value of the column 'same_name_id'. (basically NotNull if selected: for the constraint)
      */
     public Integer getSameNameId() {
+        checkSpecifiedProperty("sameNameId");
         return _sameNameId;
     }
 
@@ -206,7 +206,7 @@ public abstract class BsNextschemaWhiteSameName extends AbstractEntity {
      * @param sameNameId The value of the column 'same_name_id'. (basically NotNull if update: for the constraint)
      */
     public void setSameNameId(Integer sameNameId) {
-        __modifiedProperties.addPropertyName("sameNameId");
+        registerModifiedProperty("sameNameId");
         _sameNameId = sameNameId;
     }
 
@@ -215,6 +215,7 @@ public abstract class BsNextschemaWhiteSameName extends AbstractEntity {
      * @return The value of the column 'same_name_name'. (NullAllowed even if selected: for no constraint)
      */
     public String getSameNameName() {
+        checkSpecifiedProperty("sameNameName");
         return _sameNameName;
     }
 
@@ -223,7 +224,7 @@ public abstract class BsNextschemaWhiteSameName extends AbstractEntity {
      * @param sameNameName The value of the column 'same_name_name'. (NullAllowed: null update allowed for no constraint)
      */
     public void setSameNameName(String sameNameName) {
-        __modifiedProperties.addPropertyName("sameNameName");
+        registerModifiedProperty("sameNameName");
         _sameNameName = sameNameName;
     }
 
@@ -232,6 +233,7 @@ public abstract class BsNextschemaWhiteSameName extends AbstractEntity {
      * @return The value of the column 'same_name_long'. (NullAllowed even if selected: for no constraint)
      */
     public Long getSameNameLong() {
+        checkSpecifiedProperty("sameNameLong");
         return _sameNameLong;
     }
 
@@ -240,7 +242,7 @@ public abstract class BsNextschemaWhiteSameName extends AbstractEntity {
      * @param sameNameLong The value of the column 'same_name_long'. (NullAllowed: null update allowed for no constraint)
      */
     public void setSameNameLong(Long sameNameLong) {
-        __modifiedProperties.addPropertyName("sameNameLong");
+        registerModifiedProperty("sameNameLong");
         _sameNameLong = sameNameLong;
     }
 }

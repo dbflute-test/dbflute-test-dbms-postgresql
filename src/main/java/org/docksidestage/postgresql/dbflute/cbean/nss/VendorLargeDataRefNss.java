@@ -1,6 +1,5 @@
 package org.docksidestage.postgresql.dbflute.cbean.nss;
 
-import org.dbflute.cbean.ConditionQuery;
 import org.docksidestage.postgresql.dbflute.cbean.cq.VendorLargeDataRefCQ;
 
 /**
@@ -25,7 +24,7 @@ public class VendorLargeDataRefNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public VendorLargeDataNss withVendorLargeData() {
-        _query.xdoNss(new VendorLargeDataRefCQ.NssCall() { public ConditionQuery qf() { return _query.queryVendorLargeData(); }});
+        _query.xdoNss(() -> _query.queryVendorLargeData());
         return new VendorLargeDataNss(_query.queryVendorLargeData());
     }
     /**
@@ -34,7 +33,7 @@ public class VendorLargeDataRefNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public VendorLargeDataRefNss withVendorLargeDataRefSelf() {
-        _query.xdoNss(new VendorLargeDataRefCQ.NssCall() { public ConditionQuery qf() { return _query.queryVendorLargeDataRefSelf(); }});
+        _query.xdoNss(() -> _query.queryVendorLargeDataRefSelf());
         return new VendorLargeDataRefNss(_query.queryVendorLargeDataRefSelf());
     }
 }

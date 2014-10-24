@@ -134,7 +134,7 @@ public abstract class AbstractBsVendorUuidFooCQ extends AbstractConditionQuery {
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * foo_name: {NotNull, varchar(2147483647)} <br />
-     * <pre>e.g. setFooName_LikeSearch("xxx", op -&gt; op.<span style="color: #CC4747">likeContain()</span>);</pre>
+     * <pre>e.g. setFooName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param fooName The value of fooName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
@@ -337,9 +337,7 @@ public abstract class AbstractBsVendorUuidFooCQ extends AbstractConditionQuery {
     public void xsmyselfDerive(String fn, SubQuery<VendorUuidFooCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         VendorUuidFooCB cb = new VendorUuidFooCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String pp = keepSpecifyMyselfDerived(cb.query());
-        String pk = "foo_id";
+        lockCall(() -> sq.query(cb)); String pp = keepSpecifyMyselfDerived(cb.query()); String pk = "foo_id";
         registerSpecifyMyselfDerived(fn, cb.query(), pk, pk, pp, "myselfDerived", al, op);
     }
     public abstract String keepSpecifyMyselfDerived(VendorUuidFooCQ sq);
@@ -373,8 +371,7 @@ public abstract class AbstractBsVendorUuidFooCQ extends AbstractConditionQuery {
     public void myselfExists(SubQuery<VendorUuidFooCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         VendorUuidFooCB cb = new VendorUuidFooCB(); cb.xsetupForMyselfExists(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepMyselfExists(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepMyselfExists(cb.query());
         registerMyselfExists(cb.query(), pp);
     }
     public abstract String keepMyselfExists(VendorUuidFooCQ sq);

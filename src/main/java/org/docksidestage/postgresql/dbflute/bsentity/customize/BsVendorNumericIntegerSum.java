@@ -59,7 +59,6 @@ public abstract class BsVendorNumericIntegerSum extends AbstractEntity {
     /** integer_non_digit_sum: {numeric(131089)} */
     protected java.math.BigDecimal _integerNonDigitSum;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -129,7 +128,7 @@ public abstract class BsVendorNumericIntegerSum extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_integerNonDigitSum);
+        sb.append(dm).append(xfND(_integerNonDigitSum));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -155,6 +154,7 @@ public abstract class BsVendorNumericIntegerSum extends AbstractEntity {
      * @return The value of the column 'integer_non_digit_sum'. (NullAllowed even if selected: for no constraint)
      */
     public java.math.BigDecimal getIntegerNonDigitSum() {
+        checkSpecifiedProperty("integerNonDigitSum");
         return _integerNonDigitSum;
     }
 
@@ -163,7 +163,7 @@ public abstract class BsVendorNumericIntegerSum extends AbstractEntity {
      * @param integerNonDigitSum The value of the column 'integer_non_digit_sum'. (NullAllowed: null update allowed for no constraint)
      */
     public void setIntegerNonDigitSum(java.math.BigDecimal integerNonDigitSum) {
-        __modifiedProperties.addPropertyName("integerNonDigitSum");
+        registerModifiedProperty("integerNonDigitSum");
         _integerNonDigitSum = integerNonDigitSum;
     }
 }

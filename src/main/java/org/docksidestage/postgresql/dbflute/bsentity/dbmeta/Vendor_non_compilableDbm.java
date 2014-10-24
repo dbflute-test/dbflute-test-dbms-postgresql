@@ -5,9 +5,9 @@ import java.util.Map;
 
 import org.dbflute.Entity;
 import org.dbflute.dbmeta.AbstractDBMeta;
-import org.dbflute.dbmeta.PropertyGateway;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
+import org.dbflute.dbmeta.property.PropertyGateway;
 import org.dbflute.dbway.DBDef;
 import org.docksidestage.postgresql.dbflute.allcommon.*;
 import org.docksidestage.postgresql.dbflute.exentity.*;
@@ -38,26 +38,10 @@ public class Vendor_non_compilableDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgNon_compilable_id(), "non_compilable_id");
-        setupEpg(_epgMap, new EpgNon_compilable_name(), "non_compilable_name");
-        setupEpg(_epgMap, new EpgParent_id(), "parent_id");
-        setupEpg(_epgMap, new EpgNextParentid(), "nextParentid");
-    }
-    public static class EpgNon_compilable_id implements PropertyGateway {
-        public Object read(Entity et) { return ((Vendor_non_compilable)et).getNon_compilable_id(); }
-        public void write(Entity et, Object vl) { ((Vendor_non_compilable)et).setNon_compilable_id(cti(vl)); }
-    }
-    public static class EpgNon_compilable_name implements PropertyGateway {
-        public Object read(Entity et) { return ((Vendor_non_compilable)et).getNon_compilable_name(); }
-        public void write(Entity et, Object vl) { ((Vendor_non_compilable)et).setNon_compilable_name((String)vl); }
-    }
-    public static class EpgParent_id implements PropertyGateway {
-        public Object read(Entity et) { return ((Vendor_non_compilable)et).getParent_id(); }
-        public void write(Entity et, Object vl) { ((Vendor_non_compilable)et).setParent_id(cti(vl)); }
-    }
-    public static class EpgNextParentid implements PropertyGateway {
-        public Object read(Entity et) { return ((Vendor_non_compilable)et).getNextParentid(); }
-        public void write(Entity et, Object vl) { ((Vendor_non_compilable)et).setNextParentid(cti(vl)); }
+        setupEpg(_epgMap, et -> ((Vendor_non_compilable)et).getNon_compilable_id(), (et, vl) -> ((Vendor_non_compilable)et).setNon_compilable_id(cti(vl)), "non_compilable_id");
+        setupEpg(_epgMap, et -> ((Vendor_non_compilable)et).getNon_compilable_name(), (et, vl) -> ((Vendor_non_compilable)et).setNon_compilable_name((String)vl), "non_compilable_name");
+        setupEpg(_epgMap, et -> ((Vendor_non_compilable)et).getParent_id(), (et, vl) -> ((Vendor_non_compilable)et).setParent_id(cti(vl)), "parent_id");
+        setupEpg(_epgMap, et -> ((Vendor_non_compilable)et).getNextParentid(), (et, vl) -> ((Vendor_non_compilable)et).setNextParentid(cti(vl)), "nextParentid");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -66,17 +50,10 @@ public class Vendor_non_compilableDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
-    {
-        setupEfpg(_efpgMap, new EfpgVendor_non_compilableByNextParentidSelf(), "vendor_non_compilableByNextParentidSelf");
-        setupEfpg(_efpgMap, new EfpgVendor_non_compilableByParent_idSelf(), "vendor_non_compilableByParent_idSelf");
-    }
-    public class EfpgVendor_non_compilableByNextParentidSelf implements PropertyGateway {
-        public Object read(Entity et) { return ((Vendor_non_compilable)et).getVendor_non_compilableByNextParentidSelf(); }
-        public void write(Entity et, Object vl) { ((Vendor_non_compilable)et).setVendor_non_compilableByNextParentidSelf((Vendor_non_compilable)vl); }
-    }
-    public class EfpgVendor_non_compilableByParent_idSelf implements PropertyGateway {
-        public Object read(Entity et) { return ((Vendor_non_compilable)et).getVendor_non_compilableByParent_idSelf(); }
-        public void write(Entity et, Object vl) { ((Vendor_non_compilable)et).setVendor_non_compilableByParent_idSelf((Vendor_non_compilable)vl); }
+    { xsetupEfpg(); }
+    protected void xsetupEfpg() {
+        setupEfpg(_efpgMap, et -> ((Vendor_non_compilable)et).getVendor_non_compilableByNextParentidSelf(), (et, vl) -> ((Vendor_non_compilable)et).setVendor_non_compilableByNextParentidSelf((Vendor_non_compilable)vl), "vendor_non_compilableByNextParentidSelf");
+        setupEfpg(_efpgMap, et -> ((Vendor_non_compilable)et).getVendor_non_compilableByParent_idSelf(), (et, vl) -> ((Vendor_non_compilable)et).setVendor_non_compilableByParent_idSelf((Vendor_non_compilable)vl), "vendor_non_compilableByParent_idSelf");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }

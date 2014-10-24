@@ -80,7 +80,6 @@ public abstract class BsWhiteXlsMan extends AbstractEntity {
     /** timestamp_zero_suffix_millis: {timestamp(26, 3)} */
     protected java.sql.Timestamp _timestampZeroSuffixMillis;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -151,11 +150,11 @@ public abstract class BsWhiteXlsMan extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_xlsManId);
-        sb.append(dm).append(_stringConverted);
-        sb.append(dm).append(_timestampZeroDefaultMillis);
-        sb.append(dm).append(_timestampZeroPrefixMillis);
-        sb.append(dm).append(_timestampZeroSuffixMillis);
+        sb.append(dm).append(xfND(_xlsManId));
+        sb.append(dm).append(xfND(_stringConverted));
+        sb.append(dm).append(xfND(_timestampZeroDefaultMillis));
+        sb.append(dm).append(xfND(_timestampZeroPrefixMillis));
+        sb.append(dm).append(xfND(_timestampZeroSuffixMillis));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -181,6 +180,7 @@ public abstract class BsWhiteXlsMan extends AbstractEntity {
      * @return The value of the column 'xls_man_id'. (basically NotNull if selected: for the constraint)
      */
     public Long getXlsManId() {
+        checkSpecifiedProperty("xlsManId");
         return _xlsManId;
     }
 
@@ -189,7 +189,7 @@ public abstract class BsWhiteXlsMan extends AbstractEntity {
      * @param xlsManId The value of the column 'xls_man_id'. (basically NotNull if update: for the constraint)
      */
     public void setXlsManId(Long xlsManId) {
-        __modifiedProperties.addPropertyName("xlsManId");
+        registerModifiedProperty("xlsManId");
         _xlsManId = xlsManId;
     }
 
@@ -198,6 +198,7 @@ public abstract class BsWhiteXlsMan extends AbstractEntity {
      * @return The value of the column 'string_converted'. (NullAllowed even if selected: for no constraint)
      */
     public String getStringConverted() {
+        checkSpecifiedProperty("stringConverted");
         return _stringConverted;
     }
 
@@ -206,7 +207,7 @@ public abstract class BsWhiteXlsMan extends AbstractEntity {
      * @param stringConverted The value of the column 'string_converted'. (NullAllowed: null update allowed for no constraint)
      */
     public void setStringConverted(String stringConverted) {
-        __modifiedProperties.addPropertyName("stringConverted");
+        registerModifiedProperty("stringConverted");
         _stringConverted = stringConverted;
     }
 
@@ -215,6 +216,7 @@ public abstract class BsWhiteXlsMan extends AbstractEntity {
      * @return The value of the column 'timestamp_zero_default_millis'. (NullAllowed even if selected: for no constraint)
      */
     public java.sql.Timestamp getTimestampZeroDefaultMillis() {
+        checkSpecifiedProperty("timestampZeroDefaultMillis");
         return _timestampZeroDefaultMillis;
     }
 
@@ -223,7 +225,7 @@ public abstract class BsWhiteXlsMan extends AbstractEntity {
      * @param timestampZeroDefaultMillis The value of the column 'timestamp_zero_default_millis'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTimestampZeroDefaultMillis(java.sql.Timestamp timestampZeroDefaultMillis) {
-        __modifiedProperties.addPropertyName("timestampZeroDefaultMillis");
+        registerModifiedProperty("timestampZeroDefaultMillis");
         _timestampZeroDefaultMillis = timestampZeroDefaultMillis;
     }
 
@@ -232,6 +234,7 @@ public abstract class BsWhiteXlsMan extends AbstractEntity {
      * @return The value of the column 'timestamp_zero_prefix_millis'. (NullAllowed even if selected: for no constraint)
      */
     public java.sql.Timestamp getTimestampZeroPrefixMillis() {
+        checkSpecifiedProperty("timestampZeroPrefixMillis");
         return _timestampZeroPrefixMillis;
     }
 
@@ -240,7 +243,7 @@ public abstract class BsWhiteXlsMan extends AbstractEntity {
      * @param timestampZeroPrefixMillis The value of the column 'timestamp_zero_prefix_millis'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTimestampZeroPrefixMillis(java.sql.Timestamp timestampZeroPrefixMillis) {
-        __modifiedProperties.addPropertyName("timestampZeroPrefixMillis");
+        registerModifiedProperty("timestampZeroPrefixMillis");
         _timestampZeroPrefixMillis = timestampZeroPrefixMillis;
     }
 
@@ -249,6 +252,7 @@ public abstract class BsWhiteXlsMan extends AbstractEntity {
      * @return The value of the column 'timestamp_zero_suffix_millis'. (NullAllowed even if selected: for no constraint)
      */
     public java.sql.Timestamp getTimestampZeroSuffixMillis() {
+        checkSpecifiedProperty("timestampZeroSuffixMillis");
         return _timestampZeroSuffixMillis;
     }
 
@@ -257,7 +261,7 @@ public abstract class BsWhiteXlsMan extends AbstractEntity {
      * @param timestampZeroSuffixMillis The value of the column 'timestamp_zero_suffix_millis'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTimestampZeroSuffixMillis(java.sql.Timestamp timestampZeroSuffixMillis) {
-        __modifiedProperties.addPropertyName("timestampZeroSuffixMillis");
+        registerModifiedProperty("timestampZeroSuffixMillis");
         _timestampZeroSuffixMillis = timestampZeroSuffixMillis;
     }
 }

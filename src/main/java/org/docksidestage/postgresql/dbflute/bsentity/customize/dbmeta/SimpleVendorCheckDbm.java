@@ -5,9 +5,9 @@ import java.util.Map;
 
 import org.dbflute.Entity;
 import org.dbflute.dbmeta.AbstractDBMeta;
-import org.dbflute.dbmeta.PropertyGateway;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
+import org.dbflute.dbmeta.property.PropertyGateway;
 import org.dbflute.dbway.DBDef;
 import org.docksidestage.postgresql.dbflute.allcommon.*;
 import org.docksidestage.postgresql.dbflute.exentity.customize.*;
@@ -38,106 +38,25 @@ public class SimpleVendorCheckDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgVendorCheckId(), "vendorCheckId");
-        setupEpg(_epgMap, new EpgTypeOfVarchar(), "typeOfVarchar");
-        setupEpg(_epgMap, new EpgTypeOfVcArray(), "typeOfVcArray");
-        setupEpg(_epgMap, new EpgTypeOfText(), "typeOfText");
-        setupEpg(_epgMap, new EpgTypeOfNumericInteger(), "typeOfNumericInteger");
-        setupEpg(_epgMap, new EpgTypeOfNumericBigint(), "typeOfNumericBigint");
-        setupEpg(_epgMap, new EpgTypeOfNumericDecimal(), "typeOfNumericDecimal");
-        setupEpg(_epgMap, new EpgTypeOfDecimal(), "typeOfDecimal");
-        setupEpg(_epgMap, new EpgTypeOfBigint(), "typeOfBigint");
-        setupEpg(_epgMap, new EpgTypeOfInt8(), "typeOfInt8");
-        setupEpg(_epgMap, new EpgTypeOfIntArray(), "typeOfIntArray");
-        setupEpg(_epgMap, new EpgTypeOfInt4(), "typeOfInt4");
-        setupEpg(_epgMap, new EpgTypeOfMoney(), "typeOfMoney");
-        setupEpg(_epgMap, new EpgTypeOfDate(), "typeOfDate");
-        setupEpg(_epgMap, new EpgTypeOfTime(), "typeOfTime");
-        setupEpg(_epgMap, new EpgTypeOfTimestamp(), "typeOfTimestamp");
-        setupEpg(_epgMap, new EpgTypeOfInterval(), "typeOfInterval");
-        setupEpg(_epgMap, new EpgTypeOfTimetz(), "typeOfTimetz");
-        setupEpg(_epgMap, new EpgTypeOfBool(), "typeOfBool");
-        setupEpg(_epgMap, new EpgTypeOfBit(), "typeOfBit");
-        setupEpg(_epgMap, new EpgTypeOfBytea(), "typeOfBytea");
-        setupEpg(_epgMap, new EpgTypeOfUuid(), "typeOfUuid");
-        setupEpg(_epgMap, new EpgTypeOfOid(), "typeOfOid");
-        setupEpg(_epgMap, new EpgTypeOfXml(), "typeOfXml");
-    }
-    public static class EpgVendorCheckId implements PropertyGateway {
-        public Object read(Entity et) { return ((SimpleVendorCheck)et).getVendorCheckId(); }
-        public void write(Entity et, Object vl) { ((SimpleVendorCheck)et).setVendorCheckId(ctl(vl)); }
-    }
-    public static class EpgTypeOfVarchar implements PropertyGateway {
-        public Object read(Entity et) { return ((SimpleVendorCheck)et).getTypeOfVarchar(); }
-        public void write(Entity et, Object vl) { ((SimpleVendorCheck)et).setTypeOfVarchar((String)vl); }
-    }
-    public static class EpgTypeOfVcArray implements PropertyGateway {
-        public Object read(Entity et) { return ((SimpleVendorCheck)et).getTypeOfVcArray(); }
-        public void write(Entity et, Object vl) { ((SimpleVendorCheck)et).setTypeOfVcArray((org.docksidestage.postgresql.mytype.MyArray)vl); }
-    }
-    public static class EpgTypeOfText implements PropertyGateway {
-        public Object read(Entity et) { return ((SimpleVendorCheck)et).getTypeOfText(); }
-        public void write(Entity et, Object vl) { ((SimpleVendorCheck)et).setTypeOfText((String)vl); }
-    }
-    public static class EpgTypeOfNumericInteger implements PropertyGateway {
-        public Object read(Entity et) { return ((SimpleVendorCheck)et).getTypeOfNumericInteger(); }
-        public void write(Entity et, Object vl) { ((SimpleVendorCheck)et).setTypeOfNumericInteger(cti(vl)); }
-    }
-    public static class EpgTypeOfNumericBigint implements PropertyGateway {
-        public Object read(Entity et) { return ((SimpleVendorCheck)et).getTypeOfNumericBigint(); }
-        public void write(Entity et, Object vl) { ((SimpleVendorCheck)et).setTypeOfNumericBigint(ctl(vl)); }
-    }
-    public static class EpgTypeOfNumericDecimal implements PropertyGateway {
-        public Object read(Entity et) { return ((SimpleVendorCheck)et).getTypeOfNumericDecimal(); }
-        public void write(Entity et, Object vl) { ((SimpleVendorCheck)et).setTypeOfNumericDecimal(ctb(vl)); }
-    }
-    public static class EpgTypeOfDecimal implements PropertyGateway {
-        public Object read(Entity et) { return ((SimpleVendorCheck)et).getTypeOfDecimal(); }
-        public void write(Entity et, Object vl) { ((SimpleVendorCheck)et).setTypeOfDecimal(ctb(vl)); }
-    }
-    public static class EpgTypeOfBigint implements PropertyGateway {
-        public Object read(Entity et) { return ((SimpleVendorCheck)et).getTypeOfBigint(); }
-        public void write(Entity et, Object vl) { ((SimpleVendorCheck)et).setTypeOfBigint(ctl(vl)); }
-    }
-    public static class EpgTypeOfInt8 implements PropertyGateway {
-        public Object read(Entity et) { return ((SimpleVendorCheck)et).getTypeOfInt8(); }
-        public void write(Entity et, Object vl) { ((SimpleVendorCheck)et).setTypeOfInt8(ctl(vl)); }
-    }
-    public static class EpgTypeOfIntArray implements PropertyGateway {
-        public Object read(Entity et) { return ((SimpleVendorCheck)et).getTypeOfIntArray(); }
-        public void write(Entity et, Object vl) { ((SimpleVendorCheck)et).setTypeOfIntArray((org.docksidestage.postgresql.mytype.MyArray)vl); }
-    }
-    public static class EpgTypeOfInt4 implements PropertyGateway {
-        public Object read(Entity et) { return ((SimpleVendorCheck)et).getTypeOfInt4(); }
-        public void write(Entity et, Object vl) { ((SimpleVendorCheck)et).setTypeOfInt4(cti(vl)); }
-    }
-    public static class EpgTypeOfMoney implements PropertyGateway {
-        public Object read(Entity et) { return ((SimpleVendorCheck)et).getTypeOfMoney(); }
-        public void write(Entity et, Object vl) { ((SimpleVendorCheck)et).setTypeOfMoney(ctb(vl)); }
-    }
-    public static class EpgTypeOfDate implements PropertyGateway {
-        public Object read(Entity et) { return ((SimpleVendorCheck)et).getTypeOfDate(); }
-        public void write(Entity et, Object vl) { ((SimpleVendorCheck)et).setTypeOfDate((java.util.Date)vl); }
-    }
-    public static class EpgTypeOfTime implements PropertyGateway {
-        public Object read(Entity et) { return ((SimpleVendorCheck)et).getTypeOfTime(); }
-        public void write(Entity et, Object vl) { ((SimpleVendorCheck)et).setTypeOfTime((java.sql.Time)vl); }
-    }
-    public static class EpgTypeOfTimestamp implements PropertyGateway {
-        public Object read(Entity et) { return ((SimpleVendorCheck)et).getTypeOfTimestamp(); }
-        public void write(Entity et, Object vl) { ((SimpleVendorCheck)et).setTypeOfTimestamp((java.sql.Timestamp)vl); }
-    }
-    public static class EpgTypeOfInterval implements PropertyGateway {
-        public Object read(Entity et) { return ((SimpleVendorCheck)et).getTypeOfInterval(); }
-        public void write(Entity et, Object vl) { ((SimpleVendorCheck)et).setTypeOfInterval((String)vl); }
-    }
-    public static class EpgTypeOfTimetz implements PropertyGateway {
-        public Object read(Entity et) { return ((SimpleVendorCheck)et).getTypeOfTimetz(); }
-        public void write(Entity et, Object vl) { ((SimpleVendorCheck)et).setTypeOfTimetz((java.sql.Time)vl); }
-    }
-    public class EpgTypeOfBool implements PropertyGateway {
-        public Object read(Entity et) { return ((SimpleVendorCheck)et).getTypeOfBool(); }
-        public void write(Entity et, Object vl) {
+        setupEpg(_epgMap, et -> ((SimpleVendorCheck)et).getVendorCheckId(), (et, vl) -> ((SimpleVendorCheck)et).setVendorCheckId(ctl(vl)), "vendorCheckId");
+        setupEpg(_epgMap, et -> ((SimpleVendorCheck)et).getTypeOfVarchar(), (et, vl) -> ((SimpleVendorCheck)et).setTypeOfVarchar((String)vl), "typeOfVarchar");
+        setupEpg(_epgMap, et -> ((SimpleVendorCheck)et).getTypeOfVcArray(), (et, vl) -> ((SimpleVendorCheck)et).setTypeOfVcArray((org.docksidestage.postgresql.mytype.MyArray)vl), "typeOfVcArray");
+        setupEpg(_epgMap, et -> ((SimpleVendorCheck)et).getTypeOfText(), (et, vl) -> ((SimpleVendorCheck)et).setTypeOfText((String)vl), "typeOfText");
+        setupEpg(_epgMap, et -> ((SimpleVendorCheck)et).getTypeOfNumericInteger(), (et, vl) -> ((SimpleVendorCheck)et).setTypeOfNumericInteger(cti(vl)), "typeOfNumericInteger");
+        setupEpg(_epgMap, et -> ((SimpleVendorCheck)et).getTypeOfNumericBigint(), (et, vl) -> ((SimpleVendorCheck)et).setTypeOfNumericBigint(ctl(vl)), "typeOfNumericBigint");
+        setupEpg(_epgMap, et -> ((SimpleVendorCheck)et).getTypeOfNumericDecimal(), (et, vl) -> ((SimpleVendorCheck)et).setTypeOfNumericDecimal(ctb(vl)), "typeOfNumericDecimal");
+        setupEpg(_epgMap, et -> ((SimpleVendorCheck)et).getTypeOfDecimal(), (et, vl) -> ((SimpleVendorCheck)et).setTypeOfDecimal(ctb(vl)), "typeOfDecimal");
+        setupEpg(_epgMap, et -> ((SimpleVendorCheck)et).getTypeOfBigint(), (et, vl) -> ((SimpleVendorCheck)et).setTypeOfBigint(ctl(vl)), "typeOfBigint");
+        setupEpg(_epgMap, et -> ((SimpleVendorCheck)et).getTypeOfInt8(), (et, vl) -> ((SimpleVendorCheck)et).setTypeOfInt8(ctl(vl)), "typeOfInt8");
+        setupEpg(_epgMap, et -> ((SimpleVendorCheck)et).getTypeOfIntArray(), (et, vl) -> ((SimpleVendorCheck)et).setTypeOfIntArray((org.docksidestage.postgresql.mytype.MyArray)vl), "typeOfIntArray");
+        setupEpg(_epgMap, et -> ((SimpleVendorCheck)et).getTypeOfInt4(), (et, vl) -> ((SimpleVendorCheck)et).setTypeOfInt4(cti(vl)), "typeOfInt4");
+        setupEpg(_epgMap, et -> ((SimpleVendorCheck)et).getTypeOfMoney(), (et, vl) -> ((SimpleVendorCheck)et).setTypeOfMoney(ctb(vl)), "typeOfMoney");
+        setupEpg(_epgMap, et -> ((SimpleVendorCheck)et).getTypeOfDate(), (et, vl) -> ((SimpleVendorCheck)et).setTypeOfDate((java.util.Date)vl), "typeOfDate");
+        setupEpg(_epgMap, et -> ((SimpleVendorCheck)et).getTypeOfTime(), (et, vl) -> ((SimpleVendorCheck)et).setTypeOfTime((java.sql.Time)vl), "typeOfTime");
+        setupEpg(_epgMap, et -> ((SimpleVendorCheck)et).getTypeOfTimestamp(), (et, vl) -> ((SimpleVendorCheck)et).setTypeOfTimestamp((java.sql.Timestamp)vl), "typeOfTimestamp");
+        setupEpg(_epgMap, et -> ((SimpleVendorCheck)et).getTypeOfInterval(), (et, vl) -> ((SimpleVendorCheck)et).setTypeOfInterval((String)vl), "typeOfInterval");
+        setupEpg(_epgMap, et -> ((SimpleVendorCheck)et).getTypeOfTimetz(), (et, vl) -> ((SimpleVendorCheck)et).setTypeOfTimetz((java.sql.Time)vl), "typeOfTimetz");
+        setupEpg(_epgMap, et -> ((SimpleVendorCheck)et).getTypeOfBool(), (et, vl) -> {
             ColumnInfo col = columnTypeOfBool();
             CDef.TrueFalse cls = (CDef.TrueFalse)gcls(col, vl);
             if (cls != null) {
@@ -145,27 +64,12 @@ public class SimpleVendorCheckDbm extends AbstractDBMeta {
             } else {
                 ((SimpleVendorCheck)et).mynativeMappingTypeOfBool((Boolean)vl);
             }
-        }
-    }
-    public static class EpgTypeOfBit implements PropertyGateway {
-        public Object read(Entity et) { return ((SimpleVendorCheck)et).getTypeOfBit(); }
-        public void write(Entity et, Object vl) { ((SimpleVendorCheck)et).setTypeOfBit((Boolean)vl); }
-    }
-    public static class EpgTypeOfBytea implements PropertyGateway {
-        public Object read(Entity et) { return ((SimpleVendorCheck)et).getTypeOfBytea(); }
-        public void write(Entity et, Object vl) { ((SimpleVendorCheck)et).setTypeOfBytea((byte[])vl); }
-    }
-    public static class EpgTypeOfUuid implements PropertyGateway {
-        public Object read(Entity et) { return ((SimpleVendorCheck)et).getTypeOfUuid(); }
-        public void write(Entity et, Object vl) { ((SimpleVendorCheck)et).setTypeOfUuid((java.util.UUID)vl); }
-    }
-    public static class EpgTypeOfOid implements PropertyGateway {
-        public Object read(Entity et) { return ((SimpleVendorCheck)et).getTypeOfOid(); }
-        public void write(Entity et, Object vl) { ((SimpleVendorCheck)et).setTypeOfOid((byte[])vl); }
-    }
-    public static class EpgTypeOfXml implements PropertyGateway {
-        public Object read(Entity et) { return ((SimpleVendorCheck)et).getTypeOfXml(); }
-        public void write(Entity et, Object vl) { ((SimpleVendorCheck)et).setTypeOfXml((org.docksidestage.postgresql.mytype.MyXML)vl); }
+        }, "typeOfBool");
+        setupEpg(_epgMap, et -> ((SimpleVendorCheck)et).getTypeOfBit(), (et, vl) -> ((SimpleVendorCheck)et).setTypeOfBit((Boolean)vl), "typeOfBit");
+        setupEpg(_epgMap, et -> ((SimpleVendorCheck)et).getTypeOfBytea(), (et, vl) -> ((SimpleVendorCheck)et).setTypeOfBytea((byte[])vl), "typeOfBytea");
+        setupEpg(_epgMap, et -> ((SimpleVendorCheck)et).getTypeOfUuid(), (et, vl) -> ((SimpleVendorCheck)et).setTypeOfUuid((java.util.UUID)vl), "typeOfUuid");
+        setupEpg(_epgMap, et -> ((SimpleVendorCheck)et).getTypeOfOid(), (et, vl) -> ((SimpleVendorCheck)et).setTypeOfOid((byte[])vl), "typeOfOid");
+        setupEpg(_epgMap, et -> ((SimpleVendorCheck)et).getTypeOfXml(), (et, vl) -> ((SimpleVendorCheck)et).setTypeOfXml((org.docksidestage.postgresql.mytype.MyXML)vl), "typeOfXml");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }

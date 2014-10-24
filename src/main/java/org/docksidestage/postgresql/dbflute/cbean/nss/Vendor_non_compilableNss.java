@@ -1,6 +1,5 @@
 package org.docksidestage.postgresql.dbflute.cbean.nss;
 
-import org.dbflute.cbean.ConditionQuery;
 import org.docksidestage.postgresql.dbflute.cbean.cq.Vendor_non_compilableCQ;
 
 /**
@@ -25,7 +24,7 @@ public class Vendor_non_compilableNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public Vendor_non_compilableNss withVendor_non_compilableByNextParentidSelf() {
-        _query.xdoNss(new Vendor_non_compilableCQ.NssCall() { public ConditionQuery qf() { return _query.queryVendor_non_compilableByNextParentidSelf(); }});
+        _query.xdoNss(() -> _query.queryVendor_non_compilableByNextParentidSelf());
         return new Vendor_non_compilableNss(_query.queryVendor_non_compilableByNextParentidSelf());
     }
     /**
@@ -34,7 +33,7 @@ public class Vendor_non_compilableNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public Vendor_non_compilableNss withVendor_non_compilableByParent_idSelf() {
-        _query.xdoNss(new Vendor_non_compilableCQ.NssCall() { public ConditionQuery qf() { return _query.queryVendor_non_compilableByParent_idSelf(); }});
+        _query.xdoNss(() -> _query.queryVendor_non_compilableByParent_idSelf());
         return new Vendor_non_compilableNss(_query.queryVendor_non_compilableByParent_idSelf());
     }
 }

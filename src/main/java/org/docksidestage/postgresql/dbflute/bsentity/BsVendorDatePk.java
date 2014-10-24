@@ -65,7 +65,6 @@ public abstract class BsVendorDatePk extends AbstractEntity {
     /** foo_name: {NotNull, varchar(2147483647)} */
     protected String _fooName;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -160,7 +159,7 @@ public abstract class BsVendorDatePk extends AbstractEntity {
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
         sb.append(dm).append(xfUD(_fooDate));
-        sb.append(dm).append(_fooName);
+        sb.append(dm).append(xfND(_fooName));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -192,6 +191,7 @@ public abstract class BsVendorDatePk extends AbstractEntity {
      * @return The value of the column 'foo_date'. (basically NotNull if selected: for the constraint)
      */
     public java.util.Date getFooDate() {
+        checkSpecifiedProperty("fooDate");
         return _fooDate;
     }
 
@@ -200,7 +200,7 @@ public abstract class BsVendorDatePk extends AbstractEntity {
      * @param fooDate The value of the column 'foo_date'. (basically NotNull if update: for the constraint)
      */
     public void setFooDate(java.util.Date fooDate) {
-        __modifiedProperties.addPropertyName("fooDate");
+        registerModifiedProperty("fooDate");
         _fooDate = fooDate;
     }
 
@@ -209,6 +209,7 @@ public abstract class BsVendorDatePk extends AbstractEntity {
      * @return The value of the column 'foo_name'. (basically NotNull if selected: for the constraint)
      */
     public String getFooName() {
+        checkSpecifiedProperty("fooName");
         return _fooName;
     }
 
@@ -217,7 +218,7 @@ public abstract class BsVendorDatePk extends AbstractEntity {
      * @param fooName The value of the column 'foo_name'. (basically NotNull if update: for the constraint)
      */
     public void setFooName(String fooName) {
-        __modifiedProperties.addPropertyName("fooName");
+        registerModifiedProperty("fooName");
         _fooName = fooName;
     }
 }

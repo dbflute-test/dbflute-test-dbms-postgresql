@@ -74,7 +74,6 @@ public abstract class BsPurchaseMaxPriceMember extends AbstractEntity {
     /** (会員ステータス名称)member_status_name: {varchar(50), refers to member_status.member_status_name} */
     protected String _memberStatusName;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -150,10 +149,10 @@ public abstract class BsPurchaseMaxPriceMember extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_memberId);
-        sb.append(dm).append(_memberName);
-        sb.append(dm).append(_purchaseMaxPrice);
-        sb.append(dm).append(_memberStatusName);
+        sb.append(dm).append(xfND(_memberId));
+        sb.append(dm).append(xfND(_memberName));
+        sb.append(dm).append(xfND(_purchaseMaxPrice));
+        sb.append(dm).append(xfND(_memberStatusName));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -181,6 +180,7 @@ public abstract class BsPurchaseMaxPriceMember extends AbstractEntity {
      * @return The value of the column 'member_id'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getMemberId() {
+        checkSpecifiedProperty("memberId");
         return _memberId;
     }
 
@@ -191,7 +191,7 @@ public abstract class BsPurchaseMaxPriceMember extends AbstractEntity {
      * @param memberId The value of the column 'member_id'. (NullAllowed: null update allowed for no constraint)
      */
     public void setMemberId(Integer memberId) {
-        __modifiedProperties.addPropertyName("memberId");
+        registerModifiedProperty("memberId");
         _memberId = memberId;
     }
 
@@ -203,6 +203,7 @@ public abstract class BsPurchaseMaxPriceMember extends AbstractEntity {
      * @return The value of the column 'member_name'. (NullAllowed even if selected: for no constraint)
      */
     public String getMemberName() {
+        checkSpecifiedProperty("memberName");
         return _memberName;
     }
 
@@ -214,7 +215,7 @@ public abstract class BsPurchaseMaxPriceMember extends AbstractEntity {
      * @param memberName The value of the column 'member_name'. (NullAllowed: null update allowed for no constraint)
      */
     public void setMemberName(String memberName) {
-        __modifiedProperties.addPropertyName("memberName");
+        registerModifiedProperty("memberName");
         _memberName = memberName;
     }
 
@@ -224,6 +225,7 @@ public abstract class BsPurchaseMaxPriceMember extends AbstractEntity {
      * @return The value of the column 'purchase_max_price'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getPurchaseMaxPrice() {
+        checkSpecifiedProperty("purchaseMaxPrice");
         return _purchaseMaxPrice;
     }
 
@@ -233,7 +235,7 @@ public abstract class BsPurchaseMaxPriceMember extends AbstractEntity {
      * @param purchaseMaxPrice The value of the column 'purchase_max_price'. (NullAllowed: null update allowed for no constraint)
      */
     public void setPurchaseMaxPrice(Integer purchaseMaxPrice) {
-        __modifiedProperties.addPropertyName("purchaseMaxPrice");
+        registerModifiedProperty("purchaseMaxPrice");
         _purchaseMaxPrice = purchaseMaxPrice;
     }
 
@@ -242,6 +244,7 @@ public abstract class BsPurchaseMaxPriceMember extends AbstractEntity {
      * @return The value of the column 'member_status_name'. (NullAllowed even if selected: for no constraint)
      */
     public String getMemberStatusName() {
+        checkSpecifiedProperty("memberStatusName");
         return _memberStatusName;
     }
 
@@ -250,7 +253,7 @@ public abstract class BsPurchaseMaxPriceMember extends AbstractEntity {
      * @param memberStatusName The value of the column 'member_status_name'. (NullAllowed: null update allowed for no constraint)
      */
     public void setMemberStatusName(String memberStatusName) {
-        __modifiedProperties.addPropertyName("memberStatusName");
+        registerModifiedProperty("memberStatusName");
         _memberStatusName = memberStatusName;
     }
 }

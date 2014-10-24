@@ -1,6 +1,5 @@
 package org.docksidestage.postgresql.dbflute.cbean.nss;
 
-import org.dbflute.cbean.ConditionQuery;
 import org.docksidestage.postgresql.dbflute.cbean.cq.MemberWithdrawalCQ;
 
 /**
@@ -25,7 +24,7 @@ public class MemberWithdrawalNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public MemberNss withMember() {
-        _query.xdoNss(new MemberWithdrawalCQ.NssCall() { public ConditionQuery qf() { return _query.queryMember(); }});
+        _query.xdoNss(() -> _query.queryMember());
         return new MemberNss(_query.queryMember());
     }
     /**
@@ -34,7 +33,7 @@ public class MemberWithdrawalNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public WithdrawalReasonNss withWithdrawalReason() {
-        _query.xdoNss(new MemberWithdrawalCQ.NssCall() { public ConditionQuery qf() { return _query.queryWithdrawalReason(); }});
+        _query.xdoNss(() -> _query.queryWithdrawalReason());
         return new WithdrawalReasonNss(_query.queryWithdrawalReason());
     }
 }

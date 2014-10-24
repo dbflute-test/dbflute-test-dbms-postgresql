@@ -152,7 +152,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
      * {exists (select self_parent_id from vendor_large_data_ref where ...)} <br />
      * vendor_large_data_ref by self_parent_id, named 'vendorLargeDataRefSelfAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">existsVendorLargeDataRefSelfList</span>(refCB -&gt; {
+     * cb.query().<span style="color: #CC4747">existsVendorLargeDataRefSelfList</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     refCB.query().set...
      * });
      * </pre>
@@ -161,8 +161,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     public void existsVendorLargeDataRefSelfList(SubQuery<VendorLargeDataRefCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         VendorLargeDataRefCB cb = new VendorLargeDataRefCB(); cb.xsetupForExistsReferrer(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepLargeDataRefId_ExistsReferrer_VendorLargeDataRefSelfList(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepLargeDataRefId_ExistsReferrer_VendorLargeDataRefSelfList(cb.query());
         registerExistsReferrer(cb.query(), "large_data_ref_id", "self_parent_id", pp, "vendorLargeDataRefSelfList");
     }
     public abstract String keepLargeDataRefId_ExistsReferrer_VendorLargeDataRefSelfList(VendorLargeDataRefCQ sq);
@@ -172,10 +171,8 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
      * {not exists (select self_parent_id from vendor_large_data_ref where ...)} <br />
      * vendor_large_data_ref by self_parent_id, named 'vendorLargeDataRefSelfAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsVendorLargeDataRefSelfList</span>(new SubQuery&lt;VendorLargeDataRefCB&gt;() {
-     *     public void query(VendorLargeDataRefCB subCB) {
-     *         subCB.query().setXxx...
-     *     }
+     * cb.query().<span style="color: #CC4747">notExistsVendorLargeDataRefSelfList</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     refCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of LargeDataRefId_NotExistsReferrer_VendorLargeDataRefSelfList for 'not exists'. (NotNull)
@@ -183,8 +180,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     public void notExistsVendorLargeDataRefSelfList(SubQuery<VendorLargeDataRefCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         VendorLargeDataRefCB cb = new VendorLargeDataRefCB(); cb.xsetupForExistsReferrer(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepLargeDataRefId_NotExistsReferrer_VendorLargeDataRefSelfList(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepLargeDataRefId_NotExistsReferrer_VendorLargeDataRefSelfList(cb.query());
         registerNotExistsReferrer(cb.query(), "large_data_ref_id", "self_parent_id", pp, "vendorLargeDataRefSelfList");
     }
     public abstract String keepLargeDataRefId_NotExistsReferrer_VendorLargeDataRefSelfList(VendorLargeDataRefCQ sq);
@@ -192,8 +188,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     public void xsderiveVendorLargeDataRefSelfList(String fn, SubQuery<VendorLargeDataRefCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         VendorLargeDataRefCB cb = new VendorLargeDataRefCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String pp = keepLargeDataRefId_SpecifyDerivedReferrer_VendorLargeDataRefSelfList(cb.query());
+        lockCall(() -> sq.query(cb)); String pp = keepLargeDataRefId_SpecifyDerivedReferrer_VendorLargeDataRefSelfList(cb.query());
         registerSpecifyDerivedReferrer(fn, cb.query(), "large_data_ref_id", "self_parent_id", pp, "vendorLargeDataRefSelfList", al, op);
     }
     public abstract String keepLargeDataRefId_SpecifyDerivedReferrer_VendorLargeDataRefSelfList(VendorLargeDataRefCQ sq);
@@ -203,7 +198,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
      * {FOO &lt;= (select max(BAR) from vendor_large_data_ref where ...)} <br />
      * vendor_large_data_ref by self_parent_id, named 'vendorLargeDataRefSelfAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedVendorLargeDataRefSelfList()</span>.<span style="color: #CC4747">max</span>(refCB -&gt; {
+     * cb.query().<span style="color: #CC4747">derivedVendorLargeDataRefSelfList()</span>.<span style="color: #CC4747">max</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     refCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *     refCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
      * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
@@ -214,17 +209,12 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
         return xcreateQDRFunctionVendorLargeDataRefSelfList();
     }
     protected HpQDRFunction<VendorLargeDataRefCB> xcreateQDRFunctionVendorLargeDataRefSelfList() {
-        return xcQDRFunc(new HpQDRSetupper<VendorLargeDataRefCB>() {
-            public void setup(String fn, SubQuery<VendorLargeDataRefCB> sq, String rd, Object vl, DerivedReferrerOption op) {
-                xqderiveVendorLargeDataRefSelfList(fn, sq, rd, vl, op);
-            }
-        });
+        return xcQDRFunc((fn, sq, rd, vl, op) -> xqderiveVendorLargeDataRefSelfList(fn, sq, rd, vl, op));
     }
     public void xqderiveVendorLargeDataRefSelfList(String fn, SubQuery<VendorLargeDataRefCB> sq, String rd, Object vl, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         VendorLargeDataRefCB cb = new VendorLargeDataRefCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String sqpp = keepLargeDataRefId_QueryDerivedReferrer_VendorLargeDataRefSelfList(cb.query()); String prpp = keepLargeDataRefId_QueryDerivedReferrer_VendorLargeDataRefSelfListParameter(vl);
+        lockCall(() -> sq.query(cb)); String sqpp = keepLargeDataRefId_QueryDerivedReferrer_VendorLargeDataRefSelfList(cb.query()); String prpp = keepLargeDataRefId_QueryDerivedReferrer_VendorLargeDataRefSelfListParameter(vl);
         registerQueryDerivedReferrer(fn, cb.query(), "large_data_ref_id", "self_parent_id", sqpp, "vendorLargeDataRefSelfList", rd, vl, prpp, op);
     }
     public abstract String keepLargeDataRefId_QueryDerivedReferrer_VendorLargeDataRefSelfList(VendorLargeDataRefCQ sq);
@@ -398,7 +388,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
      * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br />
      * And NullIgnored, OnlyOnceRegistered. <br />
      * date_index: {IX, NotNull, date(13)}
-     * <pre>e.g. setDateIndex_FromTo(fromDate, toDate, op -&gt; op.<span style="color: #CC4747">compareAsDate()</span>);</pre>
+     * <pre>e.g. setDateIndex_FromTo(fromDate, toDate, op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">compareAsDate()</span>);</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of dateIndex. (NullAllowed: if null, no from-condition)
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of dateIndex. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of from-to. (NotNull)
@@ -487,7 +477,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
      * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br />
      * And NullIgnored, OnlyOnceRegistered. <br />
      * date_no_index: {NotNull, date(13)}
-     * <pre>e.g. setDateNoIndex_FromTo(fromDate, toDate, op -&gt; op.<span style="color: #CC4747">compareAsDate()</span>);</pre>
+     * <pre>e.g. setDateNoIndex_FromTo(fromDate, toDate, op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">compareAsDate()</span>);</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of dateNoIndex. (NullAllowed: if null, no from-condition)
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of dateNoIndex. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of from-to. (NotNull)
@@ -576,7 +566,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
      * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br />
      * And NullIgnored, OnlyOnceRegistered. <br />
      * timestamp_index: {IX, NotNull, timestamp(26, 3)}
-     * <pre>e.g. setTimestampIndex_FromTo(fromDate, toDate, op -&gt; op.<span style="color: #CC4747">compareAsDate()</span>);</pre>
+     * <pre>e.g. setTimestampIndex_FromTo(fromDate, toDate, op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">compareAsDate()</span>);</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of timestampIndex. (NullAllowed: if null, no from-condition)
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of timestampIndex. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of from-to. (NotNull)
@@ -665,7 +655,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
      * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br />
      * And NullIgnored, OnlyOnceRegistered. <br />
      * timestamp_no_index: {NotNull, timestamp(26, 3)}
-     * <pre>e.g. setTimestampNoIndex_FromTo(fromDate, toDate, op -&gt; op.<span style="color: #CC4747">compareAsDate()</span>);</pre>
+     * <pre>e.g. setTimestampNoIndex_FromTo(fromDate, toDate, op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">compareAsDate()</span>);</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of timestampNoIndex. (NullAllowed: if null, no from-condition)
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of timestampNoIndex. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of from-to. (NotNull)
@@ -1182,9 +1172,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     public void xsmyselfDerive(String fn, SubQuery<VendorLargeDataRefCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         VendorLargeDataRefCB cb = new VendorLargeDataRefCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String pp = keepSpecifyMyselfDerived(cb.query());
-        String pk = "large_data_ref_id";
+        lockCall(() -> sq.query(cb)); String pp = keepSpecifyMyselfDerived(cb.query()); String pk = "large_data_ref_id";
         registerSpecifyMyselfDerived(fn, cb.query(), pk, pk, pp, "myselfDerived", al, op);
     }
     public abstract String keepSpecifyMyselfDerived(VendorLargeDataRefCQ sq);
@@ -1218,8 +1206,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     public void myselfExists(SubQuery<VendorLargeDataRefCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         VendorLargeDataRefCB cb = new VendorLargeDataRefCB(); cb.xsetupForMyselfExists(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepMyselfExists(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepMyselfExists(cb.query());
         registerMyselfExists(cb.query(), pp);
     }
     public abstract String keepMyselfExists(VendorLargeDataRefCQ sq);

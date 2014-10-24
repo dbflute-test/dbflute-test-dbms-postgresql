@@ -5,9 +5,9 @@ import java.util.Map;
 
 import org.dbflute.Entity;
 import org.dbflute.dbmeta.AbstractDBMeta;
-import org.dbflute.dbmeta.PropertyGateway;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
+import org.dbflute.dbmeta.property.PropertyGateway;
 import org.dbflute.dbway.DBDef;
 import org.docksidestage.postgresql.dbflute.allcommon.*;
 import org.docksidestage.postgresql.dbflute.exentity.customize.*;
@@ -38,31 +38,11 @@ public class SpResultSetParameterMoreCurMemberDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgMemberId(), "memberId");
-        setupEpg(_epgMap, new EpgMemberName(), "memberName");
-        setupEpg(_epgMap, new EpgBirthdate(), "birthdate");
-        setupEpg(_epgMap, new EpgFormalizedDatetime(), "formalizedDatetime");
-        setupEpg(_epgMap, new EpgMemberStatusCode(), "memberStatusCode");
-    }
-    public static class EpgMemberId implements PropertyGateway {
-        public Object read(Entity et) { return ((SpResultSetParameterMoreCurMember)et).getMemberId(); }
-        public void write(Entity et, Object vl) { ((SpResultSetParameterMoreCurMember)et).setMemberId(cti(vl)); }
-    }
-    public static class EpgMemberName implements PropertyGateway {
-        public Object read(Entity et) { return ((SpResultSetParameterMoreCurMember)et).getMemberName(); }
-        public void write(Entity et, Object vl) { ((SpResultSetParameterMoreCurMember)et).setMemberName((String)vl); }
-    }
-    public static class EpgBirthdate implements PropertyGateway {
-        public Object read(Entity et) { return ((SpResultSetParameterMoreCurMember)et).getBirthdate(); }
-        public void write(Entity et, Object vl) { ((SpResultSetParameterMoreCurMember)et).setBirthdate((java.util.Date)vl); }
-    }
-    public static class EpgFormalizedDatetime implements PropertyGateway {
-        public Object read(Entity et) { return ((SpResultSetParameterMoreCurMember)et).getFormalizedDatetime(); }
-        public void write(Entity et, Object vl) { ((SpResultSetParameterMoreCurMember)et).setFormalizedDatetime((java.sql.Timestamp)vl); }
-    }
-    public class EpgMemberStatusCode implements PropertyGateway {
-        public Object read(Entity et) { return ((SpResultSetParameterMoreCurMember)et).getMemberStatusCode(); }
-        public void write(Entity et, Object vl) {
+        setupEpg(_epgMap, et -> ((SpResultSetParameterMoreCurMember)et).getMemberId(), (et, vl) -> ((SpResultSetParameterMoreCurMember)et).setMemberId(cti(vl)), "memberId");
+        setupEpg(_epgMap, et -> ((SpResultSetParameterMoreCurMember)et).getMemberName(), (et, vl) -> ((SpResultSetParameterMoreCurMember)et).setMemberName((String)vl), "memberName");
+        setupEpg(_epgMap, et -> ((SpResultSetParameterMoreCurMember)et).getBirthdate(), (et, vl) -> ((SpResultSetParameterMoreCurMember)et).setBirthdate((java.util.Date)vl), "birthdate");
+        setupEpg(_epgMap, et -> ((SpResultSetParameterMoreCurMember)et).getFormalizedDatetime(), (et, vl) -> ((SpResultSetParameterMoreCurMember)et).setFormalizedDatetime((java.sql.Timestamp)vl), "formalizedDatetime");
+        setupEpg(_epgMap, et -> ((SpResultSetParameterMoreCurMember)et).getMemberStatusCode(), (et, vl) -> {
             ColumnInfo col = columnMemberStatusCode();
             CDef.MemberStatus cls = (CDef.MemberStatus)gcls(col, vl);
             if (cls != null) {
@@ -70,7 +50,7 @@ public class SpResultSetParameterMoreCurMemberDbm extends AbstractDBMeta {
             } else {
                 ((SpResultSetParameterMoreCurMember)et).mynativeMappingMemberStatusCode((String)vl);
             }
-        }
+        }, "memberStatusCode");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }

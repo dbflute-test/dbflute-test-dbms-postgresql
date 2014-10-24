@@ -94,7 +94,6 @@ public abstract class BsCommonColumnMember extends AbstractEntity {
     /** update_process: {varchar(200), refers to member.update_process} */
     protected String _updateProcess;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -178,14 +177,14 @@ public abstract class BsCommonColumnMember extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_memberId);
-        sb.append(dm).append(_memberName);
-        sb.append(dm).append(_registerDatetime);
-        sb.append(dm).append(_registerUser);
-        sb.append(dm).append(_registerProcess);
-        sb.append(dm).append(_updateDatetime);
-        sb.append(dm).append(_updateUser);
-        sb.append(dm).append(_updateProcess);
+        sb.append(dm).append(xfND(_memberId));
+        sb.append(dm).append(xfND(_memberName));
+        sb.append(dm).append(xfND(_registerDatetime));
+        sb.append(dm).append(xfND(_registerUser));
+        sb.append(dm).append(xfND(_registerProcess));
+        sb.append(dm).append(xfND(_updateDatetime));
+        sb.append(dm).append(xfND(_updateUser));
+        sb.append(dm).append(xfND(_updateProcess));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -213,6 +212,7 @@ public abstract class BsCommonColumnMember extends AbstractEntity {
      * @return The value of the column 'member_id'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getMemberId() {
+        checkSpecifiedProperty("memberId");
         return _memberId;
     }
 
@@ -223,7 +223,7 @@ public abstract class BsCommonColumnMember extends AbstractEntity {
      * @param memberId The value of the column 'member_id'. (NullAllowed: null update allowed for no constraint)
      */
     public void setMemberId(Integer memberId) {
-        __modifiedProperties.addPropertyName("memberId");
+        registerModifiedProperty("memberId");
         _memberId = memberId;
     }
 
@@ -234,6 +234,7 @@ public abstract class BsCommonColumnMember extends AbstractEntity {
      * @return The value of the column 'member_name'. (NullAllowed even if selected: for no constraint)
      */
     public String getMemberName() {
+        checkSpecifiedProperty("memberName");
         return _memberName;
     }
 
@@ -244,7 +245,7 @@ public abstract class BsCommonColumnMember extends AbstractEntity {
      * @param memberName The value of the column 'member_name'. (NullAllowed: null update allowed for no constraint)
      */
     public void setMemberName(String memberName) {
-        __modifiedProperties.addPropertyName("memberName");
+        registerModifiedProperty("memberName");
         _memberName = memberName;
     }
 
@@ -256,6 +257,7 @@ public abstract class BsCommonColumnMember extends AbstractEntity {
      * @return The value of the column 'register_datetime'. (NullAllowed even if selected: for no constraint)
      */
     public java.sql.Timestamp getRegisterDatetime() {
+        checkSpecifiedProperty("registerDatetime");
         return _registerDatetime;
     }
 
@@ -267,7 +269,7 @@ public abstract class BsCommonColumnMember extends AbstractEntity {
      * @param registerDatetime The value of the column 'register_datetime'. (NullAllowed: null update allowed for no constraint)
      */
     public void setRegisterDatetime(java.sql.Timestamp registerDatetime) {
-        __modifiedProperties.addPropertyName("registerDatetime");
+        registerModifiedProperty("registerDatetime");
         _registerDatetime = registerDatetime;
     }
 
@@ -278,6 +280,7 @@ public abstract class BsCommonColumnMember extends AbstractEntity {
      * @return The value of the column 'register_user'. (NullAllowed even if selected: for no constraint)
      */
     public String getRegisterUser() {
+        checkSpecifiedProperty("registerUser");
         return _registerUser;
     }
 
@@ -288,7 +291,7 @@ public abstract class BsCommonColumnMember extends AbstractEntity {
      * @param registerUser The value of the column 'register_user'. (NullAllowed: null update allowed for no constraint)
      */
     public void setRegisterUser(String registerUser) {
-        __modifiedProperties.addPropertyName("registerUser");
+        registerModifiedProperty("registerUser");
         _registerUser = registerUser;
     }
 
@@ -297,6 +300,7 @@ public abstract class BsCommonColumnMember extends AbstractEntity {
      * @return The value of the column 'register_process'. (NullAllowed even if selected: for no constraint)
      */
     public String getRegisterProcess() {
+        checkSpecifiedProperty("registerProcess");
         return _registerProcess;
     }
 
@@ -305,7 +309,7 @@ public abstract class BsCommonColumnMember extends AbstractEntity {
      * @param registerProcess The value of the column 'register_process'. (NullAllowed: null update allowed for no constraint)
      */
     public void setRegisterProcess(String registerProcess) {
-        __modifiedProperties.addPropertyName("registerProcess");
+        registerModifiedProperty("registerProcess");
         _registerProcess = registerProcess;
     }
 
@@ -316,6 +320,7 @@ public abstract class BsCommonColumnMember extends AbstractEntity {
      * @return The value of the column 'update_datetime'. (NullAllowed even if selected: for no constraint)
      */
     public java.sql.Timestamp getUpdateDatetime() {
+        checkSpecifiedProperty("updateDatetime");
         return _updateDatetime;
     }
 
@@ -326,7 +331,7 @@ public abstract class BsCommonColumnMember extends AbstractEntity {
      * @param updateDatetime The value of the column 'update_datetime'. (NullAllowed: null update allowed for no constraint)
      */
     public void setUpdateDatetime(java.sql.Timestamp updateDatetime) {
-        __modifiedProperties.addPropertyName("updateDatetime");
+        registerModifiedProperty("updateDatetime");
         _updateDatetime = updateDatetime;
     }
 
@@ -337,6 +342,7 @@ public abstract class BsCommonColumnMember extends AbstractEntity {
      * @return The value of the column 'update_user'. (NullAllowed even if selected: for no constraint)
      */
     public String getUpdateUser() {
+        checkSpecifiedProperty("updateUser");
         return _updateUser;
     }
 
@@ -347,7 +353,7 @@ public abstract class BsCommonColumnMember extends AbstractEntity {
      * @param updateUser The value of the column 'update_user'. (NullAllowed: null update allowed for no constraint)
      */
     public void setUpdateUser(String updateUser) {
-        __modifiedProperties.addPropertyName("updateUser");
+        registerModifiedProperty("updateUser");
         _updateUser = updateUser;
     }
 
@@ -356,6 +362,7 @@ public abstract class BsCommonColumnMember extends AbstractEntity {
      * @return The value of the column 'update_process'. (NullAllowed even if selected: for no constraint)
      */
     public String getUpdateProcess() {
+        checkSpecifiedProperty("updateProcess");
         return _updateProcess;
     }
 
@@ -364,7 +371,7 @@ public abstract class BsCommonColumnMember extends AbstractEntity {
      * @param updateProcess The value of the column 'update_process'. (NullAllowed: null update allowed for no constraint)
      */
     public void setUpdateProcess(String updateProcess) {
-        __modifiedProperties.addPropertyName("updateProcess");
+        registerModifiedProperty("updateProcess");
         _updateProcess = updateProcess;
     }
 }

@@ -5,9 +5,9 @@ import java.util.Map;
 
 import org.dbflute.Entity;
 import org.dbflute.dbmeta.AbstractDBMeta;
-import org.dbflute.dbmeta.PropertyGateway;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
+import org.dbflute.dbmeta.property.PropertyGateway;
 import org.dbflute.dbway.DBDef;
 import org.docksidestage.postgresql.dbflute.allcommon.*;
 import org.docksidestage.postgresql.dbflute.exentity.customize.*;
@@ -38,14 +38,7 @@ public class SpResultSetParameterMoreCurMemberStatusDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgMemberStatusCode(), "memberStatusCode");
-        setupEpg(_epgMap, new EpgMemberStatusName(), "memberStatusName");
-        setupEpg(_epgMap, new EpgDescription(), "description");
-        setupEpg(_epgMap, new EpgDisplayOrder(), "displayOrder");
-    }
-    public class EpgMemberStatusCode implements PropertyGateway {
-        public Object read(Entity et) { return ((SpResultSetParameterMoreCurMemberStatus)et).getMemberStatusCode(); }
-        public void write(Entity et, Object vl) {
+        setupEpg(_epgMap, et -> ((SpResultSetParameterMoreCurMemberStatus)et).getMemberStatusCode(), (et, vl) -> {
             ColumnInfo col = columnMemberStatusCode();
             CDef.MemberStatus cls = (CDef.MemberStatus)gcls(col, vl);
             if (cls != null) {
@@ -53,19 +46,10 @@ public class SpResultSetParameterMoreCurMemberStatusDbm extends AbstractDBMeta {
             } else {
                 ((SpResultSetParameterMoreCurMemberStatus)et).mynativeMappingMemberStatusCode((String)vl);
             }
-        }
-    }
-    public static class EpgMemberStatusName implements PropertyGateway {
-        public Object read(Entity et) { return ((SpResultSetParameterMoreCurMemberStatus)et).getMemberStatusName(); }
-        public void write(Entity et, Object vl) { ((SpResultSetParameterMoreCurMemberStatus)et).setMemberStatusName((String)vl); }
-    }
-    public static class EpgDescription implements PropertyGateway {
-        public Object read(Entity et) { return ((SpResultSetParameterMoreCurMemberStatus)et).getDescription(); }
-        public void write(Entity et, Object vl) { ((SpResultSetParameterMoreCurMemberStatus)et).setDescription((String)vl); }
-    }
-    public static class EpgDisplayOrder implements PropertyGateway {
-        public Object read(Entity et) { return ((SpResultSetParameterMoreCurMemberStatus)et).getDisplayOrder(); }
-        public void write(Entity et, Object vl) { ((SpResultSetParameterMoreCurMemberStatus)et).setDisplayOrder(cti(vl)); }
+        }, "memberStatusCode");
+        setupEpg(_epgMap, et -> ((SpResultSetParameterMoreCurMemberStatus)et).getMemberStatusName(), (et, vl) -> ((SpResultSetParameterMoreCurMemberStatus)et).setMemberStatusName((String)vl), "memberStatusName");
+        setupEpg(_epgMap, et -> ((SpResultSetParameterMoreCurMemberStatus)et).getDescription(), (et, vl) -> ((SpResultSetParameterMoreCurMemberStatus)et).setDescription((String)vl), "description");
+        setupEpg(_epgMap, et -> ((SpResultSetParameterMoreCurMemberStatus)et).getDisplayOrder(), (et, vl) -> ((SpResultSetParameterMoreCurMemberStatus)et).setDisplayOrder(cti(vl)), "displayOrder");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }

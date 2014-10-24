@@ -5,9 +5,9 @@ import java.util.Map;
 
 import org.dbflute.Entity;
 import org.dbflute.dbmeta.AbstractDBMeta;
-import org.dbflute.dbmeta.PropertyGateway;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
+import org.dbflute.dbmeta.property.PropertyGateway;
 import org.dbflute.dbway.DBDef;
 import org.docksidestage.postgresql.dbflute.allcommon.*;
 import org.docksidestage.postgresql.dbflute.exentity.*;
@@ -38,21 +38,9 @@ public class NextschemaWhiteSameNameRefDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgSameNameRefId(), "sameNameRefId");
-        setupEpg(_epgMap, new EpgSameNameId(), "sameNameId");
-        setupEpg(_epgMap, new EpgNextRefDate(), "nextRefDate");
-    }
-    public static class EpgSameNameRefId implements PropertyGateway {
-        public Object read(Entity et) { return ((NextschemaWhiteSameNameRef)et).getSameNameRefId(); }
-        public void write(Entity et, Object vl) { ((NextschemaWhiteSameNameRef)et).setSameNameRefId(ctl(vl)); }
-    }
-    public static class EpgSameNameId implements PropertyGateway {
-        public Object read(Entity et) { return ((NextschemaWhiteSameNameRef)et).getSameNameId(); }
-        public void write(Entity et, Object vl) { ((NextschemaWhiteSameNameRef)et).setSameNameId(cti(vl)); }
-    }
-    public static class EpgNextRefDate implements PropertyGateway {
-        public Object read(Entity et) { return ((NextschemaWhiteSameNameRef)et).getNextRefDate(); }
-        public void write(Entity et, Object vl) { ((NextschemaWhiteSameNameRef)et).setNextRefDate((java.util.Date)vl); }
+        setupEpg(_epgMap, et -> ((NextschemaWhiteSameNameRef)et).getSameNameRefId(), (et, vl) -> ((NextschemaWhiteSameNameRef)et).setSameNameRefId(ctl(vl)), "sameNameRefId");
+        setupEpg(_epgMap, et -> ((NextschemaWhiteSameNameRef)et).getSameNameId(), (et, vl) -> ((NextschemaWhiteSameNameRef)et).setSameNameId(cti(vl)), "sameNameId");
+        setupEpg(_epgMap, et -> ((NextschemaWhiteSameNameRef)et).getNextRefDate(), (et, vl) -> ((NextschemaWhiteSameNameRef)et).setNextRefDate((java.util.Date)vl), "nextRefDate");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -61,12 +49,9 @@ public class NextschemaWhiteSameNameRefDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
-    {
-        setupEfpg(_efpgMap, new EfpgWhiteSameName(), "whiteSameName");
-    }
-    public class EfpgWhiteSameName implements PropertyGateway {
-        public Object read(Entity et) { return ((NextschemaWhiteSameNameRef)et).getWhiteSameName(); }
-        public void write(Entity et, Object vl) { ((NextschemaWhiteSameNameRef)et).setWhiteSameName((NextschemaWhiteSameName)vl); }
+    { xsetupEfpg(); }
+    protected void xsetupEfpg() {
+        setupEfpg(_efpgMap, et -> ((NextschemaWhiteSameNameRef)et).getWhiteSameName(), (et, vl) -> ((NextschemaWhiteSameNameRef)et).setWhiteSameName((NextschemaWhiteSameName)vl), "whiteSameName");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }

@@ -78,9 +78,9 @@ public abstract class BsVendorUuidFooBhv extends AbstractBehaviorWritable<Vendor
      * Select the count of uniquely-selected records by the condition-bean. {IgnorePagingCondition, IgnoreSpecifyColumn}<br />
      * SpecifyColumn is ignored but you can use it only to remove text type column for union's distinct.
      * <pre>
-     * VendorUuidFooCB cb = new VendorUuidFooCB();
-     * cb.query().setFoo...(value);
-     * int count = vendorUuidFooBhv.<span style="color: #CC4747">selectCount</span>(cb);
+     * int count = <span style="color: #0000C0">vendorUuidFooBhv</span>.<span style="color: #CC4747">selectCount</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of VendorUuidFoo. (NotNull)
      * @return The count for the condition. (NotMinus)
@@ -95,7 +95,7 @@ public abstract class BsVendorUuidFooBhv extends AbstractBehaviorWritable<Vendor
      * <pre>
      * VendorUuidFooCB cb = new VendorUuidFooCB();
      * cb.query().setFoo...(value);
-     * int count = vendorUuidFooBhv.<span style="color: #CC4747">selectCount</span>(cb);
+     * int count = <span style="color: #0000C0">vendorUuidFooBhv</span>.<span style="color: #CC4747">selectCount</span>(cb);
      * </pre>
      * @param cb The condition-bean of VendorUuidFoo. (NotNull)
      * @return The count for the condition. (NotMinus)
@@ -112,8 +112,8 @@ public abstract class BsVendorUuidFooBhv extends AbstractBehaviorWritable<Vendor
      * <span style="color: #AD4747; font-size: 120%">The return might be null if no data, so you should have null check.</span> <br />
      * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, use selectEntityWithDeletedCheck().</span>
      * <pre>
-     * VendorUuidFoo vendorUuidFoo = vendorUuidFooBhv.<span style="color: #CC4747">selectEntity</span>(cb -&gt; {
-     *     cb.query().set...
+     * VendorUuidFoo vendorUuidFoo = <span style="color: #0000C0">vendorUuidFooBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
      * });
      * if (vendorUuidFoo != null) { <span style="color: #3F7E5E">// null check</span>
      *     ... = vendorUuidFoo.get...();
@@ -123,8 +123,8 @@ public abstract class BsVendorUuidFooBhv extends AbstractBehaviorWritable<Vendor
      * </pre>
      * @param cbLambda The callback for condition-bean of VendorUuidFoo. (NotNull)
      * @return The entity selected by the condition. (NullAllowed: if no data, it returns null)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public VendorUuidFoo selectEntity(CBCall<VendorUuidFooCB> cbLambda) {
         return facadeSelectEntity(createCB(cbLambda));
@@ -137,7 +137,7 @@ public abstract class BsVendorUuidFooBhv extends AbstractBehaviorWritable<Vendor
      * <pre>
      * VendorUuidFooCB cb = new VendorUuidFooCB();
      * cb.query().setFoo...(value);
-     * VendorUuidFoo vendorUuidFoo = vendorUuidFooBhv.<span style="color: #DD4747">selectEntity</span>(cb);
+     * VendorUuidFoo vendorUuidFoo = <span style="color: #0000C0">vendorUuidFooBhv</span>.<span style="color: #DD4747">selectEntity</span>(cb);
      * if (vendorUuidFoo != null) { <span style="color: #3F7E5E">// null check</span>
      *     ... = vendorUuidFoo.get...();
      * } else {
@@ -146,8 +146,8 @@ public abstract class BsVendorUuidFooBhv extends AbstractBehaviorWritable<Vendor
      * </pre>
      * @param cb The condition-bean of VendorUuidFoo. (NotNull)
      * @return The entity selected by the condition. (NullAllowed: if no data, it returns null)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public VendorUuidFoo selectEntity(VendorUuidFooCB cb) {
         return facadeSelectEntity(cb);
@@ -167,16 +167,14 @@ public abstract class BsVendorUuidFooBhv extends AbstractBehaviorWritable<Vendor
      * Select the entity by the condition-bean with deleted check. <br />
      * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
-     * VendorUuidFooCB cb = new VendorUuidFooCB();
-     * cb.query().setFoo...(value);
-     * VendorUuidFoo vendorUuidFoo = vendorUuidFooBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
-     * ... = vendorUuidFoo.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
+     * VendorUuidFoo <span style="color: #553000">vendorUuidFoo</span> = <span style="color: #0000C0">vendorUuidFooBhv</span>.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> cb.acceptPK(1));
+     * ... = <span style="color: #553000">vendorUuidFoo</span>.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cbLambda The callback for condition-bean of VendorUuidFoo. (NotNull)
      * @return The entity selected by the condition. (NotNull: if no data, throws exception)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public VendorUuidFoo selectEntityWithDeletedCheck(CBCall<VendorUuidFooCB> cbLambda) {
         return facadeSelectEntityWithDeletedCheck(createCB(cbLambda));
@@ -187,15 +185,15 @@ public abstract class BsVendorUuidFooBhv extends AbstractBehaviorWritable<Vendor
      * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
      * VendorUuidFooCB cb = new VendorUuidFooCB();
-     * cb.query().setFoo...(value);
-     * VendorUuidFoo vendorUuidFoo = vendorUuidFooBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
+     * cb.query().set...;
+     * VendorUuidFoo vendorUuidFoo = <span style="color: #0000C0">vendorUuidFooBhv</span>.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
      * ... = vendorUuidFoo.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cb The condition-bean of VendorUuidFoo. (NotNull)
      * @return The entity selected by the condition. (NotNull: if no data, throws exception)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public VendorUuidFoo selectEntityWithDeletedCheck(VendorUuidFooCB cb) {
         return facadeSelectEntityWithDeletedCheck(cb);
@@ -205,8 +203,8 @@ public abstract class BsVendorUuidFooBhv extends AbstractBehaviorWritable<Vendor
      * Select the entity by the primary-key value.
      * @param fooId : PK, NotNull, uuid(2147483647). (NotNull)
      * @return The entity selected by the PK. (NullAllowed: if no data, it returns null)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public VendorUuidFoo selectByPK(java.util.UUID fooId) {
         return facadeSelectByPK(fooId);
@@ -235,17 +233,17 @@ public abstract class BsVendorUuidFooBhv extends AbstractBehaviorWritable<Vendor
     /**
      * Select the list as result bean.
      * <pre>
-     * ListResultBean&lt;VendorUuidFoo&gt; vendorUuidFooList = vendorUuidFooBhv.<span style="color: #CC4747">selectList</span>(cb -&gt; {
-     *     cb.query().set...;
-     *     cb.query().addOrderBy...;
+     * ListResultBean&lt;VendorUuidFoo&gt; <span style="color: #553000">vendorUuidFooList</span> = <span style="color: #0000C0">vendorUuidFooBhv</span>.<span style="color: #CC4747">selectList</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...;
+     *     <span style="color: #553000">cb</span>.query().addOrderBy...;
      * });
-     * vendorUuidFooList.forEach(vendorUuidFoo -&gt; {
-     *     ... = vendorUuidFoo.get...();
+     * for (VendorUuidFoo <span style="color: #553000">vendorUuidFoo</span> : <span style="color: #553000">vendorUuidFooList</span>) {
+     *     ... = <span style="color: #553000">vendorUuidFoo</span>.get...();
      * });
      * </pre>
      * @param cbLambda The callback for condition-bean of VendorUuidFoo. (NotNull)
      * @return The result bean of selected list. (NotNull: if no data, returns empty list)
-     * @exception DangerousResultSizeException When the result size is over the specified safety size.
+     * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
     public ListResultBean<VendorUuidFoo> selectList(CBCall<VendorUuidFooCB> cbLambda) {
         return facadeSelectList(createCB(cbLambda));
@@ -255,16 +253,16 @@ public abstract class BsVendorUuidFooBhv extends AbstractBehaviorWritable<Vendor
      * Select the list as result bean.
      * <pre>
      * VendorUuidFooCB cb = new VendorUuidFooCB();
-     * cb.query().setFoo...(value);
-     * cb.query().addOrderBy_Bar...();
-     * ListResultBean&lt;VendorUuidFoo&gt; vendorUuidFooList = vendorUuidFooBhv.<span style="color: #CC4747">selectList</span>(cb);
-     * for (VendorUuidFoo vendorUuidFoo : vendorUuidFooList) {
+     * cb.query().set...;
+     * cb.query().addOrderBy...();
+     * ListResultBean&lt;VendorUuidFoo&gt; <span style="color: #553000">vendorUuidFooList</span> = <span style="color: #0000C0">vendorUuidFooBhv</span>.<span style="color: #CC4747">selectList</span>(cb);
+     * for (VendorUuidFoo vendorUuidFoo : <span style="color: #553000">vendorUuidFooList</span>) {
      *     ... = vendorUuidFoo.get...();
      * }
      * </pre>
      * @param cb The condition-bean of VendorUuidFoo. (NotNull)
      * @return The result bean of selected list. (NotNull: if no data, returns empty list)
-     * @exception DangerousResultSizeException When the result size is over the specified safety size.
+     * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
     public ListResultBean<VendorUuidFoo> selectList(VendorUuidFooCB cb) {
         return facadeSelectList(cb);
@@ -280,23 +278,23 @@ public abstract class BsVendorUuidFooBhv extends AbstractBehaviorWritable<Vendor
      * Select the page as result bean. <br />
      * (both count-select and paging-select are executed)
      * <pre>
-     * VendorUuidFooCB cb = new VendorUuidFooCB();
-     * cb.query().setFoo...(value);
-     * cb.query().addOrderBy_Bar...();
-     * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;VendorUuidFoo&gt; page = vendorUuidFooBhv.<span style="color: #CC4747">selectPage</span>(cb);
-     * int allRecordCount = page.getAllRecordCount();
-     * int allPageCount = page.getAllPageCount();
-     * boolean isExistPrePage = page.isExistPrePage();
-     * boolean isExistNextPage = page.isExistNextPage();
+     * PagingResultBean&lt;VendorUuidFoo&gt; <span style="color: #553000">page</span> = <span style="color: #0000C0">vendorUuidFooBhv</span>.<span style="color: #CC4747">selectPage</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     *     <span style="color: #553000">cb</span>.query().addOrderBy...
+     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
+     * });
+     * int allRecordCount = <span style="color: #553000">page</span>.getAllRecordCount();
+     * int allPageCount = <span style="color: #553000">page</span>.getAllPageCount();
+     * boolean isExistPrePage = <span style="color: #553000">page</span>.isExistPrePage();
+     * boolean isExistNextPage = <span style="color: #553000">page</span>.isExistNextPage();
      * ...
-     * for (VendorUuidFoo vendorUuidFoo : page) {
+     * for (VendorUuidFoo vendorUuidFoo : <span style="color: #553000">page</span>) {
      *     ... = vendorUuidFoo.get...();
      * }
      * </pre>
      * @param cbLambda The callback for condition-bean of VendorUuidFoo. (NotNull)
      * @return The result bean of selected page. (NotNull: if no data, returns bean as empty list)
-     * @exception DangerousResultSizeException When the result size is over the specified safety size.
+     * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
     public PagingResultBean<VendorUuidFoo> selectPage(CBCall<VendorUuidFooCB> cbLambda) {
         return facadeSelectPage(createCB(cbLambda));
@@ -310,19 +308,19 @@ public abstract class BsVendorUuidFooBhv extends AbstractBehaviorWritable<Vendor
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
      * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;VendorUuidFoo&gt; page = vendorUuidFooBhv.<span style="color: #CC4747">selectPage</span>(cb);
-     * int allRecordCount = page.getAllRecordCount();
-     * int allPageCount = page.getAllPageCount();
-     * boolean isExistPrePage = page.isExistPrePage();
-     * boolean isExistNextPage = page.isExistNextPage();
+     * PagingResultBean&lt;VendorUuidFoo&gt; <span style="color: #553000">page</span> = <span style="color: #0000C0">vendorUuidFooBhv</span>.<span style="color: #CC4747">selectPage</span>(cb);
+     * int allRecordCount = <span style="color: #553000">page</span>.getAllRecordCount();
+     * int allPageCount = <span style="color: #553000">page</span>.getAllPageCount();
+     * boolean isExistPrePage = <span style="color: #553000">page</span>.isExistPrePage();
+     * boolean isExistNextPage = <span style="color: #553000">page</span>.isExistNextPage();
      * ...
-     * for (VendorUuidFoo vendorUuidFoo : page) {
+     * for (VendorUuidFoo vendorUuidFoo : <span style="color: #553000">page</span>) {
      *     ... = vendorUuidFoo.get...();
      * }
      * </pre>
      * @param cb The condition-bean of VendorUuidFoo. (NotNull)
      * @return The result bean of selected page. (NotNull: if no data, returns bean as empty list)
-     * @exception DangerousResultSizeException When the result size is over the specified safety size.
+     * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
     public PagingResultBean<VendorUuidFoo> selectPage(VendorUuidFooCB cb) {
         return facadeSelectPage(cb);
@@ -334,12 +332,10 @@ public abstract class BsVendorUuidFooBhv extends AbstractBehaviorWritable<Vendor
     /**
      * Select the cursor by the condition-bean.
      * <pre>
-     * VendorUuidFooCB cb = new VendorUuidFooCB();
-     * cb.query().setFoo...(value);
-     * vendorUuidFooBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;VendorUuidFoo&gt;() {
-     *     public void handle(VendorUuidFoo entity) {
-     *         ... = entity.getFoo...();
-     *     }
+     * <span style="color: #0000C0">vendorUuidFooBhv</span>.<span style="color: #CC4747">selectCursor</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }, <span style="color: #553000">member</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     ... = <span style="color: #553000">member</span>.getMemberName();
      * });
      * </pre>
      * @param cbLambda The callback for condition-bean of VendorUuidFoo. (NotNull)
@@ -353,8 +349,8 @@ public abstract class BsVendorUuidFooBhv extends AbstractBehaviorWritable<Vendor
      * Select the cursor by the condition-bean.
      * <pre>
      * VendorUuidFooCB cb = new VendorUuidFooCB();
-     * cb.query().setFoo...(value);
-     * vendorUuidFooBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;VendorUuidFoo&gt;() {
+     * cb.query().set...
+     * <span style="color: #0000C0">vendorUuidFooBhv</span>.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;VendorUuidFoo&gt;() {
      *     public void handle(VendorUuidFoo entity) {
      *         ... = entity.getFoo...();
      *     }
@@ -374,11 +370,9 @@ public abstract class BsVendorUuidFooBhv extends AbstractBehaviorWritable<Vendor
      * Select the scalar value derived by a function from uniquely-selected records. <br />
      * You should call a function method after this method called like as follows:
      * <pre>
-     * vendorUuidFooBhv.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(new ScalarQuery() {
-     *     public void query(VendorUuidFooCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFooDatetime()</span>; <span style="color: #3F7E5E">// required for a function</span>
-     *         cb.query().setBarName_PrefixSearch("S");
-     *     }
+     * <span style="color: #0000C0">vendorUuidFooBhv</span>.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...()</span>; <span style="color: #3F7E5E">// required for the function</span>
+     *     <span style="color: #553000">cb</span>.query().set...
      * });
      * </pre>
      * @param <RESULT> The type of result.
@@ -404,23 +398,24 @@ public abstract class BsVendorUuidFooBhv extends AbstractBehaviorWritable<Vendor
     /**
      * Load referrer by the the referrer loader. <br />
      * <pre>
-     * MemberCB cb = new MemberCB();
-     * cb.query().set...
-     * List&lt;Member&gt; memberList = memberBhv.selectList(cb);
-     * memberBhv.<span style="color: #CC4747">load</span>(memberList, loader -&gt; {
-     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
-     *         purchaseCB.query().set...
-     *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
+     * List&lt;Member&gt; <span style="color: #553000">memberList</span> = <span style="color: #0000C0">memberBhv</span>.selectList(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * });
+     * memberBhv.<span style="color: #CC4747">load</span>(<span style="color: #553000">memberList</span>, <span style="color: #553000">memberLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">memberLoader</span>.<span style="color: #CC4747">loadPurchase</span>(<span style="color: #553000">purchaseCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">purchaseCB</span>.setupSelect...
+     *         <span style="color: #553000">purchaseCB</span>.query().set...
+     *         <span style="color: #553000">purchaseCB</span>.query().addOrderBy...
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
-     *     <span style="color: #3F7E5E">//}).withNestedList(purchaseLoader -&gt {</span>
-     *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePaymentList(...);</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(purchaseLoader -&gt {</span>
+     *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePayment(...);</span>
      *     <span style="color: #3F7E5E">//});</span>
      *
      *     <span style="color: #3F7E5E">// you can also pull out foreign table and load its referrer</span>
      *     <span style="color: #3F7E5E">// (setupSelect of the foreign table should be called)</span>
-     *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
-     * }
-     * for (Member member : memberList) {
+     *     <span style="color: #3F7E5E">//memberLoader.pulloutMemberStatus().loadMemberLogin(...)</span>
+     * });
+     * for (Member member : <span style="color: #553000">memberList</span>) {
      *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
      *     for (Purchase purchase : purchaseList) {
      *         ...
@@ -440,27 +435,24 @@ public abstract class BsVendorUuidFooBhv extends AbstractBehaviorWritable<Vendor
     /**
      * Load referrer of ${referrer.referrerJavaBeansRulePropertyName} by the referrer loader. <br />
      * <pre>
-     * MemberCB cb = new MemberCB();
-     * cb.query().set...
-     * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * memberBhv.<span style="color: #CC4747">load</span>(member, loader -&gt; {
-     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
-     *         purchaseCB.query().set...
-     *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
+     * Member <span style="color: #553000">member</span> = <span style="color: #0000C0">memberBhv</span>.selectEntityWithDeletedCheck(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> <span style="color: #553000">cb</span>.acceptPK(1));
+     * <span style="color: #0000C0">memberBhv</span>.<span style="color: #CC4747">load</span>(<span style="color: #553000">member</span>, <span style="color: #553000">memberLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">memberLoader</span>.<span style="color: #CC4747">loadPurchase</span>(<span style="color: #553000">purchaseCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">purchaseCB</span>.setupSelect...
+     *         <span style="color: #553000">purchaseCB</span>.query().set...
+     *         <span style="color: #553000">purchaseCB</span>.query().addOrderBy...
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
-     *     <span style="color: #3F7E5E">//}).withNestedList(purchaseLoader -&gt {</span>
-     *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePaymentList(...);</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(purchaseLoader -&gt {</span>
+     *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePayment(...);</span>
      *     <span style="color: #3F7E5E">//});</span>
      *
      *     <span style="color: #3F7E5E">// you can also pull out foreign table and load its referrer</span>
      *     <span style="color: #3F7E5E">// (setupSelect of the foreign table should be called)</span>
-     *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
-     * }
-     * for (Member member : memberList) {
-     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
-     *     for (Purchase purchase : purchaseList) {
-     *         ...
-     *     }
+     *     <span style="color: #3F7E5E">//memberLoader.pulloutMemberStatus().loadMemberLogin(...)</span>
+     * });
+     * List&lt;Purchase&gt; purchaseList = <span style="color: #553000">member</span>.<span style="color: #CC4747">getPurchaseList()</span>;
+     * for (Purchase purchase : purchaseList) {
+     *     ...
      * }
      * </pre>
      * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
@@ -508,12 +500,12 @@ public abstract class BsVendorUuidFooBhv extends AbstractBehaviorWritable<Vendor
      * <span style="color: #3F7E5E">// you don't need to set values of common columns</span>
      * <span style="color: #3F7E5E">//vendorUuidFoo.setRegisterUser(value);</span>
      * <span style="color: #3F7E5E">//vendorUuidFoo.set...;</span>
-     * vendorUuidFooBhv.<span style="color: #CC4747">insert</span>(vendorUuidFoo);
+     * <span style="color: #0000C0">vendorUuidFooBhv</span>.<span style="color: #CC4747">insert</span>(vendorUuidFoo);
      * ... = vendorUuidFoo.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * <p>While, when the entity is created by select, all columns are registered.</p>
      * @param vendorUuidFoo The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void insert(VendorUuidFoo vendorUuidFoo) {
         doInsert(vendorUuidFoo, null);
@@ -531,15 +523,15 @@ public abstract class BsVendorUuidFooBhv extends AbstractBehaviorWritable<Vendor
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * vendorUuidFoo.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     vendorUuidFooBhv.<span style="color: #CC4747">update</span>(vendorUuidFoo);
+     *     <span style="color: #0000C0">vendorUuidFooBhv</span>.<span style="color: #CC4747">update</span>(vendorUuidFoo);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
      * </pre>
      * @param vendorUuidFoo The entity of update. (NotNull, PrimaryKeyNotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void update(VendorUuidFoo vendorUuidFoo) {
         doUpdate(vendorUuidFoo, null);
@@ -550,9 +542,9 @@ public abstract class BsVendorUuidFooBhv extends AbstractBehaviorWritable<Vendor
      * if (the entity has no PK) { insert() } else { update(), but no data, insert() } <br />
      * <p><span style="color: #CC4747; font-size: 120%">Attention, you cannot update by unique keys instead of PK.</span></p>
      * @param vendorUuidFoo The entity of insert or update. (NotNull, ...depends on insert or update)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void insertOrUpdate(VendorUuidFoo vendorUuidFoo) {
         doInsertOrUpdate(vendorUuidFoo, null, null);
@@ -566,14 +558,14 @@ public abstract class BsVendorUuidFooBhv extends AbstractBehaviorWritable<Vendor
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * vendorUuidFoo.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     vendorUuidFooBhv.<span style="color: #CC4747">delete</span>(vendorUuidFoo);
+     *     <span style="color: #0000C0">vendorUuidFooBhv</span>.<span style="color: #CC4747">delete</span>(vendorUuidFoo);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
      * </pre>
      * @param vendorUuidFoo The entity of delete. (NotNull, PrimaryKeyNotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
      */
     public void delete(VendorUuidFoo vendorUuidFoo) {
         doDelete(vendorUuidFoo, null);
@@ -598,7 +590,7 @@ public abstract class BsVendorUuidFooBhv extends AbstractBehaviorWritable<Vendor
      *     <span style="color: #3F7E5E">// columns not-called in all entities are registered as null or default value</span>
      *     vendorUuidFooList.add(vendorUuidFoo);
      * }
-     * vendorUuidFooBhv.<span style="color: #CC4747">batchInsert</span>(vendorUuidFooList);
+     * <span style="color: #0000C0">vendorUuidFooBhv</span>.<span style="color: #CC4747">batchInsert</span>(vendorUuidFooList);
      * </pre>
      * <p>While, when the entities are created by select, all columns are registered.</p>
      * <p>And if the table has an identity, entities after the process don't have incremented values.
@@ -628,11 +620,11 @@ public abstract class BsVendorUuidFooBhv extends AbstractBehaviorWritable<Vendor
      *     <span style="color: #3F7E5E">// (others are not updated: their values are kept)</span>
      *     vendorUuidFooList.add(vendorUuidFoo);
      * }
-     * vendorUuidFooBhv.<span style="color: #CC4747">batchUpdate</span>(vendorUuidFooList);
+     * <span style="color: #0000C0">vendorUuidFooBhv</span>.<span style="color: #CC4747">batchUpdate</span>(vendorUuidFooList);
      * </pre>
      * @param vendorUuidFooList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      */
     public int[] batchUpdate(List<VendorUuidFoo> vendorUuidFooList) {
         return doBatchUpdate(vendorUuidFooList, null);
@@ -643,7 +635,7 @@ public abstract class BsVendorUuidFooBhv extends AbstractBehaviorWritable<Vendor
      * This method uses executeBatch() of java.sql.PreparedStatement.
      * @param vendorUuidFooList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @return The array of deleted count. (NotNull, EmptyAllowed)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      */
     public int[] batchDelete(List<VendorUuidFoo> vendorUuidFooList) {
         return doBatchDelete(vendorUuidFooList, null);
@@ -655,7 +647,7 @@ public abstract class BsVendorUuidFooBhv extends AbstractBehaviorWritable<Vendor
     /**
      * Insert the several entities by query (modified-only for fixed value).
      * <pre>
-     * vendorUuidFooBhv.<span style="color: #CC4747">queryInsert</span>(new QueryInsertSetupper&lt;VendorUuidFoo, VendorUuidFooCB&gt;() {
+     * <span style="color: #0000C0">vendorUuidFooBhv</span>.<span style="color: #CC4747">queryInsert</span>(new QueryInsertSetupper&lt;VendorUuidFoo, VendorUuidFooCB&gt;() {
      *     public ConditionBean setup(VendorUuidFoo entity, VendorUuidFooCB intoCB) {
      *         FooCB cb = FooCB();
      *         cb.setupSelect_Bar();
@@ -697,12 +689,12 @@ public abstract class BsVendorUuidFooBhv extends AbstractBehaviorWritable<Vendor
      * <span style="color: #3F7E5E">//vendorUuidFoo.setVersionNo(value);</span>
      * VendorUuidFooCB cb = new VendorUuidFooCB();
      * cb.query().setFoo...(value);
-     * vendorUuidFooBhv.<span style="color: #CC4747">queryUpdate</span>(vendorUuidFoo, cb);
+     * <span style="color: #0000C0">vendorUuidFooBhv</span>.<span style="color: #CC4747">queryUpdate</span>(vendorUuidFoo, cb);
      * </pre>
      * @param vendorUuidFoo The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cbLambda The callback for condition-bean of VendorUuidFoo. (NotNull)
      * @return The updated count.
-     * @exception NonQueryUpdateNotAllowedException When the query has no condition.
+     * @throws NonQueryUpdateNotAllowedException When the query has no condition.
      */
     public int queryUpdate(VendorUuidFoo vendorUuidFoo, CBCall<VendorUuidFooCB> cbLambda) {
         return doQueryUpdate(vendorUuidFoo, createCB(cbLambda), null);
@@ -723,12 +715,12 @@ public abstract class BsVendorUuidFooBhv extends AbstractBehaviorWritable<Vendor
      * <span style="color: #3F7E5E">//vendorUuidFoo.setVersionNo(value);</span>
      * VendorUuidFooCB cb = new VendorUuidFooCB();
      * cb.query().setFoo...(value);
-     * vendorUuidFooBhv.<span style="color: #CC4747">queryUpdate</span>(vendorUuidFoo, cb);
+     * <span style="color: #0000C0">vendorUuidFooBhv</span>.<span style="color: #CC4747">queryUpdate</span>(vendorUuidFoo, cb);
      * </pre>
      * @param vendorUuidFoo The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cb The condition-bean of VendorUuidFoo. (NotNull)
      * @return The updated count.
-     * @exception NonQueryUpdateNotAllowedException When the query has no condition.
+     * @throws NonQueryUpdateNotAllowedException When the query has no condition.
      */
     public int queryUpdate(VendorUuidFoo vendorUuidFoo, VendorUuidFooCB cb) {
         return doQueryUpdate(vendorUuidFoo, cb, null);
@@ -739,11 +731,11 @@ public abstract class BsVendorUuidFooBhv extends AbstractBehaviorWritable<Vendor
      * <pre>
      * VendorUuidFooCB cb = new VendorUuidFooCB();
      * cb.query().setFoo...(value);
-     * vendorUuidFooBhv.<span style="color: #CC4747">queryDelete</span>(vendorUuidFoo, cb);
+     * <span style="color: #0000C0">vendorUuidFooBhv</span>.<span style="color: #CC4747">queryDelete</span>(vendorUuidFoo, cb);
      * </pre>
      * @param cbLambda The callback for condition-bean of VendorUuidFoo. (NotNull)
      * @return The deleted count.
-     * @exception NonQueryDeleteNotAllowedException When the query has no condition.
+     * @throws NonQueryDeleteNotAllowedException When the query has no condition.
      */
     public int queryDelete(CBCall<VendorUuidFooCB> cbLambda) {
         return doQueryDelete(createCB(cbLambda), null);
@@ -754,11 +746,11 @@ public abstract class BsVendorUuidFooBhv extends AbstractBehaviorWritable<Vendor
      * <pre>
      * VendorUuidFooCB cb = new VendorUuidFooCB();
      * cb.query().setFoo...(value);
-     * vendorUuidFooBhv.<span style="color: #CC4747">queryDelete</span>(vendorUuidFoo, cb);
+     * <span style="color: #0000C0">vendorUuidFooBhv</span>.<span style="color: #CC4747">queryDelete</span>(vendorUuidFoo, cb);
      * </pre>
      * @param cb The condition-bean of VendorUuidFoo. (NotNull)
      * @return The deleted count.
-     * @exception NonQueryDeleteNotAllowedException When the query has no condition.
+     * @throws NonQueryDeleteNotAllowedException When the query has no condition.
      */
     public int queryDelete(VendorUuidFooCB cb) {
         return doQueryDelete(cb, null);
@@ -782,12 +774,12 @@ public abstract class BsVendorUuidFooBhv extends AbstractBehaviorWritable<Vendor
      * InsertOption<VendorUuidFooCB> option = new InsertOption<VendorUuidFooCB>();
      * <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
      * option.disableCommonColumnAutoSetup();
-     * vendorUuidFooBhv.<span style="color: #CC4747">varyingInsert</span>(vendorUuidFoo, option);
+     * <span style="color: #0000C0">vendorUuidFooBhv</span>.<span style="color: #CC4747">varyingInsert</span>(vendorUuidFoo, option);
      * ... = vendorUuidFoo.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * @param vendorUuidFoo The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void varyingInsert(VendorUuidFoo vendorUuidFoo, WritableOptionCall<VendorUuidFooCB, InsertOption<VendorUuidFooCB>> opLambda) {
         doInsert(vendorUuidFoo, createInsertOption(opLambda));
@@ -811,16 +803,16 @@ public abstract class BsVendorUuidFooBhv extends AbstractBehaviorWritable<Vendor
      *             cb.specify().<span style="color: #CC4747">columnXxxCount()</span>;
      *         }
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
-     *     vendorUuidFooBhv.<span style="color: #CC4747">varyingUpdate</span>(vendorUuidFoo, option);
+     *     <span style="color: #0000C0">vendorUuidFooBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(vendorUuidFoo, option);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
      * </pre>
      * @param vendorUuidFoo The entity of update. (NotNull, PrimaryKeyNotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void varyingUpdate(VendorUuidFoo vendorUuidFoo, WritableOptionCall<VendorUuidFooCB, UpdateOption<VendorUuidFooCB>> opLambda) {
         doUpdate(vendorUuidFoo, createUpdateOption(opLambda));
@@ -832,9 +824,9 @@ public abstract class BsVendorUuidFooBhv extends AbstractBehaviorWritable<Vendor
      * @param vendorUuidFoo The entity of insert or update. (NotNull)
      * @param insertOpLambda The callback for option of insert for varying requests. (NotNull)
      * @param updateOpLambda The callback for option of update for varying requests. (NotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void varyingInsertOrUpdate(VendorUuidFoo vendorUuidFoo, WritableOptionCall<VendorUuidFooCB, InsertOption<VendorUuidFooCB>> insertOpLambda, WritableOptionCall<VendorUuidFooCB, UpdateOption<VendorUuidFooCB>> updateOpLambda) {
         doInsertOrUpdate(vendorUuidFoo, createInsertOption(insertOpLambda), createUpdateOption(updateOpLambda));
@@ -846,8 +838,8 @@ public abstract class BsVendorUuidFooBhv extends AbstractBehaviorWritable<Vendor
      * Other specifications are same as delete(entity).
      * @param vendorUuidFoo The entity of delete. (NotNull, PrimaryKeyNotNull, ConcurrencyColumnNotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
      */
     public void varyingDelete(VendorUuidFoo vendorUuidFoo, WritableOptionCall<VendorUuidFooCB, DeleteOption<VendorUuidFooCB>> opLambda) {
         doDelete(vendorUuidFoo, createDeleteOption(opLambda));
@@ -931,13 +923,13 @@ public abstract class BsVendorUuidFooBhv extends AbstractBehaviorWritable<Vendor
      *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * vendorUuidFooBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(vendorUuidFoo, cb, option);
+     * <span style="color: #0000C0">vendorUuidFooBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(vendorUuidFoo, cb, option);
      * </pre>
      * @param vendorUuidFoo The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cbLambda The callback for condition-bean of VendorUuidFoo. (NotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
      * @return The updated count.
-     * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
+     * @throws NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
     public int varyingQueryUpdate(VendorUuidFoo vendorUuidFoo, CBCall<VendorUuidFooCB> cbLambda, WritableOptionCall<VendorUuidFooCB, UpdateOption<VendorUuidFooCB>> opLambda) {
         return doQueryUpdate(vendorUuidFoo, createCB(cbLambda), createUpdateOption(opLambda));
@@ -965,13 +957,13 @@ public abstract class BsVendorUuidFooBhv extends AbstractBehaviorWritable<Vendor
      *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * vendorUuidFooBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(vendorUuidFoo, cb, option);
+     * <span style="color: #0000C0">vendorUuidFooBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(vendorUuidFoo, cb, option);
      * </pre>
      * @param vendorUuidFoo The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cb The condition-bean of VendorUuidFoo. (NotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
      * @return The updated count.
-     * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
+     * @throws NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
     public int varyingQueryUpdate(VendorUuidFoo vendorUuidFoo, VendorUuidFooCB cb, WritableOptionCall<VendorUuidFooCB, UpdateOption<VendorUuidFooCB>> opLambda) {
         return doQueryUpdate(vendorUuidFoo, cb, createUpdateOption(opLambda));
@@ -984,7 +976,7 @@ public abstract class BsVendorUuidFooBhv extends AbstractBehaviorWritable<Vendor
      * @param cbLambda The callback for condition-bean of VendorUuidFoo. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
-     * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
+     * @throws NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
     public int varyingQueryDelete(CBCall<VendorUuidFooCB> cbLambda, WritableOptionCall<VendorUuidFooCB, DeleteOption<VendorUuidFooCB>> opLambda) {
         return doQueryDelete(createCB(cbLambda), createDeleteOption(opLambda));
@@ -997,7 +989,7 @@ public abstract class BsVendorUuidFooBhv extends AbstractBehaviorWritable<Vendor
      * @param cb The condition-bean of VendorUuidFoo. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
-     * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
+     * @throws NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
     public int varyingQueryDelete(VendorUuidFooCB cb, WritableOptionCall<VendorUuidFooCB, DeleteOption<VendorUuidFooCB>> opLambda) {
         return doQueryDelete(cb, createDeleteOption(opLambda));

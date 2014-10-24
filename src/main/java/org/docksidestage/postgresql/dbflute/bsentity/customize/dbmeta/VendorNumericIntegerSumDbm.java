@@ -5,9 +5,9 @@ import java.util.Map;
 
 import org.dbflute.Entity;
 import org.dbflute.dbmeta.AbstractDBMeta;
-import org.dbflute.dbmeta.PropertyGateway;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
+import org.dbflute.dbmeta.property.PropertyGateway;
 import org.dbflute.dbway.DBDef;
 import org.docksidestage.postgresql.dbflute.allcommon.*;
 import org.docksidestage.postgresql.dbflute.exentity.customize.*;
@@ -38,11 +38,7 @@ public class VendorNumericIntegerSumDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgIntegerNonDigitSum(), "integerNonDigitSum");
-    }
-    public static class EpgIntegerNonDigitSum implements PropertyGateway {
-        public Object read(Entity et) { return ((VendorNumericIntegerSum)et).getIntegerNonDigitSum(); }
-        public void write(Entity et, Object vl) { ((VendorNumericIntegerSum)et).setIntegerNonDigitSum(ctb(vl)); }
+        setupEpg(_epgMap, et -> ((VendorNumericIntegerSum)et).getIntegerNonDigitSum(), (et, vl) -> ((VendorNumericIntegerSum)et).setIntegerNonDigitSum(ctb(vl)), "integerNonDigitSum");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }

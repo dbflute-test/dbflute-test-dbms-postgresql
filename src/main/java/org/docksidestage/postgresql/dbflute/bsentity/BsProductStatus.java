@@ -71,7 +71,6 @@ public abstract class BsProductStatus extends AbstractEntity {
     /** display_order: {UQ, NotNull, int4(10)} */
     protected Integer _displayOrder;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -176,9 +175,9 @@ public abstract class BsProductStatus extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_productStatusCode);
-        sb.append(dm).append(_productStatusName);
-        sb.append(dm).append(_displayOrder);
+        sb.append(dm).append(xfND(_productStatusCode));
+        sb.append(dm).append(xfND(_productStatusName));
+        sb.append(dm).append(xfND(_displayOrder));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -211,6 +210,7 @@ public abstract class BsProductStatus extends AbstractEntity {
      * @return The value of the column 'product_status_code'. (basically NotNull if selected: for the constraint)
      */
     public String getProductStatusCode() {
+        checkSpecifiedProperty("productStatusCode");
         return _productStatusCode;
     }
 
@@ -220,7 +220,7 @@ public abstract class BsProductStatus extends AbstractEntity {
      * @param productStatusCode The value of the column 'product_status_code'. (basically NotNull if update: for the constraint)
      */
     public void setProductStatusCode(String productStatusCode) {
-        __modifiedProperties.addPropertyName("productStatusCode");
+        registerModifiedProperty("productStatusCode");
         _productStatusCode = productStatusCode;
     }
 
@@ -229,6 +229,7 @@ public abstract class BsProductStatus extends AbstractEntity {
      * @return The value of the column 'product_status_name'. (basically NotNull if selected: for the constraint)
      */
     public String getProductStatusName() {
+        checkSpecifiedProperty("productStatusName");
         return _productStatusName;
     }
 
@@ -237,7 +238,7 @@ public abstract class BsProductStatus extends AbstractEntity {
      * @param productStatusName The value of the column 'product_status_name'. (basically NotNull if update: for the constraint)
      */
     public void setProductStatusName(String productStatusName) {
-        __modifiedProperties.addPropertyName("productStatusName");
+        registerModifiedProperty("productStatusName");
         _productStatusName = productStatusName;
     }
 
@@ -246,6 +247,7 @@ public abstract class BsProductStatus extends AbstractEntity {
      * @return The value of the column 'display_order'. (basically NotNull if selected: for the constraint)
      */
     public Integer getDisplayOrder() {
+        checkSpecifiedProperty("displayOrder");
         return _displayOrder;
     }
 
@@ -254,7 +256,7 @@ public abstract class BsProductStatus extends AbstractEntity {
      * @param displayOrder The value of the column 'display_order'. (basically NotNull if update: for the constraint)
      */
     public void setDisplayOrder(Integer displayOrder) {
-        __modifiedProperties.addPropertyName("displayOrder");
+        registerModifiedProperty("displayOrder");
         _displayOrder = displayOrder;
     }
 }

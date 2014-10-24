@@ -5,9 +5,9 @@ import java.util.Map;
 
 import org.dbflute.Entity;
 import org.dbflute.dbmeta.AbstractDBMeta;
-import org.dbflute.dbmeta.PropertyGateway;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
+import org.dbflute.dbmeta.property.PropertyGateway;
 import org.dbflute.dbway.DBDef;
 import org.docksidestage.postgresql.dbflute.allcommon.*;
 import org.docksidestage.postgresql.dbflute.exentity.*;
@@ -38,21 +38,9 @@ public class NextschemaWhiteSameNameDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgSameNameId(), "sameNameId");
-        setupEpg(_epgMap, new EpgSameNameName(), "sameNameName");
-        setupEpg(_epgMap, new EpgSameNameLong(), "sameNameLong");
-    }
-    public static class EpgSameNameId implements PropertyGateway {
-        public Object read(Entity et) { return ((NextschemaWhiteSameName)et).getSameNameId(); }
-        public void write(Entity et, Object vl) { ((NextschemaWhiteSameName)et).setSameNameId(cti(vl)); }
-    }
-    public static class EpgSameNameName implements PropertyGateway {
-        public Object read(Entity et) { return ((NextschemaWhiteSameName)et).getSameNameName(); }
-        public void write(Entity et, Object vl) { ((NextschemaWhiteSameName)et).setSameNameName((String)vl); }
-    }
-    public static class EpgSameNameLong implements PropertyGateway {
-        public Object read(Entity et) { return ((NextschemaWhiteSameName)et).getSameNameLong(); }
-        public void write(Entity et, Object vl) { ((NextschemaWhiteSameName)et).setSameNameLong(ctl(vl)); }
+        setupEpg(_epgMap, et -> ((NextschemaWhiteSameName)et).getSameNameId(), (et, vl) -> ((NextschemaWhiteSameName)et).setSameNameId(cti(vl)), "sameNameId");
+        setupEpg(_epgMap, et -> ((NextschemaWhiteSameName)et).getSameNameName(), (et, vl) -> ((NextschemaWhiteSameName)et).setSameNameName((String)vl), "sameNameName");
+        setupEpg(_epgMap, et -> ((NextschemaWhiteSameName)et).getSameNameLong(), (et, vl) -> ((NextschemaWhiteSameName)et).setSameNameLong(ctl(vl)), "sameNameLong");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }

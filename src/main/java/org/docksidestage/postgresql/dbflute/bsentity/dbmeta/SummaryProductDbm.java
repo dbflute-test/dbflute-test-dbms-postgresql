@@ -5,9 +5,9 @@ import java.util.Map;
 
 import org.dbflute.Entity;
 import org.dbflute.dbmeta.AbstractDBMeta;
-import org.dbflute.dbmeta.PropertyGateway;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
+import org.dbflute.dbmeta.property.PropertyGateway;
 import org.dbflute.dbway.DBDef;
 import org.docksidestage.postgresql.dbflute.allcommon.*;
 import org.docksidestage.postgresql.dbflute.exentity.*;
@@ -38,26 +38,10 @@ public class SummaryProductDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgProductId(), "productId");
-        setupEpg(_epgMap, new EpgProductName(), "productName");
-        setupEpg(_epgMap, new EpgProductStatusCode(), "productStatusCode");
-        setupEpg(_epgMap, new EpgLatestPurchaseDatetime(), "latestPurchaseDatetime");
-    }
-    public static class EpgProductId implements PropertyGateway {
-        public Object read(Entity et) { return ((SummaryProduct)et).getProductId(); }
-        public void write(Entity et, Object vl) { ((SummaryProduct)et).setProductId(cti(vl)); }
-    }
-    public static class EpgProductName implements PropertyGateway {
-        public Object read(Entity et) { return ((SummaryProduct)et).getProductName(); }
-        public void write(Entity et, Object vl) { ((SummaryProduct)et).setProductName((String)vl); }
-    }
-    public static class EpgProductStatusCode implements PropertyGateway {
-        public Object read(Entity et) { return ((SummaryProduct)et).getProductStatusCode(); }
-        public void write(Entity et, Object vl) { ((SummaryProduct)et).setProductStatusCode((String)vl); }
-    }
-    public static class EpgLatestPurchaseDatetime implements PropertyGateway {
-        public Object read(Entity et) { return ((SummaryProduct)et).getLatestPurchaseDatetime(); }
-        public void write(Entity et, Object vl) { ((SummaryProduct)et).setLatestPurchaseDatetime((java.sql.Timestamp)vl); }
+        setupEpg(_epgMap, et -> ((SummaryProduct)et).getProductId(), (et, vl) -> ((SummaryProduct)et).setProductId(cti(vl)), "productId");
+        setupEpg(_epgMap, et -> ((SummaryProduct)et).getProductName(), (et, vl) -> ((SummaryProduct)et).setProductName((String)vl), "productName");
+        setupEpg(_epgMap, et -> ((SummaryProduct)et).getProductStatusCode(), (et, vl) -> ((SummaryProduct)et).setProductStatusCode((String)vl), "productStatusCode");
+        setupEpg(_epgMap, et -> ((SummaryProduct)et).getLatestPurchaseDatetime(), (et, vl) -> ((SummaryProduct)et).setLatestPurchaseDatetime((java.sql.Timestamp)vl), "latestPurchaseDatetime");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }

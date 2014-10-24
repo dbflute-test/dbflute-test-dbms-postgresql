@@ -65,7 +65,6 @@ public abstract class BsVendorDateFk extends AbstractEntity {
     /** bar_date: {NotNull, date(13), FK to vendor_date_pk} */
     protected java.util.Date _barDate;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -158,7 +157,7 @@ public abstract class BsVendorDateFk extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_barId);
+        sb.append(dm).append(xfND(_barId));
         sb.append(dm).append(xfUD(_barDate));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
@@ -190,6 +189,7 @@ public abstract class BsVendorDateFk extends AbstractEntity {
      * @return The value of the column 'bar_id'. (basically NotNull if selected: for the constraint)
      */
     public Integer getBarId() {
+        checkSpecifiedProperty("barId");
         return _barId;
     }
 
@@ -198,7 +198,7 @@ public abstract class BsVendorDateFk extends AbstractEntity {
      * @param barId The value of the column 'bar_id'. (basically NotNull if update: for the constraint)
      */
     public void setBarId(Integer barId) {
-        __modifiedProperties.addPropertyName("barId");
+        registerModifiedProperty("barId");
         _barId = barId;
     }
 
@@ -207,6 +207,7 @@ public abstract class BsVendorDateFk extends AbstractEntity {
      * @return The value of the column 'bar_date'. (basically NotNull if selected: for the constraint)
      */
     public java.util.Date getBarDate() {
+        checkSpecifiedProperty("barDate");
         return _barDate;
     }
 
@@ -215,7 +216,7 @@ public abstract class BsVendorDateFk extends AbstractEntity {
      * @param barDate The value of the column 'bar_date'. (basically NotNull if update: for the constraint)
      */
     public void setBarDate(java.util.Date barDate) {
-        __modifiedProperties.addPropertyName("barDate");
+        registerModifiedProperty("barDate");
         _barDate = barDate;
     }
 }

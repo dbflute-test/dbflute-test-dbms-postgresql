@@ -74,7 +74,6 @@ public abstract class BsVendorUnsupportedAlias extends AbstractEntity {
     /** DOLLAR$EXISTS: {date(13), refers to vendor_check} */
     protected java.util.Date _dollar$exists;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -150,9 +149,9 @@ public abstract class BsVendorUnsupportedAlias extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_vendorCheckId);
-        sb.append(dm).append(_hyphen_exists);
-        sb.append(dm).append(_space_exists);
+        sb.append(dm).append(xfND(_vendorCheckId));
+        sb.append(dm).append(xfND(_hyphen_exists));
+        sb.append(dm).append(xfND(_space_exists));
         sb.append(dm).append(xfUD(_dollar$exists));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
@@ -179,6 +178,7 @@ public abstract class BsVendorUnsupportedAlias extends AbstractEntity {
      * @return The value of the column 'vendor_check_id'. (NullAllowed even if selected: for no constraint)
      */
     public Long getVendorCheckId() {
+        checkSpecifiedProperty("vendorCheckId");
         return _vendorCheckId;
     }
 
@@ -187,7 +187,7 @@ public abstract class BsVendorUnsupportedAlias extends AbstractEntity {
      * @param vendorCheckId The value of the column 'vendor_check_id'. (NullAllowed: null update allowed for no constraint)
      */
     public void setVendorCheckId(Long vendorCheckId) {
-        __modifiedProperties.addPropertyName("vendorCheckId");
+        registerModifiedProperty("vendorCheckId");
         _vendorCheckId = vendorCheckId;
     }
 
@@ -196,6 +196,7 @@ public abstract class BsVendorUnsupportedAlias extends AbstractEntity {
      * @return The value of the column 'HYPHEN-EXISTS'. (NullAllowed even if selected: for no constraint)
      */
     public String getHyphen_exists() {
+        checkSpecifiedProperty("hyphen_exists");
         return _hyphen_exists;
     }
 
@@ -204,7 +205,7 @@ public abstract class BsVendorUnsupportedAlias extends AbstractEntity {
      * @param hyphen_exists The value of the column 'HYPHEN-EXISTS'. (NullAllowed: null update allowed for no constraint)
      */
     public void setHyphen_exists(String hyphen_exists) {
-        __modifiedProperties.addPropertyName("hyphen_exists");
+        registerModifiedProperty("hyphen_exists");
         _hyphen_exists = hyphen_exists;
     }
 
@@ -213,6 +214,7 @@ public abstract class BsVendorUnsupportedAlias extends AbstractEntity {
      * @return The value of the column 'SPACE EXISTS'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getSpace_exists() {
+        checkSpecifiedProperty("space_exists");
         return _space_exists;
     }
 
@@ -221,7 +223,7 @@ public abstract class BsVendorUnsupportedAlias extends AbstractEntity {
      * @param space_exists The value of the column 'SPACE EXISTS'. (NullAllowed: null update allowed for no constraint)
      */
     public void setSpace_exists(Integer space_exists) {
-        __modifiedProperties.addPropertyName("space_exists");
+        registerModifiedProperty("space_exists");
         _space_exists = space_exists;
     }
 
@@ -230,6 +232,7 @@ public abstract class BsVendorUnsupportedAlias extends AbstractEntity {
      * @return The value of the column 'DOLLAR$EXISTS'. (NullAllowed even if selected: for no constraint)
      */
     public java.util.Date getDollar$exists() {
+        checkSpecifiedProperty("dollar$exists");
         return _dollar$exists;
     }
 
@@ -238,7 +241,7 @@ public abstract class BsVendorUnsupportedAlias extends AbstractEntity {
      * @param dollar$exists The value of the column 'DOLLAR$EXISTS'. (NullAllowed: null update allowed for no constraint)
      */
     public void setDollar$exists(java.util.Date dollar$exists) {
-        __modifiedProperties.addPropertyName("dollar$exists");
+        registerModifiedProperty("dollar$exists");
         _dollar$exists = dollar$exists;
     }
 }

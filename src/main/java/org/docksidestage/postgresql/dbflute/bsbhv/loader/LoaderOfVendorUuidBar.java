@@ -62,6 +62,34 @@ public class LoaderOfVendorUuidBar {
     //                                                                       Load Referrer
     //                                                                       =============
     protected List<VendorUuidFoo> _referrerVendorUuidFooList;
+
+    /**
+     * Load referrer of vendorUuidFooList by the set-upper of referrer. <br />
+     * vendor_uuid_foo by bar_id, named 'vendorUuidFooList'.
+     * <pre>
+     * <span style="color: #0000C0">vendorUuidBarBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">vendorUuidBarList</span>, <span style="color: #553000">barLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">barLoader</span>.<span style="color: #CC4747">loadVendorUuidFooList</span>(<span style="color: #553000">fooCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">fooCB</span>.setupSelect...
+     *         <span style="color: #553000">fooCB</span>.query().set...
+     *         <span style="color: #553000">fooCB</span>.query().addOrderBy...
+     *     }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">fooLoader</span> -&gt {</span>
+     *     <span style="color: #3F7E5E">//    fooLoader.load...</span>
+     *     <span style="color: #3F7E5E">//});</span>
+     * });
+     * for (VendorUuidBar vendorUuidBar : <span style="color: #553000">vendorUuidBarList</span>) {
+     *     ... = vendorUuidBar.<span style="color: #CC4747">getVendorUuidFooList()</span>;
+     * }
+     * </pre>
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
+     * The condition-bean, which the set-upper provides, has settings before callback as follows:
+     * <pre>
+     * cb.query().setBarId_InScope(pkList);
+     * cb.query().addOrderBy_BarId_Asc();
+     * </pre>
+     * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
+     * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
+     */
     public NestedReferrerLoaderGateway<LoaderOfVendorUuidFoo> loadVendorUuidFooList(ConditionBeanSetupper<VendorUuidFooCB> refCBLambda) {
         myBhv().loadVendorUuidFooList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerVendorUuidFooList = refLs);
         return hd -> hd.handle(new LoaderOfVendorUuidFoo().ready(_referrerVendorUuidFooList, _selector));

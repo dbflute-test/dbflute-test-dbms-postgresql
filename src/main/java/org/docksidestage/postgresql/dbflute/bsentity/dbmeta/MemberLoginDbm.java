@@ -5,9 +5,9 @@ import java.util.Map;
 
 import org.dbflute.Entity;
 import org.dbflute.dbmeta.AbstractDBMeta;
-import org.dbflute.dbmeta.PropertyGateway;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
+import org.dbflute.dbmeta.property.PropertyGateway;
 import org.dbflute.dbway.DBDef;
 import org.docksidestage.postgresql.dbflute.allcommon.*;
 import org.docksidestage.postgresql.dbflute.exentity.*;
@@ -38,27 +38,10 @@ public class MemberLoginDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgMemberLoginId(), "memberLoginId");
-        setupEpg(_epgMap, new EpgMemberId(), "memberId");
-        setupEpg(_epgMap, new EpgLoginDatetime(), "loginDatetime");
-        setupEpg(_epgMap, new EpgMobileLoginFlg(), "mobileLoginFlg");
-        setupEpg(_epgMap, new EpgLoginMemberStatusCode(), "loginMemberStatusCode");
-    }
-    public static class EpgMemberLoginId implements PropertyGateway {
-        public Object read(Entity et) { return ((MemberLogin)et).getMemberLoginId(); }
-        public void write(Entity et, Object vl) { ((MemberLogin)et).setMemberLoginId(ctl(vl)); }
-    }
-    public static class EpgMemberId implements PropertyGateway {
-        public Object read(Entity et) { return ((MemberLogin)et).getMemberId(); }
-        public void write(Entity et, Object vl) { ((MemberLogin)et).setMemberId(cti(vl)); }
-    }
-    public static class EpgLoginDatetime implements PropertyGateway {
-        public Object read(Entity et) { return ((MemberLogin)et).getLoginDatetime(); }
-        public void write(Entity et, Object vl) { ((MemberLogin)et).setLoginDatetime((java.sql.Timestamp)vl); }
-    }
-    public class EpgMobileLoginFlg implements PropertyGateway {
-        public Object read(Entity et) { return ((MemberLogin)et).getMobileLoginFlg(); }
-        public void write(Entity et, Object vl) {
+        setupEpg(_epgMap, et -> ((MemberLogin)et).getMemberLoginId(), (et, vl) -> ((MemberLogin)et).setMemberLoginId(ctl(vl)), "memberLoginId");
+        setupEpg(_epgMap, et -> ((MemberLogin)et).getMemberId(), (et, vl) -> ((MemberLogin)et).setMemberId(cti(vl)), "memberId");
+        setupEpg(_epgMap, et -> ((MemberLogin)et).getLoginDatetime(), (et, vl) -> ((MemberLogin)et).setLoginDatetime((java.sql.Timestamp)vl), "loginDatetime");
+        setupEpg(_epgMap, et -> ((MemberLogin)et).getMobileLoginFlg(), (et, vl) -> {
             ColumnInfo col = columnMobileLoginFlg();
             CDef.Flg cls = (CDef.Flg)gcls(col, vl);
             if (cls != null) {
@@ -66,11 +49,8 @@ public class MemberLoginDbm extends AbstractDBMeta {
             } else {
                 ((MemberLogin)et).mynativeMappingMobileLoginFlg(ctn(vl, Integer.class));
             }
-        }
-    }
-    public class EpgLoginMemberStatusCode implements PropertyGateway {
-        public Object read(Entity et) { return ((MemberLogin)et).getLoginMemberStatusCode(); }
-        public void write(Entity et, Object vl) {
+        }, "mobileLoginFlg");
+        setupEpg(_epgMap, et -> ((MemberLogin)et).getLoginMemberStatusCode(), (et, vl) -> {
             ColumnInfo col = columnLoginMemberStatusCode();
             CDef.MemberStatus cls = (CDef.MemberStatus)gcls(col, vl);
             if (cls != null) {
@@ -78,7 +58,7 @@ public class MemberLoginDbm extends AbstractDBMeta {
             } else {
                 ((MemberLogin)et).mynativeMappingLoginMemberStatusCode((String)vl);
             }
-        }
+        }, "loginMemberStatusCode");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -87,17 +67,10 @@ public class MemberLoginDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
-    {
-        setupEfpg(_efpgMap, new EfpgMemberStatus(), "memberStatus");
-        setupEfpg(_efpgMap, new EfpgMember(), "member");
-    }
-    public class EfpgMemberStatus implements PropertyGateway {
-        public Object read(Entity et) { return ((MemberLogin)et).getMemberStatus(); }
-        public void write(Entity et, Object vl) { ((MemberLogin)et).setMemberStatus((MemberStatus)vl); }
-    }
-    public class EfpgMember implements PropertyGateway {
-        public Object read(Entity et) { return ((MemberLogin)et).getMember(); }
-        public void write(Entity et, Object vl) { ((MemberLogin)et).setMember((Member)vl); }
+    { xsetupEfpg(); }
+    protected void xsetupEfpg() {
+        setupEfpg(_efpgMap, et -> ((MemberLogin)et).getMemberStatus(), (et, vl) -> ((MemberLogin)et).setMemberStatus((MemberStatus)vl), "memberStatus");
+        setupEfpg(_efpgMap, et -> ((MemberLogin)et).getMember(), (et, vl) -> ((MemberLogin)et).setMember((Member)vl), "member");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }

@@ -5,9 +5,9 @@ import java.util.Map;
 
 import org.dbflute.Entity;
 import org.dbflute.dbmeta.AbstractDBMeta;
-import org.dbflute.dbmeta.PropertyGateway;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
+import org.dbflute.dbmeta.property.PropertyGateway;
 import org.dbflute.dbway.DBDef;
 import org.docksidestage.postgresql.dbflute.allcommon.*;
 import org.docksidestage.postgresql.dbflute.exentity.*;
@@ -38,21 +38,9 @@ public class VendorInheritInuDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgInuId(), "inuId");
-        setupEpg(_epgMap, new EpgInuName(), "inuName");
-        setupEpg(_epgMap, new EpgInuDate(), "inuDate");
-    }
-    public static class EpgInuId implements PropertyGateway {
-        public Object read(Entity et) { return ((VendorInheritInu)et).getInuId(); }
-        public void write(Entity et, Object vl) { ((VendorInheritInu)et).setInuId(cti(vl)); }
-    }
-    public static class EpgInuName implements PropertyGateway {
-        public Object read(Entity et) { return ((VendorInheritInu)et).getInuName(); }
-        public void write(Entity et, Object vl) { ((VendorInheritInu)et).setInuName((String)vl); }
-    }
-    public static class EpgInuDate implements PropertyGateway {
-        public Object read(Entity et) { return ((VendorInheritInu)et).getInuDate(); }
-        public void write(Entity et, Object vl) { ((VendorInheritInu)et).setInuDate((java.util.Date)vl); }
+        setupEpg(_epgMap, et -> ((VendorInheritInu)et).getInuId(), (et, vl) -> ((VendorInheritInu)et).setInuId(cti(vl)), "inuId");
+        setupEpg(_epgMap, et -> ((VendorInheritInu)et).getInuName(), (et, vl) -> ((VendorInheritInu)et).setInuName((String)vl), "inuName");
+        setupEpg(_epgMap, et -> ((VendorInheritInu)et).getInuDate(), (et, vl) -> ((VendorInheritInu)et).setInuDate((java.util.Date)vl), "inuDate");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }

@@ -90,7 +90,6 @@ public abstract class BsVendorLargeData extends AbstractEntity {
     /** numeric_integer_no_index: {NotNull, numeric(8)} */
     protected Integer _numericIntegerNoIndex;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -195,13 +194,13 @@ public abstract class BsVendorLargeData extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_largeDataId);
-        sb.append(dm).append(_stringIndex);
-        sb.append(dm).append(_stringNoIndex);
-        sb.append(dm).append(_stringUniqueIndex);
-        sb.append(dm).append(_intflgIndex);
-        sb.append(dm).append(_numericIntegerIndex);
-        sb.append(dm).append(_numericIntegerNoIndex);
+        sb.append(dm).append(xfND(_largeDataId));
+        sb.append(dm).append(xfND(_stringIndex));
+        sb.append(dm).append(xfND(_stringNoIndex));
+        sb.append(dm).append(xfND(_stringUniqueIndex));
+        sb.append(dm).append(xfND(_intflgIndex));
+        sb.append(dm).append(xfND(_numericIntegerIndex));
+        sb.append(dm).append(xfND(_numericIntegerNoIndex));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -233,6 +232,7 @@ public abstract class BsVendorLargeData extends AbstractEntity {
      * @return The value of the column 'large_data_id'. (basically NotNull if selected: for the constraint)
      */
     public Long getLargeDataId() {
+        checkSpecifiedProperty("largeDataId");
         return _largeDataId;
     }
 
@@ -241,7 +241,7 @@ public abstract class BsVendorLargeData extends AbstractEntity {
      * @param largeDataId The value of the column 'large_data_id'. (basically NotNull if update: for the constraint)
      */
     public void setLargeDataId(Long largeDataId) {
-        __modifiedProperties.addPropertyName("largeDataId");
+        registerModifiedProperty("largeDataId");
         _largeDataId = largeDataId;
     }
 
@@ -250,6 +250,7 @@ public abstract class BsVendorLargeData extends AbstractEntity {
      * @return The value of the column 'string_index'. (basically NotNull if selected: for the constraint)
      */
     public String getStringIndex() {
+        checkSpecifiedProperty("stringIndex");
         return _stringIndex;
     }
 
@@ -258,7 +259,7 @@ public abstract class BsVendorLargeData extends AbstractEntity {
      * @param stringIndex The value of the column 'string_index'. (basically NotNull if update: for the constraint)
      */
     public void setStringIndex(String stringIndex) {
-        __modifiedProperties.addPropertyName("stringIndex");
+        registerModifiedProperty("stringIndex");
         _stringIndex = stringIndex;
     }
 
@@ -267,6 +268,7 @@ public abstract class BsVendorLargeData extends AbstractEntity {
      * @return The value of the column 'string_no_index'. (basically NotNull if selected: for the constraint)
      */
     public String getStringNoIndex() {
+        checkSpecifiedProperty("stringNoIndex");
         return _stringNoIndex;
     }
 
@@ -275,7 +277,7 @@ public abstract class BsVendorLargeData extends AbstractEntity {
      * @param stringNoIndex The value of the column 'string_no_index'. (basically NotNull if update: for the constraint)
      */
     public void setStringNoIndex(String stringNoIndex) {
-        __modifiedProperties.addPropertyName("stringNoIndex");
+        registerModifiedProperty("stringNoIndex");
         _stringNoIndex = stringNoIndex;
     }
 
@@ -284,6 +286,7 @@ public abstract class BsVendorLargeData extends AbstractEntity {
      * @return The value of the column 'string_unique_index'. (basically NotNull if selected: for the constraint)
      */
     public String getStringUniqueIndex() {
+        checkSpecifiedProperty("stringUniqueIndex");
         return _stringUniqueIndex;
     }
 
@@ -292,7 +295,7 @@ public abstract class BsVendorLargeData extends AbstractEntity {
      * @param stringUniqueIndex The value of the column 'string_unique_index'. (basically NotNull if update: for the constraint)
      */
     public void setStringUniqueIndex(String stringUniqueIndex) {
-        __modifiedProperties.addPropertyName("stringUniqueIndex");
+        registerModifiedProperty("stringUniqueIndex");
         _stringUniqueIndex = stringUniqueIndex;
     }
 
@@ -301,6 +304,7 @@ public abstract class BsVendorLargeData extends AbstractEntity {
      * @return The value of the column 'intflg_index'. (basically NotNull if selected: for the constraint)
      */
     public Integer getIntflgIndex() {
+        checkSpecifiedProperty("intflgIndex");
         return _intflgIndex;
     }
 
@@ -309,7 +313,7 @@ public abstract class BsVendorLargeData extends AbstractEntity {
      * @param intflgIndex The value of the column 'intflg_index'. (basically NotNull if update: for the constraint)
      */
     public void setIntflgIndex(Integer intflgIndex) {
-        __modifiedProperties.addPropertyName("intflgIndex");
+        registerModifiedProperty("intflgIndex");
         _intflgIndex = intflgIndex;
     }
 
@@ -318,6 +322,7 @@ public abstract class BsVendorLargeData extends AbstractEntity {
      * @return The value of the column 'numeric_integer_index'. (basically NotNull if selected: for the constraint)
      */
     public Integer getNumericIntegerIndex() {
+        checkSpecifiedProperty("numericIntegerIndex");
         return _numericIntegerIndex;
     }
 
@@ -326,7 +331,7 @@ public abstract class BsVendorLargeData extends AbstractEntity {
      * @param numericIntegerIndex The value of the column 'numeric_integer_index'. (basically NotNull if update: for the constraint)
      */
     public void setNumericIntegerIndex(Integer numericIntegerIndex) {
-        __modifiedProperties.addPropertyName("numericIntegerIndex");
+        registerModifiedProperty("numericIntegerIndex");
         _numericIntegerIndex = numericIntegerIndex;
     }
 
@@ -335,6 +340,7 @@ public abstract class BsVendorLargeData extends AbstractEntity {
      * @return The value of the column 'numeric_integer_no_index'. (basically NotNull if selected: for the constraint)
      */
     public Integer getNumericIntegerNoIndex() {
+        checkSpecifiedProperty("numericIntegerNoIndex");
         return _numericIntegerNoIndex;
     }
 
@@ -343,7 +349,7 @@ public abstract class BsVendorLargeData extends AbstractEntity {
      * @param numericIntegerNoIndex The value of the column 'numeric_integer_no_index'. (basically NotNull if update: for the constraint)
      */
     public void setNumericIntegerNoIndex(Integer numericIntegerNoIndex) {
-        __modifiedProperties.addPropertyName("numericIntegerNoIndex");
+        registerModifiedProperty("numericIntegerNoIndex");
         _numericIntegerNoIndex = numericIntegerNoIndex;
     }
 }

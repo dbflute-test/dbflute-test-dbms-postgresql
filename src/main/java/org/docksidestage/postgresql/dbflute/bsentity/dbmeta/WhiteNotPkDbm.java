@@ -5,9 +5,9 @@ import java.util.Map;
 
 import org.dbflute.Entity;
 import org.dbflute.dbmeta.AbstractDBMeta;
-import org.dbflute.dbmeta.PropertyGateway;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
+import org.dbflute.dbmeta.property.PropertyGateway;
 import org.dbflute.dbway.DBDef;
 import org.docksidestage.postgresql.dbflute.allcommon.*;
 import org.docksidestage.postgresql.dbflute.exentity.*;
@@ -38,21 +38,9 @@ public class WhiteNotPkDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgNotPkId(), "notPkId");
-        setupEpg(_epgMap, new EpgNotPkName(), "notPkName");
-        setupEpg(_epgMap, new EpgNotPkInteger(), "notPkInteger");
-    }
-    public static class EpgNotPkId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteNotPk)et).getNotPkId(); }
-        public void write(Entity et, Object vl) { ((WhiteNotPk)et).setNotPkId(ctl(vl)); }
-    }
-    public static class EpgNotPkName implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteNotPk)et).getNotPkName(); }
-        public void write(Entity et, Object vl) { ((WhiteNotPk)et).setNotPkName((String)vl); }
-    }
-    public static class EpgNotPkInteger implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteNotPk)et).getNotPkInteger(); }
-        public void write(Entity et, Object vl) { ((WhiteNotPk)et).setNotPkInteger(cti(vl)); }
+        setupEpg(_epgMap, et -> ((WhiteNotPk)et).getNotPkId(), (et, vl) -> ((WhiteNotPk)et).setNotPkId(ctl(vl)), "notPkId");
+        setupEpg(_epgMap, et -> ((WhiteNotPk)et).getNotPkName(), (et, vl) -> ((WhiteNotPk)et).setNotPkName((String)vl), "notPkName");
+        setupEpg(_epgMap, et -> ((WhiteNotPk)et).getNotPkInteger(), (et, vl) -> ((WhiteNotPk)et).setNotPkInteger(cti(vl)), "notPkInteger");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }

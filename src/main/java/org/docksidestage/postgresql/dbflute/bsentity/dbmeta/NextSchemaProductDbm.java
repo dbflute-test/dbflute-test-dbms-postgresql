@@ -5,9 +5,9 @@ import java.util.Map;
 
 import org.dbflute.Entity;
 import org.dbflute.dbmeta.AbstractDBMeta;
-import org.dbflute.dbmeta.PropertyGateway;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
+import org.dbflute.dbmeta.property.PropertyGateway;
 import org.dbflute.dbway.DBDef;
 import org.docksidestage.postgresql.dbflute.allcommon.*;
 import org.docksidestage.postgresql.dbflute.exentity.*;
@@ -38,16 +38,8 @@ public class NextSchemaProductDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgProductId(), "productId");
-        setupEpg(_epgMap, new EpgProductName(), "productName");
-    }
-    public static class EpgProductId implements PropertyGateway {
-        public Object read(Entity et) { return ((NextSchemaProduct)et).getProductId(); }
-        public void write(Entity et, Object vl) { ((NextSchemaProduct)et).setProductId(cti(vl)); }
-    }
-    public static class EpgProductName implements PropertyGateway {
-        public Object read(Entity et) { return ((NextSchemaProduct)et).getProductName(); }
-        public void write(Entity et, Object vl) { ((NextSchemaProduct)et).setProductName((String)vl); }
+        setupEpg(_epgMap, et -> ((NextSchemaProduct)et).getProductId(), (et, vl) -> ((NextSchemaProduct)et).setProductId(cti(vl)), "productId");
+        setupEpg(_epgMap, et -> ((NextSchemaProduct)et).getProductName(), (et, vl) -> ((NextSchemaProduct)et).setProductName((String)vl), "productName");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }

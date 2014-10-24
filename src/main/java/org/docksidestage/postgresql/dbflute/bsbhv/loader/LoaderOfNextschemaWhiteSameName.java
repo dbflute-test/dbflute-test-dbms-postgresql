@@ -62,6 +62,34 @@ public class LoaderOfNextschemaWhiteSameName {
     //                                                                       Load Referrer
     //                                                                       =============
     protected List<NextschemaWhiteSameNameRef> _referrerWhiteSameNameRefList;
+
+    /**
+     * Load referrer of whiteSameNameRefList by the set-upper of referrer. <br />
+     * nextschema.white_same_name_ref by same_name_id, named 'whiteSameNameRefList'.
+     * <pre>
+     * <span style="color: #0000C0">whiteSameNameBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">whiteSameNameList</span>, <span style="color: #553000">nameLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">nameLoader</span>.<span style="color: #CC4747">loadWhiteSameNameRefList</span>(<span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">refCB</span>.setupSelect...
+     *         <span style="color: #553000">refCB</span>.query().set...
+     *         <span style="color: #553000">refCB</span>.query().addOrderBy...
+     *     }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">refLoader</span> -&gt {</span>
+     *     <span style="color: #3F7E5E">//    refLoader.load...</span>
+     *     <span style="color: #3F7E5E">//});</span>
+     * });
+     * for (NextschemaWhiteSameName whiteSameName : <span style="color: #553000">whiteSameNameList</span>) {
+     *     ... = whiteSameName.<span style="color: #CC4747">getWhiteSameNameRefList()</span>;
+     * }
+     * </pre>
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
+     * The condition-bean, which the set-upper provides, has settings before callback as follows:
+     * <pre>
+     * cb.query().setSameNameId_InScope(pkList);
+     * cb.query().addOrderBy_SameNameId_Asc();
+     * </pre>
+     * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
+     * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
+     */
     public NestedReferrerLoaderGateway<LoaderOfNextschemaWhiteSameNameRef> loadWhiteSameNameRefList(ConditionBeanSetupper<NextschemaWhiteSameNameRefCB> refCBLambda) {
         myBhv().loadWhiteSameNameRefList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhiteSameNameRefList = refLs);
         return hd -> hd.handle(new LoaderOfNextschemaWhiteSameNameRef().ready(_referrerWhiteSameNameRefList, _selector));

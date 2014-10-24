@@ -5,9 +5,9 @@ import java.util.Map;
 
 import org.dbflute.Entity;
 import org.dbflute.dbmeta.AbstractDBMeta;
-import org.dbflute.dbmeta.PropertyGateway;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
+import org.dbflute.dbmeta.property.PropertyGateway;
 import org.dbflute.dbway.DBDef;
 import org.docksidestage.postgresql.dbflute.allcommon.*;
 import org.docksidestage.postgresql.dbflute.exentity.*;
@@ -38,21 +38,9 @@ public class VendorUuidFooDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgFooId(), "fooId");
-        setupEpg(_epgMap, new EpgFooName(), "fooName");
-        setupEpg(_epgMap, new EpgBarId(), "barId");
-    }
-    public static class EpgFooId implements PropertyGateway {
-        public Object read(Entity et) { return ((VendorUuidFoo)et).getFooId(); }
-        public void write(Entity et, Object vl) { ((VendorUuidFoo)et).setFooId((java.util.UUID)vl); }
-    }
-    public static class EpgFooName implements PropertyGateway {
-        public Object read(Entity et) { return ((VendorUuidFoo)et).getFooName(); }
-        public void write(Entity et, Object vl) { ((VendorUuidFoo)et).setFooName((String)vl); }
-    }
-    public static class EpgBarId implements PropertyGateway {
-        public Object read(Entity et) { return ((VendorUuidFoo)et).getBarId(); }
-        public void write(Entity et, Object vl) { ((VendorUuidFoo)et).setBarId((java.util.UUID)vl); }
+        setupEpg(_epgMap, et -> ((VendorUuidFoo)et).getFooId(), (et, vl) -> ((VendorUuidFoo)et).setFooId((java.util.UUID)vl), "fooId");
+        setupEpg(_epgMap, et -> ((VendorUuidFoo)et).getFooName(), (et, vl) -> ((VendorUuidFoo)et).setFooName((String)vl), "fooName");
+        setupEpg(_epgMap, et -> ((VendorUuidFoo)et).getBarId(), (et, vl) -> ((VendorUuidFoo)et).setBarId((java.util.UUID)vl), "barId");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -61,12 +49,9 @@ public class VendorUuidFooDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
-    {
-        setupEfpg(_efpgMap, new EfpgVendorUuidBar(), "vendorUuidBar");
-    }
-    public class EfpgVendorUuidBar implements PropertyGateway {
-        public Object read(Entity et) { return ((VendorUuidFoo)et).getVendorUuidBar(); }
-        public void write(Entity et, Object vl) { ((VendorUuidFoo)et).setVendorUuidBar((VendorUuidBar)vl); }
+    { xsetupEfpg(); }
+    protected void xsetupEfpg() {
+        setupEfpg(_efpgMap, et -> ((VendorUuidFoo)et).getVendorUuidBar(), (et, vl) -> ((VendorUuidFoo)et).setVendorUuidBar((VendorUuidBar)vl), "vendorUuidBar");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }

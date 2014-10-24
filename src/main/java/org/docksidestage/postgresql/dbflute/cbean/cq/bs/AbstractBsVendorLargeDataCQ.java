@@ -152,7 +152,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
      * {exists (select large_data_id from vendor_large_data_ref where ...)} <br />
      * vendor_large_data_ref by large_data_id, named 'vendorLargeDataRefAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">existsVendorLargeDataRefList</span>(refCB -&gt; {
+     * cb.query().<span style="color: #CC4747">existsVendorLargeDataRefList</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     refCB.query().set...
      * });
      * </pre>
@@ -161,8 +161,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
     public void existsVendorLargeDataRefList(SubQuery<VendorLargeDataRefCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         VendorLargeDataRefCB cb = new VendorLargeDataRefCB(); cb.xsetupForExistsReferrer(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepLargeDataId_ExistsReferrer_VendorLargeDataRefList(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepLargeDataId_ExistsReferrer_VendorLargeDataRefList(cb.query());
         registerExistsReferrer(cb.query(), "large_data_id", "large_data_id", pp, "vendorLargeDataRefList");
     }
     public abstract String keepLargeDataId_ExistsReferrer_VendorLargeDataRefList(VendorLargeDataRefCQ sq);
@@ -172,10 +171,8 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
      * {not exists (select large_data_id from vendor_large_data_ref where ...)} <br />
      * vendor_large_data_ref by large_data_id, named 'vendorLargeDataRefAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsVendorLargeDataRefList</span>(new SubQuery&lt;VendorLargeDataRefCB&gt;() {
-     *     public void query(VendorLargeDataRefCB subCB) {
-     *         subCB.query().setXxx...
-     *     }
+     * cb.query().<span style="color: #CC4747">notExistsVendorLargeDataRefList</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     refCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of LargeDataId_NotExistsReferrer_VendorLargeDataRefList for 'not exists'. (NotNull)
@@ -183,8 +180,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
     public void notExistsVendorLargeDataRefList(SubQuery<VendorLargeDataRefCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         VendorLargeDataRefCB cb = new VendorLargeDataRefCB(); cb.xsetupForExistsReferrer(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepLargeDataId_NotExistsReferrer_VendorLargeDataRefList(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepLargeDataId_NotExistsReferrer_VendorLargeDataRefList(cb.query());
         registerNotExistsReferrer(cb.query(), "large_data_id", "large_data_id", pp, "vendorLargeDataRefList");
     }
     public abstract String keepLargeDataId_NotExistsReferrer_VendorLargeDataRefList(VendorLargeDataRefCQ sq);
@@ -192,8 +188,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
     public void xsderiveVendorLargeDataRefList(String fn, SubQuery<VendorLargeDataRefCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         VendorLargeDataRefCB cb = new VendorLargeDataRefCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String pp = keepLargeDataId_SpecifyDerivedReferrer_VendorLargeDataRefList(cb.query());
+        lockCall(() -> sq.query(cb)); String pp = keepLargeDataId_SpecifyDerivedReferrer_VendorLargeDataRefList(cb.query());
         registerSpecifyDerivedReferrer(fn, cb.query(), "large_data_id", "large_data_id", pp, "vendorLargeDataRefList", al, op);
     }
     public abstract String keepLargeDataId_SpecifyDerivedReferrer_VendorLargeDataRefList(VendorLargeDataRefCQ sq);
@@ -203,7 +198,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
      * {FOO &lt;= (select max(BAR) from vendor_large_data_ref where ...)} <br />
      * vendor_large_data_ref by large_data_id, named 'vendorLargeDataRefAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedVendorLargeDataRefList()</span>.<span style="color: #CC4747">max</span>(refCB -&gt; {
+     * cb.query().<span style="color: #CC4747">derivedVendorLargeDataRefList()</span>.<span style="color: #CC4747">max</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     refCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *     refCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
      * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
@@ -214,17 +209,12 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
         return xcreateQDRFunctionVendorLargeDataRefList();
     }
     protected HpQDRFunction<VendorLargeDataRefCB> xcreateQDRFunctionVendorLargeDataRefList() {
-        return xcQDRFunc(new HpQDRSetupper<VendorLargeDataRefCB>() {
-            public void setup(String fn, SubQuery<VendorLargeDataRefCB> sq, String rd, Object vl, DerivedReferrerOption op) {
-                xqderiveVendorLargeDataRefList(fn, sq, rd, vl, op);
-            }
-        });
+        return xcQDRFunc((fn, sq, rd, vl, op) -> xqderiveVendorLargeDataRefList(fn, sq, rd, vl, op));
     }
     public void xqderiveVendorLargeDataRefList(String fn, SubQuery<VendorLargeDataRefCB> sq, String rd, Object vl, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         VendorLargeDataRefCB cb = new VendorLargeDataRefCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String sqpp = keepLargeDataId_QueryDerivedReferrer_VendorLargeDataRefList(cb.query()); String prpp = keepLargeDataId_QueryDerivedReferrer_VendorLargeDataRefListParameter(vl);
+        lockCall(() -> sq.query(cb)); String sqpp = keepLargeDataId_QueryDerivedReferrer_VendorLargeDataRefList(cb.query()); String prpp = keepLargeDataId_QueryDerivedReferrer_VendorLargeDataRefListParameter(vl);
         registerQueryDerivedReferrer(fn, cb.query(), "large_data_id", "large_data_id", sqpp, "vendorLargeDataRefList", rd, vl, prpp, op);
     }
     public abstract String keepLargeDataId_QueryDerivedReferrer_VendorLargeDataRefList(VendorLargeDataRefCQ sq);
@@ -300,7 +290,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * string_index: {IX, NotNull, varchar(200)} <br />
-     * <pre>e.g. setStringIndex_LikeSearch("xxx", op -&gt; op.<span style="color: #CC4747">likeContain()</span>);</pre>
+     * <pre>e.g. setStringIndex_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param stringIndex The value of stringIndex as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
@@ -408,7 +398,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * string_no_index: {NotNull, varchar(200)} <br />
-     * <pre>e.g. setStringNoIndex_LikeSearch("xxx", op -&gt; op.<span style="color: #CC4747">likeContain()</span>);</pre>
+     * <pre>e.g. setStringNoIndex_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param stringNoIndex The value of stringNoIndex as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
@@ -516,7 +506,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * string_unique_index: {UQ, NotNull, varchar(200)} <br />
-     * <pre>e.g. setStringUniqueIndex_LikeSearch("xxx", op -&gt; op.<span style="color: #CC4747">likeContain()</span>);</pre>
+     * <pre>e.g. setStringUniqueIndex_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param stringUniqueIndex The value of stringUniqueIndex as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
@@ -1010,9 +1000,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
     public void xsmyselfDerive(String fn, SubQuery<VendorLargeDataCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         VendorLargeDataCB cb = new VendorLargeDataCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String pp = keepSpecifyMyselfDerived(cb.query());
-        String pk = "large_data_id";
+        lockCall(() -> sq.query(cb)); String pp = keepSpecifyMyselfDerived(cb.query()); String pk = "large_data_id";
         registerSpecifyMyselfDerived(fn, cb.query(), pk, pk, pp, "myselfDerived", al, op);
     }
     public abstract String keepSpecifyMyselfDerived(VendorLargeDataCQ sq);
@@ -1046,8 +1034,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
     public void myselfExists(SubQuery<VendorLargeDataCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         VendorLargeDataCB cb = new VendorLargeDataCB(); cb.xsetupForMyselfExists(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepMyselfExists(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepMyselfExists(cb.query());
         registerMyselfExists(cb.query(), pp);
     }
     public abstract String keepMyselfExists(VendorLargeDataCQ sq);

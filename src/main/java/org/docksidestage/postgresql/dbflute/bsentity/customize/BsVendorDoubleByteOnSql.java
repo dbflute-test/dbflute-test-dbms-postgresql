@@ -69,7 +69,6 @@ public abstract class BsVendorDoubleByteOnSql extends AbstractEntity {
     /** (会員ステータス名称)member_status_name: {varchar(50), refers to member_status.member_status_name} */
     protected String _memberStatusName;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -143,9 +142,9 @@ public abstract class BsVendorDoubleByteOnSql extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_memberId);
-        sb.append(dm).append(_memberNameWithSpace);
-        sb.append(dm).append(_memberStatusName);
+        sb.append(dm).append(xfND(_memberId));
+        sb.append(dm).append(xfND(_memberNameWithSpace));
+        sb.append(dm).append(xfND(_memberStatusName));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -173,6 +172,7 @@ public abstract class BsVendorDoubleByteOnSql extends AbstractEntity {
      * @return The value of the column 'member_id'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getMemberId() {
+        checkSpecifiedProperty("memberId");
         return _memberId;
     }
 
@@ -183,7 +183,7 @@ public abstract class BsVendorDoubleByteOnSql extends AbstractEntity {
      * @param memberId The value of the column 'member_id'. (NullAllowed: null update allowed for no constraint)
      */
     public void setMemberId(Integer memberId) {
-        __modifiedProperties.addPropertyName("memberId");
+        registerModifiedProperty("memberId");
         _memberId = memberId;
     }
 
@@ -192,6 +192,7 @@ public abstract class BsVendorDoubleByteOnSql extends AbstractEntity {
      * @return The value of the column 'member_name_with_space'. (NullAllowed even if selected: for no constraint)
      */
     public String getMemberNameWithSpace() {
+        checkSpecifiedProperty("memberNameWithSpace");
         return _memberNameWithSpace;
     }
 
@@ -200,7 +201,7 @@ public abstract class BsVendorDoubleByteOnSql extends AbstractEntity {
      * @param memberNameWithSpace The value of the column 'member_name_with_space'. (NullAllowed: null update allowed for no constraint)
      */
     public void setMemberNameWithSpace(String memberNameWithSpace) {
-        __modifiedProperties.addPropertyName("memberNameWithSpace");
+        registerModifiedProperty("memberNameWithSpace");
         _memberNameWithSpace = memberNameWithSpace;
     }
 
@@ -209,6 +210,7 @@ public abstract class BsVendorDoubleByteOnSql extends AbstractEntity {
      * @return The value of the column 'member_status_name'. (NullAllowed even if selected: for no constraint)
      */
     public String getMemberStatusName() {
+        checkSpecifiedProperty("memberStatusName");
         return _memberStatusName;
     }
 
@@ -217,7 +219,7 @@ public abstract class BsVendorDoubleByteOnSql extends AbstractEntity {
      * @param memberStatusName The value of the column 'member_status_name'. (NullAllowed: null update allowed for no constraint)
      */
     public void setMemberStatusName(String memberStatusName) {
-        __modifiedProperties.addPropertyName("memberStatusName");
+        registerModifiedProperty("memberStatusName");
         _memberStatusName = memberStatusName;
     }
 }

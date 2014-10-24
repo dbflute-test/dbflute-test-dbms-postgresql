@@ -1,6 +1,5 @@
 package org.docksidestage.postgresql.dbflute.cbean.nss;
 
-import org.dbflute.cbean.ConditionQuery;
 import org.docksidestage.postgresql.dbflute.cbean.cq.ProductCQ;
 
 /**
@@ -25,7 +24,7 @@ public class ProductNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public ProductCategoryNss withProductCategory() {
-        _query.xdoNss(new ProductCQ.NssCall() { public ConditionQuery qf() { return _query.queryProductCategory(); }});
+        _query.xdoNss(() -> _query.queryProductCategory());
         return new ProductCategoryNss(_query.queryProductCategory());
     }
     /**
@@ -34,7 +33,7 @@ public class ProductNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public ProductStatusNss withProductStatus() {
-        _query.xdoNss(new ProductCQ.NssCall() { public ConditionQuery qf() { return _query.queryProductStatus(); }});
+        _query.xdoNss(() -> _query.queryProductStatus());
         return new ProductStatusNss(_query.queryProductStatus());
     }
 }

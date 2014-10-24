@@ -5,9 +5,9 @@ import java.util.Map;
 
 import org.dbflute.Entity;
 import org.dbflute.dbmeta.AbstractDBMeta;
-import org.dbflute.dbmeta.PropertyGateway;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
+import org.dbflute.dbmeta.property.PropertyGateway;
 import org.dbflute.dbway.DBDef;
 import org.docksidestage.postgresql.dbflute.allcommon.*;
 import org.docksidestage.postgresql.dbflute.exentity.customize.*;
@@ -38,11 +38,7 @@ public class ForcedTypeDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgMaxMemberId(), "maxMemberId");
-    }
-    public static class EpgMaxMemberId implements PropertyGateway {
-        public Object read(Entity et) { return ((ForcedType)et).getMaxMemberId(); }
-        public void write(Entity et, Object vl) { ((ForcedType)et).setMaxMemberId(ctn(vl, java.math.BigInteger.class)); }
+        setupEpg(_epgMap, et -> ((ForcedType)et).getMaxMemberId(), (et, vl) -> ((ForcedType)et).setMaxMemberId(ctn(vl, java.math.BigInteger.class)), "maxMemberId");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }

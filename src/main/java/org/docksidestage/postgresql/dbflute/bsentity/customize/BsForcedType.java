@@ -59,7 +59,6 @@ public abstract class BsForcedType extends AbstractEntity {
     /** max_member_id: {int4(10)} */
     protected java.math.BigInteger _maxMemberId;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -129,7 +128,7 @@ public abstract class BsForcedType extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_maxMemberId);
+        sb.append(dm).append(xfND(_maxMemberId));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -155,6 +154,7 @@ public abstract class BsForcedType extends AbstractEntity {
      * @return The value of the column 'max_member_id'. (NullAllowed even if selected: for no constraint)
      */
     public java.math.BigInteger getMaxMemberId() {
+        checkSpecifiedProperty("maxMemberId");
         return _maxMemberId;
     }
 
@@ -163,7 +163,7 @@ public abstract class BsForcedType extends AbstractEntity {
      * @param maxMemberId The value of the column 'max_member_id'. (NullAllowed: null update allowed for no constraint)
      */
     public void setMaxMemberId(java.math.BigInteger maxMemberId) {
-        __modifiedProperties.addPropertyName("maxMemberId");
+        registerModifiedProperty("maxMemberId");
         _maxMemberId = maxMemberId;
     }
 }

@@ -5,9 +5,9 @@ import java.util.Map;
 
 import org.dbflute.Entity;
 import org.dbflute.dbmeta.AbstractDBMeta;
-import org.dbflute.dbmeta.PropertyGateway;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
+import org.dbflute.dbmeta.property.PropertyGateway;
 import org.dbflute.dbway.DBDef;
 import org.docksidestage.postgresql.dbflute.allcommon.*;
 import org.docksidestage.postgresql.dbflute.exentity.*;
@@ -38,26 +38,10 @@ public class VendorPartManDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgPartManId(), "partManId");
-        setupEpg(_epgMap, new EpgPartManName(), "partManName");
-        setupEpg(_epgMap, new EpgPartManPoint(), "partManPoint");
-        setupEpg(_epgMap, new EpgPartManDate(), "partManDate");
-    }
-    public static class EpgPartManId implements PropertyGateway {
-        public Object read(Entity et) { return ((VendorPartMan)et).getPartManId(); }
-        public void write(Entity et, Object vl) { ((VendorPartMan)et).setPartManId(cti(vl)); }
-    }
-    public static class EpgPartManName implements PropertyGateway {
-        public Object read(Entity et) { return ((VendorPartMan)et).getPartManName(); }
-        public void write(Entity et, Object vl) { ((VendorPartMan)et).setPartManName((String)vl); }
-    }
-    public static class EpgPartManPoint implements PropertyGateway {
-        public Object read(Entity et) { return ((VendorPartMan)et).getPartManPoint(); }
-        public void write(Entity et, Object vl) { ((VendorPartMan)et).setPartManPoint(cti(vl)); }
-    }
-    public static class EpgPartManDate implements PropertyGateway {
-        public Object read(Entity et) { return ((VendorPartMan)et).getPartManDate(); }
-        public void write(Entity et, Object vl) { ((VendorPartMan)et).setPartManDate((java.util.Date)vl); }
+        setupEpg(_epgMap, et -> ((VendorPartMan)et).getPartManId(), (et, vl) -> ((VendorPartMan)et).setPartManId(cti(vl)), "partManId");
+        setupEpg(_epgMap, et -> ((VendorPartMan)et).getPartManName(), (et, vl) -> ((VendorPartMan)et).setPartManName((String)vl), "partManName");
+        setupEpg(_epgMap, et -> ((VendorPartMan)et).getPartManPoint(), (et, vl) -> ((VendorPartMan)et).setPartManPoint(cti(vl)), "partManPoint");
+        setupEpg(_epgMap, et -> ((VendorPartMan)et).getPartManDate(), (et, vl) -> ((VendorPartMan)et).setPartManDate((java.util.Date)vl), "partManDate");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }

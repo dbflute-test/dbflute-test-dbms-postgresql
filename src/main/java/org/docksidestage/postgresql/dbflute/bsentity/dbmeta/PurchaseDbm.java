@@ -5,9 +5,9 @@ import java.util.Map;
 
 import org.dbflute.Entity;
 import org.dbflute.dbmeta.AbstractDBMeta;
-import org.dbflute.dbmeta.PropertyGateway;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
+import org.dbflute.dbmeta.property.PropertyGateway;
 import org.dbflute.dbway.DBDef;
 import org.docksidestage.postgresql.dbflute.allcommon.*;
 import org.docksidestage.postgresql.dbflute.exentity.*;
@@ -38,48 +38,13 @@ public class PurchaseDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgPurchaseId(), "purchaseId");
-        setupEpg(_epgMap, new EpgMemberId(), "memberId");
-        setupEpg(_epgMap, new EpgProductId(), "productId");
-        setupEpg(_epgMap, new EpgPurchaseDatetime(), "purchaseDatetime");
-        setupEpg(_epgMap, new EpgPurchaseCount(), "purchaseCount");
-        setupEpg(_epgMap, new EpgPurchasePrice(), "purchasePrice");
-        setupEpg(_epgMap, new EpgPaymentCompleteFlg(), "paymentCompleteFlg");
-        setupEpg(_epgMap, new EpgRegisterDatetime(), "registerDatetime");
-        setupEpg(_epgMap, new EpgRegisterUser(), "registerUser");
-        setupEpg(_epgMap, new EpgRegisterProcess(), "registerProcess");
-        setupEpg(_epgMap, new EpgUpdateDatetime(), "updateDatetime");
-        setupEpg(_epgMap, new EpgUpdateUser(), "updateUser");
-        setupEpg(_epgMap, new EpgUpdateProcess(), "updateProcess");
-        setupEpg(_epgMap, new EpgVersionNo(), "versionNo");
-    }
-    public static class EpgPurchaseId implements PropertyGateway {
-        public Object read(Entity et) { return ((Purchase)et).getPurchaseId(); }
-        public void write(Entity et, Object vl) { ((Purchase)et).setPurchaseId(ctl(vl)); }
-    }
-    public static class EpgMemberId implements PropertyGateway {
-        public Object read(Entity et) { return ((Purchase)et).getMemberId(); }
-        public void write(Entity et, Object vl) { ((Purchase)et).setMemberId(cti(vl)); }
-    }
-    public static class EpgProductId implements PropertyGateway {
-        public Object read(Entity et) { return ((Purchase)et).getProductId(); }
-        public void write(Entity et, Object vl) { ((Purchase)et).setProductId(cti(vl)); }
-    }
-    public static class EpgPurchaseDatetime implements PropertyGateway {
-        public Object read(Entity et) { return ((Purchase)et).getPurchaseDatetime(); }
-        public void write(Entity et, Object vl) { ((Purchase)et).setPurchaseDatetime((java.sql.Timestamp)vl); }
-    }
-    public static class EpgPurchaseCount implements PropertyGateway {
-        public Object read(Entity et) { return ((Purchase)et).getPurchaseCount(); }
-        public void write(Entity et, Object vl) { ((Purchase)et).setPurchaseCount(cti(vl)); }
-    }
-    public static class EpgPurchasePrice implements PropertyGateway {
-        public Object read(Entity et) { return ((Purchase)et).getPurchasePrice(); }
-        public void write(Entity et, Object vl) { ((Purchase)et).setPurchasePrice(cti(vl)); }
-    }
-    public class EpgPaymentCompleteFlg implements PropertyGateway {
-        public Object read(Entity et) { return ((Purchase)et).getPaymentCompleteFlg(); }
-        public void write(Entity et, Object vl) {
+        setupEpg(_epgMap, et -> ((Purchase)et).getPurchaseId(), (et, vl) -> ((Purchase)et).setPurchaseId(ctl(vl)), "purchaseId");
+        setupEpg(_epgMap, et -> ((Purchase)et).getMemberId(), (et, vl) -> ((Purchase)et).setMemberId(cti(vl)), "memberId");
+        setupEpg(_epgMap, et -> ((Purchase)et).getProductId(), (et, vl) -> ((Purchase)et).setProductId(cti(vl)), "productId");
+        setupEpg(_epgMap, et -> ((Purchase)et).getPurchaseDatetime(), (et, vl) -> ((Purchase)et).setPurchaseDatetime((java.sql.Timestamp)vl), "purchaseDatetime");
+        setupEpg(_epgMap, et -> ((Purchase)et).getPurchaseCount(), (et, vl) -> ((Purchase)et).setPurchaseCount(cti(vl)), "purchaseCount");
+        setupEpg(_epgMap, et -> ((Purchase)et).getPurchasePrice(), (et, vl) -> ((Purchase)et).setPurchasePrice(cti(vl)), "purchasePrice");
+        setupEpg(_epgMap, et -> ((Purchase)et).getPaymentCompleteFlg(), (et, vl) -> {
             ColumnInfo col = columnPaymentCompleteFlg();
             CDef.Flg cls = (CDef.Flg)gcls(col, vl);
             if (cls != null) {
@@ -87,35 +52,14 @@ public class PurchaseDbm extends AbstractDBMeta {
             } else {
                 ((Purchase)et).mynativeMappingPaymentCompleteFlg(ctn(vl, Integer.class));
             }
-        }
-    }
-    public static class EpgRegisterDatetime implements PropertyGateway {
-        public Object read(Entity et) { return ((Purchase)et).getRegisterDatetime(); }
-        public void write(Entity et, Object vl) { ((Purchase)et).setRegisterDatetime((java.sql.Timestamp)vl); }
-    }
-    public static class EpgRegisterUser implements PropertyGateway {
-        public Object read(Entity et) { return ((Purchase)et).getRegisterUser(); }
-        public void write(Entity et, Object vl) { ((Purchase)et).setRegisterUser((String)vl); }
-    }
-    public static class EpgRegisterProcess implements PropertyGateway {
-        public Object read(Entity et) { return ((Purchase)et).getRegisterProcess(); }
-        public void write(Entity et, Object vl) { ((Purchase)et).setRegisterProcess((String)vl); }
-    }
-    public static class EpgUpdateDatetime implements PropertyGateway {
-        public Object read(Entity et) { return ((Purchase)et).getUpdateDatetime(); }
-        public void write(Entity et, Object vl) { ((Purchase)et).setUpdateDatetime((java.sql.Timestamp)vl); }
-    }
-    public static class EpgUpdateUser implements PropertyGateway {
-        public Object read(Entity et) { return ((Purchase)et).getUpdateUser(); }
-        public void write(Entity et, Object vl) { ((Purchase)et).setUpdateUser((String)vl); }
-    }
-    public static class EpgUpdateProcess implements PropertyGateway {
-        public Object read(Entity et) { return ((Purchase)et).getUpdateProcess(); }
-        public void write(Entity et, Object vl) { ((Purchase)et).setUpdateProcess((String)vl); }
-    }
-    public static class EpgVersionNo implements PropertyGateway {
-        public Object read(Entity et) { return ((Purchase)et).getVersionNo(); }
-        public void write(Entity et, Object vl) { ((Purchase)et).setVersionNo(ctl(vl)); }
+        }, "paymentCompleteFlg");
+        setupEpg(_epgMap, et -> ((Purchase)et).getRegisterDatetime(), (et, vl) -> ((Purchase)et).setRegisterDatetime((java.sql.Timestamp)vl), "registerDatetime");
+        setupEpg(_epgMap, et -> ((Purchase)et).getRegisterUser(), (et, vl) -> ((Purchase)et).setRegisterUser((String)vl), "registerUser");
+        setupEpg(_epgMap, et -> ((Purchase)et).getRegisterProcess(), (et, vl) -> ((Purchase)et).setRegisterProcess((String)vl), "registerProcess");
+        setupEpg(_epgMap, et -> ((Purchase)et).getUpdateDatetime(), (et, vl) -> ((Purchase)et).setUpdateDatetime((java.sql.Timestamp)vl), "updateDatetime");
+        setupEpg(_epgMap, et -> ((Purchase)et).getUpdateUser(), (et, vl) -> ((Purchase)et).setUpdateUser((String)vl), "updateUser");
+        setupEpg(_epgMap, et -> ((Purchase)et).getUpdateProcess(), (et, vl) -> ((Purchase)et).setUpdateProcess((String)vl), "updateProcess");
+        setupEpg(_epgMap, et -> ((Purchase)et).getVersionNo(), (et, vl) -> ((Purchase)et).setVersionNo(ctl(vl)), "versionNo");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -124,17 +68,10 @@ public class PurchaseDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
-    {
-        setupEfpg(_efpgMap, new EfpgMember(), "member");
-        setupEfpg(_efpgMap, new EfpgProduct(), "product");
-    }
-    public class EfpgMember implements PropertyGateway {
-        public Object read(Entity et) { return ((Purchase)et).getMember(); }
-        public void write(Entity et, Object vl) { ((Purchase)et).setMember((Member)vl); }
-    }
-    public class EfpgProduct implements PropertyGateway {
-        public Object read(Entity et) { return ((Purchase)et).getProduct(); }
-        public void write(Entity et, Object vl) { ((Purchase)et).setProduct((Product)vl); }
+    { xsetupEfpg(); }
+    protected void xsetupEfpg() {
+        setupEfpg(_efpgMap, et -> ((Purchase)et).getMember(), (et, vl) -> ((Purchase)et).setMember((Member)vl), "member");
+        setupEfpg(_efpgMap, et -> ((Purchase)et).getProduct(), (et, vl) -> ((Purchase)et).setProduct((Product)vl), "product");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }

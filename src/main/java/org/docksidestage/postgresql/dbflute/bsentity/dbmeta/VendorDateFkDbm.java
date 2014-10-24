@@ -5,9 +5,9 @@ import java.util.Map;
 
 import org.dbflute.Entity;
 import org.dbflute.dbmeta.AbstractDBMeta;
-import org.dbflute.dbmeta.PropertyGateway;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
+import org.dbflute.dbmeta.property.PropertyGateway;
 import org.dbflute.dbway.DBDef;
 import org.docksidestage.postgresql.dbflute.allcommon.*;
 import org.docksidestage.postgresql.dbflute.exentity.*;
@@ -38,16 +38,8 @@ public class VendorDateFkDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgBarId(), "barId");
-        setupEpg(_epgMap, new EpgBarDate(), "barDate");
-    }
-    public static class EpgBarId implements PropertyGateway {
-        public Object read(Entity et) { return ((VendorDateFk)et).getBarId(); }
-        public void write(Entity et, Object vl) { ((VendorDateFk)et).setBarId(cti(vl)); }
-    }
-    public static class EpgBarDate implements PropertyGateway {
-        public Object read(Entity et) { return ((VendorDateFk)et).getBarDate(); }
-        public void write(Entity et, Object vl) { ((VendorDateFk)et).setBarDate((java.util.Date)vl); }
+        setupEpg(_epgMap, et -> ((VendorDateFk)et).getBarId(), (et, vl) -> ((VendorDateFk)et).setBarId(cti(vl)), "barId");
+        setupEpg(_epgMap, et -> ((VendorDateFk)et).getBarDate(), (et, vl) -> ((VendorDateFk)et).setBarDate((java.util.Date)vl), "barDate");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -56,12 +48,9 @@ public class VendorDateFkDbm extends AbstractDBMeta {
     //                                      Foreign Property
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
-    {
-        setupEfpg(_efpgMap, new EfpgVendorDatePk(), "vendorDatePk");
-    }
-    public class EfpgVendorDatePk implements PropertyGateway {
-        public Object read(Entity et) { return ((VendorDateFk)et).getVendorDatePk(); }
-        public void write(Entity et, Object vl) { ((VendorDateFk)et).setVendorDatePk((VendorDatePk)vl); }
+    { xsetupEfpg(); }
+    protected void xsetupEfpg() {
+        setupEfpg(_efpgMap, et -> ((VendorDateFk)et).getVendorDatePk(), (et, vl) -> ((VendorDateFk)et).setVendorDatePk((VendorDatePk)vl), "vendorDatePk");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }

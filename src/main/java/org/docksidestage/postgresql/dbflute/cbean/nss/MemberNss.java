@@ -1,6 +1,5 @@
 package org.docksidestage.postgresql.dbflute.cbean.nss;
 
-import org.dbflute.cbean.ConditionQuery;
 import org.docksidestage.postgresql.dbflute.cbean.cq.MemberCQ;
 
 /**
@@ -25,7 +24,7 @@ public class MemberNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public MemberStatusNss withMemberStatus() {
-        _query.xdoNss(new MemberCQ.NssCall() { public ConditionQuery qf() { return _query.queryMemberStatus(); }});
+        _query.xdoNss(() -> _query.queryMemberStatus());
         return new MemberStatusNss(_query.queryMemberStatus());
     }
     /**
@@ -35,7 +34,7 @@ public class MemberNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public MemberAddressNss withMemberAddressAsValid(final java.util.Date targetDate) {
-        _query.xdoNss(new MemberCQ.NssCall() { public ConditionQuery qf() { return _query.queryMemberAddressAsValid(targetDate); }});
+        _query.xdoNss(() -> _query.queryMemberAddressAsValid(targetDate));
         return new MemberAddressNss(_query.queryMemberAddressAsValid(targetDate));
     }
     /**
@@ -44,7 +43,7 @@ public class MemberNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public MemberLoginNss withMemberLoginAsLatest() {
-        _query.xdoNss(new MemberCQ.NssCall() { public ConditionQuery qf() { return _query.queryMemberLoginAsLatest(); }});
+        _query.xdoNss(() -> _query.queryMemberLoginAsLatest());
         return new MemberLoginNss(_query.queryMemberLoginAsLatest());
     }
     /**
@@ -53,7 +52,7 @@ public class MemberNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public MemberSecurityNss withMemberSecurityAsOne() {
-        _query.xdoNss(new MemberCQ.NssCall() { public ConditionQuery qf() { return _query.queryMemberSecurityAsOne(); }});
+        _query.xdoNss(() -> _query.queryMemberSecurityAsOne());
         return new MemberSecurityNss(_query.queryMemberSecurityAsOne());
     }
     /**
@@ -62,7 +61,7 @@ public class MemberNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public MemberServiceNss withMemberServiceAsOne() {
-        _query.xdoNss(new MemberCQ.NssCall() { public ConditionQuery qf() { return _query.queryMemberServiceAsOne(); }});
+        _query.xdoNss(() -> _query.queryMemberServiceAsOne());
         return new MemberServiceNss(_query.queryMemberServiceAsOne());
     }
     /**
@@ -71,7 +70,7 @@ public class MemberNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public MemberWithdrawalNss withMemberWithdrawalAsOne() {
-        _query.xdoNss(new MemberCQ.NssCall() { public ConditionQuery qf() { return _query.queryMemberWithdrawalAsOne(); }});
+        _query.xdoNss(() -> _query.queryMemberWithdrawalAsOne());
         return new MemberWithdrawalNss(_query.queryMemberWithdrawalAsOne());
     }
 }

@@ -78,9 +78,9 @@ public abstract class BsPurchasePaymentBhv extends AbstractBehaviorWritable<Purc
      * Select the count of uniquely-selected records by the condition-bean. {IgnorePagingCondition, IgnoreSpecifyColumn}<br />
      * SpecifyColumn is ignored but you can use it only to remove text type column for union's distinct.
      * <pre>
-     * PurchasePaymentCB cb = new PurchasePaymentCB();
-     * cb.query().setFoo...(value);
-     * int count = purchasePaymentBhv.<span style="color: #CC4747">selectCount</span>(cb);
+     * int count = <span style="color: #0000C0">purchasePaymentBhv</span>.<span style="color: #CC4747">selectCount</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of PurchasePayment. (NotNull)
      * @return The count for the condition. (NotMinus)
@@ -95,7 +95,7 @@ public abstract class BsPurchasePaymentBhv extends AbstractBehaviorWritable<Purc
      * <pre>
      * PurchasePaymentCB cb = new PurchasePaymentCB();
      * cb.query().setFoo...(value);
-     * int count = purchasePaymentBhv.<span style="color: #CC4747">selectCount</span>(cb);
+     * int count = <span style="color: #0000C0">purchasePaymentBhv</span>.<span style="color: #CC4747">selectCount</span>(cb);
      * </pre>
      * @param cb The condition-bean of PurchasePayment. (NotNull)
      * @return The count for the condition. (NotMinus)
@@ -112,8 +112,8 @@ public abstract class BsPurchasePaymentBhv extends AbstractBehaviorWritable<Purc
      * <span style="color: #AD4747; font-size: 120%">The return might be null if no data, so you should have null check.</span> <br />
      * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, use selectEntityWithDeletedCheck().</span>
      * <pre>
-     * PurchasePayment purchasePayment = purchasePaymentBhv.<span style="color: #CC4747">selectEntity</span>(cb -&gt; {
-     *     cb.query().set...
+     * PurchasePayment purchasePayment = <span style="color: #0000C0">purchasePaymentBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
      * });
      * if (purchasePayment != null) { <span style="color: #3F7E5E">// null check</span>
      *     ... = purchasePayment.get...();
@@ -123,8 +123,8 @@ public abstract class BsPurchasePaymentBhv extends AbstractBehaviorWritable<Purc
      * </pre>
      * @param cbLambda The callback for condition-bean of PurchasePayment. (NotNull)
      * @return The entity selected by the condition. (NullAllowed: if no data, it returns null)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public PurchasePayment selectEntity(CBCall<PurchasePaymentCB> cbLambda) {
         return facadeSelectEntity(createCB(cbLambda));
@@ -137,7 +137,7 @@ public abstract class BsPurchasePaymentBhv extends AbstractBehaviorWritable<Purc
      * <pre>
      * PurchasePaymentCB cb = new PurchasePaymentCB();
      * cb.query().setFoo...(value);
-     * PurchasePayment purchasePayment = purchasePaymentBhv.<span style="color: #DD4747">selectEntity</span>(cb);
+     * PurchasePayment purchasePayment = <span style="color: #0000C0">purchasePaymentBhv</span>.<span style="color: #DD4747">selectEntity</span>(cb);
      * if (purchasePayment != null) { <span style="color: #3F7E5E">// null check</span>
      *     ... = purchasePayment.get...();
      * } else {
@@ -146,8 +146,8 @@ public abstract class BsPurchasePaymentBhv extends AbstractBehaviorWritable<Purc
      * </pre>
      * @param cb The condition-bean of PurchasePayment. (NotNull)
      * @return The entity selected by the condition. (NullAllowed: if no data, it returns null)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public PurchasePayment selectEntity(PurchasePaymentCB cb) {
         return facadeSelectEntity(cb);
@@ -167,16 +167,14 @@ public abstract class BsPurchasePaymentBhv extends AbstractBehaviorWritable<Purc
      * Select the entity by the condition-bean with deleted check. <br />
      * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
-     * PurchasePaymentCB cb = new PurchasePaymentCB();
-     * cb.query().setFoo...(value);
-     * PurchasePayment purchasePayment = purchasePaymentBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
-     * ... = purchasePayment.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
+     * PurchasePayment <span style="color: #553000">purchasePayment</span> = <span style="color: #0000C0">purchasePaymentBhv</span>.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> cb.acceptPK(1));
+     * ... = <span style="color: #553000">purchasePayment</span>.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cbLambda The callback for condition-bean of PurchasePayment. (NotNull)
      * @return The entity selected by the condition. (NotNull: if no data, throws exception)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public PurchasePayment selectEntityWithDeletedCheck(CBCall<PurchasePaymentCB> cbLambda) {
         return facadeSelectEntityWithDeletedCheck(createCB(cbLambda));
@@ -187,15 +185,15 @@ public abstract class BsPurchasePaymentBhv extends AbstractBehaviorWritable<Purc
      * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
      * PurchasePaymentCB cb = new PurchasePaymentCB();
-     * cb.query().setFoo...(value);
-     * PurchasePayment purchasePayment = purchasePaymentBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
+     * cb.query().set...;
+     * PurchasePayment purchasePayment = <span style="color: #0000C0">purchasePaymentBhv</span>.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
      * ... = purchasePayment.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cb The condition-bean of PurchasePayment. (NotNull)
      * @return The entity selected by the condition. (NotNull: if no data, throws exception)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public PurchasePayment selectEntityWithDeletedCheck(PurchasePaymentCB cb) {
         return facadeSelectEntityWithDeletedCheck(cb);
@@ -205,8 +203,8 @@ public abstract class BsPurchasePaymentBhv extends AbstractBehaviorWritable<Purc
      * Select the entity by the primary-key value.
      * @param purchasePaymentId (購入支払ID): PK, ID, NotNull, bigserial(19). (NotNull)
      * @return The entity selected by the PK. (NullAllowed: if no data, it returns null)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public PurchasePayment selectByPK(Long purchasePaymentId) {
         return facadeSelectByPK(purchasePaymentId);
@@ -235,17 +233,17 @@ public abstract class BsPurchasePaymentBhv extends AbstractBehaviorWritable<Purc
     /**
      * Select the list as result bean.
      * <pre>
-     * ListResultBean&lt;PurchasePayment&gt; purchasePaymentList = purchasePaymentBhv.<span style="color: #CC4747">selectList</span>(cb -&gt; {
-     *     cb.query().set...;
-     *     cb.query().addOrderBy...;
+     * ListResultBean&lt;PurchasePayment&gt; <span style="color: #553000">purchasePaymentList</span> = <span style="color: #0000C0">purchasePaymentBhv</span>.<span style="color: #CC4747">selectList</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...;
+     *     <span style="color: #553000">cb</span>.query().addOrderBy...;
      * });
-     * purchasePaymentList.forEach(purchasePayment -&gt; {
-     *     ... = purchasePayment.get...();
+     * for (PurchasePayment <span style="color: #553000">purchasePayment</span> : <span style="color: #553000">purchasePaymentList</span>) {
+     *     ... = <span style="color: #553000">purchasePayment</span>.get...();
      * });
      * </pre>
      * @param cbLambda The callback for condition-bean of PurchasePayment. (NotNull)
      * @return The result bean of selected list. (NotNull: if no data, returns empty list)
-     * @exception DangerousResultSizeException When the result size is over the specified safety size.
+     * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
     public ListResultBean<PurchasePayment> selectList(CBCall<PurchasePaymentCB> cbLambda) {
         return facadeSelectList(createCB(cbLambda));
@@ -255,16 +253,16 @@ public abstract class BsPurchasePaymentBhv extends AbstractBehaviorWritable<Purc
      * Select the list as result bean.
      * <pre>
      * PurchasePaymentCB cb = new PurchasePaymentCB();
-     * cb.query().setFoo...(value);
-     * cb.query().addOrderBy_Bar...();
-     * ListResultBean&lt;PurchasePayment&gt; purchasePaymentList = purchasePaymentBhv.<span style="color: #CC4747">selectList</span>(cb);
-     * for (PurchasePayment purchasePayment : purchasePaymentList) {
+     * cb.query().set...;
+     * cb.query().addOrderBy...();
+     * ListResultBean&lt;PurchasePayment&gt; <span style="color: #553000">purchasePaymentList</span> = <span style="color: #0000C0">purchasePaymentBhv</span>.<span style="color: #CC4747">selectList</span>(cb);
+     * for (PurchasePayment purchasePayment : <span style="color: #553000">purchasePaymentList</span>) {
      *     ... = purchasePayment.get...();
      * }
      * </pre>
      * @param cb The condition-bean of PurchasePayment. (NotNull)
      * @return The result bean of selected list. (NotNull: if no data, returns empty list)
-     * @exception DangerousResultSizeException When the result size is over the specified safety size.
+     * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
     public ListResultBean<PurchasePayment> selectList(PurchasePaymentCB cb) {
         return facadeSelectList(cb);
@@ -280,23 +278,23 @@ public abstract class BsPurchasePaymentBhv extends AbstractBehaviorWritable<Purc
      * Select the page as result bean. <br />
      * (both count-select and paging-select are executed)
      * <pre>
-     * PurchasePaymentCB cb = new PurchasePaymentCB();
-     * cb.query().setFoo...(value);
-     * cb.query().addOrderBy_Bar...();
-     * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;PurchasePayment&gt; page = purchasePaymentBhv.<span style="color: #CC4747">selectPage</span>(cb);
-     * int allRecordCount = page.getAllRecordCount();
-     * int allPageCount = page.getAllPageCount();
-     * boolean isExistPrePage = page.isExistPrePage();
-     * boolean isExistNextPage = page.isExistNextPage();
+     * PagingResultBean&lt;PurchasePayment&gt; <span style="color: #553000">page</span> = <span style="color: #0000C0">purchasePaymentBhv</span>.<span style="color: #CC4747">selectPage</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     *     <span style="color: #553000">cb</span>.query().addOrderBy...
+     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
+     * });
+     * int allRecordCount = <span style="color: #553000">page</span>.getAllRecordCount();
+     * int allPageCount = <span style="color: #553000">page</span>.getAllPageCount();
+     * boolean isExistPrePage = <span style="color: #553000">page</span>.isExistPrePage();
+     * boolean isExistNextPage = <span style="color: #553000">page</span>.isExistNextPage();
      * ...
-     * for (PurchasePayment purchasePayment : page) {
+     * for (PurchasePayment purchasePayment : <span style="color: #553000">page</span>) {
      *     ... = purchasePayment.get...();
      * }
      * </pre>
      * @param cbLambda The callback for condition-bean of PurchasePayment. (NotNull)
      * @return The result bean of selected page. (NotNull: if no data, returns bean as empty list)
-     * @exception DangerousResultSizeException When the result size is over the specified safety size.
+     * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
     public PagingResultBean<PurchasePayment> selectPage(CBCall<PurchasePaymentCB> cbLambda) {
         return facadeSelectPage(createCB(cbLambda));
@@ -310,19 +308,19 @@ public abstract class BsPurchasePaymentBhv extends AbstractBehaviorWritable<Purc
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
      * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;PurchasePayment&gt; page = purchasePaymentBhv.<span style="color: #CC4747">selectPage</span>(cb);
-     * int allRecordCount = page.getAllRecordCount();
-     * int allPageCount = page.getAllPageCount();
-     * boolean isExistPrePage = page.isExistPrePage();
-     * boolean isExistNextPage = page.isExistNextPage();
+     * PagingResultBean&lt;PurchasePayment&gt; <span style="color: #553000">page</span> = <span style="color: #0000C0">purchasePaymentBhv</span>.<span style="color: #CC4747">selectPage</span>(cb);
+     * int allRecordCount = <span style="color: #553000">page</span>.getAllRecordCount();
+     * int allPageCount = <span style="color: #553000">page</span>.getAllPageCount();
+     * boolean isExistPrePage = <span style="color: #553000">page</span>.isExistPrePage();
+     * boolean isExistNextPage = <span style="color: #553000">page</span>.isExistNextPage();
      * ...
-     * for (PurchasePayment purchasePayment : page) {
+     * for (PurchasePayment purchasePayment : <span style="color: #553000">page</span>) {
      *     ... = purchasePayment.get...();
      * }
      * </pre>
      * @param cb The condition-bean of PurchasePayment. (NotNull)
      * @return The result bean of selected page. (NotNull: if no data, returns bean as empty list)
-     * @exception DangerousResultSizeException When the result size is over the specified safety size.
+     * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
     public PagingResultBean<PurchasePayment> selectPage(PurchasePaymentCB cb) {
         return facadeSelectPage(cb);
@@ -334,12 +332,10 @@ public abstract class BsPurchasePaymentBhv extends AbstractBehaviorWritable<Purc
     /**
      * Select the cursor by the condition-bean.
      * <pre>
-     * PurchasePaymentCB cb = new PurchasePaymentCB();
-     * cb.query().setFoo...(value);
-     * purchasePaymentBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;PurchasePayment&gt;() {
-     *     public void handle(PurchasePayment entity) {
-     *         ... = entity.getFoo...();
-     *     }
+     * <span style="color: #0000C0">purchasePaymentBhv</span>.<span style="color: #CC4747">selectCursor</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }, <span style="color: #553000">member</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     ... = <span style="color: #553000">member</span>.getMemberName();
      * });
      * </pre>
      * @param cbLambda The callback for condition-bean of PurchasePayment. (NotNull)
@@ -353,8 +349,8 @@ public abstract class BsPurchasePaymentBhv extends AbstractBehaviorWritable<Purc
      * Select the cursor by the condition-bean.
      * <pre>
      * PurchasePaymentCB cb = new PurchasePaymentCB();
-     * cb.query().setFoo...(value);
-     * purchasePaymentBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;PurchasePayment&gt;() {
+     * cb.query().set...
+     * <span style="color: #0000C0">purchasePaymentBhv</span>.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;PurchasePayment&gt;() {
      *     public void handle(PurchasePayment entity) {
      *         ... = entity.getFoo...();
      *     }
@@ -374,11 +370,9 @@ public abstract class BsPurchasePaymentBhv extends AbstractBehaviorWritable<Purc
      * Select the scalar value derived by a function from uniquely-selected records. <br />
      * You should call a function method after this method called like as follows:
      * <pre>
-     * purchasePaymentBhv.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(new ScalarQuery() {
-     *     public void query(PurchasePaymentCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFooDatetime()</span>; <span style="color: #3F7E5E">// required for a function</span>
-     *         cb.query().setBarName_PrefixSearch("S");
-     *     }
+     * <span style="color: #0000C0">purchasePaymentBhv</span>.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...()</span>; <span style="color: #3F7E5E">// required for the function</span>
+     *     <span style="color: #553000">cb</span>.query().set...
      * });
      * </pre>
      * @param <RESULT> The type of result.
@@ -421,23 +415,24 @@ public abstract class BsPurchasePaymentBhv extends AbstractBehaviorWritable<Purc
     /**
      * Load referrer by the the referrer loader. <br />
      * <pre>
-     * MemberCB cb = new MemberCB();
-     * cb.query().set...
-     * List&lt;Member&gt; memberList = memberBhv.selectList(cb);
-     * memberBhv.<span style="color: #CC4747">load</span>(memberList, loader -&gt; {
-     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
-     *         purchaseCB.query().set...
-     *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
+     * List&lt;Member&gt; <span style="color: #553000">memberList</span> = <span style="color: #0000C0">memberBhv</span>.selectList(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * });
+     * memberBhv.<span style="color: #CC4747">load</span>(<span style="color: #553000">memberList</span>, <span style="color: #553000">memberLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">memberLoader</span>.<span style="color: #CC4747">loadPurchase</span>(<span style="color: #553000">purchaseCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">purchaseCB</span>.setupSelect...
+     *         <span style="color: #553000">purchaseCB</span>.query().set...
+     *         <span style="color: #553000">purchaseCB</span>.query().addOrderBy...
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
-     *     <span style="color: #3F7E5E">//}).withNestedList(purchaseLoader -&gt {</span>
-     *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePaymentList(...);</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(purchaseLoader -&gt {</span>
+     *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePayment(...);</span>
      *     <span style="color: #3F7E5E">//});</span>
      *
      *     <span style="color: #3F7E5E">// you can also pull out foreign table and load its referrer</span>
      *     <span style="color: #3F7E5E">// (setupSelect of the foreign table should be called)</span>
-     *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
-     * }
-     * for (Member member : memberList) {
+     *     <span style="color: #3F7E5E">//memberLoader.pulloutMemberStatus().loadMemberLogin(...)</span>
+     * });
+     * for (Member member : <span style="color: #553000">memberList</span>) {
      *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
      *     for (Purchase purchase : purchaseList) {
      *         ...
@@ -457,27 +452,24 @@ public abstract class BsPurchasePaymentBhv extends AbstractBehaviorWritable<Purc
     /**
      * Load referrer of ${referrer.referrerJavaBeansRulePropertyName} by the referrer loader. <br />
      * <pre>
-     * MemberCB cb = new MemberCB();
-     * cb.query().set...
-     * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * memberBhv.<span style="color: #CC4747">load</span>(member, loader -&gt; {
-     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
-     *         purchaseCB.query().set...
-     *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
+     * Member <span style="color: #553000">member</span> = <span style="color: #0000C0">memberBhv</span>.selectEntityWithDeletedCheck(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> <span style="color: #553000">cb</span>.acceptPK(1));
+     * <span style="color: #0000C0">memberBhv</span>.<span style="color: #CC4747">load</span>(<span style="color: #553000">member</span>, <span style="color: #553000">memberLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">memberLoader</span>.<span style="color: #CC4747">loadPurchase</span>(<span style="color: #553000">purchaseCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">purchaseCB</span>.setupSelect...
+     *         <span style="color: #553000">purchaseCB</span>.query().set...
+     *         <span style="color: #553000">purchaseCB</span>.query().addOrderBy...
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
-     *     <span style="color: #3F7E5E">//}).withNestedList(purchaseLoader -&gt {</span>
-     *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePaymentList(...);</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(purchaseLoader -&gt {</span>
+     *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePayment(...);</span>
      *     <span style="color: #3F7E5E">//});</span>
      *
      *     <span style="color: #3F7E5E">// you can also pull out foreign table and load its referrer</span>
      *     <span style="color: #3F7E5E">// (setupSelect of the foreign table should be called)</span>
-     *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
-     * }
-     * for (Member member : memberList) {
-     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
-     *     for (Purchase purchase : purchaseList) {
-     *         ...
-     *     }
+     *     <span style="color: #3F7E5E">//memberLoader.pulloutMemberStatus().loadMemberLogin(...)</span>
+     * });
+     * List&lt;Purchase&gt; purchaseList = <span style="color: #553000">member</span>.<span style="color: #CC4747">getPurchaseList()</span>;
+     * for (Purchase purchase : purchaseList) {
+     *     ...
      * }
      * </pre>
      * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
@@ -525,12 +517,12 @@ public abstract class BsPurchasePaymentBhv extends AbstractBehaviorWritable<Purc
      * <span style="color: #3F7E5E">// you don't need to set values of common columns</span>
      * <span style="color: #3F7E5E">//purchasePayment.setRegisterUser(value);</span>
      * <span style="color: #3F7E5E">//purchasePayment.set...;</span>
-     * purchasePaymentBhv.<span style="color: #CC4747">insert</span>(purchasePayment);
+     * <span style="color: #0000C0">purchasePaymentBhv</span>.<span style="color: #CC4747">insert</span>(purchasePayment);
      * ... = purchasePayment.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * <p>While, when the entity is created by select, all columns are registered.</p>
      * @param purchasePayment The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void insert(PurchasePayment purchasePayment) {
         doInsert(purchasePayment, null);
@@ -548,15 +540,15 @@ public abstract class BsPurchasePaymentBhv extends AbstractBehaviorWritable<Purc
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * purchasePayment.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     purchasePaymentBhv.<span style="color: #CC4747">update</span>(purchasePayment);
+     *     <span style="color: #0000C0">purchasePaymentBhv</span>.<span style="color: #CC4747">update</span>(purchasePayment);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
      * </pre>
      * @param purchasePayment The entity of update. (NotNull, PrimaryKeyNotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void update(PurchasePayment purchasePayment) {
         doUpdate(purchasePayment, null);
@@ -567,9 +559,9 @@ public abstract class BsPurchasePaymentBhv extends AbstractBehaviorWritable<Purc
      * if (the entity has no PK) { insert() } else { update(), but no data, insert() } <br />
      * <p><span style="color: #CC4747; font-size: 120%">Attention, you cannot update by unique keys instead of PK.</span></p>
      * @param purchasePayment The entity of insert or update. (NotNull, ...depends on insert or update)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void insertOrUpdate(PurchasePayment purchasePayment) {
         doInsertOrUpdate(purchasePayment, null, null);
@@ -583,14 +575,14 @@ public abstract class BsPurchasePaymentBhv extends AbstractBehaviorWritable<Purc
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * purchasePayment.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     purchasePaymentBhv.<span style="color: #CC4747">delete</span>(purchasePayment);
+     *     <span style="color: #0000C0">purchasePaymentBhv</span>.<span style="color: #CC4747">delete</span>(purchasePayment);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
      * </pre>
      * @param purchasePayment The entity of delete. (NotNull, PrimaryKeyNotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
      */
     public void delete(PurchasePayment purchasePayment) {
         doDelete(purchasePayment, null);
@@ -615,7 +607,7 @@ public abstract class BsPurchasePaymentBhv extends AbstractBehaviorWritable<Purc
      *     <span style="color: #3F7E5E">// columns not-called in all entities are registered as null or default value</span>
      *     purchasePaymentList.add(purchasePayment);
      * }
-     * purchasePaymentBhv.<span style="color: #CC4747">batchInsert</span>(purchasePaymentList);
+     * <span style="color: #0000C0">purchasePaymentBhv</span>.<span style="color: #CC4747">batchInsert</span>(purchasePaymentList);
      * </pre>
      * <p>While, when the entities are created by select, all columns are registered.</p>
      * <p>And if the table has an identity, entities after the process don't have incremented values.
@@ -645,11 +637,11 @@ public abstract class BsPurchasePaymentBhv extends AbstractBehaviorWritable<Purc
      *     <span style="color: #3F7E5E">// (others are not updated: their values are kept)</span>
      *     purchasePaymentList.add(purchasePayment);
      * }
-     * purchasePaymentBhv.<span style="color: #CC4747">batchUpdate</span>(purchasePaymentList);
+     * <span style="color: #0000C0">purchasePaymentBhv</span>.<span style="color: #CC4747">batchUpdate</span>(purchasePaymentList);
      * </pre>
      * @param purchasePaymentList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      */
     public int[] batchUpdate(List<PurchasePayment> purchasePaymentList) {
         return doBatchUpdate(purchasePaymentList, null);
@@ -660,7 +652,7 @@ public abstract class BsPurchasePaymentBhv extends AbstractBehaviorWritable<Purc
      * This method uses executeBatch() of java.sql.PreparedStatement.
      * @param purchasePaymentList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @return The array of deleted count. (NotNull, EmptyAllowed)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      */
     public int[] batchDelete(List<PurchasePayment> purchasePaymentList) {
         return doBatchDelete(purchasePaymentList, null);
@@ -672,7 +664,7 @@ public abstract class BsPurchasePaymentBhv extends AbstractBehaviorWritable<Purc
     /**
      * Insert the several entities by query (modified-only for fixed value).
      * <pre>
-     * purchasePaymentBhv.<span style="color: #CC4747">queryInsert</span>(new QueryInsertSetupper&lt;PurchasePayment, PurchasePaymentCB&gt;() {
+     * <span style="color: #0000C0">purchasePaymentBhv</span>.<span style="color: #CC4747">queryInsert</span>(new QueryInsertSetupper&lt;PurchasePayment, PurchasePaymentCB&gt;() {
      *     public ConditionBean setup(PurchasePayment entity, PurchasePaymentCB intoCB) {
      *         FooCB cb = FooCB();
      *         cb.setupSelect_Bar();
@@ -714,12 +706,12 @@ public abstract class BsPurchasePaymentBhv extends AbstractBehaviorWritable<Purc
      * <span style="color: #3F7E5E">//purchasePayment.setVersionNo(value);</span>
      * PurchasePaymentCB cb = new PurchasePaymentCB();
      * cb.query().setFoo...(value);
-     * purchasePaymentBhv.<span style="color: #CC4747">queryUpdate</span>(purchasePayment, cb);
+     * <span style="color: #0000C0">purchasePaymentBhv</span>.<span style="color: #CC4747">queryUpdate</span>(purchasePayment, cb);
      * </pre>
      * @param purchasePayment The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cbLambda The callback for condition-bean of PurchasePayment. (NotNull)
      * @return The updated count.
-     * @exception NonQueryUpdateNotAllowedException When the query has no condition.
+     * @throws NonQueryUpdateNotAllowedException When the query has no condition.
      */
     public int queryUpdate(PurchasePayment purchasePayment, CBCall<PurchasePaymentCB> cbLambda) {
         return doQueryUpdate(purchasePayment, createCB(cbLambda), null);
@@ -740,12 +732,12 @@ public abstract class BsPurchasePaymentBhv extends AbstractBehaviorWritable<Purc
      * <span style="color: #3F7E5E">//purchasePayment.setVersionNo(value);</span>
      * PurchasePaymentCB cb = new PurchasePaymentCB();
      * cb.query().setFoo...(value);
-     * purchasePaymentBhv.<span style="color: #CC4747">queryUpdate</span>(purchasePayment, cb);
+     * <span style="color: #0000C0">purchasePaymentBhv</span>.<span style="color: #CC4747">queryUpdate</span>(purchasePayment, cb);
      * </pre>
      * @param purchasePayment The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cb The condition-bean of PurchasePayment. (NotNull)
      * @return The updated count.
-     * @exception NonQueryUpdateNotAllowedException When the query has no condition.
+     * @throws NonQueryUpdateNotAllowedException When the query has no condition.
      */
     public int queryUpdate(PurchasePayment purchasePayment, PurchasePaymentCB cb) {
         return doQueryUpdate(purchasePayment, cb, null);
@@ -756,11 +748,11 @@ public abstract class BsPurchasePaymentBhv extends AbstractBehaviorWritable<Purc
      * <pre>
      * PurchasePaymentCB cb = new PurchasePaymentCB();
      * cb.query().setFoo...(value);
-     * purchasePaymentBhv.<span style="color: #CC4747">queryDelete</span>(purchasePayment, cb);
+     * <span style="color: #0000C0">purchasePaymentBhv</span>.<span style="color: #CC4747">queryDelete</span>(purchasePayment, cb);
      * </pre>
      * @param cbLambda The callback for condition-bean of PurchasePayment. (NotNull)
      * @return The deleted count.
-     * @exception NonQueryDeleteNotAllowedException When the query has no condition.
+     * @throws NonQueryDeleteNotAllowedException When the query has no condition.
      */
     public int queryDelete(CBCall<PurchasePaymentCB> cbLambda) {
         return doQueryDelete(createCB(cbLambda), null);
@@ -771,11 +763,11 @@ public abstract class BsPurchasePaymentBhv extends AbstractBehaviorWritable<Purc
      * <pre>
      * PurchasePaymentCB cb = new PurchasePaymentCB();
      * cb.query().setFoo...(value);
-     * purchasePaymentBhv.<span style="color: #CC4747">queryDelete</span>(purchasePayment, cb);
+     * <span style="color: #0000C0">purchasePaymentBhv</span>.<span style="color: #CC4747">queryDelete</span>(purchasePayment, cb);
      * </pre>
      * @param cb The condition-bean of PurchasePayment. (NotNull)
      * @return The deleted count.
-     * @exception NonQueryDeleteNotAllowedException When the query has no condition.
+     * @throws NonQueryDeleteNotAllowedException When the query has no condition.
      */
     public int queryDelete(PurchasePaymentCB cb) {
         return doQueryDelete(cb, null);
@@ -799,12 +791,12 @@ public abstract class BsPurchasePaymentBhv extends AbstractBehaviorWritable<Purc
      * InsertOption<PurchasePaymentCB> option = new InsertOption<PurchasePaymentCB>();
      * <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
      * option.disableCommonColumnAutoSetup();
-     * purchasePaymentBhv.<span style="color: #CC4747">varyingInsert</span>(purchasePayment, option);
+     * <span style="color: #0000C0">purchasePaymentBhv</span>.<span style="color: #CC4747">varyingInsert</span>(purchasePayment, option);
      * ... = purchasePayment.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * @param purchasePayment The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void varyingInsert(PurchasePayment purchasePayment, WritableOptionCall<PurchasePaymentCB, InsertOption<PurchasePaymentCB>> opLambda) {
         doInsert(purchasePayment, createInsertOption(opLambda));
@@ -828,16 +820,16 @@ public abstract class BsPurchasePaymentBhv extends AbstractBehaviorWritable<Purc
      *             cb.specify().<span style="color: #CC4747">columnXxxCount()</span>;
      *         }
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
-     *     purchasePaymentBhv.<span style="color: #CC4747">varyingUpdate</span>(purchasePayment, option);
+     *     <span style="color: #0000C0">purchasePaymentBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(purchasePayment, option);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
      * </pre>
      * @param purchasePayment The entity of update. (NotNull, PrimaryKeyNotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void varyingUpdate(PurchasePayment purchasePayment, WritableOptionCall<PurchasePaymentCB, UpdateOption<PurchasePaymentCB>> opLambda) {
         doUpdate(purchasePayment, createUpdateOption(opLambda));
@@ -849,9 +841,9 @@ public abstract class BsPurchasePaymentBhv extends AbstractBehaviorWritable<Purc
      * @param purchasePayment The entity of insert or update. (NotNull)
      * @param insertOpLambda The callback for option of insert for varying requests. (NotNull)
      * @param updateOpLambda The callback for option of update for varying requests. (NotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void varyingInsertOrUpdate(PurchasePayment purchasePayment, WritableOptionCall<PurchasePaymentCB, InsertOption<PurchasePaymentCB>> insertOpLambda, WritableOptionCall<PurchasePaymentCB, UpdateOption<PurchasePaymentCB>> updateOpLambda) {
         doInsertOrUpdate(purchasePayment, createInsertOption(insertOpLambda), createUpdateOption(updateOpLambda));
@@ -863,8 +855,8 @@ public abstract class BsPurchasePaymentBhv extends AbstractBehaviorWritable<Purc
      * Other specifications are same as delete(entity).
      * @param purchasePayment The entity of delete. (NotNull, PrimaryKeyNotNull, ConcurrencyColumnNotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
      */
     public void varyingDelete(PurchasePayment purchasePayment, WritableOptionCall<PurchasePaymentCB, DeleteOption<PurchasePaymentCB>> opLambda) {
         doDelete(purchasePayment, createDeleteOption(opLambda));
@@ -948,13 +940,13 @@ public abstract class BsPurchasePaymentBhv extends AbstractBehaviorWritable<Purc
      *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * purchasePaymentBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(purchasePayment, cb, option);
+     * <span style="color: #0000C0">purchasePaymentBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(purchasePayment, cb, option);
      * </pre>
      * @param purchasePayment The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cbLambda The callback for condition-bean of PurchasePayment. (NotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
      * @return The updated count.
-     * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
+     * @throws NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
     public int varyingQueryUpdate(PurchasePayment purchasePayment, CBCall<PurchasePaymentCB> cbLambda, WritableOptionCall<PurchasePaymentCB, UpdateOption<PurchasePaymentCB>> opLambda) {
         return doQueryUpdate(purchasePayment, createCB(cbLambda), createUpdateOption(opLambda));
@@ -982,13 +974,13 @@ public abstract class BsPurchasePaymentBhv extends AbstractBehaviorWritable<Purc
      *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * purchasePaymentBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(purchasePayment, cb, option);
+     * <span style="color: #0000C0">purchasePaymentBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(purchasePayment, cb, option);
      * </pre>
      * @param purchasePayment The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cb The condition-bean of PurchasePayment. (NotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
      * @return The updated count.
-     * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
+     * @throws NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
     public int varyingQueryUpdate(PurchasePayment purchasePayment, PurchasePaymentCB cb, WritableOptionCall<PurchasePaymentCB, UpdateOption<PurchasePaymentCB>> opLambda) {
         return doQueryUpdate(purchasePayment, cb, createUpdateOption(opLambda));
@@ -1001,7 +993,7 @@ public abstract class BsPurchasePaymentBhv extends AbstractBehaviorWritable<Purc
      * @param cbLambda The callback for condition-bean of PurchasePayment. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
-     * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
+     * @throws NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
     public int varyingQueryDelete(CBCall<PurchasePaymentCB> cbLambda, WritableOptionCall<PurchasePaymentCB, DeleteOption<PurchasePaymentCB>> opLambda) {
         return doQueryDelete(createCB(cbLambda), createDeleteOption(opLambda));
@@ -1014,7 +1006,7 @@ public abstract class BsPurchasePaymentBhv extends AbstractBehaviorWritable<Purc
      * @param cb The condition-bean of PurchasePayment. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
-     * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
+     * @throws NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
     public int varyingQueryDelete(PurchasePaymentCB cb, WritableOptionCall<PurchasePaymentCB, DeleteOption<PurchasePaymentCB>> opLambda) {
         return doQueryDelete(cb, createDeleteOption(opLambda));

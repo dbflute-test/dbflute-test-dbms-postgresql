@@ -101,7 +101,7 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * (商品カテゴリコード)product_category_code: {PK, NotNull, bpchar(3)} <br />
-     * <pre>e.g. setProductCategoryCode_LikeSearch("xxx", op -&gt; op.<span style="color: #CC4747">likeContain()</span>);</pre>
+     * <pre>e.g. setProductCategoryCode_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param productCategoryCode The value of productCategoryCode as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
@@ -156,7 +156,7 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
      * {exists (select product_category_code from product where ...)} <br />
      * (商品)product by product_category_code, named 'productAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">existsProductList</span>(productCB -&gt; {
+     * cb.query().<span style="color: #CC4747">existsProductList</span>(productCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     productCB.query().set...
      * });
      * </pre>
@@ -165,8 +165,7 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
     public void existsProductList(SubQuery<ProductCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         ProductCB cb = new ProductCB(); cb.xsetupForExistsReferrer(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepProductCategoryCode_ExistsReferrer_ProductList(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepProductCategoryCode_ExistsReferrer_ProductList(cb.query());
         registerExistsReferrer(cb.query(), "product_category_code", "product_category_code", pp, "productList");
     }
     public abstract String keepProductCategoryCode_ExistsReferrer_ProductList(ProductCQ sq);
@@ -176,7 +175,7 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
      * {exists (select parent_category_code from product_category where ...)} <br />
      * (商品カテゴリ)product_category by parent_category_code, named 'productCategorySelfAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">existsProductCategorySelfList</span>(categoryCB -&gt; {
+     * cb.query().<span style="color: #CC4747">existsProductCategorySelfList</span>(categoryCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     categoryCB.query().set...
      * });
      * </pre>
@@ -185,8 +184,7 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
     public void existsProductCategorySelfList(SubQuery<ProductCategoryCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         ProductCategoryCB cb = new ProductCategoryCB(); cb.xsetupForExistsReferrer(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepProductCategoryCode_ExistsReferrer_ProductCategorySelfList(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepProductCategoryCode_ExistsReferrer_ProductCategorySelfList(cb.query());
         registerExistsReferrer(cb.query(), "product_category_code", "parent_category_code", pp, "productCategorySelfList");
     }
     public abstract String keepProductCategoryCode_ExistsReferrer_ProductCategorySelfList(ProductCategoryCQ sq);
@@ -196,10 +194,8 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
      * {not exists (select product_category_code from product where ...)} <br />
      * (商品)product by product_category_code, named 'productAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsProductList</span>(new SubQuery&lt;ProductCB&gt;() {
-     *     public void query(ProductCB subCB) {
-     *         subCB.query().setXxx...
-     *     }
+     * cb.query().<span style="color: #CC4747">notExistsProductList</span>(productCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     productCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of ProductCategoryCode_NotExistsReferrer_ProductList for 'not exists'. (NotNull)
@@ -207,8 +203,7 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
     public void notExistsProductList(SubQuery<ProductCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         ProductCB cb = new ProductCB(); cb.xsetupForExistsReferrer(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepProductCategoryCode_NotExistsReferrer_ProductList(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepProductCategoryCode_NotExistsReferrer_ProductList(cb.query());
         registerNotExistsReferrer(cb.query(), "product_category_code", "product_category_code", pp, "productList");
     }
     public abstract String keepProductCategoryCode_NotExistsReferrer_ProductList(ProductCQ sq);
@@ -218,10 +213,8 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
      * {not exists (select parent_category_code from product_category where ...)} <br />
      * (商品カテゴリ)product_category by parent_category_code, named 'productCategorySelfAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsProductCategorySelfList</span>(new SubQuery&lt;ProductCategoryCB&gt;() {
-     *     public void query(ProductCategoryCB subCB) {
-     *         subCB.query().setXxx...
-     *     }
+     * cb.query().<span style="color: #CC4747">notExistsProductCategorySelfList</span>(categoryCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     categoryCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of ProductCategoryCode_NotExistsReferrer_ProductCategorySelfList for 'not exists'. (NotNull)
@@ -229,8 +222,7 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
     public void notExistsProductCategorySelfList(SubQuery<ProductCategoryCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         ProductCategoryCB cb = new ProductCategoryCB(); cb.xsetupForExistsReferrer(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepProductCategoryCode_NotExistsReferrer_ProductCategorySelfList(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepProductCategoryCode_NotExistsReferrer_ProductCategorySelfList(cb.query());
         registerNotExistsReferrer(cb.query(), "product_category_code", "parent_category_code", pp, "productCategorySelfList");
     }
     public abstract String keepProductCategoryCode_NotExistsReferrer_ProductCategorySelfList(ProductCategoryCQ sq);
@@ -238,8 +230,7 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
     public void xsderiveProductList(String fn, SubQuery<ProductCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         ProductCB cb = new ProductCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String pp = keepProductCategoryCode_SpecifyDerivedReferrer_ProductList(cb.query());
+        lockCall(() -> sq.query(cb)); String pp = keepProductCategoryCode_SpecifyDerivedReferrer_ProductList(cb.query());
         registerSpecifyDerivedReferrer(fn, cb.query(), "product_category_code", "product_category_code", pp, "productList", al, op);
     }
     public abstract String keepProductCategoryCode_SpecifyDerivedReferrer_ProductList(ProductCQ sq);
@@ -247,8 +238,7 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
     public void xsderiveProductCategorySelfList(String fn, SubQuery<ProductCategoryCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         ProductCategoryCB cb = new ProductCategoryCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String pp = keepProductCategoryCode_SpecifyDerivedReferrer_ProductCategorySelfList(cb.query());
+        lockCall(() -> sq.query(cb)); String pp = keepProductCategoryCode_SpecifyDerivedReferrer_ProductCategorySelfList(cb.query());
         registerSpecifyDerivedReferrer(fn, cb.query(), "product_category_code", "parent_category_code", pp, "productCategorySelfList", al, op);
     }
     public abstract String keepProductCategoryCode_SpecifyDerivedReferrer_ProductCategorySelfList(ProductCategoryCQ sq);
@@ -258,11 +248,9 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
      * {FOO &lt;= (select max(BAR) from product where ...)} <br />
      * (商品)product by product_category_code, named 'productAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedProductList()</span>.<span style="color: #CC4747">max</span>(new SubQuery&lt;ProductCB&gt;() {
-     *     public void query(ProductCB subCB) {
-     *         subCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
-     *         subCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
-     *     }
+     * cb.query().<span style="color: #CC4747">derivedProductList()</span>.<span style="color: #CC4747">max</span>(productCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     productCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
+     *     productCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
      * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
      * </pre>
      * @return The object to set up a function for referrer table. (NotNull)
@@ -271,17 +259,12 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
         return xcreateQDRFunctionProductList();
     }
     protected HpQDRFunction<ProductCB> xcreateQDRFunctionProductList() {
-        return xcQDRFunc(new HpQDRSetupper<ProductCB>() {
-            public void setup(String fn, SubQuery<ProductCB> sq, String rd, Object vl, DerivedReferrerOption op) {
-                xqderiveProductList(fn, sq, rd, vl, op);
-            }
-        });
+        return xcQDRFunc((fn, sq, rd, vl, op) -> xqderiveProductList(fn, sq, rd, vl, op));
     }
     public void xqderiveProductList(String fn, SubQuery<ProductCB> sq, String rd, Object vl, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         ProductCB cb = new ProductCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String sqpp = keepProductCategoryCode_QueryDerivedReferrer_ProductList(cb.query()); String prpp = keepProductCategoryCode_QueryDerivedReferrer_ProductListParameter(vl);
+        lockCall(() -> sq.query(cb)); String sqpp = keepProductCategoryCode_QueryDerivedReferrer_ProductList(cb.query()); String prpp = keepProductCategoryCode_QueryDerivedReferrer_ProductListParameter(vl);
         registerQueryDerivedReferrer(fn, cb.query(), "product_category_code", "product_category_code", sqpp, "productList", rd, vl, prpp, op);
     }
     public abstract String keepProductCategoryCode_QueryDerivedReferrer_ProductList(ProductCQ sq);
@@ -292,11 +275,9 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
      * {FOO &lt;= (select max(BAR) from product_category where ...)} <br />
      * (商品カテゴリ)product_category by parent_category_code, named 'productCategorySelfAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedProductCategorySelfList()</span>.<span style="color: #CC4747">max</span>(new SubQuery&lt;ProductCategoryCB&gt;() {
-     *     public void query(ProductCategoryCB subCB) {
-     *         subCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
-     *         subCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
-     *     }
+     * cb.query().<span style="color: #CC4747">derivedProductCategorySelfList()</span>.<span style="color: #CC4747">max</span>(categoryCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     categoryCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
+     *     categoryCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
      * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
      * </pre>
      * @return The object to set up a function for referrer table. (NotNull)
@@ -305,17 +286,12 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
         return xcreateQDRFunctionProductCategorySelfList();
     }
     protected HpQDRFunction<ProductCategoryCB> xcreateQDRFunctionProductCategorySelfList() {
-        return xcQDRFunc(new HpQDRSetupper<ProductCategoryCB>() {
-            public void setup(String fn, SubQuery<ProductCategoryCB> sq, String rd, Object vl, DerivedReferrerOption op) {
-                xqderiveProductCategorySelfList(fn, sq, rd, vl, op);
-            }
-        });
+        return xcQDRFunc((fn, sq, rd, vl, op) -> xqderiveProductCategorySelfList(fn, sq, rd, vl, op));
     }
     public void xqderiveProductCategorySelfList(String fn, SubQuery<ProductCategoryCB> sq, String rd, Object vl, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         ProductCategoryCB cb = new ProductCategoryCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String sqpp = keepProductCategoryCode_QueryDerivedReferrer_ProductCategorySelfList(cb.query()); String prpp = keepProductCategoryCode_QueryDerivedReferrer_ProductCategorySelfListParameter(vl);
+        lockCall(() -> sq.query(cb)); String sqpp = keepProductCategoryCode_QueryDerivedReferrer_ProductCategorySelfList(cb.query()); String prpp = keepProductCategoryCode_QueryDerivedReferrer_ProductCategorySelfListParameter(vl);
         registerQueryDerivedReferrer(fn, cb.query(), "product_category_code", "parent_category_code", sqpp, "productCategorySelfList", rd, vl, prpp, op);
     }
     public abstract String keepProductCategoryCode_QueryDerivedReferrer_ProductCategorySelfList(ProductCategoryCQ sq);
@@ -391,7 +367,7 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * (商品カテゴリ名称)product_category_name: {NotNull, varchar(50)} <br />
-     * <pre>e.g. setProductCategoryName_LikeSearch("xxx", op -&gt; op.<span style="color: #CC4747">likeContain()</span>);</pre>
+     * <pre>e.g. setProductCategoryName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param productCategoryName The value of productCategoryName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
@@ -499,7 +475,7 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * (親カテゴリコード)parent_category_code: {bpchar(3), FK to product_category} <br />
-     * <pre>e.g. setParentCategoryCode_LikeSearch("xxx", op -&gt; op.<span style="color: #CC4747">likeContain()</span>);</pre>
+     * <pre>e.g. setParentCategoryCode_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param parentCategoryCode The value of parentCategoryCode as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
@@ -699,9 +675,7 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
     public void xsmyselfDerive(String fn, SubQuery<ProductCategoryCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         ProductCategoryCB cb = new ProductCategoryCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String pp = keepSpecifyMyselfDerived(cb.query());
-        String pk = "product_category_code";
+        lockCall(() -> sq.query(cb)); String pp = keepSpecifyMyselfDerived(cb.query()); String pk = "product_category_code";
         registerSpecifyMyselfDerived(fn, cb.query(), pk, pk, pp, "myselfDerived", al, op);
     }
     public abstract String keepSpecifyMyselfDerived(ProductCategoryCQ sq);
@@ -735,8 +709,7 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
     public void myselfExists(SubQuery<ProductCategoryCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         ProductCategoryCB cb = new ProductCategoryCB(); cb.xsetupForMyselfExists(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepMyselfExists(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepMyselfExists(cb.query());
         registerMyselfExists(cb.query(), pp);
     }
     public abstract String keepMyselfExists(ProductCategoryCQ sq);

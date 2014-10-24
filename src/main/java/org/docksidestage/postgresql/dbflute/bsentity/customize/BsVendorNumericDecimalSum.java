@@ -59,7 +59,6 @@ public abstract class BsVendorNumericDecimalSum extends AbstractEntity {
     /** decimal_digit_sum: {numeric(131089)} */
     protected java.math.BigDecimal _decimalDigitSum;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -129,7 +128,7 @@ public abstract class BsVendorNumericDecimalSum extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_decimalDigitSum);
+        sb.append(dm).append(xfND(_decimalDigitSum));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -155,6 +154,7 @@ public abstract class BsVendorNumericDecimalSum extends AbstractEntity {
      * @return The value of the column 'decimal_digit_sum'. (NullAllowed even if selected: for no constraint)
      */
     public java.math.BigDecimal getDecimalDigitSum() {
+        checkSpecifiedProperty("decimalDigitSum");
         return _decimalDigitSum;
     }
 
@@ -163,7 +163,7 @@ public abstract class BsVendorNumericDecimalSum extends AbstractEntity {
      * @param decimalDigitSum The value of the column 'decimal_digit_sum'. (NullAllowed: null update allowed for no constraint)
      */
     public void setDecimalDigitSum(java.math.BigDecimal decimalDigitSum) {
-        __modifiedProperties.addPropertyName("decimalDigitSum");
+        registerModifiedProperty("decimalDigitSum");
         _decimalDigitSum = decimalDigitSum;
     }
 }

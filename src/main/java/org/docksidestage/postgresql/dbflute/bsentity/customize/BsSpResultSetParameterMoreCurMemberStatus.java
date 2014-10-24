@@ -75,7 +75,6 @@ public abstract class BsSpResultSetParameterMoreCurMemberStatus extends Abstract
     /** (表示順)display_order: {int4(10), refers to member_status.display_order} */
     protected Integer _displayOrder;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -238,10 +237,10 @@ public abstract class BsSpResultSetParameterMoreCurMemberStatus extends Abstract
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_memberStatusCode);
-        sb.append(dm).append(_memberStatusName);
-        sb.append(dm).append(_description);
-        sb.append(dm).append(_displayOrder);
+        sb.append(dm).append(xfND(_memberStatusCode));
+        sb.append(dm).append(xfND(_memberStatusName));
+        sb.append(dm).append(xfND(_description));
+        sb.append(dm).append(xfND(_displayOrder));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -271,6 +270,7 @@ public abstract class BsSpResultSetParameterMoreCurMemberStatus extends Abstract
      * @return The value of the column 'member_status_code'. (NullAllowed even if selected: for no constraint)
      */
     public String getMemberStatusCode() {
+        checkSpecifiedProperty("memberStatusCode");
         return _memberStatusCode;
     }
 
@@ -284,7 +284,7 @@ public abstract class BsSpResultSetParameterMoreCurMemberStatus extends Abstract
      */
     protected void setMemberStatusCode(String memberStatusCode) {
         checkClassificationCode("member_status_code", CDef.DefMeta.MemberStatus, memberStatusCode);
-        __modifiedProperties.addPropertyName("memberStatusCode");
+        registerModifiedProperty("memberStatusCode");
         _memberStatusCode = memberStatusCode;
     }
 
@@ -293,6 +293,7 @@ public abstract class BsSpResultSetParameterMoreCurMemberStatus extends Abstract
      * @return The value of the column 'member_status_name'. (NullAllowed even if selected: for no constraint)
      */
     public String getMemberStatusName() {
+        checkSpecifiedProperty("memberStatusName");
         return _memberStatusName;
     }
 
@@ -301,7 +302,7 @@ public abstract class BsSpResultSetParameterMoreCurMemberStatus extends Abstract
      * @param memberStatusName The value of the column 'member_status_name'. (NullAllowed: null update allowed for no constraint)
      */
     public void setMemberStatusName(String memberStatusName) {
-        __modifiedProperties.addPropertyName("memberStatusName");
+        registerModifiedProperty("memberStatusName");
         _memberStatusName = memberStatusName;
     }
 
@@ -312,6 +313,7 @@ public abstract class BsSpResultSetParameterMoreCurMemberStatus extends Abstract
      * @return The value of the column 'description'. (NullAllowed even if selected: for no constraint)
      */
     public String getDescription() {
+        checkSpecifiedProperty("description");
         return _description;
     }
 
@@ -322,7 +324,7 @@ public abstract class BsSpResultSetParameterMoreCurMemberStatus extends Abstract
      * @param description The value of the column 'description'. (NullAllowed: null update allowed for no constraint)
      */
     public void setDescription(String description) {
-        __modifiedProperties.addPropertyName("description");
+        registerModifiedProperty("description");
         _description = description;
     }
 
@@ -333,6 +335,7 @@ public abstract class BsSpResultSetParameterMoreCurMemberStatus extends Abstract
      * @return The value of the column 'display_order'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getDisplayOrder() {
+        checkSpecifiedProperty("displayOrder");
         return _displayOrder;
     }
 
@@ -343,7 +346,7 @@ public abstract class BsSpResultSetParameterMoreCurMemberStatus extends Abstract
      * @param displayOrder The value of the column 'display_order'. (NullAllowed: null update allowed for no constraint)
      */
     public void setDisplayOrder(Integer displayOrder) {
-        __modifiedProperties.addPropertyName("displayOrder");
+        registerModifiedProperty("displayOrder");
         _displayOrder = displayOrder;
     }
 

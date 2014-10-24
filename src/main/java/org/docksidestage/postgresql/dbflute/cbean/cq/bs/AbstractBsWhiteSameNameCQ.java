@@ -152,7 +152,7 @@ public abstract class AbstractBsWhiteSameNameCQ extends AbstractConditionQuery {
      * {exists (select same_name_id from white_same_name_ref where ...)} <br />
      * white_same_name_ref by same_name_id, named 'whiteSameNameRefAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">existsWhiteSameNameRefList</span>(refCB -&gt; {
+     * cb.query().<span style="color: #CC4747">existsWhiteSameNameRefList</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     refCB.query().set...
      * });
      * </pre>
@@ -161,8 +161,7 @@ public abstract class AbstractBsWhiteSameNameCQ extends AbstractConditionQuery {
     public void existsWhiteSameNameRefList(SubQuery<WhiteSameNameRefCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteSameNameRefCB cb = new WhiteSameNameRefCB(); cb.xsetupForExistsReferrer(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepSameNameId_ExistsReferrer_WhiteSameNameRefList(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepSameNameId_ExistsReferrer_WhiteSameNameRefList(cb.query());
         registerExistsReferrer(cb.query(), "same_name_id", "same_name_id", pp, "whiteSameNameRefList");
     }
     public abstract String keepSameNameId_ExistsReferrer_WhiteSameNameRefList(WhiteSameNameRefCQ sq);
@@ -172,10 +171,8 @@ public abstract class AbstractBsWhiteSameNameCQ extends AbstractConditionQuery {
      * {not exists (select same_name_id from white_same_name_ref where ...)} <br />
      * white_same_name_ref by same_name_id, named 'whiteSameNameRefAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsWhiteSameNameRefList</span>(new SubQuery&lt;WhiteSameNameRefCB&gt;() {
-     *     public void query(WhiteSameNameRefCB subCB) {
-     *         subCB.query().setXxx...
-     *     }
+     * cb.query().<span style="color: #CC4747">notExistsWhiteSameNameRefList</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     refCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of SameNameId_NotExistsReferrer_WhiteSameNameRefList for 'not exists'. (NotNull)
@@ -183,8 +180,7 @@ public abstract class AbstractBsWhiteSameNameCQ extends AbstractConditionQuery {
     public void notExistsWhiteSameNameRefList(SubQuery<WhiteSameNameRefCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteSameNameRefCB cb = new WhiteSameNameRefCB(); cb.xsetupForExistsReferrer(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepSameNameId_NotExistsReferrer_WhiteSameNameRefList(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepSameNameId_NotExistsReferrer_WhiteSameNameRefList(cb.query());
         registerNotExistsReferrer(cb.query(), "same_name_id", "same_name_id", pp, "whiteSameNameRefList");
     }
     public abstract String keepSameNameId_NotExistsReferrer_WhiteSameNameRefList(WhiteSameNameRefCQ sq);
@@ -192,8 +188,7 @@ public abstract class AbstractBsWhiteSameNameCQ extends AbstractConditionQuery {
     public void xsderiveWhiteSameNameRefList(String fn, SubQuery<WhiteSameNameRefCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhiteSameNameRefCB cb = new WhiteSameNameRefCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String pp = keepSameNameId_SpecifyDerivedReferrer_WhiteSameNameRefList(cb.query());
+        lockCall(() -> sq.query(cb)); String pp = keepSameNameId_SpecifyDerivedReferrer_WhiteSameNameRefList(cb.query());
         registerSpecifyDerivedReferrer(fn, cb.query(), "same_name_id", "same_name_id", pp, "whiteSameNameRefList", al, op);
     }
     public abstract String keepSameNameId_SpecifyDerivedReferrer_WhiteSameNameRefList(WhiteSameNameRefCQ sq);
@@ -203,7 +198,7 @@ public abstract class AbstractBsWhiteSameNameCQ extends AbstractConditionQuery {
      * {FOO &lt;= (select max(BAR) from white_same_name_ref where ...)} <br />
      * white_same_name_ref by same_name_id, named 'whiteSameNameRefAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedWhiteSameNameRefList()</span>.<span style="color: #CC4747">max</span>(refCB -&gt; {
+     * cb.query().<span style="color: #CC4747">derivedWhiteSameNameRefList()</span>.<span style="color: #CC4747">max</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     refCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *     refCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
      * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
@@ -214,17 +209,12 @@ public abstract class AbstractBsWhiteSameNameCQ extends AbstractConditionQuery {
         return xcreateQDRFunctionWhiteSameNameRefList();
     }
     protected HpQDRFunction<WhiteSameNameRefCB> xcreateQDRFunctionWhiteSameNameRefList() {
-        return xcQDRFunc(new HpQDRSetupper<WhiteSameNameRefCB>() {
-            public void setup(String fn, SubQuery<WhiteSameNameRefCB> sq, String rd, Object vl, DerivedReferrerOption op) {
-                xqderiveWhiteSameNameRefList(fn, sq, rd, vl, op);
-            }
-        });
+        return xcQDRFunc((fn, sq, rd, vl, op) -> xqderiveWhiteSameNameRefList(fn, sq, rd, vl, op));
     }
     public void xqderiveWhiteSameNameRefList(String fn, SubQuery<WhiteSameNameRefCB> sq, String rd, Object vl, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhiteSameNameRefCB cb = new WhiteSameNameRefCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String sqpp = keepSameNameId_QueryDerivedReferrer_WhiteSameNameRefList(cb.query()); String prpp = keepSameNameId_QueryDerivedReferrer_WhiteSameNameRefListParameter(vl);
+        lockCall(() -> sq.query(cb)); String sqpp = keepSameNameId_QueryDerivedReferrer_WhiteSameNameRefList(cb.query()); String prpp = keepSameNameId_QueryDerivedReferrer_WhiteSameNameRefListParameter(vl);
         registerQueryDerivedReferrer(fn, cb.query(), "same_name_id", "same_name_id", sqpp, "whiteSameNameRefList", rd, vl, prpp, op);
     }
     public abstract String keepSameNameId_QueryDerivedReferrer_WhiteSameNameRefList(WhiteSameNameRefCQ sq);
@@ -300,7 +290,7 @@ public abstract class AbstractBsWhiteSameNameCQ extends AbstractConditionQuery {
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * same_name_name: {varchar(200)} <br />
-     * <pre>e.g. setSameNameName_LikeSearch("xxx", op -&gt; op.<span style="color: #CC4747">likeContain()</span>);</pre>
+     * <pre>e.g. setSameNameName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param sameNameName The value of sameNameName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
@@ -732,9 +722,7 @@ public abstract class AbstractBsWhiteSameNameCQ extends AbstractConditionQuery {
     public void xsmyselfDerive(String fn, SubQuery<WhiteSameNameCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         WhiteSameNameCB cb = new WhiteSameNameCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String pp = keepSpecifyMyselfDerived(cb.query());
-        String pk = "same_name_id";
+        lockCall(() -> sq.query(cb)); String pp = keepSpecifyMyselfDerived(cb.query()); String pk = "same_name_id";
         registerSpecifyMyselfDerived(fn, cb.query(), pk, pk, pp, "myselfDerived", al, op);
     }
     public abstract String keepSpecifyMyselfDerived(WhiteSameNameCQ sq);
@@ -768,8 +756,7 @@ public abstract class AbstractBsWhiteSameNameCQ extends AbstractConditionQuery {
     public void myselfExists(SubQuery<WhiteSameNameCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteSameNameCB cb = new WhiteSameNameCB(); cb.xsetupForMyselfExists(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepMyselfExists(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepMyselfExists(cb.query());
         registerMyselfExists(cb.query(), pp);
     }
     public abstract String keepMyselfExists(WhiteSameNameCQ sq);

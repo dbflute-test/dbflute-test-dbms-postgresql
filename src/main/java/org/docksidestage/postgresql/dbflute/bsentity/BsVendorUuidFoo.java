@@ -70,7 +70,6 @@ public abstract class BsVendorUuidFoo extends AbstractEntity {
     /** bar_id: {NotNull, uuid(2147483647), FK to vendor_uuid_bar} */
     protected java.util.UUID _barId;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -163,9 +162,9 @@ public abstract class BsVendorUuidFoo extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_fooId);
-        sb.append(dm).append(_fooName);
-        sb.append(dm).append(_barId);
+        sb.append(dm).append(xfND(_fooId));
+        sb.append(dm).append(xfND(_fooName));
+        sb.append(dm).append(xfND(_barId));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -196,6 +195,7 @@ public abstract class BsVendorUuidFoo extends AbstractEntity {
      * @return The value of the column 'foo_id'. (basically NotNull if selected: for the constraint)
      */
     public java.util.UUID getFooId() {
+        checkSpecifiedProperty("fooId");
         return _fooId;
     }
 
@@ -204,7 +204,7 @@ public abstract class BsVendorUuidFoo extends AbstractEntity {
      * @param fooId The value of the column 'foo_id'. (basically NotNull if update: for the constraint)
      */
     public void setFooId(java.util.UUID fooId) {
-        __modifiedProperties.addPropertyName("fooId");
+        registerModifiedProperty("fooId");
         _fooId = fooId;
     }
 
@@ -213,6 +213,7 @@ public abstract class BsVendorUuidFoo extends AbstractEntity {
      * @return The value of the column 'foo_name'. (basically NotNull if selected: for the constraint)
      */
     public String getFooName() {
+        checkSpecifiedProperty("fooName");
         return _fooName;
     }
 
@@ -221,7 +222,7 @@ public abstract class BsVendorUuidFoo extends AbstractEntity {
      * @param fooName The value of the column 'foo_name'. (basically NotNull if update: for the constraint)
      */
     public void setFooName(String fooName) {
-        __modifiedProperties.addPropertyName("fooName");
+        registerModifiedProperty("fooName");
         _fooName = fooName;
     }
 
@@ -230,6 +231,7 @@ public abstract class BsVendorUuidFoo extends AbstractEntity {
      * @return The value of the column 'bar_id'. (basically NotNull if selected: for the constraint)
      */
     public java.util.UUID getBarId() {
+        checkSpecifiedProperty("barId");
         return _barId;
     }
 
@@ -238,7 +240,7 @@ public abstract class BsVendorUuidFoo extends AbstractEntity {
      * @param barId The value of the column 'bar_id'. (basically NotNull if update: for the constraint)
      */
     public void setBarId(java.util.UUID barId) {
-        __modifiedProperties.addPropertyName("barId");
+        registerModifiedProperty("barId");
         _barId = barId;
     }
 }

@@ -78,9 +78,9 @@ public abstract class BsVendor$DollarBhv extends AbstractBehaviorWritable<Vendor
      * Select the count of uniquely-selected records by the condition-bean. {IgnorePagingCondition, IgnoreSpecifyColumn}<br />
      * SpecifyColumn is ignored but you can use it only to remove text type column for union's distinct.
      * <pre>
-     * Vendor$DollarCB cb = new Vendor$DollarCB();
-     * cb.query().setFoo...(value);
-     * int count = vendor$DollarBhv.<span style="color: #CC4747">selectCount</span>(cb);
+     * int count = <span style="color: #0000C0">vendor$DollarBhv</span>.<span style="color: #CC4747">selectCount</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of Vendor$Dollar. (NotNull)
      * @return The count for the condition. (NotMinus)
@@ -95,7 +95,7 @@ public abstract class BsVendor$DollarBhv extends AbstractBehaviorWritable<Vendor
      * <pre>
      * Vendor$DollarCB cb = new Vendor$DollarCB();
      * cb.query().setFoo...(value);
-     * int count = vendor$DollarBhv.<span style="color: #CC4747">selectCount</span>(cb);
+     * int count = <span style="color: #0000C0">vendor$DollarBhv</span>.<span style="color: #CC4747">selectCount</span>(cb);
      * </pre>
      * @param cb The condition-bean of Vendor$Dollar. (NotNull)
      * @return The count for the condition. (NotMinus)
@@ -112,8 +112,8 @@ public abstract class BsVendor$DollarBhv extends AbstractBehaviorWritable<Vendor
      * <span style="color: #AD4747; font-size: 120%">The return might be null if no data, so you should have null check.</span> <br />
      * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, use selectEntityWithDeletedCheck().</span>
      * <pre>
-     * Vendor$Dollar vendor$Dollar = vendor$DollarBhv.<span style="color: #CC4747">selectEntity</span>(cb -&gt; {
-     *     cb.query().set...
+     * Vendor$Dollar vendor$Dollar = <span style="color: #0000C0">vendor$DollarBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
      * });
      * if (vendor$Dollar != null) { <span style="color: #3F7E5E">// null check</span>
      *     ... = vendor$Dollar.get...();
@@ -123,8 +123,8 @@ public abstract class BsVendor$DollarBhv extends AbstractBehaviorWritable<Vendor
      * </pre>
      * @param cbLambda The callback for condition-bean of Vendor$Dollar. (NotNull)
      * @return The entity selected by the condition. (NullAllowed: if no data, it returns null)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public Vendor$Dollar selectEntity(CBCall<Vendor$DollarCB> cbLambda) {
         return facadeSelectEntity(createCB(cbLambda));
@@ -137,7 +137,7 @@ public abstract class BsVendor$DollarBhv extends AbstractBehaviorWritable<Vendor
      * <pre>
      * Vendor$DollarCB cb = new Vendor$DollarCB();
      * cb.query().setFoo...(value);
-     * Vendor$Dollar vendor$Dollar = vendor$DollarBhv.<span style="color: #DD4747">selectEntity</span>(cb);
+     * Vendor$Dollar vendor$Dollar = <span style="color: #0000C0">vendor$DollarBhv</span>.<span style="color: #DD4747">selectEntity</span>(cb);
      * if (vendor$Dollar != null) { <span style="color: #3F7E5E">// null check</span>
      *     ... = vendor$Dollar.get...();
      * } else {
@@ -146,8 +146,8 @@ public abstract class BsVendor$DollarBhv extends AbstractBehaviorWritable<Vendor
      * </pre>
      * @param cb The condition-bean of Vendor$Dollar. (NotNull)
      * @return The entity selected by the condition. (NullAllowed: if no data, it returns null)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public Vendor$Dollar selectEntity(Vendor$DollarCB cb) {
         return facadeSelectEntity(cb);
@@ -167,16 +167,14 @@ public abstract class BsVendor$DollarBhv extends AbstractBehaviorWritable<Vendor
      * Select the entity by the condition-bean with deleted check. <br />
      * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
-     * Vendor$DollarCB cb = new Vendor$DollarCB();
-     * cb.query().setFoo...(value);
-     * Vendor$Dollar vendor$Dollar = vendor$DollarBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
-     * ... = vendor$Dollar.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
+     * Vendor$Dollar <span style="color: #553000">vendor$Dollar</span> = <span style="color: #0000C0">vendor$DollarBhv</span>.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> cb.acceptPK(1));
+     * ... = <span style="color: #553000">vendor$Dollar</span>.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cbLambda The callback for condition-bean of Vendor$Dollar. (NotNull)
      * @return The entity selected by the condition. (NotNull: if no data, throws exception)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public Vendor$Dollar selectEntityWithDeletedCheck(CBCall<Vendor$DollarCB> cbLambda) {
         return facadeSelectEntityWithDeletedCheck(createCB(cbLambda));
@@ -187,15 +185,15 @@ public abstract class BsVendor$DollarBhv extends AbstractBehaviorWritable<Vendor
      * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
      * Vendor$DollarCB cb = new Vendor$DollarCB();
-     * cb.query().setFoo...(value);
-     * Vendor$Dollar vendor$Dollar = vendor$DollarBhv.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
+     * cb.query().set...;
+     * Vendor$Dollar vendor$Dollar = <span style="color: #0000C0">vendor$DollarBhv</span>.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb);
      * ... = vendor$Dollar.get...(); <span style="color: #3F7E5E">// the entity always be not null</span>
      * </pre>
      * @param cb The condition-bean of Vendor$Dollar. (NotNull)
      * @return The entity selected by the condition. (NotNull: if no data, throws exception)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public Vendor$Dollar selectEntityWithDeletedCheck(Vendor$DollarCB cb) {
         return facadeSelectEntityWithDeletedCheck(cb);
@@ -205,8 +203,8 @@ public abstract class BsVendor$DollarBhv extends AbstractBehaviorWritable<Vendor
      * Select the entity by the primary-key value.
      * @param vendor$DollarId : PK, NotNull, int4(10). (NotNull)
      * @return The entity selected by the PK. (NullAllowed: if no data, it returns null)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public Vendor$Dollar selectByPK(Integer vendor$DollarId) {
         return facadeSelectByPK(vendor$DollarId);
@@ -233,9 +231,9 @@ public abstract class BsVendor$DollarBhv extends AbstractBehaviorWritable<Vendor
      * Select the entity by the unique-key value.
      * @param vendor$DollarId : PK, NotNull, int4(10). (NotNull)
      * @return The optional entity selected by the unique key. (NotNull: if no data, empty entity)
-     * @exception EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
     public OptionalEntity<Vendor$Dollar> selectByUniqueOf(Integer vendor$DollarId) {
         return facadeSelectByUniqueOf(vendor$DollarId);
@@ -260,17 +258,17 @@ public abstract class BsVendor$DollarBhv extends AbstractBehaviorWritable<Vendor
     /**
      * Select the list as result bean.
      * <pre>
-     * ListResultBean&lt;Vendor$Dollar&gt; vendor$DollarList = vendor$DollarBhv.<span style="color: #CC4747">selectList</span>(cb -&gt; {
-     *     cb.query().set...;
-     *     cb.query().addOrderBy...;
+     * ListResultBean&lt;Vendor$Dollar&gt; <span style="color: #553000">vendor$DollarList</span> = <span style="color: #0000C0">vendor$DollarBhv</span>.<span style="color: #CC4747">selectList</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...;
+     *     <span style="color: #553000">cb</span>.query().addOrderBy...;
      * });
-     * vendor$DollarList.forEach(vendor$Dollar -&gt; {
-     *     ... = vendor$Dollar.get...();
+     * for (Vendor$Dollar <span style="color: #553000">vendor$Dollar</span> : <span style="color: #553000">vendor$DollarList</span>) {
+     *     ... = <span style="color: #553000">vendor$Dollar</span>.get...();
      * });
      * </pre>
      * @param cbLambda The callback for condition-bean of Vendor$Dollar. (NotNull)
      * @return The result bean of selected list. (NotNull: if no data, returns empty list)
-     * @exception DangerousResultSizeException When the result size is over the specified safety size.
+     * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
     public ListResultBean<Vendor$Dollar> selectList(CBCall<Vendor$DollarCB> cbLambda) {
         return facadeSelectList(createCB(cbLambda));
@@ -280,16 +278,16 @@ public abstract class BsVendor$DollarBhv extends AbstractBehaviorWritable<Vendor
      * Select the list as result bean.
      * <pre>
      * Vendor$DollarCB cb = new Vendor$DollarCB();
-     * cb.query().setFoo...(value);
-     * cb.query().addOrderBy_Bar...();
-     * ListResultBean&lt;Vendor$Dollar&gt; vendor$DollarList = vendor$DollarBhv.<span style="color: #CC4747">selectList</span>(cb);
-     * for (Vendor$Dollar vendor$Dollar : vendor$DollarList) {
+     * cb.query().set...;
+     * cb.query().addOrderBy...();
+     * ListResultBean&lt;Vendor$Dollar&gt; <span style="color: #553000">vendor$DollarList</span> = <span style="color: #0000C0">vendor$DollarBhv</span>.<span style="color: #CC4747">selectList</span>(cb);
+     * for (Vendor$Dollar vendor$Dollar : <span style="color: #553000">vendor$DollarList</span>) {
      *     ... = vendor$Dollar.get...();
      * }
      * </pre>
      * @param cb The condition-bean of Vendor$Dollar. (NotNull)
      * @return The result bean of selected list. (NotNull: if no data, returns empty list)
-     * @exception DangerousResultSizeException When the result size is over the specified safety size.
+     * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
     public ListResultBean<Vendor$Dollar> selectList(Vendor$DollarCB cb) {
         return facadeSelectList(cb);
@@ -305,23 +303,23 @@ public abstract class BsVendor$DollarBhv extends AbstractBehaviorWritable<Vendor
      * Select the page as result bean. <br />
      * (both count-select and paging-select are executed)
      * <pre>
-     * Vendor$DollarCB cb = new Vendor$DollarCB();
-     * cb.query().setFoo...(value);
-     * cb.query().addOrderBy_Bar...();
-     * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;Vendor$Dollar&gt; page = vendor$DollarBhv.<span style="color: #CC4747">selectPage</span>(cb);
-     * int allRecordCount = page.getAllRecordCount();
-     * int allPageCount = page.getAllPageCount();
-     * boolean isExistPrePage = page.isExistPrePage();
-     * boolean isExistNextPage = page.isExistNextPage();
+     * PagingResultBean&lt;Vendor$Dollar&gt; <span style="color: #553000">page</span> = <span style="color: #0000C0">vendor$DollarBhv</span>.<span style="color: #CC4747">selectPage</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     *     <span style="color: #553000">cb</span>.query().addOrderBy...
+     *     <span style="color: #553000">cb</span>.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
+     * });
+     * int allRecordCount = <span style="color: #553000">page</span>.getAllRecordCount();
+     * int allPageCount = <span style="color: #553000">page</span>.getAllPageCount();
+     * boolean isExistPrePage = <span style="color: #553000">page</span>.isExistPrePage();
+     * boolean isExistNextPage = <span style="color: #553000">page</span>.isExistNextPage();
      * ...
-     * for (Vendor$Dollar vendor$Dollar : page) {
+     * for (Vendor$Dollar vendor$Dollar : <span style="color: #553000">page</span>) {
      *     ... = vendor$Dollar.get...();
      * }
      * </pre>
      * @param cbLambda The callback for condition-bean of Vendor$Dollar. (NotNull)
      * @return The result bean of selected page. (NotNull: if no data, returns bean as empty list)
-     * @exception DangerousResultSizeException When the result size is over the specified safety size.
+     * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
     public PagingResultBean<Vendor$Dollar> selectPage(CBCall<Vendor$DollarCB> cbLambda) {
         return facadeSelectPage(createCB(cbLambda));
@@ -335,19 +333,19 @@ public abstract class BsVendor$DollarBhv extends AbstractBehaviorWritable<Vendor
      * cb.query().setFoo...(value);
      * cb.query().addOrderBy_Bar...();
      * cb.<span style="color: #CC4747">paging</span>(20, 3); <span style="color: #3F7E5E">// 20 records per a page and current page number is 3</span>
-     * PagingResultBean&lt;Vendor$Dollar&gt; page = vendor$DollarBhv.<span style="color: #CC4747">selectPage</span>(cb);
-     * int allRecordCount = page.getAllRecordCount();
-     * int allPageCount = page.getAllPageCount();
-     * boolean isExistPrePage = page.isExistPrePage();
-     * boolean isExistNextPage = page.isExistNextPage();
+     * PagingResultBean&lt;Vendor$Dollar&gt; <span style="color: #553000">page</span> = <span style="color: #0000C0">vendor$DollarBhv</span>.<span style="color: #CC4747">selectPage</span>(cb);
+     * int allRecordCount = <span style="color: #553000">page</span>.getAllRecordCount();
+     * int allPageCount = <span style="color: #553000">page</span>.getAllPageCount();
+     * boolean isExistPrePage = <span style="color: #553000">page</span>.isExistPrePage();
+     * boolean isExistNextPage = <span style="color: #553000">page</span>.isExistNextPage();
      * ...
-     * for (Vendor$Dollar vendor$Dollar : page) {
+     * for (Vendor$Dollar vendor$Dollar : <span style="color: #553000">page</span>) {
      *     ... = vendor$Dollar.get...();
      * }
      * </pre>
      * @param cb The condition-bean of Vendor$Dollar. (NotNull)
      * @return The result bean of selected page. (NotNull: if no data, returns bean as empty list)
-     * @exception DangerousResultSizeException When the result size is over the specified safety size.
+     * @throws DangerousResultSizeException When the result size is over the specified safety size.
      */
     public PagingResultBean<Vendor$Dollar> selectPage(Vendor$DollarCB cb) {
         return facadeSelectPage(cb);
@@ -359,12 +357,10 @@ public abstract class BsVendor$DollarBhv extends AbstractBehaviorWritable<Vendor
     /**
      * Select the cursor by the condition-bean.
      * <pre>
-     * Vendor$DollarCB cb = new Vendor$DollarCB();
-     * cb.query().setFoo...(value);
-     * vendor$DollarBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;Vendor$Dollar&gt;() {
-     *     public void handle(Vendor$Dollar entity) {
-     *         ... = entity.getFoo...();
-     *     }
+     * <span style="color: #0000C0">vendor$DollarBhv</span>.<span style="color: #CC4747">selectCursor</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }, <span style="color: #553000">member</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     ... = <span style="color: #553000">member</span>.getMemberName();
      * });
      * </pre>
      * @param cbLambda The callback for condition-bean of Vendor$Dollar. (NotNull)
@@ -378,8 +374,8 @@ public abstract class BsVendor$DollarBhv extends AbstractBehaviorWritable<Vendor
      * Select the cursor by the condition-bean.
      * <pre>
      * Vendor$DollarCB cb = new Vendor$DollarCB();
-     * cb.query().setFoo...(value);
-     * vendor$DollarBhv.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;Vendor$Dollar&gt;() {
+     * cb.query().set...
+     * <span style="color: #0000C0">vendor$DollarBhv</span>.<span style="color: #CC4747">selectCursor</span>(cb, new EntityRowHandler&lt;Vendor$Dollar&gt;() {
      *     public void handle(Vendor$Dollar entity) {
      *         ... = entity.getFoo...();
      *     }
@@ -399,11 +395,9 @@ public abstract class BsVendor$DollarBhv extends AbstractBehaviorWritable<Vendor
      * Select the scalar value derived by a function from uniquely-selected records. <br />
      * You should call a function method after this method called like as follows:
      * <pre>
-     * vendor$DollarBhv.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(new ScalarQuery() {
-     *     public void query(Vendor$DollarCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFooDatetime()</span>; <span style="color: #3F7E5E">// required for a function</span>
-     *         cb.query().setBarName_PrefixSearch("S");
-     *     }
+     * <span style="color: #0000C0">vendor$DollarBhv</span>.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...()</span>; <span style="color: #3F7E5E">// required for the function</span>
+     *     <span style="color: #553000">cb</span>.query().set...
      * });
      * </pre>
      * @param <RESULT> The type of result.
@@ -429,23 +423,24 @@ public abstract class BsVendor$DollarBhv extends AbstractBehaviorWritable<Vendor
     /**
      * Load referrer by the the referrer loader. <br />
      * <pre>
-     * MemberCB cb = new MemberCB();
-     * cb.query().set...
-     * List&lt;Member&gt; memberList = memberBhv.selectList(cb);
-     * memberBhv.<span style="color: #CC4747">load</span>(memberList, loader -&gt; {
-     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
-     *         purchaseCB.query().set...
-     *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
+     * List&lt;Member&gt; <span style="color: #553000">memberList</span> = <span style="color: #0000C0">memberBhv</span>.selectList(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * });
+     * memberBhv.<span style="color: #CC4747">load</span>(<span style="color: #553000">memberList</span>, <span style="color: #553000">memberLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">memberLoader</span>.<span style="color: #CC4747">loadPurchase</span>(<span style="color: #553000">purchaseCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">purchaseCB</span>.setupSelect...
+     *         <span style="color: #553000">purchaseCB</span>.query().set...
+     *         <span style="color: #553000">purchaseCB</span>.query().addOrderBy...
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
-     *     <span style="color: #3F7E5E">//}).withNestedList(purchaseLoader -&gt {</span>
-     *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePaymentList(...);</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(purchaseLoader -&gt {</span>
+     *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePayment(...);</span>
      *     <span style="color: #3F7E5E">//});</span>
      *
      *     <span style="color: #3F7E5E">// you can also pull out foreign table and load its referrer</span>
      *     <span style="color: #3F7E5E">// (setupSelect of the foreign table should be called)</span>
-     *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
-     * }
-     * for (Member member : memberList) {
+     *     <span style="color: #3F7E5E">//memberLoader.pulloutMemberStatus().loadMemberLogin(...)</span>
+     * });
+     * for (Member member : <span style="color: #553000">memberList</span>) {
      *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
      *     for (Purchase purchase : purchaseList) {
      *         ...
@@ -465,27 +460,24 @@ public abstract class BsVendor$DollarBhv extends AbstractBehaviorWritable<Vendor
     /**
      * Load referrer of ${referrer.referrerJavaBeansRulePropertyName} by the referrer loader. <br />
      * <pre>
-     * MemberCB cb = new MemberCB();
-     * cb.query().set...
-     * Member member = memberBhv.selectEntityWithDeletedCheck(cb);
-     * memberBhv.<span style="color: #CC4747">load</span>(member, loader -&gt; {
-     *     loader.<span style="color: #CC4747">loadPurchaseList</span>(purchaseCB -&gt; {
-     *         purchaseCB.query().set...
-     *         purchaseCB.query().addOrderBy_PurchasePrice_Desc();
+     * Member <span style="color: #553000">member</span> = <span style="color: #0000C0">memberBhv</span>.selectEntityWithDeletedCheck(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> <span style="color: #553000">cb</span>.acceptPK(1));
+     * <span style="color: #0000C0">memberBhv</span>.<span style="color: #CC4747">load</span>(<span style="color: #553000">member</span>, <span style="color: #553000">memberLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">memberLoader</span>.<span style="color: #CC4747">loadPurchase</span>(<span style="color: #553000">purchaseCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">purchaseCB</span>.setupSelect...
+     *         <span style="color: #553000">purchaseCB</span>.query().set...
+     *         <span style="color: #553000">purchaseCB</span>.query().addOrderBy...
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
-     *     <span style="color: #3F7E5E">//}).withNestedList(purchaseLoader -&gt {</span>
-     *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePaymentList(...);</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(purchaseLoader -&gt {</span>
+     *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePayment(...);</span>
      *     <span style="color: #3F7E5E">//});</span>
      *
      *     <span style="color: #3F7E5E">// you can also pull out foreign table and load its referrer</span>
      *     <span style="color: #3F7E5E">// (setupSelect of the foreign table should be called)</span>
-     *     <span style="color: #3F7E5E">//loader.pulloutMemberStatus().loadMemberLoginList(...)</span>
-     * }
-     * for (Member member : memberList) {
-     *     List&lt;Purchase&gt; purchaseList = member.<span style="color: #CC4747">getPurchaseList()</span>;
-     *     for (Purchase purchase : purchaseList) {
-     *         ...
-     *     }
+     *     <span style="color: #3F7E5E">//memberLoader.pulloutMemberStatus().loadMemberLogin(...)</span>
+     * });
+     * List&lt;Purchase&gt; purchaseList = <span style="color: #553000">member</span>.<span style="color: #CC4747">getPurchaseList()</span>;
+     * for (Purchase purchase : purchaseList) {
+     *     ...
      * }
      * </pre>
      * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
@@ -525,12 +517,12 @@ public abstract class BsVendor$DollarBhv extends AbstractBehaviorWritable<Vendor
      * <span style="color: #3F7E5E">// you don't need to set values of common columns</span>
      * <span style="color: #3F7E5E">//vendor$Dollar.setRegisterUser(value);</span>
      * <span style="color: #3F7E5E">//vendor$Dollar.set...;</span>
-     * vendor$DollarBhv.<span style="color: #CC4747">insert</span>(vendor$Dollar);
+     * <span style="color: #0000C0">vendor$DollarBhv</span>.<span style="color: #CC4747">insert</span>(vendor$Dollar);
      * ... = vendor$Dollar.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * <p>While, when the entity is created by select, all columns are registered.</p>
      * @param vendor$Dollar The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void insert(Vendor$Dollar vendor$Dollar) {
         doInsert(vendor$Dollar, null);
@@ -548,15 +540,15 @@ public abstract class BsVendor$DollarBhv extends AbstractBehaviorWritable<Vendor
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * vendor$Dollar.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     vendor$DollarBhv.<span style="color: #CC4747">update</span>(vendor$Dollar);
+     *     <span style="color: #0000C0">vendor$DollarBhv</span>.<span style="color: #CC4747">update</span>(vendor$Dollar);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
      * </pre>
      * @param vendor$Dollar The entity of update. (NotNull, PrimaryKeyNotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void update(Vendor$Dollar vendor$Dollar) {
         doUpdate(vendor$Dollar, null);
@@ -567,9 +559,9 @@ public abstract class BsVendor$DollarBhv extends AbstractBehaviorWritable<Vendor
      * if (the entity has no PK) { insert() } else { update(), but no data, insert() } <br />
      * <p><span style="color: #CC4747; font-size: 120%">Attention, you cannot update by unique keys instead of PK.</span></p>
      * @param vendor$Dollar The entity of insert or update. (NotNull, ...depends on insert or update)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void insertOrUpdate(Vendor$Dollar vendor$Dollar) {
         doInsertOrUpdate(vendor$Dollar, null, null);
@@ -583,14 +575,14 @@ public abstract class BsVendor$DollarBhv extends AbstractBehaviorWritable<Vendor
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * vendor$Dollar.<span style="color: #CC4747">setVersionNo</span>(value);
      * try {
-     *     vendor$DollarBhv.<span style="color: #CC4747">delete</span>(vendor$Dollar);
+     *     <span style="color: #0000C0">vendor$DollarBhv</span>.<span style="color: #CC4747">delete</span>(vendor$Dollar);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
      * </pre>
      * @param vendor$Dollar The entity of delete. (NotNull, PrimaryKeyNotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
      */
     public void delete(Vendor$Dollar vendor$Dollar) {
         doDelete(vendor$Dollar, null);
@@ -615,7 +607,7 @@ public abstract class BsVendor$DollarBhv extends AbstractBehaviorWritable<Vendor
      *     <span style="color: #3F7E5E">// columns not-called in all entities are registered as null or default value</span>
      *     vendor$DollarList.add(vendor$Dollar);
      * }
-     * vendor$DollarBhv.<span style="color: #CC4747">batchInsert</span>(vendor$DollarList);
+     * <span style="color: #0000C0">vendor$DollarBhv</span>.<span style="color: #CC4747">batchInsert</span>(vendor$DollarList);
      * </pre>
      * <p>While, when the entities are created by select, all columns are registered.</p>
      * <p>And if the table has an identity, entities after the process don't have incremented values.
@@ -645,11 +637,11 @@ public abstract class BsVendor$DollarBhv extends AbstractBehaviorWritable<Vendor
      *     <span style="color: #3F7E5E">// (others are not updated: their values are kept)</span>
      *     vendor$DollarList.add(vendor$Dollar);
      * }
-     * vendor$DollarBhv.<span style="color: #CC4747">batchUpdate</span>(vendor$DollarList);
+     * <span style="color: #0000C0">vendor$DollarBhv</span>.<span style="color: #CC4747">batchUpdate</span>(vendor$DollarList);
      * </pre>
      * @param vendor$DollarList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @return The array of updated count. (NotNull, EmptyAllowed)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      */
     public int[] batchUpdate(List<Vendor$Dollar> vendor$DollarList) {
         return doBatchUpdate(vendor$DollarList, null);
@@ -660,7 +652,7 @@ public abstract class BsVendor$DollarBhv extends AbstractBehaviorWritable<Vendor
      * This method uses executeBatch() of java.sql.PreparedStatement.
      * @param vendor$DollarList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @return The array of deleted count. (NotNull, EmptyAllowed)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
      */
     public int[] batchDelete(List<Vendor$Dollar> vendor$DollarList) {
         return doBatchDelete(vendor$DollarList, null);
@@ -672,7 +664,7 @@ public abstract class BsVendor$DollarBhv extends AbstractBehaviorWritable<Vendor
     /**
      * Insert the several entities by query (modified-only for fixed value).
      * <pre>
-     * vendor$DollarBhv.<span style="color: #CC4747">queryInsert</span>(new QueryInsertSetupper&lt;Vendor$Dollar, Vendor$DollarCB&gt;() {
+     * <span style="color: #0000C0">vendor$DollarBhv</span>.<span style="color: #CC4747">queryInsert</span>(new QueryInsertSetupper&lt;Vendor$Dollar, Vendor$DollarCB&gt;() {
      *     public ConditionBean setup(Vendor$Dollar entity, Vendor$DollarCB intoCB) {
      *         FooCB cb = FooCB();
      *         cb.setupSelect_Bar();
@@ -714,12 +706,12 @@ public abstract class BsVendor$DollarBhv extends AbstractBehaviorWritable<Vendor
      * <span style="color: #3F7E5E">//vendor$Dollar.setVersionNo(value);</span>
      * Vendor$DollarCB cb = new Vendor$DollarCB();
      * cb.query().setFoo...(value);
-     * vendor$DollarBhv.<span style="color: #CC4747">queryUpdate</span>(vendor$Dollar, cb);
+     * <span style="color: #0000C0">vendor$DollarBhv</span>.<span style="color: #CC4747">queryUpdate</span>(vendor$Dollar, cb);
      * </pre>
      * @param vendor$Dollar The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cbLambda The callback for condition-bean of Vendor$Dollar. (NotNull)
      * @return The updated count.
-     * @exception NonQueryUpdateNotAllowedException When the query has no condition.
+     * @throws NonQueryUpdateNotAllowedException When the query has no condition.
      */
     public int queryUpdate(Vendor$Dollar vendor$Dollar, CBCall<Vendor$DollarCB> cbLambda) {
         return doQueryUpdate(vendor$Dollar, createCB(cbLambda), null);
@@ -740,12 +732,12 @@ public abstract class BsVendor$DollarBhv extends AbstractBehaviorWritable<Vendor
      * <span style="color: #3F7E5E">//vendor$Dollar.setVersionNo(value);</span>
      * Vendor$DollarCB cb = new Vendor$DollarCB();
      * cb.query().setFoo...(value);
-     * vendor$DollarBhv.<span style="color: #CC4747">queryUpdate</span>(vendor$Dollar, cb);
+     * <span style="color: #0000C0">vendor$DollarBhv</span>.<span style="color: #CC4747">queryUpdate</span>(vendor$Dollar, cb);
      * </pre>
      * @param vendor$Dollar The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cb The condition-bean of Vendor$Dollar. (NotNull)
      * @return The updated count.
-     * @exception NonQueryUpdateNotAllowedException When the query has no condition.
+     * @throws NonQueryUpdateNotAllowedException When the query has no condition.
      */
     public int queryUpdate(Vendor$Dollar vendor$Dollar, Vendor$DollarCB cb) {
         return doQueryUpdate(vendor$Dollar, cb, null);
@@ -756,11 +748,11 @@ public abstract class BsVendor$DollarBhv extends AbstractBehaviorWritable<Vendor
      * <pre>
      * Vendor$DollarCB cb = new Vendor$DollarCB();
      * cb.query().setFoo...(value);
-     * vendor$DollarBhv.<span style="color: #CC4747">queryDelete</span>(vendor$Dollar, cb);
+     * <span style="color: #0000C0">vendor$DollarBhv</span>.<span style="color: #CC4747">queryDelete</span>(vendor$Dollar, cb);
      * </pre>
      * @param cbLambda The callback for condition-bean of Vendor$Dollar. (NotNull)
      * @return The deleted count.
-     * @exception NonQueryDeleteNotAllowedException When the query has no condition.
+     * @throws NonQueryDeleteNotAllowedException When the query has no condition.
      */
     public int queryDelete(CBCall<Vendor$DollarCB> cbLambda) {
         return doQueryDelete(createCB(cbLambda), null);
@@ -771,11 +763,11 @@ public abstract class BsVendor$DollarBhv extends AbstractBehaviorWritable<Vendor
      * <pre>
      * Vendor$DollarCB cb = new Vendor$DollarCB();
      * cb.query().setFoo...(value);
-     * vendor$DollarBhv.<span style="color: #CC4747">queryDelete</span>(vendor$Dollar, cb);
+     * <span style="color: #0000C0">vendor$DollarBhv</span>.<span style="color: #CC4747">queryDelete</span>(vendor$Dollar, cb);
      * </pre>
      * @param cb The condition-bean of Vendor$Dollar. (NotNull)
      * @return The deleted count.
-     * @exception NonQueryDeleteNotAllowedException When the query has no condition.
+     * @throws NonQueryDeleteNotAllowedException When the query has no condition.
      */
     public int queryDelete(Vendor$DollarCB cb) {
         return doQueryDelete(cb, null);
@@ -799,12 +791,12 @@ public abstract class BsVendor$DollarBhv extends AbstractBehaviorWritable<Vendor
      * InsertOption<Vendor$DollarCB> option = new InsertOption<Vendor$DollarCB>();
      * <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
      * option.disableCommonColumnAutoSetup();
-     * vendor$DollarBhv.<span style="color: #CC4747">varyingInsert</span>(vendor$Dollar, option);
+     * <span style="color: #0000C0">vendor$DollarBhv</span>.<span style="color: #CC4747">varyingInsert</span>(vendor$Dollar, option);
      * ... = vendor$Dollar.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * @param vendor$Dollar The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void varyingInsert(Vendor$Dollar vendor$Dollar, WritableOptionCall<Vendor$DollarCB, InsertOption<Vendor$DollarCB>> opLambda) {
         doInsert(vendor$Dollar, createInsertOption(opLambda));
@@ -828,16 +820,16 @@ public abstract class BsVendor$DollarBhv extends AbstractBehaviorWritable<Vendor
      *             cb.specify().<span style="color: #CC4747">columnXxxCount()</span>;
      *         }
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
-     *     vendor$DollarBhv.<span style="color: #CC4747">varyingUpdate</span>(vendor$Dollar, option);
+     *     <span style="color: #0000C0">vendor$DollarBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(vendor$Dollar, option);
      * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
      *     ...
      * }
      * </pre>
      * @param vendor$Dollar The entity of update. (NotNull, PrimaryKeyNotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void varyingUpdate(Vendor$Dollar vendor$Dollar, WritableOptionCall<Vendor$DollarCB, UpdateOption<Vendor$DollarCB>> opLambda) {
         doUpdate(vendor$Dollar, createUpdateOption(opLambda));
@@ -849,9 +841,9 @@ public abstract class BsVendor$DollarBhv extends AbstractBehaviorWritable<Vendor
      * @param vendor$Dollar The entity of insert or update. (NotNull)
      * @param insertOpLambda The callback for option of insert for varying requests. (NotNull)
      * @param updateOpLambda The callback for option of update for varying requests. (NotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
-     * @exception EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyExistsException When the entity already exists. (unique constraint violation)
      */
     public void varyingInsertOrUpdate(Vendor$Dollar vendor$Dollar, WritableOptionCall<Vendor$DollarCB, InsertOption<Vendor$DollarCB>> insertOpLambda, WritableOptionCall<Vendor$DollarCB, UpdateOption<Vendor$DollarCB>> updateOpLambda) {
         doInsertOrUpdate(vendor$Dollar, createInsertOption(insertOpLambda), createUpdateOption(updateOpLambda));
@@ -863,8 +855,8 @@ public abstract class BsVendor$DollarBhv extends AbstractBehaviorWritable<Vendor
      * Other specifications are same as delete(entity).
      * @param vendor$Dollar The entity of delete. (NotNull, PrimaryKeyNotNull, ConcurrencyColumnNotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
-     * @exception EntityAlreadyDeletedException When the entity has already been deleted. (not found)
-     * @exception EntityDuplicatedException When the entity has been duplicated.
+     * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
+     * @throws EntityDuplicatedException When the entity has been duplicated.
      */
     public void varyingDelete(Vendor$Dollar vendor$Dollar, WritableOptionCall<Vendor$DollarCB, DeleteOption<Vendor$DollarCB>> opLambda) {
         doDelete(vendor$Dollar, createDeleteOption(opLambda));
@@ -948,13 +940,13 @@ public abstract class BsVendor$DollarBhv extends AbstractBehaviorWritable<Vendor
      *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * vendor$DollarBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(vendor$Dollar, cb, option);
+     * <span style="color: #0000C0">vendor$DollarBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(vendor$Dollar, cb, option);
      * </pre>
      * @param vendor$Dollar The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cbLambda The callback for condition-bean of Vendor$Dollar. (NotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
      * @return The updated count.
-     * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
+     * @throws NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
     public int varyingQueryUpdate(Vendor$Dollar vendor$Dollar, CBCall<Vendor$DollarCB> cbLambda, WritableOptionCall<Vendor$DollarCB, UpdateOption<Vendor$DollarCB>> opLambda) {
         return doQueryUpdate(vendor$Dollar, createCB(cbLambda), createUpdateOption(opLambda));
@@ -982,13 +974,13 @@ public abstract class BsVendor$DollarBhv extends AbstractBehaviorWritable<Vendor
      *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
      *     }
      * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * vendor$DollarBhv.<span style="color: #CC4747">varyingQueryUpdate</span>(vendor$Dollar, cb, option);
+     * <span style="color: #0000C0">vendor$DollarBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(vendor$Dollar, cb, option);
      * </pre>
      * @param vendor$Dollar The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cb The condition-bean of Vendor$Dollar. (NotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
      * @return The updated count.
-     * @exception NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
+     * @throws NonQueryUpdateNotAllowedException When the query has no condition (if not allowed).
      */
     public int varyingQueryUpdate(Vendor$Dollar vendor$Dollar, Vendor$DollarCB cb, WritableOptionCall<Vendor$DollarCB, UpdateOption<Vendor$DollarCB>> opLambda) {
         return doQueryUpdate(vendor$Dollar, cb, createUpdateOption(opLambda));
@@ -1001,7 +993,7 @@ public abstract class BsVendor$DollarBhv extends AbstractBehaviorWritable<Vendor
      * @param cbLambda The callback for condition-bean of Vendor$Dollar. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
-     * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
+     * @throws NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
     public int varyingQueryDelete(CBCall<Vendor$DollarCB> cbLambda, WritableOptionCall<Vendor$DollarCB, DeleteOption<Vendor$DollarCB>> opLambda) {
         return doQueryDelete(createCB(cbLambda), createDeleteOption(opLambda));
@@ -1014,7 +1006,7 @@ public abstract class BsVendor$DollarBhv extends AbstractBehaviorWritable<Vendor
      * @param cb The condition-bean of Vendor$Dollar. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
-     * @exception NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
+     * @throws NonQueryDeleteNotAllowedException When the query has no condition (if not allowed).
      */
     public int varyingQueryDelete(Vendor$DollarCB cb, WritableOptionCall<Vendor$DollarCB, DeleteOption<Vendor$DollarCB>> opLambda) {
         return doQueryDelete(cb, createDeleteOption(opLambda));

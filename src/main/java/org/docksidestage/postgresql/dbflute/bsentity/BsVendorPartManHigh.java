@@ -75,7 +75,6 @@ public abstract class BsVendorPartManHigh extends AbstractEntity {
     /** part_man_date: {date(13)} */
     protected java.util.Date _partManDate;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -146,9 +145,9 @@ public abstract class BsVendorPartManHigh extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_partManId);
-        sb.append(dm).append(_partManName);
-        sb.append(dm).append(_partManPoint);
+        sb.append(dm).append(xfND(_partManId));
+        sb.append(dm).append(xfND(_partManName));
+        sb.append(dm).append(xfND(_partManPoint));
         sb.append(dm).append(xfUD(_partManDate));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
@@ -175,6 +174,7 @@ public abstract class BsVendorPartManHigh extends AbstractEntity {
      * @return The value of the column 'part_man_id'. (basically NotNull if selected: for the constraint)
      */
     public Integer getPartManId() {
+        checkSpecifiedProperty("partManId");
         return _partManId;
     }
 
@@ -183,7 +183,7 @@ public abstract class BsVendorPartManHigh extends AbstractEntity {
      * @param partManId The value of the column 'part_man_id'. (basically NotNull if update: for the constraint)
      */
     public void setPartManId(Integer partManId) {
-        __modifiedProperties.addPropertyName("partManId");
+        registerModifiedProperty("partManId");
         _partManId = partManId;
     }
 
@@ -192,6 +192,7 @@ public abstract class BsVendorPartManHigh extends AbstractEntity {
      * @return The value of the column 'part_man_name'. (basically NotNull if selected: for the constraint)
      */
     public String getPartManName() {
+        checkSpecifiedProperty("partManName");
         return _partManName;
     }
 
@@ -200,7 +201,7 @@ public abstract class BsVendorPartManHigh extends AbstractEntity {
      * @param partManName The value of the column 'part_man_name'. (basically NotNull if update: for the constraint)
      */
     public void setPartManName(String partManName) {
-        __modifiedProperties.addPropertyName("partManName");
+        registerModifiedProperty("partManName");
         _partManName = partManName;
     }
 
@@ -209,6 +210,7 @@ public abstract class BsVendorPartManHigh extends AbstractEntity {
      * @return The value of the column 'part_man_point'. (basically NotNull if selected: for the constraint)
      */
     public Integer getPartManPoint() {
+        checkSpecifiedProperty("partManPoint");
         return _partManPoint;
     }
 
@@ -217,7 +219,7 @@ public abstract class BsVendorPartManHigh extends AbstractEntity {
      * @param partManPoint The value of the column 'part_man_point'. (basically NotNull if update: for the constraint)
      */
     public void setPartManPoint(Integer partManPoint) {
-        __modifiedProperties.addPropertyName("partManPoint");
+        registerModifiedProperty("partManPoint");
         _partManPoint = partManPoint;
     }
 
@@ -226,6 +228,7 @@ public abstract class BsVendorPartManHigh extends AbstractEntity {
      * @return The value of the column 'part_man_date'. (NullAllowed even if selected: for no constraint)
      */
     public java.util.Date getPartManDate() {
+        checkSpecifiedProperty("partManDate");
         return _partManDate;
     }
 
@@ -234,7 +237,7 @@ public abstract class BsVendorPartManHigh extends AbstractEntity {
      * @param partManDate The value of the column 'part_man_date'. (NullAllowed: null update allowed for no constraint)
      */
     public void setPartManDate(java.util.Date partManDate) {
-        __modifiedProperties.addPropertyName("partManDate");
+        registerModifiedProperty("partManDate");
         _partManDate = partManDate;
     }
 }

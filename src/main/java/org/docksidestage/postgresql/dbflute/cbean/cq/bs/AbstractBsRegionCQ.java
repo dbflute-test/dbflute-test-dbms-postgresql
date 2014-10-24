@@ -152,7 +152,7 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
      * {exists (select region_id from member_address where ...)} <br />
      * (会員住所情報)member_address by region_id, named 'memberAddressAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">existsMemberAddressList</span>(addressCB -&gt; {
+     * cb.query().<span style="color: #CC4747">existsMemberAddressList</span>(addressCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     addressCB.query().set...
      * });
      * </pre>
@@ -161,8 +161,7 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
     public void existsMemberAddressList(SubQuery<MemberAddressCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         MemberAddressCB cb = new MemberAddressCB(); cb.xsetupForExistsReferrer(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepRegionId_ExistsReferrer_MemberAddressList(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepRegionId_ExistsReferrer_MemberAddressList(cb.query());
         registerExistsReferrer(cb.query(), "region_id", "region_id", pp, "memberAddressList");
     }
     public abstract String keepRegionId_ExistsReferrer_MemberAddressList(MemberAddressCQ sq);
@@ -172,10 +171,8 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
      * {not exists (select region_id from member_address where ...)} <br />
      * (会員住所情報)member_address by region_id, named 'memberAddressAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsMemberAddressList</span>(new SubQuery&lt;MemberAddressCB&gt;() {
-     *     public void query(MemberAddressCB subCB) {
-     *         subCB.query().setXxx...
-     *     }
+     * cb.query().<span style="color: #CC4747">notExistsMemberAddressList</span>(addressCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     addressCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of RegionId_NotExistsReferrer_MemberAddressList for 'not exists'. (NotNull)
@@ -183,8 +180,7 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
     public void notExistsMemberAddressList(SubQuery<MemberAddressCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         MemberAddressCB cb = new MemberAddressCB(); cb.xsetupForExistsReferrer(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepRegionId_NotExistsReferrer_MemberAddressList(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepRegionId_NotExistsReferrer_MemberAddressList(cb.query());
         registerNotExistsReferrer(cb.query(), "region_id", "region_id", pp, "memberAddressList");
     }
     public abstract String keepRegionId_NotExistsReferrer_MemberAddressList(MemberAddressCQ sq);
@@ -192,8 +188,7 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
     public void xsderiveMemberAddressList(String fn, SubQuery<MemberAddressCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         MemberAddressCB cb = new MemberAddressCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String pp = keepRegionId_SpecifyDerivedReferrer_MemberAddressList(cb.query());
+        lockCall(() -> sq.query(cb)); String pp = keepRegionId_SpecifyDerivedReferrer_MemberAddressList(cb.query());
         registerSpecifyDerivedReferrer(fn, cb.query(), "region_id", "region_id", pp, "memberAddressList", al, op);
     }
     public abstract String keepRegionId_SpecifyDerivedReferrer_MemberAddressList(MemberAddressCQ sq);
@@ -203,7 +198,7 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
      * {FOO &lt;= (select max(BAR) from member_address where ...)} <br />
      * (会員住所情報)member_address by region_id, named 'memberAddressAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedMemberAddressList()</span>.<span style="color: #CC4747">max</span>(addressCB -&gt; {
+     * cb.query().<span style="color: #CC4747">derivedMemberAddressList()</span>.<span style="color: #CC4747">max</span>(addressCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     addressCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *     addressCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
      * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
@@ -214,17 +209,12 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
         return xcreateQDRFunctionMemberAddressList();
     }
     protected HpQDRFunction<MemberAddressCB> xcreateQDRFunctionMemberAddressList() {
-        return xcQDRFunc(new HpQDRSetupper<MemberAddressCB>() {
-            public void setup(String fn, SubQuery<MemberAddressCB> sq, String rd, Object vl, DerivedReferrerOption op) {
-                xqderiveMemberAddressList(fn, sq, rd, vl, op);
-            }
-        });
+        return xcQDRFunc((fn, sq, rd, vl, op) -> xqderiveMemberAddressList(fn, sq, rd, vl, op));
     }
     public void xqderiveMemberAddressList(String fn, SubQuery<MemberAddressCB> sq, String rd, Object vl, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         MemberAddressCB cb = new MemberAddressCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String sqpp = keepRegionId_QueryDerivedReferrer_MemberAddressList(cb.query()); String prpp = keepRegionId_QueryDerivedReferrer_MemberAddressListParameter(vl);
+        lockCall(() -> sq.query(cb)); String sqpp = keepRegionId_QueryDerivedReferrer_MemberAddressList(cb.query()); String prpp = keepRegionId_QueryDerivedReferrer_MemberAddressListParameter(vl);
         registerQueryDerivedReferrer(fn, cb.query(), "region_id", "region_id", sqpp, "memberAddressList", rd, vl, prpp, op);
     }
     public abstract String keepRegionId_QueryDerivedReferrer_MemberAddressList(MemberAddressCQ sq);
@@ -300,7 +290,7 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
     /**
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
      * (地域名称)region_name: {NotNull, varchar(50)} <br />
-     * <pre>e.g. setRegionName_LikeSearch("xxx", op -&gt; op.<span style="color: #CC4747">likeContain()</span>);</pre>
+     * <pre>e.g. setRegionName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param regionName The value of regionName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
@@ -482,9 +472,7 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
     public void xsmyselfDerive(String fn, SubQuery<RegionCB> sq, String al, DerivedReferrerOption op) {
         assertObjectNotNull("subQuery", sq);
         RegionCB cb = new RegionCB(); cb.xsetupForDerivedReferrer(this);
-        try { lock(); sq.query(cb); } finally { unlock(); }
-        String pp = keepSpecifyMyselfDerived(cb.query());
-        String pk = "region_id";
+        lockCall(() -> sq.query(cb)); String pp = keepSpecifyMyselfDerived(cb.query()); String pk = "region_id";
         registerSpecifyMyselfDerived(fn, cb.query(), pk, pk, pp, "myselfDerived", al, op);
     }
     public abstract String keepSpecifyMyselfDerived(RegionCQ sq);
@@ -518,8 +506,7 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
     public void myselfExists(SubQuery<RegionCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         RegionCB cb = new RegionCB(); cb.xsetupForMyselfExists(this);
-        try { lock(); subCBLambda.query(cb); } finally { unlock(); }
-        String pp = keepMyselfExists(cb.query());
+        lockCall(() -> subCBLambda.query(cb)); String pp = keepMyselfExists(cb.query());
         registerMyselfExists(cb.query(), pp);
     }
     public abstract String keepMyselfExists(RegionCQ sq);

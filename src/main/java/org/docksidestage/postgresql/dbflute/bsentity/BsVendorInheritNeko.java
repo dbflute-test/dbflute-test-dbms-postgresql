@@ -85,7 +85,6 @@ public abstract class BsVendorInheritNeko extends AbstractEntity {
     /** neko_date: {date(13)} */
     protected java.util.Date _nekoDate;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -156,11 +155,11 @@ public abstract class BsVendorInheritNeko extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_inuId);
-        sb.append(dm).append(_inuName);
+        sb.append(dm).append(xfND(_inuId));
+        sb.append(dm).append(xfND(_inuName));
         sb.append(dm).append(xfUD(_inuDate));
-        sb.append(dm).append(_nekoId);
-        sb.append(dm).append(_nekoName);
+        sb.append(dm).append(xfND(_nekoId));
+        sb.append(dm).append(xfND(_nekoName));
         sb.append(dm).append(xfUD(_nekoDate));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
@@ -187,6 +186,7 @@ public abstract class BsVendorInheritNeko extends AbstractEntity {
      * @return The value of the column 'inu_id'. (basically NotNull if selected: for the constraint)
      */
     public Integer getInuId() {
+        checkSpecifiedProperty("inuId");
         return _inuId;
     }
 
@@ -195,7 +195,7 @@ public abstract class BsVendorInheritNeko extends AbstractEntity {
      * @param inuId The value of the column 'inu_id'. (basically NotNull if update: for the constraint)
      */
     public void setInuId(Integer inuId) {
-        __modifiedProperties.addPropertyName("inuId");
+        registerModifiedProperty("inuId");
         _inuId = inuId;
     }
 
@@ -204,6 +204,7 @@ public abstract class BsVendorInheritNeko extends AbstractEntity {
      * @return The value of the column 'inu_name'. (basically NotNull if selected: for the constraint)
      */
     public String getInuName() {
+        checkSpecifiedProperty("inuName");
         return _inuName;
     }
 
@@ -212,7 +213,7 @@ public abstract class BsVendorInheritNeko extends AbstractEntity {
      * @param inuName The value of the column 'inu_name'. (basically NotNull if update: for the constraint)
      */
     public void setInuName(String inuName) {
-        __modifiedProperties.addPropertyName("inuName");
+        registerModifiedProperty("inuName");
         _inuName = inuName;
     }
 
@@ -221,6 +222,7 @@ public abstract class BsVendorInheritNeko extends AbstractEntity {
      * @return The value of the column 'inu_date'. (NullAllowed even if selected: for no constraint)
      */
     public java.util.Date getInuDate() {
+        checkSpecifiedProperty("inuDate");
         return _inuDate;
     }
 
@@ -229,7 +231,7 @@ public abstract class BsVendorInheritNeko extends AbstractEntity {
      * @param inuDate The value of the column 'inu_date'. (NullAllowed: null update allowed for no constraint)
      */
     public void setInuDate(java.util.Date inuDate) {
-        __modifiedProperties.addPropertyName("inuDate");
+        registerModifiedProperty("inuDate");
         _inuDate = inuDate;
     }
 
@@ -238,6 +240,7 @@ public abstract class BsVendorInheritNeko extends AbstractEntity {
      * @return The value of the column 'neko_id'. (basically NotNull if selected: for the constraint)
      */
     public Integer getNekoId() {
+        checkSpecifiedProperty("nekoId");
         return _nekoId;
     }
 
@@ -246,7 +249,7 @@ public abstract class BsVendorInheritNeko extends AbstractEntity {
      * @param nekoId The value of the column 'neko_id'. (basically NotNull if update: for the constraint)
      */
     public void setNekoId(Integer nekoId) {
-        __modifiedProperties.addPropertyName("nekoId");
+        registerModifiedProperty("nekoId");
         _nekoId = nekoId;
     }
 
@@ -255,6 +258,7 @@ public abstract class BsVendorInheritNeko extends AbstractEntity {
      * @return The value of the column 'neko_name'. (basically NotNull if selected: for the constraint)
      */
     public String getNekoName() {
+        checkSpecifiedProperty("nekoName");
         return _nekoName;
     }
 
@@ -263,7 +267,7 @@ public abstract class BsVendorInheritNeko extends AbstractEntity {
      * @param nekoName The value of the column 'neko_name'. (basically NotNull if update: for the constraint)
      */
     public void setNekoName(String nekoName) {
-        __modifiedProperties.addPropertyName("nekoName");
+        registerModifiedProperty("nekoName");
         _nekoName = nekoName;
     }
 
@@ -272,6 +276,7 @@ public abstract class BsVendorInheritNeko extends AbstractEntity {
      * @return The value of the column 'neko_date'. (NullAllowed even if selected: for no constraint)
      */
     public java.util.Date getNekoDate() {
+        checkSpecifiedProperty("nekoDate");
         return _nekoDate;
     }
 
@@ -280,7 +285,7 @@ public abstract class BsVendorInheritNeko extends AbstractEntity {
      * @param nekoDate The value of the column 'neko_date'. (NullAllowed: null update allowed for no constraint)
      */
     public void setNekoDate(java.util.Date nekoDate) {
-        __modifiedProperties.addPropertyName("nekoDate");
+        registerModifiedProperty("nekoDate");
         _nekoDate = nekoDate;
     }
 }

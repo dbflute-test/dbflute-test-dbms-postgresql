@@ -5,9 +5,9 @@ import java.util.Map;
 
 import org.dbflute.Entity;
 import org.dbflute.dbmeta.AbstractDBMeta;
-import org.dbflute.dbmeta.PropertyGateway;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
+import org.dbflute.dbmeta.property.PropertyGateway;
 import org.dbflute.dbway.DBDef;
 import org.docksidestage.postgresql.dbflute.allcommon.*;
 import org.docksidestage.postgresql.dbflute.exentity.*;
@@ -38,31 +38,11 @@ public class WhiteXlsManDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgXlsManId(), "xlsManId");
-        setupEpg(_epgMap, new EpgStringConverted(), "stringConverted");
-        setupEpg(_epgMap, new EpgTimestampZeroDefaultMillis(), "timestampZeroDefaultMillis");
-        setupEpg(_epgMap, new EpgTimestampZeroPrefixMillis(), "timestampZeroPrefixMillis");
-        setupEpg(_epgMap, new EpgTimestampZeroSuffixMillis(), "timestampZeroSuffixMillis");
-    }
-    public static class EpgXlsManId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteXlsMan)et).getXlsManId(); }
-        public void write(Entity et, Object vl) { ((WhiteXlsMan)et).setXlsManId(ctl(vl)); }
-    }
-    public static class EpgStringConverted implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteXlsMan)et).getStringConverted(); }
-        public void write(Entity et, Object vl) { ((WhiteXlsMan)et).setStringConverted((String)vl); }
-    }
-    public static class EpgTimestampZeroDefaultMillis implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteXlsMan)et).getTimestampZeroDefaultMillis(); }
-        public void write(Entity et, Object vl) { ((WhiteXlsMan)et).setTimestampZeroDefaultMillis((java.sql.Timestamp)vl); }
-    }
-    public static class EpgTimestampZeroPrefixMillis implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteXlsMan)et).getTimestampZeroPrefixMillis(); }
-        public void write(Entity et, Object vl) { ((WhiteXlsMan)et).setTimestampZeroPrefixMillis((java.sql.Timestamp)vl); }
-    }
-    public static class EpgTimestampZeroSuffixMillis implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteXlsMan)et).getTimestampZeroSuffixMillis(); }
-        public void write(Entity et, Object vl) { ((WhiteXlsMan)et).setTimestampZeroSuffixMillis((java.sql.Timestamp)vl); }
+        setupEpg(_epgMap, et -> ((WhiteXlsMan)et).getXlsManId(), (et, vl) -> ((WhiteXlsMan)et).setXlsManId(ctl(vl)), "xlsManId");
+        setupEpg(_epgMap, et -> ((WhiteXlsMan)et).getStringConverted(), (et, vl) -> ((WhiteXlsMan)et).setStringConverted((String)vl), "stringConverted");
+        setupEpg(_epgMap, et -> ((WhiteXlsMan)et).getTimestampZeroDefaultMillis(), (et, vl) -> ((WhiteXlsMan)et).setTimestampZeroDefaultMillis((java.sql.Timestamp)vl), "timestampZeroDefaultMillis");
+        setupEpg(_epgMap, et -> ((WhiteXlsMan)et).getTimestampZeroPrefixMillis(), (et, vl) -> ((WhiteXlsMan)et).setTimestampZeroPrefixMillis((java.sql.Timestamp)vl), "timestampZeroPrefixMillis");
+        setupEpg(_epgMap, et -> ((WhiteXlsMan)et).getTimestampZeroSuffixMillis(), (et, vl) -> ((WhiteXlsMan)et).setTimestampZeroSuffixMillis((java.sql.Timestamp)vl), "timestampZeroSuffixMillis");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }

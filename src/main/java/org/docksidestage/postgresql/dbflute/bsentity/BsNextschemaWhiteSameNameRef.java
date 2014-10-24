@@ -70,7 +70,6 @@ public abstract class BsNextschemaWhiteSameNameRef extends AbstractEntity {
     /** next_ref_date: {date(13)} */
     protected java.util.Date _nextRefDate;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -163,8 +162,8 @@ public abstract class BsNextschemaWhiteSameNameRef extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_sameNameRefId);
-        sb.append(dm).append(_sameNameId);
+        sb.append(dm).append(xfND(_sameNameRefId));
+        sb.append(dm).append(xfND(_sameNameId));
         sb.append(dm).append(xfUD(_nextRefDate));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
@@ -196,6 +195,7 @@ public abstract class BsNextschemaWhiteSameNameRef extends AbstractEntity {
      * @return The value of the column 'same_name_ref_id'. (basically NotNull if selected: for the constraint)
      */
     public Long getSameNameRefId() {
+        checkSpecifiedProperty("sameNameRefId");
         return _sameNameRefId;
     }
 
@@ -204,7 +204,7 @@ public abstract class BsNextschemaWhiteSameNameRef extends AbstractEntity {
      * @param sameNameRefId The value of the column 'same_name_ref_id'. (basically NotNull if update: for the constraint)
      */
     public void setSameNameRefId(Long sameNameRefId) {
-        __modifiedProperties.addPropertyName("sameNameRefId");
+        registerModifiedProperty("sameNameRefId");
         _sameNameRefId = sameNameRefId;
     }
 
@@ -213,6 +213,7 @@ public abstract class BsNextschemaWhiteSameNameRef extends AbstractEntity {
      * @return The value of the column 'same_name_id'. (basically NotNull if selected: for the constraint)
      */
     public Integer getSameNameId() {
+        checkSpecifiedProperty("sameNameId");
         return _sameNameId;
     }
 
@@ -221,7 +222,7 @@ public abstract class BsNextschemaWhiteSameNameRef extends AbstractEntity {
      * @param sameNameId The value of the column 'same_name_id'. (basically NotNull if update: for the constraint)
      */
     public void setSameNameId(Integer sameNameId) {
-        __modifiedProperties.addPropertyName("sameNameId");
+        registerModifiedProperty("sameNameId");
         _sameNameId = sameNameId;
     }
 
@@ -230,6 +231,7 @@ public abstract class BsNextschemaWhiteSameNameRef extends AbstractEntity {
      * @return The value of the column 'next_ref_date'. (NullAllowed even if selected: for no constraint)
      */
     public java.util.Date getNextRefDate() {
+        checkSpecifiedProperty("nextRefDate");
         return _nextRefDate;
     }
 
@@ -238,7 +240,7 @@ public abstract class BsNextschemaWhiteSameNameRef extends AbstractEntity {
      * @param nextRefDate The value of the column 'next_ref_date'. (NullAllowed: null update allowed for no constraint)
      */
     public void setNextRefDate(java.util.Date nextRefDate) {
-        __modifiedProperties.addPropertyName("nextRefDate");
+        registerModifiedProperty("nextRefDate");
         _nextRefDate = nextRefDate;
     }
 }

@@ -81,7 +81,6 @@ public abstract class BsMemberStatus extends AbstractEntity {
     /** (表示順)display_order: {UQ, NotNull, int4(10)} */
     protected Integer _displayOrder;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -295,10 +294,10 @@ public abstract class BsMemberStatus extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_memberStatusCode);
-        sb.append(dm).append(_memberStatusName);
-        sb.append(dm).append(_description);
-        sb.append(dm).append(_displayOrder);
+        sb.append(dm).append(xfND(_memberStatusCode));
+        sb.append(dm).append(xfND(_memberStatusName));
+        sb.append(dm).append(xfND(_description));
+        sb.append(dm).append(xfND(_displayOrder));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -336,6 +335,7 @@ public abstract class BsMemberStatus extends AbstractEntity {
      * @return The value of the column 'member_status_code'. (basically NotNull if selected: for the constraint)
      */
     public String getMemberStatusCode() {
+        checkSpecifiedProperty("memberStatusCode");
         return _memberStatusCode;
     }
 
@@ -349,7 +349,7 @@ public abstract class BsMemberStatus extends AbstractEntity {
      */
     protected void setMemberStatusCode(String memberStatusCode) {
         checkClassificationCode("member_status_code", CDef.DefMeta.MemberStatus, memberStatusCode);
-        __modifiedProperties.addPropertyName("memberStatusCode");
+        registerModifiedProperty("memberStatusCode");
         _memberStatusCode = memberStatusCode;
     }
 
@@ -358,6 +358,7 @@ public abstract class BsMemberStatus extends AbstractEntity {
      * @return The value of the column 'member_status_name'. (basically NotNull if selected: for the constraint)
      */
     public String getMemberStatusName() {
+        checkSpecifiedProperty("memberStatusName");
         return _memberStatusName;
     }
 
@@ -366,7 +367,7 @@ public abstract class BsMemberStatus extends AbstractEntity {
      * @param memberStatusName The value of the column 'member_status_name'. (basically NotNull if update: for the constraint)
      */
     public void setMemberStatusName(String memberStatusName) {
-        __modifiedProperties.addPropertyName("memberStatusName");
+        registerModifiedProperty("memberStatusName");
         _memberStatusName = memberStatusName;
     }
 
@@ -377,6 +378,7 @@ public abstract class BsMemberStatus extends AbstractEntity {
      * @return The value of the column 'description'. (basically NotNull if selected: for the constraint)
      */
     public String getDescription() {
+        checkSpecifiedProperty("description");
         return _description;
     }
 
@@ -387,7 +389,7 @@ public abstract class BsMemberStatus extends AbstractEntity {
      * @param description The value of the column 'description'. (basically NotNull if update: for the constraint)
      */
     public void setDescription(String description) {
-        __modifiedProperties.addPropertyName("description");
+        registerModifiedProperty("description");
         _description = description;
     }
 
@@ -398,6 +400,7 @@ public abstract class BsMemberStatus extends AbstractEntity {
      * @return The value of the column 'display_order'. (basically NotNull if selected: for the constraint)
      */
     public Integer getDisplayOrder() {
+        checkSpecifiedProperty("displayOrder");
         return _displayOrder;
     }
 
@@ -408,7 +411,7 @@ public abstract class BsMemberStatus extends AbstractEntity {
      * @param displayOrder The value of the column 'display_order'. (basically NotNull if update: for the constraint)
      */
     public void setDisplayOrder(Integer displayOrder) {
-        __modifiedProperties.addPropertyName("displayOrder");
+        registerModifiedProperty("displayOrder");
         _displayOrder = displayOrder;
     }
 

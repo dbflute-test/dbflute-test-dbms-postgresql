@@ -70,7 +70,6 @@ public abstract class BsVendorInheritInu extends AbstractEntity {
     /** inu_date: {date(13)} */
     protected java.util.Date _inuDate;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -141,8 +140,8 @@ public abstract class BsVendorInheritInu extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_inuId);
-        sb.append(dm).append(_inuName);
+        sb.append(dm).append(xfND(_inuId));
+        sb.append(dm).append(xfND(_inuName));
         sb.append(dm).append(xfUD(_inuDate));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
@@ -169,6 +168,7 @@ public abstract class BsVendorInheritInu extends AbstractEntity {
      * @return The value of the column 'inu_id'. (basically NotNull if selected: for the constraint)
      */
     public Integer getInuId() {
+        checkSpecifiedProperty("inuId");
         return _inuId;
     }
 
@@ -177,7 +177,7 @@ public abstract class BsVendorInheritInu extends AbstractEntity {
      * @param inuId The value of the column 'inu_id'. (basically NotNull if update: for the constraint)
      */
     public void setInuId(Integer inuId) {
-        __modifiedProperties.addPropertyName("inuId");
+        registerModifiedProperty("inuId");
         _inuId = inuId;
     }
 
@@ -186,6 +186,7 @@ public abstract class BsVendorInheritInu extends AbstractEntity {
      * @return The value of the column 'inu_name'. (basically NotNull if selected: for the constraint)
      */
     public String getInuName() {
+        checkSpecifiedProperty("inuName");
         return _inuName;
     }
 
@@ -194,7 +195,7 @@ public abstract class BsVendorInheritInu extends AbstractEntity {
      * @param inuName The value of the column 'inu_name'. (basically NotNull if update: for the constraint)
      */
     public void setInuName(String inuName) {
-        __modifiedProperties.addPropertyName("inuName");
+        registerModifiedProperty("inuName");
         _inuName = inuName;
     }
 
@@ -203,6 +204,7 @@ public abstract class BsVendorInheritInu extends AbstractEntity {
      * @return The value of the column 'inu_date'. (NullAllowed even if selected: for no constraint)
      */
     public java.util.Date getInuDate() {
+        checkSpecifiedProperty("inuDate");
         return _inuDate;
     }
 
@@ -211,7 +213,7 @@ public abstract class BsVendorInheritInu extends AbstractEntity {
      * @param inuDate The value of the column 'inu_date'. (NullAllowed: null update allowed for no constraint)
      */
     public void setInuDate(java.util.Date inuDate) {
-        __modifiedProperties.addPropertyName("inuDate");
+        registerModifiedProperty("inuDate");
         _inuDate = inuDate;
     }
 }

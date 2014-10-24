@@ -75,7 +75,6 @@ public abstract class BsUnpaidSummaryMember extends AbstractEntity {
     /** status_name: {varchar(50), refers to member_status} */
     protected String _statusName;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -200,10 +199,10 @@ public abstract class BsUnpaidSummaryMember extends AbstractEntity {
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_unpaidManId);
-        sb.append(dm).append(_unpaidManName);
-        sb.append(dm).append(_unpaidPriceSummary);
-        sb.append(dm).append(_statusName);
+        sb.append(dm).append(xfND(_unpaidManId));
+        sb.append(dm).append(xfND(_unpaidManName));
+        sb.append(dm).append(xfND(_unpaidPriceSummary));
+        sb.append(dm).append(xfND(_statusName));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -229,6 +228,7 @@ public abstract class BsUnpaidSummaryMember extends AbstractEntity {
      * @return The value of the column 'unpaid_man_id'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getUnpaidManId() {
+        checkSpecifiedProperty("unpaidManId");
         return _unpaidManId;
     }
 
@@ -237,7 +237,7 @@ public abstract class BsUnpaidSummaryMember extends AbstractEntity {
      * @param unpaidManId The value of the column 'unpaid_man_id'. (NullAllowed: null update allowed for no constraint)
      */
     public void setUnpaidManId(Integer unpaidManId) {
-        __modifiedProperties.addPropertyName("unpaidManId");
+        registerModifiedProperty("unpaidManId");
         _unpaidManId = unpaidManId;
     }
 
@@ -246,6 +246,7 @@ public abstract class BsUnpaidSummaryMember extends AbstractEntity {
      * @return The value of the column 'unpaid_man_name'. (NullAllowed even if selected: for no constraint)
      */
     public String getUnpaidManName() {
+        checkSpecifiedProperty("unpaidManName");
         return _unpaidManName;
     }
 
@@ -254,7 +255,7 @@ public abstract class BsUnpaidSummaryMember extends AbstractEntity {
      * @param unpaidManName The value of the column 'unpaid_man_name'. (NullAllowed: null update allowed for no constraint)
      */
     public void setUnpaidManName(String unpaidManName) {
-        __modifiedProperties.addPropertyName("unpaidManName");
+        registerModifiedProperty("unpaidManName");
         _unpaidManName = unpaidManName;
     }
 
@@ -263,6 +264,7 @@ public abstract class BsUnpaidSummaryMember extends AbstractEntity {
      * @return The value of the column 'unpaid_price_summary'. (NullAllowed even if selected: for no constraint)
      */
     public Long getUnpaidPriceSummary() {
+        checkSpecifiedProperty("unpaidPriceSummary");
         return _unpaidPriceSummary;
     }
 
@@ -271,7 +273,7 @@ public abstract class BsUnpaidSummaryMember extends AbstractEntity {
      * @param unpaidPriceSummary The value of the column 'unpaid_price_summary'. (NullAllowed: null update allowed for no constraint)
      */
     public void setUnpaidPriceSummary(Long unpaidPriceSummary) {
-        __modifiedProperties.addPropertyName("unpaidPriceSummary");
+        registerModifiedProperty("unpaidPriceSummary");
         _unpaidPriceSummary = unpaidPriceSummary;
     }
 
@@ -280,6 +282,7 @@ public abstract class BsUnpaidSummaryMember extends AbstractEntity {
      * @return The value of the column 'status_name'. (NullAllowed even if selected: for no constraint)
      */
     public String getStatusName() {
+        checkSpecifiedProperty("statusName");
         return _statusName;
     }
 
@@ -288,7 +291,7 @@ public abstract class BsUnpaidSummaryMember extends AbstractEntity {
      * @param statusName The value of the column 'status_name'. (NullAllowed: null update allowed for no constraint)
      */
     public void setStatusName(String statusName) {
-        __modifiedProperties.addPropertyName("statusName");
+        registerModifiedProperty("statusName");
         _statusName = statusName;
     }
 }

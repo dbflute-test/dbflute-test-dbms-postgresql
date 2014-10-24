@@ -1,6 +1,5 @@
 package org.docksidestage.postgresql.dbflute.cbean.nss;
 
-import org.dbflute.cbean.ConditionQuery;
 import org.docksidestage.postgresql.dbflute.cbean.cq.MemberLoginCQ;
 
 /**
@@ -25,7 +24,7 @@ public class MemberLoginNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public MemberStatusNss withMemberStatus() {
-        _query.xdoNss(new MemberLoginCQ.NssCall() { public ConditionQuery qf() { return _query.queryMemberStatus(); }});
+        _query.xdoNss(() -> _query.queryMemberStatus());
         return new MemberStatusNss(_query.queryMemberStatus());
     }
     /**
@@ -34,7 +33,7 @@ public class MemberLoginNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public MemberNss withMember() {
-        _query.xdoNss(new MemberLoginCQ.NssCall() { public ConditionQuery qf() { return _query.queryMember(); }});
+        _query.xdoNss(() -> _query.queryMember());
         return new MemberNss(_query.queryMember());
     }
 }

@@ -5,9 +5,9 @@ import java.util.Map;
 
 import org.dbflute.Entity;
 import org.dbflute.dbmeta.AbstractDBMeta;
-import org.dbflute.dbmeta.PropertyGateway;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
+import org.dbflute.dbmeta.property.PropertyGateway;
 import org.dbflute.dbway.DBDef;
 import org.docksidestage.postgresql.dbflute.allcommon.*;
 import org.docksidestage.postgresql.dbflute.exentity.*;
@@ -38,21 +38,9 @@ public class WhiteCompoundPkDbm extends AbstractDBMeta {
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     {
-        setupEpg(_epgMap, new EpgPkFirstId(), "pkFirstId");
-        setupEpg(_epgMap, new EpgPkSecondId(), "pkSecondId");
-        setupEpg(_epgMap, new EpgPkName(), "pkName");
-    }
-    public static class EpgPkFirstId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteCompoundPk)et).getPkFirstId(); }
-        public void write(Entity et, Object vl) { ((WhiteCompoundPk)et).setPkFirstId(cti(vl)); }
-    }
-    public static class EpgPkSecondId implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteCompoundPk)et).getPkSecondId(); }
-        public void write(Entity et, Object vl) { ((WhiteCompoundPk)et).setPkSecondId(cti(vl)); }
-    }
-    public static class EpgPkName implements PropertyGateway {
-        public Object read(Entity et) { return ((WhiteCompoundPk)et).getPkName(); }
-        public void write(Entity et, Object vl) { ((WhiteCompoundPk)et).setPkName((String)vl); }
+        setupEpg(_epgMap, et -> ((WhiteCompoundPk)et).getPkFirstId(), (et, vl) -> ((WhiteCompoundPk)et).setPkFirstId(cti(vl)), "pkFirstId");
+        setupEpg(_epgMap, et -> ((WhiteCompoundPk)et).getPkSecondId(), (et, vl) -> ((WhiteCompoundPk)et).setPkSecondId(cti(vl)), "pkSecondId");
+        setupEpg(_epgMap, et -> ((WhiteCompoundPk)et).getPkName(), (et, vl) -> ((WhiteCompoundPk)et).setPkName((String)vl), "pkName");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }

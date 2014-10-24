@@ -1,6 +1,5 @@
 package org.docksidestage.postgresql.dbflute.cbean.nss;
 
-import org.dbflute.cbean.ConditionQuery;
 import org.docksidestage.postgresql.dbflute.cbean.cq.WhiteSameNameCQ;
 
 /**
@@ -25,7 +24,7 @@ public class WhiteSameNameNss {
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
     public NextSchemaProductNss withNextSchemaProduct() {
-        _query.xdoNss(new WhiteSameNameCQ.NssCall() { public ConditionQuery qf() { return _query.queryNextSchemaProduct(); }});
+        _query.xdoNss(() -> _query.queryNextSchemaProduct());
         return new NextSchemaProductNss(_query.queryNextSchemaProduct());
     }
 }

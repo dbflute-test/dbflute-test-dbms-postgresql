@@ -80,7 +80,6 @@ public abstract class BsSpResultSetParameterMoreCurMember extends AbstractEntity
     /** (会員ステータスコード)member_status_code: {bpchar(3), refers to member.member_status_code, classification=MemberStatus} */
     protected String _memberStatusCode;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -245,11 +244,11 @@ public abstract class BsSpResultSetParameterMoreCurMember extends AbstractEntity
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_memberId);
-        sb.append(dm).append(_memberName);
+        sb.append(dm).append(xfND(_memberId));
+        sb.append(dm).append(xfND(_memberName));
         sb.append(dm).append(xfUD(_birthdate));
-        sb.append(dm).append(_formalizedDatetime);
-        sb.append(dm).append(_memberStatusCode);
+        sb.append(dm).append(xfND(_formalizedDatetime));
+        sb.append(dm).append(xfND(_memberStatusCode));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -277,6 +276,7 @@ public abstract class BsSpResultSetParameterMoreCurMember extends AbstractEntity
      * @return The value of the column 'member_id'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getMemberId() {
+        checkSpecifiedProperty("memberId");
         return _memberId;
     }
 
@@ -287,7 +287,7 @@ public abstract class BsSpResultSetParameterMoreCurMember extends AbstractEntity
      * @param memberId The value of the column 'member_id'. (NullAllowed: null update allowed for no constraint)
      */
     public void setMemberId(Integer memberId) {
-        __modifiedProperties.addPropertyName("memberId");
+        registerModifiedProperty("memberId");
         _memberId = memberId;
     }
 
@@ -298,6 +298,7 @@ public abstract class BsSpResultSetParameterMoreCurMember extends AbstractEntity
      * @return The value of the column 'member_name'. (NullAllowed even if selected: for no constraint)
      */
     public String getMemberName() {
+        checkSpecifiedProperty("memberName");
         return _memberName;
     }
 
@@ -308,7 +309,7 @@ public abstract class BsSpResultSetParameterMoreCurMember extends AbstractEntity
      * @param memberName The value of the column 'member_name'. (NullAllowed: null update allowed for no constraint)
      */
     public void setMemberName(String memberName) {
-        __modifiedProperties.addPropertyName("memberName");
+        registerModifiedProperty("memberName");
         _memberName = memberName;
     }
 
@@ -318,6 +319,7 @@ public abstract class BsSpResultSetParameterMoreCurMember extends AbstractEntity
      * @return The value of the column 'birthdate'. (NullAllowed even if selected: for no constraint)
      */
     public java.util.Date getBirthdate() {
+        checkSpecifiedProperty("birthdate");
         return _birthdate;
     }
 
@@ -327,7 +329,7 @@ public abstract class BsSpResultSetParameterMoreCurMember extends AbstractEntity
      * @param birthdate The value of the column 'birthdate'. (NullAllowed: null update allowed for no constraint)
      */
     public void setBirthdate(java.util.Date birthdate) {
-        __modifiedProperties.addPropertyName("birthdate");
+        registerModifiedProperty("birthdate");
         _birthdate = birthdate;
     }
 
@@ -338,6 +340,7 @@ public abstract class BsSpResultSetParameterMoreCurMember extends AbstractEntity
      * @return The value of the column 'formalized_datetime'. (NullAllowed even if selected: for no constraint)
      */
     public java.sql.Timestamp getFormalizedDatetime() {
+        checkSpecifiedProperty("formalizedDatetime");
         return _formalizedDatetime;
     }
 
@@ -348,7 +351,7 @@ public abstract class BsSpResultSetParameterMoreCurMember extends AbstractEntity
      * @param formalizedDatetime The value of the column 'formalized_datetime'. (NullAllowed: null update allowed for no constraint)
      */
     public void setFormalizedDatetime(java.sql.Timestamp formalizedDatetime) {
-        __modifiedProperties.addPropertyName("formalizedDatetime");
+        registerModifiedProperty("formalizedDatetime");
         _formalizedDatetime = formalizedDatetime;
     }
 
@@ -359,6 +362,7 @@ public abstract class BsSpResultSetParameterMoreCurMember extends AbstractEntity
      * @return The value of the column 'member_status_code'. (NullAllowed even if selected: for no constraint)
      */
     public String getMemberStatusCode() {
+        checkSpecifiedProperty("memberStatusCode");
         return _memberStatusCode;
     }
 
@@ -370,7 +374,7 @@ public abstract class BsSpResultSetParameterMoreCurMember extends AbstractEntity
      */
     protected void setMemberStatusCode(String memberStatusCode) {
         checkClassificationCode("member_status_code", CDef.DefMeta.MemberStatus, memberStatusCode);
-        __modifiedProperties.addPropertyName("memberStatusCode");
+        registerModifiedProperty("memberStatusCode");
         _memberStatusCode = memberStatusCode;
     }
 

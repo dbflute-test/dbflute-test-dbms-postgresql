@@ -121,7 +121,6 @@ public abstract class BsProduct extends AbstractEntity implements EntityDefinedC
     /** version_no: {NotNull, int8(19)} */
     protected Long _versionNo;
 
-
     // ===================================================================================
     //                                                                          Table Name
     //                                                                          ==========
@@ -268,19 +267,19 @@ public abstract class BsProduct extends AbstractEntity implements EntityDefinedC
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_productId);
-        sb.append(dm).append(_productName);
-        sb.append(dm).append(_productHandleCode);
-        sb.append(dm).append(_productCategoryCode);
-        sb.append(dm).append(_productStatusCode);
-        sb.append(dm).append(_regularPrice);
-        sb.append(dm).append(_registerDatetime);
-        sb.append(dm).append(_registerUser);
-        sb.append(dm).append(_registerProcess);
-        sb.append(dm).append(_updateDatetime);
-        sb.append(dm).append(_updateUser);
-        sb.append(dm).append(_updateProcess);
-        sb.append(dm).append(_versionNo);
+        sb.append(dm).append(xfND(_productId));
+        sb.append(dm).append(xfND(_productName));
+        sb.append(dm).append(xfND(_productHandleCode));
+        sb.append(dm).append(xfND(_productCategoryCode));
+        sb.append(dm).append(xfND(_productStatusCode));
+        sb.append(dm).append(xfND(_regularPrice));
+        sb.append(dm).append(xfND(_registerDatetime));
+        sb.append(dm).append(xfND(_registerUser));
+        sb.append(dm).append(xfND(_registerProcess));
+        sb.append(dm).append(xfND(_updateDatetime));
+        sb.append(dm).append(xfND(_updateUser));
+        sb.append(dm).append(xfND(_updateProcess));
+        sb.append(dm).append(xfND(_versionNo));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -314,6 +313,7 @@ public abstract class BsProduct extends AbstractEntity implements EntityDefinedC
      * @return The value of the column 'product_id'. (basically NotNull if selected: for the constraint)
      */
     public Integer getProductId() {
+        checkSpecifiedProperty("productId");
         return _productId;
     }
 
@@ -322,7 +322,7 @@ public abstract class BsProduct extends AbstractEntity implements EntityDefinedC
      * @param productId The value of the column 'product_id'. (basically NotNull if update: for the constraint)
      */
     public void setProductId(Integer productId) {
-        __modifiedProperties.addPropertyName("productId");
+        registerModifiedProperty("productId");
         _productId = productId;
     }
 
@@ -334,6 +334,7 @@ public abstract class BsProduct extends AbstractEntity implements EntityDefinedC
      * @return The value of the column 'product_name'. (basically NotNull if selected: for the constraint)
      */
     public String getProductName() {
+        checkSpecifiedProperty("productName");
         return _productName;
     }
 
@@ -345,7 +346,7 @@ public abstract class BsProduct extends AbstractEntity implements EntityDefinedC
      * @param productName The value of the column 'product_name'. (basically NotNull if update: for the constraint)
      */
     public void setProductName(String productName) {
-        __modifiedProperties.addPropertyName("productName");
+        registerModifiedProperty("productName");
         _productName = productName;
     }
 
@@ -355,6 +356,7 @@ public abstract class BsProduct extends AbstractEntity implements EntityDefinedC
      * @return The value of the column 'product_handle_code'. (basically NotNull if selected: for the constraint)
      */
     public String getProductHandleCode() {
+        checkSpecifiedProperty("productHandleCode");
         return _productHandleCode;
     }
 
@@ -364,7 +366,7 @@ public abstract class BsProduct extends AbstractEntity implements EntityDefinedC
      * @param productHandleCode The value of the column 'product_handle_code'. (basically NotNull if update: for the constraint)
      */
     public void setProductHandleCode(String productHandleCode) {
-        __modifiedProperties.addPropertyName("productHandleCode");
+        registerModifiedProperty("productHandleCode");
         _productHandleCode = productHandleCode;
     }
 
@@ -373,6 +375,7 @@ public abstract class BsProduct extends AbstractEntity implements EntityDefinedC
      * @return The value of the column 'product_category_code'. (basically NotNull if selected: for the constraint)
      */
     public String getProductCategoryCode() {
+        checkSpecifiedProperty("productCategoryCode");
         return _productCategoryCode;
     }
 
@@ -381,7 +384,7 @@ public abstract class BsProduct extends AbstractEntity implements EntityDefinedC
      * @param productCategoryCode The value of the column 'product_category_code'. (basically NotNull if update: for the constraint)
      */
     public void setProductCategoryCode(String productCategoryCode) {
-        __modifiedProperties.addPropertyName("productCategoryCode");
+        registerModifiedProperty("productCategoryCode");
         _productCategoryCode = productCategoryCode;
     }
 
@@ -390,6 +393,7 @@ public abstract class BsProduct extends AbstractEntity implements EntityDefinedC
      * @return The value of the column 'product_status_code'. (basically NotNull if selected: for the constraint)
      */
     public String getProductStatusCode() {
+        checkSpecifiedProperty("productStatusCode");
         return _productStatusCode;
     }
 
@@ -398,7 +402,7 @@ public abstract class BsProduct extends AbstractEntity implements EntityDefinedC
      * @param productStatusCode The value of the column 'product_status_code'. (basically NotNull if update: for the constraint)
      */
     public void setProductStatusCode(String productStatusCode) {
-        __modifiedProperties.addPropertyName("productStatusCode");
+        registerModifiedProperty("productStatusCode");
         _productStatusCode = productStatusCode;
     }
 
@@ -407,6 +411,7 @@ public abstract class BsProduct extends AbstractEntity implements EntityDefinedC
      * @return The value of the column 'regular_price'. (basically NotNull if selected: for the constraint)
      */
     public Integer getRegularPrice() {
+        checkSpecifiedProperty("regularPrice");
         return _regularPrice;
     }
 
@@ -415,7 +420,7 @@ public abstract class BsProduct extends AbstractEntity implements EntityDefinedC
      * @param regularPrice The value of the column 'regular_price'. (basically NotNull if update: for the constraint)
      */
     public void setRegularPrice(Integer regularPrice) {
-        __modifiedProperties.addPropertyName("regularPrice");
+        registerModifiedProperty("regularPrice");
         _regularPrice = regularPrice;
     }
 
@@ -424,6 +429,7 @@ public abstract class BsProduct extends AbstractEntity implements EntityDefinedC
      * @return The value of the column 'register_datetime'. (basically NotNull if selected: for the constraint)
      */
     public java.sql.Timestamp getRegisterDatetime() {
+        checkSpecifiedProperty("registerDatetime");
         return _registerDatetime;
     }
 
@@ -432,7 +438,7 @@ public abstract class BsProduct extends AbstractEntity implements EntityDefinedC
      * @param registerDatetime The value of the column 'register_datetime'. (basically NotNull if update: for the constraint)
      */
     public void setRegisterDatetime(java.sql.Timestamp registerDatetime) {
-        __modifiedProperties.addPropertyName("registerDatetime");
+        registerModifiedProperty("registerDatetime");
         _registerDatetime = registerDatetime;
     }
 
@@ -441,6 +447,7 @@ public abstract class BsProduct extends AbstractEntity implements EntityDefinedC
      * @return The value of the column 'register_user'. (basically NotNull if selected: for the constraint)
      */
     public String getRegisterUser() {
+        checkSpecifiedProperty("registerUser");
         return _registerUser;
     }
 
@@ -449,7 +456,7 @@ public abstract class BsProduct extends AbstractEntity implements EntityDefinedC
      * @param registerUser The value of the column 'register_user'. (basically NotNull if update: for the constraint)
      */
     public void setRegisterUser(String registerUser) {
-        __modifiedProperties.addPropertyName("registerUser");
+        registerModifiedProperty("registerUser");
         _registerUser = registerUser;
     }
 
@@ -458,6 +465,7 @@ public abstract class BsProduct extends AbstractEntity implements EntityDefinedC
      * @return The value of the column 'register_process'. (basically NotNull if selected: for the constraint)
      */
     public String getRegisterProcess() {
+        checkSpecifiedProperty("registerProcess");
         return _registerProcess;
     }
 
@@ -466,7 +474,7 @@ public abstract class BsProduct extends AbstractEntity implements EntityDefinedC
      * @param registerProcess The value of the column 'register_process'. (basically NotNull if update: for the constraint)
      */
     public void setRegisterProcess(String registerProcess) {
-        __modifiedProperties.addPropertyName("registerProcess");
+        registerModifiedProperty("registerProcess");
         _registerProcess = registerProcess;
     }
 
@@ -475,6 +483,7 @@ public abstract class BsProduct extends AbstractEntity implements EntityDefinedC
      * @return The value of the column 'update_datetime'. (basically NotNull if selected: for the constraint)
      */
     public java.sql.Timestamp getUpdateDatetime() {
+        checkSpecifiedProperty("updateDatetime");
         return _updateDatetime;
     }
 
@@ -483,7 +492,7 @@ public abstract class BsProduct extends AbstractEntity implements EntityDefinedC
      * @param updateDatetime The value of the column 'update_datetime'. (basically NotNull if update: for the constraint)
      */
     public void setUpdateDatetime(java.sql.Timestamp updateDatetime) {
-        __modifiedProperties.addPropertyName("updateDatetime");
+        registerModifiedProperty("updateDatetime");
         _updateDatetime = updateDatetime;
     }
 
@@ -492,6 +501,7 @@ public abstract class BsProduct extends AbstractEntity implements EntityDefinedC
      * @return The value of the column 'update_user'. (basically NotNull if selected: for the constraint)
      */
     public String getUpdateUser() {
+        checkSpecifiedProperty("updateUser");
         return _updateUser;
     }
 
@@ -500,7 +510,7 @@ public abstract class BsProduct extends AbstractEntity implements EntityDefinedC
      * @param updateUser The value of the column 'update_user'. (basically NotNull if update: for the constraint)
      */
     public void setUpdateUser(String updateUser) {
-        __modifiedProperties.addPropertyName("updateUser");
+        registerModifiedProperty("updateUser");
         _updateUser = updateUser;
     }
 
@@ -509,6 +519,7 @@ public abstract class BsProduct extends AbstractEntity implements EntityDefinedC
      * @return The value of the column 'update_process'. (basically NotNull if selected: for the constraint)
      */
     public String getUpdateProcess() {
+        checkSpecifiedProperty("updateProcess");
         return _updateProcess;
     }
 
@@ -517,7 +528,7 @@ public abstract class BsProduct extends AbstractEntity implements EntityDefinedC
      * @param updateProcess The value of the column 'update_process'. (basically NotNull if update: for the constraint)
      */
     public void setUpdateProcess(String updateProcess) {
-        __modifiedProperties.addPropertyName("updateProcess");
+        registerModifiedProperty("updateProcess");
         _updateProcess = updateProcess;
     }
 
@@ -526,6 +537,7 @@ public abstract class BsProduct extends AbstractEntity implements EntityDefinedC
      * @return The value of the column 'version_no'. (basically NotNull if selected: for the constraint)
      */
     public Long getVersionNo() {
+        checkSpecifiedProperty("versionNo");
         return _versionNo;
     }
 
@@ -534,7 +546,7 @@ public abstract class BsProduct extends AbstractEntity implements EntityDefinedC
      * @param versionNo The value of the column 'version_no'. (basically NotNull if update: for the constraint)
      */
     public void setVersionNo(Long versionNo) {
-        __modifiedProperties.addPropertyName("versionNo");
+        registerModifiedProperty("versionNo");
         _versionNo = versionNo;
     }
 }
