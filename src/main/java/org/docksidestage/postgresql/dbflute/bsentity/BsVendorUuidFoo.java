@@ -175,7 +175,8 @@ public abstract class BsVendorUuidFoo extends AbstractEntity {
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_vendorUuidBar != null) { sb.append(dm).append("vendorUuidBar"); }
+        if (_vendorUuidBar != null)
+        { sb.append(dm).append("vendorUuidBar"); }
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length()).insert(0, "(").append(")");
         }

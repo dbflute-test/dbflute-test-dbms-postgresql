@@ -184,7 +184,8 @@ public abstract class BsWhiteCompoundPkRef extends AbstractEntity {
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteCompoundPk != null) { sb.append(dm).append("whiteCompoundPk"); }
+        if (_whiteCompoundPk != null)
+        { sb.append(dm).append("whiteCompoundPk"); }
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length()).insert(0, "(").append(")");
         }

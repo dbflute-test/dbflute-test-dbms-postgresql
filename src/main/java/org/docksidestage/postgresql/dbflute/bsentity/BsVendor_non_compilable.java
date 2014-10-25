@@ -257,8 +257,10 @@ public abstract class BsVendor_non_compilable extends AbstractEntity {
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_vendor_non_compilableByNextParentidSelf != null) { sb.append(dm).append("vendor_non_compilableByNextParentidSelf"); }
-        if (_vendor_non_compilableByParent_idSelf != null) { sb.append(dm).append("vendor_non_compilableByParent_idSelf"); }
+        if (_vendor_non_compilableByNextParentidSelf != null)
+        { sb.append(dm).append("vendor_non_compilableByNextParentidSelf"); }
+        if (_vendor_non_compilableByParent_idSelf != null)
+        { sb.append(dm).append("vendor_non_compilableByParent_idSelf"); }
         if (_vendor_non_compilableByNextParentidSelfList != null && !_vendor_non_compilableByNextParentidSelfList.isEmpty())
         { sb.append(dm).append("vendor_non_compilableByNextParentidSelfList"); }
         if (_vendor_non_compilableByParent_idSelfList != null && !_vendor_non_compilableByParent_idSelfList.isEmpty())

@@ -203,7 +203,8 @@ public abstract class BsWhiteSameName extends AbstractEntity {
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_nextSchemaProduct != null) { sb.append(dm).append("nextSchemaProduct"); }
+        if (_nextSchemaProduct != null)
+        { sb.append(dm).append("nextSchemaProduct"); }
         if (_whiteSameNameRefList != null && !_whiteSameNameRefList.isEmpty())
         { sb.append(dm).append("whiteSameNameRefList"); }
         if (sb.length() > dm.length()) {
