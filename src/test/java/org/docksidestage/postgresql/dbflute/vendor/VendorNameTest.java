@@ -96,7 +96,7 @@ public class VendorNameTest extends UnitContainerTestCase {
         assertNotSame(0, noncompList.size());
         for (Vendor_non_compilable noncomp : noncompList) {
             assertNotNull(noncomp.getNon_compilable_name());
-            assertNull(noncomp.getParent_id());
+            assertNonSpecifiedAccess(() -> noncomp.getParent_id());
         }
     }
 

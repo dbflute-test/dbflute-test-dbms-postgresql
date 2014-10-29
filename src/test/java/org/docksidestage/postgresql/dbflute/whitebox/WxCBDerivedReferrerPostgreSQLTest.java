@@ -57,7 +57,7 @@ public class WxCBDerivedReferrerPostgreSQLTest extends UnitContainerTestCase {
         assertTrue(existsLoginDatetime);
         String sql = cb.toDisplaySql();
         assertTrue(Srl.contains(sql, "select date_trunc('year', coalesce"));
-        assertTrue(Srl.contains(sql, ", coalesce(max(sub1loc.login_datetime), '1900-12-04'))"));
+        assertTrue(Srl.contains(sql, ", coalesce(max(sub1loc.login_datetime), '1900-12-04 00:00:00.000'))"));
     }
 
     public void test_sepcify_derivedReferrer_trunc_date_nested() {
@@ -95,7 +95,7 @@ public class WxCBDerivedReferrerPostgreSQLTest extends UnitContainerTestCase {
         String sql = cb.toDisplaySql();
         assertTrue(Srl.contains(sql, ", (select date_trunc('year'" + ln()));
         assertTrue(Srl.contains(sql, ", coalesce(max((select date_trunc('year'"));
-        assertTrue(Srl.contains(sql, ", coalesce(max(sub2loc.purchase_datetime), '1900-12-04'))"));
+        assertTrue(Srl.contains(sql, ", coalesce(max(sub2loc.purchase_datetime), '1900-12-04 00:00:00.000'))"));
         assertTrue(Srl.contains(sql, "and sub1loc.mobile_login_flg = 0"));
     }
 }

@@ -536,7 +536,7 @@ public class ConditionBeanPlatinumTest extends UnitContainerTestCase {
             assertNotNull(member.getMemberStatusCode()); // SetupSelect FK
             assertNotNull(member.getMemberStatus().getMemberStatusCode()); // PK
             assertNotNull(member.getMemberStatus().getMemberStatusName()); // Specified
-            assertNull(member.getMemberStatus().getDisplayOrder());
+            assertNonSpecifiedAccess(() -> member.getMemberStatus().getDisplayOrder());
         }
     }
 

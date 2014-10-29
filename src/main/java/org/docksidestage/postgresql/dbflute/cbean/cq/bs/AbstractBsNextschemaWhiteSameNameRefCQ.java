@@ -579,7 +579,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameRefCQ extends AbstractCon
      * Order along manual ordering information.
      * <pre>
      * MemberCB cb = new MemberCB();
-     * ManualOrderBean mob = new ManualOrderBean();
+     * ManualOrderOption mob = new ManualOrderOption();
      * mob.<span style="color: #CC4747">when_GreaterEqual</span>(priorityDate); <span style="color: #3F7E5E">// e.g. 2000/01/01</span>
      * cb.query().addOrderBy_Birthdate_Asc().<span style="color: #CC4747">withManualOrder(mob)</span>;
      * <span style="color: #3F7E5E">// order by </span>
@@ -589,7 +589,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameRefCQ extends AbstractCon
      * <span style="color: #3F7E5E">//   end asc, ...</span>
      *
      * MemberCB cb = new MemberCB();
-     * ManualOrderBean mob = new ManualOrderBean();
+     * ManualOrderOption mob = new ManualOrderOption();
      * mob.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Withdrawal);
      * mob.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Formalized);
      * mob.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Provisional);
@@ -614,7 +614,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameRefCQ extends AbstractCon
      * Order along manual ordering information.
      * <pre>
      * MemberCB cb = new MemberCB();
-     * ManualOrderBean mob = new ManualOrderBean();
+     * ManualOrderOption mob = new ManualOrderOption();
      * mob.<span style="color: #CC4747">when_GreaterEqual</span>(priorityDate); <span style="color: #3F7E5E">// e.g. 2000/01/01</span>
      * cb.query().addOrderBy_Birthdate_Asc().<span style="color: #CC4747">withManualOrder(mob)</span>;
      * <span style="color: #3F7E5E">// order by </span>
@@ -624,7 +624,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameRefCQ extends AbstractCon
      * <span style="color: #3F7E5E">//   end asc, ...</span>
      *
      * MemberCB cb = new MemberCB();
-     * ManualOrderBean mob = new ManualOrderBean();
+     * ManualOrderOption mob = new ManualOrderOption();
      * mob.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Withdrawal);
      * mob.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Formalized);
      * mob.<span style="color: #CC4747">when_Equal</span>(CDef.MemberStatus.Provisional);

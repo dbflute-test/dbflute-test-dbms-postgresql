@@ -230,11 +230,12 @@ public class BehaviorMiddleTest extends UnitContainerTestCase {
     public void test_queryUpdate() {
         // ## Arrange ##
         Member member = new Member();
-        member.setMemberStatusCode_Provisional();// 会員ステータスを「仮会員」に
-        member.setFormalizedDatetime(null);// 正式会員日時を「null」に
+        member.setMemberName("queryUpdate()");
+        member.setMemberStatusCode_Provisional();
+        member.setFormalizedDatetime(null);
 
         MemberCB cb = new MemberCB();
-        cb.query().setMemberStatusCode_Equal_Formalized();// 正式会員
+        cb.query().setMemberStatusCode_Equal_Formalized();
 
         // ## Act ##
         int updatedCount = memberBhv.queryUpdate(member, cb);
@@ -242,18 +243,12 @@ public class BehaviorMiddleTest extends UnitContainerTestCase {
         // ## Assert ##
         assertNotSame(0, updatedCount);
         MemberCB actualCB = new MemberCB();
+        actualCB.query().setMemberName_Equal("queryUpdate()");
         actualCB.query().setMemberStatusCode_Equal_Provisional();
         actualCB.query().setFormalizedDatetime_IsNull();
-        actualCB.query().setUpdateUser_Equal(getAccessContext().getAccessUser());// Common Column
+        actualCB.query().setUpdateUser_Equal(getAccessContext().getAccessUser());
         ListResultBean<Member> actualList = memberBhv.selectList(actualCB);
         assertEquals(actualList.size(), updatedCount);
-
-        // [Description]
-        // A. 条件として、結合先のカラムによる条件やexists句を使ったサブクエリーなども利用可能。
-        // B. setupSelect_Xxx()やaddOrderBy_Xxx()を呼び出しても意味はない。
-        // C. 排他制御はせずに問答無用で更新する。(バージョンNOは自動インクリメント)
-        // D. 更新結果が0件でも特に例外は発生しない。
-        // E. 共通カラム(CommonColumn)の自動設定は有効。
     }
 
     /**

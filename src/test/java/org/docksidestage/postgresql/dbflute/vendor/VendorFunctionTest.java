@@ -51,7 +51,7 @@ public class VendorFunctionTest extends UnitContainerTestCase {
             public void query(MemberLoginCB subCB) {
                 subCB.specify().columnLoginDatetime();
             }
-        }, Member.ALIAS_latestLoginDatetime, op -> op.coalesce("1192-01-01"));
+        }, Member.ALIAS_latestLoginDatetime, op -> op.coalesce("1970-01-01"));
         assertTrue(cb.toDisplaySql().contains("coalesce("));
 
         // ## Act ##
@@ -65,7 +65,7 @@ public class VendorFunctionTest extends UnitContainerTestCase {
             Date latestLoginDatetime = member.getLatestLoginDatetime();
             String loginDateView = DfTypeUtil.toString(latestLoginDatetime, "yyyy-MM-dd");
             log(member.getMemberName() + ": " + loginDateView);
-            if ("1192-01-01".equals(loginDateView)) {
+            if ("1970-01-01".equals(loginDateView)) {
                 exists = true;
             }
         }
@@ -155,7 +155,7 @@ public class VendorFunctionTest extends UnitContainerTestCase {
             MemberCB cb = new MemberCB();
             countAll = memberBhv.selectCount(cb);
         }
-        String coalesce = "1192-09-11 12:34:56.789";
+        String coalesce = "1985-09-11 12:34:56.789";
         MemberCB cb = new MemberCB();
         cb.specify().derivedPurchaseList().max(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
@@ -172,16 +172,16 @@ public class VendorFunctionTest extends UnitContainerTestCase {
         boolean exists = false;
         for (Member member : memberList) {
             Timestamp loginDatetime = member.getLatestLoginDatetime();
-            String formatted = DfTypeUtil.toString(loginDatetime, "yyyy-MM-dd HH:mm:ss.SSS");
+            String formatted = toString(loginDatetime, "yyyy-MM-dd HH:mm:ss.SSS");
             log(member.getMemberName() + ": " + formatted);
             assertTrue(formatted.endsWith(":00:00.000"));
-            if (formatted.startsWith("1192-09-11")) {
-                assertTrue(formatted.endsWith("00:00:00.000"));
+            if (formatted.startsWith("1985-09-11")) {
+                assertTrue("formatted=" + formatted, formatted.endsWith("12:00:00.000"));
                 exists = true;
             }
         }
         assertTrue(cb.toDisplaySql().contains(", (select date_trunc('hour'"));
-        assertTrue(cb.toDisplaySql().contains(", coalesce(max(sub1loc.purchase_datetime), '1192-09-11'))"));
+        assertTrue(cb.toDisplaySql().contains(", coalesce(max(sub1loc.purchase_datetime), '1985-09-11 12:34:56.789'))"));
         assertTrue(exists);
     }
 
