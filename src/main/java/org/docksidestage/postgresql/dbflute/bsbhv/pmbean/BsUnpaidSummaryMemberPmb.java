@@ -12,7 +12,7 @@ import org.docksidestage.postgresql.dbflute.exbhv.*;
 import org.docksidestage.postgresql.dbflute.exentity.customize.*;
 
 /**
- * The base class for typed parameter-bean of UnpaidSummaryMember. <br />
+ * The base class for typed parameter-bean of UnpaidSummaryMember. <br>
  * This is related to "<span style="color: #AD4747">selectUnpaidSummaryMember</span>" on MemberBhv.
  * @author DBFlute(AutoGenerator)
  */
@@ -40,7 +40,7 @@ public class BsUnpaidSummaryMemberPmb extends SimplePagingBean implements Entity
     //                                                                         Constructor
     //                                                                         ===========
     /**
-     * Constructor for the typed parameter-bean of UnpaidSummaryMember. <br />
+     * Constructor for the typed parameter-bean of UnpaidSummaryMember. <br>
      * This is related to "<span style="color: #AD4747">selectUnpaidSummaryMember</span>" on MemberBhv.
      */
     public BsUnpaidSummaryMemberPmb() {
@@ -116,7 +116,7 @@ public class BsUnpaidSummaryMemberPmb extends SimplePagingBean implements Entity
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] memberId <br />
+     * [get] memberId <br>
      * @return The value of memberId. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public Integer getMemberId() {
@@ -124,7 +124,7 @@ public class BsUnpaidSummaryMemberPmb extends SimplePagingBean implements Entity
     }
 
     /**
-     * [set] memberId <br />
+     * [set] memberId <br>
      * @param memberId The value of memberId. (NullAllowed)
      */
     public void setMemberId(Integer memberId) {
@@ -132,7 +132,7 @@ public class BsUnpaidSummaryMemberPmb extends SimplePagingBean implements Entity
     }
 
     /**
-     * [get] memberName <br />
+     * [get] memberName <br>
      * @return The value of memberName. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public String getMemberName() {
@@ -140,7 +140,7 @@ public class BsUnpaidSummaryMemberPmb extends SimplePagingBean implements Entity
     }
 
     /**
-     * [set] memberName <br />
+     * [set] memberName <br>
      * @param memberName The value of memberName. (NullAllowed)
      */
     public void setMemberName(String memberName) {
@@ -148,7 +148,7 @@ public class BsUnpaidSummaryMemberPmb extends SimplePagingBean implements Entity
     }
 
     /**
-     * [get] memberStatusCode:cls(MemberStatus) <br />
+     * [get] memberStatusCode:cls(MemberStatus) <br>
      * @return The value of memberStatusCode. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public String getMemberStatusCode() {
@@ -156,7 +156,7 @@ public class BsUnpaidSummaryMemberPmb extends SimplePagingBean implements Entity
     }
 
     /**
-     * [set as Formalized] memberStatusCode:cls(MemberStatus) <br />
+     * [set as Formalized] memberStatusCode:cls(MemberStatus) <br>
      * as formal member, allowed to use all service
      */
     public void setMemberStatusCode_Formalized() {
@@ -164,7 +164,7 @@ public class BsUnpaidSummaryMemberPmb extends SimplePagingBean implements Entity
     }
 
     /**
-     * [set as Withdrawal] memberStatusCode:cls(MemberStatus) <br />
+     * [set as Withdrawal] memberStatusCode:cls(MemberStatus) <br>
      * withdrawal is fixed, not allowed to use service
      */
     public void setMemberStatusCode_Withdrawal() {
@@ -172,7 +172,7 @@ public class BsUnpaidSummaryMemberPmb extends SimplePagingBean implements Entity
     }
 
     /**
-     * [set as Provisional] memberStatusCode:cls(MemberStatus) <br />
+     * [set as Provisional] memberStatusCode:cls(MemberStatus) <br>
      * first status after entry, allowed to use only part of service
      */
     public void setMemberStatusCode_Provisional() {
@@ -180,7 +180,7 @@ public class BsUnpaidSummaryMemberPmb extends SimplePagingBean implements Entity
     }
 
     /**
-     * [get] unpaidMemberOnly <br />
+     * [get] unpaidMemberOnly <br>
      * @return The value of unpaidMemberOnly. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public boolean getUnpaidMemberOnly() {
@@ -188,7 +188,7 @@ public class BsUnpaidSummaryMemberPmb extends SimplePagingBean implements Entity
     }
 
     /**
-     * [set] unpaidMemberOnly <br />
+     * [set] unpaidMemberOnly <br>
      * @param unpaidMemberOnly The value of unpaidMemberOnly. (NullAllowed)
      */
     public void setUnpaidMemberOnly(boolean unpaidMemberOnly) {

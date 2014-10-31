@@ -34,7 +34,7 @@ public class BsServiceRankCQ extends AbstractBsServiceRankCQ {
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from service_rank) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -57,7 +57,7 @@ public class BsServiceRankCQ extends AbstractBsServiceRankCQ {
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join service_rank on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -94,14 +94,14 @@ public class BsServiceRankCQ extends AbstractBsServiceRankCQ {
     public String keepServiceRankCode_QueryDerivedReferrer_MemberServiceListParameter(Object pm) { return xkeepSQuePm("serviceRankCode_QueryDerivedReferrer_MemberServiceList", pm); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * (サービスランクコード)service_rank_code: {PK, NotNull, bpchar(3)}
      * @return this. (NotNull)
      */
     public BsServiceRankCQ addOrderBy_ServiceRankCode_Asc() { regOBA("service_rank_code"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * (サービスランクコード)service_rank_code: {PK, NotNull, bpchar(3)}
      * @return this. (NotNull)
      */
@@ -114,14 +114,14 @@ public class BsServiceRankCQ extends AbstractBsServiceRankCQ {
     protected ConditionValue xgetCValueServiceRankName() { return xdfgetServiceRankName(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * (サービスランク名称)service_rank_name: {NotNull, varchar(50)}
      * @return this. (NotNull)
      */
     public BsServiceRankCQ addOrderBy_ServiceRankName_Asc() { regOBA("service_rank_name"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * (サービスランク名称)service_rank_name: {NotNull, varchar(50)}
      * @return this. (NotNull)
      */
@@ -134,14 +134,14 @@ public class BsServiceRankCQ extends AbstractBsServiceRankCQ {
     protected ConditionValue xgetCValueServicePointIncidence() { return xdfgetServicePointIncidence(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * (サービスポイント発生率)service_point_incidence: {NotNull, numeric(5, 3)}
      * @return this. (NotNull)
      */
     public BsServiceRankCQ addOrderBy_ServicePointIncidence_Asc() { regOBA("service_point_incidence"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * (サービスポイント発生率)service_point_incidence: {NotNull, numeric(5, 3)}
      * @return this. (NotNull)
      */
@@ -154,14 +154,14 @@ public class BsServiceRankCQ extends AbstractBsServiceRankCQ {
     protected ConditionValue xgetCValueNewAcceptableFlg() { return xdfgetNewAcceptableFlg(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * (新規受け入れ可能フラグ)new_acceptable_flg: {NotNull, int4(10), classification=Flg}
      * @return this. (NotNull)
      */
     public BsServiceRankCQ addOrderBy_NewAcceptableFlg_Asc() { regOBA("new_acceptable_flg"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * (新規受け入れ可能フラグ)new_acceptable_flg: {NotNull, int4(10), classification=Flg}
      * @return this. (NotNull)
      */
@@ -174,14 +174,14 @@ public class BsServiceRankCQ extends AbstractBsServiceRankCQ {
     protected ConditionValue xgetCValueDescription() { return xdfgetDescription(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * (説明)description: {NotNull, varchar(200)}
      * @return this. (NotNull)
      */
     public BsServiceRankCQ addOrderBy_Description_Asc() { regOBA("description"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * (説明)description: {NotNull, varchar(200)}
      * @return this. (NotNull)
      */
@@ -194,14 +194,14 @@ public class BsServiceRankCQ extends AbstractBsServiceRankCQ {
     protected ConditionValue xgetCValueDisplayOrder() { return xdfgetDisplayOrder(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * (表示順)display_order: {UQ, NotNull, int4(10)}
      * @return this. (NotNull)
      */
     public BsServiceRankCQ addOrderBy_DisplayOrder_Asc() { regOBA("display_order"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * (表示順)display_order: {UQ, NotNull, int4(10)}
      * @return this. (NotNull)
      */

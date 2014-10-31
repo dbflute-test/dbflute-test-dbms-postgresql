@@ -10,7 +10,7 @@ import org.docksidestage.postgresql.dbflute.allcommon.*;
 import org.docksidestage.postgresql.dbflute.exentity.customize.*;
 
 /**
- * The base class for procedure parameter-bean of SpReturnResultSetWith. <br />
+ * The base class for procedure parameter-bean of SpReturnResultSetWith. <br>
  * This is related to "<span style="color: #AD4747">sp_return_result_set_with</span>".
  * @author DBFlute(AutoGenerator)
  */
@@ -53,7 +53,7 @@ public class BsSpReturnResultSetWithPmb implements ProcedurePmb, FetchBean {
     //                                                                         Constructor
     //                                                                         ===========
     /**
-     * Constructor for the procedure parameter-bean of SpReturnResultSetWith. <br />
+     * Constructor for the procedure parameter-bean of SpReturnResultSetWith. <br>
      * This is related to "<span style="color: #AD4747">sp_return_result_set_with</span>".
      */
     public BsSpReturnResultSetWithPmb() {
@@ -147,7 +147,7 @@ public class BsSpReturnResultSetWithPmb implements ProcedurePmb, FetchBean {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] returnValue: {refcursor as Return} <br />
+     * [get] returnValue: {refcursor as Return} <br>
      * @return The value of returnValue. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public List<SpReturnResultSetWithReturnValue> getReturnValue() {
@@ -155,7 +155,7 @@ public class BsSpReturnResultSetWithPmb implements ProcedurePmb, FetchBean {
     }
 
     /**
-     * [set] returnValue: {refcursor as Return} <br />
+     * [set] returnValue: {refcursor as Return} <br>
      * @param returnValue The value of returnValue. (NullAllowed)
      */
     public void setReturnValue(List<SpReturnResultSetWithReturnValue> returnValue) {
@@ -163,7 +163,7 @@ public class BsSpReturnResultSetWithPmb implements ProcedurePmb, FetchBean {
     }
 
     /**
-     * [get] VInChar: {bpchar as In} <br />
+     * [get] VInChar: {bpchar as In} <br>
      * @return The value of VInChar. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public String getVInChar() {
@@ -171,7 +171,7 @@ public class BsSpReturnResultSetWithPmb implements ProcedurePmb, FetchBean {
     }
 
     /**
-     * [set] VInChar: {bpchar as In} <br />
+     * [set] VInChar: {bpchar as In} <br>
      * @param vInChar The value of VInChar. (NullAllowed)
      */
     public void setVInChar(String vInChar) {
@@ -179,7 +179,7 @@ public class BsSpReturnResultSetWithPmb implements ProcedurePmb, FetchBean {
     }
 
     /**
-     * [get] VOutVarchar: {varchar as In} <br />
+     * [get] VOutVarchar: {varchar as In} <br>
      * @return The value of VOutVarchar. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public String getVOutVarchar() {
@@ -187,7 +187,7 @@ public class BsSpReturnResultSetWithPmb implements ProcedurePmb, FetchBean {
     }
 
     /**
-     * [set] VOutVarchar: {varchar as In} <br />
+     * [set] VOutVarchar: {varchar as In} <br>
      * @param vOutVarchar The value of VOutVarchar. (NullAllowed)
      */
     public void setVOutVarchar(String vOutVarchar) {
@@ -195,7 +195,7 @@ public class BsSpReturnResultSetWithPmb implements ProcedurePmb, FetchBean {
     }
 
     /**
-     * [get] VInoutVarchar: {varchar as In} <br />
+     * [get] VInoutVarchar: {varchar as In} <br>
      * @return The value of VInoutVarchar. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public String getVInoutVarchar() {
@@ -203,7 +203,7 @@ public class BsSpReturnResultSetWithPmb implements ProcedurePmb, FetchBean {
     }
 
     /**
-     * [set] VInoutVarchar: {varchar as In} <br />
+     * [set] VInoutVarchar: {varchar as In} <br>
      * @param vInoutVarchar The value of VInoutVarchar. (NullAllowed)
      */
     public void setVInoutVarchar(String vInoutVarchar) {

@@ -5,11 +5,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.postgresql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
 /**
- * The entity of white_same_name as TABLE. <br />
+ * The entity of white_same_name as TABLE. <br>
  * <pre>
  * [primary-key]
  *     same_name_id
@@ -52,7 +53,7 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteSameName extends AbstractEntity {
+public abstract class BsWhiteSameName extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -112,7 +113,7 @@ public abstract class BsWhiteSameName extends AbstractEntity {
     protected NextSchemaProduct _nextSchemaProduct;
 
     /**
-     * [get] next_schema_product by my next_schema_product_id, named 'nextSchemaProduct'. <br />
+     * [get] next_schema_product by my next_schema_product_id, named 'nextSchemaProduct'. <br>
      * @return The entity of foreign property 'nextSchemaProduct'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public NextSchemaProduct getNextSchemaProduct() {
@@ -222,7 +223,7 @@ public abstract class BsWhiteSameName extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] same_name_id: {PK, NotNull, int8(19)} <br />
+     * [get] same_name_id: {PK, NotNull, int8(19)} <br>
      * @return The value of the column 'same_name_id'. (basically NotNull if selected: for the constraint)
      */
     public Long getSameNameId() {
@@ -231,7 +232,7 @@ public abstract class BsWhiteSameName extends AbstractEntity {
     }
 
     /**
-     * [set] same_name_id: {PK, NotNull, int8(19)} <br />
+     * [set] same_name_id: {PK, NotNull, int8(19)} <br>
      * @param sameNameId The value of the column 'same_name_id'. (basically NotNull if update: for the constraint)
      */
     public void setSameNameId(Long sameNameId) {
@@ -240,7 +241,7 @@ public abstract class BsWhiteSameName extends AbstractEntity {
     }
 
     /**
-     * [get] same_name_name: {varchar(200)} <br />
+     * [get] same_name_name: {varchar(200)} <br>
      * @return The value of the column 'same_name_name'. (NullAllowed even if selected: for no constraint)
      */
     public String getSameNameName() {
@@ -249,7 +250,7 @@ public abstract class BsWhiteSameName extends AbstractEntity {
     }
 
     /**
-     * [set] same_name_name: {varchar(200)} <br />
+     * [set] same_name_name: {varchar(200)} <br>
      * @param sameNameName The value of the column 'same_name_name'. (NullAllowed: null update allowed for no constraint)
      */
     public void setSameNameName(String sameNameName) {
@@ -258,7 +259,7 @@ public abstract class BsWhiteSameName extends AbstractEntity {
     }
 
     /**
-     * [get] same_name_integer: {int4(10)} <br />
+     * [get] same_name_integer: {int4(10)} <br>
      * @return The value of the column 'same_name_integer'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getSameNameInteger() {
@@ -267,7 +268,7 @@ public abstract class BsWhiteSameName extends AbstractEntity {
     }
 
     /**
-     * [set] same_name_integer: {int4(10)} <br />
+     * [set] same_name_integer: {int4(10)} <br>
      * @param sameNameInteger The value of the column 'same_name_integer'. (NullAllowed: null update allowed for no constraint)
      */
     public void setSameNameInteger(Integer sameNameInteger) {
@@ -276,7 +277,7 @@ public abstract class BsWhiteSameName extends AbstractEntity {
     }
 
     /**
-     * [get] next_schema_product_id: {int4(10), FK to NEXT_SCHEMA_PRODUCT} <br />
+     * [get] next_schema_product_id: {int4(10), FK to NEXT_SCHEMA_PRODUCT} <br>
      * @return The value of the column 'next_schema_product_id'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getNextSchemaProductId() {
@@ -285,7 +286,7 @@ public abstract class BsWhiteSameName extends AbstractEntity {
     }
 
     /**
-     * [set] next_schema_product_id: {int4(10), FK to NEXT_SCHEMA_PRODUCT} <br />
+     * [set] next_schema_product_id: {int4(10), FK to NEXT_SCHEMA_PRODUCT} <br>
      * @param nextSchemaProductId The value of the column 'next_schema_product_id'. (NullAllowed: null update allowed for no constraint)
      */
     public void setNextSchemaProductId(Integer nextSchemaProductId) {

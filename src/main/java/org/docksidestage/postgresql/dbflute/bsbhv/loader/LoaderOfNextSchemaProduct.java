@@ -9,7 +9,7 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
 import org.docksidestage.postgresql.dbflute.cbean.*;
 
 /**
- * The referrer loader of next_schema_product as TABLE. <br />
+ * The referrer loader of next_schema_product as TABLE. <br>
  * <pre>
  * [primary key]
  *     product_id
@@ -64,7 +64,7 @@ public class LoaderOfNextSchemaProduct {
     protected List<WhiteSameName> _referrerWhiteSameNameList;
 
     /**
-     * Load referrer of whiteSameNameList by the set-upper of referrer. <br />
+     * Load referrer of whiteSameNameList by the set-upper of referrer. <br>
      * white_same_name by next_schema_product_id, named 'whiteSameNameList'.
      * <pre>
      * <span style="color: #0000C0">nextSchemaProductBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">nextSchemaProductList</span>, <span style="color: #553000">productLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -73,7 +73,7 @@ public class LoaderOfNextSchemaProduct {
      *         <span style="color: #553000">nameCB</span>.query().set...
      *         <span style="color: #553000">nameCB</span>.query().addOrderBy...
      *     }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
-     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">nameLoader</span> -&gt {</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">nameLoader</span> -&gt; {</span>
      *     <span style="color: #3F7E5E">//    nameLoader.load...</span>
      *     <span style="color: #3F7E5E">//});</span>
      * });
@@ -81,7 +81,7 @@ public class LoaderOfNextSchemaProduct {
      *     ... = nextSchemaProduct.<span style="color: #CC4747">getWhiteSameNameList()</span>;
      * }
      * </pre>
-     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
      * The condition-bean, which the set-upper provides, has settings before callback as follows:
      * <pre>
      * cb.query().setNextSchemaProductId_InScope(pkList);

@@ -7,7 +7,7 @@ import org.docksidestage.postgresql.dbflute.exbhv.*;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
 /**
- * The referrer loader of (購入支払)purchase_payment as TABLE. <br />
+ * The referrer loader of (購入支払)purchase_payment as TABLE. <br>
  * <pre>
  * [primary key]
  *     purchase_payment_id

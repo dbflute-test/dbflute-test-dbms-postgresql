@@ -5,13 +5,14 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.postgresql.dbflute.allcommon.EntityDefinedCommonColumn;
 import org.docksidestage.postgresql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
 /**
- * The entity of (会員サービス)member_service as TABLE. <br />
- * 会員のサービス情報（ポイントサービスなど）。<br />
+ * The entity of (会員サービス)member_service as TABLE. <br>
+ * 会員のサービス情報（ポイントサービスなど）。<br>
  * ExampleDBとして、あえて統一性を崩してユニーク制約経由の one-to-one を表現している。
  * <pre>
  * [primary-key]
@@ -69,7 +70,7 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsMemberService extends AbstractEntity implements EntityDefinedCommonColumn {
+public abstract class BsMemberService extends AbstractEntity implements DomainEntity, EntityDefinedCommonColumn {
 
     // ===================================================================================
     //                                                                          Definition
@@ -144,7 +145,7 @@ public abstract class BsMemberService extends AbstractEntity implements EntityDe
     }
 
     /**
-     * To be unique by the unique column. <br />
+     * To be unique by the unique column. <br>
      * You can update the entity by the key when entity update (NOT batch update).
      * @param memberId (会員ID): UQ, NotNull, int4(10), FK to member. (NotNull)
      */
@@ -161,7 +162,7 @@ public abstract class BsMemberService extends AbstractEntity implements EntityDe
     protected Member _member;
 
     /**
-     * [get] (会員)member by my member_id, named 'member'. <br />
+     * [get] (会員)member by my member_id, named 'member'. <br>
      * @return The entity of foreign property 'member'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public Member getMember() {
@@ -180,7 +181,7 @@ public abstract class BsMemberService extends AbstractEntity implements EntityDe
     protected ServiceRank _serviceRank;
 
     /**
-     * [get] (サービスランク)service_rank by my service_rank_code, named 'serviceRank'. <br />
+     * [get] (サービスランク)service_rank by my service_rank_code, named 'serviceRank'. <br>
      * @return The entity of foreign property 'serviceRank'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public ServiceRank getServiceRank() {
@@ -277,7 +278,7 @@ public abstract class BsMemberService extends AbstractEntity implements EntityDe
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] (会員サービスID)member_service_id: {PK, ID, NotNull, serial(10)} <br />
+     * [get] (会員サービスID)member_service_id: {PK, ID, NotNull, serial(10)} <br>
      * 独立した主キーとなるが、実質的に会員IDとは one-to-one である。
      * @return The value of the column 'member_service_id'. (basically NotNull if selected: for the constraint)
      */
@@ -287,7 +288,7 @@ public abstract class BsMemberService extends AbstractEntity implements EntityDe
     }
 
     /**
-     * [set] (会員サービスID)member_service_id: {PK, ID, NotNull, serial(10)} <br />
+     * [set] (会員サービスID)member_service_id: {PK, ID, NotNull, serial(10)} <br>
      * 独立した主キーとなるが、実質的に会員IDとは one-to-one である。
      * @param memberServiceId The value of the column 'member_service_id'. (basically NotNull if update: for the constraint)
      */
@@ -297,7 +298,7 @@ public abstract class BsMemberService extends AbstractEntity implements EntityDe
     }
 
     /**
-     * [get] (会員ID)member_id: {UQ, NotNull, int4(10), FK to member} <br />
+     * [get] (会員ID)member_id: {UQ, NotNull, int4(10), FK to member} <br>
      * 会員を参照するID。ユニークなので、会員とは one-to-one の関係に。
      * @return The value of the column 'member_id'. (basically NotNull if selected: for the constraint)
      */
@@ -307,7 +308,7 @@ public abstract class BsMemberService extends AbstractEntity implements EntityDe
     }
 
     /**
-     * [set] (会員ID)member_id: {UQ, NotNull, int4(10), FK to member} <br />
+     * [set] (会員ID)member_id: {UQ, NotNull, int4(10), FK to member} <br>
      * 会員を参照するID。ユニークなので、会員とは one-to-one の関係に。
      * @param memberId The value of the column 'member_id'. (basically NotNull if update: for the constraint)
      */
@@ -317,8 +318,8 @@ public abstract class BsMemberService extends AbstractEntity implements EntityDe
     }
 
     /**
-     * [get] (サービスポイント数)service_point_count: {IX, NotNull, int4(10)} <br />
-     * 会員が現在利用できるサービスポイントの数。<br />
+     * [get] (サービスポイント数)service_point_count: {IX, NotNull, int4(10)} <br>
+     * 会員が現在利用できるサービスポイントの数。<br>
      * 基本的に、購入時には増えてポイントを使ったら減る。
      * @return The value of the column 'service_point_count'. (basically NotNull if selected: for the constraint)
      */
@@ -328,8 +329,8 @@ public abstract class BsMemberService extends AbstractEntity implements EntityDe
     }
 
     /**
-     * [set] (サービスポイント数)service_point_count: {IX, NotNull, int4(10)} <br />
-     * 会員が現在利用できるサービスポイントの数。<br />
+     * [set] (サービスポイント数)service_point_count: {IX, NotNull, int4(10)} <br>
+     * 会員が現在利用できるサービスポイントの数。<br>
      * 基本的に、購入時には増えてポイントを使ったら減る。
      * @param servicePointCount The value of the column 'service_point_count'. (basically NotNull if update: for the constraint)
      */
@@ -339,8 +340,8 @@ public abstract class BsMemberService extends AbstractEntity implements EntityDe
     }
 
     /**
-     * [get] (サービスランクコード)service_rank_code: {NotNull, bpchar(3), FK to service_rank} <br />
-     * サービスランクを参照するコード。<br />
+     * [get] (サービスランクコード)service_rank_code: {NotNull, bpchar(3), FK to service_rank} <br>
+     * サービスランクを参照するコード。<br>
      * どんなランクがあるのかドキドキですね。
      * @return The value of the column 'service_rank_code'. (basically NotNull if selected: for the constraint)
      */
@@ -350,8 +351,8 @@ public abstract class BsMemberService extends AbstractEntity implements EntityDe
     }
 
     /**
-     * [set] (サービスランクコード)service_rank_code: {NotNull, bpchar(3), FK to service_rank} <br />
-     * サービスランクを参照するコード。<br />
+     * [set] (サービスランクコード)service_rank_code: {NotNull, bpchar(3), FK to service_rank} <br>
+     * サービスランクを参照するコード。<br>
      * どんなランクがあるのかドキドキですね。
      * @param serviceRankCode The value of the column 'service_rank_code'. (basically NotNull if update: for the constraint)
      */
@@ -361,7 +362,7 @@ public abstract class BsMemberService extends AbstractEntity implements EntityDe
     }
 
     /**
-     * [get] register_datetime: {NotNull, timestamp(26, 3)} <br />
+     * [get] register_datetime: {NotNull, timestamp(26, 3)} <br>
      * @return The value of the column 'register_datetime'. (basically NotNull if selected: for the constraint)
      */
     public java.sql.Timestamp getRegisterDatetime() {
@@ -370,7 +371,7 @@ public abstract class BsMemberService extends AbstractEntity implements EntityDe
     }
 
     /**
-     * [set] register_datetime: {NotNull, timestamp(26, 3)} <br />
+     * [set] register_datetime: {NotNull, timestamp(26, 3)} <br>
      * @param registerDatetime The value of the column 'register_datetime'. (basically NotNull if update: for the constraint)
      */
     public void setRegisterDatetime(java.sql.Timestamp registerDatetime) {
@@ -379,7 +380,7 @@ public abstract class BsMemberService extends AbstractEntity implements EntityDe
     }
 
     /**
-     * [get] register_process: {NotNull, varchar(200)} <br />
+     * [get] register_process: {NotNull, varchar(200)} <br>
      * @return The value of the column 'register_process'. (basically NotNull if selected: for the constraint)
      */
     public String getRegisterProcess() {
@@ -388,7 +389,7 @@ public abstract class BsMemberService extends AbstractEntity implements EntityDe
     }
 
     /**
-     * [set] register_process: {NotNull, varchar(200)} <br />
+     * [set] register_process: {NotNull, varchar(200)} <br>
      * @param registerProcess The value of the column 'register_process'. (basically NotNull if update: for the constraint)
      */
     public void setRegisterProcess(String registerProcess) {
@@ -397,7 +398,7 @@ public abstract class BsMemberService extends AbstractEntity implements EntityDe
     }
 
     /**
-     * [get] register_user: {NotNull, varchar(200)} <br />
+     * [get] register_user: {NotNull, varchar(200)} <br>
      * @return The value of the column 'register_user'. (basically NotNull if selected: for the constraint)
      */
     public String getRegisterUser() {
@@ -406,7 +407,7 @@ public abstract class BsMemberService extends AbstractEntity implements EntityDe
     }
 
     /**
-     * [set] register_user: {NotNull, varchar(200)} <br />
+     * [set] register_user: {NotNull, varchar(200)} <br>
      * @param registerUser The value of the column 'register_user'. (basically NotNull if update: for the constraint)
      */
     public void setRegisterUser(String registerUser) {
@@ -415,7 +416,7 @@ public abstract class BsMemberService extends AbstractEntity implements EntityDe
     }
 
     /**
-     * [get] update_datetime: {NotNull, timestamp(26, 3)} <br />
+     * [get] update_datetime: {NotNull, timestamp(26, 3)} <br>
      * @return The value of the column 'update_datetime'. (basically NotNull if selected: for the constraint)
      */
     public java.sql.Timestamp getUpdateDatetime() {
@@ -424,7 +425,7 @@ public abstract class BsMemberService extends AbstractEntity implements EntityDe
     }
 
     /**
-     * [set] update_datetime: {NotNull, timestamp(26, 3)} <br />
+     * [set] update_datetime: {NotNull, timestamp(26, 3)} <br>
      * @param updateDatetime The value of the column 'update_datetime'. (basically NotNull if update: for the constraint)
      */
     public void setUpdateDatetime(java.sql.Timestamp updateDatetime) {
@@ -433,7 +434,7 @@ public abstract class BsMemberService extends AbstractEntity implements EntityDe
     }
 
     /**
-     * [get] update_process: {NotNull, varchar(200)} <br />
+     * [get] update_process: {NotNull, varchar(200)} <br>
      * @return The value of the column 'update_process'. (basically NotNull if selected: for the constraint)
      */
     public String getUpdateProcess() {
@@ -442,7 +443,7 @@ public abstract class BsMemberService extends AbstractEntity implements EntityDe
     }
 
     /**
-     * [set] update_process: {NotNull, varchar(200)} <br />
+     * [set] update_process: {NotNull, varchar(200)} <br>
      * @param updateProcess The value of the column 'update_process'. (basically NotNull if update: for the constraint)
      */
     public void setUpdateProcess(String updateProcess) {
@@ -451,7 +452,7 @@ public abstract class BsMemberService extends AbstractEntity implements EntityDe
     }
 
     /**
-     * [get] update_user: {NotNull, varchar(200)} <br />
+     * [get] update_user: {NotNull, varchar(200)} <br>
      * @return The value of the column 'update_user'. (basically NotNull if selected: for the constraint)
      */
     public String getUpdateUser() {
@@ -460,7 +461,7 @@ public abstract class BsMemberService extends AbstractEntity implements EntityDe
     }
 
     /**
-     * [set] update_user: {NotNull, varchar(200)} <br />
+     * [set] update_user: {NotNull, varchar(200)} <br>
      * @param updateUser The value of the column 'update_user'. (basically NotNull if update: for the constraint)
      */
     public void setUpdateUser(String updateUser) {
@@ -469,7 +470,7 @@ public abstract class BsMemberService extends AbstractEntity implements EntityDe
     }
 
     /**
-     * [get] version_no: {NotNull, int8(19)} <br />
+     * [get] version_no: {NotNull, int8(19)} <br>
      * @return The value of the column 'version_no'. (basically NotNull if selected: for the constraint)
      */
     public Long getVersionNo() {
@@ -478,7 +479,7 @@ public abstract class BsMemberService extends AbstractEntity implements EntityDe
     }
 
     /**
-     * [set] version_no: {NotNull, int8(19)} <br />
+     * [set] version_no: {NotNull, int8(19)} <br>
      * @param versionNo The value of the column 'version_no'. (basically NotNull if update: for the constraint)
      */
     public void setVersionNo(Long versionNo) {

@@ -5,12 +5,13 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.postgresql.dbflute.allcommon.EntityDefinedCommonColumn;
 import org.docksidestage.postgresql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
 /**
- * The entity of (会員セキュリティ情報)member_security as TABLE. <br />
+ * The entity of (会員セキュリティ情報)member_security as TABLE. <br>
  * 会員とは one-to-one で、会員一人につき必ず一つのセキュリティ情報がある
  * <pre>
  * [primary-key]
@@ -70,7 +71,7 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsMemberSecurity extends AbstractEntity implements EntityDefinedCommonColumn {
+public abstract class BsMemberSecurity extends AbstractEntity implements DomainEntity, EntityDefinedCommonColumn {
 
     // ===================================================================================
     //                                                                          Definition
@@ -154,7 +155,7 @@ public abstract class BsMemberSecurity extends AbstractEntity implements EntityD
     protected Member _member;
 
     /**
-     * [get] (会員)member by my member_id, named 'member'. <br />
+     * [get] (会員)member by my member_id, named 'member'. <br>
      * @return The entity of foreign property 'member'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public Member getMember() {
@@ -248,7 +249,7 @@ public abstract class BsMemberSecurity extends AbstractEntity implements EntityD
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] (会員ID)member_id: {PK, NotNull, int4(10), FK to member} <br />
+     * [get] (会員ID)member_id: {PK, NotNull, int4(10), FK to member} <br>
      * そのまま one-to-one を構成するためのFKとなる。
      * @return The value of the column 'member_id'. (basically NotNull if selected: for the constraint)
      */
@@ -258,7 +259,7 @@ public abstract class BsMemberSecurity extends AbstractEntity implements EntityD
     }
 
     /**
-     * [set] (会員ID)member_id: {PK, NotNull, int4(10), FK to member} <br />
+     * [set] (会員ID)member_id: {PK, NotNull, int4(10), FK to member} <br>
      * そのまま one-to-one を構成するためのFKとなる。
      * @param memberId The value of the column 'member_id'. (basically NotNull if update: for the constraint)
      */
@@ -268,8 +269,8 @@ public abstract class BsMemberSecurity extends AbstractEntity implements EntityD
     }
 
     /**
-     * [get] (ログインパスワード)login_password: {NotNull, varchar(50)} <br />
-     * ログイン時に利用するパスワード。<br />
+     * [get] (ログインパスワード)login_password: {NotNull, varchar(50)} <br>
+     * ログイン時に利用するパスワード。<br>
      * 本当は良くないが、Exampleなのでひとまず暗号化していない。
      * @return The value of the column 'login_password'. (basically NotNull if selected: for the constraint)
      */
@@ -279,8 +280,8 @@ public abstract class BsMemberSecurity extends AbstractEntity implements EntityD
     }
 
     /**
-     * [set] (ログインパスワード)login_password: {NotNull, varchar(50)} <br />
-     * ログイン時に利用するパスワード。<br />
+     * [set] (ログインパスワード)login_password: {NotNull, varchar(50)} <br>
+     * ログイン時に利用するパスワード。<br>
      * 本当は良くないが、Exampleなのでひとまず暗号化していない。
      * @param loginPassword The value of the column 'login_password'. (basically NotNull if update: for the constraint)
      */
@@ -290,7 +291,7 @@ public abstract class BsMemberSecurity extends AbstractEntity implements EntityD
     }
 
     /**
-     * [get] (リマインダ質問)reminder_question: {NotNull, varchar(50)} <br />
+     * [get] (リマインダ質問)reminder_question: {NotNull, varchar(50)} <br>
      * パスワードを忘れた際のリマインダ機能における質問の内容。
      * @return The value of the column 'reminder_question'. (basically NotNull if selected: for the constraint)
      */
@@ -300,7 +301,7 @@ public abstract class BsMemberSecurity extends AbstractEntity implements EntityD
     }
 
     /**
-     * [set] (リマインダ質問)reminder_question: {NotNull, varchar(50)} <br />
+     * [set] (リマインダ質問)reminder_question: {NotNull, varchar(50)} <br>
      * パスワードを忘れた際のリマインダ機能における質問の内容。
      * @param reminderQuestion The value of the column 'reminder_question'. (basically NotNull if update: for the constraint)
      */
@@ -310,7 +311,7 @@ public abstract class BsMemberSecurity extends AbstractEntity implements EntityD
     }
 
     /**
-     * [get] (リマインダ回答)reminder_answer: {NotNull, varchar(50)} <br />
+     * [get] (リマインダ回答)reminder_answer: {NotNull, varchar(50)} <br>
      * パスワードを忘れた際のリマインダ機能における質問の答え。
      * @return The value of the column 'reminder_answer'. (basically NotNull if selected: for the constraint)
      */
@@ -320,7 +321,7 @@ public abstract class BsMemberSecurity extends AbstractEntity implements EntityD
     }
 
     /**
-     * [set] (リマインダ回答)reminder_answer: {NotNull, varchar(50)} <br />
+     * [set] (リマインダ回答)reminder_answer: {NotNull, varchar(50)} <br>
      * パスワードを忘れた際のリマインダ機能における質問の答え。
      * @param reminderAnswer The value of the column 'reminder_answer'. (basically NotNull if update: for the constraint)
      */
@@ -330,9 +331,9 @@ public abstract class BsMemberSecurity extends AbstractEntity implements EntityD
     }
 
     /**
-     * [get] (リマインダ利用回数)reminder_use_count: {NotNull, int4(10)} <br />
-     * リマインダを利用した回数。<br />
-     * 多いと忘れっぽい会員と言えるが、<br />
+     * [get] (リマインダ利用回数)reminder_use_count: {NotNull, int4(10)} <br>
+     * リマインダを利用した回数。<br>
+     * 多いと忘れっぽい会員と言えるが、<br>
      * そんなことを知ってもしょうがない。
      * @return The value of the column 'reminder_use_count'. (basically NotNull if selected: for the constraint)
      */
@@ -342,9 +343,9 @@ public abstract class BsMemberSecurity extends AbstractEntity implements EntityD
     }
 
     /**
-     * [set] (リマインダ利用回数)reminder_use_count: {NotNull, int4(10)} <br />
-     * リマインダを利用した回数。<br />
-     * 多いと忘れっぽい会員と言えるが、<br />
+     * [set] (リマインダ利用回数)reminder_use_count: {NotNull, int4(10)} <br>
+     * リマインダを利用した回数。<br>
+     * 多いと忘れっぽい会員と言えるが、<br>
      * そんなことを知ってもしょうがない。
      * @param reminderUseCount The value of the column 'reminder_use_count'. (basically NotNull if update: for the constraint)
      */
@@ -354,7 +355,7 @@ public abstract class BsMemberSecurity extends AbstractEntity implements EntityD
     }
 
     /**
-     * [get] register_datetime: {NotNull, timestamp(26, 3)} <br />
+     * [get] register_datetime: {NotNull, timestamp(26, 3)} <br>
      * @return The value of the column 'register_datetime'. (basically NotNull if selected: for the constraint)
      */
     public java.sql.Timestamp getRegisterDatetime() {
@@ -363,7 +364,7 @@ public abstract class BsMemberSecurity extends AbstractEntity implements EntityD
     }
 
     /**
-     * [set] register_datetime: {NotNull, timestamp(26, 3)} <br />
+     * [set] register_datetime: {NotNull, timestamp(26, 3)} <br>
      * @param registerDatetime The value of the column 'register_datetime'. (basically NotNull if update: for the constraint)
      */
     public void setRegisterDatetime(java.sql.Timestamp registerDatetime) {
@@ -372,7 +373,7 @@ public abstract class BsMemberSecurity extends AbstractEntity implements EntityD
     }
 
     /**
-     * [get] register_process: {NotNull, varchar(200)} <br />
+     * [get] register_process: {NotNull, varchar(200)} <br>
      * @return The value of the column 'register_process'. (basically NotNull if selected: for the constraint)
      */
     public String getRegisterProcess() {
@@ -381,7 +382,7 @@ public abstract class BsMemberSecurity extends AbstractEntity implements EntityD
     }
 
     /**
-     * [set] register_process: {NotNull, varchar(200)} <br />
+     * [set] register_process: {NotNull, varchar(200)} <br>
      * @param registerProcess The value of the column 'register_process'. (basically NotNull if update: for the constraint)
      */
     public void setRegisterProcess(String registerProcess) {
@@ -390,7 +391,7 @@ public abstract class BsMemberSecurity extends AbstractEntity implements EntityD
     }
 
     /**
-     * [get] register_user: {NotNull, varchar(200)} <br />
+     * [get] register_user: {NotNull, varchar(200)} <br>
      * @return The value of the column 'register_user'. (basically NotNull if selected: for the constraint)
      */
     public String getRegisterUser() {
@@ -399,7 +400,7 @@ public abstract class BsMemberSecurity extends AbstractEntity implements EntityD
     }
 
     /**
-     * [set] register_user: {NotNull, varchar(200)} <br />
+     * [set] register_user: {NotNull, varchar(200)} <br>
      * @param registerUser The value of the column 'register_user'. (basically NotNull if update: for the constraint)
      */
     public void setRegisterUser(String registerUser) {
@@ -408,7 +409,7 @@ public abstract class BsMemberSecurity extends AbstractEntity implements EntityD
     }
 
     /**
-     * [get] update_datetime: {NotNull, timestamp(26, 3)} <br />
+     * [get] update_datetime: {NotNull, timestamp(26, 3)} <br>
      * @return The value of the column 'update_datetime'. (basically NotNull if selected: for the constraint)
      */
     public java.sql.Timestamp getUpdateDatetime() {
@@ -417,7 +418,7 @@ public abstract class BsMemberSecurity extends AbstractEntity implements EntityD
     }
 
     /**
-     * [set] update_datetime: {NotNull, timestamp(26, 3)} <br />
+     * [set] update_datetime: {NotNull, timestamp(26, 3)} <br>
      * @param updateDatetime The value of the column 'update_datetime'. (basically NotNull if update: for the constraint)
      */
     public void setUpdateDatetime(java.sql.Timestamp updateDatetime) {
@@ -426,7 +427,7 @@ public abstract class BsMemberSecurity extends AbstractEntity implements EntityD
     }
 
     /**
-     * [get] update_process: {NotNull, varchar(200)} <br />
+     * [get] update_process: {NotNull, varchar(200)} <br>
      * @return The value of the column 'update_process'. (basically NotNull if selected: for the constraint)
      */
     public String getUpdateProcess() {
@@ -435,7 +436,7 @@ public abstract class BsMemberSecurity extends AbstractEntity implements EntityD
     }
 
     /**
-     * [set] update_process: {NotNull, varchar(200)} <br />
+     * [set] update_process: {NotNull, varchar(200)} <br>
      * @param updateProcess The value of the column 'update_process'. (basically NotNull if update: for the constraint)
      */
     public void setUpdateProcess(String updateProcess) {
@@ -444,7 +445,7 @@ public abstract class BsMemberSecurity extends AbstractEntity implements EntityD
     }
 
     /**
-     * [get] update_user: {NotNull, varchar(200)} <br />
+     * [get] update_user: {NotNull, varchar(200)} <br>
      * @return The value of the column 'update_user'. (basically NotNull if selected: for the constraint)
      */
     public String getUpdateUser() {
@@ -453,7 +454,7 @@ public abstract class BsMemberSecurity extends AbstractEntity implements EntityD
     }
 
     /**
-     * [set] update_user: {NotNull, varchar(200)} <br />
+     * [set] update_user: {NotNull, varchar(200)} <br>
      * @param updateUser The value of the column 'update_user'. (basically NotNull if update: for the constraint)
      */
     public void setUpdateUser(String updateUser) {
@@ -462,7 +463,7 @@ public abstract class BsMemberSecurity extends AbstractEntity implements EntityD
     }
 
     /**
-     * [get] version_no: {NotNull, int8(19)} <br />
+     * [get] version_no: {NotNull, int8(19)} <br>
      * @return The value of the column 'version_no'. (basically NotNull if selected: for the constraint)
      */
     public Long getVersionNo() {
@@ -471,7 +472,7 @@ public abstract class BsMemberSecurity extends AbstractEntity implements EntityD
     }
 
     /**
-     * [set] version_no: {NotNull, int8(19)} <br />
+     * [set] version_no: {NotNull, int8(19)} <br>
      * @param versionNo The value of the column 'version_no'. (basically NotNull if update: for the constraint)
      */
     public void setVersionNo(Long versionNo) {

@@ -5,12 +5,13 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.CustomizeEntity;
 import org.dbflute.dbmeta.accessory.MappingValueType;
 import org.docksidestage.postgresql.dbflute.allcommon.CDef;
 import org.docksidestage.postgresql.dbflute.exentity.customize.*;
 
 /**
- * The entity of SimpleVendorCheck. <br />
+ * The entity of SimpleVendorCheck. <br>
  * <pre>
  * [primary-key]
  *     
@@ -93,7 +94,7 @@ import org.docksidestage.postgresql.dbflute.exentity.customize.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsSimpleVendorCheck extends AbstractEntity {
+public abstract class BsSimpleVendorCheck extends AbstractEntity implements CustomizeEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -209,8 +210,8 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     //                                                             Classification Property
     //                                                             =======================
     /**
-     * Get the value of typeOfBool as the classification of TrueFalse. <br />
-     * type_of_bool: {bool(1), refers to vendor_check.type_of_bool, classification=TrueFalse} <br />
+     * Get the value of typeOfBool as the classification of TrueFalse. <br>
+     * type_of_bool: {bool(1), refers to vendor_check.type_of_bool, classification=TrueFalse} <br>
      * boolean type classification
      * <p>It's treated as case insensitive and if the code value is null, it returns null.</p>
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
@@ -220,8 +221,8 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     }
 
     /**
-     * Set the value of typeOfBool as the classification of TrueFalse. <br />
-     * type_of_bool: {bool(1), refers to vendor_check.type_of_bool, classification=TrueFalse} <br />
+     * Set the value of typeOfBool as the classification of TrueFalse. <br>
+     * type_of_bool: {bool(1), refers to vendor_check.type_of_bool, classification=TrueFalse} <br>
      * boolean type classification
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, null value is set to the column)
      */
@@ -233,7 +234,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     //                                                              Classification Setting
     //                                                              ======================
     /**
-     * Set the value of typeOfBool as True (true). <br />
+     * Set the value of typeOfBool as True (true). <br>
      * Yes: means valid
      */
     public void setTypeOfBool_True() {
@@ -241,7 +242,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     }
 
     /**
-     * Set the value of typeOfBool as False (false). <br />
+     * Set the value of typeOfBool as False (false). <br>
      * No: means invalid
      */
     public void setTypeOfBool_False() {
@@ -252,7 +253,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     //                                                        Classification Determination
     //                                                        ============================
     /**
-     * Is the value of typeOfBool True? <br />
+     * Is the value of typeOfBool True? <br>
      * Yes: means valid
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -263,7 +264,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     }
 
     /**
-     * Is the value of typeOfBool False? <br />
+     * Is the value of typeOfBool False? <br>
      * No: means invalid
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -416,7 +417,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] vendor_check_id: {numeric(16), refers to vendor_check.vendor_check_id} <br />
+     * [get] vendor_check_id: {numeric(16), refers to vendor_check.vendor_check_id} <br>
      * @return The value of the column 'vendor_check_id'. (NullAllowed even if selected: for no constraint)
      */
     public Long getVendorCheckId() {
@@ -425,7 +426,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [set] vendor_check_id: {numeric(16), refers to vendor_check.vendor_check_id} <br />
+     * [set] vendor_check_id: {numeric(16), refers to vendor_check.vendor_check_id} <br>
      * @param vendorCheckId The value of the column 'vendor_check_id'. (NullAllowed: null update allowed for no constraint)
      */
     public void setVendorCheckId(Long vendorCheckId) {
@@ -434,7 +435,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [get] type_of_varchar: {varchar(2147483647), refers to vendor_check.type_of_varchar} <br />
+     * [get] type_of_varchar: {varchar(2147483647), refers to vendor_check.type_of_varchar} <br>
      * @return The value of the column 'type_of_varchar'. (NullAllowed even if selected: for no constraint)
      */
     public String getTypeOfVarchar() {
@@ -443,7 +444,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [set] type_of_varchar: {varchar(2147483647), refers to vendor_check.type_of_varchar} <br />
+     * [set] type_of_varchar: {varchar(2147483647), refers to vendor_check.type_of_varchar} <br>
      * @param typeOfVarchar The value of the column 'type_of_varchar'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTypeOfVarchar(String typeOfVarchar) {
@@ -452,7 +453,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [get] type_of_vc_array: {_varchar(2147483647), refers to vendor_check.type_of_vc_array} <br />
+     * [get] type_of_vc_array: {_varchar(2147483647), refers to vendor_check.type_of_vc_array} <br>
      * @return The value of the column 'type_of_vc_array'. (NullAllowed even if selected: for no constraint)
      */
     public org.docksidestage.postgresql.mytype.MyArray getTypeOfVcArray() {
@@ -461,7 +462,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [set] type_of_vc_array: {_varchar(2147483647), refers to vendor_check.type_of_vc_array} <br />
+     * [set] type_of_vc_array: {_varchar(2147483647), refers to vendor_check.type_of_vc_array} <br>
      * @param typeOfVcArray The value of the column 'type_of_vc_array'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTypeOfVcArray(org.docksidestage.postgresql.mytype.MyArray typeOfVcArray) {
@@ -470,7 +471,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [get] type_of_text: {text(2147483647), refers to vendor_check.type_of_text} <br />
+     * [get] type_of_text: {text(2147483647), refers to vendor_check.type_of_text} <br>
      * @return The value of the column 'type_of_text'. (NullAllowed even if selected: for no constraint)
      */
     public String getTypeOfText() {
@@ -479,7 +480,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [set] type_of_text: {text(2147483647), refers to vendor_check.type_of_text} <br />
+     * [set] type_of_text: {text(2147483647), refers to vendor_check.type_of_text} <br>
      * @param typeOfText The value of the column 'type_of_text'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTypeOfText(String typeOfText) {
@@ -488,7 +489,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [get] type_of_numeric_integer: {numeric(5), refers to vendor_check.type_of_numeric_integer} <br />
+     * [get] type_of_numeric_integer: {numeric(5), refers to vendor_check.type_of_numeric_integer} <br>
      * @return The value of the column 'type_of_numeric_integer'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getTypeOfNumericInteger() {
@@ -497,7 +498,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [set] type_of_numeric_integer: {numeric(5), refers to vendor_check.type_of_numeric_integer} <br />
+     * [set] type_of_numeric_integer: {numeric(5), refers to vendor_check.type_of_numeric_integer} <br>
      * @param typeOfNumericInteger The value of the column 'type_of_numeric_integer'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTypeOfNumericInteger(Integer typeOfNumericInteger) {
@@ -506,7 +507,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [get] type_of_numeric_bigint: {numeric(12), refers to vendor_check.type_of_numeric_bigint} <br />
+     * [get] type_of_numeric_bigint: {numeric(12), refers to vendor_check.type_of_numeric_bigint} <br>
      * @return The value of the column 'type_of_numeric_bigint'. (NullAllowed even if selected: for no constraint)
      */
     public Long getTypeOfNumericBigint() {
@@ -515,7 +516,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [set] type_of_numeric_bigint: {numeric(12), refers to vendor_check.type_of_numeric_bigint} <br />
+     * [set] type_of_numeric_bigint: {numeric(12), refers to vendor_check.type_of_numeric_bigint} <br>
      * @param typeOfNumericBigint The value of the column 'type_of_numeric_bigint'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTypeOfNumericBigint(Long typeOfNumericBigint) {
@@ -524,7 +525,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [get] type_of_numeric_decimal: {numeric(5, 3), refers to vendor_check.type_of_numeric_decimal} <br />
+     * [get] type_of_numeric_decimal: {numeric(5, 3), refers to vendor_check.type_of_numeric_decimal} <br>
      * @return The value of the column 'type_of_numeric_decimal'. (NullAllowed even if selected: for no constraint)
      */
     public java.math.BigDecimal getTypeOfNumericDecimal() {
@@ -533,7 +534,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [set] type_of_numeric_decimal: {numeric(5, 3), refers to vendor_check.type_of_numeric_decimal} <br />
+     * [set] type_of_numeric_decimal: {numeric(5, 3), refers to vendor_check.type_of_numeric_decimal} <br>
      * @param typeOfNumericDecimal The value of the column 'type_of_numeric_decimal'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTypeOfNumericDecimal(java.math.BigDecimal typeOfNumericDecimal) {
@@ -542,7 +543,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [get] type_of_decimal: {numeric(131089), refers to vendor_check.type_of_decimal} <br />
+     * [get] type_of_decimal: {numeric(131089), refers to vendor_check.type_of_decimal} <br>
      * @return The value of the column 'type_of_decimal'. (NullAllowed even if selected: for no constraint)
      */
     public java.math.BigDecimal getTypeOfDecimal() {
@@ -551,7 +552,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [set] type_of_decimal: {numeric(131089), refers to vendor_check.type_of_decimal} <br />
+     * [set] type_of_decimal: {numeric(131089), refers to vendor_check.type_of_decimal} <br>
      * @param typeOfDecimal The value of the column 'type_of_decimal'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTypeOfDecimal(java.math.BigDecimal typeOfDecimal) {
@@ -560,7 +561,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [get] type_of_bigint: {int8(19), refers to vendor_check.type_of_bigint} <br />
+     * [get] type_of_bigint: {int8(19), refers to vendor_check.type_of_bigint} <br>
      * @return The value of the column 'type_of_bigint'. (NullAllowed even if selected: for no constraint)
      */
     public Long getTypeOfBigint() {
@@ -569,7 +570,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [set] type_of_bigint: {int8(19), refers to vendor_check.type_of_bigint} <br />
+     * [set] type_of_bigint: {int8(19), refers to vendor_check.type_of_bigint} <br>
      * @param typeOfBigint The value of the column 'type_of_bigint'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTypeOfBigint(Long typeOfBigint) {
@@ -578,7 +579,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [get] type_of_int8: {int8(19), refers to vendor_check.type_of_int8} <br />
+     * [get] type_of_int8: {int8(19), refers to vendor_check.type_of_int8} <br>
      * @return The value of the column 'type_of_int8'. (NullAllowed even if selected: for no constraint)
      */
     public Long getTypeOfInt8() {
@@ -587,7 +588,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [set] type_of_int8: {int8(19), refers to vendor_check.type_of_int8} <br />
+     * [set] type_of_int8: {int8(19), refers to vendor_check.type_of_int8} <br>
      * @param typeOfInt8 The value of the column 'type_of_int8'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTypeOfInt8(Long typeOfInt8) {
@@ -596,7 +597,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [get] type_of_int_array: {_int8(19), refers to vendor_check.type_of_int_array} <br />
+     * [get] type_of_int_array: {_int8(19), refers to vendor_check.type_of_int_array} <br>
      * @return The value of the column 'type_of_int_array'. (NullAllowed even if selected: for no constraint)
      */
     public org.docksidestage.postgresql.mytype.MyArray getTypeOfIntArray() {
@@ -605,7 +606,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [set] type_of_int_array: {_int8(19), refers to vendor_check.type_of_int_array} <br />
+     * [set] type_of_int_array: {_int8(19), refers to vendor_check.type_of_int_array} <br>
      * @param typeOfIntArray The value of the column 'type_of_int_array'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTypeOfIntArray(org.docksidestage.postgresql.mytype.MyArray typeOfIntArray) {
@@ -614,7 +615,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [get] type_of_int4: {int4(10), refers to vendor_check.type_of_int4} <br />
+     * [get] type_of_int4: {int4(10), refers to vendor_check.type_of_int4} <br>
      * @return The value of the column 'type_of_int4'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getTypeOfInt4() {
@@ -623,7 +624,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [set] type_of_int4: {int4(10), refers to vendor_check.type_of_int4} <br />
+     * [set] type_of_int4: {int4(10), refers to vendor_check.type_of_int4} <br>
      * @param typeOfInt4 The value of the column 'type_of_int4'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTypeOfInt4(Integer typeOfInt4) {
@@ -632,7 +633,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [get] type_of_money: {money(2147483647), refers to vendor_check.type_of_money} <br />
+     * [get] type_of_money: {money(2147483647), refers to vendor_check.type_of_money} <br>
      * @return The value of the column 'type_of_money'. (NullAllowed even if selected: for no constraint)
      */
     public java.math.BigDecimal getTypeOfMoney() {
@@ -641,7 +642,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [set] type_of_money: {money(2147483647), refers to vendor_check.type_of_money} <br />
+     * [set] type_of_money: {money(2147483647), refers to vendor_check.type_of_money} <br>
      * @param typeOfMoney The value of the column 'type_of_money'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTypeOfMoney(java.math.BigDecimal typeOfMoney) {
@@ -650,7 +651,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [get] type_of_date: {date(13), refers to vendor_check.type_of_date} <br />
+     * [get] type_of_date: {date(13), refers to vendor_check.type_of_date} <br>
      * @return The value of the column 'type_of_date'. (NullAllowed even if selected: for no constraint)
      */
     public java.util.Date getTypeOfDate() {
@@ -659,7 +660,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [set] type_of_date: {date(13), refers to vendor_check.type_of_date} <br />
+     * [set] type_of_date: {date(13), refers to vendor_check.type_of_date} <br>
      * @param typeOfDate The value of the column 'type_of_date'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTypeOfDate(java.util.Date typeOfDate) {
@@ -668,7 +669,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [get] type_of_time: {time(15, 6), refers to vendor_check.type_of_time} <br />
+     * [get] type_of_time: {time(15, 6), refers to vendor_check.type_of_time} <br>
      * @return The value of the column 'type_of_time'. (NullAllowed even if selected: for no constraint)
      */
     public java.sql.Time getTypeOfTime() {
@@ -677,7 +678,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [set] type_of_time: {time(15, 6), refers to vendor_check.type_of_time} <br />
+     * [set] type_of_time: {time(15, 6), refers to vendor_check.type_of_time} <br>
      * @param typeOfTime The value of the column 'type_of_time'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTypeOfTime(java.sql.Time typeOfTime) {
@@ -686,7 +687,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [get] type_of_timestamp: {timestamp(29, 6), refers to vendor_check.type_of_timestamp} <br />
+     * [get] type_of_timestamp: {timestamp(29, 6), refers to vendor_check.type_of_timestamp} <br>
      * @return The value of the column 'type_of_timestamp'. (NullAllowed even if selected: for no constraint)
      */
     public java.sql.Timestamp getTypeOfTimestamp() {
@@ -695,7 +696,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [set] type_of_timestamp: {timestamp(29, 6), refers to vendor_check.type_of_timestamp} <br />
+     * [set] type_of_timestamp: {timestamp(29, 6), refers to vendor_check.type_of_timestamp} <br>
      * @param typeOfTimestamp The value of the column 'type_of_timestamp'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTypeOfTimestamp(java.sql.Timestamp typeOfTimestamp) {
@@ -704,7 +705,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [get] type_of_interval: {interval(49, 6), refers to vendor_check.type_of_interval} <br />
+     * [get] type_of_interval: {interval(49, 6), refers to vendor_check.type_of_interval} <br>
      * @return The value of the column 'type_of_interval'. (NullAllowed even if selected: for no constraint)
      */
     public String getTypeOfInterval() {
@@ -713,7 +714,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [set] type_of_interval: {interval(49, 6), refers to vendor_check.type_of_interval} <br />
+     * [set] type_of_interval: {interval(49, 6), refers to vendor_check.type_of_interval} <br>
      * @param typeOfInterval The value of the column 'type_of_interval'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTypeOfInterval(String typeOfInterval) {
@@ -722,7 +723,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [get] type_of_timetz: {timetz(21, 6), refers to vendor_check.type_of_timetz} <br />
+     * [get] type_of_timetz: {timetz(21, 6), refers to vendor_check.type_of_timetz} <br>
      * @return The value of the column 'type_of_timetz'. (NullAllowed even if selected: for no constraint)
      */
     public java.sql.Time getTypeOfTimetz() {
@@ -731,7 +732,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [set] type_of_timetz: {timetz(21, 6), refers to vendor_check.type_of_timetz} <br />
+     * [set] type_of_timetz: {timetz(21, 6), refers to vendor_check.type_of_timetz} <br>
      * @param typeOfTimetz The value of the column 'type_of_timetz'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTypeOfTimetz(java.sql.Time typeOfTimetz) {
@@ -740,7 +741,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [get] type_of_bool: {bool(1), refers to vendor_check.type_of_bool, classification=TrueFalse} <br />
+     * [get] type_of_bool: {bool(1), refers to vendor_check.type_of_bool, classification=TrueFalse} <br>
      * @return The value of the column 'type_of_bool'. (NullAllowed even if selected: for no constraint)
      */
     public Boolean getTypeOfBool() {
@@ -749,7 +750,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [set] type_of_bool: {bool(1), refers to vendor_check.type_of_bool, classification=TrueFalse} <br />
+     * [set] type_of_bool: {bool(1), refers to vendor_check.type_of_bool, classification=TrueFalse} <br>
      * @param typeOfBool The value of the column 'type_of_bool'. (NullAllowed: null update allowed for no constraint)
      */
     protected void setTypeOfBool(Boolean typeOfBool) {
@@ -759,7 +760,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [get] type_of_bit: {bit(1), refers to vendor_check.type_of_bit} <br />
+     * [get] type_of_bit: {bit(1), refers to vendor_check.type_of_bit} <br>
      * @return The value of the column 'type_of_bit'. (NullAllowed even if selected: for no constraint)
      */
     public Boolean getTypeOfBit() {
@@ -768,7 +769,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [set] type_of_bit: {bit(1), refers to vendor_check.type_of_bit} <br />
+     * [set] type_of_bit: {bit(1), refers to vendor_check.type_of_bit} <br>
      * @param typeOfBit The value of the column 'type_of_bit'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTypeOfBit(Boolean typeOfBit) {
@@ -777,7 +778,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [get] type_of_bytea: {bytea(2147483647), refers to vendor_check.type_of_bytea} <br />
+     * [get] type_of_bytea: {bytea(2147483647), refers to vendor_check.type_of_bytea} <br>
      * @return The value of the column 'type_of_bytea'. (NullAllowed even if selected: for no constraint)
      */
     public byte[] getTypeOfBytea() {
@@ -786,7 +787,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [set] type_of_bytea: {bytea(2147483647), refers to vendor_check.type_of_bytea} <br />
+     * [set] type_of_bytea: {bytea(2147483647), refers to vendor_check.type_of_bytea} <br>
      * @param typeOfBytea The value of the column 'type_of_bytea'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTypeOfBytea(byte[] typeOfBytea) {
@@ -795,7 +796,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [get] type_of_uuid: {uuid(2147483647), refers to vendor_check.type_of_uuid} <br />
+     * [get] type_of_uuid: {uuid(2147483647), refers to vendor_check.type_of_uuid} <br>
      * @return The value of the column 'type_of_uuid'. (NullAllowed even if selected: for no constraint)
      */
     public java.util.UUID getTypeOfUuid() {
@@ -804,7 +805,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [set] type_of_uuid: {uuid(2147483647), refers to vendor_check.type_of_uuid} <br />
+     * [set] type_of_uuid: {uuid(2147483647), refers to vendor_check.type_of_uuid} <br>
      * @param typeOfUuid The value of the column 'type_of_uuid'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTypeOfUuid(java.util.UUID typeOfUuid) {
@@ -813,7 +814,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [get] type_of_oid: {oid(10), refers to vendor_check.type_of_oid} <br />
+     * [get] type_of_oid: {oid(10), refers to vendor_check.type_of_oid} <br>
      * @return The value of the column 'type_of_oid'. (NullAllowed even if selected: for no constraint)
      */
     @MappingValueType(keyName = "bytesOidType")
@@ -823,7 +824,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [set] type_of_oid: {oid(10), refers to vendor_check.type_of_oid} <br />
+     * [set] type_of_oid: {oid(10), refers to vendor_check.type_of_oid} <br>
      * @param typeOfOid The value of the column 'type_of_oid'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTypeOfOid(byte[] typeOfOid) {
@@ -832,7 +833,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [get] type_of_xml: {xml(2147483647), refers to vendor_check.type_of_xml} <br />
+     * [get] type_of_xml: {xml(2147483647), refers to vendor_check.type_of_xml} <br>
      * @return The value of the column 'type_of_xml'. (NullAllowed even if selected: for no constraint)
      */
     public org.docksidestage.postgresql.mytype.MyXML getTypeOfXml() {
@@ -841,7 +842,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity {
     }
 
     /**
-     * [set] type_of_xml: {xml(2147483647), refers to vendor_check.type_of_xml} <br />
+     * [set] type_of_xml: {xml(2147483647), refers to vendor_check.type_of_xml} <br>
      * @param typeOfXml The value of the column 'type_of_xml'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTypeOfXml(org.docksidestage.postgresql.mytype.MyXML typeOfXml) {

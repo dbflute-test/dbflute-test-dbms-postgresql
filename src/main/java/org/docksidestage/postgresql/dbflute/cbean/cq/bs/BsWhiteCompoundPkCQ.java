@@ -35,7 +35,7 @@ public class BsWhiteCompoundPkCQ extends AbstractBsWhiteCompoundPkCQ {
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from white_compound_pk) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -58,7 +58,7 @@ public class BsWhiteCompoundPkCQ extends AbstractBsWhiteCompoundPkCQ {
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join white_compound_pk on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -81,14 +81,14 @@ public class BsWhiteCompoundPkCQ extends AbstractBsWhiteCompoundPkCQ {
     protected ConditionValue xgetCValuePkFirstId() { return xdfgetPkFirstId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * pk_first_id: {PK, NotNull, int4(10)}
      * @return this. (NotNull)
      */
     public BsWhiteCompoundPkCQ addOrderBy_PkFirstId_Asc() { regOBA("pk_first_id"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * pk_first_id: {PK, NotNull, int4(10)}
      * @return this. (NotNull)
      */
@@ -101,14 +101,14 @@ public class BsWhiteCompoundPkCQ extends AbstractBsWhiteCompoundPkCQ {
     protected ConditionValue xgetCValuePkSecondId() { return xdfgetPkSecondId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * pk_second_id: {PK, NotNull, int4(10)}
      * @return this. (NotNull)
      */
     public BsWhiteCompoundPkCQ addOrderBy_PkSecondId_Asc() { regOBA("pk_second_id"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * pk_second_id: {PK, NotNull, int4(10)}
      * @return this. (NotNull)
      */
@@ -121,14 +121,14 @@ public class BsWhiteCompoundPkCQ extends AbstractBsWhiteCompoundPkCQ {
     protected ConditionValue xgetCValuePkName() { return xdfgetPkName(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * pk_name: {NotNull, varchar(200)}
      * @return this. (NotNull)
      */
     public BsWhiteCompoundPkCQ addOrderBy_PkName_Asc() { regOBA("pk_name"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * pk_name: {NotNull, varchar(200)}
      * @return this. (NotNull)
      */
@@ -192,7 +192,7 @@ public class BsWhiteCompoundPkCQ extends AbstractBsWhiteCompoundPkCQ {
     //                                                      ExistsReferrer for Compound PK
     //                                                      ==============================
     /**
-     * Set up ExistsReferrer (correlated sub-query by compound key). <br />
+     * Set up ExistsReferrer (correlated sub-query by compound key). <br>
      * {exists (select ... from white_compound_pk_ref where ...)}
      * @param subQuery The sub-query of WhiteCompoundPkRefList for 'exists'. (NotNull)
      */
@@ -207,7 +207,7 @@ public class BsWhiteCompoundPkCQ extends AbstractBsWhiteCompoundPkCQ {
     public String keepTwoOrMorePk_ExistsReferrer_WhiteCompoundPkRefList(WhiteCompoundPkRefCQ sq) { return xkeepSQue("twoOrMorePk_ExistsReferrer_WhiteCompoundPkRefList", sq); }
 
     /**
-     * Set up NotExistsReferrer (correlated sub-query by compound key). <br />
+     * Set up NotExistsReferrer (correlated sub-query by compound key). <br>
      * {not exists (select ... from white_compound_pk_ref where ...)}
      * @param subQuery The sub-query of WhiteCompoundPkRefList for 'not exists'. (NotNull)
      */
@@ -238,8 +238,8 @@ public class BsWhiteCompoundPkCQ extends AbstractBsWhiteCompoundPkCQ {
     //                                              (Query)DerivedReferrer for Compound PK
     //                                              ======================================
     /**
-     * Prepare for (Query)DerivedReferrer (correlated sub-query). <br />
-     * {FOO &lt;= (select max(BAR) from white_compound_pk_ref where ...)} <br />
+     * Prepare for (Query)DerivedReferrer (correlated sub-query). <br>
+     * {FOO &lt;= (select max(BAR) from white_compound_pk_ref where ...)} <br>
      * white_compound_pk_ref by ref_first_id, ref_second_id, named 'whiteCompoundPkRefAsOne'.
      * <pre>
      * cb.query().<span style="color: #CC4747">derivedWhiteCompoundPkRefList()</span>.<span style="color: #CC4747">max</span>(new SubQuery&lt;WhiteCompoundPkRefCB&gt;() {

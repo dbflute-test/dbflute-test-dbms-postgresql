@@ -47,7 +47,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     //                                                                               Query
     //                                                                               =====
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * inu_id: {NotNull, int4(10)}
      * @param inuId The value of inuId as equal. (NullAllowed: if null, no condition)
      */
@@ -60,7 +60,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * inu_id: {NotNull, int4(10)}
      * @param inuId The value of inuId as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -69,7 +69,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * inu_id: {NotNull, int4(10)}
      * @param inuId The value of inuId as lessThan. (NullAllowed: if null, no condition)
      */
@@ -78,7 +78,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * inu_id: {NotNull, int4(10)}
      * @param inuId The value of inuId as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -87,7 +87,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * inu_id: {NotNull, int4(10)}
      * @param inuId The value of inuId as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -96,9 +96,9 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * inu_id: {NotNull, int4(10)}
      * @param minNumber The min number of inuId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of inuId. (NullAllowed: if null, no to-condition)
@@ -109,9 +109,9 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * inu_id: {NotNull, int4(10)}
      * @param minNumber The min number of inuId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of inuId. (NullAllowed: if null, no to-condition)
@@ -122,7 +122,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * inu_id: {NotNull, int4(10)}
      * @param inuIdList The collection of inuId as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -135,7 +135,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * inu_id: {NotNull, int4(10)}
      * @param inuIdList The collection of inuId as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -151,7 +151,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     protected abstract ConditionValue xgetCValueInuId();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * inu_name: {NotNull, varchar(2147483647)}
      * @param inuName The value of inuName as equal. (NullAllowed: if null (or empty), no condition)
      */
@@ -164,7 +164,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * inu_name: {NotNull, varchar(2147483647)}
      * @param inuName The value of inuName as notEqual. (NullAllowed: if null (or empty), no condition)
      */
@@ -177,7 +177,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     }
 
     /**
-     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * inu_name: {NotNull, varchar(2147483647)}
      * @param inuNameList The collection of inuName as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -190,7 +190,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     }
 
     /**
-     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * inu_name: {NotNull, varchar(2147483647)}
      * @param inuNameList The collection of inuName as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -203,8 +203,8 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * inu_name: {NotNull, varchar(2147483647)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * inu_name: {NotNull, varchar(2147483647)} <br>
      * <pre>e.g. setInuName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param inuName The value of inuName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -214,8 +214,8 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * inu_name: {NotNull, varchar(2147483647)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * inu_name: {NotNull, varchar(2147483647)} <br>
      * <pre>e.g. setInuName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param inuName The value of inuName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
@@ -225,8 +225,8 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * inu_name: {NotNull, varchar(2147483647)}
      * @param inuName The value of inuName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -236,8 +236,8 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * inu_name: {NotNull, varchar(2147483647)}
      * @param inuName The value of inuName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of not-like-search. (NotNull)
@@ -247,7 +247,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * inu_name: {NotNull, varchar(2147483647)}
      * @param inuName The value of inuName as prefixSearch. (NullAllowed: if null (or empty), no condition)
      */
@@ -259,7 +259,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     protected abstract ConditionValue xgetCValueInuName();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * inu_date: {date(13)}
      * @param inuDate The value of inuDate as equal. (NullAllowed: if null, no condition)
      */
@@ -268,7 +268,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * inu_date: {date(13)}
      * @param inuDate The value of inuDate as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -277,7 +277,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * inu_date: {date(13)}
      * @param inuDate The value of inuDate as lessThan. (NullAllowed: if null, no condition)
      */
@@ -286,7 +286,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * inu_date: {date(13)}
      * @param inuDate The value of inuDate as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -295,7 +295,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * inu_date: {date(13)}
      * @param inuDate The value of inuDate as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -304,8 +304,8 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     }
 
     /**
-     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * inu_date: {date(13)}
      * <pre>e.g. setInuDate_FromTo(fromDate, toDate, op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">compareAsDate()</span>);</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of inuDate. (NullAllowed: if null, no from-condition)
@@ -317,8 +317,8 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     }
 
     /**
-     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * inu_date: {date(13)}
      * <pre>e.g. setInuDate_FromTo(fromDate, toDate, new <span style="color: #CC4747">FromToOption</span>().compareAsDate());</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of inuDate. (NullAllowed: if null, no from-condition)
@@ -330,8 +330,8 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     }
 
     /**
-     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * inu_date: {date(13)}
      * <pre>
      * e.g. from:{2007/04/10 08:24:53} to:{2007/04/16 14:36:29}
@@ -345,13 +345,13 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * inu_date: {date(13)}
      */
     public void setInuDate_IsNull() { regInuDate(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * inu_date: {date(13)}
      */
     public void setInuDate_IsNotNull() { regInuDate(CK_ISNN, DOBJ); }
@@ -360,7 +360,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     protected abstract ConditionValue xgetCValueInuDate();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * neko_id: {PK, NotNull, int4(10)}
      * @param nekoId The value of nekoId as equal. (NullAllowed: if null, no condition)
      */
@@ -373,7 +373,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * neko_id: {PK, NotNull, int4(10)}
      * @param nekoId The value of nekoId as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -382,7 +382,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * neko_id: {PK, NotNull, int4(10)}
      * @param nekoId The value of nekoId as lessThan. (NullAllowed: if null, no condition)
      */
@@ -391,7 +391,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * neko_id: {PK, NotNull, int4(10)}
      * @param nekoId The value of nekoId as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -400,7 +400,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * neko_id: {PK, NotNull, int4(10)}
      * @param nekoId The value of nekoId as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -409,9 +409,9 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * neko_id: {PK, NotNull, int4(10)}
      * @param minNumber The min number of nekoId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of nekoId. (NullAllowed: if null, no to-condition)
@@ -422,9 +422,9 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * neko_id: {PK, NotNull, int4(10)}
      * @param minNumber The min number of nekoId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of nekoId. (NullAllowed: if null, no to-condition)
@@ -435,7 +435,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * neko_id: {PK, NotNull, int4(10)}
      * @param nekoIdList The collection of nekoId as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -448,7 +448,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * neko_id: {PK, NotNull, int4(10)}
      * @param nekoIdList The collection of nekoId as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -461,13 +461,13 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * neko_id: {PK, NotNull, int4(10)}
      */
     public void setNekoId_IsNull() { regNekoId(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * neko_id: {PK, NotNull, int4(10)}
      */
     public void setNekoId_IsNotNull() { regNekoId(CK_ISNN, DOBJ); }
@@ -476,7 +476,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     protected abstract ConditionValue xgetCValueNekoId();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * neko_name: {NotNull, varchar(2147483647)}
      * @param nekoName The value of nekoName as equal. (NullAllowed: if null (or empty), no condition)
      */
@@ -489,7 +489,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * neko_name: {NotNull, varchar(2147483647)}
      * @param nekoName The value of nekoName as notEqual. (NullAllowed: if null (or empty), no condition)
      */
@@ -502,7 +502,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     }
 
     /**
-     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * neko_name: {NotNull, varchar(2147483647)}
      * @param nekoNameList The collection of nekoName as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -515,7 +515,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     }
 
     /**
-     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * neko_name: {NotNull, varchar(2147483647)}
      * @param nekoNameList The collection of nekoName as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -528,8 +528,8 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * neko_name: {NotNull, varchar(2147483647)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * neko_name: {NotNull, varchar(2147483647)} <br>
      * <pre>e.g. setNekoName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param nekoName The value of nekoName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -539,8 +539,8 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * neko_name: {NotNull, varchar(2147483647)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * neko_name: {NotNull, varchar(2147483647)} <br>
      * <pre>e.g. setNekoName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param nekoName The value of nekoName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
@@ -550,8 +550,8 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * neko_name: {NotNull, varchar(2147483647)}
      * @param nekoName The value of nekoName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -561,8 +561,8 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * neko_name: {NotNull, varchar(2147483647)}
      * @param nekoName The value of nekoName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of not-like-search. (NotNull)
@@ -572,7 +572,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * neko_name: {NotNull, varchar(2147483647)}
      * @param nekoName The value of nekoName as prefixSearch. (NullAllowed: if null (or empty), no condition)
      */
@@ -584,7 +584,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     protected abstract ConditionValue xgetCValueNekoName();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * neko_date: {date(13)}
      * @param nekoDate The value of nekoDate as equal. (NullAllowed: if null, no condition)
      */
@@ -593,7 +593,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * neko_date: {date(13)}
      * @param nekoDate The value of nekoDate as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -602,7 +602,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * neko_date: {date(13)}
      * @param nekoDate The value of nekoDate as lessThan. (NullAllowed: if null, no condition)
      */
@@ -611,7 +611,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * neko_date: {date(13)}
      * @param nekoDate The value of nekoDate as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -620,7 +620,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * neko_date: {date(13)}
      * @param nekoDate The value of nekoDate as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -629,8 +629,8 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     }
 
     /**
-     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * neko_date: {date(13)}
      * <pre>e.g. setNekoDate_FromTo(fromDate, toDate, op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">compareAsDate()</span>);</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of nekoDate. (NullAllowed: if null, no from-condition)
@@ -642,8 +642,8 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     }
 
     /**
-     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * neko_date: {date(13)}
      * <pre>e.g. setNekoDate_FromTo(fromDate, toDate, new <span style="color: #CC4747">FromToOption</span>().compareAsDate());</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of nekoDate. (NullAllowed: if null, no from-condition)
@@ -655,8 +655,8 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     }
 
     /**
-     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * neko_date: {date(13)}
      * <pre>
      * e.g. from:{2007/04/10 08:24:53} to:{2007/04/16 14:36:29}
@@ -670,13 +670,13 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * neko_date: {date(13)}
      */
     public void setNekoDate_IsNull() { regNekoDate(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * neko_date: {date(13)}
      */
     public void setNekoDate_IsNotNull() { regNekoDate(CK_ISNN, DOBJ); }
@@ -688,7 +688,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     //                                                                     ScalarCondition
     //                                                                     ===============
     /**
-     * Prepare ScalarCondition as equal. <br />
+     * Prepare ScalarCondition as equal. <br>
      * {where FOO = (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_Equal()</span>.max(new SubQuery&lt;VendorInheritNekoCB&gt;() {
@@ -705,7 +705,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     }
 
     /**
-     * Prepare ScalarCondition as equal. <br />
+     * Prepare ScalarCondition as equal. <br>
      * {where FOO &lt;&gt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_NotEqual()</span>.max(new SubQuery&lt;VendorInheritNekoCB&gt;() {
@@ -722,7 +722,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     }
 
     /**
-     * Prepare ScalarCondition as greaterThan. <br />
+     * Prepare ScalarCondition as greaterThan. <br>
      * {where FOO &gt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_GreaterThan()</span>.max(new SubQuery&lt;VendorInheritNekoCB&gt;() {
@@ -739,7 +739,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     }
 
     /**
-     * Prepare ScalarCondition as lessThan. <br />
+     * Prepare ScalarCondition as lessThan. <br>
      * {where FOO &lt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessThan()</span>.max(new SubQuery&lt;VendorInheritNekoCB&gt;() {
@@ -756,7 +756,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     }
 
     /**
-     * Prepare ScalarCondition as greaterEqual. <br />
+     * Prepare ScalarCondition as greaterEqual. <br>
      * {where FOO &gt;= (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_GreaterEqual()</span>.max(new SubQuery&lt;VendorInheritNekoCB&gt;() {
@@ -773,7 +773,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     }
 
     /**
-     * Prepare ScalarCondition as lessEqual. <br />
+     * Prepare ScalarCondition as lessEqual. <br>
      * {where FOO &lt;= (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessEqual()</span>.max(new SubQuery&lt;VendorInheritNekoCB&gt;() {
@@ -856,7 +856,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     //                                                                    Full Text Search
     //                                                                    ================
     /**
-     * Match for full-text search. <br />
+     * Match for full-text search. <br>
      * @param textColumn The text column. (NotNull, StringColumn, TargetTableColumn)
      * @param conditionValue The condition value. (NullAllowed: if null or empty, no condition)
      */
@@ -866,7 +866,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     }
 
     /**
-     * Match for full-text search. <br />
+     * Match for full-text search. <br>
      * @param textColumnList The list of text column. (NotNull, NotEmpty, StringColumn, TargetTableColumn)
      * @param conditionValue The condition value. (NullAllowed: if null or empty, no condition)
      */

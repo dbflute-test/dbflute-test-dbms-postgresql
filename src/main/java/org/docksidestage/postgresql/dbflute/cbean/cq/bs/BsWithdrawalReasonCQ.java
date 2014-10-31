@@ -34,7 +34,7 @@ public class BsWithdrawalReasonCQ extends AbstractBsWithdrawalReasonCQ {
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from withdrawal_reason) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -57,7 +57,7 @@ public class BsWithdrawalReasonCQ extends AbstractBsWithdrawalReasonCQ {
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join withdrawal_reason on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -94,14 +94,14 @@ public class BsWithdrawalReasonCQ extends AbstractBsWithdrawalReasonCQ {
     public String keepWithdrawalReasonCode_QueryDerivedReferrer_MemberWithdrawalListParameter(Object pm) { return xkeepSQuePm("withdrawalReasonCode_QueryDerivedReferrer_MemberWithdrawalList", pm); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * (退会理由コード)withdrawal_reason_code: {PK, NotNull, bpchar(3)}
      * @return this. (NotNull)
      */
     public BsWithdrawalReasonCQ addOrderBy_WithdrawalReasonCode_Asc() { regOBA("withdrawal_reason_code"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * (退会理由コード)withdrawal_reason_code: {PK, NotNull, bpchar(3)}
      * @return this. (NotNull)
      */
@@ -114,14 +114,14 @@ public class BsWithdrawalReasonCQ extends AbstractBsWithdrawalReasonCQ {
     protected ConditionValue xgetCValueWithdrawalReasonText() { return xdfgetWithdrawalReasonText(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * (退会理由テキスト)withdrawal_reason_text: {NotNull, text(2147483647)}
      * @return this. (NotNull)
      */
     public BsWithdrawalReasonCQ addOrderBy_WithdrawalReasonText_Asc() { regOBA("withdrawal_reason_text"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * (退会理由テキスト)withdrawal_reason_text: {NotNull, text(2147483647)}
      * @return this. (NotNull)
      */
@@ -134,14 +134,14 @@ public class BsWithdrawalReasonCQ extends AbstractBsWithdrawalReasonCQ {
     protected ConditionValue xgetCValueDisplayOrder() { return xdfgetDisplayOrder(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * display_order: {UQ, NotNull, int4(10)}
      * @return this. (NotNull)
      */
     public BsWithdrawalReasonCQ addOrderBy_DisplayOrder_Asc() { regOBA("display_order"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * display_order: {UQ, NotNull, int4(10)}
      * @return this. (NotNull)
      */

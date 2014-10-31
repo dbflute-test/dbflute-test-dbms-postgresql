@@ -11,7 +11,7 @@ import org.docksidestage.postgresql.dbflute.exbhv.*;
 import org.docksidestage.postgresql.dbflute.exentity.customize.*;
 
 /**
- * The base class for typed parameter-bean of VendorUnsupportedAlias. <br />
+ * The base class for typed parameter-bean of VendorUnsupportedAlias. <br>
  * This is related to "<span style="color: #AD4747">whitebox:vendorcheck:selectVendorUnsupportedAlias</span>" on VendorCheckBhv.
  * @author DBFlute(AutoGenerator)
  */
@@ -33,7 +33,7 @@ public class BsVendorUnsupportedAliasPmb implements ListHandlingPmb<VendorCheckB
     //                                                                         Constructor
     //                                                                         ===========
     /**
-     * Constructor for the typed parameter-bean of VendorUnsupportedAlias. <br />
+     * Constructor for the typed parameter-bean of VendorUnsupportedAlias. <br>
      * This is related to "<span style="color: #AD4747">whitebox:vendorcheck:selectVendorUnsupportedAlias</span>" on VendorCheckBhv.
      */
     public BsVendorUnsupportedAliasPmb() {
@@ -120,7 +120,7 @@ public class BsVendorUnsupportedAliasPmb implements ListHandlingPmb<VendorCheckB
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] vendorCheckId:ref(VENDOR_CHECK) :: refers to vendor_check_id: {PK, NotNull, numeric(16)} <br />
+     * [get] vendorCheckId:ref(VENDOR_CHECK) :: refers to vendor_check_id: {PK, NotNull, numeric(16)} <br>
      * @return The value of vendorCheckId. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public Long getVendorCheckId() {
@@ -128,7 +128,7 @@ public class BsVendorUnsupportedAliasPmb implements ListHandlingPmb<VendorCheckB
     }
 
     /**
-     * [set] vendorCheckId:ref(VENDOR_CHECK) :: refers to vendor_check_id: {PK, NotNull, numeric(16)} <br />
+     * [set] vendorCheckId:ref(VENDOR_CHECK) :: refers to vendor_check_id: {PK, NotNull, numeric(16)} <br>
      * @param vendorCheckId The value of vendorCheckId. (NullAllowed)
      */
     public void setVendorCheckId(Long vendorCheckId) {

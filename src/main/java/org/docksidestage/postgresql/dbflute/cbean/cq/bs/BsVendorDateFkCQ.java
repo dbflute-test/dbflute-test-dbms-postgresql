@@ -34,7 +34,7 @@ public class BsVendorDateFkCQ extends AbstractBsVendorDateFkCQ {
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from vendor_date_fk) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -57,7 +57,7 @@ public class BsVendorDateFkCQ extends AbstractBsVendorDateFkCQ {
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join vendor_date_fk on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -80,14 +80,14 @@ public class BsVendorDateFkCQ extends AbstractBsVendorDateFkCQ {
     protected ConditionValue xgetCValueBarId() { return xdfgetBarId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * bar_id: {PK, NotNull, int4(10)}
      * @return this. (NotNull)
      */
     public BsVendorDateFkCQ addOrderBy_BarId_Asc() { regOBA("bar_id"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * bar_id: {PK, NotNull, int4(10)}
      * @return this. (NotNull)
      */
@@ -100,14 +100,14 @@ public class BsVendorDateFkCQ extends AbstractBsVendorDateFkCQ {
     protected ConditionValue xgetCValueBarDate() { return xdfgetBarDate(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * bar_date: {NotNull, date(13), FK to vendor_date_pk}
      * @return this. (NotNull)
      */
     public BsVendorDateFkCQ addOrderBy_BarDate_Asc() { regOBA("bar_date"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * bar_date: {NotNull, date(13), FK to vendor_date_pk}
      * @return this. (NotNull)
      */
@@ -163,7 +163,7 @@ public class BsVendorDateFkCQ extends AbstractBsVendorDateFkCQ {
     //                                                                       Foreign Query
     //                                                                       =============
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * vendor_date_pk by my bar_date, named 'vendorDatePk'.
      * @return The instance of condition-query. (NotNull)
      */

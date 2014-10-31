@@ -19,7 +19,7 @@ public class VendorUuidFooNss {
     //                                                                     Nested Relation
     //                                                                     ===============
     /**
-     * With nested relation columns to select clause. <br />
+     * With nested relation columns to select clause. <br>
      * vendor_uuid_bar by my bar_id, named 'vendorUuidBar'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */

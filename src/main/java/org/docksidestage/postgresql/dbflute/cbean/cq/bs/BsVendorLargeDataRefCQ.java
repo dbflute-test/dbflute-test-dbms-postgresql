@@ -34,7 +34,7 @@ public class BsVendorLargeDataRefCQ extends AbstractBsVendorLargeDataRefCQ {
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from vendor_large_data_ref) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -57,7 +57,7 @@ public class BsVendorLargeDataRefCQ extends AbstractBsVendorLargeDataRefCQ {
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join vendor_large_data_ref on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -94,14 +94,14 @@ public class BsVendorLargeDataRefCQ extends AbstractBsVendorLargeDataRefCQ {
     public String keepLargeDataRefId_QueryDerivedReferrer_VendorLargeDataRefSelfListParameter(Object pm) { return xkeepSQuePm("largeDataRefId_QueryDerivedReferrer_VendorLargeDataRefSelfList", pm); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * large_data_ref_id: {PK, NotNull, int8(19)}
      * @return this. (NotNull)
      */
     public BsVendorLargeDataRefCQ addOrderBy_LargeDataRefId_Asc() { regOBA("large_data_ref_id"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * large_data_ref_id: {PK, NotNull, int8(19)}
      * @return this. (NotNull)
      */
@@ -114,14 +114,14 @@ public class BsVendorLargeDataRefCQ extends AbstractBsVendorLargeDataRefCQ {
     protected ConditionValue xgetCValueLargeDataId() { return xdfgetLargeDataId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * large_data_id: {NotNull, int8(19), FK to vendor_large_data}
      * @return this. (NotNull)
      */
     public BsVendorLargeDataRefCQ addOrderBy_LargeDataId_Asc() { regOBA("large_data_id"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * large_data_id: {NotNull, int8(19), FK to vendor_large_data}
      * @return this. (NotNull)
      */
@@ -134,14 +134,14 @@ public class BsVendorLargeDataRefCQ extends AbstractBsVendorLargeDataRefCQ {
     protected ConditionValue xgetCValueDateIndex() { return xdfgetDateIndex(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * date_index: {IX, NotNull, date(13)}
      * @return this. (NotNull)
      */
     public BsVendorLargeDataRefCQ addOrderBy_DateIndex_Asc() { regOBA("date_index"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * date_index: {IX, NotNull, date(13)}
      * @return this. (NotNull)
      */
@@ -154,14 +154,14 @@ public class BsVendorLargeDataRefCQ extends AbstractBsVendorLargeDataRefCQ {
     protected ConditionValue xgetCValueDateNoIndex() { return xdfgetDateNoIndex(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * date_no_index: {NotNull, date(13)}
      * @return this. (NotNull)
      */
     public BsVendorLargeDataRefCQ addOrderBy_DateNoIndex_Asc() { regOBA("date_no_index"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * date_no_index: {NotNull, date(13)}
      * @return this. (NotNull)
      */
@@ -174,14 +174,14 @@ public class BsVendorLargeDataRefCQ extends AbstractBsVendorLargeDataRefCQ {
     protected ConditionValue xgetCValueTimestampIndex() { return xdfgetTimestampIndex(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * timestamp_index: {IX, NotNull, timestamp(26, 3)}
      * @return this. (NotNull)
      */
     public BsVendorLargeDataRefCQ addOrderBy_TimestampIndex_Asc() { regOBA("timestamp_index"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * timestamp_index: {IX, NotNull, timestamp(26, 3)}
      * @return this. (NotNull)
      */
@@ -194,14 +194,14 @@ public class BsVendorLargeDataRefCQ extends AbstractBsVendorLargeDataRefCQ {
     protected ConditionValue xgetCValueTimestampNoIndex() { return xdfgetTimestampNoIndex(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * timestamp_no_index: {NotNull, timestamp(26, 3)}
      * @return this. (NotNull)
      */
     public BsVendorLargeDataRefCQ addOrderBy_TimestampNoIndex_Asc() { regOBA("timestamp_no_index"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * timestamp_no_index: {NotNull, timestamp(26, 3)}
      * @return this. (NotNull)
      */
@@ -214,14 +214,14 @@ public class BsVendorLargeDataRefCQ extends AbstractBsVendorLargeDataRefCQ {
     protected ConditionValue xgetCValueNullableDecimalIndex() { return xdfgetNullableDecimalIndex(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * nullable_decimal_index: {IX, numeric(12, 3)}
      * @return this. (NotNull)
      */
     public BsVendorLargeDataRefCQ addOrderBy_NullableDecimalIndex_Asc() { regOBA("nullable_decimal_index"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * nullable_decimal_index: {IX, numeric(12, 3)}
      * @return this. (NotNull)
      */
@@ -234,14 +234,14 @@ public class BsVendorLargeDataRefCQ extends AbstractBsVendorLargeDataRefCQ {
     protected ConditionValue xgetCValueNullableDecimalNoIndex() { return xdfgetNullableDecimalNoIndex(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * nullable_decimal_no_index: {numeric(12, 3)}
      * @return this. (NotNull)
      */
     public BsVendorLargeDataRefCQ addOrderBy_NullableDecimalNoIndex_Asc() { regOBA("nullable_decimal_no_index"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * nullable_decimal_no_index: {numeric(12, 3)}
      * @return this. (NotNull)
      */
@@ -254,14 +254,14 @@ public class BsVendorLargeDataRefCQ extends AbstractBsVendorLargeDataRefCQ {
     protected ConditionValue xgetCValueSelfParentId() { return xdfgetSelfParentId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * self_parent_id: {int8(19), FK to vendor_large_data_ref}
      * @return this. (NotNull)
      */
     public BsVendorLargeDataRefCQ addOrderBy_SelfParentId_Asc() { regOBA("self_parent_id"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * self_parent_id: {int8(19), FK to vendor_large_data_ref}
      * @return this. (NotNull)
      */
@@ -320,7 +320,7 @@ public class BsVendorLargeDataRefCQ extends AbstractBsVendorLargeDataRefCQ {
     //                                                                       Foreign Query
     //                                                                       =============
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * vendor_large_data by my large_data_id, named 'vendorLargeData'.
      * @return The instance of condition-query. (NotNull)
      */
@@ -340,7 +340,7 @@ public class BsVendorLargeDataRefCQ extends AbstractBsVendorLargeDataRefCQ {
     public boolean hasConditionQueryVendorLargeData() { return xhasQueRlMap("vendorLargeData"); }
 
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * vendor_large_data_ref by my self_parent_id, named 'vendorLargeDataRefSelf'.
      * @return The instance of condition-query. (NotNull)
      */

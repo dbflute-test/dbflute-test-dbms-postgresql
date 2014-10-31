@@ -5,11 +5,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.CustomizeEntity;
 import org.docksidestage.postgresql.dbflute.allcommon.CDef;
 import org.docksidestage.postgresql.dbflute.exentity.customize.*;
 
 /**
- * The entity of SpResultSetParameterMoreCurMember. <br />
+ * The entity of SpResultSetParameterMoreCurMember. <br>
  * <pre>
  * [primary-key]
  *     
@@ -54,7 +55,7 @@ import org.docksidestage.postgresql.dbflute.exentity.customize.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsSpResultSetParameterMoreCurMember extends AbstractEntity {
+public abstract class BsSpResultSetParameterMoreCurMember extends AbstractEntity implements CustomizeEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -113,8 +114,8 @@ public abstract class BsSpResultSetParameterMoreCurMember extends AbstractEntity
     //                                                             Classification Property
     //                                                             =======================
     /**
-     * Get the value of memberStatusCode as the classification of MemberStatus. <br />
-     * (会員ステータスコード)member_status_code: {bpchar(3), refers to member.member_status_code, classification=MemberStatus} <br />
+     * Get the value of memberStatusCode as the classification of MemberStatus. <br>
+     * (会員ステータスコード)member_status_code: {bpchar(3), refers to member.member_status_code, classification=MemberStatus} <br>
      * status of member from entry to withdrawal
      * <p>It's treated as case insensitive and if the code value is null, it returns null.</p>
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
@@ -124,8 +125,8 @@ public abstract class BsSpResultSetParameterMoreCurMember extends AbstractEntity
     }
 
     /**
-     * Set the value of memberStatusCode as the classification of MemberStatus. <br />
-     * (会員ステータスコード)member_status_code: {bpchar(3), refers to member.member_status_code, classification=MemberStatus} <br />
+     * Set the value of memberStatusCode as the classification of MemberStatus. <br>
+     * (会員ステータスコード)member_status_code: {bpchar(3), refers to member.member_status_code, classification=MemberStatus} <br>
      * status of member from entry to withdrawal
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, null value is set to the column)
      */
@@ -137,7 +138,7 @@ public abstract class BsSpResultSetParameterMoreCurMember extends AbstractEntity
     //                                                              Classification Setting
     //                                                              ======================
     /**
-     * Set the value of memberStatusCode as Formalized (FML). <br />
+     * Set the value of memberStatusCode as Formalized (FML). <br>
      * FORMALIZED: as formal member, allowed to use all service
      */
     public void setMemberStatusCode_Formalized() {
@@ -145,7 +146,7 @@ public abstract class BsSpResultSetParameterMoreCurMember extends AbstractEntity
     }
 
     /**
-     * Set the value of memberStatusCode as Withdrawal (WDL). <br />
+     * Set the value of memberStatusCode as Withdrawal (WDL). <br>
      * WITHDRAWAL: withdrawal is fixed, not allowed to use service
      */
     public void setMemberStatusCode_Withdrawal() {
@@ -153,7 +154,7 @@ public abstract class BsSpResultSetParameterMoreCurMember extends AbstractEntity
     }
 
     /**
-     * Set the value of memberStatusCode as Provisional (PRV). <br />
+     * Set the value of memberStatusCode as Provisional (PRV). <br>
      * PROVISIONAL: first status after entry, allowed to use only part of service
      */
     public void setMemberStatusCode_Provisional() {
@@ -164,7 +165,7 @@ public abstract class BsSpResultSetParameterMoreCurMember extends AbstractEntity
     //                                                        Classification Determination
     //                                                        ============================
     /**
-     * Is the value of memberStatusCode Formalized? <br />
+     * Is the value of memberStatusCode Formalized? <br>
      * FORMALIZED: as formal member, allowed to use all service
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -175,7 +176,7 @@ public abstract class BsSpResultSetParameterMoreCurMember extends AbstractEntity
     }
 
     /**
-     * Is the value of memberStatusCode Withdrawal? <br />
+     * Is the value of memberStatusCode Withdrawal? <br>
      * WITHDRAWAL: withdrawal is fixed, not allowed to use service
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -186,7 +187,7 @@ public abstract class BsSpResultSetParameterMoreCurMember extends AbstractEntity
     }
 
     /**
-     * Is the value of memberStatusCode Provisional? <br />
+     * Is the value of memberStatusCode Provisional? <br>
      * PROVISIONAL: first status after entry, allowed to use only part of service
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -270,8 +271,8 @@ public abstract class BsSpResultSetParameterMoreCurMember extends AbstractEntity
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] (会員ID)member_id: {serial(10), refers to member.member_id} <br />
-     * 会員を識別するID。連番として自動採番される。<br />
+     * [get] (会員ID)member_id: {serial(10), refers to member.member_id} <br>
+     * 会員を識別するID。連番として自動採番される。<br>
      * （会員IDだけに限らず）採番方法はDBMS次第。
      * @return The value of the column 'member_id'. (NullAllowed even if selected: for no constraint)
      */
@@ -281,8 +282,8 @@ public abstract class BsSpResultSetParameterMoreCurMember extends AbstractEntity
     }
 
     /**
-     * [set] (会員ID)member_id: {serial(10), refers to member.member_id} <br />
-     * 会員を識別するID。連番として自動採番される。<br />
+     * [set] (会員ID)member_id: {serial(10), refers to member.member_id} <br>
+     * 会員を識別するID。連番として自動採番される。<br>
      * （会員IDだけに限らず）採番方法はDBMS次第。
      * @param memberId The value of the column 'member_id'. (NullAllowed: null update allowed for no constraint)
      */
@@ -292,8 +293,8 @@ public abstract class BsSpResultSetParameterMoreCurMember extends AbstractEntity
     }
 
     /**
-     * [get] (会員名称)member_name: {varchar(200), refers to member.member_name} <br />
-     * 会員のフルネームの名称。<br />
+     * [get] (会員名称)member_name: {varchar(200), refers to member.member_name} <br>
+     * 会員のフルネームの名称。<br>
      * 苗字と名前を分けて管理することも多いが、ここでは Example なので単純にひとまとめ。
      * @return The value of the column 'member_name'. (NullAllowed even if selected: for no constraint)
      */
@@ -303,8 +304,8 @@ public abstract class BsSpResultSetParameterMoreCurMember extends AbstractEntity
     }
 
     /**
-     * [set] (会員名称)member_name: {varchar(200), refers to member.member_name} <br />
-     * 会員のフルネームの名称。<br />
+     * [set] (会員名称)member_name: {varchar(200), refers to member.member_name} <br>
+     * 会員のフルネームの名称。<br>
      * 苗字と名前を分けて管理することも多いが、ここでは Example なので単純にひとまとめ。
      * @param memberName The value of the column 'member_name'. (NullAllowed: null update allowed for no constraint)
      */
@@ -314,7 +315,7 @@ public abstract class BsSpResultSetParameterMoreCurMember extends AbstractEntity
     }
 
     /**
-     * [get] (生年月日)birthdate: {date(13), refers to member.birthdate} <br />
+     * [get] (生年月日)birthdate: {date(13), refers to member.birthdate} <br>
      * 必須項目ではないので、このデータがない会員もいる。
      * @return The value of the column 'birthdate'. (NullAllowed even if selected: for no constraint)
      */
@@ -324,7 +325,7 @@ public abstract class BsSpResultSetParameterMoreCurMember extends AbstractEntity
     }
 
     /**
-     * [set] (生年月日)birthdate: {date(13), refers to member.birthdate} <br />
+     * [set] (生年月日)birthdate: {date(13), refers to member.birthdate} <br>
      * 必須項目ではないので、このデータがない会員もいる。
      * @param birthdate The value of the column 'birthdate'. (NullAllowed: null update allowed for no constraint)
      */
@@ -334,8 +335,8 @@ public abstract class BsSpResultSetParameterMoreCurMember extends AbstractEntity
     }
 
     /**
-     * [get] (正式会員日時)formalized_datetime: {timestamp(26, 3), refers to member.formalized_datetime} <br />
-     * 会員が正式に確定した日時。<br />
+     * [get] (正式会員日時)formalized_datetime: {timestamp(26, 3), refers to member.formalized_datetime} <br>
+     * 会員が正式に確定した日時。<br>
      * 一度確定したら更新されない。
      * @return The value of the column 'formalized_datetime'. (NullAllowed even if selected: for no constraint)
      */
@@ -345,8 +346,8 @@ public abstract class BsSpResultSetParameterMoreCurMember extends AbstractEntity
     }
 
     /**
-     * [set] (正式会員日時)formalized_datetime: {timestamp(26, 3), refers to member.formalized_datetime} <br />
-     * 会員が正式に確定した日時。<br />
+     * [set] (正式会員日時)formalized_datetime: {timestamp(26, 3), refers to member.formalized_datetime} <br>
+     * 会員が正式に確定した日時。<br>
      * 一度確定したら更新されない。
      * @param formalizedDatetime The value of the column 'formalized_datetime'. (NullAllowed: null update allowed for no constraint)
      */
@@ -356,8 +357,8 @@ public abstract class BsSpResultSetParameterMoreCurMember extends AbstractEntity
     }
 
     /**
-     * [get] (会員ステータスコード)member_status_code: {bpchar(3), refers to member.member_status_code, classification=MemberStatus} <br />
-     * 会員ステータスを参照するコード。<br />
+     * [get] (会員ステータスコード)member_status_code: {bpchar(3), refers to member.member_status_code, classification=MemberStatus} <br>
+     * 会員ステータスを参照するコード。<br>
      * ステータスが変わるたびに、このカラムが更新される。
      * @return The value of the column 'member_status_code'. (NullAllowed even if selected: for no constraint)
      */
@@ -367,8 +368,8 @@ public abstract class BsSpResultSetParameterMoreCurMember extends AbstractEntity
     }
 
     /**
-     * [set] (会員ステータスコード)member_status_code: {bpchar(3), refers to member.member_status_code, classification=MemberStatus} <br />
-     * 会員ステータスを参照するコード。<br />
+     * [set] (会員ステータスコード)member_status_code: {bpchar(3), refers to member.member_status_code, classification=MemberStatus} <br>
+     * 会員ステータスを参照するコード。<br>
      * ステータスが変わるたびに、このカラムが更新される。
      * @param memberStatusCode The value of the column 'member_status_code'. (NullAllowed: null update allowed for no constraint)
      */

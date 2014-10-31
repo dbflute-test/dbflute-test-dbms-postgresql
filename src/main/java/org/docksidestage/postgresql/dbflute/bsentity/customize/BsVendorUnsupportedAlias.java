@@ -5,10 +5,11 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.CustomizeEntity;
 import org.docksidestage.postgresql.dbflute.exentity.customize.*;
 
 /**
- * The entity of VendorUnsupportedAlias. <br />
+ * The entity of VendorUnsupportedAlias. <br>
  * <pre>
  * [primary-key]
  *     
@@ -51,7 +52,7 @@ import org.docksidestage.postgresql.dbflute.exentity.customize.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsVendorUnsupportedAlias extends AbstractEntity {
+public abstract class BsVendorUnsupportedAlias extends AbstractEntity implements CustomizeEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -174,7 +175,7 @@ public abstract class BsVendorUnsupportedAlias extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] vendor_check_id: {numeric(16), refers to vendor_check.vendor_check_id} <br />
+     * [get] vendor_check_id: {numeric(16), refers to vendor_check.vendor_check_id} <br>
      * @return The value of the column 'vendor_check_id'. (NullAllowed even if selected: for no constraint)
      */
     public Long getVendorCheckId() {
@@ -183,7 +184,7 @@ public abstract class BsVendorUnsupportedAlias extends AbstractEntity {
     }
 
     /**
-     * [set] vendor_check_id: {numeric(16), refers to vendor_check.vendor_check_id} <br />
+     * [set] vendor_check_id: {numeric(16), refers to vendor_check.vendor_check_id} <br>
      * @param vendorCheckId The value of the column 'vendor_check_id'. (NullAllowed: null update allowed for no constraint)
      */
     public void setVendorCheckId(Long vendorCheckId) {
@@ -192,7 +193,7 @@ public abstract class BsVendorUnsupportedAlias extends AbstractEntity {
     }
 
     /**
-     * [get] HYPHEN-EXISTS: {varchar(2147483647), refers to vendor_check} <br />
+     * [get] HYPHEN-EXISTS: {varchar(2147483647), refers to vendor_check} <br>
      * @return The value of the column 'HYPHEN-EXISTS'. (NullAllowed even if selected: for no constraint)
      */
     public String getHyphen_exists() {
@@ -201,7 +202,7 @@ public abstract class BsVendorUnsupportedAlias extends AbstractEntity {
     }
 
     /**
-     * [set] HYPHEN-EXISTS: {varchar(2147483647), refers to vendor_check} <br />
+     * [set] HYPHEN-EXISTS: {varchar(2147483647), refers to vendor_check} <br>
      * @param hyphen_exists The value of the column 'HYPHEN-EXISTS'. (NullAllowed: null update allowed for no constraint)
      */
     public void setHyphen_exists(String hyphen_exists) {
@@ -210,7 +211,7 @@ public abstract class BsVendorUnsupportedAlias extends AbstractEntity {
     }
 
     /**
-     * [get] SPACE EXISTS: {int4(10), refers to vendor_check} <br />
+     * [get] SPACE EXISTS: {int4(10), refers to vendor_check} <br>
      * @return The value of the column 'SPACE EXISTS'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getSpace_exists() {
@@ -219,7 +220,7 @@ public abstract class BsVendorUnsupportedAlias extends AbstractEntity {
     }
 
     /**
-     * [set] SPACE EXISTS: {int4(10), refers to vendor_check} <br />
+     * [set] SPACE EXISTS: {int4(10), refers to vendor_check} <br>
      * @param space_exists The value of the column 'SPACE EXISTS'. (NullAllowed: null update allowed for no constraint)
      */
     public void setSpace_exists(Integer space_exists) {
@@ -228,7 +229,7 @@ public abstract class BsVendorUnsupportedAlias extends AbstractEntity {
     }
 
     /**
-     * [get] DOLLAR$EXISTS: {date(13), refers to vendor_check} <br />
+     * [get] DOLLAR$EXISTS: {date(13), refers to vendor_check} <br>
      * @return The value of the column 'DOLLAR$EXISTS'. (NullAllowed even if selected: for no constraint)
      */
     public java.util.Date getDollar$exists() {
@@ -237,7 +238,7 @@ public abstract class BsVendorUnsupportedAlias extends AbstractEntity {
     }
 
     /**
-     * [set] DOLLAR$EXISTS: {date(13), refers to vendor_check} <br />
+     * [set] DOLLAR$EXISTS: {date(13), refers to vendor_check} <br>
      * @param dollar$exists The value of the column 'DOLLAR$EXISTS'. (NullAllowed: null update allowed for no constraint)
      */
     public void setDollar$exists(java.util.Date dollar$exists) {

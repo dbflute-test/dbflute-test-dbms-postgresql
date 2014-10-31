@@ -47,7 +47,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     //                                                                               Query
     //                                                                               =====
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * vendor_check_id: {PK, NotNull, numeric(16)}
      * @param vendorCheckId The value of vendorCheckId as equal. (NullAllowed: if null, no condition)
      */
@@ -60,7 +60,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * vendor_check_id: {PK, NotNull, numeric(16)}
      * @param vendorCheckId The value of vendorCheckId as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -69,7 +69,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * vendor_check_id: {PK, NotNull, numeric(16)}
      * @param vendorCheckId The value of vendorCheckId as lessThan. (NullAllowed: if null, no condition)
      */
@@ -78,7 +78,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * vendor_check_id: {PK, NotNull, numeric(16)}
      * @param vendorCheckId The value of vendorCheckId as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -87,7 +87,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * vendor_check_id: {PK, NotNull, numeric(16)}
      * @param vendorCheckId The value of vendorCheckId as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -96,9 +96,9 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * vendor_check_id: {PK, NotNull, numeric(16)}
      * @param minNumber The min number of vendorCheckId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of vendorCheckId. (NullAllowed: if null, no to-condition)
@@ -109,9 +109,9 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * vendor_check_id: {PK, NotNull, numeric(16)}
      * @param minNumber The min number of vendorCheckId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of vendorCheckId. (NullAllowed: if null, no to-condition)
@@ -122,7 +122,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * vendor_check_id: {PK, NotNull, numeric(16)}
      * @param vendorCheckIdList The collection of vendorCheckId as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -135,7 +135,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * vendor_check_id: {PK, NotNull, numeric(16)}
      * @param vendorCheckIdList The collection of vendorCheckId as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -148,13 +148,13 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * vendor_check_id: {PK, NotNull, numeric(16)}
      */
     public void setVendorCheckId_IsNull() { regVendorCheckId(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * vendor_check_id: {PK, NotNull, numeric(16)}
      */
     public void setVendorCheckId_IsNotNull() { regVendorCheckId(CK_ISNN, DOBJ); }
@@ -163,7 +163,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     protected abstract ConditionValue xgetCValueVendorCheckId();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * type_of_char: {bpchar(3)}
      * @param typeOfChar The value of typeOfChar as equal. (NullAllowed: if null (or empty), no condition)
      */
@@ -176,7 +176,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * type_of_char: {bpchar(3)}
      * @param typeOfChar The value of typeOfChar as notEqual. (NullAllowed: if null (or empty), no condition)
      */
@@ -189,7 +189,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * type_of_char: {bpchar(3)}
      * @param typeOfCharList The collection of typeOfChar as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -202,7 +202,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * type_of_char: {bpchar(3)}
      * @param typeOfCharList The collection of typeOfChar as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -215,8 +215,8 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * type_of_char: {bpchar(3)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * type_of_char: {bpchar(3)} <br>
      * <pre>e.g. setTypeOfChar_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param typeOfChar The value of typeOfChar as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -226,8 +226,8 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * type_of_char: {bpchar(3)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * type_of_char: {bpchar(3)} <br>
      * <pre>e.g. setTypeOfChar_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param typeOfChar The value of typeOfChar as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
@@ -237,8 +237,8 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * type_of_char: {bpchar(3)}
      * @param typeOfChar The value of typeOfChar as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -248,8 +248,8 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * type_of_char: {bpchar(3)}
      * @param typeOfChar The value of typeOfChar as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of not-like-search. (NotNull)
@@ -259,7 +259,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * type_of_char: {bpchar(3)}
      * @param typeOfChar The value of typeOfChar as prefixSearch. (NullAllowed: if null (or empty), no condition)
      */
@@ -268,19 +268,19 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * type_of_char: {bpchar(3)}
      */
     public void setTypeOfChar_IsNull() { regTypeOfChar(CK_ISN, DOBJ); }
 
     /**
-     * IsNullOrEmpty {is null or empty}. And OnlyOnceRegistered. <br />
+     * IsNullOrEmpty {is null or empty}. And OnlyOnceRegistered. <br>
      * type_of_char: {bpchar(3)}
      */
     public void setTypeOfChar_IsNullOrEmpty() { regTypeOfChar(CK_ISNOE, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * type_of_char: {bpchar(3)}
      */
     public void setTypeOfChar_IsNotNull() { regTypeOfChar(CK_ISNN, DOBJ); }
@@ -289,7 +289,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     protected abstract ConditionValue xgetCValueTypeOfChar();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * type_of_varchar: {varchar(2147483647)}
      * @param typeOfVarchar The value of typeOfVarchar as equal. (NullAllowed: if null (or empty), no condition)
      */
@@ -302,7 +302,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * type_of_varchar: {varchar(2147483647)}
      * @param typeOfVarchar The value of typeOfVarchar as notEqual. (NullAllowed: if null (or empty), no condition)
      */
@@ -315,7 +315,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * type_of_varchar: {varchar(2147483647)}
      * @param typeOfVarcharList The collection of typeOfVarchar as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -328,7 +328,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * type_of_varchar: {varchar(2147483647)}
      * @param typeOfVarcharList The collection of typeOfVarchar as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -341,8 +341,8 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * type_of_varchar: {varchar(2147483647)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * type_of_varchar: {varchar(2147483647)} <br>
      * <pre>e.g. setTypeOfVarchar_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param typeOfVarchar The value of typeOfVarchar as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -352,8 +352,8 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * type_of_varchar: {varchar(2147483647)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * type_of_varchar: {varchar(2147483647)} <br>
      * <pre>e.g. setTypeOfVarchar_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param typeOfVarchar The value of typeOfVarchar as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
@@ -363,8 +363,8 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * type_of_varchar: {varchar(2147483647)}
      * @param typeOfVarchar The value of typeOfVarchar as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -374,8 +374,8 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * type_of_varchar: {varchar(2147483647)}
      * @param typeOfVarchar The value of typeOfVarchar as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of not-like-search. (NotNull)
@@ -385,7 +385,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * type_of_varchar: {varchar(2147483647)}
      * @param typeOfVarchar The value of typeOfVarchar as prefixSearch. (NullAllowed: if null (or empty), no condition)
      */
@@ -394,19 +394,19 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * type_of_varchar: {varchar(2147483647)}
      */
     public void setTypeOfVarchar_IsNull() { regTypeOfVarchar(CK_ISN, DOBJ); }
 
     /**
-     * IsNullOrEmpty {is null or empty}. And OnlyOnceRegistered. <br />
+     * IsNullOrEmpty {is null or empty}. And OnlyOnceRegistered. <br>
      * type_of_varchar: {varchar(2147483647)}
      */
     public void setTypeOfVarchar_IsNullOrEmpty() { regTypeOfVarchar(CK_ISNOE, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * type_of_varchar: {varchar(2147483647)}
      */
     public void setTypeOfVarchar_IsNotNull() { regTypeOfVarchar(CK_ISNN, DOBJ); }
@@ -416,13 +416,13 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
 
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * type_of_vc_array: {_varchar(2147483647)}
      */
     public void setTypeOfVcArray_IsNull() { regTypeOfVcArray(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * type_of_vc_array: {_varchar(2147483647)}
      */
     public void setTypeOfVcArray_IsNotNull() { regTypeOfVcArray(CK_ISNN, DOBJ); }
@@ -431,7 +431,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     protected abstract ConditionValue xgetCValueTypeOfVcArray();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * type_of_text: {text(2147483647)}
      * @param typeOfText The value of typeOfText as equal. (NullAllowed: if null (or empty), no condition)
      */
@@ -444,7 +444,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * type_of_text: {text(2147483647)}
      * @param typeOfText The value of typeOfText as notEqual. (NullAllowed: if null (or empty), no condition)
      */
@@ -457,7 +457,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * type_of_text: {text(2147483647)}
      * @param typeOfTextList The collection of typeOfText as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -470,7 +470,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * type_of_text: {text(2147483647)}
      * @param typeOfTextList The collection of typeOfText as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -483,8 +483,8 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * type_of_text: {text(2147483647)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * type_of_text: {text(2147483647)} <br>
      * <pre>e.g. setTypeOfText_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param typeOfText The value of typeOfText as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -494,8 +494,8 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * type_of_text: {text(2147483647)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * type_of_text: {text(2147483647)} <br>
      * <pre>e.g. setTypeOfText_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param typeOfText The value of typeOfText as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
@@ -505,8 +505,8 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * type_of_text: {text(2147483647)}
      * @param typeOfText The value of typeOfText as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -516,8 +516,8 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * type_of_text: {text(2147483647)}
      * @param typeOfText The value of typeOfText as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of not-like-search. (NotNull)
@@ -527,7 +527,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * type_of_text: {text(2147483647)}
      * @param typeOfText The value of typeOfText as prefixSearch. (NullAllowed: if null (or empty), no condition)
      */
@@ -536,19 +536,19 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * type_of_text: {text(2147483647)}
      */
     public void setTypeOfText_IsNull() { regTypeOfText(CK_ISN, DOBJ); }
 
     /**
-     * IsNullOrEmpty {is null or empty}. And OnlyOnceRegistered. <br />
+     * IsNullOrEmpty {is null or empty}. And OnlyOnceRegistered. <br>
      * type_of_text: {text(2147483647)}
      */
     public void setTypeOfText_IsNullOrEmpty() { regTypeOfText(CK_ISNOE, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * type_of_text: {text(2147483647)}
      */
     public void setTypeOfText_IsNotNull() { regTypeOfText(CK_ISNN, DOBJ); }
@@ -557,7 +557,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     protected abstract ConditionValue xgetCValueTypeOfText();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_numeric_integer: {numeric(5)}
      * @param typeOfNumericInteger The value of typeOfNumericInteger as equal. (NullAllowed: if null, no condition)
      */
@@ -570,7 +570,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_numeric_integer: {numeric(5)}
      * @param typeOfNumericInteger The value of typeOfNumericInteger as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -579,7 +579,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_numeric_integer: {numeric(5)}
      * @param typeOfNumericInteger The value of typeOfNumericInteger as lessThan. (NullAllowed: if null, no condition)
      */
@@ -588,7 +588,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_numeric_integer: {numeric(5)}
      * @param typeOfNumericInteger The value of typeOfNumericInteger as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -597,7 +597,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_numeric_integer: {numeric(5)}
      * @param typeOfNumericInteger The value of typeOfNumericInteger as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -606,9 +606,9 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_numeric_integer: {numeric(5)}
      * @param minNumber The min number of typeOfNumericInteger. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of typeOfNumericInteger. (NullAllowed: if null, no to-condition)
@@ -619,9 +619,9 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_numeric_integer: {numeric(5)}
      * @param minNumber The min number of typeOfNumericInteger. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of typeOfNumericInteger. (NullAllowed: if null, no to-condition)
@@ -632,7 +632,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * type_of_numeric_integer: {numeric(5)}
      * @param typeOfNumericIntegerList The collection of typeOfNumericInteger as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -645,7 +645,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * type_of_numeric_integer: {numeric(5)}
      * @param typeOfNumericIntegerList The collection of typeOfNumericInteger as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -658,13 +658,13 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * type_of_numeric_integer: {numeric(5)}
      */
     public void setTypeOfNumericInteger_IsNull() { regTypeOfNumericInteger(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * type_of_numeric_integer: {numeric(5)}
      */
     public void setTypeOfNumericInteger_IsNotNull() { regTypeOfNumericInteger(CK_ISNN, DOBJ); }
@@ -673,7 +673,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     protected abstract ConditionValue xgetCValueTypeOfNumericInteger();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_numeric_bigint: {numeric(12)}
      * @param typeOfNumericBigint The value of typeOfNumericBigint as equal. (NullAllowed: if null, no condition)
      */
@@ -686,7 +686,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_numeric_bigint: {numeric(12)}
      * @param typeOfNumericBigint The value of typeOfNumericBigint as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -695,7 +695,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_numeric_bigint: {numeric(12)}
      * @param typeOfNumericBigint The value of typeOfNumericBigint as lessThan. (NullAllowed: if null, no condition)
      */
@@ -704,7 +704,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_numeric_bigint: {numeric(12)}
      * @param typeOfNumericBigint The value of typeOfNumericBigint as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -713,7 +713,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_numeric_bigint: {numeric(12)}
      * @param typeOfNumericBigint The value of typeOfNumericBigint as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -722,9 +722,9 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_numeric_bigint: {numeric(12)}
      * @param minNumber The min number of typeOfNumericBigint. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of typeOfNumericBigint. (NullAllowed: if null, no to-condition)
@@ -735,9 +735,9 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_numeric_bigint: {numeric(12)}
      * @param minNumber The min number of typeOfNumericBigint. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of typeOfNumericBigint. (NullAllowed: if null, no to-condition)
@@ -748,7 +748,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * type_of_numeric_bigint: {numeric(12)}
      * @param typeOfNumericBigintList The collection of typeOfNumericBigint as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -761,7 +761,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * type_of_numeric_bigint: {numeric(12)}
      * @param typeOfNumericBigintList The collection of typeOfNumericBigint as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -774,13 +774,13 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * type_of_numeric_bigint: {numeric(12)}
      */
     public void setTypeOfNumericBigint_IsNull() { regTypeOfNumericBigint(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * type_of_numeric_bigint: {numeric(12)}
      */
     public void setTypeOfNumericBigint_IsNotNull() { regTypeOfNumericBigint(CK_ISNN, DOBJ); }
@@ -789,7 +789,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     protected abstract ConditionValue xgetCValueTypeOfNumericBigint();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_numeric_decimal: {numeric(5, 3)}
      * @param typeOfNumericDecimal The value of typeOfNumericDecimal as equal. (NullAllowed: if null, no condition)
      */
@@ -802,7 +802,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_numeric_decimal: {numeric(5, 3)}
      * @param typeOfNumericDecimal The value of typeOfNumericDecimal as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -811,7 +811,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_numeric_decimal: {numeric(5, 3)}
      * @param typeOfNumericDecimal The value of typeOfNumericDecimal as lessThan. (NullAllowed: if null, no condition)
      */
@@ -820,7 +820,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_numeric_decimal: {numeric(5, 3)}
      * @param typeOfNumericDecimal The value of typeOfNumericDecimal as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -829,7 +829,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_numeric_decimal: {numeric(5, 3)}
      * @param typeOfNumericDecimal The value of typeOfNumericDecimal as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -838,9 +838,9 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_numeric_decimal: {numeric(5, 3)}
      * @param minNumber The min number of typeOfNumericDecimal. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of typeOfNumericDecimal. (NullAllowed: if null, no to-condition)
@@ -851,9 +851,9 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_numeric_decimal: {numeric(5, 3)}
      * @param minNumber The min number of typeOfNumericDecimal. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of typeOfNumericDecimal. (NullAllowed: if null, no to-condition)
@@ -864,7 +864,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * type_of_numeric_decimal: {numeric(5, 3)}
      * @param typeOfNumericDecimalList The collection of typeOfNumericDecimal as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -877,7 +877,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * type_of_numeric_decimal: {numeric(5, 3)}
      * @param typeOfNumericDecimalList The collection of typeOfNumericDecimal as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -890,13 +890,13 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * type_of_numeric_decimal: {numeric(5, 3)}
      */
     public void setTypeOfNumericDecimal_IsNull() { regTypeOfNumericDecimal(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * type_of_numeric_decimal: {numeric(5, 3)}
      */
     public void setTypeOfNumericDecimal_IsNotNull() { regTypeOfNumericDecimal(CK_ISNN, DOBJ); }
@@ -905,7 +905,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     protected abstract ConditionValue xgetCValueTypeOfNumericDecimal();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_decimal: {numeric(131089)}
      * @param typeOfDecimal The value of typeOfDecimal as equal. (NullAllowed: if null, no condition)
      */
@@ -918,7 +918,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_decimal: {numeric(131089)}
      * @param typeOfDecimal The value of typeOfDecimal as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -927,7 +927,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_decimal: {numeric(131089)}
      * @param typeOfDecimal The value of typeOfDecimal as lessThan. (NullAllowed: if null, no condition)
      */
@@ -936,7 +936,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_decimal: {numeric(131089)}
      * @param typeOfDecimal The value of typeOfDecimal as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -945,7 +945,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_decimal: {numeric(131089)}
      * @param typeOfDecimal The value of typeOfDecimal as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -954,9 +954,9 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_decimal: {numeric(131089)}
      * @param minNumber The min number of typeOfDecimal. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of typeOfDecimal. (NullAllowed: if null, no to-condition)
@@ -967,9 +967,9 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_decimal: {numeric(131089)}
      * @param minNumber The min number of typeOfDecimal. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of typeOfDecimal. (NullAllowed: if null, no to-condition)
@@ -980,7 +980,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * type_of_decimal: {numeric(131089)}
      * @param typeOfDecimalList The collection of typeOfDecimal as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -993,7 +993,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * type_of_decimal: {numeric(131089)}
      * @param typeOfDecimalList The collection of typeOfDecimal as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -1006,13 +1006,13 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * type_of_decimal: {numeric(131089)}
      */
     public void setTypeOfDecimal_IsNull() { regTypeOfDecimal(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * type_of_decimal: {numeric(131089)}
      */
     public void setTypeOfDecimal_IsNotNull() { regTypeOfDecimal(CK_ISNN, DOBJ); }
@@ -1021,7 +1021,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     protected abstract ConditionValue xgetCValueTypeOfDecimal();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_int8: {int8(19)}
      * @param typeOfInt8 The value of typeOfInt8 as equal. (NullAllowed: if null, no condition)
      */
@@ -1034,7 +1034,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_int8: {int8(19)}
      * @param typeOfInt8 The value of typeOfInt8 as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -1043,7 +1043,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_int8: {int8(19)}
      * @param typeOfInt8 The value of typeOfInt8 as lessThan. (NullAllowed: if null, no condition)
      */
@@ -1052,7 +1052,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_int8: {int8(19)}
      * @param typeOfInt8 The value of typeOfInt8 as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -1061,7 +1061,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_int8: {int8(19)}
      * @param typeOfInt8 The value of typeOfInt8 as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -1070,9 +1070,9 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_int8: {int8(19)}
      * @param minNumber The min number of typeOfInt8. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of typeOfInt8. (NullAllowed: if null, no to-condition)
@@ -1083,9 +1083,9 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_int8: {int8(19)}
      * @param minNumber The min number of typeOfInt8. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of typeOfInt8. (NullAllowed: if null, no to-condition)
@@ -1096,7 +1096,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * type_of_int8: {int8(19)}
      * @param typeOfInt8List The collection of typeOfInt8 as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -1109,7 +1109,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * type_of_int8: {int8(19)}
      * @param typeOfInt8List The collection of typeOfInt8 as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -1122,13 +1122,13 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * type_of_int8: {int8(19)}
      */
     public void setTypeOfInt8_IsNull() { regTypeOfInt8(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * type_of_int8: {int8(19)}
      */
     public void setTypeOfInt8_IsNotNull() { regTypeOfInt8(CK_ISNN, DOBJ); }
@@ -1138,13 +1138,13 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
 
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * type_of_int_array: {_int8(19)}
      */
     public void setTypeOfIntArray_IsNull() { regTypeOfIntArray(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * type_of_int_array: {_int8(19)}
      */
     public void setTypeOfIntArray_IsNotNull() { regTypeOfIntArray(CK_ISNN, DOBJ); }
@@ -1153,7 +1153,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     protected abstract ConditionValue xgetCValueTypeOfIntArray();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_int4: {int4(10)}
      * @param typeOfInt4 The value of typeOfInt4 as equal. (NullAllowed: if null, no condition)
      */
@@ -1166,7 +1166,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_int4: {int4(10)}
      * @param typeOfInt4 The value of typeOfInt4 as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -1175,7 +1175,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_int4: {int4(10)}
      * @param typeOfInt4 The value of typeOfInt4 as lessThan. (NullAllowed: if null, no condition)
      */
@@ -1184,7 +1184,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_int4: {int4(10)}
      * @param typeOfInt4 The value of typeOfInt4 as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -1193,7 +1193,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_int4: {int4(10)}
      * @param typeOfInt4 The value of typeOfInt4 as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -1202,9 +1202,9 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_int4: {int4(10)}
      * @param minNumber The min number of typeOfInt4. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of typeOfInt4. (NullAllowed: if null, no to-condition)
@@ -1215,9 +1215,9 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_int4: {int4(10)}
      * @param minNumber The min number of typeOfInt4. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of typeOfInt4. (NullAllowed: if null, no to-condition)
@@ -1228,7 +1228,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * type_of_int4: {int4(10)}
      * @param typeOfInt4List The collection of typeOfInt4 as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -1241,7 +1241,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * type_of_int4: {int4(10)}
      * @param typeOfInt4List The collection of typeOfInt4 as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -1254,13 +1254,13 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * type_of_int4: {int4(10)}
      */
     public void setTypeOfInt4_IsNull() { regTypeOfInt4(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * type_of_int4: {int4(10)}
      */
     public void setTypeOfInt4_IsNotNull() { regTypeOfInt4(CK_ISNN, DOBJ); }
@@ -1269,7 +1269,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     protected abstract ConditionValue xgetCValueTypeOfInt4();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_bigint: {int8(19)}
      * @param typeOfBigint The value of typeOfBigint as equal. (NullAllowed: if null, no condition)
      */
@@ -1282,7 +1282,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_bigint: {int8(19)}
      * @param typeOfBigint The value of typeOfBigint as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -1291,7 +1291,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_bigint: {int8(19)}
      * @param typeOfBigint The value of typeOfBigint as lessThan. (NullAllowed: if null, no condition)
      */
@@ -1300,7 +1300,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_bigint: {int8(19)}
      * @param typeOfBigint The value of typeOfBigint as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -1309,7 +1309,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_bigint: {int8(19)}
      * @param typeOfBigint The value of typeOfBigint as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -1318,9 +1318,9 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_bigint: {int8(19)}
      * @param minNumber The min number of typeOfBigint. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of typeOfBigint. (NullAllowed: if null, no to-condition)
@@ -1331,9 +1331,9 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_bigint: {int8(19)}
      * @param minNumber The min number of typeOfBigint. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of typeOfBigint. (NullAllowed: if null, no to-condition)
@@ -1344,7 +1344,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * type_of_bigint: {int8(19)}
      * @param typeOfBigintList The collection of typeOfBigint as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -1357,7 +1357,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * type_of_bigint: {int8(19)}
      * @param typeOfBigintList The collection of typeOfBigint as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -1370,13 +1370,13 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * type_of_bigint: {int8(19)}
      */
     public void setTypeOfBigint_IsNull() { regTypeOfBigint(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * type_of_bigint: {int8(19)}
      */
     public void setTypeOfBigint_IsNotNull() { regTypeOfBigint(CK_ISNN, DOBJ); }
@@ -1385,7 +1385,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     protected abstract ConditionValue xgetCValueTypeOfBigint();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_real: {float4(8, 8)}
      * @param typeOfReal The value of typeOfReal as equal. (NullAllowed: if null, no condition)
      */
@@ -1398,7 +1398,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_real: {float4(8, 8)}
      * @param typeOfReal The value of typeOfReal as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -1407,7 +1407,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_real: {float4(8, 8)}
      * @param typeOfReal The value of typeOfReal as lessThan. (NullAllowed: if null, no condition)
      */
@@ -1416,7 +1416,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_real: {float4(8, 8)}
      * @param typeOfReal The value of typeOfReal as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -1425,7 +1425,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_real: {float4(8, 8)}
      * @param typeOfReal The value of typeOfReal as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -1434,9 +1434,9 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_real: {float4(8, 8)}
      * @param minNumber The min number of typeOfReal. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of typeOfReal. (NullAllowed: if null, no to-condition)
@@ -1447,9 +1447,9 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_real: {float4(8, 8)}
      * @param minNumber The min number of typeOfReal. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of typeOfReal. (NullAllowed: if null, no to-condition)
@@ -1460,7 +1460,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * type_of_real: {float4(8, 8)}
      * @param typeOfRealList The collection of typeOfReal as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -1473,7 +1473,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * type_of_real: {float4(8, 8)}
      * @param typeOfRealList The collection of typeOfReal as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -1486,13 +1486,13 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * type_of_real: {float4(8, 8)}
      */
     public void setTypeOfReal_IsNull() { regTypeOfReal(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * type_of_real: {float4(8, 8)}
      */
     public void setTypeOfReal_IsNotNull() { regTypeOfReal(CK_ISNN, DOBJ); }
@@ -1501,7 +1501,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     protected abstract ConditionValue xgetCValueTypeOfReal();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_float: {float8(17, 17)}
      * @param typeOfFloat The value of typeOfFloat as equal. (NullAllowed: if null, no condition)
      */
@@ -1514,7 +1514,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_float: {float8(17, 17)}
      * @param typeOfFloat The value of typeOfFloat as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -1523,7 +1523,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_float: {float8(17, 17)}
      * @param typeOfFloat The value of typeOfFloat as lessThan. (NullAllowed: if null, no condition)
      */
@@ -1532,7 +1532,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_float: {float8(17, 17)}
      * @param typeOfFloat The value of typeOfFloat as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -1541,7 +1541,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_float: {float8(17, 17)}
      * @param typeOfFloat The value of typeOfFloat as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -1550,9 +1550,9 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_float: {float8(17, 17)}
      * @param minNumber The min number of typeOfFloat. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of typeOfFloat. (NullAllowed: if null, no to-condition)
@@ -1563,9 +1563,9 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_float: {float8(17, 17)}
      * @param minNumber The min number of typeOfFloat. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of typeOfFloat. (NullAllowed: if null, no to-condition)
@@ -1576,7 +1576,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * type_of_float: {float8(17, 17)}
      * @param typeOfFloatList The collection of typeOfFloat as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -1589,7 +1589,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * type_of_float: {float8(17, 17)}
      * @param typeOfFloatList The collection of typeOfFloat as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -1602,13 +1602,13 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * type_of_float: {float8(17, 17)}
      */
     public void setTypeOfFloat_IsNull() { regTypeOfFloat(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * type_of_float: {float8(17, 17)}
      */
     public void setTypeOfFloat_IsNotNull() { regTypeOfFloat(CK_ISNN, DOBJ); }
@@ -1617,7 +1617,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     protected abstract ConditionValue xgetCValueTypeOfFloat();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_money: {money(2147483647)}
      * @param typeOfMoney The value of typeOfMoney as equal. (NullAllowed: if null, no condition)
      */
@@ -1630,7 +1630,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_money: {money(2147483647)}
      * @param typeOfMoney The value of typeOfMoney as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -1639,7 +1639,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_money: {money(2147483647)}
      * @param typeOfMoney The value of typeOfMoney as lessThan. (NullAllowed: if null, no condition)
      */
@@ -1648,7 +1648,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_money: {money(2147483647)}
      * @param typeOfMoney The value of typeOfMoney as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -1657,7 +1657,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_money: {money(2147483647)}
      * @param typeOfMoney The value of typeOfMoney as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -1666,9 +1666,9 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_money: {money(2147483647)}
      * @param minNumber The min number of typeOfMoney. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of typeOfMoney. (NullAllowed: if null, no to-condition)
@@ -1679,9 +1679,9 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_money: {money(2147483647)}
      * @param minNumber The min number of typeOfMoney. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of typeOfMoney. (NullAllowed: if null, no to-condition)
@@ -1692,7 +1692,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * type_of_money: {money(2147483647)}
      * @param typeOfMoneyList The collection of typeOfMoney as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -1705,7 +1705,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * type_of_money: {money(2147483647)}
      * @param typeOfMoneyList The collection of typeOfMoney as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -1718,13 +1718,13 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * type_of_money: {money(2147483647)}
      */
     public void setTypeOfMoney_IsNull() { regTypeOfMoney(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * type_of_money: {money(2147483647)}
      */
     public void setTypeOfMoney_IsNotNull() { regTypeOfMoney(CK_ISNN, DOBJ); }
@@ -1733,7 +1733,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     protected abstract ConditionValue xgetCValueTypeOfMoney();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_date: {date(13)}
      * @param typeOfDate The value of typeOfDate as equal. (NullAllowed: if null, no condition)
      */
@@ -1742,7 +1742,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_date: {date(13)}
      * @param typeOfDate The value of typeOfDate as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -1751,7 +1751,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_date: {date(13)}
      * @param typeOfDate The value of typeOfDate as lessThan. (NullAllowed: if null, no condition)
      */
@@ -1760,7 +1760,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_date: {date(13)}
      * @param typeOfDate The value of typeOfDate as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -1769,7 +1769,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_date: {date(13)}
      * @param typeOfDate The value of typeOfDate as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -1778,8 +1778,8 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_date: {date(13)}
      * <pre>e.g. setTypeOfDate_FromTo(fromDate, toDate, op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">compareAsDate()</span>);</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of typeOfDate. (NullAllowed: if null, no from-condition)
@@ -1791,8 +1791,8 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_date: {date(13)}
      * <pre>e.g. setTypeOfDate_FromTo(fromDate, toDate, new <span style="color: #CC4747">FromToOption</span>().compareAsDate());</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of typeOfDate. (NullAllowed: if null, no from-condition)
@@ -1804,8 +1804,8 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_date: {date(13)}
      * <pre>
      * e.g. from:{2007/04/10 08:24:53} to:{2007/04/16 14:36:29}
@@ -1819,13 +1819,13 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * type_of_date: {date(13)}
      */
     public void setTypeOfDate_IsNull() { regTypeOfDate(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * type_of_date: {date(13)}
      */
     public void setTypeOfDate_IsNotNull() { regTypeOfDate(CK_ISNN, DOBJ); }
@@ -1834,7 +1834,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     protected abstract ConditionValue xgetCValueTypeOfDate();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_timestamp: {timestamp(29, 6)}
      * @param typeOfTimestamp The value of typeOfTimestamp as equal. (NullAllowed: if null, no condition)
      */
@@ -1843,7 +1843,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_timestamp: {timestamp(29, 6)}
      * @param typeOfTimestamp The value of typeOfTimestamp as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -1852,7 +1852,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_timestamp: {timestamp(29, 6)}
      * @param typeOfTimestamp The value of typeOfTimestamp as lessThan. (NullAllowed: if null, no condition)
      */
@@ -1861,7 +1861,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_timestamp: {timestamp(29, 6)}
      * @param typeOfTimestamp The value of typeOfTimestamp as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -1870,7 +1870,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_timestamp: {timestamp(29, 6)}
      * @param typeOfTimestamp The value of typeOfTimestamp as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -1879,8 +1879,8 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_timestamp: {timestamp(29, 6)}
      * <pre>e.g. setTypeOfTimestamp_FromTo(fromDate, toDate, op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">compareAsDate()</span>);</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of typeOfTimestamp. (NullAllowed: if null, no from-condition)
@@ -1892,8 +1892,8 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_timestamp: {timestamp(29, 6)}
      * <pre>e.g. setTypeOfTimestamp_FromTo(fromDate, toDate, new <span style="color: #CC4747">FromToOption</span>().compareAsDate());</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of typeOfTimestamp. (NullAllowed: if null, no from-condition)
@@ -1905,8 +1905,8 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_timestamp: {timestamp(29, 6)}
      * <pre>
      * e.g. from:{2007/04/10 08:24:53} to:{2007/04/16 14:36:29}
@@ -1920,13 +1920,13 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * type_of_timestamp: {timestamp(29, 6)}
      */
     public void setTypeOfTimestamp_IsNull() { regTypeOfTimestamp(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * type_of_timestamp: {timestamp(29, 6)}
      */
     public void setTypeOfTimestamp_IsNotNull() { regTypeOfTimestamp(CK_ISNN, DOBJ); }
@@ -1935,7 +1935,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     protected abstract ConditionValue xgetCValueTypeOfTimestamp();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_time: {time(15, 6)}
      * @param typeOfTime The value of typeOfTime as equal. (NullAllowed: if null, no condition)
      */
@@ -1944,7 +1944,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_time: {time(15, 6)}
      * @param typeOfTime The value of typeOfTime as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -1953,7 +1953,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_time: {time(15, 6)}
      * @param typeOfTime The value of typeOfTime as lessThan. (NullAllowed: if null, no condition)
      */
@@ -1962,7 +1962,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_time: {time(15, 6)}
      * @param typeOfTime The value of typeOfTime as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -1971,7 +1971,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_time: {time(15, 6)}
      * @param typeOfTime The value of typeOfTime as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -1980,13 +1980,13 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * type_of_time: {time(15, 6)}
      */
     public void setTypeOfTime_IsNull() { regTypeOfTime(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * type_of_time: {time(15, 6)}
      */
     public void setTypeOfTime_IsNotNull() { regTypeOfTime(CK_ISNN, DOBJ); }
@@ -1995,7 +1995,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     protected abstract ConditionValue xgetCValueTypeOfTime();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_timetz: {timetz(21, 6)}
      * @param typeOfTimetz The value of typeOfTimetz as equal. (NullAllowed: if null, no condition)
      */
@@ -2004,7 +2004,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_timetz: {timetz(21, 6)}
      * @param typeOfTimetz The value of typeOfTimetz as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -2013,7 +2013,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_timetz: {timetz(21, 6)}
      * @param typeOfTimetz The value of typeOfTimetz as lessThan. (NullAllowed: if null, no condition)
      */
@@ -2022,7 +2022,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_timetz: {timetz(21, 6)}
      * @param typeOfTimetz The value of typeOfTimetz as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -2031,7 +2031,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_timetz: {timetz(21, 6)}
      * @param typeOfTimetz The value of typeOfTimetz as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -2040,13 +2040,13 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * type_of_timetz: {timetz(21, 6)}
      */
     public void setTypeOfTimetz_IsNull() { regTypeOfTimetz(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * type_of_timetz: {timetz(21, 6)}
      */
     public void setTypeOfTimetz_IsNotNull() { regTypeOfTimetz(CK_ISNN, DOBJ); }
@@ -2055,7 +2055,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     protected abstract ConditionValue xgetCValueTypeOfTimetz();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * type_of_interval: {interval(49, 6)}
      * @param typeOfInterval The value of typeOfInterval as equal. (NullAllowed: if null (or empty), no condition)
      */
@@ -2068,7 +2068,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * type_of_interval: {interval(49, 6)}
      * @param typeOfInterval The value of typeOfInterval as notEqual. (NullAllowed: if null (or empty), no condition)
      */
@@ -2081,7 +2081,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * type_of_interval: {interval(49, 6)}
      * @param typeOfIntervalList The collection of typeOfInterval as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -2094,7 +2094,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * type_of_interval: {interval(49, 6)}
      * @param typeOfIntervalList The collection of typeOfInterval as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -2107,8 +2107,8 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * type_of_interval: {interval(49, 6)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * type_of_interval: {interval(49, 6)} <br>
      * <pre>e.g. setTypeOfInterval_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param typeOfInterval The value of typeOfInterval as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -2118,8 +2118,8 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * type_of_interval: {interval(49, 6)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * type_of_interval: {interval(49, 6)} <br>
      * <pre>e.g. setTypeOfInterval_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param typeOfInterval The value of typeOfInterval as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
@@ -2129,8 +2129,8 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * type_of_interval: {interval(49, 6)}
      * @param typeOfInterval The value of typeOfInterval as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -2140,8 +2140,8 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * type_of_interval: {interval(49, 6)}
      * @param typeOfInterval The value of typeOfInterval as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of not-like-search. (NotNull)
@@ -2151,7 +2151,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * type_of_interval: {interval(49, 6)}
      * @param typeOfInterval The value of typeOfInterval as prefixSearch. (NullAllowed: if null (or empty), no condition)
      */
@@ -2160,19 +2160,19 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * type_of_interval: {interval(49, 6)}
      */
     public void setTypeOfInterval_IsNull() { regTypeOfInterval(CK_ISN, DOBJ); }
 
     /**
-     * IsNullOrEmpty {is null or empty}. And OnlyOnceRegistered. <br />
+     * IsNullOrEmpty {is null or empty}. And OnlyOnceRegistered. <br>
      * type_of_interval: {interval(49, 6)}
      */
     public void setTypeOfInterval_IsNullOrEmpty() { regTypeOfInterval(CK_ISNOE, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * type_of_interval: {interval(49, 6)}
      */
     public void setTypeOfInterval_IsNotNull() { regTypeOfInterval(CK_ISNN, DOBJ); }
@@ -2181,7 +2181,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     protected abstract ConditionValue xgetCValueTypeOfInterval();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_bool: {bool(1), classification=TrueFalse}
      * @param typeOfBool The value of typeOfBool as equal. (NullAllowed: if null, no condition)
      */
@@ -2190,7 +2190,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * Equal(=). As True. And OnlyOnceRegistered. <br />
+     * Equal(=). As True. And OnlyOnceRegistered. <br>
      * Yes: means valid
      */
     public void setTypeOfBool_Equal_True() {
@@ -2198,7 +2198,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * Equal(=). As False. And OnlyOnceRegistered. <br />
+     * Equal(=). As False. And OnlyOnceRegistered. <br>
      * No: means invalid
      */
     public void setTypeOfBool_Equal_False() {
@@ -2206,13 +2206,13 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * type_of_bool: {bool(1), classification=TrueFalse}
      */
     public void setTypeOfBool_IsNull() { regTypeOfBool(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * type_of_bool: {bool(1), classification=TrueFalse}
      */
     public void setTypeOfBool_IsNotNull() { regTypeOfBool(CK_ISNN, DOBJ); }
@@ -2221,7 +2221,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     protected abstract ConditionValue xgetCValueTypeOfBool();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_bit: {bit(1)}
      * @param typeOfBit The value of typeOfBit as equal. (NullAllowed: if null, no condition)
      */
@@ -2230,13 +2230,13 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * type_of_bit: {bit(1)}
      */
     public void setTypeOfBit_IsNull() { regTypeOfBit(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * type_of_bit: {bit(1)}
      */
     public void setTypeOfBit_IsNotNull() { regTypeOfBit(CK_ISNN, DOBJ); }
@@ -2246,13 +2246,13 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
 
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * type_of_bytea: {bytea(2147483647)}
      */
     public void setTypeOfBytea_IsNull() { regTypeOfBytea(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * type_of_bytea: {bytea(2147483647)}
      */
     public void setTypeOfBytea_IsNotNull() { regTypeOfBytea(CK_ISNN, DOBJ); }
@@ -2262,13 +2262,13 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
 
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * type_of_oid: {oid(10)}
      */
     public void setTypeOfOid_IsNull() { regTypeOfOid(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * type_of_oid: {oid(10)}
      */
     public void setTypeOfOid_IsNotNull() { regTypeOfOid(CK_ISNN, DOBJ); }
@@ -2277,7 +2277,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     protected abstract ConditionValue xgetCValueTypeOfOid();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * type_of_uuid: {uuid(2147483647)}
      * @param typeOfUuid The value of typeOfUuid as equal. (NullAllowed: if null, no condition)
      */
@@ -2286,7 +2286,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * type_of_uuid: {uuid(2147483647)}
      * @param typeOfUuidList The collection of typeOfUuid as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -2295,13 +2295,13 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * type_of_uuid: {uuid(2147483647)}
      */
     public void setTypeOfUuid_IsNull() { regTypeOfUuid(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * type_of_uuid: {uuid(2147483647)}
      */
     public void setTypeOfUuid_IsNotNull() { regTypeOfUuid(CK_ISNN, DOBJ); }
@@ -2311,13 +2311,13 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
 
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * type_of_xml: {xml(2147483647)}
      */
     public void setTypeOfXml_IsNull() { regTypeOfXml(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * type_of_xml: {xml(2147483647)}
      */
     public void setTypeOfXml_IsNotNull() { regTypeOfXml(CK_ISNN, DOBJ); }
@@ -2329,7 +2329,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     //                                                                     ScalarCondition
     //                                                                     ===============
     /**
-     * Prepare ScalarCondition as equal. <br />
+     * Prepare ScalarCondition as equal. <br>
      * {where FOO = (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_Equal()</span>.max(new SubQuery&lt;VendorCheckCB&gt;() {
@@ -2346,7 +2346,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * Prepare ScalarCondition as equal. <br />
+     * Prepare ScalarCondition as equal. <br>
      * {where FOO &lt;&gt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_NotEqual()</span>.max(new SubQuery&lt;VendorCheckCB&gt;() {
@@ -2363,7 +2363,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * Prepare ScalarCondition as greaterThan. <br />
+     * Prepare ScalarCondition as greaterThan. <br>
      * {where FOO &gt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_GreaterThan()</span>.max(new SubQuery&lt;VendorCheckCB&gt;() {
@@ -2380,7 +2380,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * Prepare ScalarCondition as lessThan. <br />
+     * Prepare ScalarCondition as lessThan. <br>
      * {where FOO &lt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessThan()</span>.max(new SubQuery&lt;VendorCheckCB&gt;() {
@@ -2397,7 +2397,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * Prepare ScalarCondition as greaterEqual. <br />
+     * Prepare ScalarCondition as greaterEqual. <br>
      * {where FOO &gt;= (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_GreaterEqual()</span>.max(new SubQuery&lt;VendorCheckCB&gt;() {
@@ -2414,7 +2414,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * Prepare ScalarCondition as lessEqual. <br />
+     * Prepare ScalarCondition as lessEqual. <br>
      * {where FOO &lt;= (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessEqual()</span>.max(new SubQuery&lt;VendorCheckCB&gt;() {
@@ -2497,7 +2497,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     //                                                                    Full Text Search
     //                                                                    ================
     /**
-     * Match for full-text search. <br />
+     * Match for full-text search. <br>
      * @param textColumn The text column. (NotNull, StringColumn, TargetTableColumn)
      * @param conditionValue The condition value. (NullAllowed: if null or empty, no condition)
      */
@@ -2507,7 +2507,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     /**
-     * Match for full-text search. <br />
+     * Match for full-text search. <br>
      * @param textColumnList The list of text column. (NotNull, NotEmpty, StringColumn, TargetTableColumn)
      * @param conditionValue The condition value. (NullAllowed: if null or empty, no condition)
      */

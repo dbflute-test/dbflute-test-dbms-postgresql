@@ -19,7 +19,7 @@ public class MemberLoginNss {
     //                                                                     Nested Relation
     //                                                                     ===============
     /**
-     * With nested relation columns to select clause. <br />
+     * With nested relation columns to select clause. <br>
      * (会員ステータス)member_status by my login_member_status_code, named 'memberStatus'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
@@ -28,7 +28,7 @@ public class MemberLoginNss {
         return new MemberStatusNss(_query.queryMemberStatus());
     }
     /**
-     * With nested relation columns to select clause. <br />
+     * With nested relation columns to select clause. <br>
      * (会員)member by my member_id, named 'member'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */

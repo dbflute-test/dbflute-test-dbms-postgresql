@@ -34,7 +34,7 @@ public class BsRegionCQ extends AbstractBsRegionCQ {
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from region) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -57,7 +57,7 @@ public class BsRegionCQ extends AbstractBsRegionCQ {
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join region on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -94,14 +94,14 @@ public class BsRegionCQ extends AbstractBsRegionCQ {
     public String keepRegionId_QueryDerivedReferrer_MemberAddressListParameter(Object pm) { return xkeepSQuePm("regionId_QueryDerivedReferrer_MemberAddressList", pm); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * (地域ID)region_id: {PK, NotNull, int4(10)}
      * @return this. (NotNull)
      */
     public BsRegionCQ addOrderBy_RegionId_Asc() { regOBA("region_id"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * (地域ID)region_id: {PK, NotNull, int4(10)}
      * @return this. (NotNull)
      */
@@ -114,14 +114,14 @@ public class BsRegionCQ extends AbstractBsRegionCQ {
     protected ConditionValue xgetCValueRegionName() { return xdfgetRegionName(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * (地域名称)region_name: {NotNull, varchar(50)}
      * @return this. (NotNull)
      */
     public BsRegionCQ addOrderBy_RegionName_Asc() { regOBA("region_name"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * (地域名称)region_name: {NotNull, varchar(50)}
      * @return this. (NotNull)
      */

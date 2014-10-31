@@ -13,7 +13,7 @@ import org.docksidestage.postgresql.dbflute.exbhv.*;
 import org.docksidestage.postgresql.dbflute.exentity.customize.*;
 
 /**
- * The base class for typed parameter-bean of OptionMember. <br />
+ * The base class for typed parameter-bean of OptionMember. <br>
  * This is related to "<span style="color: #AD4747">selectOptionMember</span>" on MemberBhv.
  * @author DBFlute(AutoGenerator)
  */
@@ -56,7 +56,7 @@ public class BsOptionMemberPmb implements ListHandlingPmb<MemberBhv, OptionMembe
     //                                                                         Constructor
     //                                                                         ===========
     /**
-     * Constructor for the typed parameter-bean of OptionMember. <br />
+     * Constructor for the typed parameter-bean of OptionMember. <br>
      * This is related to "<span style="color: #AD4747">selectOptionMember</span>" on MemberBhv.
      */
     public BsOptionMemberPmb() {
@@ -153,7 +153,7 @@ public class BsOptionMemberPmb implements ListHandlingPmb<MemberBhv, OptionMembe
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] memberId <br />
+     * [get] memberId <br>
      * @return The value of memberId. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public Integer getMemberId() {
@@ -161,7 +161,7 @@ public class BsOptionMemberPmb implements ListHandlingPmb<MemberBhv, OptionMembe
     }
 
     /**
-     * [set] memberId <br />
+     * [set] memberId <br>
      * @param memberId The value of memberId. (NullAllowed)
      */
     public void setMemberId(Integer memberId) {
@@ -169,7 +169,7 @@ public class BsOptionMemberPmb implements ListHandlingPmb<MemberBhv, OptionMembe
     }
 
     /**
-     * [get] memberName:likePrefix <br />
+     * [get] memberName:likePrefix <br>
      * @return The value of memberName. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public String getMemberName() {
@@ -177,7 +177,7 @@ public class BsOptionMemberPmb implements ListHandlingPmb<MemberBhv, OptionMembe
     }
 
     /**
-     * [set as prefixSearch] memberName:likePrefix <br />
+     * [set as prefixSearch] memberName:likePrefix <br>
      * @param memberName The value of memberName. (NullAllowed)
      */
     public void setMemberName_PrefixSearch(String memberName) {
@@ -194,7 +194,7 @@ public class BsOptionMemberPmb implements ListHandlingPmb<MemberBhv, OptionMembe
     }
 
     /**
-     * [get] memberAccount:like <br />
+     * [get] memberAccount:like <br>
      * @return The value of memberAccount. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public String getMemberAccount() {
@@ -202,7 +202,7 @@ public class BsOptionMemberPmb implements ListHandlingPmb<MemberBhv, OptionMembe
     }
 
     /**
-     * [set as likeSearch] memberAccount:like <br />
+     * [set as likeSearch] memberAccount:like <br>
      * @param memberAccount The value of memberAccount. (NullAllowed)
      * @param memberAccountOption The option of likeSearch for memberAccount which is NOT split mode. (NotNull)
      */
@@ -221,7 +221,7 @@ public class BsOptionMemberPmb implements ListHandlingPmb<MemberBhv, OptionMembe
     }
 
     /**
-     * [get] fromFormalizedDate:fromDate <br />
+     * [get] fromFormalizedDate:fromDate <br>
      * @return The value of fromFormalizedDate. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public Date getFromFormalizedDate() {
@@ -229,7 +229,7 @@ public class BsOptionMemberPmb implements ListHandlingPmb<MemberBhv, OptionMembe
     }
 
     /**
-     * [set as fromDate] fromFormalizedDate:fromDate <br />
+     * [set as fromDate] fromFormalizedDate:fromDate <br>
      * @param fromFormalizedDate The value of fromFormalizedDate. (NullAllowed)
      */
     public void setFromFormalizedDate_FromDate(Date fromFormalizedDate) {
@@ -237,7 +237,7 @@ public class BsOptionMemberPmb implements ListHandlingPmb<MemberBhv, OptionMembe
     }
 
     /**
-     * [get] toFormalizedDate:toDate <br />
+     * [get] toFormalizedDate:toDate <br>
      * @return The value of toFormalizedDate. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public Date getToFormalizedDate() {
@@ -245,7 +245,7 @@ public class BsOptionMemberPmb implements ListHandlingPmb<MemberBhv, OptionMembe
     }
 
     /**
-     * [set as toDate] toFormalizedDate:toDate <br />
+     * [set as toDate] toFormalizedDate:toDate <br>
      * @param toFormalizedDate The value of toFormalizedDate. (NullAllowed)
      */
     public void setToFormalizedDate_ToDate(Date toFormalizedDate) {
@@ -253,7 +253,7 @@ public class BsOptionMemberPmb implements ListHandlingPmb<MemberBhv, OptionMembe
     }
 
     /**
-     * [get] memberStatusCode:cls(MemberStatus) <br />
+     * [get] memberStatusCode:cls(MemberStatus) <br>
      * @return The value of memberStatusCode. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public String getMemberStatusCode() {
@@ -261,7 +261,7 @@ public class BsOptionMemberPmb implements ListHandlingPmb<MemberBhv, OptionMembe
     }
 
     /**
-     * [set as Formalized] memberStatusCode:cls(MemberStatus) <br />
+     * [set as Formalized] memberStatusCode:cls(MemberStatus) <br>
      * as formal member, allowed to use all service
      */
     public void setMemberStatusCode_Formalized() {
@@ -269,7 +269,7 @@ public class BsOptionMemberPmb implements ListHandlingPmb<MemberBhv, OptionMembe
     }
 
     /**
-     * [set as Withdrawal] memberStatusCode:cls(MemberStatus) <br />
+     * [set as Withdrawal] memberStatusCode:cls(MemberStatus) <br>
      * withdrawal is fixed, not allowed to use service
      */
     public void setMemberStatusCode_Withdrawal() {
@@ -277,7 +277,7 @@ public class BsOptionMemberPmb implements ListHandlingPmb<MemberBhv, OptionMembe
     }
 
     /**
-     * [set as Provisional] memberStatusCode:cls(MemberStatus) <br />
+     * [set as Provisional] memberStatusCode:cls(MemberStatus) <br>
      * first status after entry, allowed to use only part of service
      */
     public void setMemberStatusCode_Provisional() {

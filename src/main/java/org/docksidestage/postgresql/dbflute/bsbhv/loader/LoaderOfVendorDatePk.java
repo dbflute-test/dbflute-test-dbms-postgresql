@@ -9,7 +9,7 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
 import org.docksidestage.postgresql.dbflute.cbean.*;
 
 /**
- * The referrer loader of vendor_date_pk as TABLE. <br />
+ * The referrer loader of vendor_date_pk as TABLE. <br>
  * <pre>
  * [primary key]
  *     foo_date
@@ -64,7 +64,7 @@ public class LoaderOfVendorDatePk {
     protected List<VendorDateFk> _referrerVendorDateFkList;
 
     /**
-     * Load referrer of vendorDateFkList by the set-upper of referrer. <br />
+     * Load referrer of vendorDateFkList by the set-upper of referrer. <br>
      * vendor_date_fk by bar_date, named 'vendorDateFkList'.
      * <pre>
      * <span style="color: #0000C0">vendorDatePkBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">vendorDatePkList</span>, <span style="color: #553000">pkLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -73,7 +73,7 @@ public class LoaderOfVendorDatePk {
      *         <span style="color: #553000">fkCB</span>.query().set...
      *         <span style="color: #553000">fkCB</span>.query().addOrderBy...
      *     }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
-     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">fkLoader</span> -&gt {</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">fkLoader</span> -&gt; {</span>
      *     <span style="color: #3F7E5E">//    fkLoader.load...</span>
      *     <span style="color: #3F7E5E">//});</span>
      * });
@@ -81,7 +81,7 @@ public class LoaderOfVendorDatePk {
      *     ... = vendorDatePk.<span style="color: #CC4747">getVendorDateFkList()</span>;
      * }
      * </pre>
-     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
      * The condition-bean, which the set-upper provides, has settings before callback as follows:
      * <pre>
      * cb.query().setBarDate_InScope(pkList);

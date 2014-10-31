@@ -10,7 +10,7 @@ import org.docksidestage.postgresql.dbflute.allcommon.*;
 import org.docksidestage.postgresql.dbflute.exentity.customize.*;
 
 /**
- * The base class for procedure parameter-bean of SpReturnResultSet. <br />
+ * The base class for procedure parameter-bean of SpReturnResultSet. <br>
  * This is related to "<span style="color: #AD4747">sp_return_result_set</span>".
  * @author DBFlute(AutoGenerator)
  */
@@ -40,7 +40,7 @@ public class BsSpReturnResultSetPmb implements ProcedurePmb, FetchBean {
     //                                                                         Constructor
     //                                                                         ===========
     /**
-     * Constructor for the procedure parameter-bean of SpReturnResultSet. <br />
+     * Constructor for the procedure parameter-bean of SpReturnResultSet. <br>
      * This is related to "<span style="color: #AD4747">sp_return_result_set</span>".
      */
     public BsSpReturnResultSetPmb() {
@@ -131,7 +131,7 @@ public class BsSpReturnResultSetPmb implements ProcedurePmb, FetchBean {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] returnValue: {refcursor as Return} <br />
+     * [get] returnValue: {refcursor as Return} <br>
      * @return The value of returnValue. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public List<SpReturnResultSetReturnValue> getReturnValue() {
@@ -139,7 +139,7 @@ public class BsSpReturnResultSetPmb implements ProcedurePmb, FetchBean {
     }
 
     /**
-     * [set] returnValue: {refcursor as Return} <br />
+     * [set] returnValue: {refcursor as Return} <br>
      * @param returnValue The value of returnValue. (NullAllowed)
      */
     public void setReturnValue(List<SpReturnResultSetReturnValue> returnValue) {

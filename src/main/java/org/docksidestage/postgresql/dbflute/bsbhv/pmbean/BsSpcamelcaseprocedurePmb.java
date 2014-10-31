@@ -9,7 +9,7 @@ import org.dbflute.util.DfTypeUtil;
 import org.docksidestage.postgresql.dbflute.allcommon.*;
 
 /**
- * The base class for procedure parameter-bean of Spcamelcaseprocedure. <br />
+ * The base class for procedure parameter-bean of Spcamelcaseprocedure. <br>
  * This is related to "<span style="color: #AD4747">spcamelcaseprocedure</span>".
  * @author DBFlute(AutoGenerator)
  */
@@ -55,7 +55,7 @@ public class BsSpcamelcaseprocedurePmb implements ProcedurePmb, FetchBean {
     //                                                                         Constructor
     //                                                                         ===========
     /**
-     * Constructor for the procedure parameter-bean of Spcamelcaseprocedure. <br />
+     * Constructor for the procedure parameter-bean of Spcamelcaseprocedure. <br>
      * This is related to "<span style="color: #AD4747">spcamelcaseprocedure</span>".
      */
     public BsSpcamelcaseprocedurePmb() {
@@ -150,7 +150,7 @@ public class BsSpcamelcaseprocedurePmb implements ProcedurePmb, FetchBean {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] fooparam: {varchar as In} <br />
+     * [get] fooparam: {varchar as In} <br>
      * @return The value of fooparam. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public String getFooparam() {
@@ -158,7 +158,7 @@ public class BsSpcamelcaseprocedurePmb implements ProcedurePmb, FetchBean {
     }
 
     /**
-     * [set] fooparam: {varchar as In} <br />
+     * [set] fooparam: {varchar as In} <br>
      * @param fooparam The value of fooparam. (NullAllowed)
      */
     public void setFooparam(String fooparam) {
@@ -166,7 +166,7 @@ public class BsSpcamelcaseprocedurePmb implements ProcedurePmb, FetchBean {
     }
 
     /**
-     * [get] barparam: {varchar as In} <br />
+     * [get] barparam: {varchar as In} <br>
      * @return The value of barparam. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public String getBarparam() {
@@ -174,7 +174,7 @@ public class BsSpcamelcaseprocedurePmb implements ProcedurePmb, FetchBean {
     }
 
     /**
-     * [set] barparam: {varchar as In} <br />
+     * [set] barparam: {varchar as In} <br>
      * @param barparam The value of barparam. (NullAllowed)
      */
     public void setBarparam(String barparam) {
@@ -182,7 +182,7 @@ public class BsSpcamelcaseprocedurePmb implements ProcedurePmb, FetchBean {
     }
 
     /**
-     * [get] vdonparam: {varchar as Out} <br />
+     * [get] vdonparam: {varchar as Out} <br>
      * @return The value of vdonparam. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public String getVdonparam() {
@@ -190,7 +190,7 @@ public class BsSpcamelcaseprocedurePmb implements ProcedurePmb, FetchBean {
     }
 
     /**
-     * [set] vdonparam: {varchar as Out} <br />
+     * [set] vdonparam: {varchar as Out} <br>
      * @param vdonparam The value of vdonparam. (NullAllowed)
      */
     public void setVdonparam(String vdonparam) {
@@ -198,7 +198,7 @@ public class BsSpcamelcaseprocedurePmb implements ProcedurePmb, FetchBean {
     }
 
     /**
-     * [get] vheeparam: {varchar as In} <br />
+     * [get] vheeparam: {varchar as In} <br>
      * @return The value of vheeparam. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public String getVheeparam() {
@@ -206,7 +206,7 @@ public class BsSpcamelcaseprocedurePmb implements ProcedurePmb, FetchBean {
     }
 
     /**
-     * [set] vheeparam: {varchar as In} <br />
+     * [set] vheeparam: {varchar as In} <br>
      * @param vheeparam The value of vheeparam. (NullAllowed)
      */
     public void setVheeparam(String vheeparam) {
@@ -214,7 +214,7 @@ public class BsSpcamelcaseprocedurePmb implements ProcedurePmb, FetchBean {
     }
 
     /**
-     * [get] pooParamname: {varchar as Out} <br />
+     * [get] pooParamname: {varchar as Out} <br>
      * @return The value of pooParamname. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public String getPooParamname() {
@@ -222,7 +222,7 @@ public class BsSpcamelcaseprocedurePmb implements ProcedurePmb, FetchBean {
     }
 
     /**
-     * [set] pooParamname: {varchar as Out} <br />
+     * [set] pooParamname: {varchar as Out} <br>
      * @param pooParamname The value of pooParamname. (NullAllowed)
      */
     public void setPooParamname(String pooParamname) {

@@ -34,7 +34,7 @@ public class BsProductCategoryCQ extends AbstractBsProductCategoryCQ {
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from product_category) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -57,7 +57,7 @@ public class BsProductCategoryCQ extends AbstractBsProductCategoryCQ {
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join product_category on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -108,14 +108,14 @@ public class BsProductCategoryCQ extends AbstractBsProductCategoryCQ {
     public String keepProductCategoryCode_QueryDerivedReferrer_ProductCategorySelfListParameter(Object pm) { return xkeepSQuePm("productCategoryCode_QueryDerivedReferrer_ProductCategorySelfList", pm); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * (商品カテゴリコード)product_category_code: {PK, NotNull, bpchar(3)}
      * @return this. (NotNull)
      */
     public BsProductCategoryCQ addOrderBy_ProductCategoryCode_Asc() { regOBA("product_category_code"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * (商品カテゴリコード)product_category_code: {PK, NotNull, bpchar(3)}
      * @return this. (NotNull)
      */
@@ -128,14 +128,14 @@ public class BsProductCategoryCQ extends AbstractBsProductCategoryCQ {
     protected ConditionValue xgetCValueProductCategoryName() { return xdfgetProductCategoryName(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * (商品カテゴリ名称)product_category_name: {NotNull, varchar(50)}
      * @return this. (NotNull)
      */
     public BsProductCategoryCQ addOrderBy_ProductCategoryName_Asc() { regOBA("product_category_name"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * (商品カテゴリ名称)product_category_name: {NotNull, varchar(50)}
      * @return this. (NotNull)
      */
@@ -148,14 +148,14 @@ public class BsProductCategoryCQ extends AbstractBsProductCategoryCQ {
     protected ConditionValue xgetCValueParentCategoryCode() { return xdfgetParentCategoryCode(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * (親カテゴリコード)parent_category_code: {bpchar(3), FK to product_category}
      * @return this. (NotNull)
      */
     public BsProductCategoryCQ addOrderBy_ParentCategoryCode_Asc() { regOBA("parent_category_code"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * (親カテゴリコード)parent_category_code: {bpchar(3), FK to product_category}
      * @return this. (NotNull)
      */
@@ -211,7 +211,7 @@ public class BsProductCategoryCQ extends AbstractBsProductCategoryCQ {
     //                                                                       Foreign Query
     //                                                                       =============
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * (商品カテゴリ)product_category by my parent_category_code, named 'productCategorySelf'.
      * @return The instance of condition-query. (NotNull)
      */

@@ -34,7 +34,7 @@ public class BsSummaryProductCQ extends AbstractBsSummaryProductCQ {
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from summary_product) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -57,7 +57,7 @@ public class BsSummaryProductCQ extends AbstractBsSummaryProductCQ {
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join summary_product on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -80,14 +80,14 @@ public class BsSummaryProductCQ extends AbstractBsSummaryProductCQ {
     protected ConditionValue xgetCValueProductId() { return xdfgetProductId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * product_id: {int4(10)}
      * @return this. (NotNull)
      */
     public BsSummaryProductCQ addOrderBy_ProductId_Asc() { regOBA("product_id"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * product_id: {int4(10)}
      * @return this. (NotNull)
      */
@@ -100,14 +100,14 @@ public class BsSummaryProductCQ extends AbstractBsSummaryProductCQ {
     protected ConditionValue xgetCValueProductName() { return xdfgetProductName(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * product_name: {varchar(50)}
      * @return this. (NotNull)
      */
     public BsSummaryProductCQ addOrderBy_ProductName_Asc() { regOBA("product_name"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * product_name: {varchar(50)}
      * @return this. (NotNull)
      */
@@ -120,14 +120,14 @@ public class BsSummaryProductCQ extends AbstractBsSummaryProductCQ {
     protected ConditionValue xgetCValueProductStatusCode() { return xdfgetProductStatusCode(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * product_status_code: {bpchar(3)}
      * @return this. (NotNull)
      */
     public BsSummaryProductCQ addOrderBy_ProductStatusCode_Asc() { regOBA("product_status_code"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * product_status_code: {bpchar(3)}
      * @return this. (NotNull)
      */
@@ -140,14 +140,14 @@ public class BsSummaryProductCQ extends AbstractBsSummaryProductCQ {
     protected ConditionValue xgetCValueLatestPurchaseDatetime() { return xdfgetLatestPurchaseDatetime(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * latest_purchase_datetime: {timestamp(29, 6)}
      * @return this. (NotNull)
      */
     public BsSummaryProductCQ addOrderBy_LatestPurchaseDatetime_Asc() { regOBA("latest_purchase_datetime"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * latest_purchase_datetime: {timestamp(29, 6)}
      * @return this. (NotNull)
      */

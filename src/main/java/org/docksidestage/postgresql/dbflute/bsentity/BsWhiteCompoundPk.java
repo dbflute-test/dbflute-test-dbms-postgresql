@@ -5,11 +5,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.postgresql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
 /**
- * The entity of white_compound_pk as TABLE. <br />
+ * The entity of white_compound_pk as TABLE. <br>
  * <pre>
  * [primary-key]
  *     pk_first_id, pk_second_id
@@ -50,7 +51,7 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteCompoundPk extends AbstractEntity {
+public abstract class BsWhiteCompoundPk extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -196,7 +197,7 @@ public abstract class BsWhiteCompoundPk extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] pk_first_id: {PK, NotNull, int4(10)} <br />
+     * [get] pk_first_id: {PK, NotNull, int4(10)} <br>
      * @return The value of the column 'pk_first_id'. (basically NotNull if selected: for the constraint)
      */
     public Integer getPkFirstId() {
@@ -205,7 +206,7 @@ public abstract class BsWhiteCompoundPk extends AbstractEntity {
     }
 
     /**
-     * [set] pk_first_id: {PK, NotNull, int4(10)} <br />
+     * [set] pk_first_id: {PK, NotNull, int4(10)} <br>
      * @param pkFirstId The value of the column 'pk_first_id'. (basically NotNull if update: for the constraint)
      */
     public void setPkFirstId(Integer pkFirstId) {
@@ -214,7 +215,7 @@ public abstract class BsWhiteCompoundPk extends AbstractEntity {
     }
 
     /**
-     * [get] pk_second_id: {PK, NotNull, int4(10)} <br />
+     * [get] pk_second_id: {PK, NotNull, int4(10)} <br>
      * @return The value of the column 'pk_second_id'. (basically NotNull if selected: for the constraint)
      */
     public Integer getPkSecondId() {
@@ -223,7 +224,7 @@ public abstract class BsWhiteCompoundPk extends AbstractEntity {
     }
 
     /**
-     * [set] pk_second_id: {PK, NotNull, int4(10)} <br />
+     * [set] pk_second_id: {PK, NotNull, int4(10)} <br>
      * @param pkSecondId The value of the column 'pk_second_id'. (basically NotNull if update: for the constraint)
      */
     public void setPkSecondId(Integer pkSecondId) {
@@ -232,7 +233,7 @@ public abstract class BsWhiteCompoundPk extends AbstractEntity {
     }
 
     /**
-     * [get] pk_name: {NotNull, varchar(200)} <br />
+     * [get] pk_name: {NotNull, varchar(200)} <br>
      * @return The value of the column 'pk_name'. (basically NotNull if selected: for the constraint)
      */
     public String getPkName() {
@@ -241,7 +242,7 @@ public abstract class BsWhiteCompoundPk extends AbstractEntity {
     }
 
     /**
-     * [set] pk_name: {NotNull, varchar(200)} <br />
+     * [set] pk_name: {NotNull, varchar(200)} <br>
      * @param pkName The value of the column 'pk_name'. (basically NotNull if update: for the constraint)
      */
     public void setPkName(String pkName) {

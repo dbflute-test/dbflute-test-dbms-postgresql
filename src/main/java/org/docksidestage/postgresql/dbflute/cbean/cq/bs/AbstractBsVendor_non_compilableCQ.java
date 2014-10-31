@@ -47,7 +47,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     //                                                                               Query
     //                                                                               =====
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * NON-COMPILABLE ID: {PK, NotNull, int4(10)}
      * @param non_compilable_id The value of non_compilable_id as equal. (NullAllowed: if null, no condition)
      */
@@ -60,7 +60,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * NON-COMPILABLE ID: {PK, NotNull, int4(10)}
      * @param non_compilable_id The value of non_compilable_id as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -69,7 +69,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * NON-COMPILABLE ID: {PK, NotNull, int4(10)}
      * @param non_compilable_id The value of non_compilable_id as lessThan. (NullAllowed: if null, no condition)
      */
@@ -78,7 +78,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * NON-COMPILABLE ID: {PK, NotNull, int4(10)}
      * @param non_compilable_id The value of non_compilable_id as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -87,7 +87,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * NON-COMPILABLE ID: {PK, NotNull, int4(10)}
      * @param non_compilable_id The value of non_compilable_id as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -96,9 +96,9 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * NON-COMPILABLE ID: {PK, NotNull, int4(10)}
      * @param minNumber The min number of non_compilable_id. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of non_compilable_id. (NullAllowed: if null, no to-condition)
@@ -109,9 +109,9 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * NON-COMPILABLE ID: {PK, NotNull, int4(10)}
      * @param minNumber The min number of non_compilable_id. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of non_compilable_id. (NullAllowed: if null, no to-condition)
@@ -122,7 +122,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * NON-COMPILABLE ID: {PK, NotNull, int4(10)}
      * @param non_compilable_idList The collection of non_compilable_id as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -135,7 +135,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * NON-COMPILABLE ID: {PK, NotNull, int4(10)}
      * @param non_compilable_idList The collection of non_compilable_id as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -148,8 +148,8 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     }
 
     /**
-     * Set up ExistsReferrer (correlated sub-query). <br />
-     * {exists (select Next_ParentID from VENDOR-NON COMPILABLE where ...)} <br />
+     * Set up ExistsReferrer (correlated sub-query). <br>
+     * {exists (select Next_ParentID from VENDOR-NON COMPILABLE where ...)} <br>
      * VENDOR-NON COMPILABLE by Next_ParentID, named 'vendor_non_compilableByNextParentidSelfAsOne'.
      * <pre>
      * cb.query().<span style="color: #CC4747">existsVendor_non_compilableByNextParentidSelfList</span>(entityCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -167,8 +167,8 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     public abstract String keepNon_compilable_id_ExistsReferrer_Vendor_non_compilableByNextParentidSelfList(Vendor_non_compilableCQ sq);
 
     /**
-     * Set up ExistsReferrer (correlated sub-query). <br />
-     * {exists (select PARENT-ID from VENDOR-NON COMPILABLE where ...)} <br />
+     * Set up ExistsReferrer (correlated sub-query). <br>
+     * {exists (select PARENT-ID from VENDOR-NON COMPILABLE where ...)} <br>
      * VENDOR-NON COMPILABLE by PARENT-ID, named 'vendor_non_compilableByParent_idSelfAsOne'.
      * <pre>
      * cb.query().<span style="color: #CC4747">existsVendor_non_compilableByParent_idSelfList</span>(entityCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -186,8 +186,8 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     public abstract String keepNon_compilable_id_ExistsReferrer_Vendor_non_compilableByParent_idSelfList(Vendor_non_compilableCQ sq);
 
     /**
-     * Set up NotExistsReferrer (correlated sub-query). <br />
-     * {not exists (select Next_ParentID from VENDOR-NON COMPILABLE where ...)} <br />
+     * Set up NotExistsReferrer (correlated sub-query). <br>
+     * {not exists (select Next_ParentID from VENDOR-NON COMPILABLE where ...)} <br>
      * VENDOR-NON COMPILABLE by Next_ParentID, named 'vendor_non_compilableByNextParentidSelfAsOne'.
      * <pre>
      * cb.query().<span style="color: #CC4747">notExistsVendor_non_compilableByNextParentidSelfList</span>(entityCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -205,8 +205,8 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     public abstract String keepNon_compilable_id_NotExistsReferrer_Vendor_non_compilableByNextParentidSelfList(Vendor_non_compilableCQ sq);
 
     /**
-     * Set up NotExistsReferrer (correlated sub-query). <br />
-     * {not exists (select PARENT-ID from VENDOR-NON COMPILABLE where ...)} <br />
+     * Set up NotExistsReferrer (correlated sub-query). <br>
+     * {not exists (select PARENT-ID from VENDOR-NON COMPILABLE where ...)} <br>
      * VENDOR-NON COMPILABLE by PARENT-ID, named 'vendor_non_compilableByParent_idSelfAsOne'.
      * <pre>
      * cb.query().<span style="color: #CC4747">notExistsVendor_non_compilableByParent_idSelfList</span>(entityCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -240,8 +240,8 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     public abstract String keepNon_compilable_id_SpecifyDerivedReferrer_Vendor_non_compilableByParent_idSelfList(Vendor_non_compilableCQ sq);
 
     /**
-     * Prepare for (Query)DerivedReferrer (correlated sub-query). <br />
-     * {FOO &lt;= (select max(BAR) from VENDOR-NON COMPILABLE where ...)} <br />
+     * Prepare for (Query)DerivedReferrer (correlated sub-query). <br>
+     * {FOO &lt;= (select max(BAR) from VENDOR-NON COMPILABLE where ...)} <br>
      * VENDOR-NON COMPILABLE by Next_ParentID, named 'vendor_non_compilableByNextParentidSelfAsOne'.
      * <pre>
      * cb.query().<span style="color: #CC4747">derivedVendor_non_compilableByNextParentidSelfList()</span>.<span style="color: #CC4747">max</span>(entityCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -267,8 +267,8 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     public abstract String keepNon_compilable_id_QueryDerivedReferrer_Vendor_non_compilableByNextParentidSelfListParameter(Object vl);
 
     /**
-     * Prepare for (Query)DerivedReferrer (correlated sub-query). <br />
-     * {FOO &lt;= (select max(BAR) from VENDOR-NON COMPILABLE where ...)} <br />
+     * Prepare for (Query)DerivedReferrer (correlated sub-query). <br>
+     * {FOO &lt;= (select max(BAR) from VENDOR-NON COMPILABLE where ...)} <br>
      * VENDOR-NON COMPILABLE by PARENT-ID, named 'vendor_non_compilableByParent_idSelfAsOne'.
      * <pre>
      * cb.query().<span style="color: #CC4747">derivedVendor_non_compilableByParent_idSelfList()</span>.<span style="color: #CC4747">max</span>(entityCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -294,13 +294,13 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     public abstract String keepNon_compilable_id_QueryDerivedReferrer_Vendor_non_compilableByParent_idSelfListParameter(Object vl);
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * NON-COMPILABLE ID: {PK, NotNull, int4(10)}
      */
     public void setNon_compilable_id_IsNull() { regNon_compilable_id(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * NON-COMPILABLE ID: {PK, NotNull, int4(10)}
      */
     public void setNon_compilable_id_IsNotNull() { regNon_compilable_id(CK_ISNN, DOBJ); }
@@ -309,7 +309,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     protected abstract ConditionValue xgetCValueNon_compilable_id();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * NON COMPILABLE-NAME: {varchar(64)}
      * @param non_compilable_name The value of non_compilable_name as equal. (NullAllowed: if null (or empty), no condition)
      */
@@ -322,7 +322,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * NON COMPILABLE-NAME: {varchar(64)}
      * @param non_compilable_name The value of non_compilable_name as notEqual. (NullAllowed: if null (or empty), no condition)
      */
@@ -335,7 +335,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     }
 
     /**
-     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * NON COMPILABLE-NAME: {varchar(64)}
      * @param non_compilable_nameList The collection of non_compilable_name as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -348,7 +348,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     }
 
     /**
-     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * NON COMPILABLE-NAME: {varchar(64)}
      * @param non_compilable_nameList The collection of non_compilable_name as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -361,8 +361,8 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * NON COMPILABLE-NAME: {varchar(64)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * NON COMPILABLE-NAME: {varchar(64)} <br>
      * <pre>e.g. setNon_compilable_name_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param non_compilable_name The value of non_compilable_name as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -372,8 +372,8 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * NON COMPILABLE-NAME: {varchar(64)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * NON COMPILABLE-NAME: {varchar(64)} <br>
      * <pre>e.g. setNon_compilable_name_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param non_compilable_name The value of non_compilable_name as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
@@ -383,8 +383,8 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * NON COMPILABLE-NAME: {varchar(64)}
      * @param non_compilable_name The value of non_compilable_name as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -394,8 +394,8 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * NON COMPILABLE-NAME: {varchar(64)}
      * @param non_compilable_name The value of non_compilable_name as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of not-like-search. (NotNull)
@@ -405,7 +405,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * NON COMPILABLE-NAME: {varchar(64)}
      * @param non_compilable_name The value of non_compilable_name as prefixSearch. (NullAllowed: if null (or empty), no condition)
      */
@@ -414,19 +414,19 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * NON COMPILABLE-NAME: {varchar(64)}
      */
     public void setNon_compilable_name_IsNull() { regNon_compilable_name(CK_ISN, DOBJ); }
 
     /**
-     * IsNullOrEmpty {is null or empty}. And OnlyOnceRegistered. <br />
+     * IsNullOrEmpty {is null or empty}. And OnlyOnceRegistered. <br>
      * NON COMPILABLE-NAME: {varchar(64)}
      */
     public void setNon_compilable_name_IsNullOrEmpty() { regNon_compilable_name(CK_ISNOE, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * NON COMPILABLE-NAME: {varchar(64)}
      */
     public void setNon_compilable_name_IsNotNull() { regNon_compilable_name(CK_ISNN, DOBJ); }
@@ -435,7 +435,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     protected abstract ConditionValue xgetCValueNon_compilable_name();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * PARENT-ID: {int4(10), FK to VENDOR-NON COMPILABLE}
      * @param parent_id The value of parent_id as equal. (NullAllowed: if null, no condition)
      */
@@ -448,7 +448,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * PARENT-ID: {int4(10), FK to VENDOR-NON COMPILABLE}
      * @param parent_id The value of parent_id as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -457,7 +457,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * PARENT-ID: {int4(10), FK to VENDOR-NON COMPILABLE}
      * @param parent_id The value of parent_id as lessThan. (NullAllowed: if null, no condition)
      */
@@ -466,7 +466,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * PARENT-ID: {int4(10), FK to VENDOR-NON COMPILABLE}
      * @param parent_id The value of parent_id as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -475,7 +475,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * PARENT-ID: {int4(10), FK to VENDOR-NON COMPILABLE}
      * @param parent_id The value of parent_id as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -484,9 +484,9 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * PARENT-ID: {int4(10), FK to VENDOR-NON COMPILABLE}
      * @param minNumber The min number of parent_id. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of parent_id. (NullAllowed: if null, no to-condition)
@@ -497,9 +497,9 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * PARENT-ID: {int4(10), FK to VENDOR-NON COMPILABLE}
      * @param minNumber The min number of parent_id. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of parent_id. (NullAllowed: if null, no to-condition)
@@ -510,7 +510,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * PARENT-ID: {int4(10), FK to VENDOR-NON COMPILABLE}
      * @param parent_idList The collection of parent_id as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -523,7 +523,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * PARENT-ID: {int4(10), FK to VENDOR-NON COMPILABLE}
      * @param parent_idList The collection of parent_id as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -536,13 +536,13 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * PARENT-ID: {int4(10), FK to VENDOR-NON COMPILABLE}
      */
     public void setParent_id_IsNull() { regParent_id(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * PARENT-ID: {int4(10), FK to VENDOR-NON COMPILABLE}
      */
     public void setParent_id_IsNotNull() { regParent_id(CK_ISNN, DOBJ); }
@@ -551,7 +551,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     protected abstract ConditionValue xgetCValueParent_id();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * Next_ParentID: {int4(10), FK to VENDOR-NON COMPILABLE}
      * @param nextParentid The value of nextParentid as equal. (NullAllowed: if null, no condition)
      */
@@ -564,7 +564,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * Next_ParentID: {int4(10), FK to VENDOR-NON COMPILABLE}
      * @param nextParentid The value of nextParentid as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -573,7 +573,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * Next_ParentID: {int4(10), FK to VENDOR-NON COMPILABLE}
      * @param nextParentid The value of nextParentid as lessThan. (NullAllowed: if null, no condition)
      */
@@ -582,7 +582,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * Next_ParentID: {int4(10), FK to VENDOR-NON COMPILABLE}
      * @param nextParentid The value of nextParentid as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -591,7 +591,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * Next_ParentID: {int4(10), FK to VENDOR-NON COMPILABLE}
      * @param nextParentid The value of nextParentid as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -600,9 +600,9 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * Next_ParentID: {int4(10), FK to VENDOR-NON COMPILABLE}
      * @param minNumber The min number of nextParentid. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of nextParentid. (NullAllowed: if null, no to-condition)
@@ -613,9 +613,9 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * Next_ParentID: {int4(10), FK to VENDOR-NON COMPILABLE}
      * @param minNumber The min number of nextParentid. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of nextParentid. (NullAllowed: if null, no to-condition)
@@ -626,7 +626,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * Next_ParentID: {int4(10), FK to VENDOR-NON COMPILABLE}
      * @param nextParentidList The collection of nextParentid as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -639,7 +639,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * Next_ParentID: {int4(10), FK to VENDOR-NON COMPILABLE}
      * @param nextParentidList The collection of nextParentid as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -652,13 +652,13 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * Next_ParentID: {int4(10), FK to VENDOR-NON COMPILABLE}
      */
     public void setNextParentid_IsNull() { regNextParentid(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * Next_ParentID: {int4(10), FK to VENDOR-NON COMPILABLE}
      */
     public void setNextParentid_IsNotNull() { regNextParentid(CK_ISNN, DOBJ); }
@@ -670,7 +670,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     //                                                                     ScalarCondition
     //                                                                     ===============
     /**
-     * Prepare ScalarCondition as equal. <br />
+     * Prepare ScalarCondition as equal. <br>
      * {where FOO = (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_Equal()</span>.max(new SubQuery&lt;Vendor_non_compilableCB&gt;() {
@@ -687,7 +687,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     }
 
     /**
-     * Prepare ScalarCondition as equal. <br />
+     * Prepare ScalarCondition as equal. <br>
      * {where FOO &lt;&gt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_NotEqual()</span>.max(new SubQuery&lt;Vendor_non_compilableCB&gt;() {
@@ -704,7 +704,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     }
 
     /**
-     * Prepare ScalarCondition as greaterThan. <br />
+     * Prepare ScalarCondition as greaterThan. <br>
      * {where FOO &gt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_GreaterThan()</span>.max(new SubQuery&lt;Vendor_non_compilableCB&gt;() {
@@ -721,7 +721,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     }
 
     /**
-     * Prepare ScalarCondition as lessThan. <br />
+     * Prepare ScalarCondition as lessThan. <br>
      * {where FOO &lt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessThan()</span>.max(new SubQuery&lt;Vendor_non_compilableCB&gt;() {
@@ -738,7 +738,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     }
 
     /**
-     * Prepare ScalarCondition as greaterEqual. <br />
+     * Prepare ScalarCondition as greaterEqual. <br>
      * {where FOO &gt;= (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_GreaterEqual()</span>.max(new SubQuery&lt;Vendor_non_compilableCB&gt;() {
@@ -755,7 +755,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     }
 
     /**
-     * Prepare ScalarCondition as lessEqual. <br />
+     * Prepare ScalarCondition as lessEqual. <br>
      * {where FOO &lt;= (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessEqual()</span>.max(new SubQuery&lt;Vendor_non_compilableCB&gt;() {
@@ -838,7 +838,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     //                                                                    Full Text Search
     //                                                                    ================
     /**
-     * Match for full-text search. <br />
+     * Match for full-text search. <br>
      * @param textColumn The text column. (NotNull, StringColumn, TargetTableColumn)
      * @param conditionValue The condition value. (NullAllowed: if null or empty, no condition)
      */
@@ -848,7 +848,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     }
 
     /**
-     * Match for full-text search. <br />
+     * Match for full-text search. <br>
      * @param textColumnList The list of text column. (NotNull, NotEmpty, StringColumn, TargetTableColumn)
      * @param conditionValue The condition value. (NullAllowed: if null or empty, no condition)
      */

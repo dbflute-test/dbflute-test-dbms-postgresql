@@ -9,7 +9,7 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
 import org.docksidestage.postgresql.dbflute.cbean.*;
 
 /**
- * The referrer loader of vendor_large_data_ref as TABLE. <br />
+ * The referrer loader of vendor_large_data_ref as TABLE. <br>
  * <pre>
  * [primary key]
  *     large_data_ref_id
@@ -64,7 +64,7 @@ public class LoaderOfVendorLargeDataRef {
     protected List<VendorLargeDataRef> _referrerVendorLargeDataRefSelfList;
 
     /**
-     * Load referrer of vendorLargeDataRefSelfList by the set-upper of referrer. <br />
+     * Load referrer of vendorLargeDataRefSelfList by the set-upper of referrer. <br>
      * vendor_large_data_ref by self_parent_id, named 'vendorLargeDataRefSelfList'.
      * <pre>
      * <span style="color: #0000C0">vendorLargeDataRefBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">vendorLargeDataRefList</span>, <span style="color: #553000">refLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -73,7 +73,7 @@ public class LoaderOfVendorLargeDataRef {
      *         <span style="color: #553000">refCB</span>.query().set...
      *         <span style="color: #553000">refCB</span>.query().addOrderBy...
      *     }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
-     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">refLoader</span> -&gt {</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">refLoader</span> -&gt; {</span>
      *     <span style="color: #3F7E5E">//    refLoader.load...</span>
      *     <span style="color: #3F7E5E">//});</span>
      * });
@@ -81,7 +81,7 @@ public class LoaderOfVendorLargeDataRef {
      *     ... = vendorLargeDataRef.<span style="color: #CC4747">getVendorLargeDataRefSelfList()</span>;
      * }
      * </pre>
-     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
      * The condition-bean, which the set-upper provides, has settings before callback as follows:
      * <pre>
      * cb.query().setSelfParentId_InScope(pkList);

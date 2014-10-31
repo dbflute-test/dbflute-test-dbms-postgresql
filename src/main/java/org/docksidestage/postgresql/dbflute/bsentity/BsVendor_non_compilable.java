@@ -5,11 +5,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.postgresql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
 /**
- * The entity of VENDOR-NON COMPILABLE as TABLE. <br />
+ * The entity of VENDOR-NON COMPILABLE as TABLE. <br>
  * <pre>
  * [primary-key]
  *     NON-COMPILABLE ID
@@ -52,7 +53,7 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsVendor_non_compilable extends AbstractEntity {
+public abstract class BsVendor_non_compilable extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -106,7 +107,7 @@ public abstract class BsVendor_non_compilable extends AbstractEntity {
     }
 
     /**
-     * To be unique by the unique column. <br />
+     * To be unique by the unique column. <br>
      * You can update the entity by the key when entity update (NOT batch update).
      * @param non_compilable_id : PK, NotNull, int4(10). (NotNull)
      */
@@ -123,7 +124,7 @@ public abstract class BsVendor_non_compilable extends AbstractEntity {
     protected Vendor_non_compilable _vendor_non_compilableByNextParentidSelf;
 
     /**
-     * [get] VENDOR-NON COMPILABLE by my Next_ParentID, named 'vendor_non_compilableByNextParentidSelf'. <br />
+     * [get] VENDOR-NON COMPILABLE by my Next_ParentID, named 'vendor_non_compilableByNextParentidSelf'. <br>
      * @return The entity of foreign property 'vendor_non_compilableByNextParentidSelf'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public Vendor_non_compilable getVendor_non_compilableByNextParentidSelf() {
@@ -142,7 +143,7 @@ public abstract class BsVendor_non_compilable extends AbstractEntity {
     protected Vendor_non_compilable _vendor_non_compilableByParent_idSelf;
 
     /**
-     * [get] VENDOR-NON COMPILABLE by my PARENT-ID, named 'vendor_non_compilableByParent_idSelf'. <br />
+     * [get] VENDOR-NON COMPILABLE by my PARENT-ID, named 'vendor_non_compilableByParent_idSelf'. <br>
      * @return The entity of foreign property 'vendor_non_compilableByParent_idSelf'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public Vendor_non_compilable getVendor_non_compilableByParent_idSelf() {
@@ -280,7 +281,7 @@ public abstract class BsVendor_non_compilable extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] NON-COMPILABLE ID: {PK, NotNull, int4(10)} <br />
+     * [get] NON-COMPILABLE ID: {PK, NotNull, int4(10)} <br>
      * @return The value of the column 'NON-COMPILABLE ID'. (basically NotNull if selected: for the constraint)
      */
     public Integer getNon_compilable_id() {
@@ -289,7 +290,7 @@ public abstract class BsVendor_non_compilable extends AbstractEntity {
     }
 
     /**
-     * [set] NON-COMPILABLE ID: {PK, NotNull, int4(10)} <br />
+     * [set] NON-COMPILABLE ID: {PK, NotNull, int4(10)} <br>
      * @param non_compilable_id The value of the column 'NON-COMPILABLE ID'. (basically NotNull if update: for the constraint)
      */
     public void setNon_compilable_id(Integer non_compilable_id) {
@@ -298,7 +299,7 @@ public abstract class BsVendor_non_compilable extends AbstractEntity {
     }
 
     /**
-     * [get] NON COMPILABLE-NAME: {varchar(64)} <br />
+     * [get] NON COMPILABLE-NAME: {varchar(64)} <br>
      * @return The value of the column 'NON COMPILABLE-NAME'. (NullAllowed even if selected: for no constraint)
      */
     public String getNon_compilable_name() {
@@ -307,7 +308,7 @@ public abstract class BsVendor_non_compilable extends AbstractEntity {
     }
 
     /**
-     * [set] NON COMPILABLE-NAME: {varchar(64)} <br />
+     * [set] NON COMPILABLE-NAME: {varchar(64)} <br>
      * @param non_compilable_name The value of the column 'NON COMPILABLE-NAME'. (NullAllowed: null update allowed for no constraint)
      */
     public void setNon_compilable_name(String non_compilable_name) {
@@ -316,7 +317,7 @@ public abstract class BsVendor_non_compilable extends AbstractEntity {
     }
 
     /**
-     * [get] PARENT-ID: {int4(10), FK to VENDOR-NON COMPILABLE} <br />
+     * [get] PARENT-ID: {int4(10), FK to VENDOR-NON COMPILABLE} <br>
      * @return The value of the column 'PARENT-ID'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getParent_id() {
@@ -325,7 +326,7 @@ public abstract class BsVendor_non_compilable extends AbstractEntity {
     }
 
     /**
-     * [set] PARENT-ID: {int4(10), FK to VENDOR-NON COMPILABLE} <br />
+     * [set] PARENT-ID: {int4(10), FK to VENDOR-NON COMPILABLE} <br>
      * @param parent_id The value of the column 'PARENT-ID'. (NullAllowed: null update allowed for no constraint)
      */
     public void setParent_id(Integer parent_id) {
@@ -334,7 +335,7 @@ public abstract class BsVendor_non_compilable extends AbstractEntity {
     }
 
     /**
-     * [get] Next_ParentID: {int4(10), FK to VENDOR-NON COMPILABLE} <br />
+     * [get] Next_ParentID: {int4(10), FK to VENDOR-NON COMPILABLE} <br>
      * @return The value of the column 'Next_ParentID'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getNextParentid() {
@@ -343,7 +344,7 @@ public abstract class BsVendor_non_compilable extends AbstractEntity {
     }
 
     /**
-     * [set] Next_ParentID: {int4(10), FK to VENDOR-NON COMPILABLE} <br />
+     * [set] Next_ParentID: {int4(10), FK to VENDOR-NON COMPILABLE} <br>
      * @param nextParentid The value of the column 'Next_ParentID'. (NullAllowed: null update allowed for no constraint)
      */
     public void setNextParentid(Integer nextParentid) {

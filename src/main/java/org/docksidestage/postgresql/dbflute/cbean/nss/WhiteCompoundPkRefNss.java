@@ -19,7 +19,7 @@ public class WhiteCompoundPkRefNss {
     //                                                                     Nested Relation
     //                                                                     ===============
     /**
-     * With nested relation columns to select clause. <br />
+     * With nested relation columns to select clause. <br>
      * white_compound_pk by my ref_first_id, ref_second_id, named 'whiteCompoundPk'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */

@@ -34,7 +34,7 @@ public class BsVendorPartManCQ extends AbstractBsVendorPartManCQ {
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from vendor_part_man) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -57,7 +57,7 @@ public class BsVendorPartManCQ extends AbstractBsVendorPartManCQ {
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join vendor_part_man on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -80,14 +80,14 @@ public class BsVendorPartManCQ extends AbstractBsVendorPartManCQ {
     protected ConditionValue xgetCValuePartManId() { return xdfgetPartManId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * part_man_id: {PK, NotNull, int4(10)}
      * @return this. (NotNull)
      */
     public BsVendorPartManCQ addOrderBy_PartManId_Asc() { regOBA("part_man_id"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * part_man_id: {PK, NotNull, int4(10)}
      * @return this. (NotNull)
      */
@@ -100,14 +100,14 @@ public class BsVendorPartManCQ extends AbstractBsVendorPartManCQ {
     protected ConditionValue xgetCValuePartManName() { return xdfgetPartManName(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * part_man_name: {NotNull, varchar(2147483647)}
      * @return this. (NotNull)
      */
     public BsVendorPartManCQ addOrderBy_PartManName_Asc() { regOBA("part_man_name"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * part_man_name: {NotNull, varchar(2147483647)}
      * @return this. (NotNull)
      */
@@ -120,14 +120,14 @@ public class BsVendorPartManCQ extends AbstractBsVendorPartManCQ {
     protected ConditionValue xgetCValuePartManPoint() { return xdfgetPartManPoint(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * part_man_point: {NotNull, int4(10)}
      * @return this. (NotNull)
      */
     public BsVendorPartManCQ addOrderBy_PartManPoint_Asc() { regOBA("part_man_point"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * part_man_point: {NotNull, int4(10)}
      * @return this. (NotNull)
      */
@@ -140,14 +140,14 @@ public class BsVendorPartManCQ extends AbstractBsVendorPartManCQ {
     protected ConditionValue xgetCValuePartManDate() { return xdfgetPartManDate(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * part_man_date: {date(13)}
      * @return this. (NotNull)
      */
     public BsVendorPartManCQ addOrderBy_PartManDate_Asc() { regOBA("part_man_date"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * part_man_date: {date(13)}
      * @return this. (NotNull)
      */

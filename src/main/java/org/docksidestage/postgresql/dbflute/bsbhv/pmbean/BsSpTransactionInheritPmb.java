@@ -9,7 +9,7 @@ import org.dbflute.util.DfTypeUtil;
 import org.docksidestage.postgresql.dbflute.allcommon.*;
 
 /**
- * The base class for procedure parameter-bean of SpTransactionInherit. <br />
+ * The base class for procedure parameter-bean of SpTransactionInherit. <br>
  * This is related to "<span style="color: #AD4747">sp_transaction_inherit</span>".
  * @author DBFlute(AutoGenerator)
  */
@@ -39,7 +39,7 @@ public class BsSpTransactionInheritPmb implements ProcedurePmb, FetchBean {
     //                                                                         Constructor
     //                                                                         ===========
     /**
-     * Constructor for the procedure parameter-bean of SpTransactionInherit. <br />
+     * Constructor for the procedure parameter-bean of SpTransactionInherit. <br>
      * This is related to "<span style="color: #AD4747">sp_transaction_inherit</span>".
      */
     public BsSpTransactionInheritPmb() {
@@ -130,7 +130,7 @@ public class BsSpTransactionInheritPmb implements ProcedurePmb, FetchBean {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] returnValue: {int4 as Return} <br />
+     * [get] returnValue: {int4 as Return} <br>
      * @return The value of returnValue. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public Integer getReturnValue() {
@@ -138,7 +138,7 @@ public class BsSpTransactionInheritPmb implements ProcedurePmb, FetchBean {
     }
 
     /**
-     * [set] returnValue: {int4 as Return} <br />
+     * [set] returnValue: {int4 as Return} <br>
      * @param returnValue The value of returnValue. (NullAllowed)
      */
     public void setReturnValue(Integer returnValue) {

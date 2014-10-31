@@ -5,11 +5,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.postgresql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
 /**
- * The entity of vendor_date_fk as TABLE. <br />
+ * The entity of vendor_date_fk as TABLE. <br>
  * <pre>
  * [primary-key]
  *     bar_id
@@ -48,7 +49,7 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsVendorDateFk extends AbstractEntity {
+public abstract class BsVendorDateFk extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -102,7 +103,7 @@ public abstract class BsVendorDateFk extends AbstractEntity {
     protected VendorDatePk _vendorDatePk;
 
     /**
-     * [get] vendor_date_pk by my bar_date, named 'vendorDatePk'. <br />
+     * [get] vendor_date_pk by my bar_date, named 'vendorDatePk'. <br>
      * @return The entity of foreign property 'vendorDatePk'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public VendorDatePk getVendorDatePk() {
@@ -186,7 +187,7 @@ public abstract class BsVendorDateFk extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] bar_id: {PK, NotNull, int4(10)} <br />
+     * [get] bar_id: {PK, NotNull, int4(10)} <br>
      * @return The value of the column 'bar_id'. (basically NotNull if selected: for the constraint)
      */
     public Integer getBarId() {
@@ -195,7 +196,7 @@ public abstract class BsVendorDateFk extends AbstractEntity {
     }
 
     /**
-     * [set] bar_id: {PK, NotNull, int4(10)} <br />
+     * [set] bar_id: {PK, NotNull, int4(10)} <br>
      * @param barId The value of the column 'bar_id'. (basically NotNull if update: for the constraint)
      */
     public void setBarId(Integer barId) {
@@ -204,7 +205,7 @@ public abstract class BsVendorDateFk extends AbstractEntity {
     }
 
     /**
-     * [get] bar_date: {NotNull, date(13), FK to vendor_date_pk} <br />
+     * [get] bar_date: {NotNull, date(13), FK to vendor_date_pk} <br>
      * @return The value of the column 'bar_date'. (basically NotNull if selected: for the constraint)
      */
     public java.util.Date getBarDate() {
@@ -213,7 +214,7 @@ public abstract class BsVendorDateFk extends AbstractEntity {
     }
 
     /**
-     * [set] bar_date: {NotNull, date(13), FK to vendor_date_pk} <br />
+     * [set] bar_date: {NotNull, date(13), FK to vendor_date_pk} <br>
      * @param barDate The value of the column 'bar_date'. (basically NotNull if update: for the constraint)
      */
     public void setBarDate(java.util.Date barDate) {

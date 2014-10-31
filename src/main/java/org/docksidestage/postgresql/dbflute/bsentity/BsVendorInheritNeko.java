@@ -5,11 +5,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.postgresql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
 /**
- * The entity of vendor_inherit_neko as TABLE. <br />
+ * The entity of vendor_inherit_neko as TABLE. <br>
  * <pre>
  * [primary-key]
  *     neko_id
@@ -56,7 +57,7 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsVendorInheritNeko extends AbstractEntity {
+public abstract class BsVendorInheritNeko extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -182,7 +183,7 @@ public abstract class BsVendorInheritNeko extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] inu_id: {NotNull, int4(10)} <br />
+     * [get] inu_id: {NotNull, int4(10)} <br>
      * @return The value of the column 'inu_id'. (basically NotNull if selected: for the constraint)
      */
     public Integer getInuId() {
@@ -191,7 +192,7 @@ public abstract class BsVendorInheritNeko extends AbstractEntity {
     }
 
     /**
-     * [set] inu_id: {NotNull, int4(10)} <br />
+     * [set] inu_id: {NotNull, int4(10)} <br>
      * @param inuId The value of the column 'inu_id'. (basically NotNull if update: for the constraint)
      */
     public void setInuId(Integer inuId) {
@@ -200,7 +201,7 @@ public abstract class BsVendorInheritNeko extends AbstractEntity {
     }
 
     /**
-     * [get] inu_name: {NotNull, varchar(2147483647)} <br />
+     * [get] inu_name: {NotNull, varchar(2147483647)} <br>
      * @return The value of the column 'inu_name'. (basically NotNull if selected: for the constraint)
      */
     public String getInuName() {
@@ -209,7 +210,7 @@ public abstract class BsVendorInheritNeko extends AbstractEntity {
     }
 
     /**
-     * [set] inu_name: {NotNull, varchar(2147483647)} <br />
+     * [set] inu_name: {NotNull, varchar(2147483647)} <br>
      * @param inuName The value of the column 'inu_name'. (basically NotNull if update: for the constraint)
      */
     public void setInuName(String inuName) {
@@ -218,7 +219,7 @@ public abstract class BsVendorInheritNeko extends AbstractEntity {
     }
 
     /**
-     * [get] inu_date: {date(13)} <br />
+     * [get] inu_date: {date(13)} <br>
      * @return The value of the column 'inu_date'. (NullAllowed even if selected: for no constraint)
      */
     public java.util.Date getInuDate() {
@@ -227,7 +228,7 @@ public abstract class BsVendorInheritNeko extends AbstractEntity {
     }
 
     /**
-     * [set] inu_date: {date(13)} <br />
+     * [set] inu_date: {date(13)} <br>
      * @param inuDate The value of the column 'inu_date'. (NullAllowed: null update allowed for no constraint)
      */
     public void setInuDate(java.util.Date inuDate) {
@@ -236,7 +237,7 @@ public abstract class BsVendorInheritNeko extends AbstractEntity {
     }
 
     /**
-     * [get] neko_id: {PK, NotNull, int4(10)} <br />
+     * [get] neko_id: {PK, NotNull, int4(10)} <br>
      * @return The value of the column 'neko_id'. (basically NotNull if selected: for the constraint)
      */
     public Integer getNekoId() {
@@ -245,7 +246,7 @@ public abstract class BsVendorInheritNeko extends AbstractEntity {
     }
 
     /**
-     * [set] neko_id: {PK, NotNull, int4(10)} <br />
+     * [set] neko_id: {PK, NotNull, int4(10)} <br>
      * @param nekoId The value of the column 'neko_id'. (basically NotNull if update: for the constraint)
      */
     public void setNekoId(Integer nekoId) {
@@ -254,7 +255,7 @@ public abstract class BsVendorInheritNeko extends AbstractEntity {
     }
 
     /**
-     * [get] neko_name: {NotNull, varchar(2147483647)} <br />
+     * [get] neko_name: {NotNull, varchar(2147483647)} <br>
      * @return The value of the column 'neko_name'. (basically NotNull if selected: for the constraint)
      */
     public String getNekoName() {
@@ -263,7 +264,7 @@ public abstract class BsVendorInheritNeko extends AbstractEntity {
     }
 
     /**
-     * [set] neko_name: {NotNull, varchar(2147483647)} <br />
+     * [set] neko_name: {NotNull, varchar(2147483647)} <br>
      * @param nekoName The value of the column 'neko_name'. (basically NotNull if update: for the constraint)
      */
     public void setNekoName(String nekoName) {
@@ -272,7 +273,7 @@ public abstract class BsVendorInheritNeko extends AbstractEntity {
     }
 
     /**
-     * [get] neko_date: {date(13)} <br />
+     * [get] neko_date: {date(13)} <br>
      * @return The value of the column 'neko_date'. (NullAllowed even if selected: for no constraint)
      */
     public java.util.Date getNekoDate() {
@@ -281,7 +282,7 @@ public abstract class BsVendorInheritNeko extends AbstractEntity {
     }
 
     /**
-     * [set] neko_date: {date(13)} <br />
+     * [set] neko_date: {date(13)} <br>
      * @param nekoDate The value of the column 'neko_date'. (NullAllowed: null update allowed for no constraint)
      */
     public void setNekoDate(java.util.Date nekoDate) {

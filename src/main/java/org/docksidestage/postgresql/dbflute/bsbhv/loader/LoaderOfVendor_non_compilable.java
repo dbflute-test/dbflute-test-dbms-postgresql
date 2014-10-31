@@ -9,7 +9,7 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
 import org.docksidestage.postgresql.dbflute.cbean.*;
 
 /**
- * The referrer loader of VENDOR-NON COMPILABLE as TABLE. <br />
+ * The referrer loader of VENDOR-NON COMPILABLE as TABLE. <br>
  * <pre>
  * [primary key]
  *     NON-COMPILABLE ID
@@ -64,7 +64,7 @@ public class LoaderOfVendor_non_compilable {
     protected List<Vendor_non_compilable> _referrerVendor_non_compilableByNextParentidSelfList;
 
     /**
-     * Load referrer of vendor_non_compilableByNextParentidSelfList by the set-upper of referrer. <br />
+     * Load referrer of vendor_non_compilableByNextParentidSelfList by the set-upper of referrer. <br>
      * VENDOR-NON COMPILABLE by Next_ParentID, named 'vendor_non_compilableByNextParentidSelfList'.
      * <pre>
      * <span style="color: #0000C0">vendor_non_compilableBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">vendor_non_compilableList</span>, <span style="color: #553000">entityLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -73,7 +73,7 @@ public class LoaderOfVendor_non_compilable {
      *         <span style="color: #553000">entityCB</span>.query().set...
      *         <span style="color: #553000">entityCB</span>.query().addOrderBy...
      *     }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
-     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">entityLoader</span> -&gt {</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">entityLoader</span> -&gt; {</span>
      *     <span style="color: #3F7E5E">//    entityLoader.load...</span>
      *     <span style="color: #3F7E5E">//});</span>
      * });
@@ -81,7 +81,7 @@ public class LoaderOfVendor_non_compilable {
      *     ... = vendor_non_compilable.<span style="color: #CC4747">getVendor_non_compilableByNextParentidSelfList()</span>;
      * }
      * </pre>
-     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
      * The condition-bean, which the set-upper provides, has settings before callback as follows:
      * <pre>
      * cb.query().setNextParentid_InScope(pkList);
@@ -98,7 +98,7 @@ public class LoaderOfVendor_non_compilable {
     protected List<Vendor_non_compilable> _referrerVendor_non_compilableByParent_idSelfList;
 
     /**
-     * Load referrer of vendor_non_compilableByParent_idSelfList by the set-upper of referrer. <br />
+     * Load referrer of vendor_non_compilableByParent_idSelfList by the set-upper of referrer. <br>
      * VENDOR-NON COMPILABLE by PARENT-ID, named 'vendor_non_compilableByParent_idSelfList'.
      * <pre>
      * <span style="color: #0000C0">vendor_non_compilableBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">vendor_non_compilableList</span>, <span style="color: #553000">entityLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -107,7 +107,7 @@ public class LoaderOfVendor_non_compilable {
      *         <span style="color: #553000">entityCB</span>.query().set...
      *         <span style="color: #553000">entityCB</span>.query().addOrderBy...
      *     }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
-     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">entityLoader</span> -&gt {</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">entityLoader</span> -&gt; {</span>
      *     <span style="color: #3F7E5E">//    entityLoader.load...</span>
      *     <span style="color: #3F7E5E">//});</span>
      * });
@@ -115,7 +115,7 @@ public class LoaderOfVendor_non_compilable {
      *     ... = vendor_non_compilable.<span style="color: #CC4747">getVendor_non_compilableByParent_idSelfList()</span>;
      * }
      * </pre>
-     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
      * The condition-bean, which the set-upper provides, has settings before callback as follows:
      * <pre>
      * cb.query().setParent_id_InScope(pkList);

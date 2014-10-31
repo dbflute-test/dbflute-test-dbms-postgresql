@@ -4,8 +4,8 @@ import org.docksidestage.postgresql.dbflute.bsbhv.pmbean.BsPartManInsertTriggerP
 
 /**
  * <!-- df:beginClassDescription -->
- * The typed parameter-bean of PartManInsertTrigger. <br />
- * This is related to "<span style="color: #AD4747">part_man_insert_trigger</span>". <br />
+ * The typed parameter-bean of PartManInsertTrigger. <br>
+ * This is related to "<span style="color: #AD4747">part_man_insert_trigger</span>". <br>
  * <!-- df:endClassDescription -->
  * <p>
  * You can implement your original methods here.

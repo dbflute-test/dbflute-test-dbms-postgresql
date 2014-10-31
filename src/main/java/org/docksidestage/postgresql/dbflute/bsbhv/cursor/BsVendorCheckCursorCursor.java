@@ -7,7 +7,7 @@ import org.dbflute.jdbc.ValueType;
 import org.dbflute.s2dao.valuetype.TnValueTypes;
 
 /**
- * The cursor of VendorCheckCursor. <br />
+ * The cursor of VendorCheckCursor. <br>
  * @author DBFlute(AutoGenerator)
  */
 public class BsVendorCheckCursorCursor {
@@ -176,7 +176,7 @@ public class BsVendorCheckCursorCursor {
     /**
      * Move to next result.
      * @return Is exist next result.
-     * @throws SQLException
+     * @throws SQLException When it fails to move the cursor to next point.
      */
     public boolean next() throws SQLException {
         return _rs.next();
@@ -186,243 +186,243 @@ public class BsVendorCheckCursorCursor {
     //                                                                  Type Safe Accessor
     //                                                                  ==================
     /**
-     * [get] vendor_check_id: {numeric(16), refers to vendor_check.vendor_check_id} <br />
+     * [get] vendor_check_id: {numeric(16), refers to vendor_check.vendor_check_id} <br>
      * @return The value of vendorCheckId. (NullAllowed)
-     * @throws java.sql.SQLException
+     * @throws SQLException When it fails to get the value from result set.
      */
     public Long getVendorCheckId() throws SQLException {
         return (Long)_vtVendorCheckId.getValue(_rs, DB_NAME_vendor_check_id);
     }
 
     /**
-     * [get] type_of_char: {bpchar(3), refers to vendor_check.type_of_char} <br />
+     * [get] type_of_char: {bpchar(3), refers to vendor_check.type_of_char} <br>
      * @return The value of typeOfChar. (NullAllowed)
-     * @throws java.sql.SQLException
+     * @throws SQLException When it fails to get the value from result set.
      */
     public String getTypeOfChar() throws SQLException {
         return (String)_vtTypeOfChar.getValue(_rs, DB_NAME_type_of_char);
     }
 
     /**
-     * [get] type_of_varchar: {varchar(2147483647), refers to vendor_check.type_of_varchar} <br />
+     * [get] type_of_varchar: {varchar(2147483647), refers to vendor_check.type_of_varchar} <br>
      * @return The value of typeOfVarchar. (NullAllowed)
-     * @throws java.sql.SQLException
+     * @throws SQLException When it fails to get the value from result set.
      */
     public String getTypeOfVarchar() throws SQLException {
         return (String)_vtTypeOfVarchar.getValue(_rs, DB_NAME_type_of_varchar);
     }
 
     /**
-     * [get] type_of_vc_array: {_varchar(2147483647), refers to vendor_check.type_of_vc_array} <br />
+     * [get] type_of_vc_array: {_varchar(2147483647), refers to vendor_check.type_of_vc_array} <br>
      * @return The value of typeOfVcArray. (NullAllowed)
-     * @throws java.sql.SQLException
+     * @throws SQLException When it fails to get the value from result set.
      */
     public org.docksidestage.postgresql.mytype.MyArray getTypeOfVcArray() throws SQLException {
         return (org.docksidestage.postgresql.mytype.MyArray)_vtTypeOfVcArray.getValue(_rs, DB_NAME_type_of_vc_array);
     }
 
     /**
-     * [get] type_of_text: {text(2147483647), refers to vendor_check.type_of_text} <br />
+     * [get] type_of_text: {text(2147483647), refers to vendor_check.type_of_text} <br>
      * @return The value of typeOfText. (NullAllowed)
-     * @throws java.sql.SQLException
+     * @throws SQLException When it fails to get the value from result set.
      */
     public String getTypeOfText() throws SQLException {
         return (String)_vtTypeOfText.getValue(_rs, DB_NAME_type_of_text);
     }
 
     /**
-     * [get] type_of_numeric_integer: {numeric(5), refers to vendor_check.type_of_numeric_integer} <br />
+     * [get] type_of_numeric_integer: {numeric(5), refers to vendor_check.type_of_numeric_integer} <br>
      * @return The value of typeOfNumericInteger. (NullAllowed)
-     * @throws java.sql.SQLException
+     * @throws SQLException When it fails to get the value from result set.
      */
     public Integer getTypeOfNumericInteger() throws SQLException {
         return (Integer)_vtTypeOfNumericInteger.getValue(_rs, DB_NAME_type_of_numeric_integer);
     }
 
     /**
-     * [get] type_of_numeric_bigint: {numeric(12), refers to vendor_check.type_of_numeric_bigint} <br />
+     * [get] type_of_numeric_bigint: {numeric(12), refers to vendor_check.type_of_numeric_bigint} <br>
      * @return The value of typeOfNumericBigint. (NullAllowed)
-     * @throws java.sql.SQLException
+     * @throws SQLException When it fails to get the value from result set.
      */
     public Long getTypeOfNumericBigint() throws SQLException {
         return (Long)_vtTypeOfNumericBigint.getValue(_rs, DB_NAME_type_of_numeric_bigint);
     }
 
     /**
-     * [get] type_of_numeric_decimal: {numeric(5, 3), refers to vendor_check.type_of_numeric_decimal} <br />
+     * [get] type_of_numeric_decimal: {numeric(5, 3), refers to vendor_check.type_of_numeric_decimal} <br>
      * @return The value of typeOfNumericDecimal. (NullAllowed)
-     * @throws java.sql.SQLException
+     * @throws SQLException When it fails to get the value from result set.
      */
     public java.math.BigDecimal getTypeOfNumericDecimal() throws SQLException {
         return (java.math.BigDecimal)_vtTypeOfNumericDecimal.getValue(_rs, DB_NAME_type_of_numeric_decimal);
     }
 
     /**
-     * [get] type_of_decimal: {numeric(131089), refers to vendor_check.type_of_decimal} <br />
+     * [get] type_of_decimal: {numeric(131089), refers to vendor_check.type_of_decimal} <br>
      * @return The value of typeOfDecimal. (NullAllowed)
-     * @throws java.sql.SQLException
+     * @throws SQLException When it fails to get the value from result set.
      */
     public java.math.BigDecimal getTypeOfDecimal() throws SQLException {
         return (java.math.BigDecimal)_vtTypeOfDecimal.getValue(_rs, DB_NAME_type_of_decimal);
     }
 
     /**
-     * [get] type_of_int8: {int8(19), refers to vendor_check.type_of_int8} <br />
+     * [get] type_of_int8: {int8(19), refers to vendor_check.type_of_int8} <br>
      * @return The value of typeOfInt8. (NullAllowed)
-     * @throws java.sql.SQLException
+     * @throws SQLException When it fails to get the value from result set.
      */
     public Long getTypeOfInt8() throws SQLException {
         return (Long)_vtTypeOfInt8.getValue(_rs, DB_NAME_type_of_int8);
     }
 
     /**
-     * [get] type_of_int_array: {_int8(19), refers to vendor_check.type_of_int_array} <br />
+     * [get] type_of_int_array: {_int8(19), refers to vendor_check.type_of_int_array} <br>
      * @return The value of typeOfIntArray. (NullAllowed)
-     * @throws java.sql.SQLException
+     * @throws SQLException When it fails to get the value from result set.
      */
     public org.docksidestage.postgresql.mytype.MyArray getTypeOfIntArray() throws SQLException {
         return (org.docksidestage.postgresql.mytype.MyArray)_vtTypeOfIntArray.getValue(_rs, DB_NAME_type_of_int_array);
     }
 
     /**
-     * [get] type_of_int4: {int4(10), refers to vendor_check.type_of_int4} <br />
+     * [get] type_of_int4: {int4(10), refers to vendor_check.type_of_int4} <br>
      * @return The value of typeOfInt4. (NullAllowed)
-     * @throws java.sql.SQLException
+     * @throws SQLException When it fails to get the value from result set.
      */
     public Integer getTypeOfInt4() throws SQLException {
         return (Integer)_vtTypeOfInt4.getValue(_rs, DB_NAME_type_of_int4);
     }
 
     /**
-     * [get] type_of_bigint: {int8(19), refers to vendor_check.type_of_bigint} <br />
+     * [get] type_of_bigint: {int8(19), refers to vendor_check.type_of_bigint} <br>
      * @return The value of typeOfBigint. (NullAllowed)
-     * @throws java.sql.SQLException
+     * @throws SQLException When it fails to get the value from result set.
      */
     public Long getTypeOfBigint() throws SQLException {
         return (Long)_vtTypeOfBigint.getValue(_rs, DB_NAME_type_of_bigint);
     }
 
     /**
-     * [get] type_of_real: {float4(8, 8), refers to vendor_check.type_of_real} <br />
+     * [get] type_of_real: {float4(8, 8), refers to vendor_check.type_of_real} <br>
      * @return The value of typeOfReal. (NullAllowed)
-     * @throws java.sql.SQLException
+     * @throws SQLException When it fails to get the value from result set.
      */
     public java.math.BigDecimal getTypeOfReal() throws SQLException {
         return (java.math.BigDecimal)_vtTypeOfReal.getValue(_rs, DB_NAME_type_of_real);
     }
 
     /**
-     * [get] type_of_float: {float8(17, 17), refers to vendor_check.type_of_float} <br />
+     * [get] type_of_float: {float8(17, 17), refers to vendor_check.type_of_float} <br>
      * @return The value of typeOfFloat. (NullAllowed)
-     * @throws java.sql.SQLException
+     * @throws SQLException When it fails to get the value from result set.
      */
     public java.math.BigDecimal getTypeOfFloat() throws SQLException {
         return (java.math.BigDecimal)_vtTypeOfFloat.getValue(_rs, DB_NAME_type_of_float);
     }
 
     /**
-     * [get] type_of_money: {money(2147483647), refers to vendor_check.type_of_money} <br />
+     * [get] type_of_money: {money(2147483647), refers to vendor_check.type_of_money} <br>
      * @return The value of typeOfMoney. (NullAllowed)
-     * @throws java.sql.SQLException
+     * @throws SQLException When it fails to get the value from result set.
      */
     public java.math.BigDecimal getTypeOfMoney() throws SQLException {
         return (java.math.BigDecimal)_vtTypeOfMoney.getValue(_rs, DB_NAME_type_of_money);
     }
 
     /**
-     * [get] type_of_date: {date(13), refers to vendor_check.type_of_date} <br />
+     * [get] type_of_date: {date(13), refers to vendor_check.type_of_date} <br>
      * @return The value of typeOfDate. (NullAllowed)
-     * @throws java.sql.SQLException
+     * @throws SQLException When it fails to get the value from result set.
      */
     public java.util.Date getTypeOfDate() throws SQLException {
         return (java.util.Date)_vtTypeOfDate.getValue(_rs, DB_NAME_type_of_date);
     }
 
     /**
-     * [get] type_of_timestamp: {timestamp(29, 6), refers to vendor_check.type_of_timestamp} <br />
+     * [get] type_of_timestamp: {timestamp(29, 6), refers to vendor_check.type_of_timestamp} <br>
      * @return The value of typeOfTimestamp. (NullAllowed)
-     * @throws java.sql.SQLException
+     * @throws SQLException When it fails to get the value from result set.
      */
     public java.sql.Timestamp getTypeOfTimestamp() throws SQLException {
         return (java.sql.Timestamp)_vtTypeOfTimestamp.getValue(_rs, DB_NAME_type_of_timestamp);
     }
 
     /**
-     * [get] type_of_time: {time(15, 6), refers to vendor_check.type_of_time} <br />
+     * [get] type_of_time: {time(15, 6), refers to vendor_check.type_of_time} <br>
      * @return The value of typeOfTime. (NullAllowed)
-     * @throws java.sql.SQLException
+     * @throws SQLException When it fails to get the value from result set.
      */
     public java.sql.Time getTypeOfTime() throws SQLException {
         return (java.sql.Time)_vtTypeOfTime.getValue(_rs, DB_NAME_type_of_time);
     }
 
     /**
-     * [get] type_of_timetz: {timetz(21, 6), refers to vendor_check.type_of_timetz} <br />
+     * [get] type_of_timetz: {timetz(21, 6), refers to vendor_check.type_of_timetz} <br>
      * @return The value of typeOfTimetz. (NullAllowed)
-     * @throws java.sql.SQLException
+     * @throws SQLException When it fails to get the value from result set.
      */
     public java.sql.Time getTypeOfTimetz() throws SQLException {
         return (java.sql.Time)_vtTypeOfTimetz.getValue(_rs, DB_NAME_type_of_timetz);
     }
 
     /**
-     * [get] type_of_interval: {interval(49, 6), refers to vendor_check.type_of_interval} <br />
+     * [get] type_of_interval: {interval(49, 6), refers to vendor_check.type_of_interval} <br>
      * @return The value of typeOfInterval. (NullAllowed)
-     * @throws java.sql.SQLException
+     * @throws SQLException When it fails to get the value from result set.
      */
     public String getTypeOfInterval() throws SQLException {
         return (String)_vtTypeOfInterval.getValue(_rs, DB_NAME_type_of_interval);
     }
 
     /**
-     * [get] type_of_bool: {bool(1), refers to vendor_check.type_of_bool, classification=TrueFalse} <br />
+     * [get] type_of_bool: {bool(1), refers to vendor_check.type_of_bool, classification=TrueFalse} <br>
      * @return The value of typeOfBool. (NullAllowed)
-     * @throws java.sql.SQLException
+     * @throws SQLException When it fails to get the value from result set.
      */
     public Boolean getTypeOfBool() throws SQLException {
         return (Boolean)_vtTypeOfBool.getValue(_rs, DB_NAME_type_of_bool);
     }
 
     /**
-     * [get] type_of_bit: {bit(1), refers to vendor_check.type_of_bit} <br />
+     * [get] type_of_bit: {bit(1), refers to vendor_check.type_of_bit} <br>
      * @return The value of typeOfBit. (NullAllowed)
-     * @throws java.sql.SQLException
+     * @throws SQLException When it fails to get the value from result set.
      */
     public Boolean getTypeOfBit() throws SQLException {
         return (Boolean)_vtTypeOfBit.getValue(_rs, DB_NAME_type_of_bit);
     }
 
     /**
-     * [get] type_of_bytea: {bytea(2147483647), refers to vendor_check.type_of_bytea} <br />
+     * [get] type_of_bytea: {bytea(2147483647), refers to vendor_check.type_of_bytea} <br>
      * @return The value of typeOfBytea. (NullAllowed)
-     * @throws java.sql.SQLException
+     * @throws SQLException When it fails to get the value from result set.
      */
     public byte[] getTypeOfBytea() throws SQLException {
         return (byte[])_vtTypeOfBytea.getValue(_rs, DB_NAME_type_of_bytea);
     }
 
     /**
-     * [get] type_of_oid: {oid(10), refers to vendor_check.type_of_oid} <br />
+     * [get] type_of_oid: {oid(10), refers to vendor_check.type_of_oid} <br>
      * @return The value of typeOfOid. (NullAllowed)
-     * @throws java.sql.SQLException
+     * @throws SQLException When it fails to get the value from result set.
      */
     public byte[] getTypeOfOid() throws SQLException {
         return (byte[])_vtTypeOfOid.getValue(_rs, DB_NAME_type_of_oid);
     }
 
     /**
-     * [get] type_of_uuid: {uuid(2147483647), refers to vendor_check.type_of_uuid} <br />
+     * [get] type_of_uuid: {uuid(2147483647), refers to vendor_check.type_of_uuid} <br>
      * @return The value of typeOfUuid. (NullAllowed)
-     * @throws java.sql.SQLException
+     * @throws SQLException When it fails to get the value from result set.
      */
     public java.util.UUID getTypeOfUuid() throws SQLException {
         return (java.util.UUID)_vtTypeOfUuid.getValue(_rs, DB_NAME_type_of_uuid);
     }
 
     /**
-     * [get] type_of_xml: {xml(2147483647), refers to vendor_check.type_of_xml} <br />
+     * [get] type_of_xml: {xml(2147483647), refers to vendor_check.type_of_xml} <br>
      * @return The value of typeOfXml. (NullAllowed)
-     * @throws java.sql.SQLException
+     * @throws SQLException When it fails to get the value from result set.
      */
     public org.docksidestage.postgresql.mytype.MyXML getTypeOfXml() throws SQLException {
         return (org.docksidestage.postgresql.mytype.MyXML)_vtTypeOfXml.getValue(_rs, DB_NAME_type_of_xml);

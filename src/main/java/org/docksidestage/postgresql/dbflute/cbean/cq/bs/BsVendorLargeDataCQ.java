@@ -34,7 +34,7 @@ public class BsVendorLargeDataCQ extends AbstractBsVendorLargeDataCQ {
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from vendor_large_data) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -57,7 +57,7 @@ public class BsVendorLargeDataCQ extends AbstractBsVendorLargeDataCQ {
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join vendor_large_data on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -94,14 +94,14 @@ public class BsVendorLargeDataCQ extends AbstractBsVendorLargeDataCQ {
     public String keepLargeDataId_QueryDerivedReferrer_VendorLargeDataRefListParameter(Object pm) { return xkeepSQuePm("largeDataId_QueryDerivedReferrer_VendorLargeDataRefList", pm); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * large_data_id: {PK, NotNull, int8(19)}
      * @return this. (NotNull)
      */
     public BsVendorLargeDataCQ addOrderBy_LargeDataId_Asc() { regOBA("large_data_id"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * large_data_id: {PK, NotNull, int8(19)}
      * @return this. (NotNull)
      */
@@ -114,14 +114,14 @@ public class BsVendorLargeDataCQ extends AbstractBsVendorLargeDataCQ {
     protected ConditionValue xgetCValueStringIndex() { return xdfgetStringIndex(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * string_index: {IX, NotNull, varchar(200)}
      * @return this. (NotNull)
      */
     public BsVendorLargeDataCQ addOrderBy_StringIndex_Asc() { regOBA("string_index"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * string_index: {IX, NotNull, varchar(200)}
      * @return this. (NotNull)
      */
@@ -134,14 +134,14 @@ public class BsVendorLargeDataCQ extends AbstractBsVendorLargeDataCQ {
     protected ConditionValue xgetCValueStringNoIndex() { return xdfgetStringNoIndex(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * string_no_index: {NotNull, varchar(200)}
      * @return this. (NotNull)
      */
     public BsVendorLargeDataCQ addOrderBy_StringNoIndex_Asc() { regOBA("string_no_index"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * string_no_index: {NotNull, varchar(200)}
      * @return this. (NotNull)
      */
@@ -154,14 +154,14 @@ public class BsVendorLargeDataCQ extends AbstractBsVendorLargeDataCQ {
     protected ConditionValue xgetCValueStringUniqueIndex() { return xdfgetStringUniqueIndex(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * string_unique_index: {UQ, NotNull, varchar(200)}
      * @return this. (NotNull)
      */
     public BsVendorLargeDataCQ addOrderBy_StringUniqueIndex_Asc() { regOBA("string_unique_index"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * string_unique_index: {UQ, NotNull, varchar(200)}
      * @return this. (NotNull)
      */
@@ -174,14 +174,14 @@ public class BsVendorLargeDataCQ extends AbstractBsVendorLargeDataCQ {
     protected ConditionValue xgetCValueIntflgIndex() { return xdfgetIntflgIndex(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * intflg_index: {NotNull, int4(10)}
      * @return this. (NotNull)
      */
     public BsVendorLargeDataCQ addOrderBy_IntflgIndex_Asc() { regOBA("intflg_index"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * intflg_index: {NotNull, int4(10)}
      * @return this. (NotNull)
      */
@@ -194,14 +194,14 @@ public class BsVendorLargeDataCQ extends AbstractBsVendorLargeDataCQ {
     protected ConditionValue xgetCValueNumericIntegerIndex() { return xdfgetNumericIntegerIndex(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * numeric_integer_index: {IX, NotNull, numeric(8)}
      * @return this. (NotNull)
      */
     public BsVendorLargeDataCQ addOrderBy_NumericIntegerIndex_Asc() { regOBA("numeric_integer_index"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * numeric_integer_index: {IX, NotNull, numeric(8)}
      * @return this. (NotNull)
      */
@@ -214,14 +214,14 @@ public class BsVendorLargeDataCQ extends AbstractBsVendorLargeDataCQ {
     protected ConditionValue xgetCValueNumericIntegerNoIndex() { return xdfgetNumericIntegerNoIndex(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * numeric_integer_no_index: {NotNull, numeric(8)}
      * @return this. (NotNull)
      */
     public BsVendorLargeDataCQ addOrderBy_NumericIntegerNoIndex_Asc() { regOBA("numeric_integer_no_index"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * numeric_integer_no_index: {NotNull, numeric(8)}
      * @return this. (NotNull)
      */

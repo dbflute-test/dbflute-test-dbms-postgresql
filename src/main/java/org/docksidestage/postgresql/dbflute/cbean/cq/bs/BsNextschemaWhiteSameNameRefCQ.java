@@ -34,7 +34,7 @@ public class BsNextschemaWhiteSameNameRefCQ extends AbstractBsNextschemaWhiteSam
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from nextschema.white_same_name_ref) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -57,7 +57,7 @@ public class BsNextschemaWhiteSameNameRefCQ extends AbstractBsNextschemaWhiteSam
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join nextschema.white_same_name_ref on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -80,14 +80,14 @@ public class BsNextschemaWhiteSameNameRefCQ extends AbstractBsNextschemaWhiteSam
     protected ConditionValue xgetCValueSameNameRefId() { return xdfgetSameNameRefId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * same_name_ref_id: {PK, NotNull, int8(19)}
      * @return this. (NotNull)
      */
     public BsNextschemaWhiteSameNameRefCQ addOrderBy_SameNameRefId_Asc() { regOBA("same_name_ref_id"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * same_name_ref_id: {PK, NotNull, int8(19)}
      * @return this. (NotNull)
      */
@@ -100,14 +100,14 @@ public class BsNextschemaWhiteSameNameRefCQ extends AbstractBsNextschemaWhiteSam
     protected ConditionValue xgetCValueSameNameId() { return xdfgetSameNameId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * same_name_id: {NotNull, int4(10), FK to white_same_name}
      * @return this. (NotNull)
      */
     public BsNextschemaWhiteSameNameRefCQ addOrderBy_SameNameId_Asc() { regOBA("same_name_id"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * same_name_id: {NotNull, int4(10), FK to white_same_name}
      * @return this. (NotNull)
      */
@@ -120,14 +120,14 @@ public class BsNextschemaWhiteSameNameRefCQ extends AbstractBsNextschemaWhiteSam
     protected ConditionValue xgetCValueNextRefDate() { return xdfgetNextRefDate(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * next_ref_date: {date(13)}
      * @return this. (NotNull)
      */
     public BsNextschemaWhiteSameNameRefCQ addOrderBy_NextRefDate_Asc() { regOBA("next_ref_date"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * next_ref_date: {date(13)}
      * @return this. (NotNull)
      */
@@ -183,7 +183,7 @@ public class BsNextschemaWhiteSameNameRefCQ extends AbstractBsNextschemaWhiteSam
     //                                                                       Foreign Query
     //                                                                       =============
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * nextschema.white_same_name by my same_name_id, named 'whiteSameName'.
      * @return The instance of condition-query. (NotNull)
      */

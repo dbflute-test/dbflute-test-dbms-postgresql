@@ -5,11 +5,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.postgresql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
 /**
- * The entity of white_not_pk as TABLE. <br />
+ * The entity of white_not_pk as TABLE. <br>
  * <pre>
  * [primary-key]
  *     
@@ -50,7 +51,7 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteNotPk extends AbstractEntity {
+public abstract class BsWhiteNotPk extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -167,7 +168,7 @@ public abstract class BsWhiteNotPk extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] not_pk_id: {NotNull, int8(19)} <br />
+     * [get] not_pk_id: {NotNull, int8(19)} <br>
      * @return The value of the column 'not_pk_id'. (basically NotNull if selected: for the constraint)
      */
     public Long getNotPkId() {
@@ -176,7 +177,7 @@ public abstract class BsWhiteNotPk extends AbstractEntity {
     }
 
     /**
-     * [set] not_pk_id: {NotNull, int8(19)} <br />
+     * [set] not_pk_id: {NotNull, int8(19)} <br>
      * @param notPkId The value of the column 'not_pk_id'. (basically NotNull if update: for the constraint)
      */
     public void setNotPkId(Long notPkId) {
@@ -185,7 +186,7 @@ public abstract class BsWhiteNotPk extends AbstractEntity {
     }
 
     /**
-     * [get] not_pk_name: {varchar(2147483647)} <br />
+     * [get] not_pk_name: {varchar(2147483647)} <br>
      * @return The value of the column 'not_pk_name'. (NullAllowed even if selected: for no constraint)
      */
     public String getNotPkName() {
@@ -194,7 +195,7 @@ public abstract class BsWhiteNotPk extends AbstractEntity {
     }
 
     /**
-     * [set] not_pk_name: {varchar(2147483647)} <br />
+     * [set] not_pk_name: {varchar(2147483647)} <br>
      * @param notPkName The value of the column 'not_pk_name'. (NullAllowed: null update allowed for no constraint)
      */
     public void setNotPkName(String notPkName) {
@@ -203,7 +204,7 @@ public abstract class BsWhiteNotPk extends AbstractEntity {
     }
 
     /**
-     * [get] not_pk_integer: {int4(10)} <br />
+     * [get] not_pk_integer: {int4(10)} <br>
      * @return The value of the column 'not_pk_integer'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getNotPkInteger() {
@@ -212,7 +213,7 @@ public abstract class BsWhiteNotPk extends AbstractEntity {
     }
 
     /**
-     * [set] not_pk_integer: {int4(10)} <br />
+     * [set] not_pk_integer: {int4(10)} <br>
      * @param notPkInteger The value of the column 'not_pk_integer'. (NullAllowed: null update allowed for no constraint)
      */
     public void setNotPkInteger(Integer notPkInteger) {

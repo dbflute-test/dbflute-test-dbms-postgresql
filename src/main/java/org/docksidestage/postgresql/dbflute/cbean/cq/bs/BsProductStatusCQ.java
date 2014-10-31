@@ -34,7 +34,7 @@ public class BsProductStatusCQ extends AbstractBsProductStatusCQ {
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from product_status) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -57,7 +57,7 @@ public class BsProductStatusCQ extends AbstractBsProductStatusCQ {
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join product_status on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -94,14 +94,14 @@ public class BsProductStatusCQ extends AbstractBsProductStatusCQ {
     public String keepProductStatusCode_QueryDerivedReferrer_ProductListParameter(Object pm) { return xkeepSQuePm("productStatusCode_QueryDerivedReferrer_ProductList", pm); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * (商品ステータスコード)product_status_code: {PK, NotNull, bpchar(3)}
      * @return this. (NotNull)
      */
     public BsProductStatusCQ addOrderBy_ProductStatusCode_Asc() { regOBA("product_status_code"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * (商品ステータスコード)product_status_code: {PK, NotNull, bpchar(3)}
      * @return this. (NotNull)
      */
@@ -114,14 +114,14 @@ public class BsProductStatusCQ extends AbstractBsProductStatusCQ {
     protected ConditionValue xgetCValueProductStatusName() { return xdfgetProductStatusName(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * product_status_name: {NotNull, varchar(50)}
      * @return this. (NotNull)
      */
     public BsProductStatusCQ addOrderBy_ProductStatusName_Asc() { regOBA("product_status_name"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * product_status_name: {NotNull, varchar(50)}
      * @return this. (NotNull)
      */
@@ -134,14 +134,14 @@ public class BsProductStatusCQ extends AbstractBsProductStatusCQ {
     protected ConditionValue xgetCValueDisplayOrder() { return xdfgetDisplayOrder(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * display_order: {UQ, NotNull, int4(10)}
      * @return this. (NotNull)
      */
     public BsProductStatusCQ addOrderBy_DisplayOrder_Asc() { regOBA("display_order"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * display_order: {UQ, NotNull, int4(10)}
      * @return this. (NotNull)
      */

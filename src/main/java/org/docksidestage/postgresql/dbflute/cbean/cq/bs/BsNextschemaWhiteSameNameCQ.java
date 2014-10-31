@@ -34,7 +34,7 @@ public class BsNextschemaWhiteSameNameCQ extends AbstractBsNextschemaWhiteSameNa
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from nextschema.white_same_name) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -57,7 +57,7 @@ public class BsNextschemaWhiteSameNameCQ extends AbstractBsNextschemaWhiteSameNa
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join nextschema.white_same_name on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -94,14 +94,14 @@ public class BsNextschemaWhiteSameNameCQ extends AbstractBsNextschemaWhiteSameNa
     public String keepSameNameId_QueryDerivedReferrer_WhiteSameNameRefListParameter(Object pm) { return xkeepSQuePm("sameNameId_QueryDerivedReferrer_WhiteSameNameRefList", pm); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * same_name_id: {PK, NotNull, int4(10)}
      * @return this. (NotNull)
      */
     public BsNextschemaWhiteSameNameCQ addOrderBy_SameNameId_Asc() { regOBA("same_name_id"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * same_name_id: {PK, NotNull, int4(10)}
      * @return this. (NotNull)
      */
@@ -114,14 +114,14 @@ public class BsNextschemaWhiteSameNameCQ extends AbstractBsNextschemaWhiteSameNa
     protected ConditionValue xgetCValueSameNameName() { return xdfgetSameNameName(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * same_name_name: {varchar(100)}
      * @return this. (NotNull)
      */
     public BsNextschemaWhiteSameNameCQ addOrderBy_SameNameName_Asc() { regOBA("same_name_name"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * same_name_name: {varchar(100)}
      * @return this. (NotNull)
      */
@@ -134,14 +134,14 @@ public class BsNextschemaWhiteSameNameCQ extends AbstractBsNextschemaWhiteSameNa
     protected ConditionValue xgetCValueSameNameLong() { return xdfgetSameNameLong(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * same_name_long: {int8(19)}
      * @return this. (NotNull)
      */
     public BsNextschemaWhiteSameNameCQ addOrderBy_SameNameLong_Asc() { regOBA("same_name_long"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * same_name_long: {int8(19)}
      * @return this. (NotNull)
      */

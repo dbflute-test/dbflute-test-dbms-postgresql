@@ -5,11 +5,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.postgresql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
 /**
- * The entity of vendor_date_pk as TABLE. <br />
+ * The entity of vendor_date_pk as TABLE. <br>
  * <pre>
  * [primary-key]
  *     foo_date
@@ -48,7 +49,7 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsVendorDatePk extends AbstractEntity {
+public abstract class BsVendorDatePk extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -187,7 +188,7 @@ public abstract class BsVendorDatePk extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] foo_date: {PK, NotNull, date(13)} <br />
+     * [get] foo_date: {PK, NotNull, date(13)} <br>
      * @return The value of the column 'foo_date'. (basically NotNull if selected: for the constraint)
      */
     public java.util.Date getFooDate() {
@@ -196,7 +197,7 @@ public abstract class BsVendorDatePk extends AbstractEntity {
     }
 
     /**
-     * [set] foo_date: {PK, NotNull, date(13)} <br />
+     * [set] foo_date: {PK, NotNull, date(13)} <br>
      * @param fooDate The value of the column 'foo_date'. (basically NotNull if update: for the constraint)
      */
     public void setFooDate(java.util.Date fooDate) {
@@ -205,7 +206,7 @@ public abstract class BsVendorDatePk extends AbstractEntity {
     }
 
     /**
-     * [get] foo_name: {NotNull, varchar(2147483647)} <br />
+     * [get] foo_name: {NotNull, varchar(2147483647)} <br>
      * @return The value of the column 'foo_name'. (basically NotNull if selected: for the constraint)
      */
     public String getFooName() {
@@ -214,7 +215,7 @@ public abstract class BsVendorDatePk extends AbstractEntity {
     }
 
     /**
-     * [set] foo_name: {NotNull, varchar(2147483647)} <br />
+     * [set] foo_name: {NotNull, varchar(2147483647)} <br>
      * @param fooName The value of the column 'foo_name'. (basically NotNull if update: for the constraint)
      */
     public void setFooName(String fooName) {

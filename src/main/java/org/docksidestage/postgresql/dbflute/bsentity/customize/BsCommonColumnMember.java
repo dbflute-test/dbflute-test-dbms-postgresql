@@ -5,10 +5,11 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.CustomizeEntity;
 import org.docksidestage.postgresql.dbflute.exentity.customize.*;
 
 /**
- * The entity of CommonColumnMember. <br />
+ * The entity of CommonColumnMember. <br>
  * <pre>
  * [primary-key]
  *     
@@ -59,7 +60,7 @@ import org.docksidestage.postgresql.dbflute.exentity.customize.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsCommonColumnMember extends AbstractEntity {
+public abstract class BsCommonColumnMember extends AbstractEntity implements CustomizeEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -206,8 +207,8 @@ public abstract class BsCommonColumnMember extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] (会員ID)member_id: {serial(10), refers to member.member_id} <br />
-     * 会員を識別するID。連番として自動採番される。<br />
+     * [get] (会員ID)member_id: {serial(10), refers to member.member_id} <br>
+     * 会員を識別するID。連番として自動採番される。<br>
      * （会員IDだけに限らず）採番方法はDBMS次第。
      * @return The value of the column 'member_id'. (NullAllowed even if selected: for no constraint)
      */
@@ -217,8 +218,8 @@ public abstract class BsCommonColumnMember extends AbstractEntity {
     }
 
     /**
-     * [set] (会員ID)member_id: {serial(10), refers to member.member_id} <br />
-     * 会員を識別するID。連番として自動採番される。<br />
+     * [set] (会員ID)member_id: {serial(10), refers to member.member_id} <br>
+     * 会員を識別するID。連番として自動採番される。<br>
      * （会員IDだけに限らず）採番方法はDBMS次第。
      * @param memberId The value of the column 'member_id'. (NullAllowed: null update allowed for no constraint)
      */
@@ -228,8 +229,8 @@ public abstract class BsCommonColumnMember extends AbstractEntity {
     }
 
     /**
-     * [get] (会員名称)member_name: {varchar(200), refers to member.member_name} <br />
-     * 会員のフルネームの名称。<br />
+     * [get] (会員名称)member_name: {varchar(200), refers to member.member_name} <br>
+     * 会員のフルネームの名称。<br>
      * 苗字と名前を分けて管理することも多いが、ここでは Example なので単純にひとまとめ。
      * @return The value of the column 'member_name'. (NullAllowed even if selected: for no constraint)
      */
@@ -239,8 +240,8 @@ public abstract class BsCommonColumnMember extends AbstractEntity {
     }
 
     /**
-     * [set] (会員名称)member_name: {varchar(200), refers to member.member_name} <br />
-     * 会員のフルネームの名称。<br />
+     * [set] (会員名称)member_name: {varchar(200), refers to member.member_name} <br>
+     * 会員のフルネームの名称。<br>
      * 苗字と名前を分けて管理することも多いが、ここでは Example なので単純にひとまとめ。
      * @param memberName The value of the column 'member_name'. (NullAllowed: null update allowed for no constraint)
      */
@@ -250,9 +251,9 @@ public abstract class BsCommonColumnMember extends AbstractEntity {
     }
 
     /**
-     * [get] (登録日時)register_datetime: {timestamp(26, 3), refers to member.register_datetime} <br />
-     * レコードが登録された日時。<br />
-     * 会員が登録された日時とほぼ等しいが、そういった業務的な役割を兼務させるのはあまり推奨されない。<br />
+     * [get] (登録日時)register_datetime: {timestamp(26, 3), refers to member.register_datetime} <br>
+     * レコードが登録された日時。<br>
+     * 会員が登録された日時とほぼ等しいが、そういった業務的な役割を兼務させるのはあまり推奨されない。<br>
      * どのテーブルでも同じなので、共通カラムの説明はこのテーブルでしか書かない。
      * @return The value of the column 'register_datetime'. (NullAllowed even if selected: for no constraint)
      */
@@ -262,9 +263,9 @@ public abstract class BsCommonColumnMember extends AbstractEntity {
     }
 
     /**
-     * [set] (登録日時)register_datetime: {timestamp(26, 3), refers to member.register_datetime} <br />
-     * レコードが登録された日時。<br />
-     * 会員が登録された日時とほぼ等しいが、そういった業務的な役割を兼務させるのはあまり推奨されない。<br />
+     * [set] (登録日時)register_datetime: {timestamp(26, 3), refers to member.register_datetime} <br>
+     * レコードが登録された日時。<br>
+     * 会員が登録された日時とほぼ等しいが、そういった業務的な役割を兼務させるのはあまり推奨されない。<br>
      * どのテーブルでも同じなので、共通カラムの説明はこのテーブルでしか書かない。
      * @param registerDatetime The value of the column 'register_datetime'. (NullAllowed: null update allowed for no constraint)
      */
@@ -274,8 +275,8 @@ public abstract class BsCommonColumnMember extends AbstractEntity {
     }
 
     /**
-     * [get] (登録ユーザ)register_user: {varchar(200), refers to member.register_user} <br />
-     * レコードを登録したユーザ。<br />
+     * [get] (登録ユーザ)register_user: {varchar(200), refers to member.register_user} <br>
+     * レコードを登録したユーザ。<br>
      * 会員テーブルであれば当然、会員自身であるはずだが、他のテーブルの場合では管理画面から運用者による登録など考えられるので、しっかり保持しておく。
      * @return The value of the column 'register_user'. (NullAllowed even if selected: for no constraint)
      */
@@ -285,8 +286,8 @@ public abstract class BsCommonColumnMember extends AbstractEntity {
     }
 
     /**
-     * [set] (登録ユーザ)register_user: {varchar(200), refers to member.register_user} <br />
-     * レコードを登録したユーザ。<br />
+     * [set] (登録ユーザ)register_user: {varchar(200), refers to member.register_user} <br>
+     * レコードを登録したユーザ。<br>
      * 会員テーブルであれば当然、会員自身であるはずだが、他のテーブルの場合では管理画面から運用者による登録など考えられるので、しっかり保持しておく。
      * @param registerUser The value of the column 'register_user'. (NullAllowed: null update allowed for no constraint)
      */
@@ -296,7 +297,7 @@ public abstract class BsCommonColumnMember extends AbstractEntity {
     }
 
     /**
-     * [get] register_process: {varchar(200), refers to member.register_process} <br />
+     * [get] register_process: {varchar(200), refers to member.register_process} <br>
      * @return The value of the column 'register_process'. (NullAllowed even if selected: for no constraint)
      */
     public String getRegisterProcess() {
@@ -305,7 +306,7 @@ public abstract class BsCommonColumnMember extends AbstractEntity {
     }
 
     /**
-     * [set] register_process: {varchar(200), refers to member.register_process} <br />
+     * [set] register_process: {varchar(200), refers to member.register_process} <br>
      * @param registerProcess The value of the column 'register_process'. (NullAllowed: null update allowed for no constraint)
      */
     public void setRegisterProcess(String registerProcess) {
@@ -314,8 +315,8 @@ public abstract class BsCommonColumnMember extends AbstractEntity {
     }
 
     /**
-     * [get] (更新日時)update_datetime: {timestamp(26, 3), refers to member.update_datetime} <br />
-     * レコードが（最後に）更新された日時。<br />
+     * [get] (更新日時)update_datetime: {timestamp(26, 3), refers to member.update_datetime} <br>
+     * レコードが（最後に）更新された日時。<br>
      * 業務的な利用はあまり推奨されないと別項目で説明したが、このカラムはソートの要素としてよく利用される。
      * @return The value of the column 'update_datetime'. (NullAllowed even if selected: for no constraint)
      */
@@ -325,8 +326,8 @@ public abstract class BsCommonColumnMember extends AbstractEntity {
     }
 
     /**
-     * [set] (更新日時)update_datetime: {timestamp(26, 3), refers to member.update_datetime} <br />
-     * レコードが（最後に）更新された日時。<br />
+     * [set] (更新日時)update_datetime: {timestamp(26, 3), refers to member.update_datetime} <br>
+     * レコードが（最後に）更新された日時。<br>
      * 業務的な利用はあまり推奨されないと別項目で説明したが、このカラムはソートの要素としてよく利用される。
      * @param updateDatetime The value of the column 'update_datetime'. (NullAllowed: null update allowed for no constraint)
      */
@@ -336,8 +337,8 @@ public abstract class BsCommonColumnMember extends AbstractEntity {
     }
 
     /**
-     * [get] (更新ユーザ)update_user: {varchar(200), refers to member.update_user} <br />
-     * レコードを更新したユーザ。<br />
+     * [get] (更新ユーザ)update_user: {varchar(200), refers to member.update_user} <br>
+     * レコードを更新したユーザ。<br>
      * システムは誰が何をしたのかちゃんと覚えている。
      * @return The value of the column 'update_user'. (NullAllowed even if selected: for no constraint)
      */
@@ -347,8 +348,8 @@ public abstract class BsCommonColumnMember extends AbstractEntity {
     }
 
     /**
-     * [set] (更新ユーザ)update_user: {varchar(200), refers to member.update_user} <br />
-     * レコードを更新したユーザ。<br />
+     * [set] (更新ユーザ)update_user: {varchar(200), refers to member.update_user} <br>
+     * レコードを更新したユーザ。<br>
      * システムは誰が何をしたのかちゃんと覚えている。
      * @param updateUser The value of the column 'update_user'. (NullAllowed: null update allowed for no constraint)
      */
@@ -358,7 +359,7 @@ public abstract class BsCommonColumnMember extends AbstractEntity {
     }
 
     /**
-     * [get] update_process: {varchar(200), refers to member.update_process} <br />
+     * [get] update_process: {varchar(200), refers to member.update_process} <br>
      * @return The value of the column 'update_process'. (NullAllowed even if selected: for no constraint)
      */
     public String getUpdateProcess() {
@@ -367,7 +368,7 @@ public abstract class BsCommonColumnMember extends AbstractEntity {
     }
 
     /**
-     * [set] update_process: {varchar(200), refers to member.update_process} <br />
+     * [set] update_process: {varchar(200), refers to member.update_process} <br>
      * @param updateProcess The value of the column 'update_process'. (NullAllowed: null update allowed for no constraint)
      */
     public void setUpdateProcess(String updateProcess) {

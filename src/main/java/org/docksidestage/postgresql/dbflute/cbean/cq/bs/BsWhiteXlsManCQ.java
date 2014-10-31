@@ -34,7 +34,7 @@ public class BsWhiteXlsManCQ extends AbstractBsWhiteXlsManCQ {
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from white_xls_man) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -57,7 +57,7 @@ public class BsWhiteXlsManCQ extends AbstractBsWhiteXlsManCQ {
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join white_xls_man on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -80,14 +80,14 @@ public class BsWhiteXlsManCQ extends AbstractBsWhiteXlsManCQ {
     protected ConditionValue xgetCValueXlsManId() { return xdfgetXlsManId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * xls_man_id: {PK, NotNull, int8(19)}
      * @return this. (NotNull)
      */
     public BsWhiteXlsManCQ addOrderBy_XlsManId_Asc() { regOBA("xls_man_id"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * xls_man_id: {PK, NotNull, int8(19)}
      * @return this. (NotNull)
      */
@@ -100,14 +100,14 @@ public class BsWhiteXlsManCQ extends AbstractBsWhiteXlsManCQ {
     protected ConditionValue xgetCValueStringConverted() { return xdfgetStringConverted(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * string_converted: {varchar(2147483647)}
      * @return this. (NotNull)
      */
     public BsWhiteXlsManCQ addOrderBy_StringConverted_Asc() { regOBA("string_converted"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * string_converted: {varchar(2147483647)}
      * @return this. (NotNull)
      */
@@ -120,14 +120,14 @@ public class BsWhiteXlsManCQ extends AbstractBsWhiteXlsManCQ {
     protected ConditionValue xgetCValueTimestampZeroDefaultMillis() { return xdfgetTimestampZeroDefaultMillis(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * timestamp_zero_default_millis: {timestamp(26, 3)}
      * @return this. (NotNull)
      */
     public BsWhiteXlsManCQ addOrderBy_TimestampZeroDefaultMillis_Asc() { regOBA("timestamp_zero_default_millis"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * timestamp_zero_default_millis: {timestamp(26, 3)}
      * @return this. (NotNull)
      */
@@ -140,14 +140,14 @@ public class BsWhiteXlsManCQ extends AbstractBsWhiteXlsManCQ {
     protected ConditionValue xgetCValueTimestampZeroPrefixMillis() { return xdfgetTimestampZeroPrefixMillis(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * timestamp_zero_prefix_millis: {timestamp(26, 3)}
      * @return this. (NotNull)
      */
     public BsWhiteXlsManCQ addOrderBy_TimestampZeroPrefixMillis_Asc() { regOBA("timestamp_zero_prefix_millis"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * timestamp_zero_prefix_millis: {timestamp(26, 3)}
      * @return this. (NotNull)
      */
@@ -160,14 +160,14 @@ public class BsWhiteXlsManCQ extends AbstractBsWhiteXlsManCQ {
     protected ConditionValue xgetCValueTimestampZeroSuffixMillis() { return xdfgetTimestampZeroSuffixMillis(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * timestamp_zero_suffix_millis: {timestamp(26, 3)}
      * @return this. (NotNull)
      */
     public BsWhiteXlsManCQ addOrderBy_TimestampZeroSuffixMillis_Asc() { regOBA("timestamp_zero_suffix_millis"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * timestamp_zero_suffix_millis: {timestamp(26, 3)}
      * @return this. (NotNull)
      */

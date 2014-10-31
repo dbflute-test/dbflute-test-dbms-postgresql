@@ -5,11 +5,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.CustomizeEntity;
 import org.docksidestage.postgresql.dbflute.exentity.customize.*;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
 /**
- * The entity of UnpaidSummaryMember. <br />
+ * The entity of UnpaidSummaryMember. <br>
  * <pre>
  * [primary-key]
  *     unpaid_man_id
@@ -52,7 +53,7 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsUnpaidSummaryMember extends AbstractEntity {
+public abstract class BsUnpaidSummaryMember extends AbstractEntity implements CustomizeEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -224,7 +225,7 @@ public abstract class BsUnpaidSummaryMember extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] unpaid_man_id: {PK, serial(10), refers to member} <br />
+     * [get] unpaid_man_id: {PK, serial(10), refers to member} <br>
      * @return The value of the column 'unpaid_man_id'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getUnpaidManId() {
@@ -233,7 +234,7 @@ public abstract class BsUnpaidSummaryMember extends AbstractEntity {
     }
 
     /**
-     * [set] unpaid_man_id: {PK, serial(10), refers to member} <br />
+     * [set] unpaid_man_id: {PK, serial(10), refers to member} <br>
      * @param unpaidManId The value of the column 'unpaid_man_id'. (NullAllowed: null update allowed for no constraint)
      */
     public void setUnpaidManId(Integer unpaidManId) {
@@ -242,7 +243,7 @@ public abstract class BsUnpaidSummaryMember extends AbstractEntity {
     }
 
     /**
-     * [get] unpaid_man_name: {varchar(200), refers to member} <br />
+     * [get] unpaid_man_name: {varchar(200), refers to member} <br>
      * @return The value of the column 'unpaid_man_name'. (NullAllowed even if selected: for no constraint)
      */
     public String getUnpaidManName() {
@@ -251,7 +252,7 @@ public abstract class BsUnpaidSummaryMember extends AbstractEntity {
     }
 
     /**
-     * [set] unpaid_man_name: {varchar(200), refers to member} <br />
+     * [set] unpaid_man_name: {varchar(200), refers to member} <br>
      * @param unpaidManName The value of the column 'unpaid_man_name'. (NullAllowed: null update allowed for no constraint)
      */
     public void setUnpaidManName(String unpaidManName) {
@@ -260,7 +261,7 @@ public abstract class BsUnpaidSummaryMember extends AbstractEntity {
     }
 
     /**
-     * [get] unpaid_price_summary: {int8(19)} <br />
+     * [get] unpaid_price_summary: {int8(19)} <br>
      * @return The value of the column 'unpaid_price_summary'. (NullAllowed even if selected: for no constraint)
      */
     public Long getUnpaidPriceSummary() {
@@ -269,7 +270,7 @@ public abstract class BsUnpaidSummaryMember extends AbstractEntity {
     }
 
     /**
-     * [set] unpaid_price_summary: {int8(19)} <br />
+     * [set] unpaid_price_summary: {int8(19)} <br>
      * @param unpaidPriceSummary The value of the column 'unpaid_price_summary'. (NullAllowed: null update allowed for no constraint)
      */
     public void setUnpaidPriceSummary(Long unpaidPriceSummary) {
@@ -278,7 +279,7 @@ public abstract class BsUnpaidSummaryMember extends AbstractEntity {
     }
 
     /**
-     * [get] status_name: {varchar(50), refers to member_status} <br />
+     * [get] status_name: {varchar(50), refers to member_status} <br>
      * @return The value of the column 'status_name'. (NullAllowed even if selected: for no constraint)
      */
     public String getStatusName() {
@@ -287,7 +288,7 @@ public abstract class BsUnpaidSummaryMember extends AbstractEntity {
     }
 
     /**
-     * [set] status_name: {varchar(50), refers to member_status} <br />
+     * [set] status_name: {varchar(50), refers to member_status} <br>
      * @param statusName The value of the column 'status_name'. (NullAllowed: null update allowed for no constraint)
      */
     public void setStatusName(String statusName) {

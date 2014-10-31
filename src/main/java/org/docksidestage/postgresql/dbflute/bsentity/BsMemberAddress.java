@@ -5,14 +5,15 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.postgresql.dbflute.allcommon.EntityDefinedCommonColumn;
 import org.docksidestage.postgresql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
 /**
- * The entity of (会員住所情報)member_address as TABLE. <br />
- * 会員の住所に関する情報で、同時に有効期間ごとに履歴管理されている。<br />
- * 会員を基点に考えた場合、構造的にはone-to-many だが、業務的な定型条件でone-to-one になる。このような構造を「業務的one-to-one」と呼ぶ。<br />
+ * The entity of (会員住所情報)member_address as TABLE. <br>
+ * 会員の住所に関する情報で、同時に有効期間ごとに履歴管理されている。<br>
+ * 会員を基点に考えた場合、構造的にはone-to-many だが、業務的な定型条件でone-to-one になる。このような構造を「業務的one-to-one」と呼ぶ。<br>
  * 有効期間は隙間なく埋められるが、ここでは住所情報のない会員も存在し、厳密には(業務的な) "1 : 0...1" である。
  * <pre>
  * [primary-key]
@@ -74,7 +75,7 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsMemberAddress extends AbstractEntity implements EntityDefinedCommonColumn {
+public abstract class BsMemberAddress extends AbstractEntity implements DomainEntity, EntityDefinedCommonColumn {
 
     // ===================================================================================
     //                                                                          Definition
@@ -155,7 +156,7 @@ public abstract class BsMemberAddress extends AbstractEntity implements EntityDe
     }
 
     /**
-     * To be unique by the unique column. <br />
+     * To be unique by the unique column. <br>
      * You can update the entity by the key when entity update (NOT batch update).
      * @param memberId (会員ID): UQ+, NotNull, int4(10), FK to member. (NotNull)
      * @param validBeginDate (有効開始日): +UQ, NotNull, date(13). (NotNull)
@@ -174,7 +175,7 @@ public abstract class BsMemberAddress extends AbstractEntity implements EntityDe
     protected Member _member;
 
     /**
-     * [get] (会員)member by my member_id, named 'member'. <br />
+     * [get] (会員)member by my member_id, named 'member'. <br>
      * @return The entity of foreign property 'member'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public Member getMember() {
@@ -193,7 +194,7 @@ public abstract class BsMemberAddress extends AbstractEntity implements EntityDe
     protected Region _region;
 
     /**
-     * [get] (地域)region by my region_id, named 'region'. <br />
+     * [get] (地域)region by my region_id, named 'region'. <br>
      * @return The entity of foreign property 'region'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public Region getRegion() {
@@ -292,8 +293,8 @@ public abstract class BsMemberAddress extends AbstractEntity implements EntityDe
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] (会員住所ID)member_address_id: {PK, ID, NotNull, serial(10)} <br />
-     * 会員住所を識別するID。<br />
+     * [get] (会員住所ID)member_address_id: {PK, ID, NotNull, serial(10)} <br>
+     * 会員住所を識別するID。<br>
      * 履歴分も含むテーブルなので、これ自体はFKではない。
      * @return The value of the column 'member_address_id'. (basically NotNull if selected: for the constraint)
      */
@@ -303,8 +304,8 @@ public abstract class BsMemberAddress extends AbstractEntity implements EntityDe
     }
 
     /**
-     * [set] (会員住所ID)member_address_id: {PK, ID, NotNull, serial(10)} <br />
-     * 会員住所を識別するID。<br />
+     * [set] (会員住所ID)member_address_id: {PK, ID, NotNull, serial(10)} <br>
+     * 会員住所を識別するID。<br>
      * 履歴分も含むテーブルなので、これ自体はFKではない。
      * @param memberAddressId The value of the column 'member_address_id'. (basically NotNull if update: for the constraint)
      */
@@ -314,11 +315,11 @@ public abstract class BsMemberAddress extends AbstractEntity implements EntityDe
     }
 
     /**
-     * [get] (会員ID)member_id: {UQ+, NotNull, int4(10), FK to member} <br />
-     * 会員を参照するID。<br />
-     * 履歴分を含むため、これだけではユニークにはならない。<br />
-     * 有効開始日と合わせて複合ユニーク制約となるが、<br />
-     * 厳密には完全な制約にはなっていない。<br />
+     * [get] (会員ID)member_id: {UQ+, NotNull, int4(10), FK to member} <br>
+     * 会員を参照するID。<br>
+     * 履歴分を含むため、これだけではユニークにはならない。<br>
+     * 有効開始日と合わせて複合ユニーク制約となるが、<br>
+     * 厳密には完全な制約にはなっていない。<br>
      * 有効期間の概念はRDBでは表現しきれないのである。
      * @return The value of the column 'member_id'. (basically NotNull if selected: for the constraint)
      */
@@ -328,11 +329,11 @@ public abstract class BsMemberAddress extends AbstractEntity implements EntityDe
     }
 
     /**
-     * [set] (会員ID)member_id: {UQ+, NotNull, int4(10), FK to member} <br />
-     * 会員を参照するID。<br />
-     * 履歴分を含むため、これだけではユニークにはならない。<br />
-     * 有効開始日と合わせて複合ユニーク制約となるが、<br />
-     * 厳密には完全な制約にはなっていない。<br />
+     * [set] (会員ID)member_id: {UQ+, NotNull, int4(10), FK to member} <br>
+     * 会員を参照するID。<br>
+     * 履歴分を含むため、これだけではユニークにはならない。<br>
+     * 有効開始日と合わせて複合ユニーク制約となるが、<br>
+     * 厳密には完全な制約にはなっていない。<br>
      * 有効期間の概念はRDBでは表現しきれないのである。
      * @param memberId The value of the column 'member_id'. (basically NotNull if update: for the constraint)
      */
@@ -342,8 +343,8 @@ public abstract class BsMemberAddress extends AbstractEntity implements EntityDe
     }
 
     /**
-     * [get] (有効開始日)valid_begin_date: {+UQ, NotNull, date(13)} <br />
-     * 一つの有効期間の開始を示す日付。<br />
+     * [get] (有効開始日)valid_begin_date: {+UQ, NotNull, date(13)} <br>
+     * 一つの有効期間の開始を示す日付。<br>
      * 前の有効終了日の次の日の値が格納される。
      * @return The value of the column 'valid_begin_date'. (basically NotNull if selected: for the constraint)
      */
@@ -353,8 +354,8 @@ public abstract class BsMemberAddress extends AbstractEntity implements EntityDe
     }
 
     /**
-     * [set] (有効開始日)valid_begin_date: {+UQ, NotNull, date(13)} <br />
-     * 一つの有効期間の開始を示す日付。<br />
+     * [set] (有効開始日)valid_begin_date: {+UQ, NotNull, date(13)} <br>
+     * 一つの有効期間の開始を示す日付。<br>
      * 前の有効終了日の次の日の値が格納される。
      * @param validBeginDate The value of the column 'valid_begin_date'. (basically NotNull if update: for the constraint)
      */
@@ -364,9 +365,9 @@ public abstract class BsMemberAddress extends AbstractEntity implements EntityDe
     }
 
     /**
-     * [get] (有効終了日)valid_end_date: {NotNull, date(13)} <br />
-     * 有効期間の終了日。<br />
-     * 次の有効開始日の一日前の値が格納される。<br />
+     * [get] (有効終了日)valid_end_date: {NotNull, date(13)} <br>
+     * 有効期間の終了日。<br>
+     * 次の有効開始日の一日前の値が格納される。<br>
      * ただし、次の有効期間がない場合は 9999/12/31 となる。
      * @return The value of the column 'valid_end_date'. (basically NotNull if selected: for the constraint)
      */
@@ -376,9 +377,9 @@ public abstract class BsMemberAddress extends AbstractEntity implements EntityDe
     }
 
     /**
-     * [set] (有効終了日)valid_end_date: {NotNull, date(13)} <br />
-     * 有効期間の終了日。<br />
-     * 次の有効開始日の一日前の値が格納される。<br />
+     * [set] (有効終了日)valid_end_date: {NotNull, date(13)} <br>
+     * 有効期間の終了日。<br>
+     * 次の有効開始日の一日前の値が格納される。<br>
      * ただし、次の有効期間がない場合は 9999/12/31 となる。
      * @param validEndDate The value of the column 'valid_end_date'. (basically NotNull if update: for the constraint)
      */
@@ -388,7 +389,7 @@ public abstract class BsMemberAddress extends AbstractEntity implements EntityDe
     }
 
     /**
-     * [get] (住所)address: {NotNull, varchar(200)} <br />
+     * [get] (住所)address: {NotNull, varchar(200)} <br>
      * まるごと住所
      * @return The value of the column 'address'. (basically NotNull if selected: for the constraint)
      */
@@ -398,7 +399,7 @@ public abstract class BsMemberAddress extends AbstractEntity implements EntityDe
     }
 
     /**
-     * [set] (住所)address: {NotNull, varchar(200)} <br />
+     * [set] (住所)address: {NotNull, varchar(200)} <br>
      * まるごと住所
      * @param address The value of the column 'address'. (basically NotNull if update: for the constraint)
      */
@@ -408,9 +409,9 @@ public abstract class BsMemberAddress extends AbstractEntity implements EntityDe
     }
 
     /**
-     * [get] (地域ID)region_id: {NotNull, int4(10), FK to region} <br />
-     * 地域を参照するID。<br />
-     * ここでは特に住所の内容と連動しているわけではない。<br />
+     * [get] (地域ID)region_id: {NotNull, int4(10), FK to region} <br>
+     * 地域を参照するID。<br>
+     * ここでは特に住所の内容と連動しているわけではない。<br>
      * （業務的one-to-oneの親テーブルの表現したかっ...）
      * @return The value of the column 'region_id'. (basically NotNull if selected: for the constraint)
      */
@@ -420,9 +421,9 @@ public abstract class BsMemberAddress extends AbstractEntity implements EntityDe
     }
 
     /**
-     * [set] (地域ID)region_id: {NotNull, int4(10), FK to region} <br />
-     * 地域を参照するID。<br />
-     * ここでは特に住所の内容と連動しているわけではない。<br />
+     * [set] (地域ID)region_id: {NotNull, int4(10), FK to region} <br>
+     * 地域を参照するID。<br>
+     * ここでは特に住所の内容と連動しているわけではない。<br>
      * （業務的one-to-oneの親テーブルの表現したかっ...）
      * @param regionId The value of the column 'region_id'. (basically NotNull if update: for the constraint)
      */
@@ -432,7 +433,7 @@ public abstract class BsMemberAddress extends AbstractEntity implements EntityDe
     }
 
     /**
-     * [get] register_datetime: {NotNull, timestamp(26, 3)} <br />
+     * [get] register_datetime: {NotNull, timestamp(26, 3)} <br>
      * @return The value of the column 'register_datetime'. (basically NotNull if selected: for the constraint)
      */
     public java.sql.Timestamp getRegisterDatetime() {
@@ -441,7 +442,7 @@ public abstract class BsMemberAddress extends AbstractEntity implements EntityDe
     }
 
     /**
-     * [set] register_datetime: {NotNull, timestamp(26, 3)} <br />
+     * [set] register_datetime: {NotNull, timestamp(26, 3)} <br>
      * @param registerDatetime The value of the column 'register_datetime'. (basically NotNull if update: for the constraint)
      */
     public void setRegisterDatetime(java.sql.Timestamp registerDatetime) {
@@ -450,7 +451,7 @@ public abstract class BsMemberAddress extends AbstractEntity implements EntityDe
     }
 
     /**
-     * [get] register_process: {NotNull, varchar(200)} <br />
+     * [get] register_process: {NotNull, varchar(200)} <br>
      * @return The value of the column 'register_process'. (basically NotNull if selected: for the constraint)
      */
     public String getRegisterProcess() {
@@ -459,7 +460,7 @@ public abstract class BsMemberAddress extends AbstractEntity implements EntityDe
     }
 
     /**
-     * [set] register_process: {NotNull, varchar(200)} <br />
+     * [set] register_process: {NotNull, varchar(200)} <br>
      * @param registerProcess The value of the column 'register_process'. (basically NotNull if update: for the constraint)
      */
     public void setRegisterProcess(String registerProcess) {
@@ -468,7 +469,7 @@ public abstract class BsMemberAddress extends AbstractEntity implements EntityDe
     }
 
     /**
-     * [get] register_user: {NotNull, varchar(200)} <br />
+     * [get] register_user: {NotNull, varchar(200)} <br>
      * @return The value of the column 'register_user'. (basically NotNull if selected: for the constraint)
      */
     public String getRegisterUser() {
@@ -477,7 +478,7 @@ public abstract class BsMemberAddress extends AbstractEntity implements EntityDe
     }
 
     /**
-     * [set] register_user: {NotNull, varchar(200)} <br />
+     * [set] register_user: {NotNull, varchar(200)} <br>
      * @param registerUser The value of the column 'register_user'. (basically NotNull if update: for the constraint)
      */
     public void setRegisterUser(String registerUser) {
@@ -486,7 +487,7 @@ public abstract class BsMemberAddress extends AbstractEntity implements EntityDe
     }
 
     /**
-     * [get] update_datetime: {NotNull, timestamp(26, 3)} <br />
+     * [get] update_datetime: {NotNull, timestamp(26, 3)} <br>
      * @return The value of the column 'update_datetime'. (basically NotNull if selected: for the constraint)
      */
     public java.sql.Timestamp getUpdateDatetime() {
@@ -495,7 +496,7 @@ public abstract class BsMemberAddress extends AbstractEntity implements EntityDe
     }
 
     /**
-     * [set] update_datetime: {NotNull, timestamp(26, 3)} <br />
+     * [set] update_datetime: {NotNull, timestamp(26, 3)} <br>
      * @param updateDatetime The value of the column 'update_datetime'. (basically NotNull if update: for the constraint)
      */
     public void setUpdateDatetime(java.sql.Timestamp updateDatetime) {
@@ -504,7 +505,7 @@ public abstract class BsMemberAddress extends AbstractEntity implements EntityDe
     }
 
     /**
-     * [get] update_process: {NotNull, varchar(200)} <br />
+     * [get] update_process: {NotNull, varchar(200)} <br>
      * @return The value of the column 'update_process'. (basically NotNull if selected: for the constraint)
      */
     public String getUpdateProcess() {
@@ -513,7 +514,7 @@ public abstract class BsMemberAddress extends AbstractEntity implements EntityDe
     }
 
     /**
-     * [set] update_process: {NotNull, varchar(200)} <br />
+     * [set] update_process: {NotNull, varchar(200)} <br>
      * @param updateProcess The value of the column 'update_process'. (basically NotNull if update: for the constraint)
      */
     public void setUpdateProcess(String updateProcess) {
@@ -522,7 +523,7 @@ public abstract class BsMemberAddress extends AbstractEntity implements EntityDe
     }
 
     /**
-     * [get] update_user: {NotNull, varchar(200)} <br />
+     * [get] update_user: {NotNull, varchar(200)} <br>
      * @return The value of the column 'update_user'. (basically NotNull if selected: for the constraint)
      */
     public String getUpdateUser() {
@@ -531,7 +532,7 @@ public abstract class BsMemberAddress extends AbstractEntity implements EntityDe
     }
 
     /**
-     * [set] update_user: {NotNull, varchar(200)} <br />
+     * [set] update_user: {NotNull, varchar(200)} <br>
      * @param updateUser The value of the column 'update_user'. (basically NotNull if update: for the constraint)
      */
     public void setUpdateUser(String updateUser) {
@@ -540,7 +541,7 @@ public abstract class BsMemberAddress extends AbstractEntity implements EntityDe
     }
 
     /**
-     * [get] version_no: {NotNull, int8(19)} <br />
+     * [get] version_no: {NotNull, int8(19)} <br>
      * @return The value of the column 'version_no'. (basically NotNull if selected: for the constraint)
      */
     public Long getVersionNo() {
@@ -549,7 +550,7 @@ public abstract class BsMemberAddress extends AbstractEntity implements EntityDe
     }
 
     /**
-     * [set] version_no: {NotNull, int8(19)} <br />
+     * [set] version_no: {NotNull, int8(19)} <br>
      * @param versionNo The value of the column 'version_no'. (basically NotNull if update: for the constraint)
      */
     public void setVersionNo(Long versionNo) {

@@ -5,11 +5,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.postgresql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
 /**
- * The entity of nextschema.white_same_name_ref as TABLE. <br />
+ * The entity of nextschema.white_same_name_ref as TABLE. <br>
  * <pre>
  * [primary-key]
  *     same_name_ref_id
@@ -50,7 +51,7 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsNextschemaWhiteSameNameRef extends AbstractEntity {
+public abstract class BsNextschemaWhiteSameNameRef extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -107,7 +108,7 @@ public abstract class BsNextschemaWhiteSameNameRef extends AbstractEntity {
     protected NextschemaWhiteSameName _whiteSameName;
 
     /**
-     * [get] nextschema.white_same_name by my same_name_id, named 'whiteSameName'. <br />
+     * [get] nextschema.white_same_name by my same_name_id, named 'whiteSameName'. <br>
      * @return The entity of foreign property 'whiteSameName'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public NextschemaWhiteSameName getWhiteSameName() {
@@ -192,7 +193,7 @@ public abstract class BsNextschemaWhiteSameNameRef extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] same_name_ref_id: {PK, NotNull, int8(19)} <br />
+     * [get] same_name_ref_id: {PK, NotNull, int8(19)} <br>
      * @return The value of the column 'same_name_ref_id'. (basically NotNull if selected: for the constraint)
      */
     public Long getSameNameRefId() {
@@ -201,7 +202,7 @@ public abstract class BsNextschemaWhiteSameNameRef extends AbstractEntity {
     }
 
     /**
-     * [set] same_name_ref_id: {PK, NotNull, int8(19)} <br />
+     * [set] same_name_ref_id: {PK, NotNull, int8(19)} <br>
      * @param sameNameRefId The value of the column 'same_name_ref_id'. (basically NotNull if update: for the constraint)
      */
     public void setSameNameRefId(Long sameNameRefId) {
@@ -210,7 +211,7 @@ public abstract class BsNextschemaWhiteSameNameRef extends AbstractEntity {
     }
 
     /**
-     * [get] same_name_id: {NotNull, int4(10), FK to white_same_name} <br />
+     * [get] same_name_id: {NotNull, int4(10), FK to white_same_name} <br>
      * @return The value of the column 'same_name_id'. (basically NotNull if selected: for the constraint)
      */
     public Integer getSameNameId() {
@@ -219,7 +220,7 @@ public abstract class BsNextschemaWhiteSameNameRef extends AbstractEntity {
     }
 
     /**
-     * [set] same_name_id: {NotNull, int4(10), FK to white_same_name} <br />
+     * [set] same_name_id: {NotNull, int4(10), FK to white_same_name} <br>
      * @param sameNameId The value of the column 'same_name_id'. (basically NotNull if update: for the constraint)
      */
     public void setSameNameId(Integer sameNameId) {
@@ -228,7 +229,7 @@ public abstract class BsNextschemaWhiteSameNameRef extends AbstractEntity {
     }
 
     /**
-     * [get] next_ref_date: {date(13)} <br />
+     * [get] next_ref_date: {date(13)} <br>
      * @return The value of the column 'next_ref_date'. (NullAllowed even if selected: for no constraint)
      */
     public java.util.Date getNextRefDate() {
@@ -237,7 +238,7 @@ public abstract class BsNextschemaWhiteSameNameRef extends AbstractEntity {
     }
 
     /**
-     * [set] next_ref_date: {date(13)} <br />
+     * [set] next_ref_date: {date(13)} <br>
      * @param nextRefDate The value of the column 'next_ref_date'. (NullAllowed: null update allowed for no constraint)
      */
     public void setNextRefDate(java.util.Date nextRefDate) {

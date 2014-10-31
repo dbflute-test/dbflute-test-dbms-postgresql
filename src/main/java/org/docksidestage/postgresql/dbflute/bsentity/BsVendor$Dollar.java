@@ -5,11 +5,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.postgresql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
 /**
- * The entity of vendor_$_dollar as TABLE. <br />
+ * The entity of vendor_$_dollar as TABLE. <br>
  * <pre>
  * [primary-key]
  *     vendor_$_dollar_id
@@ -48,7 +49,7 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsVendor$Dollar extends AbstractEntity {
+public abstract class BsVendor$Dollar extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -96,7 +97,7 @@ public abstract class BsVendor$Dollar extends AbstractEntity {
     }
 
     /**
-     * To be unique by the unique column. <br />
+     * To be unique by the unique column. <br>
      * You can update the entity by the key when entity update (NOT batch update).
      * @param vendor$DollarId : PK, NotNull, int4(10). (NotNull)
      */
@@ -169,7 +170,7 @@ public abstract class BsVendor$Dollar extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] vendor_$_dollar_id: {PK, NotNull, int4(10)} <br />
+     * [get] vendor_$_dollar_id: {PK, NotNull, int4(10)} <br>
      * @return The value of the column 'vendor_$_dollar_id'. (basically NotNull if selected: for the constraint)
      */
     public Integer getVendor$DollarId() {
@@ -178,7 +179,7 @@ public abstract class BsVendor$Dollar extends AbstractEntity {
     }
 
     /**
-     * [set] vendor_$_dollar_id: {PK, NotNull, int4(10)} <br />
+     * [set] vendor_$_dollar_id: {PK, NotNull, int4(10)} <br>
      * @param vendor$DollarId The value of the column 'vendor_$_dollar_id'. (basically NotNull if update: for the constraint)
      */
     public void setVendor$DollarId(Integer vendor$DollarId) {
@@ -187,7 +188,7 @@ public abstract class BsVendor$Dollar extends AbstractEntity {
     }
 
     /**
-     * [get] vendor_$_dollar_name: {varchar(64)} <br />
+     * [get] vendor_$_dollar_name: {varchar(64)} <br>
      * @return The value of the column 'vendor_$_dollar_name'. (NullAllowed even if selected: for no constraint)
      */
     public String getVendor$DollarName() {
@@ -196,7 +197,7 @@ public abstract class BsVendor$Dollar extends AbstractEntity {
     }
 
     /**
-     * [set] vendor_$_dollar_name: {varchar(64)} <br />
+     * [set] vendor_$_dollar_name: {varchar(64)} <br>
      * @param vendor$DollarName The value of the column 'vendor_$_dollar_name'. (NullAllowed: null update allowed for no constraint)
      */
     public void setVendor$DollarName(String vendor$DollarName) {

@@ -5,16 +5,17 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.postgresql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.postgresql.dbflute.allcommon.CDef;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
 /**
- * The entity of (会員ステータス)member_status as TABLE. <br />
- * 会員のステータスを示す固定的なマスタテーブル。<br />
- * 業務で増えることはなく、増減するときは実装もともなうレベルの業務変更と考えられる。<br />
- * <br />
- * こういった固定的なマスタテーブルには、更新日時などの共通カラムは定義していないが、業務上そういった情報を管理する必要性が低いという理由に加え、ExampleDBとして共通カラムでER図が埋め尽くされてしまい見づらくなるという<br />
+ * The entity of (会員ステータス)member_status as TABLE. <br>
+ * 会員のステータスを示す固定的なマスタテーブル。<br>
+ * 業務で増えることはなく、増減するときは実装もともなうレベルの業務変更と考えられる。<br>
+ * <br>
+ * こういった固定的なマスタテーブルには、更新日時などの共通カラムは定義していないが、業務上そういった情報を管理する必要性が低いという理由に加え、ExampleDBとして共通カラムでER図が埋め尽くされてしまい見づらくなるという<br>
  * ところで割り切っている。実業務では統一的に定義することもある。
  * <pre>
  * [primary-key]
@@ -58,7 +59,7 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsMemberStatus extends AbstractEntity {
+public abstract class BsMemberStatus extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -112,7 +113,7 @@ public abstract class BsMemberStatus extends AbstractEntity {
     }
 
     /**
-     * To be unique by the unique column. <br />
+     * To be unique by the unique column. <br>
      * You can update the entity by the key when entity update (NOT batch update).
      * @param displayOrder (表示順): UQ, NotNull, int4(10). (NotNull)
      */
@@ -126,8 +127,8 @@ public abstract class BsMemberStatus extends AbstractEntity {
     //                                                             Classification Property
     //                                                             =======================
     /**
-     * Get the value of memberStatusCode as the classification of MemberStatus. <br />
-     * (会員ステータスコード)member_status_code: {PK, NotNull, bpchar(3), classification=MemberStatus} <br />
+     * Get the value of memberStatusCode as the classification of MemberStatus. <br>
+     * (会員ステータスコード)member_status_code: {PK, NotNull, bpchar(3), classification=MemberStatus} <br>
      * status of member from entry to withdrawal
      * <p>It's treated as case insensitive and if the code value is null, it returns null.</p>
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
@@ -137,8 +138,8 @@ public abstract class BsMemberStatus extends AbstractEntity {
     }
 
     /**
-     * Set the value of memberStatusCode as the classification of MemberStatus. <br />
-     * (会員ステータスコード)member_status_code: {PK, NotNull, bpchar(3), classification=MemberStatus} <br />
+     * Set the value of memberStatusCode as the classification of MemberStatus. <br>
+     * (会員ステータスコード)member_status_code: {PK, NotNull, bpchar(3), classification=MemberStatus} <br>
      * status of member from entry to withdrawal
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, null value is set to the column)
      */
@@ -150,7 +151,7 @@ public abstract class BsMemberStatus extends AbstractEntity {
     //                                                              Classification Setting
     //                                                              ======================
     /**
-     * Set the value of memberStatusCode as Formalized (FML). <br />
+     * Set the value of memberStatusCode as Formalized (FML). <br>
      * FORMALIZED: as formal member, allowed to use all service
      */
     public void setMemberStatusCode_Formalized() {
@@ -158,7 +159,7 @@ public abstract class BsMemberStatus extends AbstractEntity {
     }
 
     /**
-     * Set the value of memberStatusCode as Withdrawal (WDL). <br />
+     * Set the value of memberStatusCode as Withdrawal (WDL). <br>
      * WITHDRAWAL: withdrawal is fixed, not allowed to use service
      */
     public void setMemberStatusCode_Withdrawal() {
@@ -166,7 +167,7 @@ public abstract class BsMemberStatus extends AbstractEntity {
     }
 
     /**
-     * Set the value of memberStatusCode as Provisional (PRV). <br />
+     * Set the value of memberStatusCode as Provisional (PRV). <br>
      * PROVISIONAL: first status after entry, allowed to use only part of service
      */
     public void setMemberStatusCode_Provisional() {
@@ -177,7 +178,7 @@ public abstract class BsMemberStatus extends AbstractEntity {
     //                                                        Classification Determination
     //                                                        ============================
     /**
-     * Is the value of memberStatusCode Formalized? <br />
+     * Is the value of memberStatusCode Formalized? <br>
      * FORMALIZED: as formal member, allowed to use all service
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -188,7 +189,7 @@ public abstract class BsMemberStatus extends AbstractEntity {
     }
 
     /**
-     * Is the value of memberStatusCode Withdrawal? <br />
+     * Is the value of memberStatusCode Withdrawal? <br>
      * WITHDRAWAL: withdrawal is fixed, not allowed to use service
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -199,7 +200,7 @@ public abstract class BsMemberStatus extends AbstractEntity {
     }
 
     /**
-     * Is the value of memberStatusCode Provisional? <br />
+     * Is the value of memberStatusCode Provisional? <br>
      * PROVISIONAL: first status after entry, allowed to use only part of service
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -327,10 +328,10 @@ public abstract class BsMemberStatus extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] (会員ステータスコード)member_status_code: {PK, NotNull, bpchar(3), classification=MemberStatus} <br />
-     * 会員ステータスを識別するコード。<br />
-     * 固定的なデータなので、連番とか番号にはせず、<br />
-     * データを直接見たときも人が直感的にわかるように、<br />
+     * [get] (会員ステータスコード)member_status_code: {PK, NotNull, bpchar(3), classification=MemberStatus} <br>
+     * 会員ステータスを識別するコード。<br>
+     * 固定的なデータなので、連番とか番号にはせず、<br>
+     * データを直接見たときも人が直感的にわかるように、<br>
      * このような３桁のコード形式にしている。
      * @return The value of the column 'member_status_code'. (basically NotNull if selected: for the constraint)
      */
@@ -340,10 +341,10 @@ public abstract class BsMemberStatus extends AbstractEntity {
     }
 
     /**
-     * [set] (会員ステータスコード)member_status_code: {PK, NotNull, bpchar(3), classification=MemberStatus} <br />
-     * 会員ステータスを識別するコード。<br />
-     * 固定的なデータなので、連番とか番号にはせず、<br />
-     * データを直接見たときも人が直感的にわかるように、<br />
+     * [set] (会員ステータスコード)member_status_code: {PK, NotNull, bpchar(3), classification=MemberStatus} <br>
+     * 会員ステータスを識別するコード。<br>
+     * 固定的なデータなので、連番とか番号にはせず、<br>
+     * データを直接見たときも人が直感的にわかるように、<br>
      * このような３桁のコード形式にしている。
      * @param memberStatusCode The value of the column 'member_status_code'. (basically NotNull if update: for the constraint)
      */
@@ -354,7 +355,7 @@ public abstract class BsMemberStatus extends AbstractEntity {
     }
 
     /**
-     * [get] (会員ステータス名称)member_status_name: {NotNull, varchar(50)} <br />
+     * [get] (会員ステータス名称)member_status_name: {NotNull, varchar(50)} <br>
      * @return The value of the column 'member_status_name'. (basically NotNull if selected: for the constraint)
      */
     public String getMemberStatusName() {
@@ -363,7 +364,7 @@ public abstract class BsMemberStatus extends AbstractEntity {
     }
 
     /**
-     * [set] (会員ステータス名称)member_status_name: {NotNull, varchar(50)} <br />
+     * [set] (会員ステータス名称)member_status_name: {NotNull, varchar(50)} <br>
      * @param memberStatusName The value of the column 'member_status_name'. (basically NotNull if update: for the constraint)
      */
     public void setMemberStatusName(String memberStatusName) {
@@ -372,8 +373,8 @@ public abstract class BsMemberStatus extends AbstractEntity {
     }
 
     /**
-     * [get] (説明)description: {NotNull, varchar(200)} <br />
-     * 会員ステータスそれぞれの説明。<br />
+     * [get] (説明)description: {NotNull, varchar(200)} <br>
+     * 会員ステータスそれぞれの説明。<br>
      * 気の利いた説明があるとディベロッパーがとても助かる。
      * @return The value of the column 'description'. (basically NotNull if selected: for the constraint)
      */
@@ -383,8 +384,8 @@ public abstract class BsMemberStatus extends AbstractEntity {
     }
 
     /**
-     * [set] (説明)description: {NotNull, varchar(200)} <br />
-     * 会員ステータスそれぞれの説明。<br />
+     * [set] (説明)description: {NotNull, varchar(200)} <br>
+     * 会員ステータスそれぞれの説明。<br>
      * 気の利いた説明があるとディベロッパーがとても助かる。
      * @param description The value of the column 'description'. (basically NotNull if update: for the constraint)
      */
@@ -394,8 +395,8 @@ public abstract class BsMemberStatus extends AbstractEntity {
     }
 
     /**
-     * [get] (表示順)display_order: {UQ, NotNull, int4(10)} <br />
-     * UI上のステータスの表示順を示すNO。<br />
+     * [get] (表示順)display_order: {UQ, NotNull, int4(10)} <br>
+     * UI上のステータスの表示順を示すNO。<br>
      * 並べるときは、このカラムに対して昇順のソート条件にする。
      * @return The value of the column 'display_order'. (basically NotNull if selected: for the constraint)
      */
@@ -405,8 +406,8 @@ public abstract class BsMemberStatus extends AbstractEntity {
     }
 
     /**
-     * [set] (表示順)display_order: {UQ, NotNull, int4(10)} <br />
-     * UI上のステータスの表示順を示すNO。<br />
+     * [set] (表示順)display_order: {UQ, NotNull, int4(10)} <br>
+     * UI上のステータスの表示順を示すNO。<br>
      * 並べるときは、このカラムに対して昇順のソート条件にする。
      * @param displayOrder The value of the column 'display_order'. (basically NotNull if update: for the constraint)
      */

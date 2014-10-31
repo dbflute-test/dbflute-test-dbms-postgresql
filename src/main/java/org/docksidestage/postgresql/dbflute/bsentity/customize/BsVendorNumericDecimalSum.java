@@ -5,10 +5,11 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.CustomizeEntity;
 import org.docksidestage.postgresql.dbflute.exentity.customize.*;
 
 /**
- * The entity of VendorNumericDecimalSum. <br />
+ * The entity of VendorNumericDecimalSum. <br>
  * <pre>
  * [primary-key]
  *     
@@ -45,7 +46,7 @@ import org.docksidestage.postgresql.dbflute.exentity.customize.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsVendorNumericDecimalSum extends AbstractEntity {
+public abstract class BsVendorNumericDecimalSum extends AbstractEntity implements CustomizeEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -150,7 +151,7 @@ public abstract class BsVendorNumericDecimalSum extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] decimal_digit_sum: {numeric(131089)} <br />
+     * [get] decimal_digit_sum: {numeric(131089)} <br>
      * @return The value of the column 'decimal_digit_sum'. (NullAllowed even if selected: for no constraint)
      */
     public java.math.BigDecimal getDecimalDigitSum() {
@@ -159,7 +160,7 @@ public abstract class BsVendorNumericDecimalSum extends AbstractEntity {
     }
 
     /**
-     * [set] decimal_digit_sum: {numeric(131089)} <br />
+     * [set] decimal_digit_sum: {numeric(131089)} <br>
      * @param decimalDigitSum The value of the column 'decimal_digit_sum'. (NullAllowed: null update allowed for no constraint)
      */
     public void setDecimalDigitSum(java.math.BigDecimal decimalDigitSum) {

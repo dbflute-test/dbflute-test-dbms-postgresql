@@ -34,7 +34,7 @@ public class BsVendorUuidBarCQ extends AbstractBsVendorUuidBarCQ {
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from vendor_uuid_bar) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -57,7 +57,7 @@ public class BsVendorUuidBarCQ extends AbstractBsVendorUuidBarCQ {
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join vendor_uuid_bar on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -80,14 +80,14 @@ public class BsVendorUuidBarCQ extends AbstractBsVendorUuidBarCQ {
     protected ConditionValue xgetCValueBarId() { return xdfgetBarId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * bar_id: {PK, NotNull, uuid(2147483647)}
      * @return this. (NotNull)
      */
     public BsVendorUuidBarCQ addOrderBy_BarId_Asc() { regOBA("bar_id"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * bar_id: {PK, NotNull, uuid(2147483647)}
      * @return this. (NotNull)
      */
@@ -100,14 +100,14 @@ public class BsVendorUuidBarCQ extends AbstractBsVendorUuidBarCQ {
     protected ConditionValue xgetCValueBarName() { return xdfgetBarName(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * bar_name: {NotNull, varchar(2147483647)}
      * @return this. (NotNull)
      */
     public BsVendorUuidBarCQ addOrderBy_BarName_Asc() { regOBA("bar_name"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * bar_name: {NotNull, varchar(2147483647)}
      * @return this. (NotNull)
      */

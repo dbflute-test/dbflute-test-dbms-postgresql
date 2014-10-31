@@ -19,7 +19,7 @@ public class VendorLargeDataRefNss {
     //                                                                     Nested Relation
     //                                                                     ===============
     /**
-     * With nested relation columns to select clause. <br />
+     * With nested relation columns to select clause. <br>
      * vendor_large_data by my large_data_id, named 'vendorLargeData'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */
@@ -28,7 +28,7 @@ public class VendorLargeDataRefNss {
         return new VendorLargeDataNss(_query.queryVendorLargeData());
     }
     /**
-     * With nested relation columns to select clause. <br />
+     * With nested relation columns to select clause. <br>
      * vendor_large_data_ref by my self_parent_id, named 'vendorLargeDataRefSelf'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */

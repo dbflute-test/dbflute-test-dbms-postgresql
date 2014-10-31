@@ -5,10 +5,11 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.CustomizeEntity;
 import org.docksidestage.postgresql.dbflute.exentity.customize.*;
 
 /**
- * The entity of SimpleMember. <br />
+ * The entity of SimpleMember. <br>
  * <pre>
  * [primary-key]
  *     
@@ -51,7 +52,7 @@ import org.docksidestage.postgresql.dbflute.exentity.customize.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsSimpleMember extends AbstractEntity {
+public abstract class BsSimpleMember extends AbstractEntity implements CustomizeEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -174,8 +175,8 @@ public abstract class BsSimpleMember extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] (会員ID)member_id: {serial(10), refers to member.member_id} <br />
-     * 会員を識別するID。連番として自動採番される。<br />
+     * [get] (会員ID)member_id: {serial(10), refers to member.member_id} <br>
+     * 会員を識別するID。連番として自動採番される。<br>
      * （会員IDだけに限らず）採番方法はDBMS次第。
      * @return The value of the column 'member_id'. (NullAllowed even if selected: for no constraint)
      */
@@ -185,8 +186,8 @@ public abstract class BsSimpleMember extends AbstractEntity {
     }
 
     /**
-     * [set] (会員ID)member_id: {serial(10), refers to member.member_id} <br />
-     * 会員を識別するID。連番として自動採番される。<br />
+     * [set] (会員ID)member_id: {serial(10), refers to member.member_id} <br>
+     * 会員を識別するID。連番として自動採番される。<br>
      * （会員IDだけに限らず）採番方法はDBMS次第。
      * @param memberId The value of the column 'member_id'. (NullAllowed: null update allowed for no constraint)
      */
@@ -196,8 +197,8 @@ public abstract class BsSimpleMember extends AbstractEntity {
     }
 
     /**
-     * [get] (会員名称)member_name: {varchar(200), refers to member.member_name} <br />
-     * 会員のフルネームの名称。<br />
+     * [get] (会員名称)member_name: {varchar(200), refers to member.member_name} <br>
+     * 会員のフルネームの名称。<br>
      * 苗字と名前を分けて管理することも多いが、ここでは Example なので単純にひとまとめ。
      * @return The value of the column 'member_name'. (NullAllowed even if selected: for no constraint)
      */
@@ -207,8 +208,8 @@ public abstract class BsSimpleMember extends AbstractEntity {
     }
 
     /**
-     * [set] (会員名称)member_name: {varchar(200), refers to member.member_name} <br />
-     * 会員のフルネームの名称。<br />
+     * [set] (会員名称)member_name: {varchar(200), refers to member.member_name} <br>
+     * 会員のフルネームの名称。<br>
      * 苗字と名前を分けて管理することも多いが、ここでは Example なので単純にひとまとめ。
      * @param memberName The value of the column 'member_name'. (NullAllowed: null update allowed for no constraint)
      */
@@ -218,7 +219,7 @@ public abstract class BsSimpleMember extends AbstractEntity {
     }
 
     /**
-     * [get] (生年月日)birthdate: {date(13), refers to member.birthdate} <br />
+     * [get] (生年月日)birthdate: {date(13), refers to member.birthdate} <br>
      * 必須項目ではないので、このデータがない会員もいる。
      * @return The value of the column 'birthdate'. (NullAllowed even if selected: for no constraint)
      */
@@ -228,7 +229,7 @@ public abstract class BsSimpleMember extends AbstractEntity {
     }
 
     /**
-     * [set] (生年月日)birthdate: {date(13), refers to member.birthdate} <br />
+     * [set] (生年月日)birthdate: {date(13), refers to member.birthdate} <br>
      * 必須項目ではないので、このデータがない会員もいる。
      * @param birthdate The value of the column 'birthdate'. (NullAllowed: null update allowed for no constraint)
      */
@@ -238,7 +239,7 @@ public abstract class BsSimpleMember extends AbstractEntity {
     }
 
     /**
-     * [get] (会員ステータス名称)member_status_name: {varchar(50), refers to member_status.member_status_name} <br />
+     * [get] (会員ステータス名称)member_status_name: {varchar(50), refers to member_status.member_status_name} <br>
      * @return The value of the column 'member_status_name'. (NullAllowed even if selected: for no constraint)
      */
     public String getMemberStatusName() {
@@ -247,7 +248,7 @@ public abstract class BsSimpleMember extends AbstractEntity {
     }
 
     /**
-     * [set] (会員ステータス名称)member_status_name: {varchar(50), refers to member_status.member_status_name} <br />
+     * [set] (会員ステータス名称)member_status_name: {varchar(50), refers to member_status.member_status_name} <br>
      * @param memberStatusName The value of the column 'member_status_name'. (NullAllowed: null update allowed for no constraint)
      */
     public void setMemberStatusName(String memberStatusName) {

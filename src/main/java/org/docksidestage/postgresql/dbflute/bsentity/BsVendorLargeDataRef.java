@@ -5,11 +5,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.postgresql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
 /**
- * The entity of vendor_large_data_ref as TABLE. <br />
+ * The entity of vendor_large_data_ref as TABLE. <br>
  * <pre>
  * [primary-key]
  *     large_data_ref_id
@@ -62,7 +63,7 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsVendorLargeDataRef extends AbstractEntity {
+public abstract class BsVendorLargeDataRef extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -137,7 +138,7 @@ public abstract class BsVendorLargeDataRef extends AbstractEntity {
     protected VendorLargeData _vendorLargeData;
 
     /**
-     * [get] vendor_large_data by my large_data_id, named 'vendorLargeData'. <br />
+     * [get] vendor_large_data by my large_data_id, named 'vendorLargeData'. <br>
      * @return The entity of foreign property 'vendorLargeData'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public VendorLargeData getVendorLargeData() {
@@ -156,7 +157,7 @@ public abstract class BsVendorLargeDataRef extends AbstractEntity {
     protected VendorLargeDataRef _vendorLargeDataRefSelf;
 
     /**
-     * [get] vendor_large_data_ref by my self_parent_id, named 'vendorLargeDataRefSelf'. <br />
+     * [get] vendor_large_data_ref by my self_parent_id, named 'vendorLargeDataRefSelf'. <br>
      * @return The entity of foreign property 'vendorLargeDataRefSelf'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public VendorLargeDataRef getVendorLargeDataRefSelf() {
@@ -275,7 +276,7 @@ public abstract class BsVendorLargeDataRef extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] large_data_ref_id: {PK, NotNull, int8(19)} <br />
+     * [get] large_data_ref_id: {PK, NotNull, int8(19)} <br>
      * @return The value of the column 'large_data_ref_id'. (basically NotNull if selected: for the constraint)
      */
     public Long getLargeDataRefId() {
@@ -284,7 +285,7 @@ public abstract class BsVendorLargeDataRef extends AbstractEntity {
     }
 
     /**
-     * [set] large_data_ref_id: {PK, NotNull, int8(19)} <br />
+     * [set] large_data_ref_id: {PK, NotNull, int8(19)} <br>
      * @param largeDataRefId The value of the column 'large_data_ref_id'. (basically NotNull if update: for the constraint)
      */
     public void setLargeDataRefId(Long largeDataRefId) {
@@ -293,7 +294,7 @@ public abstract class BsVendorLargeDataRef extends AbstractEntity {
     }
 
     /**
-     * [get] large_data_id: {NotNull, int8(19), FK to vendor_large_data} <br />
+     * [get] large_data_id: {NotNull, int8(19), FK to vendor_large_data} <br>
      * @return The value of the column 'large_data_id'. (basically NotNull if selected: for the constraint)
      */
     public Long getLargeDataId() {
@@ -302,7 +303,7 @@ public abstract class BsVendorLargeDataRef extends AbstractEntity {
     }
 
     /**
-     * [set] large_data_id: {NotNull, int8(19), FK to vendor_large_data} <br />
+     * [set] large_data_id: {NotNull, int8(19), FK to vendor_large_data} <br>
      * @param largeDataId The value of the column 'large_data_id'. (basically NotNull if update: for the constraint)
      */
     public void setLargeDataId(Long largeDataId) {
@@ -311,7 +312,7 @@ public abstract class BsVendorLargeDataRef extends AbstractEntity {
     }
 
     /**
-     * [get] date_index: {IX, NotNull, date(13)} <br />
+     * [get] date_index: {IX, NotNull, date(13)} <br>
      * @return The value of the column 'date_index'. (basically NotNull if selected: for the constraint)
      */
     public java.util.Date getDateIndex() {
@@ -320,7 +321,7 @@ public abstract class BsVendorLargeDataRef extends AbstractEntity {
     }
 
     /**
-     * [set] date_index: {IX, NotNull, date(13)} <br />
+     * [set] date_index: {IX, NotNull, date(13)} <br>
      * @param dateIndex The value of the column 'date_index'. (basically NotNull if update: for the constraint)
      */
     public void setDateIndex(java.util.Date dateIndex) {
@@ -329,7 +330,7 @@ public abstract class BsVendorLargeDataRef extends AbstractEntity {
     }
 
     /**
-     * [get] date_no_index: {NotNull, date(13)} <br />
+     * [get] date_no_index: {NotNull, date(13)} <br>
      * @return The value of the column 'date_no_index'. (basically NotNull if selected: for the constraint)
      */
     public java.util.Date getDateNoIndex() {
@@ -338,7 +339,7 @@ public abstract class BsVendorLargeDataRef extends AbstractEntity {
     }
 
     /**
-     * [set] date_no_index: {NotNull, date(13)} <br />
+     * [set] date_no_index: {NotNull, date(13)} <br>
      * @param dateNoIndex The value of the column 'date_no_index'. (basically NotNull if update: for the constraint)
      */
     public void setDateNoIndex(java.util.Date dateNoIndex) {
@@ -347,7 +348,7 @@ public abstract class BsVendorLargeDataRef extends AbstractEntity {
     }
 
     /**
-     * [get] timestamp_index: {IX, NotNull, timestamp(26, 3)} <br />
+     * [get] timestamp_index: {IX, NotNull, timestamp(26, 3)} <br>
      * @return The value of the column 'timestamp_index'. (basically NotNull if selected: for the constraint)
      */
     public java.sql.Timestamp getTimestampIndex() {
@@ -356,7 +357,7 @@ public abstract class BsVendorLargeDataRef extends AbstractEntity {
     }
 
     /**
-     * [set] timestamp_index: {IX, NotNull, timestamp(26, 3)} <br />
+     * [set] timestamp_index: {IX, NotNull, timestamp(26, 3)} <br>
      * @param timestampIndex The value of the column 'timestamp_index'. (basically NotNull if update: for the constraint)
      */
     public void setTimestampIndex(java.sql.Timestamp timestampIndex) {
@@ -365,7 +366,7 @@ public abstract class BsVendorLargeDataRef extends AbstractEntity {
     }
 
     /**
-     * [get] timestamp_no_index: {NotNull, timestamp(26, 3)} <br />
+     * [get] timestamp_no_index: {NotNull, timestamp(26, 3)} <br>
      * @return The value of the column 'timestamp_no_index'. (basically NotNull if selected: for the constraint)
      */
     public java.sql.Timestamp getTimestampNoIndex() {
@@ -374,7 +375,7 @@ public abstract class BsVendorLargeDataRef extends AbstractEntity {
     }
 
     /**
-     * [set] timestamp_no_index: {NotNull, timestamp(26, 3)} <br />
+     * [set] timestamp_no_index: {NotNull, timestamp(26, 3)} <br>
      * @param timestampNoIndex The value of the column 'timestamp_no_index'. (basically NotNull if update: for the constraint)
      */
     public void setTimestampNoIndex(java.sql.Timestamp timestampNoIndex) {
@@ -383,7 +384,7 @@ public abstract class BsVendorLargeDataRef extends AbstractEntity {
     }
 
     /**
-     * [get] nullable_decimal_index: {IX, numeric(12, 3)} <br />
+     * [get] nullable_decimal_index: {IX, numeric(12, 3)} <br>
      * @return The value of the column 'nullable_decimal_index'. (NullAllowed even if selected: for no constraint)
      */
     public java.math.BigDecimal getNullableDecimalIndex() {
@@ -392,7 +393,7 @@ public abstract class BsVendorLargeDataRef extends AbstractEntity {
     }
 
     /**
-     * [set] nullable_decimal_index: {IX, numeric(12, 3)} <br />
+     * [set] nullable_decimal_index: {IX, numeric(12, 3)} <br>
      * @param nullableDecimalIndex The value of the column 'nullable_decimal_index'. (NullAllowed: null update allowed for no constraint)
      */
     public void setNullableDecimalIndex(java.math.BigDecimal nullableDecimalIndex) {
@@ -401,7 +402,7 @@ public abstract class BsVendorLargeDataRef extends AbstractEntity {
     }
 
     /**
-     * [get] nullable_decimal_no_index: {numeric(12, 3)} <br />
+     * [get] nullable_decimal_no_index: {numeric(12, 3)} <br>
      * @return The value of the column 'nullable_decimal_no_index'. (NullAllowed even if selected: for no constraint)
      */
     public java.math.BigDecimal getNullableDecimalNoIndex() {
@@ -410,7 +411,7 @@ public abstract class BsVendorLargeDataRef extends AbstractEntity {
     }
 
     /**
-     * [set] nullable_decimal_no_index: {numeric(12, 3)} <br />
+     * [set] nullable_decimal_no_index: {numeric(12, 3)} <br>
      * @param nullableDecimalNoIndex The value of the column 'nullable_decimal_no_index'. (NullAllowed: null update allowed for no constraint)
      */
     public void setNullableDecimalNoIndex(java.math.BigDecimal nullableDecimalNoIndex) {
@@ -419,7 +420,7 @@ public abstract class BsVendorLargeDataRef extends AbstractEntity {
     }
 
     /**
-     * [get] self_parent_id: {int8(19), FK to vendor_large_data_ref} <br />
+     * [get] self_parent_id: {int8(19), FK to vendor_large_data_ref} <br>
      * @return The value of the column 'self_parent_id'. (NullAllowed even if selected: for no constraint)
      */
     public Long getSelfParentId() {
@@ -428,7 +429,7 @@ public abstract class BsVendorLargeDataRef extends AbstractEntity {
     }
 
     /**
-     * [set] self_parent_id: {int8(19), FK to vendor_large_data_ref} <br />
+     * [set] self_parent_id: {int8(19), FK to vendor_large_data_ref} <br>
      * @param selfParentId The value of the column 'self_parent_id'. (NullAllowed: null update allowed for no constraint)
      */
     public void setSelfParentId(Long selfParentId) {

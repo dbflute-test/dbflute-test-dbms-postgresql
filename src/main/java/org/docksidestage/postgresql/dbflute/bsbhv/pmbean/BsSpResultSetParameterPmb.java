@@ -10,7 +10,7 @@ import org.docksidestage.postgresql.dbflute.allcommon.*;
 import org.docksidestage.postgresql.dbflute.exentity.customize.*;
 
 /**
- * The base class for procedure parameter-bean of SpResultSetParameter. <br />
+ * The base class for procedure parameter-bean of SpResultSetParameter. <br>
  * This is related to "<span style="color: #AD4747">sp_result_set_parameter</span>".
  * @author DBFlute(AutoGenerator)
  */
@@ -40,7 +40,7 @@ public class BsSpResultSetParameterPmb implements ProcedurePmb, FetchBean {
     //                                                                         Constructor
     //                                                                         ===========
     /**
-     * Constructor for the procedure parameter-bean of SpResultSetParameter. <br />
+     * Constructor for the procedure parameter-bean of SpResultSetParameter. <br>
      * This is related to "<span style="color: #AD4747">sp_result_set_parameter</span>".
      */
     public BsSpResultSetParameterPmb() {
@@ -131,7 +131,7 @@ public class BsSpResultSetParameterPmb implements ProcedurePmb, FetchBean {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] curMember: {refcursor as Out} <br />
+     * [get] curMember: {refcursor as Out} <br>
      * @return The value of curMember. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public List<SpResultSetParameterCurMember> getCurMember() {
@@ -139,7 +139,7 @@ public class BsSpResultSetParameterPmb implements ProcedurePmb, FetchBean {
     }
 
     /**
-     * [set] curMember: {refcursor as Out} <br />
+     * [set] curMember: {refcursor as Out} <br>
      * @param curMember The value of curMember. (NullAllowed)
      */
     public void setCurMember(List<SpResultSetParameterCurMember> curMember) {

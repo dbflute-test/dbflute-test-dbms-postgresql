@@ -47,7 +47,7 @@ public abstract class AbstractBsVendorDateFkCQ extends AbstractConditionQuery {
     //                                                                               Query
     //                                                                               =====
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * bar_id: {PK, NotNull, int4(10)}
      * @param barId The value of barId as equal. (NullAllowed: if null, no condition)
      */
@@ -60,7 +60,7 @@ public abstract class AbstractBsVendorDateFkCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * bar_id: {PK, NotNull, int4(10)}
      * @param barId The value of barId as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -69,7 +69,7 @@ public abstract class AbstractBsVendorDateFkCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * bar_id: {PK, NotNull, int4(10)}
      * @param barId The value of barId as lessThan. (NullAllowed: if null, no condition)
      */
@@ -78,7 +78,7 @@ public abstract class AbstractBsVendorDateFkCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * bar_id: {PK, NotNull, int4(10)}
      * @param barId The value of barId as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -87,7 +87,7 @@ public abstract class AbstractBsVendorDateFkCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * bar_id: {PK, NotNull, int4(10)}
      * @param barId The value of barId as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -96,9 +96,9 @@ public abstract class AbstractBsVendorDateFkCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * bar_id: {PK, NotNull, int4(10)}
      * @param minNumber The min number of barId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of barId. (NullAllowed: if null, no to-condition)
@@ -109,9 +109,9 @@ public abstract class AbstractBsVendorDateFkCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * bar_id: {PK, NotNull, int4(10)}
      * @param minNumber The min number of barId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of barId. (NullAllowed: if null, no to-condition)
@@ -122,7 +122,7 @@ public abstract class AbstractBsVendorDateFkCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * bar_id: {PK, NotNull, int4(10)}
      * @param barIdList The collection of barId as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -135,7 +135,7 @@ public abstract class AbstractBsVendorDateFkCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * bar_id: {PK, NotNull, int4(10)}
      * @param barIdList The collection of barId as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -148,13 +148,13 @@ public abstract class AbstractBsVendorDateFkCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * bar_id: {PK, NotNull, int4(10)}
      */
     public void setBarId_IsNull() { regBarId(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * bar_id: {PK, NotNull, int4(10)}
      */
     public void setBarId_IsNotNull() { regBarId(CK_ISNN, DOBJ); }
@@ -163,7 +163,7 @@ public abstract class AbstractBsVendorDateFkCQ extends AbstractConditionQuery {
     protected abstract ConditionValue xgetCValueBarId();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * bar_date: {NotNull, date(13), FK to vendor_date_pk}
      * @param barDate The value of barDate as equal. (NullAllowed: if null, no condition)
      */
@@ -172,7 +172,7 @@ public abstract class AbstractBsVendorDateFkCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * bar_date: {NotNull, date(13), FK to vendor_date_pk}
      * @param barDate The value of barDate as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -181,7 +181,7 @@ public abstract class AbstractBsVendorDateFkCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * bar_date: {NotNull, date(13), FK to vendor_date_pk}
      * @param barDate The value of barDate as lessThan. (NullAllowed: if null, no condition)
      */
@@ -190,7 +190,7 @@ public abstract class AbstractBsVendorDateFkCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * bar_date: {NotNull, date(13), FK to vendor_date_pk}
      * @param barDate The value of barDate as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -199,7 +199,7 @@ public abstract class AbstractBsVendorDateFkCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * bar_date: {NotNull, date(13), FK to vendor_date_pk}
      * @param barDate The value of barDate as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -208,8 +208,8 @@ public abstract class AbstractBsVendorDateFkCQ extends AbstractConditionQuery {
     }
 
     /**
-     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * bar_date: {NotNull, date(13), FK to vendor_date_pk}
      * <pre>e.g. setBarDate_FromTo(fromDate, toDate, op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">compareAsDate()</span>);</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of barDate. (NullAllowed: if null, no from-condition)
@@ -221,8 +221,8 @@ public abstract class AbstractBsVendorDateFkCQ extends AbstractConditionQuery {
     }
 
     /**
-     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * bar_date: {NotNull, date(13), FK to vendor_date_pk}
      * <pre>e.g. setBarDate_FromTo(fromDate, toDate, new <span style="color: #CC4747">FromToOption</span>().compareAsDate());</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of barDate. (NullAllowed: if null, no from-condition)
@@ -234,8 +234,8 @@ public abstract class AbstractBsVendorDateFkCQ extends AbstractConditionQuery {
     }
 
     /**
-     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * bar_date: {NotNull, date(13), FK to vendor_date_pk}
      * <pre>
      * e.g. from:{2007/04/10 08:24:53} to:{2007/04/16 14:36:29}
@@ -249,7 +249,7 @@ public abstract class AbstractBsVendorDateFkCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope {in ('1965-03-03', '1966-09-15')}. And NullOrEmptyIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in ('1965-03-03', '1966-09-15')}. And NullOrEmptyIgnored, NullElementIgnored, SeveralRegistered. <br>
      * bar_date: {NotNull, date(13), FK to vendor_date_pk}
      * @param barDateList The collection of barDate as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -268,7 +268,7 @@ public abstract class AbstractBsVendorDateFkCQ extends AbstractConditionQuery {
     //                                                                     ScalarCondition
     //                                                                     ===============
     /**
-     * Prepare ScalarCondition as equal. <br />
+     * Prepare ScalarCondition as equal. <br>
      * {where FOO = (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_Equal()</span>.max(new SubQuery&lt;VendorDateFkCB&gt;() {
@@ -285,7 +285,7 @@ public abstract class AbstractBsVendorDateFkCQ extends AbstractConditionQuery {
     }
 
     /**
-     * Prepare ScalarCondition as equal. <br />
+     * Prepare ScalarCondition as equal. <br>
      * {where FOO &lt;&gt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_NotEqual()</span>.max(new SubQuery&lt;VendorDateFkCB&gt;() {
@@ -302,7 +302,7 @@ public abstract class AbstractBsVendorDateFkCQ extends AbstractConditionQuery {
     }
 
     /**
-     * Prepare ScalarCondition as greaterThan. <br />
+     * Prepare ScalarCondition as greaterThan. <br>
      * {where FOO &gt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_GreaterThan()</span>.max(new SubQuery&lt;VendorDateFkCB&gt;() {
@@ -319,7 +319,7 @@ public abstract class AbstractBsVendorDateFkCQ extends AbstractConditionQuery {
     }
 
     /**
-     * Prepare ScalarCondition as lessThan. <br />
+     * Prepare ScalarCondition as lessThan. <br>
      * {where FOO &lt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessThan()</span>.max(new SubQuery&lt;VendorDateFkCB&gt;() {
@@ -336,7 +336,7 @@ public abstract class AbstractBsVendorDateFkCQ extends AbstractConditionQuery {
     }
 
     /**
-     * Prepare ScalarCondition as greaterEqual. <br />
+     * Prepare ScalarCondition as greaterEqual. <br>
      * {where FOO &gt;= (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_GreaterEqual()</span>.max(new SubQuery&lt;VendorDateFkCB&gt;() {
@@ -353,7 +353,7 @@ public abstract class AbstractBsVendorDateFkCQ extends AbstractConditionQuery {
     }
 
     /**
-     * Prepare ScalarCondition as lessEqual. <br />
+     * Prepare ScalarCondition as lessEqual. <br>
      * {where FOO &lt;= (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessEqual()</span>.max(new SubQuery&lt;VendorDateFkCB&gt;() {
@@ -436,7 +436,7 @@ public abstract class AbstractBsVendorDateFkCQ extends AbstractConditionQuery {
     //                                                                    Full Text Search
     //                                                                    ================
     /**
-     * Match for full-text search. <br />
+     * Match for full-text search. <br>
      * @param textColumn The text column. (NotNull, StringColumn, TargetTableColumn)
      * @param conditionValue The condition value. (NullAllowed: if null or empty, no condition)
      */
@@ -446,7 +446,7 @@ public abstract class AbstractBsVendorDateFkCQ extends AbstractConditionQuery {
     }
 
     /**
-     * Match for full-text search. <br />
+     * Match for full-text search. <br>
      * @param textColumnList The list of text column. (NotNull, NotEmpty, StringColumn, TargetTableColumn)
      * @param conditionValue The condition value. (NullAllowed: if null or empty, no condition)
      */

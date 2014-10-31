@@ -34,7 +34,7 @@ public class BsVendorUuidFooCQ extends AbstractBsVendorUuidFooCQ {
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from vendor_uuid_foo) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -57,7 +57,7 @@ public class BsVendorUuidFooCQ extends AbstractBsVendorUuidFooCQ {
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join vendor_uuid_foo on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -80,14 +80,14 @@ public class BsVendorUuidFooCQ extends AbstractBsVendorUuidFooCQ {
     protected ConditionValue xgetCValueFooId() { return xdfgetFooId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * foo_id: {PK, NotNull, uuid(2147483647)}
      * @return this. (NotNull)
      */
     public BsVendorUuidFooCQ addOrderBy_FooId_Asc() { regOBA("foo_id"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * foo_id: {PK, NotNull, uuid(2147483647)}
      * @return this. (NotNull)
      */
@@ -100,14 +100,14 @@ public class BsVendorUuidFooCQ extends AbstractBsVendorUuidFooCQ {
     protected ConditionValue xgetCValueFooName() { return xdfgetFooName(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * foo_name: {NotNull, varchar(2147483647)}
      * @return this. (NotNull)
      */
     public BsVendorUuidFooCQ addOrderBy_FooName_Asc() { regOBA("foo_name"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * foo_name: {NotNull, varchar(2147483647)}
      * @return this. (NotNull)
      */
@@ -120,14 +120,14 @@ public class BsVendorUuidFooCQ extends AbstractBsVendorUuidFooCQ {
     protected ConditionValue xgetCValueBarId() { return xdfgetBarId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * bar_id: {NotNull, uuid(2147483647), FK to vendor_uuid_bar}
      * @return this. (NotNull)
      */
     public BsVendorUuidFooCQ addOrderBy_BarId_Asc() { regOBA("bar_id"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * bar_id: {NotNull, uuid(2147483647), FK to vendor_uuid_bar}
      * @return this. (NotNull)
      */
@@ -183,7 +183,7 @@ public class BsVendorUuidFooCQ extends AbstractBsVendorUuidFooCQ {
     //                                                                       Foreign Query
     //                                                                       =============
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * vendor_uuid_bar by my bar_id, named 'vendorUuidBar'.
      * @return The instance of condition-query. (NotNull)
      */

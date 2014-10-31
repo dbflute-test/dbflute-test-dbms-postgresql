@@ -4,8 +4,8 @@ import org.docksidestage.postgresql.dbflute.bsbhv.pmbean.BsSpResultSetParameterP
 
 /**
  * <!-- df:beginClassDescription -->
- * The typed parameter-bean of SpResultSetParameter. <br />
- * This is related to "<span style="color: #AD4747">sp_result_set_parameter</span>". <br />
+ * The typed parameter-bean of SpResultSetParameter. <br>
+ * This is related to "<span style="color: #AD4747">sp_result_set_parameter</span>". <br>
  * <!-- df:endClassDescription -->
  * <p>
  * You can implement your original methods here.

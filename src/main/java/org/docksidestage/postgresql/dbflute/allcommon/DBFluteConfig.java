@@ -201,7 +201,7 @@ public class DBFluteConfig {
     }
 
     /**
-     * Set whether null-or-empty query is allowed or not. <br />
+     * Set whether null-or-empty query is allowed or not. <br>
      * This configuration is only for ConditionBean.
      * @param nullOrEmptyQueryAllowed The determination, true or false.
      */
@@ -218,7 +218,7 @@ public class DBFluteConfig {
     }
 
     /**
-     * Set whether an empty string for query is allowed or not. <br />
+     * Set whether an empty string for query is allowed or not. <br>
      * This configuration is only for ConditionBean.
      * @param emptyStringQueryAllowed The determination, true or false.
      */
@@ -235,7 +235,7 @@ public class DBFluteConfig {
     }
 
     /**
-     * Set whether an empty string for parameter is allowed or not. <br />
+     * Set whether an empty string for parameter is allowed or not. <br>
      * This configuration is only for ParameterBean.
      * @param emptyStringParameterAllowed The determination, true or false.
      */
@@ -252,7 +252,7 @@ public class DBFluteConfig {
     }
 
     /**
-     * Set whether overriding query is allowed or not. <br />
+     * Set whether overriding query is allowed or not. <br>
      * This configuration is only for ConditionBean.
      * @param overridingQueryAllowed The determination, true or false.
      */
@@ -272,7 +272,7 @@ public class DBFluteConfig {
     }
 
     /**
-     * Set whether non-specified column access is allowed or not. <br />
+     * Set whether non-specified column access is allowed or not. <br>
      * This configuration is only for ConditionBean.
      * @param nonSpecifiedColumnAccessAllowed The determination, true or false.
      */
@@ -602,7 +602,7 @@ public class DBFluteConfig {
     }
 
     /**
-     * Set the SQL name filter for table. <br />
+     * Set the SQL name filter for table. <br>
      * This setting should be called before container's initialization.
      * (its exact meaning is: before class loading of DBMeta for table)
      * @param tableSqlNameFilter The SQL name filter for table. (NullAllowed)
@@ -692,7 +692,7 @@ public class DBFluteConfig {
     //                                                                          Value Type
     //                                                                          ==========
     /**
-     * Register the basic value type. <br />
+     * Register the basic value type. <br>
      * This setting is shared per DBMS in the same class loader. 
      * @param keyType The type as key. (NotNull)
      * @param valueType The basic value type. (NotNull)
@@ -714,7 +714,7 @@ public class DBFluteConfig {
     }
 
     /**
-     * Register the plug-in value type. <br />
+     * Register the plug-in value type. <br>
      * This setting is shared per DBMS in the same class loader.
      * @param keyName The name as key. (NotNull)
      * @param valueType The plug-in value type. (NotNull)

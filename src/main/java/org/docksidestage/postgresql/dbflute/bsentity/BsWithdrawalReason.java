@@ -5,11 +5,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.postgresql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
 /**
- * The entity of (退会理由)withdrawal_reason as TABLE. <br />
+ * The entity of (退会理由)withdrawal_reason as TABLE. <br>
  * 会員に選ばせる定型的な退会理由のマスタ。
  * <pre>
  * [primary-key]
@@ -51,7 +52,7 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWithdrawalReason extends AbstractEntity {
+public abstract class BsWithdrawalReason extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -102,7 +103,7 @@ public abstract class BsWithdrawalReason extends AbstractEntity {
     }
 
     /**
-     * To be unique by the unique column. <br />
+     * To be unique by the unique column. <br>
      * You can update the entity by the key when entity update (NOT batch update).
      * @param displayOrder : UQ, NotNull, int4(10). (NotNull)
      */
@@ -205,7 +206,7 @@ public abstract class BsWithdrawalReason extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] (退会理由コード)withdrawal_reason_code: {PK, NotNull, bpchar(3)} <br />
+     * [get] (退会理由コード)withdrawal_reason_code: {PK, NotNull, bpchar(3)} <br>
      * @return The value of the column 'withdrawal_reason_code'. (basically NotNull if selected: for the constraint)
      */
     public String getWithdrawalReasonCode() {
@@ -214,7 +215,7 @@ public abstract class BsWithdrawalReason extends AbstractEntity {
     }
 
     /**
-     * [set] (退会理由コード)withdrawal_reason_code: {PK, NotNull, bpchar(3)} <br />
+     * [set] (退会理由コード)withdrawal_reason_code: {PK, NotNull, bpchar(3)} <br>
      * @param withdrawalReasonCode The value of the column 'withdrawal_reason_code'. (basically NotNull if update: for the constraint)
      */
     public void setWithdrawalReasonCode(String withdrawalReasonCode) {
@@ -223,8 +224,8 @@ public abstract class BsWithdrawalReason extends AbstractEntity {
     }
 
     /**
-     * [get] (退会理由テキスト)withdrawal_reason_text: {NotNull, text(2147483647)} <br />
-     * 退会理由の内容。テキスト形式なので目いっぱい書けるが、<br />
+     * [get] (退会理由テキスト)withdrawal_reason_text: {NotNull, text(2147483647)} <br>
+     * 退会理由の内容。テキスト形式なので目いっぱい書けるが、<br>
      * そうするとUI側できれいに見せるのが大変でしょうね。
      * @return The value of the column 'withdrawal_reason_text'. (basically NotNull if selected: for the constraint)
      */
@@ -234,8 +235,8 @@ public abstract class BsWithdrawalReason extends AbstractEntity {
     }
 
     /**
-     * [set] (退会理由テキスト)withdrawal_reason_text: {NotNull, text(2147483647)} <br />
-     * 退会理由の内容。テキスト形式なので目いっぱい書けるが、<br />
+     * [set] (退会理由テキスト)withdrawal_reason_text: {NotNull, text(2147483647)} <br>
+     * 退会理由の内容。テキスト形式なので目いっぱい書けるが、<br>
      * そうするとUI側できれいに見せるのが大変でしょうね。
      * @param withdrawalReasonText The value of the column 'withdrawal_reason_text'. (basically NotNull if update: for the constraint)
      */
@@ -245,7 +246,7 @@ public abstract class BsWithdrawalReason extends AbstractEntity {
     }
 
     /**
-     * [get] display_order: {UQ, NotNull, int4(10)} <br />
+     * [get] display_order: {UQ, NotNull, int4(10)} <br>
      * @return The value of the column 'display_order'. (basically NotNull if selected: for the constraint)
      */
     public Integer getDisplayOrder() {
@@ -254,7 +255,7 @@ public abstract class BsWithdrawalReason extends AbstractEntity {
     }
 
     /**
-     * [set] display_order: {UQ, NotNull, int4(10)} <br />
+     * [set] display_order: {UQ, NotNull, int4(10)} <br>
      * @param displayOrder The value of the column 'display_order'. (basically NotNull if update: for the constraint)
      */
     public void setDisplayOrder(Integer displayOrder) {

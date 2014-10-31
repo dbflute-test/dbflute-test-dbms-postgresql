@@ -47,7 +47,7 @@ public abstract class AbstractBsVendorPartManCQ extends AbstractConditionQuery {
     //                                                                               Query
     //                                                                               =====
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * part_man_id: {PK, NotNull, int4(10)}
      * @param partManId The value of partManId as equal. (NullAllowed: if null, no condition)
      */
@@ -60,7 +60,7 @@ public abstract class AbstractBsVendorPartManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * part_man_id: {PK, NotNull, int4(10)}
      * @param partManId The value of partManId as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -69,7 +69,7 @@ public abstract class AbstractBsVendorPartManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * part_man_id: {PK, NotNull, int4(10)}
      * @param partManId The value of partManId as lessThan. (NullAllowed: if null, no condition)
      */
@@ -78,7 +78,7 @@ public abstract class AbstractBsVendorPartManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * part_man_id: {PK, NotNull, int4(10)}
      * @param partManId The value of partManId as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -87,7 +87,7 @@ public abstract class AbstractBsVendorPartManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * part_man_id: {PK, NotNull, int4(10)}
      * @param partManId The value of partManId as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -96,9 +96,9 @@ public abstract class AbstractBsVendorPartManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * part_man_id: {PK, NotNull, int4(10)}
      * @param minNumber The min number of partManId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of partManId. (NullAllowed: if null, no to-condition)
@@ -109,9 +109,9 @@ public abstract class AbstractBsVendorPartManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * part_man_id: {PK, NotNull, int4(10)}
      * @param minNumber The min number of partManId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of partManId. (NullAllowed: if null, no to-condition)
@@ -122,7 +122,7 @@ public abstract class AbstractBsVendorPartManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * part_man_id: {PK, NotNull, int4(10)}
      * @param partManIdList The collection of partManId as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -135,7 +135,7 @@ public abstract class AbstractBsVendorPartManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * part_man_id: {PK, NotNull, int4(10)}
      * @param partManIdList The collection of partManId as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -148,13 +148,13 @@ public abstract class AbstractBsVendorPartManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * part_man_id: {PK, NotNull, int4(10)}
      */
     public void setPartManId_IsNull() { regPartManId(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * part_man_id: {PK, NotNull, int4(10)}
      */
     public void setPartManId_IsNotNull() { regPartManId(CK_ISNN, DOBJ); }
@@ -163,7 +163,7 @@ public abstract class AbstractBsVendorPartManCQ extends AbstractConditionQuery {
     protected abstract ConditionValue xgetCValuePartManId();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * part_man_name: {NotNull, varchar(2147483647)}
      * @param partManName The value of partManName as equal. (NullAllowed: if null (or empty), no condition)
      */
@@ -176,7 +176,7 @@ public abstract class AbstractBsVendorPartManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * part_man_name: {NotNull, varchar(2147483647)}
      * @param partManName The value of partManName as notEqual. (NullAllowed: if null (or empty), no condition)
      */
@@ -189,7 +189,7 @@ public abstract class AbstractBsVendorPartManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * part_man_name: {NotNull, varchar(2147483647)}
      * @param partManNameList The collection of partManName as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -202,7 +202,7 @@ public abstract class AbstractBsVendorPartManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * part_man_name: {NotNull, varchar(2147483647)}
      * @param partManNameList The collection of partManName as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -215,8 +215,8 @@ public abstract class AbstractBsVendorPartManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * part_man_name: {NotNull, varchar(2147483647)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * part_man_name: {NotNull, varchar(2147483647)} <br>
      * <pre>e.g. setPartManName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param partManName The value of partManName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -226,8 +226,8 @@ public abstract class AbstractBsVendorPartManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * part_man_name: {NotNull, varchar(2147483647)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * part_man_name: {NotNull, varchar(2147483647)} <br>
      * <pre>e.g. setPartManName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param partManName The value of partManName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
@@ -237,8 +237,8 @@ public abstract class AbstractBsVendorPartManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * part_man_name: {NotNull, varchar(2147483647)}
      * @param partManName The value of partManName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -248,8 +248,8 @@ public abstract class AbstractBsVendorPartManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * part_man_name: {NotNull, varchar(2147483647)}
      * @param partManName The value of partManName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of not-like-search. (NotNull)
@@ -259,7 +259,7 @@ public abstract class AbstractBsVendorPartManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * part_man_name: {NotNull, varchar(2147483647)}
      * @param partManName The value of partManName as prefixSearch. (NullAllowed: if null (or empty), no condition)
      */
@@ -271,7 +271,7 @@ public abstract class AbstractBsVendorPartManCQ extends AbstractConditionQuery {
     protected abstract ConditionValue xgetCValuePartManName();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * part_man_point: {NotNull, int4(10)}
      * @param partManPoint The value of partManPoint as equal. (NullAllowed: if null, no condition)
      */
@@ -284,7 +284,7 @@ public abstract class AbstractBsVendorPartManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * part_man_point: {NotNull, int4(10)}
      * @param partManPoint The value of partManPoint as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -293,7 +293,7 @@ public abstract class AbstractBsVendorPartManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * part_man_point: {NotNull, int4(10)}
      * @param partManPoint The value of partManPoint as lessThan. (NullAllowed: if null, no condition)
      */
@@ -302,7 +302,7 @@ public abstract class AbstractBsVendorPartManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * part_man_point: {NotNull, int4(10)}
      * @param partManPoint The value of partManPoint as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -311,7 +311,7 @@ public abstract class AbstractBsVendorPartManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * part_man_point: {NotNull, int4(10)}
      * @param partManPoint The value of partManPoint as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -320,9 +320,9 @@ public abstract class AbstractBsVendorPartManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * part_man_point: {NotNull, int4(10)}
      * @param minNumber The min number of partManPoint. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of partManPoint. (NullAllowed: if null, no to-condition)
@@ -333,9 +333,9 @@ public abstract class AbstractBsVendorPartManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * part_man_point: {NotNull, int4(10)}
      * @param minNumber The min number of partManPoint. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of partManPoint. (NullAllowed: if null, no to-condition)
@@ -346,7 +346,7 @@ public abstract class AbstractBsVendorPartManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * part_man_point: {NotNull, int4(10)}
      * @param partManPointList The collection of partManPoint as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -359,7 +359,7 @@ public abstract class AbstractBsVendorPartManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * part_man_point: {NotNull, int4(10)}
      * @param partManPointList The collection of partManPoint as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -375,7 +375,7 @@ public abstract class AbstractBsVendorPartManCQ extends AbstractConditionQuery {
     protected abstract ConditionValue xgetCValuePartManPoint();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * part_man_date: {date(13)}
      * @param partManDate The value of partManDate as equal. (NullAllowed: if null, no condition)
      */
@@ -384,7 +384,7 @@ public abstract class AbstractBsVendorPartManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * part_man_date: {date(13)}
      * @param partManDate The value of partManDate as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -393,7 +393,7 @@ public abstract class AbstractBsVendorPartManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * part_man_date: {date(13)}
      * @param partManDate The value of partManDate as lessThan. (NullAllowed: if null, no condition)
      */
@@ -402,7 +402,7 @@ public abstract class AbstractBsVendorPartManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * part_man_date: {date(13)}
      * @param partManDate The value of partManDate as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -411,7 +411,7 @@ public abstract class AbstractBsVendorPartManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * part_man_date: {date(13)}
      * @param partManDate The value of partManDate as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -420,8 +420,8 @@ public abstract class AbstractBsVendorPartManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * part_man_date: {date(13)}
      * <pre>e.g. setPartManDate_FromTo(fromDate, toDate, op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">compareAsDate()</span>);</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of partManDate. (NullAllowed: if null, no from-condition)
@@ -433,8 +433,8 @@ public abstract class AbstractBsVendorPartManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * part_man_date: {date(13)}
      * <pre>e.g. setPartManDate_FromTo(fromDate, toDate, new <span style="color: #CC4747">FromToOption</span>().compareAsDate());</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of partManDate. (NullAllowed: if null, no from-condition)
@@ -446,8 +446,8 @@ public abstract class AbstractBsVendorPartManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * part_man_date: {date(13)}
      * <pre>
      * e.g. from:{2007/04/10 08:24:53} to:{2007/04/16 14:36:29}
@@ -461,13 +461,13 @@ public abstract class AbstractBsVendorPartManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * part_man_date: {date(13)}
      */
     public void setPartManDate_IsNull() { regPartManDate(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * part_man_date: {date(13)}
      */
     public void setPartManDate_IsNotNull() { regPartManDate(CK_ISNN, DOBJ); }
@@ -479,7 +479,7 @@ public abstract class AbstractBsVendorPartManCQ extends AbstractConditionQuery {
     //                                                                     ScalarCondition
     //                                                                     ===============
     /**
-     * Prepare ScalarCondition as equal. <br />
+     * Prepare ScalarCondition as equal. <br>
      * {where FOO = (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_Equal()</span>.max(new SubQuery&lt;VendorPartManCB&gt;() {
@@ -496,7 +496,7 @@ public abstract class AbstractBsVendorPartManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * Prepare ScalarCondition as equal. <br />
+     * Prepare ScalarCondition as equal. <br>
      * {where FOO &lt;&gt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_NotEqual()</span>.max(new SubQuery&lt;VendorPartManCB&gt;() {
@@ -513,7 +513,7 @@ public abstract class AbstractBsVendorPartManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * Prepare ScalarCondition as greaterThan. <br />
+     * Prepare ScalarCondition as greaterThan. <br>
      * {where FOO &gt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_GreaterThan()</span>.max(new SubQuery&lt;VendorPartManCB&gt;() {
@@ -530,7 +530,7 @@ public abstract class AbstractBsVendorPartManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * Prepare ScalarCondition as lessThan. <br />
+     * Prepare ScalarCondition as lessThan. <br>
      * {where FOO &lt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessThan()</span>.max(new SubQuery&lt;VendorPartManCB&gt;() {
@@ -547,7 +547,7 @@ public abstract class AbstractBsVendorPartManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * Prepare ScalarCondition as greaterEqual. <br />
+     * Prepare ScalarCondition as greaterEqual. <br>
      * {where FOO &gt;= (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_GreaterEqual()</span>.max(new SubQuery&lt;VendorPartManCB&gt;() {
@@ -564,7 +564,7 @@ public abstract class AbstractBsVendorPartManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * Prepare ScalarCondition as lessEqual. <br />
+     * Prepare ScalarCondition as lessEqual. <br>
      * {where FOO &lt;= (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessEqual()</span>.max(new SubQuery&lt;VendorPartManCB&gt;() {
@@ -647,7 +647,7 @@ public abstract class AbstractBsVendorPartManCQ extends AbstractConditionQuery {
     //                                                                    Full Text Search
     //                                                                    ================
     /**
-     * Match for full-text search. <br />
+     * Match for full-text search. <br>
      * @param textColumn The text column. (NotNull, StringColumn, TargetTableColumn)
      * @param conditionValue The condition value. (NullAllowed: if null or empty, no condition)
      */
@@ -657,7 +657,7 @@ public abstract class AbstractBsVendorPartManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * Match for full-text search. <br />
+     * Match for full-text search. <br>
      * @param textColumnList The list of text column. (NotNull, NotEmpty, StringColumn, TargetTableColumn)
      * @param conditionValue The condition value. (NullAllowed: if null or empty, no condition)
      */

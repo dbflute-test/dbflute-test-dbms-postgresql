@@ -34,7 +34,7 @@ public class BsWhiteSameNameCQ extends AbstractBsWhiteSameNameCQ {
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from white_same_name) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -57,7 +57,7 @@ public class BsWhiteSameNameCQ extends AbstractBsWhiteSameNameCQ {
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join white_same_name on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -94,14 +94,14 @@ public class BsWhiteSameNameCQ extends AbstractBsWhiteSameNameCQ {
     public String keepSameNameId_QueryDerivedReferrer_WhiteSameNameRefListParameter(Object pm) { return xkeepSQuePm("sameNameId_QueryDerivedReferrer_WhiteSameNameRefList", pm); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * same_name_id: {PK, NotNull, int8(19)}
      * @return this. (NotNull)
      */
     public BsWhiteSameNameCQ addOrderBy_SameNameId_Asc() { regOBA("same_name_id"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * same_name_id: {PK, NotNull, int8(19)}
      * @return this. (NotNull)
      */
@@ -114,14 +114,14 @@ public class BsWhiteSameNameCQ extends AbstractBsWhiteSameNameCQ {
     protected ConditionValue xgetCValueSameNameName() { return xdfgetSameNameName(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * same_name_name: {varchar(200)}
      * @return this. (NotNull)
      */
     public BsWhiteSameNameCQ addOrderBy_SameNameName_Asc() { regOBA("same_name_name"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * same_name_name: {varchar(200)}
      * @return this. (NotNull)
      */
@@ -134,14 +134,14 @@ public class BsWhiteSameNameCQ extends AbstractBsWhiteSameNameCQ {
     protected ConditionValue xgetCValueSameNameInteger() { return xdfgetSameNameInteger(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * same_name_integer: {int4(10)}
      * @return this. (NotNull)
      */
     public BsWhiteSameNameCQ addOrderBy_SameNameInteger_Asc() { regOBA("same_name_integer"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * same_name_integer: {int4(10)}
      * @return this. (NotNull)
      */
@@ -154,14 +154,14 @@ public class BsWhiteSameNameCQ extends AbstractBsWhiteSameNameCQ {
     protected ConditionValue xgetCValueNextSchemaProductId() { return xdfgetNextSchemaProductId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * next_schema_product_id: {int4(10), FK to NEXT_SCHEMA_PRODUCT}
      * @return this. (NotNull)
      */
     public BsWhiteSameNameCQ addOrderBy_NextSchemaProductId_Asc() { regOBA("next_schema_product_id"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * next_schema_product_id: {int4(10), FK to NEXT_SCHEMA_PRODUCT}
      * @return this. (NotNull)
      */
@@ -217,7 +217,7 @@ public class BsWhiteSameNameCQ extends AbstractBsWhiteSameNameCQ {
     //                                                                       Foreign Query
     //                                                                       =============
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * next_schema_product by my next_schema_product_id, named 'nextSchemaProduct'.
      * @return The instance of condition-query. (NotNull)
      */

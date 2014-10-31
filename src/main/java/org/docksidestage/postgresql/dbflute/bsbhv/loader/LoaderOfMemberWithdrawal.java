@@ -7,7 +7,7 @@ import org.docksidestage.postgresql.dbflute.exbhv.*;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
 /**
- * The referrer loader of (会員退会情報)member_withdrawal as TABLE. <br />
+ * The referrer loader of (会員退会情報)member_withdrawal as TABLE. <br>
  * <pre>
  * [primary key]
  *     member_id

@@ -5,14 +5,15 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.postgresql.dbflute.allcommon.EntityDefinedCommonColumn;
 import org.docksidestage.postgresql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.postgresql.dbflute.allcommon.CDef;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
 /**
- * The entity of (購入)purchase as TABLE. <br />
- * 一つの商品に対する購入を表現する。<br />
+ * The entity of (購入)purchase as TABLE. <br>
+ * 一つの商品に対する購入を表現する。<br>
  * 実業務であれば購入詳細というテーブルを作り、「購入という行為」と「その中身（詳細）」を違う粒度のデータとしてそれぞれ管理するのが一般的と言えるでしょう。というか、注文とか請求とかそういうことを考え始めたらもっと複雑になるはずですが、ExampleDBということで割り切っています。
  * <pre>
  * [primary-key]
@@ -76,7 +77,7 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsPurchase extends AbstractEntity implements EntityDefinedCommonColumn {
+public abstract class BsPurchase extends AbstractEntity implements DomainEntity, EntityDefinedCommonColumn {
 
     // ===================================================================================
     //                                                                          Definition
@@ -160,7 +161,7 @@ public abstract class BsPurchase extends AbstractEntity implements EntityDefined
     }
 
     /**
-     * To be unique by the unique column. <br />
+     * To be unique by the unique column. <br>
      * You can update the entity by the key when entity update (NOT batch update).
      * @param memberId (会員ID): UQ+, NotNull, int4(10), FK to member. (NotNull)
      * @param productId (商品ID): +UQ, IX+, NotNull, int4(10), FK to product. (NotNull)
@@ -178,8 +179,8 @@ public abstract class BsPurchase extends AbstractEntity implements EntityDefined
     //                                                             Classification Property
     //                                                             =======================
     /**
-     * Get the value of paymentCompleteFlg as the classification of Flg. <br />
-     * (支払完了フラグ)payment_complete_flg: {NotNull, int4(10), classification=Flg} <br />
+     * Get the value of paymentCompleteFlg as the classification of Flg. <br>
+     * (支払完了フラグ)payment_complete_flg: {NotNull, int4(10), classification=Flg} <br>
      * general boolean classification for every flg-column
      * <p>It's treated as case insensitive and if the code value is null, it returns null.</p>
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
@@ -189,8 +190,8 @@ public abstract class BsPurchase extends AbstractEntity implements EntityDefined
     }
 
     /**
-     * Set the value of paymentCompleteFlg as the classification of Flg. <br />
-     * (支払完了フラグ)payment_complete_flg: {NotNull, int4(10), classification=Flg} <br />
+     * Set the value of paymentCompleteFlg as the classification of Flg. <br>
+     * (支払完了フラグ)payment_complete_flg: {NotNull, int4(10), classification=Flg} <br>
      * general boolean classification for every flg-column
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, null value is set to the column)
      */
@@ -202,7 +203,7 @@ public abstract class BsPurchase extends AbstractEntity implements EntityDefined
     //                                                              Classification Setting
     //                                                              ======================
     /**
-     * Set the value of paymentCompleteFlg as True (1). <br />
+     * Set the value of paymentCompleteFlg as True (1). <br>
      * Yes: means valid
      */
     public void setPaymentCompleteFlg_True() {
@@ -210,7 +211,7 @@ public abstract class BsPurchase extends AbstractEntity implements EntityDefined
     }
 
     /**
-     * Set the value of paymentCompleteFlg as False (0). <br />
+     * Set the value of paymentCompleteFlg as False (0). <br>
      * No: means invalid
      */
     public void setPaymentCompleteFlg_False() {
@@ -221,7 +222,7 @@ public abstract class BsPurchase extends AbstractEntity implements EntityDefined
     //                                                        Classification Determination
     //                                                        ============================
     /**
-     * Is the value of paymentCompleteFlg True? <br />
+     * Is the value of paymentCompleteFlg True? <br>
      * Yes: means valid
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -232,7 +233,7 @@ public abstract class BsPurchase extends AbstractEntity implements EntityDefined
     }
 
     /**
-     * Is the value of paymentCompleteFlg False? <br />
+     * Is the value of paymentCompleteFlg False? <br>
      * No: means invalid
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -270,7 +271,7 @@ public abstract class BsPurchase extends AbstractEntity implements EntityDefined
     protected Member _member;
 
     /**
-     * [get] (会員)member by my member_id, named 'member'. <br />
+     * [get] (会員)member by my member_id, named 'member'. <br>
      * @return The entity of foreign property 'member'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public Member getMember() {
@@ -289,7 +290,7 @@ public abstract class BsPurchase extends AbstractEntity implements EntityDefined
     protected Product _product;
 
     /**
-     * [get] (商品)product by my product_id, named 'product'. <br />
+     * [get] (商品)product by my product_id, named 'product'. <br>
      * @return The entity of foreign property 'product'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public Product getProduct() {
@@ -413,7 +414,7 @@ public abstract class BsPurchase extends AbstractEntity implements EntityDefined
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] purchase_id: {PK, ID, NotNull, bigserial(19)} <br />
+     * [get] purchase_id: {PK, ID, NotNull, bigserial(19)} <br>
      * @return The value of the column 'purchase_id'. (basically NotNull if selected: for the constraint)
      */
     public Long getPurchaseId() {
@@ -422,7 +423,7 @@ public abstract class BsPurchase extends AbstractEntity implements EntityDefined
     }
 
     /**
-     * [set] purchase_id: {PK, ID, NotNull, bigserial(19)} <br />
+     * [set] purchase_id: {PK, ID, NotNull, bigserial(19)} <br>
      * @param purchaseId The value of the column 'purchase_id'. (basically NotNull if update: for the constraint)
      */
     public void setPurchaseId(Long purchaseId) {
@@ -431,8 +432,8 @@ public abstract class BsPurchase extends AbstractEntity implements EntityDefined
     }
 
     /**
-     * [get] (会員ID)member_id: {UQ+, NotNull, int4(10), FK to member} <br />
-     * 会員を参照するID。<br />
+     * [get] (会員ID)member_id: {UQ+, NotNull, int4(10), FK to member} <br>
+     * 会員を参照するID。<br>
      * 購入を識別する自然キー（複合ユニーク制約）の筆頭要素。
      * @return The value of the column 'member_id'. (basically NotNull if selected: for the constraint)
      */
@@ -442,8 +443,8 @@ public abstract class BsPurchase extends AbstractEntity implements EntityDefined
     }
 
     /**
-     * [set] (会員ID)member_id: {UQ+, NotNull, int4(10), FK to member} <br />
-     * 会員を参照するID。<br />
+     * [set] (会員ID)member_id: {UQ+, NotNull, int4(10), FK to member} <br>
+     * 会員を参照するID。<br>
      * 購入を識別する自然キー（複合ユニーク制約）の筆頭要素。
      * @param memberId The value of the column 'member_id'. (basically NotNull if update: for the constraint)
      */
@@ -453,7 +454,7 @@ public abstract class BsPurchase extends AbstractEntity implements EntityDefined
     }
 
     /**
-     * [get] (商品ID)product_id: {+UQ, IX+, NotNull, int4(10), FK to product} <br />
+     * [get] (商品ID)product_id: {+UQ, IX+, NotNull, int4(10), FK to product} <br>
      * 商品を参照するID。
      * @return The value of the column 'product_id'. (basically NotNull if selected: for the constraint)
      */
@@ -463,7 +464,7 @@ public abstract class BsPurchase extends AbstractEntity implements EntityDefined
     }
 
     /**
-     * [set] (商品ID)product_id: {+UQ, IX+, NotNull, int4(10), FK to product} <br />
+     * [set] (商品ID)product_id: {+UQ, IX+, NotNull, int4(10), FK to product} <br>
      * 商品を参照するID。
      * @param productId The value of the column 'product_id'. (basically NotNull if update: for the constraint)
      */
@@ -473,7 +474,7 @@ public abstract class BsPurchase extends AbstractEntity implements EntityDefined
     }
 
     /**
-     * [get] (購入日時)purchase_datetime: {+UQ, IX+, NotNull, timestamp(26, 3)} <br />
+     * [get] (購入日時)purchase_datetime: {+UQ, IX+, NotNull, timestamp(26, 3)} <br>
      * 購入した瞬間の日時。
      * @return The value of the column 'purchase_datetime'. (basically NotNull if selected: for the constraint)
      */
@@ -483,7 +484,7 @@ public abstract class BsPurchase extends AbstractEntity implements EntityDefined
     }
 
     /**
-     * [set] (購入日時)purchase_datetime: {+UQ, IX+, NotNull, timestamp(26, 3)} <br />
+     * [set] (購入日時)purchase_datetime: {+UQ, IX+, NotNull, timestamp(26, 3)} <br>
      * 購入した瞬間の日時。
      * @param purchaseDatetime The value of the column 'purchase_datetime'. (basically NotNull if update: for the constraint)
      */
@@ -493,7 +494,7 @@ public abstract class BsPurchase extends AbstractEntity implements EntityDefined
     }
 
     /**
-     * [get] (購入数量)purchase_count: {NotNull, int4(10)} <br />
+     * [get] (購入数量)purchase_count: {NotNull, int4(10)} <br>
      * 購入した商品の（一回の購入における）数量。
      * @return The value of the column 'purchase_count'. (basically NotNull if selected: for the constraint)
      */
@@ -503,7 +504,7 @@ public abstract class BsPurchase extends AbstractEntity implements EntityDefined
     }
 
     /**
-     * [set] (購入数量)purchase_count: {NotNull, int4(10)} <br />
+     * [set] (購入数量)purchase_count: {NotNull, int4(10)} <br>
      * 購入した商品の（一回の購入における）数量。
      * @param purchaseCount The value of the column 'purchase_count'. (basically NotNull if update: for the constraint)
      */
@@ -513,9 +514,9 @@ public abstract class BsPurchase extends AbstractEntity implements EntityDefined
     }
 
     /**
-     * [get] (購入価格)purchase_price: {IX, NotNull, int4(10)} <br />
-     * 購入によって実際に会員が支払った（支払う予定の）価格。<br />
-     * 基本は商品の定価に購入数量を掛けたものになるが、<br />
+     * [get] (購入価格)purchase_price: {IX, NotNull, int4(10)} <br>
+     * 購入によって実際に会員が支払った（支払う予定の）価格。<br>
+     * 基本は商品の定価に購入数量を掛けたものになるが、<br>
      * ポイント利用や割引があったりと必ずしもそうはならない。
      * @return The value of the column 'purchase_price'. (basically NotNull if selected: for the constraint)
      */
@@ -525,9 +526,9 @@ public abstract class BsPurchase extends AbstractEntity implements EntityDefined
     }
 
     /**
-     * [set] (購入価格)purchase_price: {IX, NotNull, int4(10)} <br />
-     * 購入によって実際に会員が支払った（支払う予定の）価格。<br />
-     * 基本は商品の定価に購入数量を掛けたものになるが、<br />
+     * [set] (購入価格)purchase_price: {IX, NotNull, int4(10)} <br>
+     * 購入によって実際に会員が支払った（支払う予定の）価格。<br>
+     * 基本は商品の定価に購入数量を掛けたものになるが、<br>
      * ポイント利用や割引があったりと必ずしもそうはならない。
      * @param purchasePrice The value of the column 'purchase_price'. (basically NotNull if update: for the constraint)
      */
@@ -537,7 +538,7 @@ public abstract class BsPurchase extends AbstractEntity implements EntityDefined
     }
 
     /**
-     * [get] (支払完了フラグ)payment_complete_flg: {NotNull, int4(10), classification=Flg} <br />
+     * [get] (支払完了フラグ)payment_complete_flg: {NotNull, int4(10), classification=Flg} <br>
      * この購入に関しての支払いが完了しているか否か。
      * @return The value of the column 'payment_complete_flg'. (basically NotNull if selected: for the constraint)
      */
@@ -547,7 +548,7 @@ public abstract class BsPurchase extends AbstractEntity implements EntityDefined
     }
 
     /**
-     * [set] (支払完了フラグ)payment_complete_flg: {NotNull, int4(10), classification=Flg} <br />
+     * [set] (支払完了フラグ)payment_complete_flg: {NotNull, int4(10), classification=Flg} <br>
      * この購入に関しての支払いが完了しているか否か。
      * @param paymentCompleteFlg The value of the column 'payment_complete_flg'. (basically NotNull if update: for the constraint)
      */
@@ -558,7 +559,7 @@ public abstract class BsPurchase extends AbstractEntity implements EntityDefined
     }
 
     /**
-     * [get] register_datetime: {NotNull, timestamp(26, 3)} <br />
+     * [get] register_datetime: {NotNull, timestamp(26, 3)} <br>
      * @return The value of the column 'register_datetime'. (basically NotNull if selected: for the constraint)
      */
     public java.sql.Timestamp getRegisterDatetime() {
@@ -567,7 +568,7 @@ public abstract class BsPurchase extends AbstractEntity implements EntityDefined
     }
 
     /**
-     * [set] register_datetime: {NotNull, timestamp(26, 3)} <br />
+     * [set] register_datetime: {NotNull, timestamp(26, 3)} <br>
      * @param registerDatetime The value of the column 'register_datetime'. (basically NotNull if update: for the constraint)
      */
     public void setRegisterDatetime(java.sql.Timestamp registerDatetime) {
@@ -576,7 +577,7 @@ public abstract class BsPurchase extends AbstractEntity implements EntityDefined
     }
 
     /**
-     * [get] register_user: {NotNull, varchar(200)} <br />
+     * [get] register_user: {NotNull, varchar(200)} <br>
      * @return The value of the column 'register_user'. (basically NotNull if selected: for the constraint)
      */
     public String getRegisterUser() {
@@ -585,7 +586,7 @@ public abstract class BsPurchase extends AbstractEntity implements EntityDefined
     }
 
     /**
-     * [set] register_user: {NotNull, varchar(200)} <br />
+     * [set] register_user: {NotNull, varchar(200)} <br>
      * @param registerUser The value of the column 'register_user'. (basically NotNull if update: for the constraint)
      */
     public void setRegisterUser(String registerUser) {
@@ -594,7 +595,7 @@ public abstract class BsPurchase extends AbstractEntity implements EntityDefined
     }
 
     /**
-     * [get] register_process: {NotNull, varchar(200)} <br />
+     * [get] register_process: {NotNull, varchar(200)} <br>
      * @return The value of the column 'register_process'. (basically NotNull if selected: for the constraint)
      */
     public String getRegisterProcess() {
@@ -603,7 +604,7 @@ public abstract class BsPurchase extends AbstractEntity implements EntityDefined
     }
 
     /**
-     * [set] register_process: {NotNull, varchar(200)} <br />
+     * [set] register_process: {NotNull, varchar(200)} <br>
      * @param registerProcess The value of the column 'register_process'. (basically NotNull if update: for the constraint)
      */
     public void setRegisterProcess(String registerProcess) {
@@ -612,7 +613,7 @@ public abstract class BsPurchase extends AbstractEntity implements EntityDefined
     }
 
     /**
-     * [get] update_datetime: {NotNull, timestamp(26, 3)} <br />
+     * [get] update_datetime: {NotNull, timestamp(26, 3)} <br>
      * @return The value of the column 'update_datetime'. (basically NotNull if selected: for the constraint)
      */
     public java.sql.Timestamp getUpdateDatetime() {
@@ -621,7 +622,7 @@ public abstract class BsPurchase extends AbstractEntity implements EntityDefined
     }
 
     /**
-     * [set] update_datetime: {NotNull, timestamp(26, 3)} <br />
+     * [set] update_datetime: {NotNull, timestamp(26, 3)} <br>
      * @param updateDatetime The value of the column 'update_datetime'. (basically NotNull if update: for the constraint)
      */
     public void setUpdateDatetime(java.sql.Timestamp updateDatetime) {
@@ -630,7 +631,7 @@ public abstract class BsPurchase extends AbstractEntity implements EntityDefined
     }
 
     /**
-     * [get] update_user: {NotNull, varchar(200)} <br />
+     * [get] update_user: {NotNull, varchar(200)} <br>
      * @return The value of the column 'update_user'. (basically NotNull if selected: for the constraint)
      */
     public String getUpdateUser() {
@@ -639,7 +640,7 @@ public abstract class BsPurchase extends AbstractEntity implements EntityDefined
     }
 
     /**
-     * [set] update_user: {NotNull, varchar(200)} <br />
+     * [set] update_user: {NotNull, varchar(200)} <br>
      * @param updateUser The value of the column 'update_user'. (basically NotNull if update: for the constraint)
      */
     public void setUpdateUser(String updateUser) {
@@ -648,7 +649,7 @@ public abstract class BsPurchase extends AbstractEntity implements EntityDefined
     }
 
     /**
-     * [get] update_process: {NotNull, varchar(200)} <br />
+     * [get] update_process: {NotNull, varchar(200)} <br>
      * @return The value of the column 'update_process'. (basically NotNull if selected: for the constraint)
      */
     public String getUpdateProcess() {
@@ -657,7 +658,7 @@ public abstract class BsPurchase extends AbstractEntity implements EntityDefined
     }
 
     /**
-     * [set] update_process: {NotNull, varchar(200)} <br />
+     * [set] update_process: {NotNull, varchar(200)} <br>
      * @param updateProcess The value of the column 'update_process'. (basically NotNull if update: for the constraint)
      */
     public void setUpdateProcess(String updateProcess) {
@@ -666,7 +667,7 @@ public abstract class BsPurchase extends AbstractEntity implements EntityDefined
     }
 
     /**
-     * [get] version_no: {NotNull, int8(19)} <br />
+     * [get] version_no: {NotNull, int8(19)} <br>
      * @return The value of the column 'version_no'. (basically NotNull if selected: for the constraint)
      */
     public Long getVersionNo() {
@@ -675,7 +676,7 @@ public abstract class BsPurchase extends AbstractEntity implements EntityDefined
     }
 
     /**
-     * [set] version_no: {NotNull, int8(19)} <br />
+     * [set] version_no: {NotNull, int8(19)} <br>
      * @param versionNo The value of the column 'version_no'. (basically NotNull if update: for the constraint)
      */
     public void setVersionNo(Long versionNo) {

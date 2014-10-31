@@ -9,7 +9,7 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
 import org.docksidestage.postgresql.dbflute.cbean.*;
 
 /**
- * The referrer loader of (商品)product as TABLE. <br />
+ * The referrer loader of (商品)product as TABLE. <br>
  * <pre>
  * [primary key]
  *     product_id
@@ -64,7 +64,7 @@ public class LoaderOfProduct {
     protected List<Purchase> _referrerPurchaseList;
 
     /**
-     * Load referrer of purchaseList by the set-upper of referrer. <br />
+     * Load referrer of purchaseList by the set-upper of referrer. <br>
      * (購入)purchase by product_id, named 'purchaseList'.
      * <pre>
      * <span style="color: #0000C0">productBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">productList</span>, <span style="color: #553000">productLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -73,7 +73,7 @@ public class LoaderOfProduct {
      *         <span style="color: #553000">purchaseCB</span>.query().set...
      *         <span style="color: #553000">purchaseCB</span>.query().addOrderBy...
      *     }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
-     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">purchaseLoader</span> -&gt {</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">purchaseLoader</span> -&gt; {</span>
      *     <span style="color: #3F7E5E">//    purchaseLoader.load...</span>
      *     <span style="color: #3F7E5E">//});</span>
      * });
@@ -81,7 +81,7 @@ public class LoaderOfProduct {
      *     ... = product.<span style="color: #CC4747">getPurchaseList()</span>;
      * }
      * </pre>
-     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
      * The condition-bean, which the set-upper provides, has settings before callback as follows:
      * <pre>
      * cb.query().setProductId_InScope(pkList);

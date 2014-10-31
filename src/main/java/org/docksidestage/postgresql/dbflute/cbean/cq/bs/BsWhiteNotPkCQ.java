@@ -34,7 +34,7 @@ public class BsWhiteNotPkCQ extends AbstractBsWhiteNotPkCQ {
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from white_not_pk) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -57,7 +57,7 @@ public class BsWhiteNotPkCQ extends AbstractBsWhiteNotPkCQ {
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join white_not_pk on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -80,14 +80,14 @@ public class BsWhiteNotPkCQ extends AbstractBsWhiteNotPkCQ {
     protected ConditionValue xgetCValueNotPkId() { return xdfgetNotPkId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * not_pk_id: {NotNull, int8(19)}
      * @return this. (NotNull)
      */
     public BsWhiteNotPkCQ addOrderBy_NotPkId_Asc() { regOBA("not_pk_id"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * not_pk_id: {NotNull, int8(19)}
      * @return this. (NotNull)
      */
@@ -100,14 +100,14 @@ public class BsWhiteNotPkCQ extends AbstractBsWhiteNotPkCQ {
     protected ConditionValue xgetCValueNotPkName() { return xdfgetNotPkName(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * not_pk_name: {varchar(2147483647)}
      * @return this. (NotNull)
      */
     public BsWhiteNotPkCQ addOrderBy_NotPkName_Asc() { regOBA("not_pk_name"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * not_pk_name: {varchar(2147483647)}
      * @return this. (NotNull)
      */
@@ -120,14 +120,14 @@ public class BsWhiteNotPkCQ extends AbstractBsWhiteNotPkCQ {
     protected ConditionValue xgetCValueNotPkInteger() { return xdfgetNotPkInteger(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * not_pk_integer: {int4(10)}
      * @return this. (NotNull)
      */
     public BsWhiteNotPkCQ addOrderBy_NotPkInteger_Asc() { regOBA("not_pk_integer"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * not_pk_integer: {int4(10)}
      * @return this. (NotNull)
      */

@@ -7,7 +7,7 @@ import org.docksidestage.postgresql.dbflute.exbhv.*;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
 /**
- * The referrer loader of (会員セキュリティ情報)member_security as TABLE. <br />
+ * The referrer loader of (会員セキュリティ情報)member_security as TABLE. <br>
  * <pre>
  * [primary key]
  *     member_id

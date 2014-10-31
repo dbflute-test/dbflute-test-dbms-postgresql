@@ -5,11 +5,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.postgresql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
 /**
- * The entity of (商品ステータス)product_status as TABLE. <br />
+ * The entity of (商品ステータス)product_status as TABLE. <br>
  * 商品のステータスを表現する固定的なマスタ。
  * <pre>
  * [primary-key]
@@ -51,7 +52,7 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsProductStatus extends AbstractEntity {
+public abstract class BsProductStatus extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -102,7 +103,7 @@ public abstract class BsProductStatus extends AbstractEntity {
     }
 
     /**
-     * To be unique by the unique column. <br />
+     * To be unique by the unique column. <br>
      * You can update the entity by the key when entity update (NOT batch update).
      * @param displayOrder : UQ, NotNull, int4(10). (NotNull)
      */
@@ -205,7 +206,7 @@ public abstract class BsProductStatus extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] (商品ステータスコード)product_status_code: {PK, NotNull, bpchar(3)} <br />
+     * [get] (商品ステータスコード)product_status_code: {PK, NotNull, bpchar(3)} <br>
      * 商品ステータスを識別するコード。
      * @return The value of the column 'product_status_code'. (basically NotNull if selected: for the constraint)
      */
@@ -215,7 +216,7 @@ public abstract class BsProductStatus extends AbstractEntity {
     }
 
     /**
-     * [set] (商品ステータスコード)product_status_code: {PK, NotNull, bpchar(3)} <br />
+     * [set] (商品ステータスコード)product_status_code: {PK, NotNull, bpchar(3)} <br>
      * 商品ステータスを識別するコード。
      * @param productStatusCode The value of the column 'product_status_code'. (basically NotNull if update: for the constraint)
      */
@@ -225,7 +226,7 @@ public abstract class BsProductStatus extends AbstractEntity {
     }
 
     /**
-     * [get] product_status_name: {NotNull, varchar(50)} <br />
+     * [get] product_status_name: {NotNull, varchar(50)} <br>
      * @return The value of the column 'product_status_name'. (basically NotNull if selected: for the constraint)
      */
     public String getProductStatusName() {
@@ -234,7 +235,7 @@ public abstract class BsProductStatus extends AbstractEntity {
     }
 
     /**
-     * [set] product_status_name: {NotNull, varchar(50)} <br />
+     * [set] product_status_name: {NotNull, varchar(50)} <br>
      * @param productStatusName The value of the column 'product_status_name'. (basically NotNull if update: for the constraint)
      */
     public void setProductStatusName(String productStatusName) {
@@ -243,7 +244,7 @@ public abstract class BsProductStatus extends AbstractEntity {
     }
 
     /**
-     * [get] display_order: {UQ, NotNull, int4(10)} <br />
+     * [get] display_order: {UQ, NotNull, int4(10)} <br>
      * @return The value of the column 'display_order'. (basically NotNull if selected: for the constraint)
      */
     public Integer getDisplayOrder() {
@@ -252,7 +253,7 @@ public abstract class BsProductStatus extends AbstractEntity {
     }
 
     /**
-     * [set] display_order: {UQ, NotNull, int4(10)} <br />
+     * [set] display_order: {UQ, NotNull, int4(10)} <br>
      * @param displayOrder The value of the column 'display_order'. (basically NotNull if update: for the constraint)
      */
     public void setDisplayOrder(Integer displayOrder) {

@@ -5,11 +5,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.postgresql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
 /**
- * The entity of vendor_uuid_bar as TABLE. <br />
+ * The entity of vendor_uuid_bar as TABLE. <br>
  * <pre>
  * [primary-key]
  *     bar_id
@@ -48,7 +49,7 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsVendorUuidBar extends AbstractEntity {
+public abstract class BsVendorUuidBar extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -187,7 +188,7 @@ public abstract class BsVendorUuidBar extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] bar_id: {PK, NotNull, uuid(2147483647)} <br />
+     * [get] bar_id: {PK, NotNull, uuid(2147483647)} <br>
      * @return The value of the column 'bar_id'. (basically NotNull if selected: for the constraint)
      */
     public java.util.UUID getBarId() {
@@ -196,7 +197,7 @@ public abstract class BsVendorUuidBar extends AbstractEntity {
     }
 
     /**
-     * [set] bar_id: {PK, NotNull, uuid(2147483647)} <br />
+     * [set] bar_id: {PK, NotNull, uuid(2147483647)} <br>
      * @param barId The value of the column 'bar_id'. (basically NotNull if update: for the constraint)
      */
     public void setBarId(java.util.UUID barId) {
@@ -205,7 +206,7 @@ public abstract class BsVendorUuidBar extends AbstractEntity {
     }
 
     /**
-     * [get] bar_name: {NotNull, varchar(2147483647)} <br />
+     * [get] bar_name: {NotNull, varchar(2147483647)} <br>
      * @return The value of the column 'bar_name'. (basically NotNull if selected: for the constraint)
      */
     public String getBarName() {
@@ -214,7 +215,7 @@ public abstract class BsVendorUuidBar extends AbstractEntity {
     }
 
     /**
-     * [set] bar_name: {NotNull, varchar(2147483647)} <br />
+     * [set] bar_name: {NotNull, varchar(2147483647)} <br>
      * @param barName The value of the column 'bar_name'. (basically NotNull if update: for the constraint)
      */
     public void setBarName(String barName) {

@@ -5,14 +5,15 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.postgresql.dbflute.allcommon.EntityDefinedCommonColumn;
 import org.docksidestage.postgresql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
 /**
- * The entity of (会員退会情報)member_withdrawal as TABLE. <br />
- * 退会会員の退会に関する詳細な情報。<br />
- * 退会会員のみデータが存在する。（"1 : 0...1" のパターンの one-to-one）<br />
+ * The entity of (会員退会情報)member_withdrawal as TABLE. <br>
+ * 退会会員の退会に関する詳細な情報。<br>
+ * 退会会員のみデータが存在する。（"1 : 0...1" のパターンの one-to-one）<br>
  * 共通カラムがあってバージョンNOがないパターン。基本的に更新が入ることはないが、登録ユーザを保持したいのと、重要なデータなので更新系の情報も。
  * <pre>
  * [primary-key]
@@ -68,7 +69,7 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsMemberWithdrawal extends AbstractEntity implements EntityDefinedCommonColumn {
+public abstract class BsMemberWithdrawal extends AbstractEntity implements DomainEntity, EntityDefinedCommonColumn {
 
     // ===================================================================================
     //                                                                          Definition
@@ -146,7 +147,7 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Entit
     protected Member _member;
 
     /**
-     * [get] (会員)member by my member_id, named 'member'. <br />
+     * [get] (会員)member by my member_id, named 'member'. <br>
      * @return The entity of foreign property 'member'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public Member getMember() {
@@ -165,7 +166,7 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Entit
     protected WithdrawalReason _withdrawalReason;
 
     /**
-     * [get] (退会理由)withdrawal_reason by my withdrawal_reason_code, named 'withdrawalReason'. <br />
+     * [get] (退会理由)withdrawal_reason by my withdrawal_reason_code, named 'withdrawalReason'. <br>
      * @return The entity of foreign property 'withdrawalReason'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public WithdrawalReason getWithdrawalReason() {
@@ -261,7 +262,7 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Entit
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] member_id: {PK, NotNull, int4(10), FK to member} <br />
+     * [get] member_id: {PK, NotNull, int4(10), FK to member} <br>
      * @return The value of the column 'member_id'. (basically NotNull if selected: for the constraint)
      */
     public Integer getMemberId() {
@@ -270,7 +271,7 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Entit
     }
 
     /**
-     * [set] member_id: {PK, NotNull, int4(10), FK to member} <br />
+     * [set] member_id: {PK, NotNull, int4(10), FK to member} <br>
      * @param memberId The value of the column 'member_id'. (basically NotNull if update: for the constraint)
      */
     public void setMemberId(Integer memberId) {
@@ -279,8 +280,8 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Entit
     }
 
     /**
-     * [get] (退会理由コード)withdrawal_reason_code: {bpchar(3), FK to withdrawal_reason} <br />
-     * 退会した定型理由を参照するコード。<br />
+     * [get] (退会理由コード)withdrawal_reason_code: {bpchar(3), FK to withdrawal_reason} <br>
+     * 退会した定型理由を参照するコード。<br>
      * 何も言わずに退会する会員もいるので必須項目ではない。
      * @return The value of the column 'withdrawal_reason_code'. (NullAllowed even if selected: for no constraint)
      */
@@ -290,8 +291,8 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Entit
     }
 
     /**
-     * [set] (退会理由コード)withdrawal_reason_code: {bpchar(3), FK to withdrawal_reason} <br />
-     * 退会した定型理由を参照するコード。<br />
+     * [set] (退会理由コード)withdrawal_reason_code: {bpchar(3), FK to withdrawal_reason} <br>
+     * 退会した定型理由を参照するコード。<br>
      * 何も言わずに退会する会員もいるので必須項目ではない。
      * @param withdrawalReasonCode The value of the column 'withdrawal_reason_code'. (NullAllowed: null update allowed for no constraint)
      */
@@ -301,9 +302,9 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Entit
     }
 
     /**
-     * [get] (退会理由入力テキスト)withdrawal_reason_input_text: {text(2147483647)} <br />
-     * 会員がフリーテキストで入力できる退会理由。<br />
-     * もう言いたいこと言ってもらう感じ。<br />
+     * [get] (退会理由入力テキスト)withdrawal_reason_input_text: {text(2147483647)} <br>
+     * 会員がフリーテキストで入力できる退会理由。<br>
+     * もう言いたいこと言ってもらう感じ。<br>
      * サイト運営側としては真摯に受け止めて改善していきたい。
      * @return The value of the column 'withdrawal_reason_input_text'. (NullAllowed even if selected: for no constraint)
      */
@@ -313,9 +314,9 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Entit
     }
 
     /**
-     * [set] (退会理由入力テキスト)withdrawal_reason_input_text: {text(2147483647)} <br />
-     * 会員がフリーテキストで入力できる退会理由。<br />
-     * もう言いたいこと言ってもらう感じ。<br />
+     * [set] (退会理由入力テキスト)withdrawal_reason_input_text: {text(2147483647)} <br>
+     * 会員がフリーテキストで入力できる退会理由。<br>
+     * もう言いたいこと言ってもらう感じ。<br>
      * サイト運営側としては真摯に受け止めて改善していきたい。
      * @param withdrawalReasonInputText The value of the column 'withdrawal_reason_input_text'. (NullAllowed: null update allowed for no constraint)
      */
@@ -325,8 +326,8 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Entit
     }
 
     /**
-     * [get] (退会日時)withdrawal_datetime: {NotNull, timestamp(26, 3)} <br />
-     * 退会した瞬間の日時。<br />
+     * [get] (退会日時)withdrawal_datetime: {NotNull, timestamp(26, 3)} <br>
+     * 退会した瞬間の日時。<br>
      * 正式会員日時と違い、こっちはone-to-oneの別テーブルで。
      * @return The value of the column 'withdrawal_datetime'. (basically NotNull if selected: for the constraint)
      */
@@ -336,8 +337,8 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Entit
     }
 
     /**
-     * [set] (退会日時)withdrawal_datetime: {NotNull, timestamp(26, 3)} <br />
-     * 退会した瞬間の日時。<br />
+     * [set] (退会日時)withdrawal_datetime: {NotNull, timestamp(26, 3)} <br>
+     * 退会した瞬間の日時。<br>
      * 正式会員日時と違い、こっちはone-to-oneの別テーブルで。
      * @param withdrawalDatetime The value of the column 'withdrawal_datetime'. (basically NotNull if update: for the constraint)
      */
@@ -347,7 +348,7 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Entit
     }
 
     /**
-     * [get] register_datetime: {NotNull, timestamp(26, 3)} <br />
+     * [get] register_datetime: {NotNull, timestamp(26, 3)} <br>
      * @return The value of the column 'register_datetime'. (basically NotNull if selected: for the constraint)
      */
     public java.sql.Timestamp getRegisterDatetime() {
@@ -356,7 +357,7 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Entit
     }
 
     /**
-     * [set] register_datetime: {NotNull, timestamp(26, 3)} <br />
+     * [set] register_datetime: {NotNull, timestamp(26, 3)} <br>
      * @param registerDatetime The value of the column 'register_datetime'. (basically NotNull if update: for the constraint)
      */
     public void setRegisterDatetime(java.sql.Timestamp registerDatetime) {
@@ -365,7 +366,7 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Entit
     }
 
     /**
-     * [get] register_process: {NotNull, varchar(200)} <br />
+     * [get] register_process: {NotNull, varchar(200)} <br>
      * @return The value of the column 'register_process'. (basically NotNull if selected: for the constraint)
      */
     public String getRegisterProcess() {
@@ -374,7 +375,7 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Entit
     }
 
     /**
-     * [set] register_process: {NotNull, varchar(200)} <br />
+     * [set] register_process: {NotNull, varchar(200)} <br>
      * @param registerProcess The value of the column 'register_process'. (basically NotNull if update: for the constraint)
      */
     public void setRegisterProcess(String registerProcess) {
@@ -383,7 +384,7 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Entit
     }
 
     /**
-     * [get] register_user: {NotNull, varchar(200)} <br />
+     * [get] register_user: {NotNull, varchar(200)} <br>
      * @return The value of the column 'register_user'. (basically NotNull if selected: for the constraint)
      */
     public String getRegisterUser() {
@@ -392,7 +393,7 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Entit
     }
 
     /**
-     * [set] register_user: {NotNull, varchar(200)} <br />
+     * [set] register_user: {NotNull, varchar(200)} <br>
      * @param registerUser The value of the column 'register_user'. (basically NotNull if update: for the constraint)
      */
     public void setRegisterUser(String registerUser) {
@@ -401,7 +402,7 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Entit
     }
 
     /**
-     * [get] update_datetime: {NotNull, timestamp(26, 3)} <br />
+     * [get] update_datetime: {NotNull, timestamp(26, 3)} <br>
      * @return The value of the column 'update_datetime'. (basically NotNull if selected: for the constraint)
      */
     public java.sql.Timestamp getUpdateDatetime() {
@@ -410,7 +411,7 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Entit
     }
 
     /**
-     * [set] update_datetime: {NotNull, timestamp(26, 3)} <br />
+     * [set] update_datetime: {NotNull, timestamp(26, 3)} <br>
      * @param updateDatetime The value of the column 'update_datetime'. (basically NotNull if update: for the constraint)
      */
     public void setUpdateDatetime(java.sql.Timestamp updateDatetime) {
@@ -419,7 +420,7 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Entit
     }
 
     /**
-     * [get] update_process: {NotNull, varchar(200)} <br />
+     * [get] update_process: {NotNull, varchar(200)} <br>
      * @return The value of the column 'update_process'. (basically NotNull if selected: for the constraint)
      */
     public String getUpdateProcess() {
@@ -428,7 +429,7 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Entit
     }
 
     /**
-     * [set] update_process: {NotNull, varchar(200)} <br />
+     * [set] update_process: {NotNull, varchar(200)} <br>
      * @param updateProcess The value of the column 'update_process'. (basically NotNull if update: for the constraint)
      */
     public void setUpdateProcess(String updateProcess) {
@@ -437,7 +438,7 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Entit
     }
 
     /**
-     * [get] update_user: {NotNull, varchar(200)} <br />
+     * [get] update_user: {NotNull, varchar(200)} <br>
      * @return The value of the column 'update_user'. (basically NotNull if selected: for the constraint)
      */
     public String getUpdateUser() {
@@ -446,7 +447,7 @@ public abstract class BsMemberWithdrawal extends AbstractEntity implements Entit
     }
 
     /**
-     * [set] update_user: {NotNull, varchar(200)} <br />
+     * [set] update_user: {NotNull, varchar(200)} <br>
      * @param updateUser The value of the column 'update_user'. (basically NotNull if update: for the constraint)
      */
     public void setUpdateUser(String updateUser) {

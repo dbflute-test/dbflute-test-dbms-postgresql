@@ -10,7 +10,7 @@ import org.docksidestage.postgresql.dbflute.allcommon.*;
 import org.docksidestage.postgresql.dbflute.exbhv.*;
 
 /**
- * The base class for typed parameter-bean of CompareDate. <br />
+ * The base class for typed parameter-bean of CompareDate. <br>
  * This is related to "<span style="color: #AD4747">whitebox:pmbean:selectCompareDate</span>" on MemberBhv.
  * @author DBFlute(AutoGenerator)
  */
@@ -38,7 +38,7 @@ public class BsCompareDatePmb implements ExecuteHandlingPmb<MemberBhv>, FetchBea
     //                                                                         Constructor
     //                                                                         ===========
     /**
-     * Constructor for the typed parameter-bean of CompareDate. <br />
+     * Constructor for the typed parameter-bean of CompareDate. <br>
      * This is related to "<span style="color: #AD4747">whitebox:pmbean:selectCompareDate</span>" on MemberBhv.
      */
     public BsCompareDatePmb() {
@@ -121,7 +121,7 @@ public class BsCompareDatePmb implements ExecuteHandlingPmb<MemberBhv>, FetchBea
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] memberId <br />
+     * [get] memberId <br>
      * @return The value of memberId. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public Integer getMemberId() {
@@ -129,7 +129,7 @@ public class BsCompareDatePmb implements ExecuteHandlingPmb<MemberBhv>, FetchBea
     }
 
     /**
-     * [set] memberId <br />
+     * [set] memberId <br>
      * @param memberId The value of memberId. (NullAllowed)
      */
     public void setMemberId(Integer memberId) {
@@ -137,7 +137,7 @@ public class BsCompareDatePmb implements ExecuteHandlingPmb<MemberBhv>, FetchBea
     }
 
     /**
-     * [get] birthdateFrom <br />
+     * [get] birthdateFrom <br>
      * @return The value of birthdateFrom. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public Date getBirthdateFrom() {
@@ -145,7 +145,7 @@ public class BsCompareDatePmb implements ExecuteHandlingPmb<MemberBhv>, FetchBea
     }
 
     /**
-     * [set] birthdateFrom <br />
+     * [set] birthdateFrom <br>
      * @param birthdateFrom The value of birthdateFrom. (NullAllowed)
      */
     public void setBirthdateFrom(Date birthdateFrom) {
@@ -153,7 +153,7 @@ public class BsCompareDatePmb implements ExecuteHandlingPmb<MemberBhv>, FetchBea
     }
 
     /**
-     * [get] formalizedDatetimeFrom <br />
+     * [get] formalizedDatetimeFrom <br>
      * @return The value of formalizedDatetimeFrom. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public java.sql.Timestamp getFormalizedDatetimeFrom() {
@@ -161,7 +161,7 @@ public class BsCompareDatePmb implements ExecuteHandlingPmb<MemberBhv>, FetchBea
     }
 
     /**
-     * [set] formalizedDatetimeFrom <br />
+     * [set] formalizedDatetimeFrom <br>
      * @param formalizedDatetimeFrom The value of formalizedDatetimeFrom. (NullAllowed)
      */
     public void setFormalizedDatetimeFrom(java.sql.Timestamp formalizedDatetimeFrom) {

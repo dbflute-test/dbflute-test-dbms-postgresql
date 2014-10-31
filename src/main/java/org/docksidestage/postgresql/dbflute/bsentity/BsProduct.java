@@ -5,12 +5,13 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.postgresql.dbflute.allcommon.EntityDefinedCommonColumn;
 import org.docksidestage.postgresql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
 /**
- * The entity of (商品)product as TABLE. <br />
+ * The entity of (商品)product as TABLE. <br>
  * <pre>
  * [primary-key]
  *     product_id
@@ -71,7 +72,7 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsProduct extends AbstractEntity implements EntityDefinedCommonColumn {
+public abstract class BsProduct extends AbstractEntity implements DomainEntity, EntityDefinedCommonColumn {
 
     // ===================================================================================
     //                                                                          Definition
@@ -152,7 +153,7 @@ public abstract class BsProduct extends AbstractEntity implements EntityDefinedC
     }
 
     /**
-     * To be unique by the unique column. <br />
+     * To be unique by the unique column. <br>
      * You can update the entity by the key when entity update (NOT batch update).
      * @param productHandleCode (商品ハンドルコード): UQ, NotNull, varchar(100). (NotNull)
      */
@@ -169,7 +170,7 @@ public abstract class BsProduct extends AbstractEntity implements EntityDefinedC
     protected ProductCategory _productCategory;
 
     /**
-     * [get] (商品カテゴリ)product_category by my product_category_code, named 'productCategory'. <br />
+     * [get] (商品カテゴリ)product_category by my product_category_code, named 'productCategory'. <br>
      * @return The entity of foreign property 'productCategory'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public ProductCategory getProductCategory() {
@@ -188,7 +189,7 @@ public abstract class BsProduct extends AbstractEntity implements EntityDefinedC
     protected ProductStatus _productStatus;
 
     /**
-     * [get] (商品ステータス)product_status by my product_status_code, named 'productStatus'. <br />
+     * [get] (商品ステータス)product_status by my product_status_code, named 'productStatus'. <br>
      * @return The entity of foreign property 'productStatus'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public ProductStatus getProductStatus() {
@@ -311,7 +312,7 @@ public abstract class BsProduct extends AbstractEntity implements EntityDefinedC
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] product_id: {PK, ID, NotNull, serial(10)} <br />
+     * [get] product_id: {PK, ID, NotNull, serial(10)} <br>
      * @return The value of the column 'product_id'. (basically NotNull if selected: for the constraint)
      */
     public Integer getProductId() {
@@ -320,7 +321,7 @@ public abstract class BsProduct extends AbstractEntity implements EntityDefinedC
     }
 
     /**
-     * [set] product_id: {PK, ID, NotNull, serial(10)} <br />
+     * [set] product_id: {PK, ID, NotNull, serial(10)} <br>
      * @param productId The value of the column 'product_id'. (basically NotNull if update: for the constraint)
      */
     public void setProductId(Integer productId) {
@@ -329,9 +330,9 @@ public abstract class BsProduct extends AbstractEntity implements EntityDefinedC
     }
 
     /**
-     * [get] (商品名称)product_name: {IX, NotNull, varchar(50)} <br />
-     * ExampleDBとして、コメントの少ないケースを表現するため、<br />
-     * あえてコメントを控えている。実業務ではしっかりとコメントを<br />
+     * [get] (商品名称)product_name: {IX, NotNull, varchar(50)} <br>
+     * ExampleDBとして、コメントの少ないケースを表現するため、<br>
+     * あえてコメントを控えている。実業務ではしっかりとコメントを<br>
      * 入れることが強く強く推奨される。
      * @return The value of the column 'product_name'. (basically NotNull if selected: for the constraint)
      */
@@ -341,9 +342,9 @@ public abstract class BsProduct extends AbstractEntity implements EntityDefinedC
     }
 
     /**
-     * [set] (商品名称)product_name: {IX, NotNull, varchar(50)} <br />
-     * ExampleDBとして、コメントの少ないケースを表現するため、<br />
-     * あえてコメントを控えている。実業務ではしっかりとコメントを<br />
+     * [set] (商品名称)product_name: {IX, NotNull, varchar(50)} <br>
+     * ExampleDBとして、コメントの少ないケースを表現するため、<br>
+     * あえてコメントを控えている。実業務ではしっかりとコメントを<br>
      * 入れることが強く強く推奨される。
      * @param productName The value of the column 'product_name'. (basically NotNull if update: for the constraint)
      */
@@ -353,7 +354,7 @@ public abstract class BsProduct extends AbstractEntity implements EntityDefinedC
     }
 
     /**
-     * [get] (商品ハンドルコード)product_handle_code: {UQ, NotNull, varchar(100)} <br />
+     * [get] (商品ハンドルコード)product_handle_code: {UQ, NotNull, varchar(100)} <br>
      * 商品を識別する業務上のコード。
      * @return The value of the column 'product_handle_code'. (basically NotNull if selected: for the constraint)
      */
@@ -363,7 +364,7 @@ public abstract class BsProduct extends AbstractEntity implements EntityDefinedC
     }
 
     /**
-     * [set] (商品ハンドルコード)product_handle_code: {UQ, NotNull, varchar(100)} <br />
+     * [set] (商品ハンドルコード)product_handle_code: {UQ, NotNull, varchar(100)} <br>
      * 商品を識別する業務上のコード。
      * @param productHandleCode The value of the column 'product_handle_code'. (basically NotNull if update: for the constraint)
      */
@@ -373,7 +374,7 @@ public abstract class BsProduct extends AbstractEntity implements EntityDefinedC
     }
 
     /**
-     * [get] product_category_code: {NotNull, bpchar(3), FK to product_category} <br />
+     * [get] product_category_code: {NotNull, bpchar(3), FK to product_category} <br>
      * @return The value of the column 'product_category_code'. (basically NotNull if selected: for the constraint)
      */
     public String getProductCategoryCode() {
@@ -382,7 +383,7 @@ public abstract class BsProduct extends AbstractEntity implements EntityDefinedC
     }
 
     /**
-     * [set] product_category_code: {NotNull, bpchar(3), FK to product_category} <br />
+     * [set] product_category_code: {NotNull, bpchar(3), FK to product_category} <br>
      * @param productCategoryCode The value of the column 'product_category_code'. (basically NotNull if update: for the constraint)
      */
     public void setProductCategoryCode(String productCategoryCode) {
@@ -391,7 +392,7 @@ public abstract class BsProduct extends AbstractEntity implements EntityDefinedC
     }
 
     /**
-     * [get] product_status_code: {NotNull, bpchar(3), FK to product_status} <br />
+     * [get] product_status_code: {NotNull, bpchar(3), FK to product_status} <br>
      * @return The value of the column 'product_status_code'. (basically NotNull if selected: for the constraint)
      */
     public String getProductStatusCode() {
@@ -400,7 +401,7 @@ public abstract class BsProduct extends AbstractEntity implements EntityDefinedC
     }
 
     /**
-     * [set] product_status_code: {NotNull, bpchar(3), FK to product_status} <br />
+     * [set] product_status_code: {NotNull, bpchar(3), FK to product_status} <br>
      * @param productStatusCode The value of the column 'product_status_code'. (basically NotNull if update: for the constraint)
      */
     public void setProductStatusCode(String productStatusCode) {
@@ -409,7 +410,7 @@ public abstract class BsProduct extends AbstractEntity implements EntityDefinedC
     }
 
     /**
-     * [get] regular_price: {NotNull, int4(10)} <br />
+     * [get] regular_price: {NotNull, int4(10)} <br>
      * @return The value of the column 'regular_price'. (basically NotNull if selected: for the constraint)
      */
     public Integer getRegularPrice() {
@@ -418,7 +419,7 @@ public abstract class BsProduct extends AbstractEntity implements EntityDefinedC
     }
 
     /**
-     * [set] regular_price: {NotNull, int4(10)} <br />
+     * [set] regular_price: {NotNull, int4(10)} <br>
      * @param regularPrice The value of the column 'regular_price'. (basically NotNull if update: for the constraint)
      */
     public void setRegularPrice(Integer regularPrice) {
@@ -427,7 +428,7 @@ public abstract class BsProduct extends AbstractEntity implements EntityDefinedC
     }
 
     /**
-     * [get] register_datetime: {NotNull, timestamp(26, 3)} <br />
+     * [get] register_datetime: {NotNull, timestamp(26, 3)} <br>
      * @return The value of the column 'register_datetime'. (basically NotNull if selected: for the constraint)
      */
     public java.sql.Timestamp getRegisterDatetime() {
@@ -436,7 +437,7 @@ public abstract class BsProduct extends AbstractEntity implements EntityDefinedC
     }
 
     /**
-     * [set] register_datetime: {NotNull, timestamp(26, 3)} <br />
+     * [set] register_datetime: {NotNull, timestamp(26, 3)} <br>
      * @param registerDatetime The value of the column 'register_datetime'. (basically NotNull if update: for the constraint)
      */
     public void setRegisterDatetime(java.sql.Timestamp registerDatetime) {
@@ -445,7 +446,7 @@ public abstract class BsProduct extends AbstractEntity implements EntityDefinedC
     }
 
     /**
-     * [get] register_user: {NotNull, varchar(200)} <br />
+     * [get] register_user: {NotNull, varchar(200)} <br>
      * @return The value of the column 'register_user'. (basically NotNull if selected: for the constraint)
      */
     public String getRegisterUser() {
@@ -454,7 +455,7 @@ public abstract class BsProduct extends AbstractEntity implements EntityDefinedC
     }
 
     /**
-     * [set] register_user: {NotNull, varchar(200)} <br />
+     * [set] register_user: {NotNull, varchar(200)} <br>
      * @param registerUser The value of the column 'register_user'. (basically NotNull if update: for the constraint)
      */
     public void setRegisterUser(String registerUser) {
@@ -463,7 +464,7 @@ public abstract class BsProduct extends AbstractEntity implements EntityDefinedC
     }
 
     /**
-     * [get] register_process: {NotNull, varchar(200)} <br />
+     * [get] register_process: {NotNull, varchar(200)} <br>
      * @return The value of the column 'register_process'. (basically NotNull if selected: for the constraint)
      */
     public String getRegisterProcess() {
@@ -472,7 +473,7 @@ public abstract class BsProduct extends AbstractEntity implements EntityDefinedC
     }
 
     /**
-     * [set] register_process: {NotNull, varchar(200)} <br />
+     * [set] register_process: {NotNull, varchar(200)} <br>
      * @param registerProcess The value of the column 'register_process'. (basically NotNull if update: for the constraint)
      */
     public void setRegisterProcess(String registerProcess) {
@@ -481,7 +482,7 @@ public abstract class BsProduct extends AbstractEntity implements EntityDefinedC
     }
 
     /**
-     * [get] update_datetime: {NotNull, timestamp(26, 3)} <br />
+     * [get] update_datetime: {NotNull, timestamp(26, 3)} <br>
      * @return The value of the column 'update_datetime'. (basically NotNull if selected: for the constraint)
      */
     public java.sql.Timestamp getUpdateDatetime() {
@@ -490,7 +491,7 @@ public abstract class BsProduct extends AbstractEntity implements EntityDefinedC
     }
 
     /**
-     * [set] update_datetime: {NotNull, timestamp(26, 3)} <br />
+     * [set] update_datetime: {NotNull, timestamp(26, 3)} <br>
      * @param updateDatetime The value of the column 'update_datetime'. (basically NotNull if update: for the constraint)
      */
     public void setUpdateDatetime(java.sql.Timestamp updateDatetime) {
@@ -499,7 +500,7 @@ public abstract class BsProduct extends AbstractEntity implements EntityDefinedC
     }
 
     /**
-     * [get] update_user: {NotNull, varchar(200)} <br />
+     * [get] update_user: {NotNull, varchar(200)} <br>
      * @return The value of the column 'update_user'. (basically NotNull if selected: for the constraint)
      */
     public String getUpdateUser() {
@@ -508,7 +509,7 @@ public abstract class BsProduct extends AbstractEntity implements EntityDefinedC
     }
 
     /**
-     * [set] update_user: {NotNull, varchar(200)} <br />
+     * [set] update_user: {NotNull, varchar(200)} <br>
      * @param updateUser The value of the column 'update_user'. (basically NotNull if update: for the constraint)
      */
     public void setUpdateUser(String updateUser) {
@@ -517,7 +518,7 @@ public abstract class BsProduct extends AbstractEntity implements EntityDefinedC
     }
 
     /**
-     * [get] update_process: {NotNull, varchar(200)} <br />
+     * [get] update_process: {NotNull, varchar(200)} <br>
      * @return The value of the column 'update_process'. (basically NotNull if selected: for the constraint)
      */
     public String getUpdateProcess() {
@@ -526,7 +527,7 @@ public abstract class BsProduct extends AbstractEntity implements EntityDefinedC
     }
 
     /**
-     * [set] update_process: {NotNull, varchar(200)} <br />
+     * [set] update_process: {NotNull, varchar(200)} <br>
      * @param updateProcess The value of the column 'update_process'. (basically NotNull if update: for the constraint)
      */
     public void setUpdateProcess(String updateProcess) {
@@ -535,7 +536,7 @@ public abstract class BsProduct extends AbstractEntity implements EntityDefinedC
     }
 
     /**
-     * [get] version_no: {NotNull, int8(19)} <br />
+     * [get] version_no: {NotNull, int8(19)} <br>
      * @return The value of the column 'version_no'. (basically NotNull if selected: for the constraint)
      */
     public Long getVersionNo() {
@@ -544,7 +545,7 @@ public abstract class BsProduct extends AbstractEntity implements EntityDefinedC
     }
 
     /**
-     * [set] version_no: {NotNull, int8(19)} <br />
+     * [set] version_no: {NotNull, int8(19)} <br>
      * @param versionNo The value of the column 'version_no'. (basically NotNull if update: for the constraint)
      */
     public void setVersionNo(Long versionNo) {

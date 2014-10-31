@@ -5,13 +5,14 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.postgresql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
 /**
- * The entity of (地域)region as TABLE. <br />
- * 主に会員の住所に対応する地域。<br />
- * かなりざっくりした感じではある。<br />
+ * The entity of (地域)region as TABLE. <br>
+ * 主に会員の住所に対応する地域。<br>
+ * かなりざっくりした感じではある。<br>
  * 業務的one-to-oneの親テーブル。
  * <pre>
  * [primary-key]
@@ -51,7 +52,7 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsRegion extends AbstractEntity {
+public abstract class BsRegion extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -190,9 +191,9 @@ public abstract class BsRegion extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] (地域ID)region_id: {PK, NotNull, int4(10)} <br />
-     * 地域を識別するID。<br />
-     * 珍しく(固定的な)マスタテーブルとしては数値だが、<br />
+     * [get] (地域ID)region_id: {PK, NotNull, int4(10)} <br>
+     * 地域を識別するID。<br>
+     * 珍しく(固定的な)マスタテーブルとしては数値だが、<br>
      * Exampleなのでやはり色々なパターンがないと。
      * @return The value of the column 'region_id'. (basically NotNull if selected: for the constraint)
      */
@@ -202,9 +203,9 @@ public abstract class BsRegion extends AbstractEntity {
     }
 
     /**
-     * [set] (地域ID)region_id: {PK, NotNull, int4(10)} <br />
-     * 地域を識別するID。<br />
-     * 珍しく(固定的な)マスタテーブルとしては数値だが、<br />
+     * [set] (地域ID)region_id: {PK, NotNull, int4(10)} <br>
+     * 地域を識別するID。<br>
+     * 珍しく(固定的な)マスタテーブルとしては数値だが、<br>
      * Exampleなのでやはり色々なパターンがないと。
      * @param regionId The value of the column 'region_id'. (basically NotNull if update: for the constraint)
      */
@@ -214,7 +215,7 @@ public abstract class BsRegion extends AbstractEntity {
     }
 
     /**
-     * [get] (地域名称)region_name: {NotNull, varchar(50)} <br />
+     * [get] (地域名称)region_name: {NotNull, varchar(50)} <br>
      * 地域を表す名称。
      * @return The value of the column 'region_name'. (basically NotNull if selected: for the constraint)
      */
@@ -224,7 +225,7 @@ public abstract class BsRegion extends AbstractEntity {
     }
 
     /**
-     * [set] (地域名称)region_name: {NotNull, varchar(50)} <br />
+     * [set] (地域名称)region_name: {NotNull, varchar(50)} <br>
      * 地域を表す名称。
      * @param regionName The value of the column 'region_name'. (basically NotNull if update: for the constraint)
      */

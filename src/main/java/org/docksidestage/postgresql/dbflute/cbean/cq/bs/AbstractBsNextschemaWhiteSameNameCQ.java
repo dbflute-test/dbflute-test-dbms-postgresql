@@ -47,7 +47,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
     //                                                                               Query
     //                                                                               =====
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * same_name_id: {PK, NotNull, int4(10)}
      * @param sameNameId The value of sameNameId as equal. (NullAllowed: if null, no condition)
      */
@@ -60,7 +60,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * same_name_id: {PK, NotNull, int4(10)}
      * @param sameNameId The value of sameNameId as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -69,7 +69,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * same_name_id: {PK, NotNull, int4(10)}
      * @param sameNameId The value of sameNameId as lessThan. (NullAllowed: if null, no condition)
      */
@@ -78,7 +78,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * same_name_id: {PK, NotNull, int4(10)}
      * @param sameNameId The value of sameNameId as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -87,7 +87,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * same_name_id: {PK, NotNull, int4(10)}
      * @param sameNameId The value of sameNameId as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -96,9 +96,9 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * same_name_id: {PK, NotNull, int4(10)}
      * @param minNumber The min number of sameNameId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of sameNameId. (NullAllowed: if null, no to-condition)
@@ -109,9 +109,9 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * same_name_id: {PK, NotNull, int4(10)}
      * @param minNumber The min number of sameNameId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of sameNameId. (NullAllowed: if null, no to-condition)
@@ -122,7 +122,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * same_name_id: {PK, NotNull, int4(10)}
      * @param sameNameIdList The collection of sameNameId as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -135,7 +135,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * same_name_id: {PK, NotNull, int4(10)}
      * @param sameNameIdList The collection of sameNameId as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -148,8 +148,8 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
     }
 
     /**
-     * Set up ExistsReferrer (correlated sub-query). <br />
-     * {exists (select same_name_id from nextschema.white_same_name_ref where ...)} <br />
+     * Set up ExistsReferrer (correlated sub-query). <br>
+     * {exists (select same_name_id from nextschema.white_same_name_ref where ...)} <br>
      * nextschema.white_same_name_ref by same_name_id, named 'whiteSameNameRefAsOne'.
      * <pre>
      * cb.query().<span style="color: #CC4747">existsWhiteSameNameRefList</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -167,8 +167,8 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
     public abstract String keepSameNameId_ExistsReferrer_WhiteSameNameRefList(NextschemaWhiteSameNameRefCQ sq);
 
     /**
-     * Set up NotExistsReferrer (correlated sub-query). <br />
-     * {not exists (select same_name_id from nextschema.white_same_name_ref where ...)} <br />
+     * Set up NotExistsReferrer (correlated sub-query). <br>
+     * {not exists (select same_name_id from nextschema.white_same_name_ref where ...)} <br>
      * nextschema.white_same_name_ref by same_name_id, named 'whiteSameNameRefAsOne'.
      * <pre>
      * cb.query().<span style="color: #CC4747">notExistsWhiteSameNameRefList</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -194,8 +194,8 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
     public abstract String keepSameNameId_SpecifyDerivedReferrer_WhiteSameNameRefList(NextschemaWhiteSameNameRefCQ sq);
 
     /**
-     * Prepare for (Query)DerivedReferrer (correlated sub-query). <br />
-     * {FOO &lt;= (select max(BAR) from nextschema.white_same_name_ref where ...)} <br />
+     * Prepare for (Query)DerivedReferrer (correlated sub-query). <br>
+     * {FOO &lt;= (select max(BAR) from nextschema.white_same_name_ref where ...)} <br>
      * nextschema.white_same_name_ref by same_name_id, named 'whiteSameNameRefAsOne'.
      * <pre>
      * cb.query().<span style="color: #CC4747">derivedWhiteSameNameRefList()</span>.<span style="color: #CC4747">max</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -221,13 +221,13 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
     public abstract String keepSameNameId_QueryDerivedReferrer_WhiteSameNameRefListParameter(Object vl);
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * same_name_id: {PK, NotNull, int4(10)}
      */
     public void setSameNameId_IsNull() { regSameNameId(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * same_name_id: {PK, NotNull, int4(10)}
      */
     public void setSameNameId_IsNotNull() { regSameNameId(CK_ISNN, DOBJ); }
@@ -236,7 +236,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
     protected abstract ConditionValue xgetCValueSameNameId();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * same_name_name: {varchar(100)}
      * @param sameNameName The value of sameNameName as equal. (NullAllowed: if null (or empty), no condition)
      */
@@ -249,7 +249,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * same_name_name: {varchar(100)}
      * @param sameNameName The value of sameNameName as notEqual. (NullAllowed: if null (or empty), no condition)
      */
@@ -262,7 +262,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
     }
 
     /**
-     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * same_name_name: {varchar(100)}
      * @param sameNameNameList The collection of sameNameName as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -275,7 +275,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
     }
 
     /**
-     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * same_name_name: {varchar(100)}
      * @param sameNameNameList The collection of sameNameName as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -288,8 +288,8 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * same_name_name: {varchar(100)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * same_name_name: {varchar(100)} <br>
      * <pre>e.g. setSameNameName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param sameNameName The value of sameNameName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -299,8 +299,8 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * same_name_name: {varchar(100)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * same_name_name: {varchar(100)} <br>
      * <pre>e.g. setSameNameName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param sameNameName The value of sameNameName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
@@ -310,8 +310,8 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * same_name_name: {varchar(100)}
      * @param sameNameName The value of sameNameName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -321,8 +321,8 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * same_name_name: {varchar(100)}
      * @param sameNameName The value of sameNameName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of not-like-search. (NotNull)
@@ -332,7 +332,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * same_name_name: {varchar(100)}
      * @param sameNameName The value of sameNameName as prefixSearch. (NullAllowed: if null (or empty), no condition)
      */
@@ -341,19 +341,19 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * same_name_name: {varchar(100)}
      */
     public void setSameNameName_IsNull() { regSameNameName(CK_ISN, DOBJ); }
 
     /**
-     * IsNullOrEmpty {is null or empty}. And OnlyOnceRegistered. <br />
+     * IsNullOrEmpty {is null or empty}. And OnlyOnceRegistered. <br>
      * same_name_name: {varchar(100)}
      */
     public void setSameNameName_IsNullOrEmpty() { regSameNameName(CK_ISNOE, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * same_name_name: {varchar(100)}
      */
     public void setSameNameName_IsNotNull() { regSameNameName(CK_ISNN, DOBJ); }
@@ -362,7 +362,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
     protected abstract ConditionValue xgetCValueSameNameName();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * same_name_long: {int8(19)}
      * @param sameNameLong The value of sameNameLong as equal. (NullAllowed: if null, no condition)
      */
@@ -375,7 +375,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * same_name_long: {int8(19)}
      * @param sameNameLong The value of sameNameLong as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -384,7 +384,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * same_name_long: {int8(19)}
      * @param sameNameLong The value of sameNameLong as lessThan. (NullAllowed: if null, no condition)
      */
@@ -393,7 +393,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * same_name_long: {int8(19)}
      * @param sameNameLong The value of sameNameLong as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -402,7 +402,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * same_name_long: {int8(19)}
      * @param sameNameLong The value of sameNameLong as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -411,9 +411,9 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * same_name_long: {int8(19)}
      * @param minNumber The min number of sameNameLong. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of sameNameLong. (NullAllowed: if null, no to-condition)
@@ -424,9 +424,9 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * same_name_long: {int8(19)}
      * @param minNumber The min number of sameNameLong. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of sameNameLong. (NullAllowed: if null, no to-condition)
@@ -437,7 +437,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * same_name_long: {int8(19)}
      * @param sameNameLongList The collection of sameNameLong as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -450,7 +450,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * same_name_long: {int8(19)}
      * @param sameNameLongList The collection of sameNameLong as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -463,13 +463,13 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * same_name_long: {int8(19)}
      */
     public void setSameNameLong_IsNull() { regSameNameLong(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * same_name_long: {int8(19)}
      */
     public void setSameNameLong_IsNotNull() { regSameNameLong(CK_ISNN, DOBJ); }
@@ -481,7 +481,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
     //                                                                     ScalarCondition
     //                                                                     ===============
     /**
-     * Prepare ScalarCondition as equal. <br />
+     * Prepare ScalarCondition as equal. <br>
      * {where FOO = (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_Equal()</span>.max(new SubQuery&lt;NextschemaWhiteSameNameCB&gt;() {
@@ -498,7 +498,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
     }
 
     /**
-     * Prepare ScalarCondition as equal. <br />
+     * Prepare ScalarCondition as equal. <br>
      * {where FOO &lt;&gt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_NotEqual()</span>.max(new SubQuery&lt;NextschemaWhiteSameNameCB&gt;() {
@@ -515,7 +515,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
     }
 
     /**
-     * Prepare ScalarCondition as greaterThan. <br />
+     * Prepare ScalarCondition as greaterThan. <br>
      * {where FOO &gt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_GreaterThan()</span>.max(new SubQuery&lt;NextschemaWhiteSameNameCB&gt;() {
@@ -532,7 +532,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
     }
 
     /**
-     * Prepare ScalarCondition as lessThan. <br />
+     * Prepare ScalarCondition as lessThan. <br>
      * {where FOO &lt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessThan()</span>.max(new SubQuery&lt;NextschemaWhiteSameNameCB&gt;() {
@@ -549,7 +549,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
     }
 
     /**
-     * Prepare ScalarCondition as greaterEqual. <br />
+     * Prepare ScalarCondition as greaterEqual. <br>
      * {where FOO &gt;= (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_GreaterEqual()</span>.max(new SubQuery&lt;NextschemaWhiteSameNameCB&gt;() {
@@ -566,7 +566,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
     }
 
     /**
-     * Prepare ScalarCondition as lessEqual. <br />
+     * Prepare ScalarCondition as lessEqual. <br>
      * {where FOO &lt;= (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessEqual()</span>.max(new SubQuery&lt;NextschemaWhiteSameNameCB&gt;() {
@@ -649,7 +649,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
     //                                                                    Full Text Search
     //                                                                    ================
     /**
-     * Match for full-text search. <br />
+     * Match for full-text search. <br>
      * @param textColumn The text column. (NotNull, StringColumn, TargetTableColumn)
      * @param conditionValue The condition value. (NullAllowed: if null or empty, no condition)
      */
@@ -659,7 +659,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
     }
 
     /**
-     * Match for full-text search. <br />
+     * Match for full-text search. <br>
      * @param textColumnList The list of text column. (NotNull, NotEmpty, StringColumn, TargetTableColumn)
      * @param conditionValue The condition value. (NullAllowed: if null or empty, no condition)
      */

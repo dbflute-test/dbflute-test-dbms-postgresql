@@ -5,11 +5,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.postgresql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
 /**
- * The entity of next_schema_product as TABLE. <br />
+ * The entity of next_schema_product as TABLE. <br>
  * <pre>
  * [primary-key]
  *     product_id
@@ -48,7 +49,7 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsNextSchemaProduct extends AbstractEntity {
+public abstract class BsNextSchemaProduct extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -187,7 +188,7 @@ public abstract class BsNextSchemaProduct extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] product_id: {PK, ID, NotNull, serial(10)} <br />
+     * [get] product_id: {PK, ID, NotNull, serial(10)} <br>
      * @return The value of the column 'product_id'. (basically NotNull if selected: for the constraint)
      */
     public Integer getProductId() {
@@ -196,7 +197,7 @@ public abstract class BsNextSchemaProduct extends AbstractEntity {
     }
 
     /**
-     * [set] product_id: {PK, ID, NotNull, serial(10)} <br />
+     * [set] product_id: {PK, ID, NotNull, serial(10)} <br>
      * @param productId The value of the column 'product_id'. (basically NotNull if update: for the constraint)
      */
     public void setProductId(Integer productId) {
@@ -205,7 +206,7 @@ public abstract class BsNextSchemaProduct extends AbstractEntity {
     }
 
     /**
-     * [get] product_name: {NotNull, varchar(200)} <br />
+     * [get] product_name: {NotNull, varchar(200)} <br>
      * @return The value of the column 'product_name'. (basically NotNull if selected: for the constraint)
      */
     public String getProductName() {
@@ -214,7 +215,7 @@ public abstract class BsNextSchemaProduct extends AbstractEntity {
     }
 
     /**
-     * [set] product_name: {NotNull, varchar(200)} <br />
+     * [set] product_name: {NotNull, varchar(200)} <br>
      * @param productName The value of the column 'product_name'. (basically NotNull if update: for the constraint)
      */
     public void setProductName(String productName) {

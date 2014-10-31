@@ -5,11 +5,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.postgresql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
 /**
- * The entity of vendor_part_man as TABLE. <br />
+ * The entity of vendor_part_man as TABLE. <br>
  * <pre>
  * [primary-key]
  *     part_man_id
@@ -52,7 +53,7 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsVendorPartMan extends AbstractEntity {
+public abstract class BsVendorPartMan extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -170,7 +171,7 @@ public abstract class BsVendorPartMan extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] part_man_id: {PK, NotNull, int4(10)} <br />
+     * [get] part_man_id: {PK, NotNull, int4(10)} <br>
      * @return The value of the column 'part_man_id'. (basically NotNull if selected: for the constraint)
      */
     public Integer getPartManId() {
@@ -179,7 +180,7 @@ public abstract class BsVendorPartMan extends AbstractEntity {
     }
 
     /**
-     * [set] part_man_id: {PK, NotNull, int4(10)} <br />
+     * [set] part_man_id: {PK, NotNull, int4(10)} <br>
      * @param partManId The value of the column 'part_man_id'. (basically NotNull if update: for the constraint)
      */
     public void setPartManId(Integer partManId) {
@@ -188,7 +189,7 @@ public abstract class BsVendorPartMan extends AbstractEntity {
     }
 
     /**
-     * [get] part_man_name: {NotNull, varchar(2147483647)} <br />
+     * [get] part_man_name: {NotNull, varchar(2147483647)} <br>
      * @return The value of the column 'part_man_name'. (basically NotNull if selected: for the constraint)
      */
     public String getPartManName() {
@@ -197,7 +198,7 @@ public abstract class BsVendorPartMan extends AbstractEntity {
     }
 
     /**
-     * [set] part_man_name: {NotNull, varchar(2147483647)} <br />
+     * [set] part_man_name: {NotNull, varchar(2147483647)} <br>
      * @param partManName The value of the column 'part_man_name'. (basically NotNull if update: for the constraint)
      */
     public void setPartManName(String partManName) {
@@ -206,7 +207,7 @@ public abstract class BsVendorPartMan extends AbstractEntity {
     }
 
     /**
-     * [get] part_man_point: {NotNull, int4(10)} <br />
+     * [get] part_man_point: {NotNull, int4(10)} <br>
      * @return The value of the column 'part_man_point'. (basically NotNull if selected: for the constraint)
      */
     public Integer getPartManPoint() {
@@ -215,7 +216,7 @@ public abstract class BsVendorPartMan extends AbstractEntity {
     }
 
     /**
-     * [set] part_man_point: {NotNull, int4(10)} <br />
+     * [set] part_man_point: {NotNull, int4(10)} <br>
      * @param partManPoint The value of the column 'part_man_point'. (basically NotNull if update: for the constraint)
      */
     public void setPartManPoint(Integer partManPoint) {
@@ -224,7 +225,7 @@ public abstract class BsVendorPartMan extends AbstractEntity {
     }
 
     /**
-     * [get] part_man_date: {date(13)} <br />
+     * [get] part_man_date: {date(13)} <br>
      * @return The value of the column 'part_man_date'. (NullAllowed even if selected: for no constraint)
      */
     public java.util.Date getPartManDate() {
@@ -233,7 +234,7 @@ public abstract class BsVendorPartMan extends AbstractEntity {
     }
 
     /**
-     * [set] part_man_date: {date(13)} <br />
+     * [set] part_man_date: {date(13)} <br>
      * @param partManDate The value of the column 'part_man_date'. (NullAllowed: null update allowed for no constraint)
      */
     public void setPartManDate(java.util.Date partManDate) {

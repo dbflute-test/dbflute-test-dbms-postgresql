@@ -47,7 +47,7 @@ public abstract class AbstractBsWhiteSameNameRefCQ extends AbstractConditionQuer
     //                                                                               Query
     //                                                                               =====
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * same_name_ref_id: {PK, NotNull, int4(10)}
      * @param sameNameRefId The value of sameNameRefId as equal. (NullAllowed: if null, no condition)
      */
@@ -60,7 +60,7 @@ public abstract class AbstractBsWhiteSameNameRefCQ extends AbstractConditionQuer
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * same_name_ref_id: {PK, NotNull, int4(10)}
      * @param sameNameRefId The value of sameNameRefId as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -69,7 +69,7 @@ public abstract class AbstractBsWhiteSameNameRefCQ extends AbstractConditionQuer
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * same_name_ref_id: {PK, NotNull, int4(10)}
      * @param sameNameRefId The value of sameNameRefId as lessThan. (NullAllowed: if null, no condition)
      */
@@ -78,7 +78,7 @@ public abstract class AbstractBsWhiteSameNameRefCQ extends AbstractConditionQuer
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * same_name_ref_id: {PK, NotNull, int4(10)}
      * @param sameNameRefId The value of sameNameRefId as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -87,7 +87,7 @@ public abstract class AbstractBsWhiteSameNameRefCQ extends AbstractConditionQuer
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * same_name_ref_id: {PK, NotNull, int4(10)}
      * @param sameNameRefId The value of sameNameRefId as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -96,9 +96,9 @@ public abstract class AbstractBsWhiteSameNameRefCQ extends AbstractConditionQuer
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * same_name_ref_id: {PK, NotNull, int4(10)}
      * @param minNumber The min number of sameNameRefId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of sameNameRefId. (NullAllowed: if null, no to-condition)
@@ -109,9 +109,9 @@ public abstract class AbstractBsWhiteSameNameRefCQ extends AbstractConditionQuer
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * same_name_ref_id: {PK, NotNull, int4(10)}
      * @param minNumber The min number of sameNameRefId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of sameNameRefId. (NullAllowed: if null, no to-condition)
@@ -122,7 +122,7 @@ public abstract class AbstractBsWhiteSameNameRefCQ extends AbstractConditionQuer
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * same_name_ref_id: {PK, NotNull, int4(10)}
      * @param sameNameRefIdList The collection of sameNameRefId as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -135,7 +135,7 @@ public abstract class AbstractBsWhiteSameNameRefCQ extends AbstractConditionQuer
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * same_name_ref_id: {PK, NotNull, int4(10)}
      * @param sameNameRefIdList The collection of sameNameRefId as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -148,13 +148,13 @@ public abstract class AbstractBsWhiteSameNameRefCQ extends AbstractConditionQuer
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * same_name_ref_id: {PK, NotNull, int4(10)}
      */
     public void setSameNameRefId_IsNull() { regSameNameRefId(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * same_name_ref_id: {PK, NotNull, int4(10)}
      */
     public void setSameNameRefId_IsNotNull() { regSameNameRefId(CK_ISNN, DOBJ); }
@@ -163,7 +163,7 @@ public abstract class AbstractBsWhiteSameNameRefCQ extends AbstractConditionQuer
     protected abstract ConditionValue xgetCValueSameNameRefId();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * same_name_id: {NotNull, int8(19), FK to white_same_name}
      * @param sameNameId The value of sameNameId as equal. (NullAllowed: if null, no condition)
      */
@@ -176,7 +176,7 @@ public abstract class AbstractBsWhiteSameNameRefCQ extends AbstractConditionQuer
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * same_name_id: {NotNull, int8(19), FK to white_same_name}
      * @param sameNameId The value of sameNameId as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -185,7 +185,7 @@ public abstract class AbstractBsWhiteSameNameRefCQ extends AbstractConditionQuer
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * same_name_id: {NotNull, int8(19), FK to white_same_name}
      * @param sameNameId The value of sameNameId as lessThan. (NullAllowed: if null, no condition)
      */
@@ -194,7 +194,7 @@ public abstract class AbstractBsWhiteSameNameRefCQ extends AbstractConditionQuer
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * same_name_id: {NotNull, int8(19), FK to white_same_name}
      * @param sameNameId The value of sameNameId as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -203,7 +203,7 @@ public abstract class AbstractBsWhiteSameNameRefCQ extends AbstractConditionQuer
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * same_name_id: {NotNull, int8(19), FK to white_same_name}
      * @param sameNameId The value of sameNameId as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -212,9 +212,9 @@ public abstract class AbstractBsWhiteSameNameRefCQ extends AbstractConditionQuer
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * same_name_id: {NotNull, int8(19), FK to white_same_name}
      * @param minNumber The min number of sameNameId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of sameNameId. (NullAllowed: if null, no to-condition)
@@ -225,9 +225,9 @@ public abstract class AbstractBsWhiteSameNameRefCQ extends AbstractConditionQuer
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * same_name_id: {NotNull, int8(19), FK to white_same_name}
      * @param minNumber The min number of sameNameId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of sameNameId. (NullAllowed: if null, no to-condition)
@@ -238,7 +238,7 @@ public abstract class AbstractBsWhiteSameNameRefCQ extends AbstractConditionQuer
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * same_name_id: {NotNull, int8(19), FK to white_same_name}
      * @param sameNameIdList The collection of sameNameId as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -251,7 +251,7 @@ public abstract class AbstractBsWhiteSameNameRefCQ extends AbstractConditionQuer
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * same_name_id: {NotNull, int8(19), FK to white_same_name}
      * @param sameNameIdList The collection of sameNameId as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -267,7 +267,7 @@ public abstract class AbstractBsWhiteSameNameRefCQ extends AbstractConditionQuer
     protected abstract ConditionValue xgetCValueSameNameId();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * next_same_name_id: {NotNull, int8(19)}
      * @param nextSameNameId The value of nextSameNameId as equal. (NullAllowed: if null, no condition)
      */
@@ -280,7 +280,7 @@ public abstract class AbstractBsWhiteSameNameRefCQ extends AbstractConditionQuer
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * next_same_name_id: {NotNull, int8(19)}
      * @param nextSameNameId The value of nextSameNameId as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -289,7 +289,7 @@ public abstract class AbstractBsWhiteSameNameRefCQ extends AbstractConditionQuer
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * next_same_name_id: {NotNull, int8(19)}
      * @param nextSameNameId The value of nextSameNameId as lessThan. (NullAllowed: if null, no condition)
      */
@@ -298,7 +298,7 @@ public abstract class AbstractBsWhiteSameNameRefCQ extends AbstractConditionQuer
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * next_same_name_id: {NotNull, int8(19)}
      * @param nextSameNameId The value of nextSameNameId as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -307,7 +307,7 @@ public abstract class AbstractBsWhiteSameNameRefCQ extends AbstractConditionQuer
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * next_same_name_id: {NotNull, int8(19)}
      * @param nextSameNameId The value of nextSameNameId as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -316,9 +316,9 @@ public abstract class AbstractBsWhiteSameNameRefCQ extends AbstractConditionQuer
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * next_same_name_id: {NotNull, int8(19)}
      * @param minNumber The min number of nextSameNameId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of nextSameNameId. (NullAllowed: if null, no to-condition)
@@ -329,9 +329,9 @@ public abstract class AbstractBsWhiteSameNameRefCQ extends AbstractConditionQuer
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * next_same_name_id: {NotNull, int8(19)}
      * @param minNumber The min number of nextSameNameId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of nextSameNameId. (NullAllowed: if null, no to-condition)
@@ -342,7 +342,7 @@ public abstract class AbstractBsWhiteSameNameRefCQ extends AbstractConditionQuer
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * next_same_name_id: {NotNull, int8(19)}
      * @param nextSameNameIdList The collection of nextSameNameId as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -355,7 +355,7 @@ public abstract class AbstractBsWhiteSameNameRefCQ extends AbstractConditionQuer
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * next_same_name_id: {NotNull, int8(19)}
      * @param nextSameNameIdList The collection of nextSameNameId as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -374,7 +374,7 @@ public abstract class AbstractBsWhiteSameNameRefCQ extends AbstractConditionQuer
     //                                                                     ScalarCondition
     //                                                                     ===============
     /**
-     * Prepare ScalarCondition as equal. <br />
+     * Prepare ScalarCondition as equal. <br>
      * {where FOO = (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_Equal()</span>.max(new SubQuery&lt;WhiteSameNameRefCB&gt;() {
@@ -391,7 +391,7 @@ public abstract class AbstractBsWhiteSameNameRefCQ extends AbstractConditionQuer
     }
 
     /**
-     * Prepare ScalarCondition as equal. <br />
+     * Prepare ScalarCondition as equal. <br>
      * {where FOO &lt;&gt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_NotEqual()</span>.max(new SubQuery&lt;WhiteSameNameRefCB&gt;() {
@@ -408,7 +408,7 @@ public abstract class AbstractBsWhiteSameNameRefCQ extends AbstractConditionQuer
     }
 
     /**
-     * Prepare ScalarCondition as greaterThan. <br />
+     * Prepare ScalarCondition as greaterThan. <br>
      * {where FOO &gt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_GreaterThan()</span>.max(new SubQuery&lt;WhiteSameNameRefCB&gt;() {
@@ -425,7 +425,7 @@ public abstract class AbstractBsWhiteSameNameRefCQ extends AbstractConditionQuer
     }
 
     /**
-     * Prepare ScalarCondition as lessThan. <br />
+     * Prepare ScalarCondition as lessThan. <br>
      * {where FOO &lt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessThan()</span>.max(new SubQuery&lt;WhiteSameNameRefCB&gt;() {
@@ -442,7 +442,7 @@ public abstract class AbstractBsWhiteSameNameRefCQ extends AbstractConditionQuer
     }
 
     /**
-     * Prepare ScalarCondition as greaterEqual. <br />
+     * Prepare ScalarCondition as greaterEqual. <br>
      * {where FOO &gt;= (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_GreaterEqual()</span>.max(new SubQuery&lt;WhiteSameNameRefCB&gt;() {
@@ -459,7 +459,7 @@ public abstract class AbstractBsWhiteSameNameRefCQ extends AbstractConditionQuer
     }
 
     /**
-     * Prepare ScalarCondition as lessEqual. <br />
+     * Prepare ScalarCondition as lessEqual. <br>
      * {where FOO &lt;= (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessEqual()</span>.max(new SubQuery&lt;WhiteSameNameRefCB&gt;() {
@@ -542,7 +542,7 @@ public abstract class AbstractBsWhiteSameNameRefCQ extends AbstractConditionQuer
     //                                                                    Full Text Search
     //                                                                    ================
     /**
-     * Match for full-text search. <br />
+     * Match for full-text search. <br>
      * @param textColumn The text column. (NotNull, StringColumn, TargetTableColumn)
      * @param conditionValue The condition value. (NullAllowed: if null or empty, no condition)
      */
@@ -552,7 +552,7 @@ public abstract class AbstractBsWhiteSameNameRefCQ extends AbstractConditionQuer
     }
 
     /**
-     * Match for full-text search. <br />
+     * Match for full-text search. <br>
      * @param textColumnList The list of text column. (NotNull, NotEmpty, StringColumn, TargetTableColumn)
      * @param conditionValue The condition value. (NullAllowed: if null or empty, no condition)
      */

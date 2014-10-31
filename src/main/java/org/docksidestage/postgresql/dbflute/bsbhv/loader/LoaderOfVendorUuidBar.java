@@ -9,7 +9,7 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
 import org.docksidestage.postgresql.dbflute.cbean.*;
 
 /**
- * The referrer loader of vendor_uuid_bar as TABLE. <br />
+ * The referrer loader of vendor_uuid_bar as TABLE. <br>
  * <pre>
  * [primary key]
  *     bar_id
@@ -64,7 +64,7 @@ public class LoaderOfVendorUuidBar {
     protected List<VendorUuidFoo> _referrerVendorUuidFooList;
 
     /**
-     * Load referrer of vendorUuidFooList by the set-upper of referrer. <br />
+     * Load referrer of vendorUuidFooList by the set-upper of referrer. <br>
      * vendor_uuid_foo by bar_id, named 'vendorUuidFooList'.
      * <pre>
      * <span style="color: #0000C0">vendorUuidBarBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">vendorUuidBarList</span>, <span style="color: #553000">barLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -73,7 +73,7 @@ public class LoaderOfVendorUuidBar {
      *         <span style="color: #553000">fooCB</span>.query().set...
      *         <span style="color: #553000">fooCB</span>.query().addOrderBy...
      *     }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
-     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">fooLoader</span> -&gt {</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">fooLoader</span> -&gt; {</span>
      *     <span style="color: #3F7E5E">//    fooLoader.load...</span>
      *     <span style="color: #3F7E5E">//});</span>
      * });
@@ -81,7 +81,7 @@ public class LoaderOfVendorUuidBar {
      *     ... = vendorUuidBar.<span style="color: #CC4747">getVendorUuidFooList()</span>;
      * }
      * </pre>
-     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
      * The condition-bean, which the set-upper provides, has settings before callback as follows:
      * <pre>
      * cb.query().setBarId_InScope(pkList);

@@ -47,7 +47,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     //                                                                               Query
     //                                                                               =====
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * large_data_ref_id: {PK, NotNull, int8(19)}
      * @param largeDataRefId The value of largeDataRefId as equal. (NullAllowed: if null, no condition)
      */
@@ -60,7 +60,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * large_data_ref_id: {PK, NotNull, int8(19)}
      * @param largeDataRefId The value of largeDataRefId as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -69,7 +69,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * large_data_ref_id: {PK, NotNull, int8(19)}
      * @param largeDataRefId The value of largeDataRefId as lessThan. (NullAllowed: if null, no condition)
      */
@@ -78,7 +78,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * large_data_ref_id: {PK, NotNull, int8(19)}
      * @param largeDataRefId The value of largeDataRefId as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -87,7 +87,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * large_data_ref_id: {PK, NotNull, int8(19)}
      * @param largeDataRefId The value of largeDataRefId as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -96,9 +96,9 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * large_data_ref_id: {PK, NotNull, int8(19)}
      * @param minNumber The min number of largeDataRefId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of largeDataRefId. (NullAllowed: if null, no to-condition)
@@ -109,9 +109,9 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * large_data_ref_id: {PK, NotNull, int8(19)}
      * @param minNumber The min number of largeDataRefId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of largeDataRefId. (NullAllowed: if null, no to-condition)
@@ -122,7 +122,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * large_data_ref_id: {PK, NotNull, int8(19)}
      * @param largeDataRefIdList The collection of largeDataRefId as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -135,7 +135,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * large_data_ref_id: {PK, NotNull, int8(19)}
      * @param largeDataRefIdList The collection of largeDataRefId as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -148,8 +148,8 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * Set up ExistsReferrer (correlated sub-query). <br />
-     * {exists (select self_parent_id from vendor_large_data_ref where ...)} <br />
+     * Set up ExistsReferrer (correlated sub-query). <br>
+     * {exists (select self_parent_id from vendor_large_data_ref where ...)} <br>
      * vendor_large_data_ref by self_parent_id, named 'vendorLargeDataRefSelfAsOne'.
      * <pre>
      * cb.query().<span style="color: #CC4747">existsVendorLargeDataRefSelfList</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -167,8 +167,8 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     public abstract String keepLargeDataRefId_ExistsReferrer_VendorLargeDataRefSelfList(VendorLargeDataRefCQ sq);
 
     /**
-     * Set up NotExistsReferrer (correlated sub-query). <br />
-     * {not exists (select self_parent_id from vendor_large_data_ref where ...)} <br />
+     * Set up NotExistsReferrer (correlated sub-query). <br>
+     * {not exists (select self_parent_id from vendor_large_data_ref where ...)} <br>
      * vendor_large_data_ref by self_parent_id, named 'vendorLargeDataRefSelfAsOne'.
      * <pre>
      * cb.query().<span style="color: #CC4747">notExistsVendorLargeDataRefSelfList</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -194,8 +194,8 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     public abstract String keepLargeDataRefId_SpecifyDerivedReferrer_VendorLargeDataRefSelfList(VendorLargeDataRefCQ sq);
 
     /**
-     * Prepare for (Query)DerivedReferrer (correlated sub-query). <br />
-     * {FOO &lt;= (select max(BAR) from vendor_large_data_ref where ...)} <br />
+     * Prepare for (Query)DerivedReferrer (correlated sub-query). <br>
+     * {FOO &lt;= (select max(BAR) from vendor_large_data_ref where ...)} <br>
      * vendor_large_data_ref by self_parent_id, named 'vendorLargeDataRefSelfAsOne'.
      * <pre>
      * cb.query().<span style="color: #CC4747">derivedVendorLargeDataRefSelfList()</span>.<span style="color: #CC4747">max</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -221,13 +221,13 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     public abstract String keepLargeDataRefId_QueryDerivedReferrer_VendorLargeDataRefSelfListParameter(Object vl);
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * large_data_ref_id: {PK, NotNull, int8(19)}
      */
     public void setLargeDataRefId_IsNull() { regLargeDataRefId(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * large_data_ref_id: {PK, NotNull, int8(19)}
      */
     public void setLargeDataRefId_IsNotNull() { regLargeDataRefId(CK_ISNN, DOBJ); }
@@ -236,7 +236,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     protected abstract ConditionValue xgetCValueLargeDataRefId();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * large_data_id: {NotNull, int8(19), FK to vendor_large_data}
      * @param largeDataId The value of largeDataId as equal. (NullAllowed: if null, no condition)
      */
@@ -249,7 +249,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * large_data_id: {NotNull, int8(19), FK to vendor_large_data}
      * @param largeDataId The value of largeDataId as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -258,7 +258,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * large_data_id: {NotNull, int8(19), FK to vendor_large_data}
      * @param largeDataId The value of largeDataId as lessThan. (NullAllowed: if null, no condition)
      */
@@ -267,7 +267,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * large_data_id: {NotNull, int8(19), FK to vendor_large_data}
      * @param largeDataId The value of largeDataId as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -276,7 +276,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * large_data_id: {NotNull, int8(19), FK to vendor_large_data}
      * @param largeDataId The value of largeDataId as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -285,9 +285,9 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * large_data_id: {NotNull, int8(19), FK to vendor_large_data}
      * @param minNumber The min number of largeDataId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of largeDataId. (NullAllowed: if null, no to-condition)
@@ -298,9 +298,9 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * large_data_id: {NotNull, int8(19), FK to vendor_large_data}
      * @param minNumber The min number of largeDataId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of largeDataId. (NullAllowed: if null, no to-condition)
@@ -311,7 +311,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * large_data_id: {NotNull, int8(19), FK to vendor_large_data}
      * @param largeDataIdList The collection of largeDataId as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -324,7 +324,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * large_data_id: {NotNull, int8(19), FK to vendor_large_data}
      * @param largeDataIdList The collection of largeDataId as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -340,7 +340,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     protected abstract ConditionValue xgetCValueLargeDataId();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * date_index: {IX, NotNull, date(13)}
      * @param dateIndex The value of dateIndex as equal. (NullAllowed: if null, no condition)
      */
@@ -349,7 +349,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * date_index: {IX, NotNull, date(13)}
      * @param dateIndex The value of dateIndex as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -358,7 +358,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * date_index: {IX, NotNull, date(13)}
      * @param dateIndex The value of dateIndex as lessThan. (NullAllowed: if null, no condition)
      */
@@ -367,7 +367,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * date_index: {IX, NotNull, date(13)}
      * @param dateIndex The value of dateIndex as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -376,7 +376,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * date_index: {IX, NotNull, date(13)}
      * @param dateIndex The value of dateIndex as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -385,8 +385,8 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * date_index: {IX, NotNull, date(13)}
      * <pre>e.g. setDateIndex_FromTo(fromDate, toDate, op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">compareAsDate()</span>);</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of dateIndex. (NullAllowed: if null, no from-condition)
@@ -398,8 +398,8 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * date_index: {IX, NotNull, date(13)}
      * <pre>e.g. setDateIndex_FromTo(fromDate, toDate, new <span style="color: #CC4747">FromToOption</span>().compareAsDate());</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of dateIndex. (NullAllowed: if null, no from-condition)
@@ -411,8 +411,8 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * date_index: {IX, NotNull, date(13)}
      * <pre>
      * e.g. from:{2007/04/10 08:24:53} to:{2007/04/16 14:36:29}
@@ -429,7 +429,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     protected abstract ConditionValue xgetCValueDateIndex();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * date_no_index: {NotNull, date(13)}
      * @param dateNoIndex The value of dateNoIndex as equal. (NullAllowed: if null, no condition)
      */
@@ -438,7 +438,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * date_no_index: {NotNull, date(13)}
      * @param dateNoIndex The value of dateNoIndex as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -447,7 +447,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * date_no_index: {NotNull, date(13)}
      * @param dateNoIndex The value of dateNoIndex as lessThan. (NullAllowed: if null, no condition)
      */
@@ -456,7 +456,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * date_no_index: {NotNull, date(13)}
      * @param dateNoIndex The value of dateNoIndex as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -465,7 +465,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * date_no_index: {NotNull, date(13)}
      * @param dateNoIndex The value of dateNoIndex as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -474,8 +474,8 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * date_no_index: {NotNull, date(13)}
      * <pre>e.g. setDateNoIndex_FromTo(fromDate, toDate, op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">compareAsDate()</span>);</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of dateNoIndex. (NullAllowed: if null, no from-condition)
@@ -487,8 +487,8 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * date_no_index: {NotNull, date(13)}
      * <pre>e.g. setDateNoIndex_FromTo(fromDate, toDate, new <span style="color: #CC4747">FromToOption</span>().compareAsDate());</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of dateNoIndex. (NullAllowed: if null, no from-condition)
@@ -500,8 +500,8 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * date_no_index: {NotNull, date(13)}
      * <pre>
      * e.g. from:{2007/04/10 08:24:53} to:{2007/04/16 14:36:29}
@@ -518,7 +518,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     protected abstract ConditionValue xgetCValueDateNoIndex();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * timestamp_index: {IX, NotNull, timestamp(26, 3)}
      * @param timestampIndex The value of timestampIndex as equal. (NullAllowed: if null, no condition)
      */
@@ -527,7 +527,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * timestamp_index: {IX, NotNull, timestamp(26, 3)}
      * @param timestampIndex The value of timestampIndex as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -536,7 +536,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * timestamp_index: {IX, NotNull, timestamp(26, 3)}
      * @param timestampIndex The value of timestampIndex as lessThan. (NullAllowed: if null, no condition)
      */
@@ -545,7 +545,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * timestamp_index: {IX, NotNull, timestamp(26, 3)}
      * @param timestampIndex The value of timestampIndex as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -554,7 +554,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * timestamp_index: {IX, NotNull, timestamp(26, 3)}
      * @param timestampIndex The value of timestampIndex as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -563,8 +563,8 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * timestamp_index: {IX, NotNull, timestamp(26, 3)}
      * <pre>e.g. setTimestampIndex_FromTo(fromDate, toDate, op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">compareAsDate()</span>);</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of timestampIndex. (NullAllowed: if null, no from-condition)
@@ -576,8 +576,8 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * timestamp_index: {IX, NotNull, timestamp(26, 3)}
      * <pre>e.g. setTimestampIndex_FromTo(fromDate, toDate, new <span style="color: #CC4747">FromToOption</span>().compareAsDate());</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of timestampIndex. (NullAllowed: if null, no from-condition)
@@ -589,8 +589,8 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * timestamp_index: {IX, NotNull, timestamp(26, 3)}
      * <pre>
      * e.g. from:{2007/04/10 08:24:53} to:{2007/04/16 14:36:29}
@@ -607,7 +607,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     protected abstract ConditionValue xgetCValueTimestampIndex();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * timestamp_no_index: {NotNull, timestamp(26, 3)}
      * @param timestampNoIndex The value of timestampNoIndex as equal. (NullAllowed: if null, no condition)
      */
@@ -616,7 +616,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * timestamp_no_index: {NotNull, timestamp(26, 3)}
      * @param timestampNoIndex The value of timestampNoIndex as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -625,7 +625,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * timestamp_no_index: {NotNull, timestamp(26, 3)}
      * @param timestampNoIndex The value of timestampNoIndex as lessThan. (NullAllowed: if null, no condition)
      */
@@ -634,7 +634,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * timestamp_no_index: {NotNull, timestamp(26, 3)}
      * @param timestampNoIndex The value of timestampNoIndex as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -643,7 +643,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * timestamp_no_index: {NotNull, timestamp(26, 3)}
      * @param timestampNoIndex The value of timestampNoIndex as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -652,8 +652,8 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * timestamp_no_index: {NotNull, timestamp(26, 3)}
      * <pre>e.g. setTimestampNoIndex_FromTo(fromDate, toDate, op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">compareAsDate()</span>);</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of timestampNoIndex. (NullAllowed: if null, no from-condition)
@@ -665,8 +665,8 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * timestamp_no_index: {NotNull, timestamp(26, 3)}
      * <pre>e.g. setTimestampNoIndex_FromTo(fromDate, toDate, new <span style="color: #CC4747">FromToOption</span>().compareAsDate());</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of timestampNoIndex. (NullAllowed: if null, no from-condition)
@@ -678,8 +678,8 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * timestamp_no_index: {NotNull, timestamp(26, 3)}
      * <pre>
      * e.g. from:{2007/04/10 08:24:53} to:{2007/04/16 14:36:29}
@@ -696,7 +696,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     protected abstract ConditionValue xgetCValueTimestampNoIndex();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * nullable_decimal_index: {IX, numeric(12, 3)}
      * @param nullableDecimalIndex The value of nullableDecimalIndex as equal. (NullAllowed: if null, no condition)
      */
@@ -709,7 +709,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * nullable_decimal_index: {IX, numeric(12, 3)}
      * @param nullableDecimalIndex The value of nullableDecimalIndex as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -718,7 +718,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * nullable_decimal_index: {IX, numeric(12, 3)}
      * @param nullableDecimalIndex The value of nullableDecimalIndex as lessThan. (NullAllowed: if null, no condition)
      */
@@ -727,7 +727,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * nullable_decimal_index: {IX, numeric(12, 3)}
      * @param nullableDecimalIndex The value of nullableDecimalIndex as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -736,7 +736,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * nullable_decimal_index: {IX, numeric(12, 3)}
      * @param nullableDecimalIndex The value of nullableDecimalIndex as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -745,9 +745,9 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * nullable_decimal_index: {IX, numeric(12, 3)}
      * @param minNumber The min number of nullableDecimalIndex. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of nullableDecimalIndex. (NullAllowed: if null, no to-condition)
@@ -758,9 +758,9 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * nullable_decimal_index: {IX, numeric(12, 3)}
      * @param minNumber The min number of nullableDecimalIndex. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of nullableDecimalIndex. (NullAllowed: if null, no to-condition)
@@ -771,7 +771,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * nullable_decimal_index: {IX, numeric(12, 3)}
      * @param nullableDecimalIndexList The collection of nullableDecimalIndex as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -784,7 +784,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * nullable_decimal_index: {IX, numeric(12, 3)}
      * @param nullableDecimalIndexList The collection of nullableDecimalIndex as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -797,13 +797,13 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * nullable_decimal_index: {IX, numeric(12, 3)}
      */
     public void setNullableDecimalIndex_IsNull() { regNullableDecimalIndex(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * nullable_decimal_index: {IX, numeric(12, 3)}
      */
     public void setNullableDecimalIndex_IsNotNull() { regNullableDecimalIndex(CK_ISNN, DOBJ); }
@@ -812,7 +812,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     protected abstract ConditionValue xgetCValueNullableDecimalIndex();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * nullable_decimal_no_index: {numeric(12, 3)}
      * @param nullableDecimalNoIndex The value of nullableDecimalNoIndex as equal. (NullAllowed: if null, no condition)
      */
@@ -825,7 +825,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * nullable_decimal_no_index: {numeric(12, 3)}
      * @param nullableDecimalNoIndex The value of nullableDecimalNoIndex as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -834,7 +834,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * nullable_decimal_no_index: {numeric(12, 3)}
      * @param nullableDecimalNoIndex The value of nullableDecimalNoIndex as lessThan. (NullAllowed: if null, no condition)
      */
@@ -843,7 +843,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * nullable_decimal_no_index: {numeric(12, 3)}
      * @param nullableDecimalNoIndex The value of nullableDecimalNoIndex as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -852,7 +852,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * nullable_decimal_no_index: {numeric(12, 3)}
      * @param nullableDecimalNoIndex The value of nullableDecimalNoIndex as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -861,9 +861,9 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * nullable_decimal_no_index: {numeric(12, 3)}
      * @param minNumber The min number of nullableDecimalNoIndex. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of nullableDecimalNoIndex. (NullAllowed: if null, no to-condition)
@@ -874,9 +874,9 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * nullable_decimal_no_index: {numeric(12, 3)}
      * @param minNumber The min number of nullableDecimalNoIndex. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of nullableDecimalNoIndex. (NullAllowed: if null, no to-condition)
@@ -887,7 +887,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * nullable_decimal_no_index: {numeric(12, 3)}
      * @param nullableDecimalNoIndexList The collection of nullableDecimalNoIndex as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -900,7 +900,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * nullable_decimal_no_index: {numeric(12, 3)}
      * @param nullableDecimalNoIndexList The collection of nullableDecimalNoIndex as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -913,13 +913,13 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * nullable_decimal_no_index: {numeric(12, 3)}
      */
     public void setNullableDecimalNoIndex_IsNull() { regNullableDecimalNoIndex(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * nullable_decimal_no_index: {numeric(12, 3)}
      */
     public void setNullableDecimalNoIndex_IsNotNull() { regNullableDecimalNoIndex(CK_ISNN, DOBJ); }
@@ -928,7 +928,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     protected abstract ConditionValue xgetCValueNullableDecimalNoIndex();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * self_parent_id: {int8(19), FK to vendor_large_data_ref}
      * @param selfParentId The value of selfParentId as equal. (NullAllowed: if null, no condition)
      */
@@ -941,7 +941,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * self_parent_id: {int8(19), FK to vendor_large_data_ref}
      * @param selfParentId The value of selfParentId as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -950,7 +950,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * self_parent_id: {int8(19), FK to vendor_large_data_ref}
      * @param selfParentId The value of selfParentId as lessThan. (NullAllowed: if null, no condition)
      */
@@ -959,7 +959,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * self_parent_id: {int8(19), FK to vendor_large_data_ref}
      * @param selfParentId The value of selfParentId as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -968,7 +968,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * self_parent_id: {int8(19), FK to vendor_large_data_ref}
      * @param selfParentId The value of selfParentId as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -977,9 +977,9 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * self_parent_id: {int8(19), FK to vendor_large_data_ref}
      * @param minNumber The min number of selfParentId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of selfParentId. (NullAllowed: if null, no to-condition)
@@ -990,9 +990,9 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * self_parent_id: {int8(19), FK to vendor_large_data_ref}
      * @param minNumber The min number of selfParentId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of selfParentId. (NullAllowed: if null, no to-condition)
@@ -1003,7 +1003,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * self_parent_id: {int8(19), FK to vendor_large_data_ref}
      * @param selfParentIdList The collection of selfParentId as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -1016,7 +1016,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * self_parent_id: {int8(19), FK to vendor_large_data_ref}
      * @param selfParentIdList The collection of selfParentId as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -1029,13 +1029,13 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * self_parent_id: {int8(19), FK to vendor_large_data_ref}
      */
     public void setSelfParentId_IsNull() { regSelfParentId(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * self_parent_id: {int8(19), FK to vendor_large_data_ref}
      */
     public void setSelfParentId_IsNotNull() { regSelfParentId(CK_ISNN, DOBJ); }
@@ -1047,7 +1047,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     //                                                                     ScalarCondition
     //                                                                     ===============
     /**
-     * Prepare ScalarCondition as equal. <br />
+     * Prepare ScalarCondition as equal. <br>
      * {where FOO = (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_Equal()</span>.max(new SubQuery&lt;VendorLargeDataRefCB&gt;() {
@@ -1064,7 +1064,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * Prepare ScalarCondition as equal. <br />
+     * Prepare ScalarCondition as equal. <br>
      * {where FOO &lt;&gt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_NotEqual()</span>.max(new SubQuery&lt;VendorLargeDataRefCB&gt;() {
@@ -1081,7 +1081,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * Prepare ScalarCondition as greaterThan. <br />
+     * Prepare ScalarCondition as greaterThan. <br>
      * {where FOO &gt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_GreaterThan()</span>.max(new SubQuery&lt;VendorLargeDataRefCB&gt;() {
@@ -1098,7 +1098,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * Prepare ScalarCondition as lessThan. <br />
+     * Prepare ScalarCondition as lessThan. <br>
      * {where FOO &lt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessThan()</span>.max(new SubQuery&lt;VendorLargeDataRefCB&gt;() {
@@ -1115,7 +1115,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * Prepare ScalarCondition as greaterEqual. <br />
+     * Prepare ScalarCondition as greaterEqual. <br>
      * {where FOO &gt;= (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_GreaterEqual()</span>.max(new SubQuery&lt;VendorLargeDataRefCB&gt;() {
@@ -1132,7 +1132,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * Prepare ScalarCondition as lessEqual. <br />
+     * Prepare ScalarCondition as lessEqual. <br>
      * {where FOO &lt;= (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessEqual()</span>.max(new SubQuery&lt;VendorLargeDataRefCB&gt;() {
@@ -1215,7 +1215,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     //                                                                    Full Text Search
     //                                                                    ================
     /**
-     * Match for full-text search. <br />
+     * Match for full-text search. <br>
      * @param textColumn The text column. (NotNull, StringColumn, TargetTableColumn)
      * @param conditionValue The condition value. (NullAllowed: if null or empty, no condition)
      */
@@ -1225,7 +1225,7 @@ public abstract class AbstractBsVendorLargeDataRefCQ extends AbstractConditionQu
     }
 
     /**
-     * Match for full-text search. <br />
+     * Match for full-text search. <br>
      * @param textColumnList The list of text column. (NotNull, NotEmpty, StringColumn, TargetTableColumn)
      * @param conditionValue The condition value. (NullAllowed: if null or empty, no condition)
      */

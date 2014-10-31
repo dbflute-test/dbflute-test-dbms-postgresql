@@ -34,7 +34,7 @@ public class BsNextSchemaProductCQ extends AbstractBsNextSchemaProductCQ {
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from next_schema_product) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -57,7 +57,7 @@ public class BsNextSchemaProductCQ extends AbstractBsNextSchemaProductCQ {
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join next_schema_product on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -94,14 +94,14 @@ public class BsNextSchemaProductCQ extends AbstractBsNextSchemaProductCQ {
     public String keepProductId_QueryDerivedReferrer_WhiteSameNameListParameter(Object pm) { return xkeepSQuePm("productId_QueryDerivedReferrer_WhiteSameNameList", pm); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * product_id: {PK, ID, NotNull, serial(10)}
      * @return this. (NotNull)
      */
     public BsNextSchemaProductCQ addOrderBy_ProductId_Asc() { regOBA("product_id"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * product_id: {PK, ID, NotNull, serial(10)}
      * @return this. (NotNull)
      */
@@ -114,14 +114,14 @@ public class BsNextSchemaProductCQ extends AbstractBsNextSchemaProductCQ {
     protected ConditionValue xgetCValueProductName() { return xdfgetProductName(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * product_name: {NotNull, varchar(200)}
      * @return this. (NotNull)
      */
     public BsNextSchemaProductCQ addOrderBy_ProductName_Asc() { regOBA("product_name"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * product_name: {NotNull, varchar(200)}
      * @return this. (NotNull)
      */

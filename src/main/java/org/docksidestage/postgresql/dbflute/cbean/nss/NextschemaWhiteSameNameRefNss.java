@@ -19,7 +19,7 @@ public class NextschemaWhiteSameNameRefNss {
     //                                                                     Nested Relation
     //                                                                     ===============
     /**
-     * With nested relation columns to select clause. <br />
+     * With nested relation columns to select clause. <br>
      * nextschema.white_same_name by my same_name_id, named 'whiteSameName'.
      * @return The set-upper of more nested relation. {...with[nested-relation].with[more-nested-relation]} (NotNull)
      */

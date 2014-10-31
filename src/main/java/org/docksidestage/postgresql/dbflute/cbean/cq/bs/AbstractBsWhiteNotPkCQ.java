@@ -47,7 +47,7 @@ public abstract class AbstractBsWhiteNotPkCQ extends AbstractConditionQuery {
     //                                                                               Query
     //                                                                               =====
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * not_pk_id: {NotNull, int8(19)}
      * @param notPkId The value of notPkId as equal. (NullAllowed: if null, no condition)
      */
@@ -60,7 +60,7 @@ public abstract class AbstractBsWhiteNotPkCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * not_pk_id: {NotNull, int8(19)}
      * @param notPkId The value of notPkId as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -69,7 +69,7 @@ public abstract class AbstractBsWhiteNotPkCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * not_pk_id: {NotNull, int8(19)}
      * @param notPkId The value of notPkId as lessThan. (NullAllowed: if null, no condition)
      */
@@ -78,7 +78,7 @@ public abstract class AbstractBsWhiteNotPkCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * not_pk_id: {NotNull, int8(19)}
      * @param notPkId The value of notPkId as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -87,7 +87,7 @@ public abstract class AbstractBsWhiteNotPkCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * not_pk_id: {NotNull, int8(19)}
      * @param notPkId The value of notPkId as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -96,9 +96,9 @@ public abstract class AbstractBsWhiteNotPkCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * not_pk_id: {NotNull, int8(19)}
      * @param minNumber The min number of notPkId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of notPkId. (NullAllowed: if null, no to-condition)
@@ -109,9 +109,9 @@ public abstract class AbstractBsWhiteNotPkCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * not_pk_id: {NotNull, int8(19)}
      * @param minNumber The min number of notPkId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of notPkId. (NullAllowed: if null, no to-condition)
@@ -122,7 +122,7 @@ public abstract class AbstractBsWhiteNotPkCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * not_pk_id: {NotNull, int8(19)}
      * @param notPkIdList The collection of notPkId as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -135,7 +135,7 @@ public abstract class AbstractBsWhiteNotPkCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * not_pk_id: {NotNull, int8(19)}
      * @param notPkIdList The collection of notPkId as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -151,7 +151,7 @@ public abstract class AbstractBsWhiteNotPkCQ extends AbstractConditionQuery {
     protected abstract ConditionValue xgetCValueNotPkId();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * not_pk_name: {varchar(2147483647)}
      * @param notPkName The value of notPkName as equal. (NullAllowed: if null (or empty), no condition)
      */
@@ -164,7 +164,7 @@ public abstract class AbstractBsWhiteNotPkCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * not_pk_name: {varchar(2147483647)}
      * @param notPkName The value of notPkName as notEqual. (NullAllowed: if null (or empty), no condition)
      */
@@ -177,7 +177,7 @@ public abstract class AbstractBsWhiteNotPkCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * not_pk_name: {varchar(2147483647)}
      * @param notPkNameList The collection of notPkName as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -190,7 +190,7 @@ public abstract class AbstractBsWhiteNotPkCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * not_pk_name: {varchar(2147483647)}
      * @param notPkNameList The collection of notPkName as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -203,8 +203,8 @@ public abstract class AbstractBsWhiteNotPkCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * not_pk_name: {varchar(2147483647)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * not_pk_name: {varchar(2147483647)} <br>
      * <pre>e.g. setNotPkName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param notPkName The value of notPkName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -214,8 +214,8 @@ public abstract class AbstractBsWhiteNotPkCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * not_pk_name: {varchar(2147483647)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * not_pk_name: {varchar(2147483647)} <br>
      * <pre>e.g. setNotPkName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param notPkName The value of notPkName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
@@ -225,8 +225,8 @@ public abstract class AbstractBsWhiteNotPkCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * not_pk_name: {varchar(2147483647)}
      * @param notPkName The value of notPkName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -236,8 +236,8 @@ public abstract class AbstractBsWhiteNotPkCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * not_pk_name: {varchar(2147483647)}
      * @param notPkName The value of notPkName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of not-like-search. (NotNull)
@@ -247,7 +247,7 @@ public abstract class AbstractBsWhiteNotPkCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * not_pk_name: {varchar(2147483647)}
      * @param notPkName The value of notPkName as prefixSearch. (NullAllowed: if null (or empty), no condition)
      */
@@ -256,19 +256,19 @@ public abstract class AbstractBsWhiteNotPkCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * not_pk_name: {varchar(2147483647)}
      */
     public void setNotPkName_IsNull() { regNotPkName(CK_ISN, DOBJ); }
 
     /**
-     * IsNullOrEmpty {is null or empty}. And OnlyOnceRegistered. <br />
+     * IsNullOrEmpty {is null or empty}. And OnlyOnceRegistered. <br>
      * not_pk_name: {varchar(2147483647)}
      */
     public void setNotPkName_IsNullOrEmpty() { regNotPkName(CK_ISNOE, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * not_pk_name: {varchar(2147483647)}
      */
     public void setNotPkName_IsNotNull() { regNotPkName(CK_ISNN, DOBJ); }
@@ -277,7 +277,7 @@ public abstract class AbstractBsWhiteNotPkCQ extends AbstractConditionQuery {
     protected abstract ConditionValue xgetCValueNotPkName();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * not_pk_integer: {int4(10)}
      * @param notPkInteger The value of notPkInteger as equal. (NullAllowed: if null, no condition)
      */
@@ -290,7 +290,7 @@ public abstract class AbstractBsWhiteNotPkCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * not_pk_integer: {int4(10)}
      * @param notPkInteger The value of notPkInteger as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -299,7 +299,7 @@ public abstract class AbstractBsWhiteNotPkCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * not_pk_integer: {int4(10)}
      * @param notPkInteger The value of notPkInteger as lessThan. (NullAllowed: if null, no condition)
      */
@@ -308,7 +308,7 @@ public abstract class AbstractBsWhiteNotPkCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * not_pk_integer: {int4(10)}
      * @param notPkInteger The value of notPkInteger as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -317,7 +317,7 @@ public abstract class AbstractBsWhiteNotPkCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * not_pk_integer: {int4(10)}
      * @param notPkInteger The value of notPkInteger as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -326,9 +326,9 @@ public abstract class AbstractBsWhiteNotPkCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * not_pk_integer: {int4(10)}
      * @param minNumber The min number of notPkInteger. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of notPkInteger. (NullAllowed: if null, no to-condition)
@@ -339,9 +339,9 @@ public abstract class AbstractBsWhiteNotPkCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * not_pk_integer: {int4(10)}
      * @param minNumber The min number of notPkInteger. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of notPkInteger. (NullAllowed: if null, no to-condition)
@@ -352,7 +352,7 @@ public abstract class AbstractBsWhiteNotPkCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * not_pk_integer: {int4(10)}
      * @param notPkIntegerList The collection of notPkInteger as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -365,7 +365,7 @@ public abstract class AbstractBsWhiteNotPkCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * not_pk_integer: {int4(10)}
      * @param notPkIntegerList The collection of notPkInteger as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -378,13 +378,13 @@ public abstract class AbstractBsWhiteNotPkCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * not_pk_integer: {int4(10)}
      */
     public void setNotPkInteger_IsNull() { regNotPkInteger(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * not_pk_integer: {int4(10)}
      */
     public void setNotPkInteger_IsNotNull() { regNotPkInteger(CK_ISNN, DOBJ); }
@@ -396,7 +396,7 @@ public abstract class AbstractBsWhiteNotPkCQ extends AbstractConditionQuery {
     //                                                                     ScalarCondition
     //                                                                     ===============
     /**
-     * Prepare ScalarCondition as equal. <br />
+     * Prepare ScalarCondition as equal. <br>
      * {where FOO = (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_Equal()</span>.max(new SubQuery&lt;WhiteNotPkCB&gt;() {
@@ -413,7 +413,7 @@ public abstract class AbstractBsWhiteNotPkCQ extends AbstractConditionQuery {
     }
 
     /**
-     * Prepare ScalarCondition as equal. <br />
+     * Prepare ScalarCondition as equal. <br>
      * {where FOO &lt;&gt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_NotEqual()</span>.max(new SubQuery&lt;WhiteNotPkCB&gt;() {
@@ -430,7 +430,7 @@ public abstract class AbstractBsWhiteNotPkCQ extends AbstractConditionQuery {
     }
 
     /**
-     * Prepare ScalarCondition as greaterThan. <br />
+     * Prepare ScalarCondition as greaterThan. <br>
      * {where FOO &gt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_GreaterThan()</span>.max(new SubQuery&lt;WhiteNotPkCB&gt;() {
@@ -447,7 +447,7 @@ public abstract class AbstractBsWhiteNotPkCQ extends AbstractConditionQuery {
     }
 
     /**
-     * Prepare ScalarCondition as lessThan. <br />
+     * Prepare ScalarCondition as lessThan. <br>
      * {where FOO &lt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessThan()</span>.max(new SubQuery&lt;WhiteNotPkCB&gt;() {
@@ -464,7 +464,7 @@ public abstract class AbstractBsWhiteNotPkCQ extends AbstractConditionQuery {
     }
 
     /**
-     * Prepare ScalarCondition as greaterEqual. <br />
+     * Prepare ScalarCondition as greaterEqual. <br>
      * {where FOO &gt;= (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_GreaterEqual()</span>.max(new SubQuery&lt;WhiteNotPkCB&gt;() {
@@ -481,7 +481,7 @@ public abstract class AbstractBsWhiteNotPkCQ extends AbstractConditionQuery {
     }
 
     /**
-     * Prepare ScalarCondition as lessEqual. <br />
+     * Prepare ScalarCondition as lessEqual. <br>
      * {where FOO &lt;= (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessEqual()</span>.max(new SubQuery&lt;WhiteNotPkCB&gt;() {
@@ -519,7 +519,7 @@ public abstract class AbstractBsWhiteNotPkCQ extends AbstractConditionQuery {
     //                                                                    Full Text Search
     //                                                                    ================
     /**
-     * Match for full-text search. <br />
+     * Match for full-text search. <br>
      * @param textColumn The text column. (NotNull, StringColumn, TargetTableColumn)
      * @param conditionValue The condition value. (NullAllowed: if null or empty, no condition)
      */
@@ -529,7 +529,7 @@ public abstract class AbstractBsWhiteNotPkCQ extends AbstractConditionQuery {
     }
 
     /**
-     * Match for full-text search. <br />
+     * Match for full-text search. <br>
      * @param textColumnList The list of text column. (NotNull, NotEmpty, StringColumn, TargetTableColumn)
      * @param conditionValue The condition value. (NullAllowed: if null or empty, no condition)
      */

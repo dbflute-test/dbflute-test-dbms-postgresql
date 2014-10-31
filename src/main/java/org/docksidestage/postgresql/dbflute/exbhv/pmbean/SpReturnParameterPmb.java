@@ -4,8 +4,8 @@ import org.docksidestage.postgresql.dbflute.bsbhv.pmbean.BsSpReturnParameterPmb;
 
 /**
  * <!-- df:beginClassDescription -->
- * The typed parameter-bean of SpReturnParameter. <br />
- * This is related to "<span style="color: #AD4747">sp_return_parameter</span>". <br />
+ * The typed parameter-bean of SpReturnParameter. <br>
+ * This is related to "<span style="color: #AD4747">sp_return_parameter</span>". <br>
  * <!-- df:endClassDescription -->
  * <p>
  * You can implement your original methods here.

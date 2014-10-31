@@ -4,8 +4,8 @@ import org.docksidestage.postgresql.dbflute.bsbhv.pmbean.BsSpInOutParameterPmb;
 
 /**
  * <!-- df:beginClassDescription -->
- * The typed parameter-bean of SpInOutParameter. <br />
- * This is related to "<span style="color: #AD4747">sp_in_out_parameter</span>". <br />
+ * The typed parameter-bean of SpInOutParameter. <br>
+ * This is related to "<span style="color: #AD4747">sp_in_out_parameter</span>". <br>
  * <!-- df:endClassDescription -->
  * <p>
  * You can implement your original methods here.

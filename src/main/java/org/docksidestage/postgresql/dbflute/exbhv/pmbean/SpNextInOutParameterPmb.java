@@ -4,8 +4,8 @@ import org.docksidestage.postgresql.dbflute.bsbhv.pmbean.BsSpNextInOutParameterP
 
 /**
  * <!-- df:beginClassDescription -->
- * The typed parameter-bean of SpNextInOutParameter. <br />
- * This is related to "<span style="color: #AD4747">nextschema.sp_next_in_out_parameter</span>". <br />
+ * The typed parameter-bean of SpNextInOutParameter. <br>
+ * This is related to "<span style="color: #AD4747">nextschema.sp_next_in_out_parameter</span>". <br>
  * <!-- df:endClassDescription -->
  * <p>
  * You can implement your original methods here.

@@ -7,7 +7,7 @@ import org.docksidestage.postgresql.dbflute.exbhv.*;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
 /**
- * The referrer loader of vendor_$_dollar as TABLE. <br />
+ * The referrer loader of vendor_$_dollar as TABLE. <br>
  * <pre>
  * [primary key]
  *     vendor_$_dollar_id

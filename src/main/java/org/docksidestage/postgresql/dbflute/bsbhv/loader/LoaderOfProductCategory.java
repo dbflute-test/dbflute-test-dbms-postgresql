@@ -9,7 +9,7 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
 import org.docksidestage.postgresql.dbflute.cbean.*;
 
 /**
- * The referrer loader of (商品カテゴリ)product_category as TABLE. <br />
+ * The referrer loader of (商品カテゴリ)product_category as TABLE. <br>
  * <pre>
  * [primary key]
  *     product_category_code
@@ -64,7 +64,7 @@ public class LoaderOfProductCategory {
     protected List<Product> _referrerProductList;
 
     /**
-     * Load referrer of productList by the set-upper of referrer. <br />
+     * Load referrer of productList by the set-upper of referrer. <br>
      * (商品)product by product_category_code, named 'productList'.
      * <pre>
      * <span style="color: #0000C0">productCategoryBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">productCategoryList</span>, <span style="color: #553000">categoryLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -73,7 +73,7 @@ public class LoaderOfProductCategory {
      *         <span style="color: #553000">productCB</span>.query().set...
      *         <span style="color: #553000">productCB</span>.query().addOrderBy...
      *     }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
-     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">productLoader</span> -&gt {</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">productLoader</span> -&gt; {</span>
      *     <span style="color: #3F7E5E">//    productLoader.load...</span>
      *     <span style="color: #3F7E5E">//});</span>
      * });
@@ -81,7 +81,7 @@ public class LoaderOfProductCategory {
      *     ... = productCategory.<span style="color: #CC4747">getProductList()</span>;
      * }
      * </pre>
-     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
      * The condition-bean, which the set-upper provides, has settings before callback as follows:
      * <pre>
      * cb.query().setProductCategoryCode_InScope(pkList);
@@ -98,7 +98,7 @@ public class LoaderOfProductCategory {
     protected List<ProductCategory> _referrerProductCategorySelfList;
 
     /**
-     * Load referrer of productCategorySelfList by the set-upper of referrer. <br />
+     * Load referrer of productCategorySelfList by the set-upper of referrer. <br>
      * (商品カテゴリ)product_category by parent_category_code, named 'productCategorySelfList'.
      * <pre>
      * <span style="color: #0000C0">productCategoryBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">productCategoryList</span>, <span style="color: #553000">categoryLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -107,7 +107,7 @@ public class LoaderOfProductCategory {
      *         <span style="color: #553000">categoryCB</span>.query().set...
      *         <span style="color: #553000">categoryCB</span>.query().addOrderBy...
      *     }); <span style="color: #3F7E5E">// you can load nested referrer from here</span>
-     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">categoryLoader</span> -&gt {</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(<span style="color: #553000">categoryLoader</span> -&gt; {</span>
      *     <span style="color: #3F7E5E">//    categoryLoader.load...</span>
      *     <span style="color: #3F7E5E">//});</span>
      * });
@@ -115,7 +115,7 @@ public class LoaderOfProductCategory {
      *     ... = productCategory.<span style="color: #CC4747">getProductCategorySelfList()</span>;
      * }
      * </pre>
-     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
      * The condition-bean, which the set-upper provides, has settings before callback as follows:
      * <pre>
      * cb.query().setParentCategoryCode_InScope(pkList);

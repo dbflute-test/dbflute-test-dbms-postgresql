@@ -9,7 +9,7 @@ import org.dbflute.util.DfTypeUtil;
 import org.docksidestage.postgresql.dbflute.allcommon.*;
 
 /**
- * The base class for procedure parameter-bean of PartManInsertTrigger. <br />
+ * The base class for procedure parameter-bean of PartManInsertTrigger. <br>
  * This is related to "<span style="color: #AD4747">part_man_insert_trigger</span>".
  * @author DBFlute(AutoGenerator)
  */
@@ -39,7 +39,7 @@ public class BsPartManInsertTriggerPmb implements ProcedurePmb, FetchBean {
     //                                                                         Constructor
     //                                                                         ===========
     /**
-     * Constructor for the procedure parameter-bean of PartManInsertTrigger. <br />
+     * Constructor for the procedure parameter-bean of PartManInsertTrigger. <br>
      * This is related to "<span style="color: #AD4747">part_man_insert_trigger</span>".
      */
     public BsPartManInsertTriggerPmb() {
@@ -130,7 +130,7 @@ public class BsPartManInsertTriggerPmb implements ProcedurePmb, FetchBean {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] returnValue: {trigger as Return} <br />
+     * [get] returnValue: {trigger as Return} <br>
      * @return The value of returnValue. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public Object getReturnValue() {
@@ -138,7 +138,7 @@ public class BsPartManInsertTriggerPmb implements ProcedurePmb, FetchBean {
     }
 
     /**
-     * [set] returnValue: {trigger as Return} <br />
+     * [set] returnValue: {trigger as Return} <br>
      * @param returnValue The value of returnValue. (NullAllowed)
      */
     public void setReturnValue(Object returnValue) {

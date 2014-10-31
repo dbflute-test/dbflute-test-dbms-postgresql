@@ -5,10 +5,11 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.CustomizeEntity;
 import org.docksidestage.postgresql.dbflute.exentity.customize.*;
 
 /**
- * The entity of ForcedType. <br />
+ * The entity of ForcedType. <br>
  * <pre>
  * [primary-key]
  *     
@@ -45,7 +46,7 @@ import org.docksidestage.postgresql.dbflute.exentity.customize.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsForcedType extends AbstractEntity {
+public abstract class BsForcedType extends AbstractEntity implements CustomizeEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -150,7 +151,7 @@ public abstract class BsForcedType extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] max_member_id: {int4(10)} <br />
+     * [get] max_member_id: {int4(10)} <br>
      * @return The value of the column 'max_member_id'. (NullAllowed even if selected: for no constraint)
      */
     public java.math.BigInteger getMaxMemberId() {
@@ -159,7 +160,7 @@ public abstract class BsForcedType extends AbstractEntity {
     }
 
     /**
-     * [set] max_member_id: {int4(10)} <br />
+     * [set] max_member_id: {int4(10)} <br>
      * @param maxMemberId The value of the column 'max_member_id'. (NullAllowed: null update allowed for no constraint)
      */
     public void setMaxMemberId(java.math.BigInteger maxMemberId) {

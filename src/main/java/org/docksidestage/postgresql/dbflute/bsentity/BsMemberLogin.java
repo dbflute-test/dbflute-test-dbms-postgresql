@@ -5,13 +5,14 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.postgresql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.postgresql.dbflute.allcommon.CDef;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
 /**
- * The entity of (会員ログイン)member_login as TABLE. <br />
- * ログインするたびに登録されるログイン履歴。<br />
+ * The entity of (会員ログイン)member_login as TABLE. <br>
+ * ログインするたびに登録されるログイン履歴。<br>
  * 登録されたら更新されるも削除されることもない。さらには登録する人もプログラムもはっきりしているので、ここでは共通カラムは(紙面の都合上もあって)省略している。
  * <pre>
  * [primary-key]
@@ -57,7 +58,7 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsMemberLogin extends AbstractEntity {
+public abstract class BsMemberLogin extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -114,7 +115,7 @@ public abstract class BsMemberLogin extends AbstractEntity {
     }
 
     /**
-     * To be unique by the unique column. <br />
+     * To be unique by the unique column. <br>
      * You can update the entity by the key when entity update (NOT batch update).
      * @param memberId (会員ID): UQ+, NotNull, int4(10), FK to member. (NotNull)
      * @param loginDatetime (ログイン日時): +UQ, IX, NotNull, timestamp(26, 3). (NotNull)
@@ -130,8 +131,8 @@ public abstract class BsMemberLogin extends AbstractEntity {
     //                                                             Classification Property
     //                                                             =======================
     /**
-     * Get the value of mobileLoginFlg as the classification of Flg. <br />
-     * (モバイルログインフラグ)mobile_login_flg: {NotNull, int4(10), classification=Flg} <br />
+     * Get the value of mobileLoginFlg as the classification of Flg. <br>
+     * (モバイルログインフラグ)mobile_login_flg: {NotNull, int4(10), classification=Flg} <br>
      * general boolean classification for every flg-column
      * <p>It's treated as case insensitive and if the code value is null, it returns null.</p>
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
@@ -141,8 +142,8 @@ public abstract class BsMemberLogin extends AbstractEntity {
     }
 
     /**
-     * Set the value of mobileLoginFlg as the classification of Flg. <br />
-     * (モバイルログインフラグ)mobile_login_flg: {NotNull, int4(10), classification=Flg} <br />
+     * Set the value of mobileLoginFlg as the classification of Flg. <br>
+     * (モバイルログインフラグ)mobile_login_flg: {NotNull, int4(10), classification=Flg} <br>
      * general boolean classification for every flg-column
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, null value is set to the column)
      */
@@ -151,8 +152,8 @@ public abstract class BsMemberLogin extends AbstractEntity {
     }
 
     /**
-     * Get the value of loginMemberStatusCode as the classification of MemberStatus. <br />
-     * (ログイン会員ステータスコード)login_member_status_code: {NotNull, bpchar(3), FK to member_status, classification=MemberStatus} <br />
+     * Get the value of loginMemberStatusCode as the classification of MemberStatus. <br>
+     * (ログイン会員ステータスコード)login_member_status_code: {NotNull, bpchar(3), FK to member_status, classification=MemberStatus} <br>
      * status of member from entry to withdrawal
      * <p>It's treated as case insensitive and if the code value is null, it returns null.</p>
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
@@ -162,8 +163,8 @@ public abstract class BsMemberLogin extends AbstractEntity {
     }
 
     /**
-     * Set the value of loginMemberStatusCode as the classification of MemberStatus. <br />
-     * (ログイン会員ステータスコード)login_member_status_code: {NotNull, bpchar(3), FK to member_status, classification=MemberStatus} <br />
+     * Set the value of loginMemberStatusCode as the classification of MemberStatus. <br>
+     * (ログイン会員ステータスコード)login_member_status_code: {NotNull, bpchar(3), FK to member_status, classification=MemberStatus} <br>
      * status of member from entry to withdrawal
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, null value is set to the column)
      */
@@ -175,7 +176,7 @@ public abstract class BsMemberLogin extends AbstractEntity {
     //                                                              Classification Setting
     //                                                              ======================
     /**
-     * Set the value of mobileLoginFlg as True (1). <br />
+     * Set the value of mobileLoginFlg as True (1). <br>
      * Yes: means valid
      */
     public void setMobileLoginFlg_True() {
@@ -183,7 +184,7 @@ public abstract class BsMemberLogin extends AbstractEntity {
     }
 
     /**
-     * Set the value of mobileLoginFlg as False (0). <br />
+     * Set the value of mobileLoginFlg as False (0). <br>
      * No: means invalid
      */
     public void setMobileLoginFlg_False() {
@@ -191,7 +192,7 @@ public abstract class BsMemberLogin extends AbstractEntity {
     }
 
     /**
-     * Set the value of loginMemberStatusCode as Formalized (FML). <br />
+     * Set the value of loginMemberStatusCode as Formalized (FML). <br>
      * FORMALIZED: as formal member, allowed to use all service
      */
     public void setLoginMemberStatusCode_Formalized() {
@@ -199,7 +200,7 @@ public abstract class BsMemberLogin extends AbstractEntity {
     }
 
     /**
-     * Set the value of loginMemberStatusCode as Withdrawal (WDL). <br />
+     * Set the value of loginMemberStatusCode as Withdrawal (WDL). <br>
      * WITHDRAWAL: withdrawal is fixed, not allowed to use service
      */
     public void setLoginMemberStatusCode_Withdrawal() {
@@ -207,7 +208,7 @@ public abstract class BsMemberLogin extends AbstractEntity {
     }
 
     /**
-     * Set the value of loginMemberStatusCode as Provisional (PRV). <br />
+     * Set the value of loginMemberStatusCode as Provisional (PRV). <br>
      * PROVISIONAL: first status after entry, allowed to use only part of service
      */
     public void setLoginMemberStatusCode_Provisional() {
@@ -218,7 +219,7 @@ public abstract class BsMemberLogin extends AbstractEntity {
     //                                                        Classification Determination
     //                                                        ============================
     /**
-     * Is the value of mobileLoginFlg True? <br />
+     * Is the value of mobileLoginFlg True? <br>
      * Yes: means valid
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -229,7 +230,7 @@ public abstract class BsMemberLogin extends AbstractEntity {
     }
 
     /**
-     * Is the value of mobileLoginFlg False? <br />
+     * Is the value of mobileLoginFlg False? <br>
      * No: means invalid
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -240,7 +241,7 @@ public abstract class BsMemberLogin extends AbstractEntity {
     }
 
     /**
-     * Is the value of loginMemberStatusCode Formalized? <br />
+     * Is the value of loginMemberStatusCode Formalized? <br>
      * FORMALIZED: as formal member, allowed to use all service
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -251,7 +252,7 @@ public abstract class BsMemberLogin extends AbstractEntity {
     }
 
     /**
-     * Is the value of loginMemberStatusCode Withdrawal? <br />
+     * Is the value of loginMemberStatusCode Withdrawal? <br>
      * WITHDRAWAL: withdrawal is fixed, not allowed to use service
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -262,7 +263,7 @@ public abstract class BsMemberLogin extends AbstractEntity {
     }
 
     /**
-     * Is the value of loginMemberStatusCode Provisional? <br />
+     * Is the value of loginMemberStatusCode Provisional? <br>
      * PROVISIONAL: first status after entry, allowed to use only part of service
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -300,7 +301,7 @@ public abstract class BsMemberLogin extends AbstractEntity {
     protected MemberStatus _memberStatus;
 
     /**
-     * [get] (会員ステータス)member_status by my login_member_status_code, named 'memberStatus'. <br />
+     * [get] (会員ステータス)member_status by my login_member_status_code, named 'memberStatus'. <br>
      * @return The entity of foreign property 'memberStatus'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public MemberStatus getMemberStatus() {
@@ -319,7 +320,7 @@ public abstract class BsMemberLogin extends AbstractEntity {
     protected Member _member;
 
     /**
-     * [get] (会員)member by my member_id, named 'member'. <br />
+     * [get] (会員)member by my member_id, named 'member'. <br>
      * @return The entity of foreign property 'member'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public Member getMember() {
@@ -410,7 +411,7 @@ public abstract class BsMemberLogin extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] (会員ログインID)member_login_id: {PK, ID, NotNull, bigserial(19)} <br />
+     * [get] (会員ログインID)member_login_id: {PK, ID, NotNull, bigserial(19)} <br>
      * @return The value of the column 'member_login_id'. (basically NotNull if selected: for the constraint)
      */
     public Long getMemberLoginId() {
@@ -419,7 +420,7 @@ public abstract class BsMemberLogin extends AbstractEntity {
     }
 
     /**
-     * [set] (会員ログインID)member_login_id: {PK, ID, NotNull, bigserial(19)} <br />
+     * [set] (会員ログインID)member_login_id: {PK, ID, NotNull, bigserial(19)} <br>
      * @param memberLoginId The value of the column 'member_login_id'. (basically NotNull if update: for the constraint)
      */
     public void setMemberLoginId(Long memberLoginId) {
@@ -428,7 +429,7 @@ public abstract class BsMemberLogin extends AbstractEntity {
     }
 
     /**
-     * [get] (会員ID)member_id: {UQ+, NotNull, int4(10), FK to member} <br />
+     * [get] (会員ID)member_id: {UQ+, NotNull, int4(10), FK to member} <br>
      * @return The value of the column 'member_id'. (basically NotNull if selected: for the constraint)
      */
     public Integer getMemberId() {
@@ -437,7 +438,7 @@ public abstract class BsMemberLogin extends AbstractEntity {
     }
 
     /**
-     * [set] (会員ID)member_id: {UQ+, NotNull, int4(10), FK to member} <br />
+     * [set] (会員ID)member_id: {UQ+, NotNull, int4(10), FK to member} <br>
      * @param memberId The value of the column 'member_id'. (basically NotNull if update: for the constraint)
      */
     public void setMemberId(Integer memberId) {
@@ -446,7 +447,7 @@ public abstract class BsMemberLogin extends AbstractEntity {
     }
 
     /**
-     * [get] (ログイン日時)login_datetime: {+UQ, IX, NotNull, timestamp(26, 3)} <br />
+     * [get] (ログイン日時)login_datetime: {+UQ, IX, NotNull, timestamp(26, 3)} <br>
      * ログインした瞬間の日時。
      * @return The value of the column 'login_datetime'. (basically NotNull if selected: for the constraint)
      */
@@ -456,7 +457,7 @@ public abstract class BsMemberLogin extends AbstractEntity {
     }
 
     /**
-     * [set] (ログイン日時)login_datetime: {+UQ, IX, NotNull, timestamp(26, 3)} <br />
+     * [set] (ログイン日時)login_datetime: {+UQ, IX, NotNull, timestamp(26, 3)} <br>
      * ログインした瞬間の日時。
      * @param loginDatetime The value of the column 'login_datetime'. (basically NotNull if update: for the constraint)
      */
@@ -466,7 +467,7 @@ public abstract class BsMemberLogin extends AbstractEntity {
     }
 
     /**
-     * [get] (モバイルログインフラグ)mobile_login_flg: {NotNull, int4(10), classification=Flg} <br />
+     * [get] (モバイルログインフラグ)mobile_login_flg: {NotNull, int4(10), classification=Flg} <br>
      * モバイル機器からのログインか否か。
      * @return The value of the column 'mobile_login_flg'. (basically NotNull if selected: for the constraint)
      */
@@ -476,7 +477,7 @@ public abstract class BsMemberLogin extends AbstractEntity {
     }
 
     /**
-     * [set] (モバイルログインフラグ)mobile_login_flg: {NotNull, int4(10), classification=Flg} <br />
+     * [set] (モバイルログインフラグ)mobile_login_flg: {NotNull, int4(10), classification=Flg} <br>
      * モバイル機器からのログインか否か。
      * @param mobileLoginFlg The value of the column 'mobile_login_flg'. (basically NotNull if update: for the constraint)
      */
@@ -487,7 +488,7 @@ public abstract class BsMemberLogin extends AbstractEntity {
     }
 
     /**
-     * [get] (ログイン会員ステータスコード)login_member_status_code: {NotNull, bpchar(3), FK to member_status, classification=MemberStatus} <br />
+     * [get] (ログイン会員ステータスコード)login_member_status_code: {NotNull, bpchar(3), FK to member_status, classification=MemberStatus} <br>
      * ログイン時の会員ステータス
      * @return The value of the column 'login_member_status_code'. (basically NotNull if selected: for the constraint)
      */
@@ -497,7 +498,7 @@ public abstract class BsMemberLogin extends AbstractEntity {
     }
 
     /**
-     * [set] (ログイン会員ステータスコード)login_member_status_code: {NotNull, bpchar(3), FK to member_status, classification=MemberStatus} <br />
+     * [set] (ログイン会員ステータスコード)login_member_status_code: {NotNull, bpchar(3), FK to member_status, classification=MemberStatus} <br>
      * ログイン時の会員ステータス
      * @param loginMemberStatusCode The value of the column 'login_member_status_code'. (basically NotNull if update: for the constraint)
      */

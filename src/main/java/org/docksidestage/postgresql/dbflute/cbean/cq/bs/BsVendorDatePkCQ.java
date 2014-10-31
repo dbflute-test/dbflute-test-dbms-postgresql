@@ -34,7 +34,7 @@ public class BsVendorDatePkCQ extends AbstractBsVendorDatePkCQ {
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from vendor_date_pk) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -57,7 +57,7 @@ public class BsVendorDatePkCQ extends AbstractBsVendorDatePkCQ {
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join vendor_date_pk on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -80,14 +80,14 @@ public class BsVendorDatePkCQ extends AbstractBsVendorDatePkCQ {
     protected ConditionValue xgetCValueFooDate() { return xdfgetFooDate(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * foo_date: {PK, NotNull, date(13)}
      * @return this. (NotNull)
      */
     public BsVendorDatePkCQ addOrderBy_FooDate_Asc() { regOBA("foo_date"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * foo_date: {PK, NotNull, date(13)}
      * @return this. (NotNull)
      */
@@ -100,14 +100,14 @@ public class BsVendorDatePkCQ extends AbstractBsVendorDatePkCQ {
     protected ConditionValue xgetCValueFooName() { return xdfgetFooName(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * foo_name: {NotNull, varchar(2147483647)}
      * @return this. (NotNull)
      */
     public BsVendorDatePkCQ addOrderBy_FooName_Asc() { regOBA("foo_name"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * foo_name: {NotNull, varchar(2147483647)}
      * @return this. (NotNull)
      */

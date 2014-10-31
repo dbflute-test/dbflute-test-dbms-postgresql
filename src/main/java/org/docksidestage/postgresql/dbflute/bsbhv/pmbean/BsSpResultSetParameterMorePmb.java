@@ -10,7 +10,7 @@ import org.docksidestage.postgresql.dbflute.allcommon.*;
 import org.docksidestage.postgresql.dbflute.exentity.customize.*;
 
 /**
- * The base class for procedure parameter-bean of SpResultSetParameterMore. <br />
+ * The base class for procedure parameter-bean of SpResultSetParameterMore. <br>
  * This is related to "<span style="color: #AD4747">sp_result_set_parameter_more</span>".
  * @author DBFlute(AutoGenerator)
  */
@@ -44,7 +44,7 @@ public class BsSpResultSetParameterMorePmb implements ProcedurePmb, FetchBean {
     //                                                                         Constructor
     //                                                                         ===========
     /**
-     * Constructor for the procedure parameter-bean of SpResultSetParameterMore. <br />
+     * Constructor for the procedure parameter-bean of SpResultSetParameterMore. <br>
      * This is related to "<span style="color: #AD4747">sp_result_set_parameter_more</span>".
      */
     public BsSpResultSetParameterMorePmb() {
@@ -136,7 +136,7 @@ public class BsSpResultSetParameterMorePmb implements ProcedurePmb, FetchBean {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] curMember: {refcursor as Out} <br />
+     * [get] curMember: {refcursor as Out} <br>
      * @return The value of curMember. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public List<SpResultSetParameterMoreCurMember> getCurMember() {
@@ -144,7 +144,7 @@ public class BsSpResultSetParameterMorePmb implements ProcedurePmb, FetchBean {
     }
 
     /**
-     * [set] curMember: {refcursor as Out} <br />
+     * [set] curMember: {refcursor as Out} <br>
      * @param curMember The value of curMember. (NullAllowed)
      */
     public void setCurMember(List<SpResultSetParameterMoreCurMember> curMember) {
@@ -152,7 +152,7 @@ public class BsSpResultSetParameterMorePmb implements ProcedurePmb, FetchBean {
     }
 
     /**
-     * [get] curMemberStatus: {refcursor as Out} <br />
+     * [get] curMemberStatus: {refcursor as Out} <br>
      * @return The value of curMemberStatus. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public List<SpResultSetParameterMoreCurMemberStatus> getCurMemberStatus() {
@@ -160,7 +160,7 @@ public class BsSpResultSetParameterMorePmb implements ProcedurePmb, FetchBean {
     }
 
     /**
-     * [set] curMemberStatus: {refcursor as Out} <br />
+     * [set] curMemberStatus: {refcursor as Out} <br>
      * @param curMemberStatus The value of curMemberStatus. (NullAllowed)
      */
     public void setCurMemberStatus(List<SpResultSetParameterMoreCurMemberStatus> curMemberStatus) {

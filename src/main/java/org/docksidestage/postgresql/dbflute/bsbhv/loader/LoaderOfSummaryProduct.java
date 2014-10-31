@@ -7,7 +7,7 @@ import org.docksidestage.postgresql.dbflute.exbhv.*;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
 /**
- * The referrer loader of summary_product as VIEW. <br />
+ * The referrer loader of summary_product as VIEW. <br>
  * <pre>
  * [primary key]
  *     

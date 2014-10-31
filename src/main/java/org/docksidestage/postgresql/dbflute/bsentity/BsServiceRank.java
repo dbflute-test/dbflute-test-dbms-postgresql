@@ -5,13 +5,14 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.postgresql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.postgresql.dbflute.allcommon.CDef;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
 /**
- * The entity of (サービスランク)service_rank as TABLE. <br />
- * 会員のサービスレベルを表現するランク。<br />
+ * The entity of (サービスランク)service_rank as TABLE. <br>
+ * 会員のサービスレベルを表現するランク。<br>
  * （ゴールドとかプラチナとか）
  * <pre>
  * [primary-key]
@@ -59,7 +60,7 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsServiceRank extends AbstractEntity {
+public abstract class BsServiceRank extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -119,7 +120,7 @@ public abstract class BsServiceRank extends AbstractEntity {
     }
 
     /**
-     * To be unique by the unique column. <br />
+     * To be unique by the unique column. <br>
      * You can update the entity by the key when entity update (NOT batch update).
      * @param displayOrder (表示順): UQ, NotNull, int4(10). (NotNull)
      */
@@ -133,8 +134,8 @@ public abstract class BsServiceRank extends AbstractEntity {
     //                                                             Classification Property
     //                                                             =======================
     /**
-     * Get the value of newAcceptableFlg as the classification of Flg. <br />
-     * (新規受け入れ可能フラグ)new_acceptable_flg: {NotNull, int4(10), classification=Flg} <br />
+     * Get the value of newAcceptableFlg as the classification of Flg. <br>
+     * (新規受け入れ可能フラグ)new_acceptable_flg: {NotNull, int4(10), classification=Flg} <br>
      * general boolean classification for every flg-column
      * <p>It's treated as case insensitive and if the code value is null, it returns null.</p>
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
@@ -144,8 +145,8 @@ public abstract class BsServiceRank extends AbstractEntity {
     }
 
     /**
-     * Set the value of newAcceptableFlg as the classification of Flg. <br />
-     * (新規受け入れ可能フラグ)new_acceptable_flg: {NotNull, int4(10), classification=Flg} <br />
+     * Set the value of newAcceptableFlg as the classification of Flg. <br>
+     * (新規受け入れ可能フラグ)new_acceptable_flg: {NotNull, int4(10), classification=Flg} <br>
      * general boolean classification for every flg-column
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, null value is set to the column)
      */
@@ -157,7 +158,7 @@ public abstract class BsServiceRank extends AbstractEntity {
     //                                                              Classification Setting
     //                                                              ======================
     /**
-     * Set the value of newAcceptableFlg as True (1). <br />
+     * Set the value of newAcceptableFlg as True (1). <br>
      * Yes: means valid
      */
     public void setNewAcceptableFlg_True() {
@@ -165,7 +166,7 @@ public abstract class BsServiceRank extends AbstractEntity {
     }
 
     /**
-     * Set the value of newAcceptableFlg as False (0). <br />
+     * Set the value of newAcceptableFlg as False (0). <br>
      * No: means invalid
      */
     public void setNewAcceptableFlg_False() {
@@ -176,7 +177,7 @@ public abstract class BsServiceRank extends AbstractEntity {
     //                                                        Classification Determination
     //                                                        ============================
     /**
-     * Is the value of newAcceptableFlg True? <br />
+     * Is the value of newAcceptableFlg True? <br>
      * Yes: means valid
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -187,7 +188,7 @@ public abstract class BsServiceRank extends AbstractEntity {
     }
 
     /**
-     * Is the value of newAcceptableFlg False? <br />
+     * Is the value of newAcceptableFlg False? <br>
      * No: means invalid
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -314,7 +315,7 @@ public abstract class BsServiceRank extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] (サービスランクコード)service_rank_code: {PK, NotNull, bpchar(3)} <br />
+     * [get] (サービスランクコード)service_rank_code: {PK, NotNull, bpchar(3)} <br>
      * サービスランクを識別するコード。
      * @return The value of the column 'service_rank_code'. (basically NotNull if selected: for the constraint)
      */
@@ -324,7 +325,7 @@ public abstract class BsServiceRank extends AbstractEntity {
     }
 
     /**
-     * [set] (サービスランクコード)service_rank_code: {PK, NotNull, bpchar(3)} <br />
+     * [set] (サービスランクコード)service_rank_code: {PK, NotNull, bpchar(3)} <br>
      * サービスランクを識別するコード。
      * @param serviceRankCode The value of the column 'service_rank_code'. (basically NotNull if update: for the constraint)
      */
@@ -334,8 +335,8 @@ public abstract class BsServiceRank extends AbstractEntity {
     }
 
     /**
-     * [get] (サービスランク名称)service_rank_name: {NotNull, varchar(50)} <br />
-     * サービスランクの名称。<br />
+     * [get] (サービスランク名称)service_rank_name: {NotNull, varchar(50)} <br>
+     * サービスランクの名称。<br>
      * （ゴールドとかプラチナとか基本的には威厳のある名前）
      * @return The value of the column 'service_rank_name'. (basically NotNull if selected: for the constraint)
      */
@@ -345,8 +346,8 @@ public abstract class BsServiceRank extends AbstractEntity {
     }
 
     /**
-     * [set] (サービスランク名称)service_rank_name: {NotNull, varchar(50)} <br />
-     * サービスランクの名称。<br />
+     * [set] (サービスランク名称)service_rank_name: {NotNull, varchar(50)} <br>
+     * サービスランクの名称。<br>
      * （ゴールドとかプラチナとか基本的には威厳のある名前）
      * @param serviceRankName The value of the column 'service_rank_name'. (basically NotNull if update: for the constraint)
      */
@@ -356,9 +357,9 @@ public abstract class BsServiceRank extends AbstractEntity {
     }
 
     /**
-     * [get] (サービスポイント発生率)service_point_incidence: {NotNull, numeric(5, 3)} <br />
-     * 購入ごとのサービスポイントの発生率。<br />
-     * 購入価格にこの値をかけた数が発生ポイント。<br />
+     * [get] (サービスポイント発生率)service_point_incidence: {NotNull, numeric(5, 3)} <br>
+     * 購入ごとのサービスポイントの発生率。<br>
+     * 購入価格にこの値をかけた数が発生ポイント。<br>
      * ExampleDBとして数少ない貴重な小数点ありのカラム。
      * @return The value of the column 'service_point_incidence'. (basically NotNull if selected: for the constraint)
      */
@@ -368,9 +369,9 @@ public abstract class BsServiceRank extends AbstractEntity {
     }
 
     /**
-     * [set] (サービスポイント発生率)service_point_incidence: {NotNull, numeric(5, 3)} <br />
-     * 購入ごとのサービスポイントの発生率。<br />
-     * 購入価格にこの値をかけた数が発生ポイント。<br />
+     * [set] (サービスポイント発生率)service_point_incidence: {NotNull, numeric(5, 3)} <br>
+     * 購入ごとのサービスポイントの発生率。<br>
+     * 購入価格にこの値をかけた数が発生ポイント。<br>
      * ExampleDBとして数少ない貴重な小数点ありのカラム。
      * @param servicePointIncidence The value of the column 'service_point_incidence'. (basically NotNull if update: for the constraint)
      */
@@ -380,7 +381,7 @@ public abstract class BsServiceRank extends AbstractEntity {
     }
 
     /**
-     * [get] (新規受け入れ可能フラグ)new_acceptable_flg: {NotNull, int4(10), classification=Flg} <br />
+     * [get] (新規受け入れ可能フラグ)new_acceptable_flg: {NotNull, int4(10), classification=Flg} <br>
      * このランクへの新規受け入れができるかどうか。
      * @return The value of the column 'new_acceptable_flg'. (basically NotNull if selected: for the constraint)
      */
@@ -390,7 +391,7 @@ public abstract class BsServiceRank extends AbstractEntity {
     }
 
     /**
-     * [set] (新規受け入れ可能フラグ)new_acceptable_flg: {NotNull, int4(10), classification=Flg} <br />
+     * [set] (新規受け入れ可能フラグ)new_acceptable_flg: {NotNull, int4(10), classification=Flg} <br>
      * このランクへの新規受け入れができるかどうか。
      * @param newAcceptableFlg The value of the column 'new_acceptable_flg'. (basically NotNull if update: for the constraint)
      */
@@ -401,7 +402,7 @@ public abstract class BsServiceRank extends AbstractEntity {
     }
 
     /**
-     * [get] (説明)description: {NotNull, varchar(200)} <br />
+     * [get] (説明)description: {NotNull, varchar(200)} <br>
      * ランクに関する業務的な説明。
      * @return The value of the column 'description'. (basically NotNull if selected: for the constraint)
      */
@@ -411,7 +412,7 @@ public abstract class BsServiceRank extends AbstractEntity {
     }
 
     /**
-     * [set] (説明)description: {NotNull, varchar(200)} <br />
+     * [set] (説明)description: {NotNull, varchar(200)} <br>
      * ランクに関する業務的な説明。
      * @param description The value of the column 'description'. (basically NotNull if update: for the constraint)
      */
@@ -421,7 +422,7 @@ public abstract class BsServiceRank extends AbstractEntity {
     }
 
     /**
-     * [get] (表示順)display_order: {UQ, NotNull, int4(10)} <br />
+     * [get] (表示順)display_order: {UQ, NotNull, int4(10)} <br>
      * UI上の表示順を表現する番号。
      * @return The value of the column 'display_order'. (basically NotNull if selected: for the constraint)
      */
@@ -431,7 +432,7 @@ public abstract class BsServiceRank extends AbstractEntity {
     }
 
     /**
-     * [set] (表示順)display_order: {UQ, NotNull, int4(10)} <br />
+     * [set] (表示順)display_order: {UQ, NotNull, int4(10)} <br>
      * UI上の表示順を表現する番号。
      * @param displayOrder The value of the column 'display_order'. (basically NotNull if update: for the constraint)
      */

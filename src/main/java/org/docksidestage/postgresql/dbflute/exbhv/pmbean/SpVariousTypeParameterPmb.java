@@ -4,8 +4,8 @@ import org.docksidestage.postgresql.dbflute.bsbhv.pmbean.BsSpVariousTypeParamete
 
 /**
  * <!-- df:beginClassDescription -->
- * The typed parameter-bean of SpVariousTypeParameter. <br />
- * This is related to "<span style="color: #AD4747">sp_various_type_parameter</span>". <br />
+ * The typed parameter-bean of SpVariousTypeParameter. <br>
+ * This is related to "<span style="color: #AD4747">sp_various_type_parameter</span>". <br>
  * <!-- df:endClassDescription -->
  * <p>
  * You can implement your original methods here.

@@ -34,7 +34,7 @@ public class BsVendor_non_compilableCQ extends AbstractBsVendor_non_compilableCQ
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from VENDOR-NON COMPILABLE) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -57,7 +57,7 @@ public class BsVendor_non_compilableCQ extends AbstractBsVendor_non_compilableCQ
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join VENDOR-NON COMPILABLE on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -108,14 +108,14 @@ public class BsVendor_non_compilableCQ extends AbstractBsVendor_non_compilableCQ
     public String keepNon_compilable_id_QueryDerivedReferrer_Vendor_non_compilableByParent_idSelfListParameter(Object pm) { return xkeepSQuePm("non_compilable_id_QueryDerivedReferrer_Vendor_non_compilableByParent_idSelfList", pm); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * NON-COMPILABLE ID: {PK, NotNull, int4(10)}
      * @return this. (NotNull)
      */
     public BsVendor_non_compilableCQ addOrderBy_Non_compilable_id_Asc() { regOBA("NON-COMPILABLE ID"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * NON-COMPILABLE ID: {PK, NotNull, int4(10)}
      * @return this. (NotNull)
      */
@@ -128,14 +128,14 @@ public class BsVendor_non_compilableCQ extends AbstractBsVendor_non_compilableCQ
     protected ConditionValue xgetCValueNon_compilable_name() { return xdfgetNon_compilable_name(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * NON COMPILABLE-NAME: {varchar(64)}
      * @return this. (NotNull)
      */
     public BsVendor_non_compilableCQ addOrderBy_Non_compilable_name_Asc() { regOBA("NON COMPILABLE-NAME"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * NON COMPILABLE-NAME: {varchar(64)}
      * @return this. (NotNull)
      */
@@ -148,14 +148,14 @@ public class BsVendor_non_compilableCQ extends AbstractBsVendor_non_compilableCQ
     protected ConditionValue xgetCValueParent_id() { return xdfgetParent_id(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * PARENT-ID: {int4(10), FK to VENDOR-NON COMPILABLE}
      * @return this. (NotNull)
      */
     public BsVendor_non_compilableCQ addOrderBy_Parent_id_Asc() { regOBA("PARENT-ID"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * PARENT-ID: {int4(10), FK to VENDOR-NON COMPILABLE}
      * @return this. (NotNull)
      */
@@ -168,14 +168,14 @@ public class BsVendor_non_compilableCQ extends AbstractBsVendor_non_compilableCQ
     protected ConditionValue xgetCValueNextParentid() { return xdfgetNextParentid(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * Next_ParentID: {int4(10), FK to VENDOR-NON COMPILABLE}
      * @return this. (NotNull)
      */
     public BsVendor_non_compilableCQ addOrderBy_NextParentid_Asc() { regOBA("Next_ParentID"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * Next_ParentID: {int4(10), FK to VENDOR-NON COMPILABLE}
      * @return this. (NotNull)
      */
@@ -234,7 +234,7 @@ public class BsVendor_non_compilableCQ extends AbstractBsVendor_non_compilableCQ
     //                                                                       Foreign Query
     //                                                                       =============
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * VENDOR-NON COMPILABLE by my Next_ParentID, named 'vendor_non_compilableByNextParentidSelf'.
      * @return The instance of condition-query. (NotNull)
      */
@@ -254,7 +254,7 @@ public class BsVendor_non_compilableCQ extends AbstractBsVendor_non_compilableCQ
     public boolean hasConditionQueryVendor_non_compilableByNextParentidSelf() { return xhasQueRlMap("vendor_non_compilableByNextParentidSelf"); }
 
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * VENDOR-NON COMPILABLE by my PARENT-ID, named 'vendor_non_compilableByParent_idSelf'.
      * @return The instance of condition-query. (NotNull)
      */

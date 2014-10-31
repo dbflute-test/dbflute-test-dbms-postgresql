@@ -5,11 +5,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.postgresql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
 /**
- * The entity of white_xls_man as TABLE. <br />
+ * The entity of white_xls_man as TABLE. <br>
  * <pre>
  * [primary-key]
  *     xls_man_id
@@ -54,7 +55,7 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsWhiteXlsMan extends AbstractEntity {
+public abstract class BsWhiteXlsMan extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -176,7 +177,7 @@ public abstract class BsWhiteXlsMan extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] xls_man_id: {PK, NotNull, int8(19)} <br />
+     * [get] xls_man_id: {PK, NotNull, int8(19)} <br>
      * @return The value of the column 'xls_man_id'. (basically NotNull if selected: for the constraint)
      */
     public Long getXlsManId() {
@@ -185,7 +186,7 @@ public abstract class BsWhiteXlsMan extends AbstractEntity {
     }
 
     /**
-     * [set] xls_man_id: {PK, NotNull, int8(19)} <br />
+     * [set] xls_man_id: {PK, NotNull, int8(19)} <br>
      * @param xlsManId The value of the column 'xls_man_id'. (basically NotNull if update: for the constraint)
      */
     public void setXlsManId(Long xlsManId) {
@@ -194,7 +195,7 @@ public abstract class BsWhiteXlsMan extends AbstractEntity {
     }
 
     /**
-     * [get] string_converted: {varchar(2147483647)} <br />
+     * [get] string_converted: {varchar(2147483647)} <br>
      * @return The value of the column 'string_converted'. (NullAllowed even if selected: for no constraint)
      */
     public String getStringConverted() {
@@ -203,7 +204,7 @@ public abstract class BsWhiteXlsMan extends AbstractEntity {
     }
 
     /**
-     * [set] string_converted: {varchar(2147483647)} <br />
+     * [set] string_converted: {varchar(2147483647)} <br>
      * @param stringConverted The value of the column 'string_converted'. (NullAllowed: null update allowed for no constraint)
      */
     public void setStringConverted(String stringConverted) {
@@ -212,7 +213,7 @@ public abstract class BsWhiteXlsMan extends AbstractEntity {
     }
 
     /**
-     * [get] timestamp_zero_default_millis: {timestamp(26, 3)} <br />
+     * [get] timestamp_zero_default_millis: {timestamp(26, 3)} <br>
      * @return The value of the column 'timestamp_zero_default_millis'. (NullAllowed even if selected: for no constraint)
      */
     public java.sql.Timestamp getTimestampZeroDefaultMillis() {
@@ -221,7 +222,7 @@ public abstract class BsWhiteXlsMan extends AbstractEntity {
     }
 
     /**
-     * [set] timestamp_zero_default_millis: {timestamp(26, 3)} <br />
+     * [set] timestamp_zero_default_millis: {timestamp(26, 3)} <br>
      * @param timestampZeroDefaultMillis The value of the column 'timestamp_zero_default_millis'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTimestampZeroDefaultMillis(java.sql.Timestamp timestampZeroDefaultMillis) {
@@ -230,7 +231,7 @@ public abstract class BsWhiteXlsMan extends AbstractEntity {
     }
 
     /**
-     * [get] timestamp_zero_prefix_millis: {timestamp(26, 3)} <br />
+     * [get] timestamp_zero_prefix_millis: {timestamp(26, 3)} <br>
      * @return The value of the column 'timestamp_zero_prefix_millis'. (NullAllowed even if selected: for no constraint)
      */
     public java.sql.Timestamp getTimestampZeroPrefixMillis() {
@@ -239,7 +240,7 @@ public abstract class BsWhiteXlsMan extends AbstractEntity {
     }
 
     /**
-     * [set] timestamp_zero_prefix_millis: {timestamp(26, 3)} <br />
+     * [set] timestamp_zero_prefix_millis: {timestamp(26, 3)} <br>
      * @param timestampZeroPrefixMillis The value of the column 'timestamp_zero_prefix_millis'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTimestampZeroPrefixMillis(java.sql.Timestamp timestampZeroPrefixMillis) {
@@ -248,7 +249,7 @@ public abstract class BsWhiteXlsMan extends AbstractEntity {
     }
 
     /**
-     * [get] timestamp_zero_suffix_millis: {timestamp(26, 3)} <br />
+     * [get] timestamp_zero_suffix_millis: {timestamp(26, 3)} <br>
      * @return The value of the column 'timestamp_zero_suffix_millis'. (NullAllowed even if selected: for no constraint)
      */
     public java.sql.Timestamp getTimestampZeroSuffixMillis() {
@@ -257,7 +258,7 @@ public abstract class BsWhiteXlsMan extends AbstractEntity {
     }
 
     /**
-     * [set] timestamp_zero_suffix_millis: {timestamp(26, 3)} <br />
+     * [set] timestamp_zero_suffix_millis: {timestamp(26, 3)} <br>
      * @param timestampZeroSuffixMillis The value of the column 'timestamp_zero_suffix_millis'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTimestampZeroSuffixMillis(java.sql.Timestamp timestampZeroSuffixMillis) {

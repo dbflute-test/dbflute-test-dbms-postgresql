@@ -47,7 +47,7 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
     //                                                                               Query
     //                                                                               =====
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * inu_id: {PK, NotNull, int4(10)}
      * @param inuId The value of inuId as equal. (NullAllowed: if null, no condition)
      */
@@ -60,7 +60,7 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * inu_id: {PK, NotNull, int4(10)}
      * @param inuId The value of inuId as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -69,7 +69,7 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * inu_id: {PK, NotNull, int4(10)}
      * @param inuId The value of inuId as lessThan. (NullAllowed: if null, no condition)
      */
@@ -78,7 +78,7 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * inu_id: {PK, NotNull, int4(10)}
      * @param inuId The value of inuId as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -87,7 +87,7 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * inu_id: {PK, NotNull, int4(10)}
      * @param inuId The value of inuId as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -96,9 +96,9 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * inu_id: {PK, NotNull, int4(10)}
      * @param minNumber The min number of inuId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of inuId. (NullAllowed: if null, no to-condition)
@@ -109,9 +109,9 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * inu_id: {PK, NotNull, int4(10)}
      * @param minNumber The min number of inuId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of inuId. (NullAllowed: if null, no to-condition)
@@ -122,7 +122,7 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * inu_id: {PK, NotNull, int4(10)}
      * @param inuIdList The collection of inuId as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -135,7 +135,7 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * inu_id: {PK, NotNull, int4(10)}
      * @param inuIdList The collection of inuId as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -148,13 +148,13 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * inu_id: {PK, NotNull, int4(10)}
      */
     public void setInuId_IsNull() { regInuId(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * inu_id: {PK, NotNull, int4(10)}
      */
     public void setInuId_IsNotNull() { regInuId(CK_ISNN, DOBJ); }
@@ -163,7 +163,7 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
     protected abstract ConditionValue xgetCValueInuId();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * inu_name: {NotNull, varchar(2147483647)}
      * @param inuName The value of inuName as equal. (NullAllowed: if null (or empty), no condition)
      */
@@ -176,7 +176,7 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * inu_name: {NotNull, varchar(2147483647)}
      * @param inuName The value of inuName as notEqual. (NullAllowed: if null (or empty), no condition)
      */
@@ -189,7 +189,7 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
     }
 
     /**
-     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * inu_name: {NotNull, varchar(2147483647)}
      * @param inuNameList The collection of inuName as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -202,7 +202,7 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
     }
 
     /**
-     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * inu_name: {NotNull, varchar(2147483647)}
      * @param inuNameList The collection of inuName as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -215,8 +215,8 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * inu_name: {NotNull, varchar(2147483647)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * inu_name: {NotNull, varchar(2147483647)} <br>
      * <pre>e.g. setInuName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param inuName The value of inuName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -226,8 +226,8 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * inu_name: {NotNull, varchar(2147483647)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * inu_name: {NotNull, varchar(2147483647)} <br>
      * <pre>e.g. setInuName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param inuName The value of inuName as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
@@ -237,8 +237,8 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * inu_name: {NotNull, varchar(2147483647)}
      * @param inuName The value of inuName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -248,8 +248,8 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * inu_name: {NotNull, varchar(2147483647)}
      * @param inuName The value of inuName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of not-like-search. (NotNull)
@@ -259,7 +259,7 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * inu_name: {NotNull, varchar(2147483647)}
      * @param inuName The value of inuName as prefixSearch. (NullAllowed: if null (or empty), no condition)
      */
@@ -271,7 +271,7 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
     protected abstract ConditionValue xgetCValueInuName();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * inu_date: {date(13)}
      * @param inuDate The value of inuDate as equal. (NullAllowed: if null, no condition)
      */
@@ -280,7 +280,7 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * inu_date: {date(13)}
      * @param inuDate The value of inuDate as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -289,7 +289,7 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * inu_date: {date(13)}
      * @param inuDate The value of inuDate as lessThan. (NullAllowed: if null, no condition)
      */
@@ -298,7 +298,7 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * inu_date: {date(13)}
      * @param inuDate The value of inuDate as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -307,7 +307,7 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * inu_date: {date(13)}
      * @param inuDate The value of inuDate as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -316,8 +316,8 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
     }
 
     /**
-     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * inu_date: {date(13)}
      * <pre>e.g. setInuDate_FromTo(fromDate, toDate, op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">compareAsDate()</span>);</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of inuDate. (NullAllowed: if null, no from-condition)
@@ -329,8 +329,8 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
     }
 
     /**
-     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * inu_date: {date(13)}
      * <pre>e.g. setInuDate_FromTo(fromDate, toDate, new <span style="color: #CC4747">FromToOption</span>().compareAsDate());</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of inuDate. (NullAllowed: if null, no from-condition)
@@ -342,8 +342,8 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
     }
 
     /**
-     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * inu_date: {date(13)}
      * <pre>
      * e.g. from:{2007/04/10 08:24:53} to:{2007/04/16 14:36:29}
@@ -357,13 +357,13 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * inu_date: {date(13)}
      */
     public void setInuDate_IsNull() { regInuDate(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * inu_date: {date(13)}
      */
     public void setInuDate_IsNotNull() { regInuDate(CK_ISNN, DOBJ); }
@@ -375,7 +375,7 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
     //                                                                     ScalarCondition
     //                                                                     ===============
     /**
-     * Prepare ScalarCondition as equal. <br />
+     * Prepare ScalarCondition as equal. <br>
      * {where FOO = (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_Equal()</span>.max(new SubQuery&lt;VendorInheritInuCB&gt;() {
@@ -392,7 +392,7 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
     }
 
     /**
-     * Prepare ScalarCondition as equal. <br />
+     * Prepare ScalarCondition as equal. <br>
      * {where FOO &lt;&gt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_NotEqual()</span>.max(new SubQuery&lt;VendorInheritInuCB&gt;() {
@@ -409,7 +409,7 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
     }
 
     /**
-     * Prepare ScalarCondition as greaterThan. <br />
+     * Prepare ScalarCondition as greaterThan. <br>
      * {where FOO &gt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_GreaterThan()</span>.max(new SubQuery&lt;VendorInheritInuCB&gt;() {
@@ -426,7 +426,7 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
     }
 
     /**
-     * Prepare ScalarCondition as lessThan. <br />
+     * Prepare ScalarCondition as lessThan. <br>
      * {where FOO &lt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessThan()</span>.max(new SubQuery&lt;VendorInheritInuCB&gt;() {
@@ -443,7 +443,7 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
     }
 
     /**
-     * Prepare ScalarCondition as greaterEqual. <br />
+     * Prepare ScalarCondition as greaterEqual. <br>
      * {where FOO &gt;= (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_GreaterEqual()</span>.max(new SubQuery&lt;VendorInheritInuCB&gt;() {
@@ -460,7 +460,7 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
     }
 
     /**
-     * Prepare ScalarCondition as lessEqual. <br />
+     * Prepare ScalarCondition as lessEqual. <br>
      * {where FOO &lt;= (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessEqual()</span>.max(new SubQuery&lt;VendorInheritInuCB&gt;() {
@@ -543,7 +543,7 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
     //                                                                    Full Text Search
     //                                                                    ================
     /**
-     * Match for full-text search. <br />
+     * Match for full-text search. <br>
      * @param textColumn The text column. (NotNull, StringColumn, TargetTableColumn)
      * @param conditionValue The condition value. (NullAllowed: if null or empty, no condition)
      */
@@ -553,7 +553,7 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
     }
 
     /**
-     * Match for full-text search. <br />
+     * Match for full-text search. <br>
      * @param textColumnList The list of text column. (NotNull, NotEmpty, StringColumn, TargetTableColumn)
      * @param conditionValue The condition value. (NullAllowed: if null or empty, no condition)
      */

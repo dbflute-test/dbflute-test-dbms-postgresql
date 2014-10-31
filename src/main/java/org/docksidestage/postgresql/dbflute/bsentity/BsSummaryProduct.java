@@ -5,11 +5,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.postgresql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
 /**
- * The entity of summary_product as VIEW. <br />
+ * The entity of summary_product as VIEW. <br>
  * <pre>
  * [primary-key]
  *     
@@ -52,7 +53,7 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsSummaryProduct extends AbstractEntity {
+public abstract class BsSummaryProduct extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -175,7 +176,7 @@ public abstract class BsSummaryProduct extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] product_id: {int4(10)} <br />
+     * [get] product_id: {int4(10)} <br>
      * @return The value of the column 'product_id'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getProductId() {
@@ -184,7 +185,7 @@ public abstract class BsSummaryProduct extends AbstractEntity {
     }
 
     /**
-     * [set] product_id: {int4(10)} <br />
+     * [set] product_id: {int4(10)} <br>
      * @param productId The value of the column 'product_id'. (NullAllowed: null update allowed for no constraint)
      */
     public void setProductId(Integer productId) {
@@ -193,7 +194,7 @@ public abstract class BsSummaryProduct extends AbstractEntity {
     }
 
     /**
-     * [get] product_name: {varchar(50)} <br />
+     * [get] product_name: {varchar(50)} <br>
      * @return The value of the column 'product_name'. (NullAllowed even if selected: for no constraint)
      */
     public String getProductName() {
@@ -202,7 +203,7 @@ public abstract class BsSummaryProduct extends AbstractEntity {
     }
 
     /**
-     * [set] product_name: {varchar(50)} <br />
+     * [set] product_name: {varchar(50)} <br>
      * @param productName The value of the column 'product_name'. (NullAllowed: null update allowed for no constraint)
      */
     public void setProductName(String productName) {
@@ -211,7 +212,7 @@ public abstract class BsSummaryProduct extends AbstractEntity {
     }
 
     /**
-     * [get] product_status_code: {bpchar(3)} <br />
+     * [get] product_status_code: {bpchar(3)} <br>
      * @return The value of the column 'product_status_code'. (NullAllowed even if selected: for no constraint)
      */
     public String getProductStatusCode() {
@@ -220,7 +221,7 @@ public abstract class BsSummaryProduct extends AbstractEntity {
     }
 
     /**
-     * [set] product_status_code: {bpchar(3)} <br />
+     * [set] product_status_code: {bpchar(3)} <br>
      * @param productStatusCode The value of the column 'product_status_code'. (NullAllowed: null update allowed for no constraint)
      */
     public void setProductStatusCode(String productStatusCode) {
@@ -229,7 +230,7 @@ public abstract class BsSummaryProduct extends AbstractEntity {
     }
 
     /**
-     * [get] latest_purchase_datetime: {timestamp(29, 6)} <br />
+     * [get] latest_purchase_datetime: {timestamp(29, 6)} <br>
      * @return The value of the column 'latest_purchase_datetime'. (NullAllowed even if selected: for no constraint)
      */
     public java.sql.Timestamp getLatestPurchaseDatetime() {
@@ -238,7 +239,7 @@ public abstract class BsSummaryProduct extends AbstractEntity {
     }
 
     /**
-     * [set] latest_purchase_datetime: {timestamp(29, 6)} <br />
+     * [set] latest_purchase_datetime: {timestamp(29, 6)} <br>
      * @param latestPurchaseDatetime The value of the column 'latest_purchase_datetime'. (NullAllowed: null update allowed for no constraint)
      */
     public void setLatestPurchaseDatetime(java.sql.Timestamp latestPurchaseDatetime) {

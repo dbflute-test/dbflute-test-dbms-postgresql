@@ -5,11 +5,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.CustomizeEntity;
 import org.docksidestage.postgresql.dbflute.allcommon.CDef;
 import org.docksidestage.postgresql.dbflute.exentity.customize.*;
 
 /**
- * The entity of SpResultSetParameterMoreCurMemberStatus. <br />
+ * The entity of SpResultSetParameterMoreCurMemberStatus. <br>
  * <pre>
  * [primary-key]
  *     
@@ -52,7 +53,7 @@ import org.docksidestage.postgresql.dbflute.exentity.customize.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsSpResultSetParameterMoreCurMemberStatus extends AbstractEntity {
+public abstract class BsSpResultSetParameterMoreCurMemberStatus extends AbstractEntity implements CustomizeEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -108,8 +109,8 @@ public abstract class BsSpResultSetParameterMoreCurMemberStatus extends Abstract
     //                                                             Classification Property
     //                                                             =======================
     /**
-     * Get the value of memberStatusCode as the classification of MemberStatus. <br />
-     * (会員ステータスコード)member_status_code: {bpchar(3), refers to member_status.member_status_code, classification=MemberStatus} <br />
+     * Get the value of memberStatusCode as the classification of MemberStatus. <br>
+     * (会員ステータスコード)member_status_code: {bpchar(3), refers to member_status.member_status_code, classification=MemberStatus} <br>
      * status of member from entry to withdrawal
      * <p>It's treated as case insensitive and if the code value is null, it returns null.</p>
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
@@ -119,8 +120,8 @@ public abstract class BsSpResultSetParameterMoreCurMemberStatus extends Abstract
     }
 
     /**
-     * Set the value of memberStatusCode as the classification of MemberStatus. <br />
-     * (会員ステータスコード)member_status_code: {bpchar(3), refers to member_status.member_status_code, classification=MemberStatus} <br />
+     * Set the value of memberStatusCode as the classification of MemberStatus. <br>
+     * (会員ステータスコード)member_status_code: {bpchar(3), refers to member_status.member_status_code, classification=MemberStatus} <br>
      * status of member from entry to withdrawal
      * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, null value is set to the column)
      */
@@ -132,7 +133,7 @@ public abstract class BsSpResultSetParameterMoreCurMemberStatus extends Abstract
     //                                                              Classification Setting
     //                                                              ======================
     /**
-     * Set the value of memberStatusCode as Formalized (FML). <br />
+     * Set the value of memberStatusCode as Formalized (FML). <br>
      * FORMALIZED: as formal member, allowed to use all service
      */
     public void setMemberStatusCode_Formalized() {
@@ -140,7 +141,7 @@ public abstract class BsSpResultSetParameterMoreCurMemberStatus extends Abstract
     }
 
     /**
-     * Set the value of memberStatusCode as Withdrawal (WDL). <br />
+     * Set the value of memberStatusCode as Withdrawal (WDL). <br>
      * WITHDRAWAL: withdrawal is fixed, not allowed to use service
      */
     public void setMemberStatusCode_Withdrawal() {
@@ -148,7 +149,7 @@ public abstract class BsSpResultSetParameterMoreCurMemberStatus extends Abstract
     }
 
     /**
-     * Set the value of memberStatusCode as Provisional (PRV). <br />
+     * Set the value of memberStatusCode as Provisional (PRV). <br>
      * PROVISIONAL: first status after entry, allowed to use only part of service
      */
     public void setMemberStatusCode_Provisional() {
@@ -159,7 +160,7 @@ public abstract class BsSpResultSetParameterMoreCurMemberStatus extends Abstract
     //                                                        Classification Determination
     //                                                        ============================
     /**
-     * Is the value of memberStatusCode Formalized? <br />
+     * Is the value of memberStatusCode Formalized? <br>
      * FORMALIZED: as formal member, allowed to use all service
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -170,7 +171,7 @@ public abstract class BsSpResultSetParameterMoreCurMemberStatus extends Abstract
     }
 
     /**
-     * Is the value of memberStatusCode Withdrawal? <br />
+     * Is the value of memberStatusCode Withdrawal? <br>
      * WITHDRAWAL: withdrawal is fixed, not allowed to use service
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -181,7 +182,7 @@ public abstract class BsSpResultSetParameterMoreCurMemberStatus extends Abstract
     }
 
     /**
-     * Is the value of memberStatusCode Provisional? <br />
+     * Is the value of memberStatusCode Provisional? <br>
      * PROVISIONAL: first status after entry, allowed to use only part of service
      * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
      * @return The determination, true or false.
@@ -262,10 +263,10 @@ public abstract class BsSpResultSetParameterMoreCurMemberStatus extends Abstract
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] (会員ステータスコード)member_status_code: {bpchar(3), refers to member_status.member_status_code, classification=MemberStatus} <br />
-     * 会員ステータスを識別するコード。<br />
-     * 固定的なデータなので、連番とか番号にはせず、<br />
-     * データを直接見たときも人が直感的にわかるように、<br />
+     * [get] (会員ステータスコード)member_status_code: {bpchar(3), refers to member_status.member_status_code, classification=MemberStatus} <br>
+     * 会員ステータスを識別するコード。<br>
+     * 固定的なデータなので、連番とか番号にはせず、<br>
+     * データを直接見たときも人が直感的にわかるように、<br>
      * このような３桁のコード形式にしている。
      * @return The value of the column 'member_status_code'. (NullAllowed even if selected: for no constraint)
      */
@@ -275,10 +276,10 @@ public abstract class BsSpResultSetParameterMoreCurMemberStatus extends Abstract
     }
 
     /**
-     * [set] (会員ステータスコード)member_status_code: {bpchar(3), refers to member_status.member_status_code, classification=MemberStatus} <br />
-     * 会員ステータスを識別するコード。<br />
-     * 固定的なデータなので、連番とか番号にはせず、<br />
-     * データを直接見たときも人が直感的にわかるように、<br />
+     * [set] (会員ステータスコード)member_status_code: {bpchar(3), refers to member_status.member_status_code, classification=MemberStatus} <br>
+     * 会員ステータスを識別するコード。<br>
+     * 固定的なデータなので、連番とか番号にはせず、<br>
+     * データを直接見たときも人が直感的にわかるように、<br>
      * このような３桁のコード形式にしている。
      * @param memberStatusCode The value of the column 'member_status_code'. (NullAllowed: null update allowed for no constraint)
      */
@@ -289,7 +290,7 @@ public abstract class BsSpResultSetParameterMoreCurMemberStatus extends Abstract
     }
 
     /**
-     * [get] (会員ステータス名称)member_status_name: {varchar(50), refers to member_status.member_status_name} <br />
+     * [get] (会員ステータス名称)member_status_name: {varchar(50), refers to member_status.member_status_name} <br>
      * @return The value of the column 'member_status_name'. (NullAllowed even if selected: for no constraint)
      */
     public String getMemberStatusName() {
@@ -298,7 +299,7 @@ public abstract class BsSpResultSetParameterMoreCurMemberStatus extends Abstract
     }
 
     /**
-     * [set] (会員ステータス名称)member_status_name: {varchar(50), refers to member_status.member_status_name} <br />
+     * [set] (会員ステータス名称)member_status_name: {varchar(50), refers to member_status.member_status_name} <br>
      * @param memberStatusName The value of the column 'member_status_name'. (NullAllowed: null update allowed for no constraint)
      */
     public void setMemberStatusName(String memberStatusName) {
@@ -307,8 +308,8 @@ public abstract class BsSpResultSetParameterMoreCurMemberStatus extends Abstract
     }
 
     /**
-     * [get] (説明)description: {varchar(200), refers to member_status.description} <br />
-     * 会員ステータスそれぞれの説明。<br />
+     * [get] (説明)description: {varchar(200), refers to member_status.description} <br>
+     * 会員ステータスそれぞれの説明。<br>
      * 気の利いた説明があるとディベロッパーがとても助かる。
      * @return The value of the column 'description'. (NullAllowed even if selected: for no constraint)
      */
@@ -318,8 +319,8 @@ public abstract class BsSpResultSetParameterMoreCurMemberStatus extends Abstract
     }
 
     /**
-     * [set] (説明)description: {varchar(200), refers to member_status.description} <br />
-     * 会員ステータスそれぞれの説明。<br />
+     * [set] (説明)description: {varchar(200), refers to member_status.description} <br>
+     * 会員ステータスそれぞれの説明。<br>
      * 気の利いた説明があるとディベロッパーがとても助かる。
      * @param description The value of the column 'description'. (NullAllowed: null update allowed for no constraint)
      */
@@ -329,8 +330,8 @@ public abstract class BsSpResultSetParameterMoreCurMemberStatus extends Abstract
     }
 
     /**
-     * [get] (表示順)display_order: {int4(10), refers to member_status.display_order} <br />
-     * UI上のステータスの表示順を示すNO。<br />
+     * [get] (表示順)display_order: {int4(10), refers to member_status.display_order} <br>
+     * UI上のステータスの表示順を示すNO。<br>
      * 並べるときは、このカラムに対して昇順のソート条件にする。
      * @return The value of the column 'display_order'. (NullAllowed even if selected: for no constraint)
      */
@@ -340,8 +341,8 @@ public abstract class BsSpResultSetParameterMoreCurMemberStatus extends Abstract
     }
 
     /**
-     * [set] (表示順)display_order: {int4(10), refers to member_status.display_order} <br />
-     * UI上のステータスの表示順を示すNO。<br />
+     * [set] (表示順)display_order: {int4(10), refers to member_status.display_order} <br>
+     * UI上のステータスの表示順を示すNO。<br>
      * 並べるときは、このカラムに対して昇順のソート条件にする。
      * @param displayOrder The value of the column 'display_order'. (NullAllowed: null update allowed for no constraint)
      */

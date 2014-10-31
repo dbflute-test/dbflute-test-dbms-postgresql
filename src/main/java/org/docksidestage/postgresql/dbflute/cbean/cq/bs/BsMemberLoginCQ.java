@@ -34,7 +34,7 @@ public class BsMemberLoginCQ extends AbstractBsMemberLoginCQ {
     //                                                                 InlineView/OrClause
     //                                                                 ===================
     /**
-     * Prepare InlineView query. <br />
+     * Prepare InlineView query. <br>
      * {select ... from ... left outer join (select * from member_login) where FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">inline()</span>.setFoo...;
@@ -57,7 +57,7 @@ public class BsMemberLoginCQ extends AbstractBsMemberLoginCQ {
     }
 
     /**
-     * Prepare OnClause query. <br />
+     * Prepare OnClause query. <br>
      * {select ... from ... left outer join member_login on ... and FOO = [value] ...}
      * <pre>
      * cb.query().queryMemberStatus().<span style="color: #CC4747">on()</span>.setFoo...;
@@ -80,14 +80,14 @@ public class BsMemberLoginCQ extends AbstractBsMemberLoginCQ {
     protected ConditionValue xgetCValueMemberLoginId() { return xdfgetMemberLoginId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * (会員ログインID)member_login_id: {PK, ID, NotNull, bigserial(19)}
      * @return this. (NotNull)
      */
     public BsMemberLoginCQ addOrderBy_MemberLoginId_Asc() { regOBA("member_login_id"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * (会員ログインID)member_login_id: {PK, ID, NotNull, bigserial(19)}
      * @return this. (NotNull)
      */
@@ -100,14 +100,14 @@ public class BsMemberLoginCQ extends AbstractBsMemberLoginCQ {
     protected ConditionValue xgetCValueMemberId() { return xdfgetMemberId(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * (会員ID)member_id: {UQ+, NotNull, int4(10), FK to member}
      * @return this. (NotNull)
      */
     public BsMemberLoginCQ addOrderBy_MemberId_Asc() { regOBA("member_id"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * (会員ID)member_id: {UQ+, NotNull, int4(10), FK to member}
      * @return this. (NotNull)
      */
@@ -120,14 +120,14 @@ public class BsMemberLoginCQ extends AbstractBsMemberLoginCQ {
     protected ConditionValue xgetCValueLoginDatetime() { return xdfgetLoginDatetime(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * (ログイン日時)login_datetime: {+UQ, IX, NotNull, timestamp(26, 3)}
      * @return this. (NotNull)
      */
     public BsMemberLoginCQ addOrderBy_LoginDatetime_Asc() { regOBA("login_datetime"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * (ログイン日時)login_datetime: {+UQ, IX, NotNull, timestamp(26, 3)}
      * @return this. (NotNull)
      */
@@ -140,14 +140,14 @@ public class BsMemberLoginCQ extends AbstractBsMemberLoginCQ {
     protected ConditionValue xgetCValueMobileLoginFlg() { return xdfgetMobileLoginFlg(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * (モバイルログインフラグ)mobile_login_flg: {NotNull, int4(10), classification=Flg}
      * @return this. (NotNull)
      */
     public BsMemberLoginCQ addOrderBy_MobileLoginFlg_Asc() { regOBA("mobile_login_flg"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * (モバイルログインフラグ)mobile_login_flg: {NotNull, int4(10), classification=Flg}
      * @return this. (NotNull)
      */
@@ -160,14 +160,14 @@ public class BsMemberLoginCQ extends AbstractBsMemberLoginCQ {
     protected ConditionValue xgetCValueLoginMemberStatusCode() { return xdfgetLoginMemberStatusCode(); }
 
     /** 
-     * Add order-by as ascend. <br />
+     * Add order-by as ascend. <br>
      * (ログイン会員ステータスコード)login_member_status_code: {NotNull, bpchar(3), FK to member_status, classification=MemberStatus}
      * @return this. (NotNull)
      */
     public BsMemberLoginCQ addOrderBy_LoginMemberStatusCode_Asc() { regOBA("login_member_status_code"); return this; }
 
     /**
-     * Add order-by as descend. <br />
+     * Add order-by as descend. <br>
      * (ログイン会員ステータスコード)login_member_status_code: {NotNull, bpchar(3), FK to member_status, classification=MemberStatus}
      * @return this. (NotNull)
      */
@@ -226,7 +226,7 @@ public class BsMemberLoginCQ extends AbstractBsMemberLoginCQ {
     //                                                                       Foreign Query
     //                                                                       =============
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * (会員ステータス)member_status by my login_member_status_code, named 'memberStatus'.
      * @return The instance of condition-query. (NotNull)
      */
@@ -246,7 +246,7 @@ public class BsMemberLoginCQ extends AbstractBsMemberLoginCQ {
     public boolean hasConditionQueryMemberStatus() { return xhasQueRlMap("memberStatus"); }
 
     /**
-     * Get the condition-query for relation table. <br />
+     * Get the condition-query for relation table. <br>
      * (会員)member by my member_id, named 'member'.
      * @return The instance of condition-query. (NotNull)
      */

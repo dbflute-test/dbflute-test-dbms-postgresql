@@ -20,7 +20,7 @@ import org.docksidestage.postgresql.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.postgresql.dbflute.cbean.*;
 
 /**
- * The behavior of (会員住所情報)member_address as TABLE. <br />
+ * The behavior of (会員住所情報)member_address as TABLE. <br>
  * <pre>
  * [primary key]
  *     member_address_id
@@ -75,7 +75,7 @@ public abstract class BsMemberAddressBhv extends AbstractBehaviorWritable<Member
     //                                                                        Count Select
     //                                                                        ============
     /**
-     * Select the count of uniquely-selected records by the condition-bean. {IgnorePagingCondition, IgnoreSpecifyColumn}<br />
+     * Select the count of uniquely-selected records by the condition-bean. {IgnorePagingCondition, IgnoreSpecifyColumn}<br>
      * SpecifyColumn is ignored but you can use it only to remove text type column for union's distinct.
      * <pre>
      * int count = <span style="color: #0000C0">memberAddressBhv</span>.<span style="color: #CC4747">selectCount</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -90,7 +90,7 @@ public abstract class BsMemberAddressBhv extends AbstractBehaviorWritable<Member
     }
 
     /**
-     * Select the count of uniquely-selected records by the condition-bean. {IgnorePagingCondition, IgnoreSpecifyColumn}<br />
+     * Select the count of uniquely-selected records by the condition-bean. {IgnorePagingCondition, IgnoreSpecifyColumn}<br>
      * SpecifyColumn is ignored but you can use it only to remove text type column for union's distinct.
      * <pre>
      * MemberAddressCB cb = new MemberAddressCB();
@@ -108,8 +108,8 @@ public abstract class BsMemberAddressBhv extends AbstractBehaviorWritable<Member
     //                                                                       Entity Select
     //                                                                       =============
     /**
-     * Select the entity by the condition-bean. #beforejava8 <br />
-     * <span style="color: #AD4747; font-size: 120%">The return might be null if no data, so you should have null check.</span> <br />
+     * Select the entity by the condition-bean. #beforejava8 <br>
+     * <span style="color: #AD4747; font-size: 120%">The return might be null if no data, so you should have null check.</span> <br>
      * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, use selectEntityWithDeletedCheck().</span>
      * <pre>
      * MemberAddress memberAddress = <span style="color: #0000C0">memberAddressBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -131,8 +131,8 @@ public abstract class BsMemberAddressBhv extends AbstractBehaviorWritable<Member
     }
 
     /**
-     * Select the entity by the condition-bean. #beforejava8 <br />
-     * <span style="color: #AD4747; font-size: 120%">The return might be null if no data, so you should have null check.</span> <br />
+     * Select the entity by the condition-bean. #beforejava8 <br>
+     * <span style="color: #AD4747; font-size: 120%">The return might be null if no data, so you should have null check.</span> <br>
      * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, use selectEntityWithDeletedCheck().</span>
      * <pre>
      * MemberAddressCB cb = new MemberAddressCB();
@@ -164,7 +164,7 @@ public abstract class BsMemberAddressBhv extends AbstractBehaviorWritable<Member
     protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)); }
 
     /**
-     * Select the entity by the condition-bean with deleted check. <br />
+     * Select the entity by the condition-bean with deleted check. <br>
      * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
      * MemberAddress <span style="color: #553000">memberAddress</span> = <span style="color: #0000C0">memberAddressBhv</span>.<span style="color: #CC4747">selectEntityWithDeletedCheck</span>(cb <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> cb.acceptPK(1));
@@ -181,7 +181,7 @@ public abstract class BsMemberAddressBhv extends AbstractBehaviorWritable<Member
     }
 
     /**
-     * Select the entity by the condition-bean with deleted check. <br />
+     * Select the entity by the condition-bean with deleted check. <br>
      * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, this method is good.</span>
      * <pre>
      * MemberAddressCB cb = new MemberAddressCB();
@@ -265,7 +265,7 @@ public abstract class BsMemberAddressBhv extends AbstractBehaviorWritable<Member
      * });
      * for (MemberAddress <span style="color: #553000">memberAddress</span> : <span style="color: #553000">memberAddressList</span>) {
      *     ... = <span style="color: #553000">memberAddress</span>.get...();
-     * });
+     * }
      * </pre>
      * @param cbLambda The callback for condition-bean of MemberAddress. (NotNull)
      * @return The result bean of selected list. (NotNull: if no data, returns empty list)
@@ -301,7 +301,7 @@ public abstract class BsMemberAddressBhv extends AbstractBehaviorWritable<Member
     //                                                                         Page Select
     //                                                                         ===========
     /**
-     * Select the page as result bean. <br />
+     * Select the page as result bean. <br>
      * (both count-select and paging-select are executed)
      * <pre>
      * PagingResultBean&lt;MemberAddress&gt; <span style="color: #553000">page</span> = <span style="color: #0000C0">memberAddressBhv</span>.<span style="color: #CC4747">selectPage</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -327,7 +327,7 @@ public abstract class BsMemberAddressBhv extends AbstractBehaviorWritable<Member
     }
 
     /**
-     * Select the page as result bean. <br />
+     * Select the page as result bean. <br>
      * (both count-select and paging-select are executed)
      * <pre>
      * MemberAddressCB cb = new MemberAddressCB();
@@ -393,7 +393,7 @@ public abstract class BsMemberAddressBhv extends AbstractBehaviorWritable<Member
     //                                                                       Scalar Select
     //                                                                       =============
     /**
-     * Select the scalar value derived by a function from uniquely-selected records. <br />
+     * Select the scalar value derived by a function from uniquely-selected records. <br>
      * You should call a function method after this method called like as follows:
      * <pre>
      * <span style="color: #0000C0">memberAddressBhv</span>.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
@@ -413,7 +413,7 @@ public abstract class BsMemberAddressBhv extends AbstractBehaviorWritable<Member
     //                                                                            Sequence
     //                                                                            ========
     /**
-     * Select the next value as sequence. <br />
+     * Select the next value as sequence. <br>
      * This method is called when insert() and set to primary-key automatically.
      * So you don't need to call this as long as you need to get next value before insert().
      * @return The next value. (NotNull)
@@ -450,7 +450,7 @@ public abstract class BsMemberAddressBhv extends AbstractBehaviorWritable<Member
      *         <span style="color: #553000">purchaseCB</span>.query().set...
      *         <span style="color: #553000">purchaseCB</span>.query().addOrderBy...
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
-     *     <span style="color: #3F7E5E">//}).withNestedReferrer(purchaseLoader -&gt {</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(purchaseLoader -&gt; {</span>
      *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePayment(...);</span>
      *     <span style="color: #3F7E5E">//});</span>
      *
@@ -465,7 +465,7 @@ public abstract class BsMemberAddressBhv extends AbstractBehaviorWritable<Member
      *     }
      * }
      * </pre>
-     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
      * The condition-bean, which the set-upper provides, has order by FK before callback.
      * @param memberAddressList The entity list of memberAddress. (NotNull)
      * @param loaderLambda The callback to handle the referrer loader for actually loading referrer. (NotNull)
@@ -485,7 +485,7 @@ public abstract class BsMemberAddressBhv extends AbstractBehaviorWritable<Member
      *         <span style="color: #553000">purchaseCB</span>.query().set...
      *         <span style="color: #553000">purchaseCB</span>.query().addOrderBy...
      *     }); <span style="color: #3F7E5E">// you can also load nested referrer from here</span>
-     *     <span style="color: #3F7E5E">//}).withNestedReferrer(purchaseLoader -&gt {</span>
+     *     <span style="color: #3F7E5E">//}).withNestedReferrer(purchaseLoader -&gt; {</span>
      *     <span style="color: #3F7E5E">//    purchaseLoader.loadPurchasePayment(...);</span>
      *     <span style="color: #3F7E5E">//});</span>
      *
@@ -498,7 +498,7 @@ public abstract class BsMemberAddressBhv extends AbstractBehaviorWritable<Member
      *     ...
      * }
      * </pre>
-     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br />
+     * About internal policy, the value of primary key (and others too) is treated as case-insensitive. <br>
      * The condition-bean, which the set-upper provides, has order by FK before callback.
      * @param memberAddress The entity of memberAddress. (NotNull)
      * @param loaderLambda The callback to handle the referrer loader for actually loading referrer. (NotNull)
@@ -612,8 +612,8 @@ public abstract class BsMemberAddressBhv extends AbstractBehaviorWritable<Member
     }
 
     /**
-     * Insert or update the entity modified-only. (DefaultConstraintsEnabled, ExclusiveControl) <br />
-     * if (the entity has no PK) { insert() } else { update(), but no data, insert() } <br />
+     * Insert or update the entity modified-only. (DefaultConstraintsEnabled, ExclusiveControl) <br>
+     * if (the entity has no PK) { insert() } else { update(), but no data, insert() } <br>
      * <p><span style="color: #CC4747; font-size: 120%">Attention, you cannot update by unique keys instead of PK.</span></p>
      * @param memberAddress The entity of insert or update. (NotNull, ...depends on insert or update)
      * @throws EntityAlreadyUpdatedException When the entity has already been updated.
@@ -625,7 +625,7 @@ public abstract class BsMemberAddressBhv extends AbstractBehaviorWritable<Member
     }
 
     /**
-     * Insert or update the entity non-strictly modified-only. (DefaultConstraintsEnabled, NonExclusiveControl) <br />
+     * Insert or update the entity non-strictly modified-only. (DefaultConstraintsEnabled, NonExclusiveControl) <br>
      * if (the entity has no PK) { insert() } else { update(), but no data, insert() }
      * <p><span style="color: #CC4747; font-size: 120%">Attention, you cannot update by unique keys instead of PK.</span></p>
      * @param memberAddress The entity of insert or update. (NotNull, ...depends on insert or update)
@@ -680,8 +680,8 @@ public abstract class BsMemberAddressBhv extends AbstractBehaviorWritable<Member
     //                                                                        Batch Update
     //                                                                        ============
     /**
-     * Batch-insert the entity list modified-only of same-set columns. (DefaultConstraintsEnabled) <br />
-     * This method uses executeBatch() of java.sql.PreparedStatement. <br />
+     * Batch-insert the entity list modified-only of same-set columns. (DefaultConstraintsEnabled) <br>
+     * This method uses executeBatch() of java.sql.PreparedStatement. <br>
      * <p><span style="color: #CC4747; font-size: 120%">The columns of least common multiple are registered like this:</span></p>
      * <pre>
      * for (... : ...) {
@@ -708,8 +708,8 @@ public abstract class BsMemberAddressBhv extends AbstractBehaviorWritable<Member
     }
 
     /**
-     * Batch-update the entity list modified-only of same-set columns. (ExclusiveControl) <br />
-     * This method uses executeBatch() of java.sql.PreparedStatement. <br />
+     * Batch-update the entity list modified-only of same-set columns. (ExclusiveControl) <br>
+     * This method uses executeBatch() of java.sql.PreparedStatement. <br>
      * <span style="color: #CC4747; font-size: 120%">You should specify same-set columns to all entities like this:</span>
      * <pre>
      * for (... : ...) {
@@ -736,8 +736,8 @@ public abstract class BsMemberAddressBhv extends AbstractBehaviorWritable<Member
     }
 
     /**
-     * Batch-update the entity list non-strictly modified-only of same-set columns. (NonExclusiveControl) <br />
-     * This method uses executeBatch() of java.sql.PreparedStatement. <br />
+     * Batch-update the entity list non-strictly modified-only of same-set columns. (NonExclusiveControl) <br>
+     * This method uses executeBatch() of java.sql.PreparedStatement. <br>
      * <span style="color: #CC4747; font-size: 140%">You should specify same-set columns to all entities like this:</span>
      * <pre>
      * for (... : ...) {
@@ -764,7 +764,7 @@ public abstract class BsMemberAddressBhv extends AbstractBehaviorWritable<Member
     }
 
     /**
-     * Batch-delete the entity list. (ExclusiveControl) <br />
+     * Batch-delete the entity list. (ExclusiveControl) <br>
      * This method uses executeBatch() of java.sql.PreparedStatement.
      * @param memberAddressList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @return The array of deleted count. (NotNull, EmptyAllowed)
@@ -775,7 +775,7 @@ public abstract class BsMemberAddressBhv extends AbstractBehaviorWritable<Member
     }
 
     /**
-     * Batch-delete the entity list non-strictly. {NonExclusiveControl} <br />
+     * Batch-delete the entity list non-strictly. {NonExclusiveControl} <br>
      * This method uses executeBatch() of java.sql.PreparedStatement.
      * @param memberAddressList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @return The array of deleted count. (NotNull, EmptyAllowed)
@@ -907,15 +907,15 @@ public abstract class BsMemberAddressBhv extends AbstractBehaviorWritable<Member
     //                                         Entity Update
     //                                         -------------
     /**
-     * Insert the entity with varying requests. <br />
-     * For example, disableCommonColumnAutoSetup(), disablePrimaryKeyIdentity(). <br />
+     * Insert the entity with varying requests. <br>
+     * For example, disableCommonColumnAutoSetup(), disablePrimaryKeyIdentity(). <br>
      * Other specifications are same as insert(entity).
      * <pre>
      * MemberAddress memberAddress = new MemberAddress();
      * <span style="color: #3F7E5E">// if auto-increment, you don't need to set the PK value</span>
      * memberAddress.setFoo...(value);
      * memberAddress.setBar...(value);
-     * InsertOption<MemberAddressCB> option = new InsertOption<MemberAddressCB>();
+     * InsertOption&lt;MemberAddressCB&gt; option = new InsertOption&lt;MemberAddressCB&gt;();
      * <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
      * option.disableCommonColumnAutoSetup();
      * <span style="color: #0000C0">memberAddressBhv</span>.<span style="color: #CC4747">varyingInsert</span>(memberAddress, option);
@@ -930,8 +930,8 @@ public abstract class BsMemberAddressBhv extends AbstractBehaviorWritable<Member
     }
 
     /**
-     * Update the entity with varying requests modified-only. (ZeroUpdateException, ExclusiveControl) <br />
-     * For example, self(selfCalculationSpecification), specify(updateColumnSpecification), disableCommonColumnAutoSetup(). <br />
+     * Update the entity with varying requests modified-only. (ZeroUpdateException, ExclusiveControl) <br>
+     * For example, self(selfCalculationSpecification), specify(updateColumnSpecification), disableCommonColumnAutoSetup(). <br>
      * Other specifications are same as update(entity).
      * <pre>
      * MemberAddress memberAddress = new MemberAddress();
@@ -963,8 +963,8 @@ public abstract class BsMemberAddressBhv extends AbstractBehaviorWritable<Member
     }
 
     /**
-     * Update the entity with varying requests non-strictly modified-only. (ZeroUpdateException, NonExclusiveControl) <br />
-     * For example, self(selfCalculationSpecification), specify(updateColumnSpecification), disableCommonColumnAutoSetup(). <br />
+     * Update the entity with varying requests non-strictly modified-only. (ZeroUpdateException, NonExclusiveControl) <br>
+     * For example, self(selfCalculationSpecification), specify(updateColumnSpecification), disableCommonColumnAutoSetup(). <br>
      * Other specifications are same as updateNonstrict(entity).
      * <pre>
      * <span style="color: #3F7E5E">// ex) you can update by self calculation values</span>
@@ -993,7 +993,7 @@ public abstract class BsMemberAddressBhv extends AbstractBehaviorWritable<Member
     }
 
     /**
-     * Insert or update the entity with varying requests. (ExclusiveControl: when update) <br />
+     * Insert or update the entity with varying requests. (ExclusiveControl: when update) <br>
      * Other specifications are same as insertOrUpdate(entity).
      * @param memberAddress The entity of insert or update. (NotNull)
      * @param insertOpLambda The callback for option of insert for varying requests. (NotNull)
@@ -1007,7 +1007,7 @@ public abstract class BsMemberAddressBhv extends AbstractBehaviorWritable<Member
     }
 
     /**
-     * Insert or update the entity with varying requests non-strictly. (NonExclusiveControl: when update) <br />
+     * Insert or update the entity with varying requests non-strictly. (NonExclusiveControl: when update) <br>
      * Other specifications are same as insertOrUpdateNonstrict(entity).
      * @param memberAddress The entity of insert or update. (NotNull)
      * @param insertOpLambda The callback for option of insert for varying requests. (NotNull)
@@ -1021,8 +1021,8 @@ public abstract class BsMemberAddressBhv extends AbstractBehaviorWritable<Member
     }
 
     /**
-     * Delete the entity with varying requests. (ZeroUpdateException, ExclusiveControl) <br />
-     * Now a valid option does not exist. <br />
+     * Delete the entity with varying requests. (ZeroUpdateException, ExclusiveControl) <br>
+     * Now a valid option does not exist. <br>
      * Other specifications are same as delete(entity).
      * @param memberAddress The entity of delete. (NotNull, PrimaryKeyNotNull, ConcurrencyColumnNotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
@@ -1034,8 +1034,8 @@ public abstract class BsMemberAddressBhv extends AbstractBehaviorWritable<Member
     }
 
     /**
-     * Delete the entity with varying requests non-strictly. (ZeroUpdateException, NonExclusiveControl) <br />
-     * Now a valid option does not exist. <br />
+     * Delete the entity with varying requests non-strictly. (ZeroUpdateException, NonExclusiveControl) <br>
+     * Now a valid option does not exist. <br>
      * Other specifications are same as deleteNonstrict(entity).
      * @param memberAddress The entity of delete. (NotNull, PrimaryKeyNotNull, ConcurrencyColumnNotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
@@ -1050,9 +1050,9 @@ public abstract class BsMemberAddressBhv extends AbstractBehaviorWritable<Member
     //                                          Batch Update
     //                                          ------------
     /**
-     * Batch-insert the list with varying requests. <br />
+     * Batch-insert the list with varying requests. <br>
      * For example, disableCommonColumnAutoSetup()
-     * , disablePrimaryKeyIdentity(), limitBatchInsertLogging(). <br />
+     * , disablePrimaryKeyIdentity(), limitBatchInsertLogging(). <br>
      * Other specifications are same as batchInsert(entityList).
      * @param memberAddressList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
@@ -1063,9 +1063,9 @@ public abstract class BsMemberAddressBhv extends AbstractBehaviorWritable<Member
     }
 
     /**
-     * Batch-update the list with varying requests. <br />
+     * Batch-update the list with varying requests. <br>
      * For example, self(selfCalculationSpecification), specify(updateColumnSpecification)
-     * , disableCommonColumnAutoSetup(), limitBatchUpdateLogging(). <br />
+     * , disableCommonColumnAutoSetup(), limitBatchUpdateLogging(). <br>
      * Other specifications are same as batchUpdate(entityList).
      * @param memberAddressList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
@@ -1076,9 +1076,9 @@ public abstract class BsMemberAddressBhv extends AbstractBehaviorWritable<Member
     }
 
     /**
-     * Batch-update the list with varying requests non-strictly. <br />
+     * Batch-update the list with varying requests non-strictly. <br>
      * For example, self(selfCalculationSpecification), specify(updateColumnSpecification)
-     * , disableCommonColumnAutoSetup(), limitBatchUpdateLogging(). <br />
+     * , disableCommonColumnAutoSetup(), limitBatchUpdateLogging(). <br>
      * Other specifications are same as batchUpdateNonstrict(entityList).
      * @param memberAddressList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
@@ -1089,8 +1089,8 @@ public abstract class BsMemberAddressBhv extends AbstractBehaviorWritable<Member
     }
 
     /**
-     * Batch-delete the list with varying requests. <br />
-     * For example, limitBatchDeleteLogging(). <br />
+     * Batch-delete the list with varying requests. <br>
+     * For example, limitBatchDeleteLogging(). <br>
      * Other specifications are same as batchDelete(entityList).
      * @param memberAddressList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
@@ -1101,8 +1101,8 @@ public abstract class BsMemberAddressBhv extends AbstractBehaviorWritable<Member
     }
 
     /**
-     * Batch-delete the list with varying requests non-strictly. <br />
-     * For example, limitBatchDeleteLogging(). <br />
+     * Batch-delete the list with varying requests non-strictly. <br>
+     * For example, limitBatchDeleteLogging(). <br>
      * Other specifications are same as batchDeleteNonstrict(entityList).
      * @param memberAddressList The list of the entity. (NotNull, EmptyAllowed, PrimaryKeyNotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
@@ -1116,8 +1116,8 @@ public abstract class BsMemberAddressBhv extends AbstractBehaviorWritable<Member
     //                                          Query Update
     //                                          ------------
     /**
-     * Insert the several entities by query with varying requests (modified-only for fixed value). <br />
-     * For example, disableCommonColumnAutoSetup(), disablePrimaryKeyIdentity(). <br />
+     * Insert the several entities by query with varying requests (modified-only for fixed value). <br>
+     * For example, disableCommonColumnAutoSetup(), disablePrimaryKeyIdentity(). <br>
      * Other specifications are same as queryInsert(entity, setupper).
      * @param manyArgLambda The set-upper of query-insert. (NotNull)
      * @param opLambda The callback for option of insert for varying requests. (NotNull)
@@ -1128,9 +1128,9 @@ public abstract class BsMemberAddressBhv extends AbstractBehaviorWritable<Member
     }
 
     /**
-     * Update the several entities by query with varying requests non-strictly modified-only. {NonExclusiveControl} <br />
+     * Update the several entities by query with varying requests non-strictly modified-only. {NonExclusiveControl} <br>
      * For example, self(selfCalculationSpecification), specify(updateColumnSpecification)
-     * , disableCommonColumnAutoSetup(), allowNonQueryUpdate(). <br />
+     * , disableCommonColumnAutoSetup(), allowNonQueryUpdate(). <br>
      * Other specifications are same as queryUpdate(entity, cb).
      * <pre>
      * <span style="color: #3F7E5E">// ex) you can update by self calculation values</span>
@@ -1162,9 +1162,9 @@ public abstract class BsMemberAddressBhv extends AbstractBehaviorWritable<Member
     }
 
     /**
-     * Update the several entities by query with varying requests non-strictly modified-only. {NonExclusiveControl} <br />
+     * Update the several entities by query with varying requests non-strictly modified-only. {NonExclusiveControl} <br>
      * For example, self(selfCalculationSpecification), specify(updateColumnSpecification)
-     * , disableCommonColumnAutoSetup(), allowNonQueryUpdate(). <br />
+     * , disableCommonColumnAutoSetup(), allowNonQueryUpdate(). <br>
      * Other specifications are same as queryUpdate(entity, cb).
      * <pre>
      * <span style="color: #3F7E5E">// ex) you can update by self calculation values</span>
@@ -1196,8 +1196,8 @@ public abstract class BsMemberAddressBhv extends AbstractBehaviorWritable<Member
     }
 
     /**
-     * Delete the several entities by query with varying requests non-strictly. <br />
-     * For example, allowNonQueryDelete(). <br />
+     * Delete the several entities by query with varying requests non-strictly. <br>
+     * For example, allowNonQueryDelete(). <br>
      * Other specifications are same as batchUpdateNonstrict(entityList).
      * @param cbLambda The callback for condition-bean of MemberAddress. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
@@ -1209,8 +1209,8 @@ public abstract class BsMemberAddressBhv extends AbstractBehaviorWritable<Member
     }
 
     /**
-     * Delete the several entities by query with varying requests non-strictly. <br />
-     * For example, allowNonQueryDelete(). <br />
+     * Delete the several entities by query with varying requests non-strictly. <br>
+     * For example, allowNonQueryDelete(). <br>
      * Other specifications are same as batchUpdateNonstrict(entityList).
      * @param cb The condition-bean of MemberAddress. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)

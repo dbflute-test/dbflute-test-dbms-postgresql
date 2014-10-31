@@ -5,11 +5,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.postgresql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
 /**
- * The entity of nextschema.white_same_name as TABLE. <br />
+ * The entity of nextschema.white_same_name as TABLE. <br>
  * <pre>
  * [primary-key]
  *     same_name_id
@@ -50,7 +51,7 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsNextschemaWhiteSameName extends AbstractEntity {
+public abstract class BsNextschemaWhiteSameName extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -193,7 +194,7 @@ public abstract class BsNextschemaWhiteSameName extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] same_name_id: {PK, NotNull, int4(10)} <br />
+     * [get] same_name_id: {PK, NotNull, int4(10)} <br>
      * @return The value of the column 'same_name_id'. (basically NotNull if selected: for the constraint)
      */
     public Integer getSameNameId() {
@@ -202,7 +203,7 @@ public abstract class BsNextschemaWhiteSameName extends AbstractEntity {
     }
 
     /**
-     * [set] same_name_id: {PK, NotNull, int4(10)} <br />
+     * [set] same_name_id: {PK, NotNull, int4(10)} <br>
      * @param sameNameId The value of the column 'same_name_id'. (basically NotNull if update: for the constraint)
      */
     public void setSameNameId(Integer sameNameId) {
@@ -211,7 +212,7 @@ public abstract class BsNextschemaWhiteSameName extends AbstractEntity {
     }
 
     /**
-     * [get] same_name_name: {varchar(100)} <br />
+     * [get] same_name_name: {varchar(100)} <br>
      * @return The value of the column 'same_name_name'. (NullAllowed even if selected: for no constraint)
      */
     public String getSameNameName() {
@@ -220,7 +221,7 @@ public abstract class BsNextschemaWhiteSameName extends AbstractEntity {
     }
 
     /**
-     * [set] same_name_name: {varchar(100)} <br />
+     * [set] same_name_name: {varchar(100)} <br>
      * @param sameNameName The value of the column 'same_name_name'. (NullAllowed: null update allowed for no constraint)
      */
     public void setSameNameName(String sameNameName) {
@@ -229,7 +230,7 @@ public abstract class BsNextschemaWhiteSameName extends AbstractEntity {
     }
 
     /**
-     * [get] same_name_long: {int8(19)} <br />
+     * [get] same_name_long: {int8(19)} <br>
      * @return The value of the column 'same_name_long'. (NullAllowed even if selected: for no constraint)
      */
     public Long getSameNameLong() {
@@ -238,7 +239,7 @@ public abstract class BsNextschemaWhiteSameName extends AbstractEntity {
     }
 
     /**
-     * [set] same_name_long: {int8(19)} <br />
+     * [set] same_name_long: {int8(19)} <br>
      * @param sameNameLong The value of the column 'same_name_long'. (NullAllowed: null update allowed for no constraint)
      */
     public void setSameNameLong(Long sameNameLong) {

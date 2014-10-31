@@ -47,7 +47,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     //                                                                               Query
     //                                                                               =====
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * xls_man_id: {PK, NotNull, int8(19)}
      * @param xlsManId The value of xlsManId as equal. (NullAllowed: if null, no condition)
      */
@@ -60,7 +60,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * xls_man_id: {PK, NotNull, int8(19)}
      * @param xlsManId The value of xlsManId as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -69,7 +69,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * xls_man_id: {PK, NotNull, int8(19)}
      * @param xlsManId The value of xlsManId as lessThan. (NullAllowed: if null, no condition)
      */
@@ -78,7 +78,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * xls_man_id: {PK, NotNull, int8(19)}
      * @param xlsManId The value of xlsManId as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -87,7 +87,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * xls_man_id: {PK, NotNull, int8(19)}
      * @param xlsManId The value of xlsManId as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -96,9 +96,9 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * xls_man_id: {PK, NotNull, int8(19)}
      * @param minNumber The min number of xlsManId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of xlsManId. (NullAllowed: if null, no to-condition)
@@ -109,9 +109,9 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * RangeOf with various options. (versatile) <br />
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * xls_man_id: {PK, NotNull, int8(19)}
      * @param minNumber The min number of xlsManId. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of xlsManId. (NullAllowed: if null, no to-condition)
@@ -122,7 +122,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * xls_man_id: {PK, NotNull, int8(19)}
      * @param xlsManIdList The collection of xlsManId as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -135,7 +135,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * xls_man_id: {PK, NotNull, int8(19)}
      * @param xlsManIdList The collection of xlsManId as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -148,13 +148,13 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * xls_man_id: {PK, NotNull, int8(19)}
      */
     public void setXlsManId_IsNull() { regXlsManId(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * xls_man_id: {PK, NotNull, int8(19)}
      */
     public void setXlsManId_IsNotNull() { regXlsManId(CK_ISNN, DOBJ); }
@@ -163,7 +163,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     protected abstract ConditionValue xgetCValueXlsManId();
 
     /**
-     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * string_converted: {varchar(2147483647)}
      * @param stringConverted The value of stringConverted as equal. (NullAllowed: if null (or empty), no condition)
      */
@@ -176,7 +176,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br />
+     * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * string_converted: {varchar(2147483647)}
      * @param stringConverted The value of stringConverted as notEqual. (NullAllowed: if null (or empty), no condition)
      */
@@ -189,7 +189,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * string_converted: {varchar(2147483647)}
      * @param stringConvertedList The collection of stringConverted as inScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -202,7 +202,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br />
+     * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * string_converted: {varchar(2147483647)}
      * @param stringConvertedList The collection of stringConverted as notInScope. (NullAllowed: if null (or empty), no condition)
      */
@@ -215,8 +215,8 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * string_converted: {varchar(2147483647)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * string_converted: {varchar(2147483647)} <br>
      * <pre>e.g. setStringConverted_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
      * @param stringConverted The value of stringConverted as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -226,8 +226,8 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
-     * string_converted: {varchar(2147483647)} <br />
+     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
+     * string_converted: {varchar(2147483647)} <br>
      * <pre>e.g. setStringConverted_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
      * @param stringConverted The value of stringConverted as likeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of like-search. (NotNull)
@@ -237,8 +237,8 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * string_converted: {varchar(2147483647)}
      * @param stringConverted The value of stringConverted as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param opLambda The callback for option of like-search. (NotNull)
@@ -248,8 +248,8 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br />
-     * And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
+     * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * string_converted: {varchar(2147483647)}
      * @param stringConverted The value of stringConverted as notLikeSearch. (NullAllowed: if null (or empty), no condition)
      * @param likeSearchOption The option of not-like-search. (NotNull)
@@ -259,7 +259,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br />
+     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * string_converted: {varchar(2147483647)}
      * @param stringConverted The value of stringConverted as prefixSearch. (NullAllowed: if null (or empty), no condition)
      */
@@ -268,19 +268,19 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * string_converted: {varchar(2147483647)}
      */
     public void setStringConverted_IsNull() { regStringConverted(CK_ISN, DOBJ); }
 
     /**
-     * IsNullOrEmpty {is null or empty}. And OnlyOnceRegistered. <br />
+     * IsNullOrEmpty {is null or empty}. And OnlyOnceRegistered. <br>
      * string_converted: {varchar(2147483647)}
      */
     public void setStringConverted_IsNullOrEmpty() { regStringConverted(CK_ISNOE, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * string_converted: {varchar(2147483647)}
      */
     public void setStringConverted_IsNotNull() { regStringConverted(CK_ISNN, DOBJ); }
@@ -289,7 +289,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     protected abstract ConditionValue xgetCValueStringConverted();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * timestamp_zero_default_millis: {timestamp(26, 3)}
      * @param timestampZeroDefaultMillis The value of timestampZeroDefaultMillis as equal. (NullAllowed: if null, no condition)
      */
@@ -298,7 +298,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * timestamp_zero_default_millis: {timestamp(26, 3)}
      * @param timestampZeroDefaultMillis The value of timestampZeroDefaultMillis as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -307,7 +307,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * timestamp_zero_default_millis: {timestamp(26, 3)}
      * @param timestampZeroDefaultMillis The value of timestampZeroDefaultMillis as lessThan. (NullAllowed: if null, no condition)
      */
@@ -316,7 +316,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * timestamp_zero_default_millis: {timestamp(26, 3)}
      * @param timestampZeroDefaultMillis The value of timestampZeroDefaultMillis as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -325,7 +325,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * timestamp_zero_default_millis: {timestamp(26, 3)}
      * @param timestampZeroDefaultMillis The value of timestampZeroDefaultMillis as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -334,8 +334,8 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * timestamp_zero_default_millis: {timestamp(26, 3)}
      * <pre>e.g. setTimestampZeroDefaultMillis_FromTo(fromDate, toDate, op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">compareAsDate()</span>);</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of timestampZeroDefaultMillis. (NullAllowed: if null, no from-condition)
@@ -347,8 +347,8 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * timestamp_zero_default_millis: {timestamp(26, 3)}
      * <pre>e.g. setTimestampZeroDefaultMillis_FromTo(fromDate, toDate, new <span style="color: #CC4747">FromToOption</span>().compareAsDate());</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of timestampZeroDefaultMillis. (NullAllowed: if null, no from-condition)
@@ -360,8 +360,8 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * timestamp_zero_default_millis: {timestamp(26, 3)}
      * <pre>
      * e.g. from:{2007/04/10 08:24:53} to:{2007/04/16 14:36:29}
@@ -375,13 +375,13 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * timestamp_zero_default_millis: {timestamp(26, 3)}
      */
     public void setTimestampZeroDefaultMillis_IsNull() { regTimestampZeroDefaultMillis(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * timestamp_zero_default_millis: {timestamp(26, 3)}
      */
     public void setTimestampZeroDefaultMillis_IsNotNull() { regTimestampZeroDefaultMillis(CK_ISNN, DOBJ); }
@@ -390,7 +390,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     protected abstract ConditionValue xgetCValueTimestampZeroDefaultMillis();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * timestamp_zero_prefix_millis: {timestamp(26, 3)}
      * @param timestampZeroPrefixMillis The value of timestampZeroPrefixMillis as equal. (NullAllowed: if null, no condition)
      */
@@ -399,7 +399,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * timestamp_zero_prefix_millis: {timestamp(26, 3)}
      * @param timestampZeroPrefixMillis The value of timestampZeroPrefixMillis as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -408,7 +408,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * timestamp_zero_prefix_millis: {timestamp(26, 3)}
      * @param timestampZeroPrefixMillis The value of timestampZeroPrefixMillis as lessThan. (NullAllowed: if null, no condition)
      */
@@ -417,7 +417,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * timestamp_zero_prefix_millis: {timestamp(26, 3)}
      * @param timestampZeroPrefixMillis The value of timestampZeroPrefixMillis as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -426,7 +426,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * timestamp_zero_prefix_millis: {timestamp(26, 3)}
      * @param timestampZeroPrefixMillis The value of timestampZeroPrefixMillis as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -435,8 +435,8 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * timestamp_zero_prefix_millis: {timestamp(26, 3)}
      * <pre>e.g. setTimestampZeroPrefixMillis_FromTo(fromDate, toDate, op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">compareAsDate()</span>);</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of timestampZeroPrefixMillis. (NullAllowed: if null, no from-condition)
@@ -448,8 +448,8 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * timestamp_zero_prefix_millis: {timestamp(26, 3)}
      * <pre>e.g. setTimestampZeroPrefixMillis_FromTo(fromDate, toDate, new <span style="color: #CC4747">FromToOption</span>().compareAsDate());</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of timestampZeroPrefixMillis. (NullAllowed: if null, no from-condition)
@@ -461,8 +461,8 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * timestamp_zero_prefix_millis: {timestamp(26, 3)}
      * <pre>
      * e.g. from:{2007/04/10 08:24:53} to:{2007/04/16 14:36:29}
@@ -476,13 +476,13 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * timestamp_zero_prefix_millis: {timestamp(26, 3)}
      */
     public void setTimestampZeroPrefixMillis_IsNull() { regTimestampZeroPrefixMillis(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * timestamp_zero_prefix_millis: {timestamp(26, 3)}
      */
     public void setTimestampZeroPrefixMillis_IsNotNull() { regTimestampZeroPrefixMillis(CK_ISNN, DOBJ); }
@@ -491,7 +491,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     protected abstract ConditionValue xgetCValueTimestampZeroPrefixMillis();
 
     /**
-     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br />
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * timestamp_zero_suffix_millis: {timestamp(26, 3)}
      * @param timestampZeroSuffixMillis The value of timestampZeroSuffixMillis as equal. (NullAllowed: if null, no condition)
      */
@@ -500,7 +500,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * timestamp_zero_suffix_millis: {timestamp(26, 3)}
      * @param timestampZeroSuffixMillis The value of timestampZeroSuffixMillis as greaterThan. (NullAllowed: if null, no condition)
      */
@@ -509,7 +509,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * timestamp_zero_suffix_millis: {timestamp(26, 3)}
      * @param timestampZeroSuffixMillis The value of timestampZeroSuffixMillis as lessThan. (NullAllowed: if null, no condition)
      */
@@ -518,7 +518,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * timestamp_zero_suffix_millis: {timestamp(26, 3)}
      * @param timestampZeroSuffixMillis The value of timestampZeroSuffixMillis as greaterEqual. (NullAllowed: if null, no condition)
      */
@@ -527,7 +527,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br />
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * timestamp_zero_suffix_millis: {timestamp(26, 3)}
      * @param timestampZeroSuffixMillis The value of timestampZeroSuffixMillis as lessEqual. (NullAllowed: if null, no condition)
      */
@@ -536,8 +536,8 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * timestamp_zero_suffix_millis: {timestamp(26, 3)}
      * <pre>e.g. setTimestampZeroSuffixMillis_FromTo(fromDate, toDate, op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">compareAsDate()</span>);</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of timestampZeroSuffixMillis. (NullAllowed: if null, no from-condition)
@@ -549,8 +549,8 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * FromTo with various options. (versatile) {(default) fromDatetime &lt;= column &lt;= toDatetime} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * timestamp_zero_suffix_millis: {timestamp(26, 3)}
      * <pre>e.g. setTimestampZeroSuffixMillis_FromTo(fromDate, toDate, new <span style="color: #CC4747">FromToOption</span>().compareAsDate());</pre>
      * @param fromDatetime The from-datetime(yyyy/MM/dd HH:mm:ss.SSS) of timestampZeroSuffixMillis. (NullAllowed: if null, no from-condition)
@@ -562,8 +562,8 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br />
-     * And NullIgnored, OnlyOnceRegistered. <br />
+     * DateFromTo. (Date means yyyy/MM/dd) {fromDate &lt;= column &lt; toDate + 1 day} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
      * timestamp_zero_suffix_millis: {timestamp(26, 3)}
      * <pre>
      * e.g. from:{2007/04/10 08:24:53} to:{2007/04/16 14:36:29}
@@ -577,13 +577,13 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * IsNull {is null}. And OnlyOnceRegistered. <br />
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
      * timestamp_zero_suffix_millis: {timestamp(26, 3)}
      */
     public void setTimestampZeroSuffixMillis_IsNull() { regTimestampZeroSuffixMillis(CK_ISN, DOBJ); }
 
     /**
-     * IsNotNull {is not null}. And OnlyOnceRegistered. <br />
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
      * timestamp_zero_suffix_millis: {timestamp(26, 3)}
      */
     public void setTimestampZeroSuffixMillis_IsNotNull() { regTimestampZeroSuffixMillis(CK_ISNN, DOBJ); }
@@ -595,7 +595,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     //                                                                     ScalarCondition
     //                                                                     ===============
     /**
-     * Prepare ScalarCondition as equal. <br />
+     * Prepare ScalarCondition as equal. <br>
      * {where FOO = (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_Equal()</span>.max(new SubQuery&lt;WhiteXlsManCB&gt;() {
@@ -612,7 +612,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * Prepare ScalarCondition as equal. <br />
+     * Prepare ScalarCondition as equal. <br>
      * {where FOO &lt;&gt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_NotEqual()</span>.max(new SubQuery&lt;WhiteXlsManCB&gt;() {
@@ -629,7 +629,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * Prepare ScalarCondition as greaterThan. <br />
+     * Prepare ScalarCondition as greaterThan. <br>
      * {where FOO &gt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_GreaterThan()</span>.max(new SubQuery&lt;WhiteXlsManCB&gt;() {
@@ -646,7 +646,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * Prepare ScalarCondition as lessThan. <br />
+     * Prepare ScalarCondition as lessThan. <br>
      * {where FOO &lt; (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessThan()</span>.max(new SubQuery&lt;WhiteXlsManCB&gt;() {
@@ -663,7 +663,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * Prepare ScalarCondition as greaterEqual. <br />
+     * Prepare ScalarCondition as greaterEqual. <br>
      * {where FOO &gt;= (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_GreaterEqual()</span>.max(new SubQuery&lt;WhiteXlsManCB&gt;() {
@@ -680,7 +680,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * Prepare ScalarCondition as lessEqual. <br />
+     * Prepare ScalarCondition as lessEqual. <br>
      * {where FOO &lt;= (select max(BAR) from ...)
      * <pre>
      * cb.query().<span style="color: #CC4747">scalar_LessEqual()</span>.max(new SubQuery&lt;WhiteXlsManCB&gt;() {
@@ -763,7 +763,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     //                                                                    Full Text Search
     //                                                                    ================
     /**
-     * Match for full-text search. <br />
+     * Match for full-text search. <br>
      * @param textColumn The text column. (NotNull, StringColumn, TargetTableColumn)
      * @param conditionValue The condition value. (NullAllowed: if null or empty, no condition)
      */
@@ -773,7 +773,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     }
 
     /**
-     * Match for full-text search. <br />
+     * Match for full-text search. <br>
      * @param textColumnList The list of text column. (NotNull, NotEmpty, StringColumn, TargetTableColumn)
      * @param conditionValue The condition value. (NullAllowed: if null or empty, no condition)
      */

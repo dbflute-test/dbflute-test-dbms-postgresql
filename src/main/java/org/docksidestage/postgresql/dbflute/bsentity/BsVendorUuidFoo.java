@@ -5,11 +5,12 @@ import java.util.ArrayList;
 
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
+import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.postgresql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
 /**
- * The entity of vendor_uuid_foo as TABLE. <br />
+ * The entity of vendor_uuid_foo as TABLE. <br>
  * <pre>
  * [primary-key]
  *     foo_id
@@ -50,7 +51,7 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsVendorUuidFoo extends AbstractEntity {
+public abstract class BsVendorUuidFoo extends AbstractEntity implements DomainEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -107,7 +108,7 @@ public abstract class BsVendorUuidFoo extends AbstractEntity {
     protected VendorUuidBar _vendorUuidBar;
 
     /**
-     * [get] vendor_uuid_bar by my bar_id, named 'vendorUuidBar'. <br />
+     * [get] vendor_uuid_bar by my bar_id, named 'vendorUuidBar'. <br>
      * @return The entity of foreign property 'vendorUuidBar'. (NullAllowed: when e.g. null FK column, no setupSelect)
      */
     public VendorUuidBar getVendorUuidBar() {
@@ -192,7 +193,7 @@ public abstract class BsVendorUuidFoo extends AbstractEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] foo_id: {PK, NotNull, uuid(2147483647)} <br />
+     * [get] foo_id: {PK, NotNull, uuid(2147483647)} <br>
      * @return The value of the column 'foo_id'. (basically NotNull if selected: for the constraint)
      */
     public java.util.UUID getFooId() {
@@ -201,7 +202,7 @@ public abstract class BsVendorUuidFoo extends AbstractEntity {
     }
 
     /**
-     * [set] foo_id: {PK, NotNull, uuid(2147483647)} <br />
+     * [set] foo_id: {PK, NotNull, uuid(2147483647)} <br>
      * @param fooId The value of the column 'foo_id'. (basically NotNull if update: for the constraint)
      */
     public void setFooId(java.util.UUID fooId) {
@@ -210,7 +211,7 @@ public abstract class BsVendorUuidFoo extends AbstractEntity {
     }
 
     /**
-     * [get] foo_name: {NotNull, varchar(2147483647)} <br />
+     * [get] foo_name: {NotNull, varchar(2147483647)} <br>
      * @return The value of the column 'foo_name'. (basically NotNull if selected: for the constraint)
      */
     public String getFooName() {
@@ -219,7 +220,7 @@ public abstract class BsVendorUuidFoo extends AbstractEntity {
     }
 
     /**
-     * [set] foo_name: {NotNull, varchar(2147483647)} <br />
+     * [set] foo_name: {NotNull, varchar(2147483647)} <br>
      * @param fooName The value of the column 'foo_name'. (basically NotNull if update: for the constraint)
      */
     public void setFooName(String fooName) {
@@ -228,7 +229,7 @@ public abstract class BsVendorUuidFoo extends AbstractEntity {
     }
 
     /**
-     * [get] bar_id: {NotNull, uuid(2147483647), FK to vendor_uuid_bar} <br />
+     * [get] bar_id: {NotNull, uuid(2147483647), FK to vendor_uuid_bar} <br>
      * @return The value of the column 'bar_id'. (basically NotNull if selected: for the constraint)
      */
     public java.util.UUID getBarId() {
@@ -237,7 +238,7 @@ public abstract class BsVendorUuidFoo extends AbstractEntity {
     }
 
     /**
-     * [set] bar_id: {NotNull, uuid(2147483647), FK to vendor_uuid_bar} <br />
+     * [set] bar_id: {NotNull, uuid(2147483647), FK to vendor_uuid_bar} <br>
      * @param barId The value of the column 'bar_id'. (basically NotNull if update: for the constraint)
      */
     public void setBarId(java.util.UUID barId) {

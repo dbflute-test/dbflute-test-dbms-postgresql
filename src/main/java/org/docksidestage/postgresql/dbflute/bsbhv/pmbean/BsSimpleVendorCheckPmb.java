@@ -11,7 +11,7 @@ import org.docksidestage.postgresql.dbflute.exbhv.*;
 import org.docksidestage.postgresql.dbflute.exentity.customize.*;
 
 /**
- * The base class for typed parameter-bean of SimpleVendorCheck. <br />
+ * The base class for typed parameter-bean of SimpleVendorCheck. <br>
  * This is related to "<span style="color: #AD4747">whitebox:vendorcheck:selectSimpleVendorCheck</span>" on VendorCheckBhv.
  * @author DBFlute(AutoGenerator)
  */
@@ -33,7 +33,7 @@ public class BsSimpleVendorCheckPmb implements ListHandlingPmb<VendorCheckBhv, S
     //                                                                         Constructor
     //                                                                         ===========
     /**
-     * Constructor for the typed parameter-bean of SimpleVendorCheck. <br />
+     * Constructor for the typed parameter-bean of SimpleVendorCheck. <br>
      * This is related to "<span style="color: #AD4747">whitebox:vendorcheck:selectSimpleVendorCheck</span>" on VendorCheckBhv.
      */
     public BsSimpleVendorCheckPmb() {
@@ -120,7 +120,7 @@ public class BsSimpleVendorCheckPmb implements ListHandlingPmb<VendorCheckBhv, S
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] typeOfBoolean:cls(TrueFalse) <br />
+     * [get] typeOfBoolean:cls(TrueFalse) <br>
      * @return The value of typeOfBoolean. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
     public Boolean getTypeOfBoolean() {
@@ -128,7 +128,7 @@ public class BsSimpleVendorCheckPmb implements ListHandlingPmb<VendorCheckBhv, S
     }
 
     /**
-     * [set as True] typeOfBoolean:cls(TrueFalse) <br />
+     * [set as True] typeOfBoolean:cls(TrueFalse) <br>
      * means valid
      */
     public void setTypeOfBoolean_True() {
@@ -136,7 +136,7 @@ public class BsSimpleVendorCheckPmb implements ListHandlingPmb<VendorCheckBhv, S
     }
 
     /**
-     * [set as False] typeOfBoolean:cls(TrueFalse) <br />
+     * [set as False] typeOfBoolean:cls(TrueFalse) <br>
      * means invalid
      */
     public void setTypeOfBoolean_False() {
