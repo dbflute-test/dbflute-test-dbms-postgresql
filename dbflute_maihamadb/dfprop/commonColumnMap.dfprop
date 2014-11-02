@@ -11,7 +11,7 @@ map:{
         ; UPDATE_DATETIME=TIMESTAMP   ; UPDATE_USER=VARCHAR   ; UPDATE_PROCESS=VARCHAR
     }
     ; beforeInsertMap = map:{
-        ; REGISTER_DATETIME = $$AccessContext$$.getAccessTimestampOnThread()
+        ; REGISTER_DATETIME = $$AccessContext$$.getAccessLocalDateTimeOnThread()
         ; REGISTER_USER     = $$AccessContext$$.getAccessUserOnThread()
         ; REGISTER_PROCESS  = $$AccessContext$$.getAccessProcessOnThread()
         ; UPDATE_DATETIME   = entity.getRegisterDatetime()
@@ -19,7 +19,7 @@ map:{
         ; UPDATE_PROCESS    = entity.getRegisterProcess()
     }
     ; beforeUpdateMap = map:{
-        ; UPDATE_DATETIME   = $$AccessContext$$.getAccessTimestampOnThread()
+        ; UPDATE_DATETIME   = $$AccessContext$$.getAccessLocalDateTimeOnThread()
         ; UPDATE_USER       = $$AccessContext$$.getAccessUserOnThread()
         ; UPDATE_PROCESS    = $$AccessContext$$.getAccessProcessOnThread()
     }

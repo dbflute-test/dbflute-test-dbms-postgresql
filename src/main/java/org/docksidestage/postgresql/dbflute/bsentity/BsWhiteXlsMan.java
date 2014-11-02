@@ -43,9 +43,9 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * Long xlsManId = entity.getXlsManId();
  * String stringConverted = entity.getStringConverted();
- * java.sql.Timestamp timestampZeroDefaultMillis = entity.getTimestampZeroDefaultMillis();
- * java.sql.Timestamp timestampZeroPrefixMillis = entity.getTimestampZeroPrefixMillis();
- * java.sql.Timestamp timestampZeroSuffixMillis = entity.getTimestampZeroSuffixMillis();
+ * java.time.LocalDateTime timestampZeroDefaultMillis = entity.getTimestampZeroDefaultMillis();
+ * java.time.LocalDateTime timestampZeroPrefixMillis = entity.getTimestampZeroPrefixMillis();
+ * java.time.LocalDateTime timestampZeroSuffixMillis = entity.getTimestampZeroSuffixMillis();
  * entity.setXlsManId(xlsManId);
  * entity.setStringConverted(stringConverted);
  * entity.setTimestampZeroDefaultMillis(timestampZeroDefaultMillis);
@@ -73,13 +73,13 @@ public abstract class BsWhiteXlsMan extends AbstractEntity implements DomainEnti
     protected String _stringConverted;
 
     /** timestamp_zero_default_millis: {timestamp(26, 3)} */
-    protected java.sql.Timestamp _timestampZeroDefaultMillis;
+    protected java.time.LocalDateTime _timestampZeroDefaultMillis;
 
     /** timestamp_zero_prefix_millis: {timestamp(26, 3)} */
-    protected java.sql.Timestamp _timestampZeroPrefixMillis;
+    protected java.time.LocalDateTime _timestampZeroPrefixMillis;
 
     /** timestamp_zero_suffix_millis: {timestamp(26, 3)} */
-    protected java.sql.Timestamp _timestampZeroSuffixMillis;
+    protected java.time.LocalDateTime _timestampZeroSuffixMillis;
 
     // ===================================================================================
     //                                                                          Table Name
@@ -216,7 +216,7 @@ public abstract class BsWhiteXlsMan extends AbstractEntity implements DomainEnti
      * [get] timestamp_zero_default_millis: {timestamp(26, 3)} <br>
      * @return The value of the column 'timestamp_zero_default_millis'. (NullAllowed even if selected: for no constraint)
      */
-    public java.sql.Timestamp getTimestampZeroDefaultMillis() {
+    public java.time.LocalDateTime getTimestampZeroDefaultMillis() {
         checkSpecifiedProperty("timestampZeroDefaultMillis");
         return _timestampZeroDefaultMillis;
     }
@@ -225,7 +225,7 @@ public abstract class BsWhiteXlsMan extends AbstractEntity implements DomainEnti
      * [set] timestamp_zero_default_millis: {timestamp(26, 3)} <br>
      * @param timestampZeroDefaultMillis The value of the column 'timestamp_zero_default_millis'. (NullAllowed: null update allowed for no constraint)
      */
-    public void setTimestampZeroDefaultMillis(java.sql.Timestamp timestampZeroDefaultMillis) {
+    public void setTimestampZeroDefaultMillis(java.time.LocalDateTime timestampZeroDefaultMillis) {
         registerModifiedProperty("timestampZeroDefaultMillis");
         _timestampZeroDefaultMillis = timestampZeroDefaultMillis;
     }
@@ -234,7 +234,7 @@ public abstract class BsWhiteXlsMan extends AbstractEntity implements DomainEnti
      * [get] timestamp_zero_prefix_millis: {timestamp(26, 3)} <br>
      * @return The value of the column 'timestamp_zero_prefix_millis'. (NullAllowed even if selected: for no constraint)
      */
-    public java.sql.Timestamp getTimestampZeroPrefixMillis() {
+    public java.time.LocalDateTime getTimestampZeroPrefixMillis() {
         checkSpecifiedProperty("timestampZeroPrefixMillis");
         return _timestampZeroPrefixMillis;
     }
@@ -243,7 +243,7 @@ public abstract class BsWhiteXlsMan extends AbstractEntity implements DomainEnti
      * [set] timestamp_zero_prefix_millis: {timestamp(26, 3)} <br>
      * @param timestampZeroPrefixMillis The value of the column 'timestamp_zero_prefix_millis'. (NullAllowed: null update allowed for no constraint)
      */
-    public void setTimestampZeroPrefixMillis(java.sql.Timestamp timestampZeroPrefixMillis) {
+    public void setTimestampZeroPrefixMillis(java.time.LocalDateTime timestampZeroPrefixMillis) {
         registerModifiedProperty("timestampZeroPrefixMillis");
         _timestampZeroPrefixMillis = timestampZeroPrefixMillis;
     }
@@ -252,7 +252,7 @@ public abstract class BsWhiteXlsMan extends AbstractEntity implements DomainEnti
      * [get] timestamp_zero_suffix_millis: {timestamp(26, 3)} <br>
      * @return The value of the column 'timestamp_zero_suffix_millis'. (NullAllowed even if selected: for no constraint)
      */
-    public java.sql.Timestamp getTimestampZeroSuffixMillis() {
+    public java.time.LocalDateTime getTimestampZeroSuffixMillis() {
         checkSpecifiedProperty("timestampZeroSuffixMillis");
         return _timestampZeroSuffixMillis;
     }
@@ -261,7 +261,7 @@ public abstract class BsWhiteXlsMan extends AbstractEntity implements DomainEnti
      * [set] timestamp_zero_suffix_millis: {timestamp(26, 3)} <br>
      * @param timestampZeroSuffixMillis The value of the column 'timestamp_zero_suffix_millis'. (NullAllowed: null update allowed for no constraint)
      */
-    public void setTimestampZeroSuffixMillis(java.sql.Timestamp timestampZeroSuffixMillis) {
+    public void setTimestampZeroSuffixMillis(java.time.LocalDateTime timestampZeroSuffixMillis) {
         registerModifiedProperty("timestampZeroSuffixMillis");
         _timestampZeroSuffixMillis = timestampZeroSuffixMillis;
     }

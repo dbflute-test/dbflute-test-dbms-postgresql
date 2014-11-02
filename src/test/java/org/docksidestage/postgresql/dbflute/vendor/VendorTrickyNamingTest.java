@@ -17,7 +17,7 @@ import org.docksidestage.postgresql.unit.UnitContainerTestCase;
  * @author jflute
  * @since 0.9.7.2 (2010/06/15 Tuesday)
  */
-public class VendorNameTest extends UnitContainerTestCase {
+public class VendorTrickyNamingTest extends UnitContainerTestCase {
 
     // ===================================================================================
     //                                                                           Attribute
@@ -62,7 +62,7 @@ public class VendorNameTest extends UnitContainerTestCase {
         // ## Assert ##
         assertEquals("Genius", actual.getNon_compilable_name());
         assertNotNull(actual.getVendor_non_compilableByParent_idSelf());
-        assertEquals("Pixy", actual.getVendor_non_compilableByParent_idSelf().getNon_compilable_name());
+        assertEquals("Pixy", actual.getVendor_non_compilableByParent_idSelf().get().getNon_compilable_name());
 
         {
             // ## Act ##
@@ -79,7 +79,7 @@ public class VendorNameTest extends UnitContainerTestCase {
             vendor_non_compilableBhv.delete(noncomp);
 
             // ## Assert ##
-            assertNull(vendor_non_compilableBhv.selectEntity(cb));
+            assertFalse(vendor_non_compilableBhv.selectEntity(cb).isPresent());
         }
     }
 
@@ -129,8 +129,7 @@ public class VendorNameTest extends UnitContainerTestCase {
         Class<VendorUnsupportedAlias> entityType = VendorUnsupportedAlias.class;
 
         // ## Act ##
-        VendorUnsupportedAlias actual = vendorCheckBhv.outsideSql().entityHandling().selectEntityWithDeletedCheck(path,
-                pmb, entityType);
+        VendorUnsupportedAlias actual = vendorCheckBhv.outsideSql().traditionalStyle().selectEntity(path, pmb, entityType).get();
 
         // ## Assert ##
         log(actual);

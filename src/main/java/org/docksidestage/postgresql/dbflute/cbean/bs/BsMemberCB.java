@@ -312,7 +312,7 @@ public class BsMemberCB extends AbstractConditionBean {
      * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
      * @return The set-upper of nested relation. {setupSelect...().with[nested-relation]} (NotNull)
      */
-    public MemberAddressNss setupSelect_MemberAddressAsValid(final java.util.Date targetDate) {
+    public MemberAddressNss setupSelect_MemberAddressAsValid(final java.time.LocalDate targetDate) {
         assertSetupSelectPurpose("memberAddressAsValid");
         doSetupSelect(() -> query().queryMemberAddressAsValid(targetDate));
         if (_nssMemberAddressAsValid == null || !_nssMemberAddressAsValid.hasConditionQuery())
@@ -575,7 +575,7 @@ public class BsMemberCB extends AbstractConditionBean {
          * @param targetDate The bind parameter of fixed condition for targetDate. (NotNull)
          * @return The instance for specification for relation table to specify. (NotNull)
          */
-        public MemberAddressCB.HpSpecification specifyMemberAddressAsValid(final java.util.Date targetDate) {
+        public MemberAddressCB.HpSpecification specifyMemberAddressAsValid(final java.time.LocalDate targetDate) {
             assertRelation("memberAddressAsValid");
             if (_memberAddressAsValid == null) {
                 _memberAddressAsValid = new MemberAddressCB.HpSpecification(_baseCB
@@ -703,7 +703,7 @@ public class BsMemberCB extends AbstractConditionBean {
          * </pre>
          * @return The object to set up a function for referrer table. (NotNull)
          */
-        public HpSDRFunction<MemberAddressCB, MemberCQ> derivedMemberAddressList() {
+        public HpSDRFunction<MemberAddressCB, MemberCQ> derivedMemberAddress() {
             assertDerived("memberAddressList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
             return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsderiveMemberAddressList(fn, sq, al, op), _dbmetaProvider);
         }
@@ -719,7 +719,7 @@ public class BsMemberCB extends AbstractConditionBean {
          * </pre>
          * @return The object to set up a function for referrer table. (NotNull)
          */
-        public HpSDRFunction<MemberLoginCB, MemberCQ> derivedMemberLoginList() {
+        public HpSDRFunction<MemberLoginCB, MemberCQ> derivedMemberLogin() {
             assertDerived("memberLoginList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
             return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsderiveMemberLoginList(fn, sq, al, op), _dbmetaProvider);
         }
@@ -735,7 +735,7 @@ public class BsMemberCB extends AbstractConditionBean {
          * </pre>
          * @return The object to set up a function for referrer table. (NotNull)
          */
-        public HpSDRFunction<PurchaseCB, MemberCQ> derivedPurchaseList() {
+        public HpSDRFunction<PurchaseCB, MemberCQ> derivedPurchase() {
             assertDerived("purchaseList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
             return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsderivePurchaseList(fn, sq, al, op), _dbmetaProvider);
         }
@@ -747,6 +747,24 @@ public class BsMemberCB extends AbstractConditionBean {
             assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
             return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
         }
+    }
+
+    // ===================================================================================
+    //                                                                        Dream Cruise
+    //                                                                        ============
+    /**
+     * Welcome to the Dream Cruise for condition-bean deep world. <br>
+     * This is very specialty so you can get the frontier spirit. Bon voyage!
+     * @return The condition-bean for dream cruise, which is linked to main condition-bean.
+     */
+    public MemberCB dreamCruiseCB() {
+        MemberCB cb = new MemberCB();
+        cb.xsetupForDreamCruise((MemberCB) this);
+        return cb;
+    }
+
+    protected ConditionBean xdoCreateDreamCruiseCB() {
+        return dreamCruiseCB();
     }
 
     // [DBFlute-0.9.5.3]
@@ -780,24 +798,6 @@ public class BsMemberCB extends AbstractConditionBean {
         MemberCB cb = new MemberCB();
         cb.xsetupForColumnQuery((MemberCB)this);
         return cb;
-    }
-
-    // ===================================================================================
-    //                                                                        Dream Cruise
-    //                                                                        ============
-    /**
-     * Welcome to the Dream Cruise for condition-bean deep world. <br>
-     * This is very specialty so you can get the frontier spirit. Bon voyage!
-     * @return The condition-bean for dream cruise, which is linked to main condition-bean.
-     */
-    public MemberCB dreamCruiseCB() {
-        MemberCB cb = new MemberCB();
-        cb.xsetupForDreamCruise((MemberCB) this);
-        return cb;
-    }
-
-    protected ConditionBean xdoCreateDreamCruiseCB() {
-        return dreamCruiseCB();
     }
 
     // [DBFlute-0.9.6.3]

@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.dbflute.Entity;
+import org.dbflute.optional.OptionalEntity;
 import org.dbflute.dbmeta.AbstractDBMeta;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
@@ -37,10 +38,11 @@ public class NextschemaWhiteSameNameRefDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((NextschemaWhiteSameNameRef)et).getSameNameRefId(), (et, vl) -> ((NextschemaWhiteSameNameRef)et).setSameNameRefId(ctl(vl)), "sameNameRefId");
         setupEpg(_epgMap, et -> ((NextschemaWhiteSameNameRef)et).getSameNameId(), (et, vl) -> ((NextschemaWhiteSameNameRef)et).setSameNameId(cti(vl)), "sameNameId");
-        setupEpg(_epgMap, et -> ((NextschemaWhiteSameNameRef)et).getNextRefDate(), (et, vl) -> ((NextschemaWhiteSameNameRef)et).setNextRefDate((java.util.Date)vl), "nextRefDate");
+        setupEpg(_epgMap, et -> ((NextschemaWhiteSameNameRef)et).getNextRefDate(), (et, vl) -> ((NextschemaWhiteSameNameRef)et).setNextRefDate((java.time.LocalDate)vl), "nextRefDate");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -50,8 +52,9 @@ public class NextschemaWhiteSameNameRefDbm extends AbstractDBMeta {
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
     { xsetupEfpg(); }
+    @SuppressWarnings("unchecked")
     protected void xsetupEfpg() {
-        setupEfpg(_efpgMap, et -> ((NextschemaWhiteSameNameRef)et).getWhiteSameName(), (et, vl) -> ((NextschemaWhiteSameNameRef)et).setWhiteSameName((NextschemaWhiteSameName)vl), "whiteSameName");
+        setupEfpg(_efpgMap, et -> ((NextschemaWhiteSameNameRef)et).getWhiteSameName(), (et, vl) -> ((NextschemaWhiteSameNameRef)et).setWhiteSameName((OptionalEntity<NextschemaWhiteSameName>)vl), "whiteSameName");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }
@@ -72,7 +75,7 @@ public class NextschemaWhiteSameNameRefDbm extends AbstractDBMeta {
     //                                                                         ===========
     protected final ColumnInfo _columnSameNameRefId = cci("same_name_ref_id", "same_name_ref_id", null, null, Long.class, "sameNameRefId", null, true, false, true, "int8", 19, 0, null, false, null, null, null, null, null);
     protected final ColumnInfo _columnSameNameId = cci("same_name_id", "same_name_id", null, null, Integer.class, "sameNameId", null, false, false, true, "int4", 10, 0, null, false, null, null, "whiteSameName", null, null);
-    protected final ColumnInfo _columnNextRefDate = cci("next_ref_date", "next_ref_date", null, null, java.util.Date.class, "nextRefDate", null, false, false, false, "date", 13, 0, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnNextRefDate = cci("next_ref_date", "next_ref_date", null, null, java.time.LocalDate.class, "nextRefDate", null, false, false, false, "date", 13, 0, null, false, null, null, null, null, null);
 
     /**
      * same_name_ref_id: {PK, NotNull, int8(19)}
@@ -124,7 +127,7 @@ public class NextschemaWhiteSameNameRefDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignWhiteSameName() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnSameNameId(), NextschemaWhiteSameNameDbm.getInstance().columnSameNameId());
-        return cfi("fk_white_same_name_ref", "whiteSameName", this, NextschemaWhiteSameNameDbm.getInstance(), mp, 0, null, false, false, false, false, null, null, false, "whiteSameNameRefList");
+        return cfi("fk_white_same_name_ref", "whiteSameName", this, NextschemaWhiteSameNameDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "whiteSameNameRefList");
     }
 
     // -----------------------------------------------------

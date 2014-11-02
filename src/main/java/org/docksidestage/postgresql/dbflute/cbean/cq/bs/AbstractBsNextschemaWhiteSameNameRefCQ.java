@@ -271,8 +271,8 @@ public abstract class AbstractBsNextschemaWhiteSameNameRefCQ extends AbstractCon
      * next_ref_date: {date(13)}
      * @param nextRefDate The value of nextRefDate as equal. (NullAllowed: if null, no condition)
      */
-    public void setNextRefDate_Equal(java.util.Date nextRefDate) {
-        regNextRefDate(CK_EQ,  fCTPD(nextRefDate));
+    public void setNextRefDate_Equal(java.time.LocalDate nextRefDate) {
+        regNextRefDate(CK_EQ,  nextRefDate);
     }
 
     /**
@@ -280,8 +280,8 @@ public abstract class AbstractBsNextschemaWhiteSameNameRefCQ extends AbstractCon
      * next_ref_date: {date(13)}
      * @param nextRefDate The value of nextRefDate as greaterThan. (NullAllowed: if null, no condition)
      */
-    public void setNextRefDate_GreaterThan(java.util.Date nextRefDate) {
-        regNextRefDate(CK_GT,  fCTPD(nextRefDate));
+    public void setNextRefDate_GreaterThan(java.time.LocalDate nextRefDate) {
+        regNextRefDate(CK_GT,  nextRefDate);
     }
 
     /**
@@ -289,8 +289,8 @@ public abstract class AbstractBsNextschemaWhiteSameNameRefCQ extends AbstractCon
      * next_ref_date: {date(13)}
      * @param nextRefDate The value of nextRefDate as lessThan. (NullAllowed: if null, no condition)
      */
-    public void setNextRefDate_LessThan(java.util.Date nextRefDate) {
-        regNextRefDate(CK_LT,  fCTPD(nextRefDate));
+    public void setNextRefDate_LessThan(java.time.LocalDate nextRefDate) {
+        regNextRefDate(CK_LT,  nextRefDate);
     }
 
     /**
@@ -298,8 +298,8 @@ public abstract class AbstractBsNextschemaWhiteSameNameRefCQ extends AbstractCon
      * next_ref_date: {date(13)}
      * @param nextRefDate The value of nextRefDate as greaterEqual. (NullAllowed: if null, no condition)
      */
-    public void setNextRefDate_GreaterEqual(java.util.Date nextRefDate) {
-        regNextRefDate(CK_GE,  fCTPD(nextRefDate));
+    public void setNextRefDate_GreaterEqual(java.time.LocalDate nextRefDate) {
+        regNextRefDate(CK_GE,  nextRefDate);
     }
 
     /**
@@ -307,8 +307,8 @@ public abstract class AbstractBsNextschemaWhiteSameNameRefCQ extends AbstractCon
      * next_ref_date: {date(13)}
      * @param nextRefDate The value of nextRefDate as lessEqual. (NullAllowed: if null, no condition)
      */
-    public void setNextRefDate_LessEqual(java.util.Date nextRefDate) {
-        regNextRefDate(CK_LE, fCTPD(nextRefDate));
+    public void setNextRefDate_LessEqual(java.time.LocalDate nextRefDate) {
+        regNextRefDate(CK_LE, nextRefDate);
     }
 
     /**
@@ -320,7 +320,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameRefCQ extends AbstractCon
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of nextRefDate. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of from-to. (NotNull)
      */
-    public void setNextRefDate_FromTo(Date fromDatetime, Date toDatetime, ConditionOptionCall<FromToOption> opLambda) {
+    public void setNextRefDate_FromTo(java.time.LocalDate fromDatetime, java.time.LocalDate toDatetime, ConditionOptionCall<FromToOption> opLambda) {
         setNextRefDate_FromTo(fromDatetime, toDatetime, xcFTOP(opLambda));
     }
 
@@ -333,8 +333,9 @@ public abstract class AbstractBsNextschemaWhiteSameNameRefCQ extends AbstractCon
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of nextRefDate. (NullAllowed: if null, no to-condition)
      * @param fromToOption The option of from-to. (NotNull)
      */
-    public void setNextRefDate_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ(fCTPD(fromDatetime), fCTPD(toDatetime), xgetCValueNextRefDate(), "next_ref_date", fromToOption);
+    public void setNextRefDate_FromTo(java.time.LocalDate fromDatetime, java.time.LocalDate toDatetime, FromToOption fromToOption) {
+        String nm = "next_ref_date"; FromToOption op = fromToOption;
+        regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValueNextRefDate(), nm, op);
     }
 
     /**
@@ -348,7 +349,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameRefCQ extends AbstractCon
      * @param fromDate The from-date(yyyy/MM/dd) of nextRefDate. (NullAllowed: if null, no from-condition)
      * @param toDate The to-date(yyyy/MM/dd) of nextRefDate. (NullAllowed: if null, no to-condition)
      */
-    public void setNextRefDate_DateFromTo(Date fromDate, Date toDate) {
+    public void setNextRefDate_DateFromTo(java.time.LocalDate fromDate, java.time.LocalDate toDate) {
         setNextRefDate_FromTo(fromDate, toDate, xcDFTOP());
     }
 

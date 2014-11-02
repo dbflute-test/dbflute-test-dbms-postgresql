@@ -37,7 +37,8 @@ public class WhiteCompoundPkDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteCompoundPk)et).getPkFirstId(), (et, vl) -> ((WhiteCompoundPk)et).setPkFirstId(cti(vl)), "pkFirstId");
         setupEpg(_epgMap, et -> ((WhiteCompoundPk)et).getPkSecondId(), (et, vl) -> ((WhiteCompoundPk)et).setPkSecondId(cti(vl)), "pkSecondId");
         setupEpg(_epgMap, et -> ((WhiteCompoundPk)et).getPkName(), (et, vl) -> ((WhiteCompoundPk)et).setPkName((String)vl), "pkName");

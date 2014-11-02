@@ -30,7 +30,7 @@ public class WxCBDerivedReferrerPostgreSQLTest extends UnitContainerTestCase {
     public void test_sepcify_derivedReferrer_trunc_date_basic() {
         // ## Arrange ##
         MemberCB cb = new MemberCB();
-        cb.specify().derivedMemberLoginList().max(new SubQuery<MemberLoginCB>() {
+        cb.specify().derivedMemberLogin().max(new SubQuery<MemberLoginCB>() {
             public void query(MemberLoginCB subCB) {
                 subCB.specify().columnLoginDatetime();
                 subCB.query().setMobileLoginFlg_Equal_False();
@@ -63,9 +63,9 @@ public class WxCBDerivedReferrerPostgreSQLTest extends UnitContainerTestCase {
     public void test_sepcify_derivedReferrer_trunc_date_nested() {
         // ## Arrange ##
         MemberCB cb = new MemberCB();
-        cb.specify().derivedMemberLoginList().max(new SubQuery<MemberLoginCB>() {
+        cb.specify().derivedMemberLogin().max(new SubQuery<MemberLoginCB>() {
             public void query(MemberLoginCB subCB) {
-                subCB.specify().specifyMember().derivedPurchaseList().max(new SubQuery<PurchaseCB>() {
+                subCB.specify().specifyMember().derivedPurchase().max(new SubQuery<PurchaseCB>() {
                     public void query(PurchaseCB subCB) {
                         subCB.specify().columnPurchaseDatetime();
                     }

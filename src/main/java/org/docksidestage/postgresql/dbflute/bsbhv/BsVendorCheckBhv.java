@@ -114,60 +114,81 @@ public abstract class BsVendorCheckBhv extends AbstractBehaviorWritable<VendorCh
     //                                                                       Entity Select
     //                                                                       =============
     /**
-     * Select the entity by the condition-bean. #beforejava8 <br>
-     * <span style="color: #AD4747; font-size: 120%">The return might be null if no data, so you should have null check.</span> <br>
-     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, use selectEntityWithDeletedCheck().</span>
+     * Select the entity by the condition-bean. <br>
+     * It returns not-null optional entity, so you should ... <br>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, alwaysPresent().</span> <br>
+     * <span style="color: #AD4747; font-size: 120%">If it might be no data, isPresent() and orElse(), ...</span>
      * <pre>
-     * VendorCheck vendorCheck = <span style="color: #0000C0">vendorCheckBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
+     * <span style="color: #0000C0">vendorCheckBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().set...
+     * }).<span style="color: #CC4747">alwaysPresent</span>(<span style="color: #553000">vendorCheck</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if present, or exception</span>
+     *     ... = <span style="color: #553000">vendorCheck</span>.get...
      * });
-     * <span style="color: #70226C">if</span> (vendorCheck != <span style="color: #70226C">null</span>) { <span style="color: #3F7E5E">// null check</span>
-     *     ... = vendorCheck.get...();
-     * } <span style="color: #70226C">else</span> {
-     *     ...
-     * }
+     * 
+     * <span style="color: #3F7E5E">// if it might be no data, ...</span>
+     * <span style="color: #0000C0">vendorCheckBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).<span style="color: #CC4747">ifPresent</span>(<span style="color: #553000">vendorCheck</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if present</span>
+     *     ... = <span style="color: #553000">vendorCheck</span>.get...
+     * }).<span style="color: #994747">orElse</span>(() <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if not present</span>
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of VendorCheck. (NotNull)
-     * @return The entity selected by the condition. (NullAllowed: if no data, it returns null)
+     * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
-    public VendorCheck selectEntity(CBCall<VendorCheckCB> cbLambda) {
+    public OptionalEntity<VendorCheck> selectEntity(CBCall<VendorCheckCB> cbLambda) {
         return facadeSelectEntity(createCB(cbLambda));
     }
 
     /**
-     * Select the entity by the condition-bean. #beforejava8 <br>
-     * <span style="color: #AD4747; font-size: 120%">The return might be null if no data, so you should have null check.</span> <br>
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, use selectEntityWithDeletedCheck().</span>
+     * Select the entity by the condition-bean. <br>
+     * It returns not-null optional entity, so you should ... <br>
+     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, alwaysPresent().</span> <br>
+     * <span style="color: #AD4747; font-size: 120%">If it might be no data, get() after check by isPresent() or orElse(), ...</span>
      * <pre>
      * VendorCheckCB cb = <span style="color: #70226C">new</span> VendorCheckCB();
-     * cb.query().setFoo...(value);
-     * VendorCheck vendorCheck = <span style="color: #0000C0">vendorCheckBhv</span>.<span style="color: #DD4747">selectEntity</span>(cb);
-     * <span style="color: #70226C">if</span> (vendorCheck != <span style="color: #70226C">null</span>) { <span style="color: #3F7E5E">// null check</span>
-     *     ... = vendorCheck.get...();
-     * } <span style="color: #70226C">else</span> {
-     *     ...
-     * }
+     * cb.query().set...
+     * 
+     * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
+     * <span style="color: #0000C0">vendorCheckBhv</span>.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(vendorCheck <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if present, or exception</span>
+     *     ... = vendorCheck.get...
+     * });
+     * 
+     * <span style="color: #3F7E5E">// if it might be no data, ...</span>
+     * <span style="color: #0000C0">vendorCheckBhv</span>.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(vendorCheck <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if present</span>
+     *     ... = vendorCheck.get...
+     * }).<span style="color: #994747">orElse</span>(() <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if not present</span>
+     * });
      * </pre>
      * @param cb The condition-bean of VendorCheck. (NotNull)
-     * @return The entity selected by the condition. (NullAllowed: if no data, it returns null)
+     * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
-    public VendorCheck selectEntity(VendorCheckCB cb) {
+    public OptionalEntity<VendorCheck> selectEntity(VendorCheckCB cb) {
         return facadeSelectEntity(cb);
     }
 
-    protected VendorCheck facadeSelectEntity(VendorCheckCB cb) {
-        return doSelectEntity(cb, typeOfSelectedEntity());
+    protected OptionalEntity<VendorCheck> facadeSelectEntity(VendorCheckCB cb) {
+        return doSelectOptionalEntity(cb, typeOfSelectedEntity());
     }
 
     protected <ENTITY extends VendorCheck> OptionalEntity<ENTITY> doSelectOptionalEntity(VendorCheckCB cb, Class<? extends ENTITY> tp) {
         return createOptionalEntity(doSelectEntity(cb, tp), cb);
     }
 
-    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)); }
+    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElse(null); }
 
     /**
      * Select the entity by the condition-bean with deleted check. <br>
@@ -208,16 +229,17 @@ public abstract class BsVendorCheckBhv extends AbstractBehaviorWritable<VendorCh
     /**
      * Select the entity by the primary-key value.
      * @param vendorCheckId : PK, NotNull, numeric(16). (NotNull)
-     * @return The entity selected by the PK. (NullAllowed: if no data, it returns null)
+     * @return The optional entity selected by the PK. (NotNull: if no data, empty entity)
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
-    public VendorCheck selectByPK(Long vendorCheckId) {
+    public OptionalEntity<VendorCheck> selectByPK(Long vendorCheckId) {
         return facadeSelectByPK(vendorCheckId);
     }
 
-    protected VendorCheck facadeSelectByPK(Long vendorCheckId) {
-        return doSelectByPK(vendorCheckId, typeOfSelectedEntity());
+    protected OptionalEntity<VendorCheck> facadeSelectByPK(Long vendorCheckId) {
+        return doSelectOptionalByPK(vendorCheckId, typeOfSelectedEntity());
     }
 
     protected <ENTITY extends VendorCheck> ENTITY doSelectByPK(Long vendorCheckId, Class<? extends ENTITY> tp) {
@@ -374,7 +396,7 @@ public abstract class BsVendorCheckBhv extends AbstractBehaviorWritable<VendorCh
      * Select the scalar value derived by a function from uniquely-selected records. <br>
      * You should call a function method after this method called like as follows:
      * <pre>
-     * <span style="color: #0000C0">vendorCheckBhv</span>.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">vendorCheckBhv</span>.<span style="color: #CC4747">selectScalar</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...</span>; <span style="color: #3F7E5E">// required for the function</span>
      *     <span style="color: #553000">cb</span>.query().set...
      * });
@@ -383,7 +405,7 @@ public abstract class BsVendorCheckBhv extends AbstractBehaviorWritable<VendorCh
      * @param resultType The type of result. (NotNull)
      * @return The scalar function object to specify function for scalar value. (NotNull)
      */
-    public <RESULT> HpSLSFunction<VendorCheckCB, RESULT> scalarSelect(Class<RESULT> resultType) {
+    public <RESULT> HpSLSFunction<VendorCheckCB, RESULT> selectScalar(Class<RESULT> resultType) {
         return facadeScalarSelect(resultType);
     }
 
@@ -1022,9 +1044,8 @@ public abstract class BsVendorCheckBhv extends AbstractBehaviorWritable<VendorCh
      * <p>The invoker of behavior command should be not null when you call this method.</p>
      * @return The new-created all facade executor of outside-SQL. (NotNull)
      */
-    public OutsideSqlBasicExecutor<VendorCheckBhv> outsideSql() {
-        OutsideSqlAllFacadeExecutor<VendorCheckBhv> facadeExecutor = doOutsideSql();
-        return facadeExecutor.xbasicExecutor(); // variable to resolve generic type
+    public OutsideSqlAllFacadeExecutor<VendorCheckBhv> outsideSql() {
+        return doOutsideSql();
     }
 
     // ===================================================================================

@@ -42,7 +42,7 @@ import org.docksidestage.postgresql.dbflute.exentity.customize.*;
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * Integer memberId = entity.getMemberId();
  * String memberName = entity.getMemberName();
- * java.util.Date birthdate = entity.getBirthdate();
+ * java.time.LocalDate birthdate = entity.getBirthdate();
  * String memberStatusName = entity.getMemberStatusName();
  * entity.setMemberId(memberId);
  * entity.setMemberName(memberName);
@@ -70,7 +70,7 @@ public abstract class BsSimpleMember extends AbstractEntity implements Customize
     protected String _memberName;
 
     /** (生年月日)birthdate: {date(13), refers to member.birthdate} */
-    protected java.util.Date _birthdate;
+    protected java.time.LocalDate _birthdate;
 
     /** (会員ステータス名称)member_status_name: {varchar(50), refers to member_status.member_status_name} */
     protected String _memberStatusName;
@@ -152,7 +152,7 @@ public abstract class BsSimpleMember extends AbstractEntity implements Customize
         StringBuilder sb = new StringBuilder();
         sb.append(dm).append(xfND(_memberId));
         sb.append(dm).append(xfND(_memberName));
-        sb.append(dm).append(xfUD(_birthdate));
+        sb.append(dm).append(xfND(_birthdate));
         sb.append(dm).append(xfND(_memberStatusName));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
@@ -223,7 +223,7 @@ public abstract class BsSimpleMember extends AbstractEntity implements Customize
      * 必須項目ではないので、このデータがない会員もいる。
      * @return The value of the column 'birthdate'. (NullAllowed even if selected: for no constraint)
      */
-    public java.util.Date getBirthdate() {
+    public java.time.LocalDate getBirthdate() {
         checkSpecifiedProperty("birthdate");
         return _birthdate;
     }
@@ -233,7 +233,7 @@ public abstract class BsSimpleMember extends AbstractEntity implements Customize
      * 必須項目ではないので、このデータがない会員もいる。
      * @param birthdate The value of the column 'birthdate'. (NullAllowed: null update allowed for no constraint)
      */
-    public void setBirthdate(java.util.Date birthdate) {
+    public void setBirthdate(java.time.LocalDate birthdate) {
         registerModifiedProperty("birthdate");
         _birthdate = birthdate;
     }

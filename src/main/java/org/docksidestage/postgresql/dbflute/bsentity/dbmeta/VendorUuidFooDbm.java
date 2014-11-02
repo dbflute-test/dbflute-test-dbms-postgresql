@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.dbflute.Entity;
+import org.dbflute.optional.OptionalEntity;
 import org.dbflute.dbmeta.AbstractDBMeta;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
@@ -37,7 +38,8 @@ public class VendorUuidFooDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((VendorUuidFoo)et).getFooId(), (et, vl) -> ((VendorUuidFoo)et).setFooId((java.util.UUID)vl), "fooId");
         setupEpg(_epgMap, et -> ((VendorUuidFoo)et).getFooName(), (et, vl) -> ((VendorUuidFoo)et).setFooName((String)vl), "fooName");
         setupEpg(_epgMap, et -> ((VendorUuidFoo)et).getBarId(), (et, vl) -> ((VendorUuidFoo)et).setBarId((java.util.UUID)vl), "barId");
@@ -50,8 +52,9 @@ public class VendorUuidFooDbm extends AbstractDBMeta {
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
     { xsetupEfpg(); }
+    @SuppressWarnings("unchecked")
     protected void xsetupEfpg() {
-        setupEfpg(_efpgMap, et -> ((VendorUuidFoo)et).getVendorUuidBar(), (et, vl) -> ((VendorUuidFoo)et).setVendorUuidBar((VendorUuidBar)vl), "vendorUuidBar");
+        setupEfpg(_efpgMap, et -> ((VendorUuidFoo)et).getVendorUuidBar(), (et, vl) -> ((VendorUuidFoo)et).setVendorUuidBar((OptionalEntity<VendorUuidBar>)vl), "vendorUuidBar");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }
@@ -124,7 +127,7 @@ public class VendorUuidFooDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignVendorUuidBar() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnBarId(), VendorUuidBarDbm.getInstance().columnBarId());
-        return cfi("fk_vendor_uuid_foo_bar", "vendorUuidBar", this, VendorUuidBarDbm.getInstance(), mp, 0, null, false, false, false, false, null, null, false, "vendorUuidFooList");
+        return cfi("fk_vendor_uuid_foo_bar", "vendorUuidBar", this, VendorUuidBarDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "vendorUuidFooList");
     }
 
     // -----------------------------------------------------

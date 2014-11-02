@@ -9,6 +9,7 @@ import org.dbflute.utflute.core.cannonball.CannonballCar;
 import org.dbflute.utflute.core.cannonball.CannonballOption;
 import org.dbflute.utflute.core.cannonball.CannonballRun;
 import org.dbflute.utflute.core.thread.ThreadFireExecution;
+import org.dbflute.utflute.core.thread.ThreadFireFinallyRunner;
 import org.dbflute.utflute.core.thread.ThreadFireOption;
 import org.dbflute.utflute.core.thread.ThreadFireResource;
 import org.dbflute.util.DfCollectionUtil;
@@ -55,7 +56,7 @@ public class VendorLockTest extends UnitContainerTestCase {
                 cb.query().setMemberId_Equal(99999);
                 memberBhv.queryDelete(cb);
 
-                Member inserted = memberBhv.selectByPK(3);
+                Member inserted = memberBhv.selectByPK(3).get();
                 inserted.setMemberAccount(threadId + ":" + inserted.getMemberId());
                 inserted.setMemberId(null);
                 memberBhv.insert(inserted);
@@ -63,13 +64,16 @@ public class VendorLockTest extends UnitContainerTestCase {
                 insertedIdSet.add(inserted.getMemberId());
                 return null;
             }
-        }, new ThreadFireOption().commitTx().expectSameResult());
+        }, new ThreadFireOption().commitTx().expectSameResult().finallyRunner(new ThreadFireFinallyRunner() {
+            public void run() {
+                if (!insertedIdSet.isEmpty()) {
+                    MemberCB cb = new MemberCB();
+                    cb.query().setMemberId_InScope(insertedIdSet);
+                    memberBhv.queryDelete(cb);
+                }
+            }
+        }));
         log(markSet);
-        if (!insertedIdSet.isEmpty()) {
-            MemberCB cb = new MemberCB();
-            cb.query().setMemberId_InScope(insertedIdSet);
-            memberBhv.queryDelete(cb);
-        }
     }
 
     // ===================================================================================
@@ -77,7 +81,7 @@ public class VendorLockTest extends UnitContainerTestCase {
     //                                                                              ======
     public void test_update_before_insert_alreadyUpdated() {
         final int memberId = 3;
-        final Member before = memberBhv.selectByPK(memberId);
+        final Member before = memberBhv.selectByPK(memberId).get();
         final Long versionNo = before.getVersionNo();
         final Set<String> markSet = DfCollectionUtil.newHashSet();
         cannonball(new CannonballRun() {
@@ -94,7 +98,7 @@ public class VendorLockTest extends UnitContainerTestCase {
                     long currentMillis = currentTimestamp().getTime();
                     long keyMillis = currentMillis - (entryNumber * 10000) - (i * 10000);
                     HandyDate handyDate = new HandyDate(new Timestamp(keyMillis));
-                    purchase.setPurchaseDatetime(handyDate.addDay(entryNumber).getTimestamp());
+                    purchase.setPurchaseDatetime(handyDate.addDay(entryNumber).getLocalDateTime());
                     purchase.setPurchaseCount(1234 + i);
                     purchase.setPurchasePrice(1234 + i);
                     purchase.setPaymentCompleteFlg_True();
@@ -107,7 +111,7 @@ public class VendorLockTest extends UnitContainerTestCase {
     }
 
     public void test_update_after_insert_mayBeDeadlock() {
-        final Purchase source = purchaseBhv.selectByPK(1L);
+        final Purchase source = purchaseBhv.selectByPK(1L).get();
         source.setPurchaseId(null);
         cannonball(new CannonballRun() {
             public void drive(CannonballCar car) {
@@ -116,7 +120,7 @@ public class VendorLockTest extends UnitContainerTestCase {
                 purchase.setMemberId(entryNumber % 2 == 1 ? 3 : 4);
                 purchase.setProductId(entryNumber % 3 == 1 ? 3 : (entryNumber % 3 == 2 ? 4 : 5));
                 long keyMillis = currentTimestamp().getTime() - (entryNumber * 1000);
-                purchase.setPurchaseDatetime(new Timestamp(keyMillis));
+                purchase.setPurchaseDatetime(toLocalDateTime(keyMillis));
                 purchaseBhv.insert(purchase);
 
                 // deadlock if update is executed after insert including updateNonstrict()

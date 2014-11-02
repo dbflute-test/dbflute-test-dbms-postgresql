@@ -93,7 +93,7 @@ public class WxCursorSelectPostgreSQLTest extends UnitContainerTestCase {
         };
 
         // ## Act ##
-        memberBhv.outsideSql().cursorHandling().selectCursor(pmb, handler);
+        memberBhv.outsideSql().selectCursor(pmb, handler);
     }
 
     protected void assertDbAccess() {
@@ -108,39 +108,39 @@ public class WxCursorSelectPostgreSQLTest extends UnitContainerTestCase {
         PurchaseSummaryMemberPmb pmb = new PurchaseSummaryMemberPmb();
 
         // ## Act ##
-        memberBhv.outsideSql().configure(new StatementConfig().suppressDefault()).cursorHandling()
-                .selectCursor(pmb, new PurchaseSummaryMemberCursorHandler() {
-                    @Override
-                    protected Object fetchCursor(PurchaseSummaryMemberCursor cursor) throws SQLException {
-                        // ## Assert ##
-                        ResultSet rs = cursor.cursor();
-                        log("ResultSet   = " + rs.getClass());
-                        log(rs.getClass());
+        StatementConfig config = new StatementConfig().suppressDefault();
+        memberBhv.outsideSql().configure(config).selectCursor(pmb, new PurchaseSummaryMemberCursorHandler() {
+            @Override
+            protected Object fetchCursor(PurchaseSummaryMemberCursor cursor) throws SQLException {
+                // ## Assert ##
+                ResultSet rs = cursor.cursor();
+                log("ResultSet   = " + rs.getClass());
+                log(rs.getClass());
 
-                        Vector<Object> rows = extractRowDataOnResutSet(rs);
-                        assertEquals(20, rows.size());
-                        assertDbAccess();
+                Vector<Object> rows = extractRowDataOnResutSet(rs);
+                assertEquals(20, rows.size());
+                assertDbAccess();
 
-                        rs.next(); // select first row
+                rs.next(); // select first row
 
-                        assertEquals(extractRowDataOnResutSet(rs), rows);
-                        assertEquals(20, rows.size());
-                        assertDbAccess();
+                assertEquals(extractRowDataOnResutSet(rs), rows);
+                assertEquals(20, rows.size());
+                assertDbAccess();
 
-                        rs.next(); // select second row
-                        rs.next(); // select third row
-                        rs.next(); // select fourth row
+                rs.next(); // select second row
+                rs.next(); // select third row
+                rs.next(); // select fourth row
 
-                        assertEquals(extractRowDataOnResutSet(rs), rows);
-                        assertEquals(20, rows.size());
+                assertEquals(extractRowDataOnResutSet(rs), rows);
+                assertEquals(20, rows.size());
 
-                        rs.next(); // select fifth row
+                rs.next(); // select fifth row
 
-                        assertEquals(extractRowDataOnResutSet(rs), rows);
-                        assertEquals(20, rows.size());
-                        return null;
-                    }
-                });
+                assertEquals(extractRowDataOnResutSet(rs), rows);
+                assertEquals(20, rows.size());
+                return null;
+            }
+        });
     }
 
     // ===================================================================================

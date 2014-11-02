@@ -37,7 +37,8 @@ public class NextschemaWhiteSameNameDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((NextschemaWhiteSameName)et).getSameNameId(), (et, vl) -> ((NextschemaWhiteSameName)et).setSameNameId(cti(vl)), "sameNameId");
         setupEpg(_epgMap, et -> ((NextschemaWhiteSameName)et).getSameNameName(), (et, vl) -> ((NextschemaWhiteSameName)et).setSameNameName((String)vl), "sameNameName");
         setupEpg(_epgMap, et -> ((NextschemaWhiteSameName)et).getSameNameLong(), (et, vl) -> ((NextschemaWhiteSameName)et).setSameNameLong(ctl(vl)), "sameNameLong");

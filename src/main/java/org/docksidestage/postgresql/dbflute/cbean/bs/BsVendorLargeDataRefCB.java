@@ -470,7 +470,7 @@ public class BsVendorLargeDataRefCB extends AbstractConditionBean {
          * </pre>
          * @return The object to set up a function for referrer table. (NotNull)
          */
-        public HpSDRFunction<VendorLargeDataRefCB, VendorLargeDataRefCQ> derivedVendorLargeDataRefSelfList() {
+        public HpSDRFunction<VendorLargeDataRefCB, VendorLargeDataRefCQ> derivedVendorLargeDataRefSelf() {
             assertDerived("vendorLargeDataRefSelfList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
             return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsderiveVendorLargeDataRefSelfList(fn, sq, al, op), _dbmetaProvider);
         }
@@ -482,6 +482,24 @@ public class BsVendorLargeDataRefCB extends AbstractConditionBean {
             assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
             return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
         }
+    }
+
+    // ===================================================================================
+    //                                                                        Dream Cruise
+    //                                                                        ============
+    /**
+     * Welcome to the Dream Cruise for condition-bean deep world. <br>
+     * This is very specialty so you can get the frontier spirit. Bon voyage!
+     * @return The condition-bean for dream cruise, which is linked to main condition-bean.
+     */
+    public VendorLargeDataRefCB dreamCruiseCB() {
+        VendorLargeDataRefCB cb = new VendorLargeDataRefCB();
+        cb.xsetupForDreamCruise((VendorLargeDataRefCB) this);
+        return cb;
+    }
+
+    protected ConditionBean xdoCreateDreamCruiseCB() {
+        return dreamCruiseCB();
     }
 
     // [DBFlute-0.9.5.3]
@@ -515,24 +533,6 @@ public class BsVendorLargeDataRefCB extends AbstractConditionBean {
         VendorLargeDataRefCB cb = new VendorLargeDataRefCB();
         cb.xsetupForColumnQuery((VendorLargeDataRefCB)this);
         return cb;
-    }
-
-    // ===================================================================================
-    //                                                                        Dream Cruise
-    //                                                                        ============
-    /**
-     * Welcome to the Dream Cruise for condition-bean deep world. <br>
-     * This is very specialty so you can get the frontier spirit. Bon voyage!
-     * @return The condition-bean for dream cruise, which is linked to main condition-bean.
-     */
-    public VendorLargeDataRefCB dreamCruiseCB() {
-        VendorLargeDataRefCB cb = new VendorLargeDataRefCB();
-        cb.xsetupForDreamCruise((VendorLargeDataRefCB) this);
-        return cb;
-    }
-
-    protected ConditionBean xdoCreateDreamCruiseCB() {
-        return dreamCruiseCB();
     }
 
     // [DBFlute-0.9.6.3]

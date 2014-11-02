@@ -97,7 +97,7 @@ public class BsMemberAddressCB extends AbstractConditionBean {
      * @param validBeginDate (有効開始日): +UQ, NotNull, date(13). (NotNull)
      * @return this. (NotNull)
      */
-    public MemberAddressCB acceptUniqueOf(Integer memberId, java.util.Date validBeginDate) {
+    public MemberAddressCB acceptUniqueOf(Integer memberId, java.time.LocalDate validBeginDate) {
         assertObjectNotNull("memberId", memberId);assertObjectNotNull("validBeginDate", validBeginDate);
         BsMemberAddressCB cb = this;
         cb.query().setMemberId_Equal(memberId);cb.query().setValidBeginDate_Equal(validBeginDate);
@@ -396,7 +396,7 @@ public class BsMemberAddressCB extends AbstractConditionBean {
          */
         public SpecifiedColumn columnAddress() { return doColumn("address"); }
         /**
-         * (地域ID)region_id: {NotNull, int4(10), FK to region}
+         * (地域ID)region_id: {NotNull, int4(10), FK to region, classification=Region}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnRegionId() { return doColumn("region_id"); }
@@ -501,6 +501,24 @@ public class BsMemberAddressCB extends AbstractConditionBean {
         }
     }
 
+    // ===================================================================================
+    //                                                                        Dream Cruise
+    //                                                                        ============
+    /**
+     * Welcome to the Dream Cruise for condition-bean deep world. <br>
+     * This is very specialty so you can get the frontier spirit. Bon voyage!
+     * @return The condition-bean for dream cruise, which is linked to main condition-bean.
+     */
+    public MemberAddressCB dreamCruiseCB() {
+        MemberAddressCB cb = new MemberAddressCB();
+        cb.xsetupForDreamCruise((MemberAddressCB) this);
+        return cb;
+    }
+
+    protected ConditionBean xdoCreateDreamCruiseCB() {
+        return dreamCruiseCB();
+    }
+
     // [DBFlute-0.9.5.3]
     // ===================================================================================
     //                                                                        Column Query
@@ -532,24 +550,6 @@ public class BsMemberAddressCB extends AbstractConditionBean {
         MemberAddressCB cb = new MemberAddressCB();
         cb.xsetupForColumnQuery((MemberAddressCB)this);
         return cb;
-    }
-
-    // ===================================================================================
-    //                                                                        Dream Cruise
-    //                                                                        ============
-    /**
-     * Welcome to the Dream Cruise for condition-bean deep world. <br>
-     * This is very specialty so you can get the frontier spirit. Bon voyage!
-     * @return The condition-bean for dream cruise, which is linked to main condition-bean.
-     */
-    public MemberAddressCB dreamCruiseCB() {
-        MemberAddressCB cb = new MemberAddressCB();
-        cb.xsetupForDreamCruise((MemberAddressCB) this);
-        return cb;
-    }
-
-    protected ConditionBean xdoCreateDreamCruiseCB() {
-        return dreamCruiseCB();
     }
 
     // [DBFlute-0.9.6.3]

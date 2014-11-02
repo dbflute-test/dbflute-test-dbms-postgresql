@@ -37,7 +37,8 @@ public class VendorCheckDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((VendorCheck)et).getVendorCheckId(), (et, vl) -> ((VendorCheck)et).setVendorCheckId(ctl(vl)), "vendorCheckId");
         setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfChar(), (et, vl) -> ((VendorCheck)et).setTypeOfChar((String)vl), "typeOfChar");
         setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfVarchar(), (et, vl) -> ((VendorCheck)et).setTypeOfVarchar((String)vl), "typeOfVarchar");
@@ -54,10 +55,10 @@ public class VendorCheckDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfReal(), (et, vl) -> ((VendorCheck)et).setTypeOfReal(ctb(vl)), "typeOfReal");
         setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfFloat(), (et, vl) -> ((VendorCheck)et).setTypeOfFloat(ctb(vl)), "typeOfFloat");
         setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfMoney(), (et, vl) -> ((VendorCheck)et).setTypeOfMoney(ctb(vl)), "typeOfMoney");
-        setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfDate(), (et, vl) -> ((VendorCheck)et).setTypeOfDate((java.util.Date)vl), "typeOfDate");
-        setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfTimestamp(), (et, vl) -> ((VendorCheck)et).setTypeOfTimestamp((java.sql.Timestamp)vl), "typeOfTimestamp");
-        setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfTime(), (et, vl) -> ((VendorCheck)et).setTypeOfTime((java.sql.Time)vl), "typeOfTime");
-        setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfTimetz(), (et, vl) -> ((VendorCheck)et).setTypeOfTimetz((java.sql.Time)vl), "typeOfTimetz");
+        setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfDate(), (et, vl) -> ((VendorCheck)et).setTypeOfDate((java.time.LocalDate)vl), "typeOfDate");
+        setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfTimestamp(), (et, vl) -> ((VendorCheck)et).setTypeOfTimestamp((java.time.LocalDateTime)vl), "typeOfTimestamp");
+        setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfTime(), (et, vl) -> ((VendorCheck)et).setTypeOfTime((java.time.LocalTime)vl), "typeOfTime");
+        setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfTimetz(), (et, vl) -> ((VendorCheck)et).setTypeOfTimetz((java.time.LocalTime)vl), "typeOfTimetz");
         setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfInterval(), (et, vl) -> ((VendorCheck)et).setTypeOfInterval((String)vl), "typeOfInterval");
         setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfBool(), (et, vl) -> {
             ColumnInfo col = columnTypeOfBool();
@@ -107,10 +108,10 @@ public class VendorCheckDbm extends AbstractDBMeta {
     protected final ColumnInfo _columnTypeOfReal = cci("type_of_real", "type_of_real", null, null, java.math.BigDecimal.class, "typeOfReal", null, false, false, false, "float4", 8, 8, null, false, null, null, null, null, null);
     protected final ColumnInfo _columnTypeOfFloat = cci("type_of_float", "type_of_float", null, null, java.math.BigDecimal.class, "typeOfFloat", null, false, false, false, "float8", 17, 17, null, false, null, null, null, null, null);
     protected final ColumnInfo _columnTypeOfMoney = cci("type_of_money", "type_of_money", null, null, java.math.BigDecimal.class, "typeOfMoney", null, false, false, false, "money", 2147483647, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnTypeOfDate = cci("type_of_date", "type_of_date", null, null, java.util.Date.class, "typeOfDate", null, false, false, false, "date", 13, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnTypeOfTimestamp = cci("type_of_timestamp", "type_of_timestamp", null, null, java.sql.Timestamp.class, "typeOfTimestamp", null, false, false, false, "timestamp", 29, 6, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnTypeOfTime = cci("type_of_time", "type_of_time", null, null, java.sql.Time.class, "typeOfTime", null, false, false, false, "time", 15, 6, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnTypeOfTimetz = cci("type_of_timetz", "type_of_timetz", null, null, java.sql.Time.class, "typeOfTimetz", null, false, false, false, "timetz", 21, 6, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnTypeOfDate = cci("type_of_date", "type_of_date", null, null, java.time.LocalDate.class, "typeOfDate", null, false, false, false, "date", 13, 0, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnTypeOfTimestamp = cci("type_of_timestamp", "type_of_timestamp", null, null, java.time.LocalDateTime.class, "typeOfTimestamp", null, false, false, false, "timestamp", 29, 6, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnTypeOfTime = cci("type_of_time", "type_of_time", null, null, java.time.LocalTime.class, "typeOfTime", null, false, false, false, "time", 15, 6, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnTypeOfTimetz = cci("type_of_timetz", "type_of_timetz", null, null, java.time.LocalTime.class, "typeOfTimetz", null, false, false, false, "timetz", 21, 6, null, false, null, null, null, null, null);
     protected final ColumnInfo _columnTypeOfInterval = cci("type_of_interval", "type_of_interval", null, null, String.class, "typeOfInterval", null, false, false, false, "interval", 49, 6, null, false, null, null, null, null, null);
     protected final ColumnInfo _columnTypeOfBool = cci("type_of_bool", "type_of_bool", null, null, Boolean.class, "typeOfBool", null, false, false, false, "bool", 1, 0, null, false, null, null, null, null, CDef.DefMeta.TrueFalse);
     protected final ColumnInfo _columnTypeOfBit = cci("type_of_bit", "type_of_bit", null, null, Boolean.class, "typeOfBit", null, false, false, false, "bit", 1, 0, null, false, null, null, null, null, null);

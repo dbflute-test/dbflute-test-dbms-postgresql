@@ -48,7 +48,7 @@ public class WxBhvQueryUpdateCompoundPKTest extends UnitContainerTestCase {
         compoundPK.setPkName("updated");
 
         WhiteCompoundPkCB cb = new WhiteCompoundPkCB();
-        cb.query().existsWhiteCompoundPkRefList(new SubQuery<WhiteCompoundPkRefCB>() {
+        cb.query().existsWhiteCompoundPkRef(new SubQuery<WhiteCompoundPkRefCB>() {
             public void query(WhiteCompoundPkRefCB subCB) {
             }
         });

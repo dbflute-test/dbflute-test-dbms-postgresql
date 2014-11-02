@@ -61,14 +61,14 @@ public class LoaderOfWithdrawalReason {
     // ===================================================================================
     //                                                                       Load Referrer
     //                                                                       =============
-    protected List<MemberWithdrawal> _referrerMemberWithdrawalList;
+    protected List<MemberWithdrawal> _referrerMemberWithdrawal;
 
     /**
      * Load referrer of memberWithdrawalList by the set-upper of referrer. <br>
      * (会員退会情報)member_withdrawal by withdrawal_reason_code, named 'memberWithdrawalList'.
      * <pre>
      * <span style="color: #0000C0">withdrawalReasonBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">withdrawalReasonList</span>, <span style="color: #553000">reasonLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #553000">reasonLoader</span>.<span style="color: #CC4747">loadMemberWithdrawalList</span>(<span style="color: #553000">withdrawalCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">reasonLoader</span>.<span style="color: #CC4747">loadMemberWithdrawal</span>(<span style="color: #553000">withdrawalCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *         <span style="color: #553000">withdrawalCB</span>.setupSelect...
      *         <span style="color: #553000">withdrawalCB</span>.query().set...
      *         <span style="color: #553000">withdrawalCB</span>.query().addOrderBy...
@@ -90,9 +90,9 @@ public class LoaderOfWithdrawalReason {
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerLoaderGateway<LoaderOfMemberWithdrawal> loadMemberWithdrawalList(ConditionBeanSetupper<MemberWithdrawalCB> refCBLambda) {
-        myBhv().loadMemberWithdrawalList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerMemberWithdrawalList = refLs);
-        return hd -> hd.handle(new LoaderOfMemberWithdrawal().ready(_referrerMemberWithdrawalList, _selector));
+    public NestedReferrerLoaderGateway<LoaderOfMemberWithdrawal> loadMemberWithdrawal(ConditionBeanSetupper<MemberWithdrawalCB> refCBLambda) {
+        myBhv().loadMemberWithdrawal(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerMemberWithdrawal = refLs);
+        return hd -> hd.handle(new LoaderOfMemberWithdrawal().ready(_referrerMemberWithdrawal, _selector));
     }
 
     // ===================================================================================

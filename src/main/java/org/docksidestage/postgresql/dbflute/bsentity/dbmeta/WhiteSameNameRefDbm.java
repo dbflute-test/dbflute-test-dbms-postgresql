@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.dbflute.Entity;
+import org.dbflute.optional.OptionalEntity;
 import org.dbflute.dbmeta.AbstractDBMeta;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
@@ -37,7 +38,8 @@ public class WhiteSameNameRefDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteSameNameRef)et).getSameNameRefId(), (et, vl) -> ((WhiteSameNameRef)et).setSameNameRefId(cti(vl)), "sameNameRefId");
         setupEpg(_epgMap, et -> ((WhiteSameNameRef)et).getSameNameId(), (et, vl) -> ((WhiteSameNameRef)et).setSameNameId(ctl(vl)), "sameNameId");
         setupEpg(_epgMap, et -> ((WhiteSameNameRef)et).getNextSameNameId(), (et, vl) -> ((WhiteSameNameRef)et).setNextSameNameId(ctl(vl)), "nextSameNameId");
@@ -50,8 +52,9 @@ public class WhiteSameNameRefDbm extends AbstractDBMeta {
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
     { xsetupEfpg(); }
+    @SuppressWarnings("unchecked")
     protected void xsetupEfpg() {
-        setupEfpg(_efpgMap, et -> ((WhiteSameNameRef)et).getWhiteSameName(), (et, vl) -> ((WhiteSameNameRef)et).setWhiteSameName((WhiteSameName)vl), "whiteSameName");
+        setupEfpg(_efpgMap, et -> ((WhiteSameNameRef)et).getWhiteSameName(), (et, vl) -> ((WhiteSameNameRef)et).setWhiteSameName((OptionalEntity<WhiteSameName>)vl), "whiteSameName");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }
@@ -124,7 +127,7 @@ public class WhiteSameNameRefDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignWhiteSameName() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnSameNameId(), WhiteSameNameDbm.getInstance().columnSameNameId());
-        return cfi("fk_white_same_name_ref", "whiteSameName", this, WhiteSameNameDbm.getInstance(), mp, 0, null, false, false, false, false, null, null, false, "whiteSameNameRefList");
+        return cfi("fk_white_same_name_ref", "whiteSameName", this, WhiteSameNameDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "whiteSameNameRefList");
     }
 
     // -----------------------------------------------------

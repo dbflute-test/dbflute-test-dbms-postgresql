@@ -1,6 +1,5 @@
 package org.docksidestage.postgresql.dbflute.cbean.cq;
 
-
 import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.sqlclause.SqlClause;
 import org.docksidestage.postgresql.dbflute.cbean.cq.bs.BsMemberCQ;
@@ -28,12 +27,26 @@ public class MemberCQ extends BsMemberCQ {
     public MemberCQ(ConditionQuery childQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
         super(childQuery, sqlClause, aliasName, nestLevel);
     }
-	
+
     // ===================================================================================
     //                                                                      Arrange Method
     //                                                                      ==============
-	// You can make original arrange query methods here.
-	// public void arranegeXxx() {
-	//     ...
-	// }
+    // You can make original arrange query methods here.
+    // public void arranegeXxx() {
+    //     ...
+    // }
+    /**
+     * Arrange the query for selecting service members.
+     * o starts 'S'
+     * o status 'Formalized'
+     * o exists the special product
+     */
+    public void arrangeServiceMember() {
+        final Integer specialProductId = 3;
+        setMemberName_LikeSearch("S", op -> op.likePrefix());
+        setMemberStatusCode_Equal_Formalized();
+        existsPurchase(purCB -> {
+            purCB.query().setProductId_Equal(specialProductId);
+        });
+    }
 }

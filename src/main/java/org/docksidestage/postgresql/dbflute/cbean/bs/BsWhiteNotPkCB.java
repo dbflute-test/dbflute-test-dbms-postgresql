@@ -308,6 +308,24 @@ public class BsWhiteNotPkCB extends AbstractConditionBean {
         protected String getTableDbName() { return "white_not_pk"; }
     }
 
+    // ===================================================================================
+    //                                                                        Dream Cruise
+    //                                                                        ============
+    /**
+     * Welcome to the Dream Cruise for condition-bean deep world. <br>
+     * This is very specialty so you can get the frontier spirit. Bon voyage!
+     * @return The condition-bean for dream cruise, which is linked to main condition-bean.
+     */
+    public WhiteNotPkCB dreamCruiseCB() {
+        WhiteNotPkCB cb = new WhiteNotPkCB();
+        cb.xsetupForDreamCruise((WhiteNotPkCB) this);
+        return cb;
+    }
+
+    protected ConditionBean xdoCreateDreamCruiseCB() {
+        return dreamCruiseCB();
+    }
+
     // [DBFlute-0.9.5.3]
     // ===================================================================================
     //                                                                        Column Query
@@ -339,24 +357,6 @@ public class BsWhiteNotPkCB extends AbstractConditionBean {
         WhiteNotPkCB cb = new WhiteNotPkCB();
         cb.xsetupForColumnQuery((WhiteNotPkCB)this);
         return cb;
-    }
-
-    // ===================================================================================
-    //                                                                        Dream Cruise
-    //                                                                        ============
-    /**
-     * Welcome to the Dream Cruise for condition-bean deep world. <br>
-     * This is very specialty so you can get the frontier spirit. Bon voyage!
-     * @return The condition-bean for dream cruise, which is linked to main condition-bean.
-     */
-    public WhiteNotPkCB dreamCruiseCB() {
-        WhiteNotPkCB cb = new WhiteNotPkCB();
-        cb.xsetupForDreamCruise((WhiteNotPkCB) this);
-        return cb;
-    }
-
-    protected ConditionBean xdoCreateDreamCruiseCB() {
-        return dreamCruiseCB();
     }
 
     // [DBFlute-0.9.6.3]

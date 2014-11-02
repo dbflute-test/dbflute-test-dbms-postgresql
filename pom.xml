@@ -2,21 +2,21 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.seasar.dbflute</groupId>
-	<artifactId>dbflute-postgresql-example</artifactId>
+	<groupId>org.dbflute.dftest</groupId>
+	<artifactId>dbflute-test-dbms-postgresql</artifactId>
 	<version>1.1.0-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
 	<name>DBFlute Test of PostgreSQL</name>
 	<description>test project of DBMS PostgreSQL, using Spring</description>
-	<url>https://github.com/dbflute-test/dbflute-test-active-dockside</url>
+	<url>https://github.com/dbflute-test/dbflute-test-dbms-postgresql</url>
 	<inceptionYear>2014</inceptionYear>
 
 	<properties>
 		<spring.version>4.1.1.RELEASE</spring.version>
 		<dbflute.version>1.1.0-pilotB-SNAPSHOT</dbflute.version>
 		<postgresql.jdbc.version>9.1-901.jdbc3</postgresql.jdbc.version>
-		<utflute.version>0.5.0-pilotA-SNAPSHOT</utflute.version>
+		<utflute.version>0.5.0-pilotB-SNAPSHOT</utflute.version>
 	</properties>
 
 	<licenses>
@@ -40,7 +40,7 @@
 
 	<issueManagement>
 		<system>Github</system>
-		<url>https://github.com/dbflute-test/dbflute-test-active-dockside/issues</url>
+		<url>https://github.com/dbflute-test/dbflute-test-dbms-postgresql/issues</url>
 	</issueManagement>
 	<mailingLists>
 		<mailingList>

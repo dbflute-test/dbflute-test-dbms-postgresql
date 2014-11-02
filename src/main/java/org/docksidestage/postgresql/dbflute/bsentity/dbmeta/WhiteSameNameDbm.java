@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.dbflute.Entity;
+import org.dbflute.optional.OptionalEntity;
 import org.dbflute.dbmeta.AbstractDBMeta;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
@@ -37,7 +38,8 @@ public class WhiteSameNameDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteSameName)et).getSameNameId(), (et, vl) -> ((WhiteSameName)et).setSameNameId(ctl(vl)), "sameNameId");
         setupEpg(_epgMap, et -> ((WhiteSameName)et).getSameNameName(), (et, vl) -> ((WhiteSameName)et).setSameNameName((String)vl), "sameNameName");
         setupEpg(_epgMap, et -> ((WhiteSameName)et).getSameNameInteger(), (et, vl) -> ((WhiteSameName)et).setSameNameInteger(cti(vl)), "sameNameInteger");
@@ -51,8 +53,9 @@ public class WhiteSameNameDbm extends AbstractDBMeta {
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
     { xsetupEfpg(); }
+    @SuppressWarnings("unchecked")
     protected void xsetupEfpg() {
-        setupEfpg(_efpgMap, et -> ((WhiteSameName)et).getNextSchemaProduct(), (et, vl) -> ((WhiteSameName)et).setNextSchemaProduct((NextSchemaProduct)vl), "nextSchemaProduct");
+        setupEfpg(_efpgMap, et -> ((WhiteSameName)et).getNextSchemaProduct(), (et, vl) -> ((WhiteSameName)et).setNextSchemaProduct((OptionalEntity<NextSchemaProduct>)vl), "nextSchemaProduct");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }
@@ -132,7 +135,7 @@ public class WhiteSameNameDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignNextSchemaProduct() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnNextSchemaProductId(), NextSchemaProductDbm.getInstance().columnProductId());
-        return cfi("FK_WHITE_SAME_NAME_NEXT_SCHEMA_PRODUCT", "nextSchemaProduct", this, NextSchemaProductDbm.getInstance(), mp, 0, null, false, false, false, true, null, null, false, "whiteSameNameList");
+        return cfi("FK_WHITE_SAME_NAME_NEXT_SCHEMA_PRODUCT", "nextSchemaProduct", this, NextSchemaProductDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, true, null, null, false, "whiteSameNameList");
     }
 
     // -----------------------------------------------------

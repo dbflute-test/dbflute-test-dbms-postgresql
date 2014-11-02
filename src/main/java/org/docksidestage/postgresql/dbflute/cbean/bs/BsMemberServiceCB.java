@@ -385,7 +385,7 @@ public class BsMemberServiceCB extends AbstractConditionBean {
          */
         public SpecifiedColumn columnServicePointCount() { return doColumn("service_point_count"); }
         /**
-         * (サービスランクコード)service_rank_code: {NotNull, bpchar(3), FK to service_rank}
+         * (サービスランクコード)service_rank_code: {NotNull, bpchar(3), FK to service_rank, classification=ServiceRank}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnServiceRankCode() { return doColumn("service_rank_code"); }
@@ -490,6 +490,24 @@ public class BsMemberServiceCB extends AbstractConditionBean {
         }
     }
 
+    // ===================================================================================
+    //                                                                        Dream Cruise
+    //                                                                        ============
+    /**
+     * Welcome to the Dream Cruise for condition-bean deep world. <br>
+     * This is very specialty so you can get the frontier spirit. Bon voyage!
+     * @return The condition-bean for dream cruise, which is linked to main condition-bean.
+     */
+    public MemberServiceCB dreamCruiseCB() {
+        MemberServiceCB cb = new MemberServiceCB();
+        cb.xsetupForDreamCruise((MemberServiceCB) this);
+        return cb;
+    }
+
+    protected ConditionBean xdoCreateDreamCruiseCB() {
+        return dreamCruiseCB();
+    }
+
     // [DBFlute-0.9.5.3]
     // ===================================================================================
     //                                                                        Column Query
@@ -521,24 +539,6 @@ public class BsMemberServiceCB extends AbstractConditionBean {
         MemberServiceCB cb = new MemberServiceCB();
         cb.xsetupForColumnQuery((MemberServiceCB)this);
         return cb;
-    }
-
-    // ===================================================================================
-    //                                                                        Dream Cruise
-    //                                                                        ============
-    /**
-     * Welcome to the Dream Cruise for condition-bean deep world. <br>
-     * This is very specialty so you can get the frontier spirit. Bon voyage!
-     * @return The condition-bean for dream cruise, which is linked to main condition-bean.
-     */
-    public MemberServiceCB dreamCruiseCB() {
-        MemberServiceCB cb = new MemberServiceCB();
-        cb.xsetupForDreamCruise((MemberServiceCB) this);
-        return cb;
-    }
-
-    protected ConditionBean xdoCreateDreamCruiseCB() {
-        return dreamCruiseCB();
     }
 
     // [DBFlute-0.9.6.3]

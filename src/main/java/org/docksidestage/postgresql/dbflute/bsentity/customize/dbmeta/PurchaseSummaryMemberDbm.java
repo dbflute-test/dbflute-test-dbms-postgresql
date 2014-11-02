@@ -37,11 +37,12 @@ public class PurchaseSummaryMemberDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((PurchaseSummaryMember)et).getMemberId(), (et, vl) -> ((PurchaseSummaryMember)et).setMemberId(cti(vl)), "memberId");
         setupEpg(_epgMap, et -> ((PurchaseSummaryMember)et).getMemberName(), (et, vl) -> ((PurchaseSummaryMember)et).setMemberName((String)vl), "memberName");
-        setupEpg(_epgMap, et -> ((PurchaseSummaryMember)et).getBirthdate(), (et, vl) -> ((PurchaseSummaryMember)et).setBirthdate((java.util.Date)vl), "birthdate");
-        setupEpg(_epgMap, et -> ((PurchaseSummaryMember)et).getFormalizedDatetime(), (et, vl) -> ((PurchaseSummaryMember)et).setFormalizedDatetime((java.sql.Timestamp)vl), "formalizedDatetime");
+        setupEpg(_epgMap, et -> ((PurchaseSummaryMember)et).getBirthdate(), (et, vl) -> ((PurchaseSummaryMember)et).setBirthdate((java.time.LocalDate)vl), "birthdate");
+        setupEpg(_epgMap, et -> ((PurchaseSummaryMember)et).getFormalizedDatetime(), (et, vl) -> ((PurchaseSummaryMember)et).setFormalizedDatetime((java.time.LocalDateTime)vl), "formalizedDatetime");
         setupEpg(_epgMap, et -> ((PurchaseSummaryMember)et).getPurchaseSummary(), (et, vl) -> ((PurchaseSummaryMember)et).setPurchaseSummary(ctl(vl)), "purchaseSummary");
     }
     public PropertyGateway findPropertyGateway(String prop)
@@ -63,8 +64,8 @@ public class PurchaseSummaryMemberDbm extends AbstractDBMeta {
     //                                                                         ===========
     protected final ColumnInfo _columnMemberId = cci("member_id", "member_id", null, "会員ID", Integer.class, "memberId", null, false, false, false, "serial", 10, 0, null, false, null, "会員を識別するID。連番として自動採番される。\n（会員IDだけに限らず）採番方法はDBMS次第。", null, null, null);
     protected final ColumnInfo _columnMemberName = cci("member_name", "member_name", null, "会員名称", String.class, "memberName", null, false, false, false, "varchar", 200, 0, null, false, null, "会員のフルネームの名称。\n苗字と名前を分けて管理することも多いが、ここでは Example なので単純にひとまとめ。", null, null, null);
-    protected final ColumnInfo _columnBirthdate = cci("birthdate", "birthdate", null, "生年月日", java.util.Date.class, "birthdate", null, false, false, false, "date", 13, 0, null, false, null, "必須項目ではないので、このデータがない会員もいる。", null, null, null);
-    protected final ColumnInfo _columnFormalizedDatetime = cci("formalized_datetime", "formalized_datetime", null, "正式会員日時", java.sql.Timestamp.class, "formalizedDatetime", null, false, false, false, "timestamp", 26, 3, null, false, null, "会員が正式に確定した日時。\n一度確定したら更新されない。", null, null, null);
+    protected final ColumnInfo _columnBirthdate = cci("birthdate", "birthdate", null, "生年月日", java.time.LocalDate.class, "birthdate", null, false, false, false, "date", 13, 0, null, false, null, "必須項目ではないので、このデータがない会員もいる。", null, null, null);
+    protected final ColumnInfo _columnFormalizedDatetime = cci("formalized_datetime", "formalized_datetime", null, "正式会員日時", java.time.LocalDateTime.class, "formalizedDatetime", null, false, false, false, "timestamp", 26, 3, null, false, null, "会員が正式に確定した日時。\n一度確定したら更新されない。", null, null, null);
     protected final ColumnInfo _columnPurchaseSummary = cci("purchase_summary", "purchase_summary", null, null, Long.class, "purchaseSummary", null, false, false, false, "int8", 19, 0, null, false, null, null, null, null, null);
 
     /**

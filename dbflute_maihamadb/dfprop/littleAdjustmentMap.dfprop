@@ -39,18 +39,14 @@ map:{
     # _/_/_/_/_/_/_/_/_/
     # compile compatible (true if compatible)
     ; isMakeDirectConditionBeanSetup = true
-    ; isAvailableSelectEntityPlainReturn = true
-    ; isAvailableRelationPlainEntity = true
+    ; isAvailableSelectEntityPlainReturn = false
+    ; isAvailableRelationPlainEntity = false
     ; isMakeConditionQueryPrefixSearch = true
     ; isMakeConditionQueryDateFromTo = true
     ; isMakeDirectConditionOptionSetup = true
     ; isMakeDirectConditionManualOrder = true
     ; isCompatibleLoadReferrerOldOption = true
-    ; isCompatibleReferrerCBMethodIdentityNameListSuffix = true
-    ; isCompatibleOutsideSqlFacadeChainOldStyle = true
-
-    # compatible with date
-    ; isAvailableJava8TimeLocalDateEntity = false
+    ; isCompatibleOutsideSqlSqlCommentCheckDefault = true
 
     # the test of other-schema-same-name table
     ; isSuppressOtherSchemaSameNameTableLimiter = true

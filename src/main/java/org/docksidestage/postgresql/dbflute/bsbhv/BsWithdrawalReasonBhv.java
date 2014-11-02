@@ -13,6 +13,7 @@ import org.dbflute.cbean.result.*;
 import org.dbflute.exception.*;
 import org.dbflute.optional.OptionalEntity;
 import org.dbflute.outsidesql.executor.*;
+import org.docksidestage.postgresql.dbflute.allcommon.CDef;
 import org.docksidestage.postgresql.dbflute.exbhv.*;
 import org.docksidestage.postgresql.dbflute.bsbhv.loader.*;
 import org.docksidestage.postgresql.dbflute.exentity.*;
@@ -108,60 +109,81 @@ public abstract class BsWithdrawalReasonBhv extends AbstractBehaviorWritable<Wit
     //                                                                       Entity Select
     //                                                                       =============
     /**
-     * Select the entity by the condition-bean. #beforejava8 <br>
-     * <span style="color: #AD4747; font-size: 120%">The return might be null if no data, so you should have null check.</span> <br>
-     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, use selectEntityWithDeletedCheck().</span>
+     * Select the entity by the condition-bean. <br>
+     * It returns not-null optional entity, so you should ... <br>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, alwaysPresent().</span> <br>
+     * <span style="color: #AD4747; font-size: 120%">If it might be no data, isPresent() and orElse(), ...</span>
      * <pre>
-     * WithdrawalReason withdrawalReason = <span style="color: #0000C0">withdrawalReasonBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
+     * <span style="color: #0000C0">withdrawalReasonBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().set...
+     * }).<span style="color: #CC4747">alwaysPresent</span>(<span style="color: #553000">withdrawalReason</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if present, or exception</span>
+     *     ... = <span style="color: #553000">withdrawalReason</span>.get...
      * });
-     * <span style="color: #70226C">if</span> (withdrawalReason != <span style="color: #70226C">null</span>) { <span style="color: #3F7E5E">// null check</span>
-     *     ... = withdrawalReason.get...();
-     * } <span style="color: #70226C">else</span> {
-     *     ...
-     * }
+     * 
+     * <span style="color: #3F7E5E">// if it might be no data, ...</span>
+     * <span style="color: #0000C0">withdrawalReasonBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).<span style="color: #CC4747">ifPresent</span>(<span style="color: #553000">withdrawalReason</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if present</span>
+     *     ... = <span style="color: #553000">withdrawalReason</span>.get...
+     * }).<span style="color: #994747">orElse</span>(() <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if not present</span>
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WithdrawalReason. (NotNull)
-     * @return The entity selected by the condition. (NullAllowed: if no data, it returns null)
+     * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
-    public WithdrawalReason selectEntity(CBCall<WithdrawalReasonCB> cbLambda) {
+    public OptionalEntity<WithdrawalReason> selectEntity(CBCall<WithdrawalReasonCB> cbLambda) {
         return facadeSelectEntity(createCB(cbLambda));
     }
 
     /**
-     * Select the entity by the condition-bean. #beforejava8 <br>
-     * <span style="color: #AD4747; font-size: 120%">The return might be null if no data, so you should have null check.</span> <br>
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, use selectEntityWithDeletedCheck().</span>
+     * Select the entity by the condition-bean. <br>
+     * It returns not-null optional entity, so you should ... <br>
+     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, alwaysPresent().</span> <br>
+     * <span style="color: #AD4747; font-size: 120%">If it might be no data, get() after check by isPresent() or orElse(), ...</span>
      * <pre>
      * WithdrawalReasonCB cb = <span style="color: #70226C">new</span> WithdrawalReasonCB();
-     * cb.query().setFoo...(value);
-     * WithdrawalReason withdrawalReason = <span style="color: #0000C0">withdrawalReasonBhv</span>.<span style="color: #DD4747">selectEntity</span>(cb);
-     * <span style="color: #70226C">if</span> (withdrawalReason != <span style="color: #70226C">null</span>) { <span style="color: #3F7E5E">// null check</span>
-     *     ... = withdrawalReason.get...();
-     * } <span style="color: #70226C">else</span> {
-     *     ...
-     * }
+     * cb.query().set...
+     * 
+     * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
+     * <span style="color: #0000C0">withdrawalReasonBhv</span>.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(withdrawalReason <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if present, or exception</span>
+     *     ... = withdrawalReason.get...
+     * });
+     * 
+     * <span style="color: #3F7E5E">// if it might be no data, ...</span>
+     * <span style="color: #0000C0">withdrawalReasonBhv</span>.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(withdrawalReason <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if present</span>
+     *     ... = withdrawalReason.get...
+     * }).<span style="color: #994747">orElse</span>(() <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if not present</span>
+     * });
      * </pre>
      * @param cb The condition-bean of WithdrawalReason. (NotNull)
-     * @return The entity selected by the condition. (NullAllowed: if no data, it returns null)
+     * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
-    public WithdrawalReason selectEntity(WithdrawalReasonCB cb) {
+    public OptionalEntity<WithdrawalReason> selectEntity(WithdrawalReasonCB cb) {
         return facadeSelectEntity(cb);
     }
 
-    protected WithdrawalReason facadeSelectEntity(WithdrawalReasonCB cb) {
-        return doSelectEntity(cb, typeOfSelectedEntity());
+    protected OptionalEntity<WithdrawalReason> facadeSelectEntity(WithdrawalReasonCB cb) {
+        return doSelectOptionalEntity(cb, typeOfSelectedEntity());
     }
 
     protected <ENTITY extends WithdrawalReason> OptionalEntity<ENTITY> doSelectOptionalEntity(WithdrawalReasonCB cb, Class<? extends ENTITY> tp) {
         return createOptionalEntity(doSelectEntity(cb, tp), cb);
     }
 
-    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)); }
+    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElse(null); }
 
     /**
      * Select the entity by the condition-bean with deleted check. <br>
@@ -201,28 +223,29 @@ public abstract class BsWithdrawalReasonBhv extends AbstractBehaviorWritable<Wit
 
     /**
      * Select the entity by the primary-key value.
-     * @param withdrawalReasonCode (退会理由コード): PK, NotNull, bpchar(3). (NotNull)
-     * @return The entity selected by the PK. (NullAllowed: if no data, it returns null)
+     * @param withdrawalReasonCode (退会理由コード): PK, NotNull, bpchar(3), classification=WithdrawalReason. (NotNull)
+     * @return The optional entity selected by the PK. (NotNull: if no data, empty entity)
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
-    public WithdrawalReason selectByPK(String withdrawalReasonCode) {
+    public OptionalEntity<WithdrawalReason> selectByPK(CDef.WithdrawalReason withdrawalReasonCode) {
         return facadeSelectByPK(withdrawalReasonCode);
     }
 
-    protected WithdrawalReason facadeSelectByPK(String withdrawalReasonCode) {
-        return doSelectByPK(withdrawalReasonCode, typeOfSelectedEntity());
+    protected OptionalEntity<WithdrawalReason> facadeSelectByPK(CDef.WithdrawalReason withdrawalReasonCode) {
+        return doSelectOptionalByPK(withdrawalReasonCode, typeOfSelectedEntity());
     }
 
-    protected <ENTITY extends WithdrawalReason> ENTITY doSelectByPK(String withdrawalReasonCode, Class<? extends ENTITY> tp) {
+    protected <ENTITY extends WithdrawalReason> ENTITY doSelectByPK(CDef.WithdrawalReason withdrawalReasonCode, Class<? extends ENTITY> tp) {
         return doSelectEntity(xprepareCBAsPK(withdrawalReasonCode), tp);
     }
 
-    protected <ENTITY extends WithdrawalReason> OptionalEntity<ENTITY> doSelectOptionalByPK(String withdrawalReasonCode, Class<? extends ENTITY> tp) {
+    protected <ENTITY extends WithdrawalReason> OptionalEntity<ENTITY> doSelectOptionalByPK(CDef.WithdrawalReason withdrawalReasonCode, Class<? extends ENTITY> tp) {
         return createOptionalEntity(doSelectByPK(withdrawalReasonCode, tp), withdrawalReasonCode);
     }
 
-    protected WithdrawalReasonCB xprepareCBAsPK(String withdrawalReasonCode) {
+    protected WithdrawalReasonCB xprepareCBAsPK(CDef.WithdrawalReason withdrawalReasonCode) {
         assertObjectNotNull("withdrawalReasonCode", withdrawalReasonCode);
         return newConditionBean().acceptPK(withdrawalReasonCode);
     }
@@ -393,7 +416,7 @@ public abstract class BsWithdrawalReasonBhv extends AbstractBehaviorWritable<Wit
      * Select the scalar value derived by a function from uniquely-selected records. <br>
      * You should call a function method after this method called like as follows:
      * <pre>
-     * <span style="color: #0000C0">withdrawalReasonBhv</span>.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">withdrawalReasonBhv</span>.<span style="color: #CC4747">selectScalar</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...</span>; <span style="color: #3F7E5E">// required for the function</span>
      *     <span style="color: #553000">cb</span>.query().set...
      * });
@@ -402,7 +425,7 @@ public abstract class BsWithdrawalReasonBhv extends AbstractBehaviorWritable<Wit
      * @param resultType The type of result. (NotNull)
      * @return The scalar function object to specify function for scalar value. (NotNull)
      */
-    public <RESULT> HpSLSFunction<WithdrawalReasonCB, RESULT> scalarSelect(Class<RESULT> resultType) {
+    public <RESULT> HpSLSFunction<WithdrawalReasonCB, RESULT> selectScalar(Class<RESULT> resultType) {
         return facadeScalarSelect(resultType);
     }
 
@@ -492,7 +515,7 @@ public abstract class BsWithdrawalReasonBhv extends AbstractBehaviorWritable<Wit
      * Load referrer of memberWithdrawalList by the set-upper of referrer. <br>
      * (会員退会情報)member_withdrawal by withdrawal_reason_code, named 'memberWithdrawalList'.
      * <pre>
-     * <span style="color: #0000C0">withdrawalReasonBhv</span>.<span style="color: #CC4747">loadMemberWithdrawalList</span>(<span style="color: #553000">withdrawalReasonList</span>, <span style="color: #553000">withdrawalCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">withdrawalReasonBhv</span>.<span style="color: #CC4747">loadMemberWithdrawal</span>(<span style="color: #553000">withdrawalReasonList</span>, <span style="color: #553000">withdrawalCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">withdrawalCB</span>.setupSelect...
      *     <span style="color: #553000">withdrawalCB</span>.query().set...
      *     <span style="color: #553000">withdrawalCB</span>.query().addOrderBy...
@@ -514,16 +537,16 @@ public abstract class BsWithdrawalReasonBhv extends AbstractBehaviorWritable<Wit
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<MemberWithdrawal> loadMemberWithdrawalList(List<WithdrawalReason> withdrawalReasonList, ConditionBeanSetupper<MemberWithdrawalCB> refCBLambda) {
+    public NestedReferrerListGateway<MemberWithdrawal> loadMemberWithdrawal(List<WithdrawalReason> withdrawalReasonList, ConditionBeanSetupper<MemberWithdrawalCB> refCBLambda) {
         xassLRArg(withdrawalReasonList, refCBLambda);
-        return doLoadMemberWithdrawalList(withdrawalReasonList, new LoadReferrerOption<MemberWithdrawalCB, MemberWithdrawal>().xinit(refCBLambda));
+        return doLoadMemberWithdrawal(withdrawalReasonList, new LoadReferrerOption<MemberWithdrawalCB, MemberWithdrawal>().xinit(refCBLambda));
     }
 
     /**
      * Load referrer of memberWithdrawalList by the set-upper of referrer. <br>
      * (会員退会情報)member_withdrawal by withdrawal_reason_code, named 'memberWithdrawalList'.
      * <pre>
-     * <span style="color: #0000C0">withdrawalReasonBhv</span>.<span style="color: #CC4747">loadMemberWithdrawalList</span>(<span style="color: #553000">withdrawalReason</span>, <span style="color: #553000">withdrawalCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">withdrawalReasonBhv</span>.<span style="color: #CC4747">loadMemberWithdrawal</span>(<span style="color: #553000">withdrawalReason</span>, <span style="color: #553000">withdrawalCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">withdrawalCB</span>.setupSelect...
      *     <span style="color: #553000">withdrawalCB</span>.query().set...
      *     <span style="color: #553000">withdrawalCB</span>.query().addOrderBy...
@@ -543,9 +566,9 @@ public abstract class BsWithdrawalReasonBhv extends AbstractBehaviorWritable<Wit
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<MemberWithdrawal> loadMemberWithdrawalList(WithdrawalReason withdrawalReason, ConditionBeanSetupper<MemberWithdrawalCB> refCBLambda) {
+    public NestedReferrerListGateway<MemberWithdrawal> loadMemberWithdrawal(WithdrawalReason withdrawalReason, ConditionBeanSetupper<MemberWithdrawalCB> refCBLambda) {
         xassLRArg(withdrawalReason, refCBLambda);
-        return doLoadMemberWithdrawalList(xnewLRLs(withdrawalReason), new LoadReferrerOption<MemberWithdrawalCB, MemberWithdrawal>().xinit(refCBLambda));
+        return doLoadMemberWithdrawal(xnewLRLs(withdrawalReason), new LoadReferrerOption<MemberWithdrawalCB, MemberWithdrawal>().xinit(refCBLambda));
     }
 
     /**
@@ -554,9 +577,9 @@ public abstract class BsWithdrawalReasonBhv extends AbstractBehaviorWritable<Wit
      * @param loadReferrerOption The option of load-referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<MemberWithdrawal> loadMemberWithdrawalList(WithdrawalReason withdrawalReason, LoadReferrerOption<MemberWithdrawalCB, MemberWithdrawal> loadReferrerOption) {
+    public NestedReferrerListGateway<MemberWithdrawal> loadMemberWithdrawal(WithdrawalReason withdrawalReason, LoadReferrerOption<MemberWithdrawalCB, MemberWithdrawal> loadReferrerOption) {
         xassLRArg(withdrawalReason, loadReferrerOption);
-        return loadMemberWithdrawalList(xnewLRLs(withdrawalReason), loadReferrerOption);
+        return loadMemberWithdrawal(xnewLRLs(withdrawalReason), loadReferrerOption);
     }
 
     /**
@@ -566,13 +589,13 @@ public abstract class BsWithdrawalReasonBhv extends AbstractBehaviorWritable<Wit
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
     @SuppressWarnings("unchecked")
-    public NestedReferrerListGateway<MemberWithdrawal> loadMemberWithdrawalList(List<WithdrawalReason> withdrawalReasonList, LoadReferrerOption<MemberWithdrawalCB, MemberWithdrawal> loadReferrerOption) {
+    public NestedReferrerListGateway<MemberWithdrawal> loadMemberWithdrawal(List<WithdrawalReason> withdrawalReasonList, LoadReferrerOption<MemberWithdrawalCB, MemberWithdrawal> loadReferrerOption) {
         xassLRArg(withdrawalReasonList, loadReferrerOption);
         if (withdrawalReasonList.isEmpty()) { return (NestedReferrerListGateway<MemberWithdrawal>)EMPTY_NREF_LGWAY; }
-        return doLoadMemberWithdrawalList(withdrawalReasonList, loadReferrerOption);
+        return doLoadMemberWithdrawal(withdrawalReasonList, loadReferrerOption);
     }
 
-    protected NestedReferrerListGateway<MemberWithdrawal> doLoadMemberWithdrawalList(List<WithdrawalReason> withdrawalReasonList, LoadReferrerOption<MemberWithdrawalCB, MemberWithdrawal> option) {
+    protected NestedReferrerListGateway<MemberWithdrawal> doLoadMemberWithdrawal(List<WithdrawalReason> withdrawalReasonList, LoadReferrerOption<MemberWithdrawalCB, MemberWithdrawal> option) {
         return helpLoadReferrerInternally(withdrawalReasonList, option, "memberWithdrawalList");
     }
 
@@ -1137,9 +1160,8 @@ public abstract class BsWithdrawalReasonBhv extends AbstractBehaviorWritable<Wit
      * <p>The invoker of behavior command should be not null when you call this method.</p>
      * @return The new-created all facade executor of outside-SQL. (NotNull)
      */
-    public OutsideSqlBasicExecutor<WithdrawalReasonBhv> outsideSql() {
-        OutsideSqlAllFacadeExecutor<WithdrawalReasonBhv> facadeExecutor = doOutsideSql();
-        return facadeExecutor.xbasicExecutor(); // variable to resolve generic type
+    public OutsideSqlAllFacadeExecutor<WithdrawalReasonBhv> outsideSql() {
+        return doOutsideSql();
     }
 
     // ===================================================================================

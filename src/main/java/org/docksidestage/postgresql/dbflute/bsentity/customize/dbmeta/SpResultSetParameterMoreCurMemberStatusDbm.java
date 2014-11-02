@@ -37,7 +37,8 @@ public class SpResultSetParameterMoreCurMemberStatusDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((SpResultSetParameterMoreCurMemberStatus)et).getMemberStatusCode(), (et, vl) -> {
             ColumnInfo col = columnMemberStatusCode();
             CDef.MemberStatus cls = (CDef.MemberStatus)gcls(col, vl);

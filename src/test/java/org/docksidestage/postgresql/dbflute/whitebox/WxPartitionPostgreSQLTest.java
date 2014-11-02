@@ -31,7 +31,7 @@ public class WxPartitionPostgreSQLTest extends UnitContainerTestCase {
         partMan.setPartManId(1);
         partMan.setPartManName("sea");
         partMan.setPartManPoint(71);
-        partMan.setPartManDate(currentDate());
+        partMan.setPartManDate(currentLocalDate());
 
         // ## Act ##
         vendorPartManBhv.insert(partMan);
@@ -53,7 +53,7 @@ public class WxPartitionPostgreSQLTest extends UnitContainerTestCase {
         partMan.setPartManId(1);
         partMan.setPartManName("sea");
         partMan.setPartManPoint(40);
-        partMan.setPartManDate(currentDate());
+        partMan.setPartManDate(currentLocalDate());
 
         // ## Act ##
         try {
@@ -77,7 +77,7 @@ public class WxPartitionPostgreSQLTest extends UnitContainerTestCase {
         partMan.setPartManId(1);
         partMan.setPartManName("sea");
         partMan.setPartManPoint(71);
-        partMan.setPartManDate(currentDate());
+        partMan.setPartManDate(currentLocalDate());
         vendorPartManBhv.insert(partMan);
         partMan.setPartManName("land");
 

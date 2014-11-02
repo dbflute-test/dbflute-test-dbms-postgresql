@@ -37,12 +37,13 @@ public class WhiteXlsManDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteXlsMan)et).getXlsManId(), (et, vl) -> ((WhiteXlsMan)et).setXlsManId(ctl(vl)), "xlsManId");
         setupEpg(_epgMap, et -> ((WhiteXlsMan)et).getStringConverted(), (et, vl) -> ((WhiteXlsMan)et).setStringConverted((String)vl), "stringConverted");
-        setupEpg(_epgMap, et -> ((WhiteXlsMan)et).getTimestampZeroDefaultMillis(), (et, vl) -> ((WhiteXlsMan)et).setTimestampZeroDefaultMillis((java.sql.Timestamp)vl), "timestampZeroDefaultMillis");
-        setupEpg(_epgMap, et -> ((WhiteXlsMan)et).getTimestampZeroPrefixMillis(), (et, vl) -> ((WhiteXlsMan)et).setTimestampZeroPrefixMillis((java.sql.Timestamp)vl), "timestampZeroPrefixMillis");
-        setupEpg(_epgMap, et -> ((WhiteXlsMan)et).getTimestampZeroSuffixMillis(), (et, vl) -> ((WhiteXlsMan)et).setTimestampZeroSuffixMillis((java.sql.Timestamp)vl), "timestampZeroSuffixMillis");
+        setupEpg(_epgMap, et -> ((WhiteXlsMan)et).getTimestampZeroDefaultMillis(), (et, vl) -> ((WhiteXlsMan)et).setTimestampZeroDefaultMillis((java.time.LocalDateTime)vl), "timestampZeroDefaultMillis");
+        setupEpg(_epgMap, et -> ((WhiteXlsMan)et).getTimestampZeroPrefixMillis(), (et, vl) -> ((WhiteXlsMan)et).setTimestampZeroPrefixMillis((java.time.LocalDateTime)vl), "timestampZeroPrefixMillis");
+        setupEpg(_epgMap, et -> ((WhiteXlsMan)et).getTimestampZeroSuffixMillis(), (et, vl) -> ((WhiteXlsMan)et).setTimestampZeroSuffixMillis((java.time.LocalDateTime)vl), "timestampZeroSuffixMillis");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -63,9 +64,9 @@ public class WhiteXlsManDbm extends AbstractDBMeta {
     //                                                                         ===========
     protected final ColumnInfo _columnXlsManId = cci("xls_man_id", "xls_man_id", null, null, Long.class, "xlsManId", null, true, false, true, "int8", 19, 0, null, false, null, null, null, null, null);
     protected final ColumnInfo _columnStringConverted = cci("string_converted", "string_converted", null, null, String.class, "stringConverted", null, false, false, false, "varchar", 2147483647, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnTimestampZeroDefaultMillis = cci("timestamp_zero_default_millis", "timestamp_zero_default_millis", null, null, java.sql.Timestamp.class, "timestampZeroDefaultMillis", null, false, false, false, "timestamp", 26, 3, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnTimestampZeroPrefixMillis = cci("timestamp_zero_prefix_millis", "timestamp_zero_prefix_millis", null, null, java.sql.Timestamp.class, "timestampZeroPrefixMillis", null, false, false, false, "timestamp", 26, 3, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnTimestampZeroSuffixMillis = cci("timestamp_zero_suffix_millis", "timestamp_zero_suffix_millis", null, null, java.sql.Timestamp.class, "timestampZeroSuffixMillis", null, false, false, false, "timestamp", 26, 3, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnTimestampZeroDefaultMillis = cci("timestamp_zero_default_millis", "timestamp_zero_default_millis", null, null, java.time.LocalDateTime.class, "timestampZeroDefaultMillis", null, false, false, false, "timestamp", 26, 3, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnTimestampZeroPrefixMillis = cci("timestamp_zero_prefix_millis", "timestamp_zero_prefix_millis", null, null, java.time.LocalDateTime.class, "timestampZeroPrefixMillis", null, false, false, false, "timestamp", 26, 3, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnTimestampZeroSuffixMillis = cci("timestamp_zero_suffix_millis", "timestamp_zero_suffix_millis", null, null, java.time.LocalDateTime.class, "timestampZeroSuffixMillis", null, false, false, false, "timestamp", 26, 3, null, false, null, null, null, null, null);
 
     /**
      * xls_man_id: {PK, NotNull, int8(19)}

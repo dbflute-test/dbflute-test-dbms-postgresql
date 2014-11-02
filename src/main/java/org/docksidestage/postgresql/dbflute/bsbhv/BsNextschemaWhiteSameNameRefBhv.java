@@ -108,60 +108,81 @@ public abstract class BsNextschemaWhiteSameNameRefBhv extends AbstractBehaviorWr
     //                                                                       Entity Select
     //                                                                       =============
     /**
-     * Select the entity by the condition-bean. #beforejava8 <br>
-     * <span style="color: #AD4747; font-size: 120%">The return might be null if no data, so you should have null check.</span> <br>
-     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, use selectEntityWithDeletedCheck().</span>
+     * Select the entity by the condition-bean. <br>
+     * It returns not-null optional entity, so you should ... <br>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, alwaysPresent().</span> <br>
+     * <span style="color: #AD4747; font-size: 120%">If it might be no data, isPresent() and orElse(), ...</span>
      * <pre>
-     * NextschemaWhiteSameNameRef whiteSameNameRef = <span style="color: #0000C0">whiteSameNameRefBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
+     * <span style="color: #0000C0">whiteSameNameRefBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().set...
+     * }).<span style="color: #CC4747">alwaysPresent</span>(<span style="color: #553000">whiteSameNameRef</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if present, or exception</span>
+     *     ... = <span style="color: #553000">whiteSameNameRef</span>.get...
      * });
-     * <span style="color: #70226C">if</span> (whiteSameNameRef != <span style="color: #70226C">null</span>) { <span style="color: #3F7E5E">// null check</span>
-     *     ... = whiteSameNameRef.get...();
-     * } <span style="color: #70226C">else</span> {
-     *     ...
-     * }
+     * 
+     * <span style="color: #3F7E5E">// if it might be no data, ...</span>
+     * <span style="color: #0000C0">whiteSameNameRefBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).<span style="color: #CC4747">ifPresent</span>(<span style="color: #553000">whiteSameNameRef</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if present</span>
+     *     ... = <span style="color: #553000">whiteSameNameRef</span>.get...
+     * }).<span style="color: #994747">orElse</span>(() <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if not present</span>
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of NextschemaWhiteSameNameRef. (NotNull)
-     * @return The entity selected by the condition. (NullAllowed: if no data, it returns null)
+     * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
-    public NextschemaWhiteSameNameRef selectEntity(CBCall<NextschemaWhiteSameNameRefCB> cbLambda) {
+    public OptionalEntity<NextschemaWhiteSameNameRef> selectEntity(CBCall<NextschemaWhiteSameNameRefCB> cbLambda) {
         return facadeSelectEntity(createCB(cbLambda));
     }
 
     /**
-     * Select the entity by the condition-bean. #beforejava8 <br>
-     * <span style="color: #AD4747; font-size: 120%">The return might be null if no data, so you should have null check.</span> <br>
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, use selectEntityWithDeletedCheck().</span>
+     * Select the entity by the condition-bean. <br>
+     * It returns not-null optional entity, so you should ... <br>
+     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, alwaysPresent().</span> <br>
+     * <span style="color: #AD4747; font-size: 120%">If it might be no data, get() after check by isPresent() or orElse(), ...</span>
      * <pre>
      * NextschemaWhiteSameNameRefCB cb = <span style="color: #70226C">new</span> NextschemaWhiteSameNameRefCB();
-     * cb.query().setFoo...(value);
-     * NextschemaWhiteSameNameRef whiteSameNameRef = <span style="color: #0000C0">whiteSameNameRefBhv</span>.<span style="color: #DD4747">selectEntity</span>(cb);
-     * <span style="color: #70226C">if</span> (whiteSameNameRef != <span style="color: #70226C">null</span>) { <span style="color: #3F7E5E">// null check</span>
-     *     ... = whiteSameNameRef.get...();
-     * } <span style="color: #70226C">else</span> {
-     *     ...
-     * }
+     * cb.query().set...
+     * 
+     * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
+     * <span style="color: #0000C0">whiteSameNameRefBhv</span>.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(whiteSameNameRef <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if present, or exception</span>
+     *     ... = whiteSameNameRef.get...
+     * });
+     * 
+     * <span style="color: #3F7E5E">// if it might be no data, ...</span>
+     * <span style="color: #0000C0">whiteSameNameRefBhv</span>.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(whiteSameNameRef <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if present</span>
+     *     ... = whiteSameNameRef.get...
+     * }).<span style="color: #994747">orElse</span>(() <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if not present</span>
+     * });
      * </pre>
      * @param cb The condition-bean of NextschemaWhiteSameNameRef. (NotNull)
-     * @return The entity selected by the condition. (NullAllowed: if no data, it returns null)
+     * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
-    public NextschemaWhiteSameNameRef selectEntity(NextschemaWhiteSameNameRefCB cb) {
+    public OptionalEntity<NextschemaWhiteSameNameRef> selectEntity(NextschemaWhiteSameNameRefCB cb) {
         return facadeSelectEntity(cb);
     }
 
-    protected NextschemaWhiteSameNameRef facadeSelectEntity(NextschemaWhiteSameNameRefCB cb) {
-        return doSelectEntity(cb, typeOfSelectedEntity());
+    protected OptionalEntity<NextschemaWhiteSameNameRef> facadeSelectEntity(NextschemaWhiteSameNameRefCB cb) {
+        return doSelectOptionalEntity(cb, typeOfSelectedEntity());
     }
 
     protected <ENTITY extends NextschemaWhiteSameNameRef> OptionalEntity<ENTITY> doSelectOptionalEntity(NextschemaWhiteSameNameRefCB cb, Class<? extends ENTITY> tp) {
         return createOptionalEntity(doSelectEntity(cb, tp), cb);
     }
 
-    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)); }
+    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElse(null); }
 
     /**
      * Select the entity by the condition-bean with deleted check. <br>
@@ -202,16 +223,17 @@ public abstract class BsNextschemaWhiteSameNameRefBhv extends AbstractBehaviorWr
     /**
      * Select the entity by the primary-key value.
      * @param sameNameRefId : PK, NotNull, int8(19). (NotNull)
-     * @return The entity selected by the PK. (NullAllowed: if no data, it returns null)
+     * @return The optional entity selected by the PK. (NotNull: if no data, empty entity)
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
-    public NextschemaWhiteSameNameRef selectByPK(Long sameNameRefId) {
+    public OptionalEntity<NextschemaWhiteSameNameRef> selectByPK(Long sameNameRefId) {
         return facadeSelectByPK(sameNameRefId);
     }
 
-    protected NextschemaWhiteSameNameRef facadeSelectByPK(Long sameNameRefId) {
-        return doSelectByPK(sameNameRefId, typeOfSelectedEntity());
+    protected OptionalEntity<NextschemaWhiteSameNameRef> facadeSelectByPK(Long sameNameRefId) {
+        return doSelectOptionalByPK(sameNameRefId, typeOfSelectedEntity());
     }
 
     protected <ENTITY extends NextschemaWhiteSameNameRef> ENTITY doSelectByPK(Long sameNameRefId, Class<? extends ENTITY> tp) {
@@ -368,7 +390,7 @@ public abstract class BsNextschemaWhiteSameNameRefBhv extends AbstractBehaviorWr
      * Select the scalar value derived by a function from uniquely-selected records. <br>
      * You should call a function method after this method called like as follows:
      * <pre>
-     * <span style="color: #0000C0">whiteSameNameRefBhv</span>.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteSameNameRefBhv</span>.<span style="color: #CC4747">selectScalar</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...</span>; <span style="color: #3F7E5E">// required for the function</span>
      *     <span style="color: #553000">cb</span>.query().set...
      * });
@@ -377,7 +399,7 @@ public abstract class BsNextschemaWhiteSameNameRefBhv extends AbstractBehaviorWr
      * @param resultType The type of result. (NotNull)
      * @return The scalar function object to specify function for scalar value. (NotNull)
      */
-    public <RESULT> HpSLSFunction<NextschemaWhiteSameNameRefCB, RESULT> scalarSelect(Class<RESULT> resultType) {
+    public <RESULT> HpSLSFunction<NextschemaWhiteSameNameRefCB, RESULT> selectScalar(Class<RESULT> resultType) {
         return facadeScalarSelect(resultType);
     }
 
@@ -1024,9 +1046,8 @@ public abstract class BsNextschemaWhiteSameNameRefBhv extends AbstractBehaviorWr
      * <p>The invoker of behavior command should be not null when you call this method.</p>
      * @return The new-created all facade executor of outside-SQL. (NotNull)
      */
-    public OutsideSqlBasicExecutor<NextschemaWhiteSameNameRefBhv> outsideSql() {
-        OutsideSqlAllFacadeExecutor<NextschemaWhiteSameNameRefBhv> facadeExecutor = doOutsideSql();
-        return facadeExecutor.xbasicExecutor(); // variable to resolve generic type
+    public OutsideSqlAllFacadeExecutor<NextschemaWhiteSameNameRefBhv> outsideSql() {
+        return doOutsideSql();
     }
 
     // ===================================================================================

@@ -108,60 +108,81 @@ public abstract class BsPurchaseBhv extends AbstractBehaviorWritable<Purchase, P
     //                                                                       Entity Select
     //                                                                       =============
     /**
-     * Select the entity by the condition-bean. #beforejava8 <br>
-     * <span style="color: #AD4747; font-size: 120%">The return might be null if no data, so you should have null check.</span> <br>
-     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, use selectEntityWithDeletedCheck().</span>
+     * Select the entity by the condition-bean. <br>
+     * It returns not-null optional entity, so you should ... <br>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, alwaysPresent().</span> <br>
+     * <span style="color: #AD4747; font-size: 120%">If it might be no data, isPresent() and orElse(), ...</span>
      * <pre>
-     * Purchase purchase = <span style="color: #0000C0">purchaseBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
+     * <span style="color: #0000C0">purchaseBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().set...
+     * }).<span style="color: #CC4747">alwaysPresent</span>(<span style="color: #553000">purchase</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if present, or exception</span>
+     *     ... = <span style="color: #553000">purchase</span>.get...
      * });
-     * <span style="color: #70226C">if</span> (purchase != <span style="color: #70226C">null</span>) { <span style="color: #3F7E5E">// null check</span>
-     *     ... = purchase.get...();
-     * } <span style="color: #70226C">else</span> {
-     *     ...
-     * }
+     * 
+     * <span style="color: #3F7E5E">// if it might be no data, ...</span>
+     * <span style="color: #0000C0">purchaseBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).<span style="color: #CC4747">ifPresent</span>(<span style="color: #553000">purchase</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if present</span>
+     *     ... = <span style="color: #553000">purchase</span>.get...
+     * }).<span style="color: #994747">orElse</span>(() <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if not present</span>
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of Purchase. (NotNull)
-     * @return The entity selected by the condition. (NullAllowed: if no data, it returns null)
+     * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
-    public Purchase selectEntity(CBCall<PurchaseCB> cbLambda) {
+    public OptionalEntity<Purchase> selectEntity(CBCall<PurchaseCB> cbLambda) {
         return facadeSelectEntity(createCB(cbLambda));
     }
 
     /**
-     * Select the entity by the condition-bean. #beforejava8 <br>
-     * <span style="color: #AD4747; font-size: 120%">The return might be null if no data, so you should have null check.</span> <br>
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, use selectEntityWithDeletedCheck().</span>
+     * Select the entity by the condition-bean. <br>
+     * It returns not-null optional entity, so you should ... <br>
+     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, alwaysPresent().</span> <br>
+     * <span style="color: #AD4747; font-size: 120%">If it might be no data, get() after check by isPresent() or orElse(), ...</span>
      * <pre>
      * PurchaseCB cb = <span style="color: #70226C">new</span> PurchaseCB();
-     * cb.query().setFoo...(value);
-     * Purchase purchase = <span style="color: #0000C0">purchaseBhv</span>.<span style="color: #DD4747">selectEntity</span>(cb);
-     * <span style="color: #70226C">if</span> (purchase != <span style="color: #70226C">null</span>) { <span style="color: #3F7E5E">// null check</span>
-     *     ... = purchase.get...();
-     * } <span style="color: #70226C">else</span> {
-     *     ...
-     * }
+     * cb.query().set...
+     * 
+     * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
+     * <span style="color: #0000C0">purchaseBhv</span>.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(purchase <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if present, or exception</span>
+     *     ... = purchase.get...
+     * });
+     * 
+     * <span style="color: #3F7E5E">// if it might be no data, ...</span>
+     * <span style="color: #0000C0">purchaseBhv</span>.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(purchase <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if present</span>
+     *     ... = purchase.get...
+     * }).<span style="color: #994747">orElse</span>(() <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if not present</span>
+     * });
      * </pre>
      * @param cb The condition-bean of Purchase. (NotNull)
-     * @return The entity selected by the condition. (NullAllowed: if no data, it returns null)
+     * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
-    public Purchase selectEntity(PurchaseCB cb) {
+    public OptionalEntity<Purchase> selectEntity(PurchaseCB cb) {
         return facadeSelectEntity(cb);
     }
 
-    protected Purchase facadeSelectEntity(PurchaseCB cb) {
-        return doSelectEntity(cb, typeOfSelectedEntity());
+    protected OptionalEntity<Purchase> facadeSelectEntity(PurchaseCB cb) {
+        return doSelectOptionalEntity(cb, typeOfSelectedEntity());
     }
 
     protected <ENTITY extends Purchase> OptionalEntity<ENTITY> doSelectOptionalEntity(PurchaseCB cb, Class<? extends ENTITY> tp) {
         return createOptionalEntity(doSelectEntity(cb, tp), cb);
     }
 
-    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)); }
+    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElse(null); }
 
     /**
      * Select the entity by the condition-bean with deleted check. <br>
@@ -202,16 +223,17 @@ public abstract class BsPurchaseBhv extends AbstractBehaviorWritable<Purchase, P
     /**
      * Select the entity by the primary-key value.
      * @param purchaseId : PK, ID, NotNull, bigserial(19). (NotNull)
-     * @return The entity selected by the PK. (NullAllowed: if no data, it returns null)
+     * @return The optional entity selected by the PK. (NotNull: if no data, empty entity)
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
-    public Purchase selectByPK(Long purchaseId) {
+    public OptionalEntity<Purchase> selectByPK(Long purchaseId) {
         return facadeSelectByPK(purchaseId);
     }
 
-    protected Purchase facadeSelectByPK(Long purchaseId) {
-        return doSelectByPK(purchaseId, typeOfSelectedEntity());
+    protected OptionalEntity<Purchase> facadeSelectByPK(Long purchaseId) {
+        return doSelectOptionalByPK(purchaseId, typeOfSelectedEntity());
     }
 
     protected <ENTITY extends Purchase> ENTITY doSelectByPK(Long purchaseId, Class<? extends ENTITY> tp) {
@@ -237,19 +259,19 @@ public abstract class BsPurchaseBhv extends AbstractBehaviorWritable<Purchase, P
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
-    public OptionalEntity<Purchase> selectByUniqueOf(Integer memberId, Integer productId, java.sql.Timestamp purchaseDatetime) {
+    public OptionalEntity<Purchase> selectByUniqueOf(Integer memberId, Integer productId, java.time.LocalDateTime purchaseDatetime) {
         return facadeSelectByUniqueOf(memberId, productId, purchaseDatetime);
     }
 
-    protected OptionalEntity<Purchase> facadeSelectByUniqueOf(Integer memberId, Integer productId, java.sql.Timestamp purchaseDatetime) {
+    protected OptionalEntity<Purchase> facadeSelectByUniqueOf(Integer memberId, Integer productId, java.time.LocalDateTime purchaseDatetime) {
         return doSelectByUniqueOf(memberId, productId, purchaseDatetime, typeOfSelectedEntity());
     }
 
-    protected <ENTITY extends Purchase> OptionalEntity<ENTITY> doSelectByUniqueOf(Integer memberId, Integer productId, java.sql.Timestamp purchaseDatetime, Class<? extends ENTITY> tp) {
+    protected <ENTITY extends Purchase> OptionalEntity<ENTITY> doSelectByUniqueOf(Integer memberId, Integer productId, java.time.LocalDateTime purchaseDatetime, Class<? extends ENTITY> tp) {
         return createOptionalEntity(doSelectEntity(xprepareCBAsUniqueOf(memberId, productId, purchaseDatetime), tp), memberId, productId, purchaseDatetime);
     }
 
-    protected PurchaseCB xprepareCBAsUniqueOf(Integer memberId, Integer productId, java.sql.Timestamp purchaseDatetime) {
+    protected PurchaseCB xprepareCBAsUniqueOf(Integer memberId, Integer productId, java.time.LocalDateTime purchaseDatetime) {
         assertObjectNotNull("memberId", memberId);assertObjectNotNull("productId", productId);assertObjectNotNull("purchaseDatetime", purchaseDatetime);
         return newConditionBean().acceptUniqueOf(memberId, productId, purchaseDatetime);
     }
@@ -395,7 +417,7 @@ public abstract class BsPurchaseBhv extends AbstractBehaviorWritable<Purchase, P
      * Select the scalar value derived by a function from uniquely-selected records. <br>
      * You should call a function method after this method called like as follows:
      * <pre>
-     * <span style="color: #0000C0">purchaseBhv</span>.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">purchaseBhv</span>.<span style="color: #CC4747">selectScalar</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...</span>; <span style="color: #3F7E5E">// required for the function</span>
      *     <span style="color: #553000">cb</span>.query().set...
      * });
@@ -404,7 +426,7 @@ public abstract class BsPurchaseBhv extends AbstractBehaviorWritable<Purchase, P
      * @param resultType The type of result. (NotNull)
      * @return The scalar function object to specify function for scalar value. (NotNull)
      */
-    public <RESULT> HpSLSFunction<PurchaseCB, RESULT> scalarSelect(Class<RESULT> resultType) {
+    public <RESULT> HpSLSFunction<PurchaseCB, RESULT> selectScalar(Class<RESULT> resultType) {
         return facadeScalarSelect(resultType);
     }
 
@@ -523,7 +545,7 @@ public abstract class BsPurchaseBhv extends AbstractBehaviorWritable<Purchase, P
      * Load referrer of purchasePaymentList by the set-upper of referrer. <br>
      * (購入支払)purchase_payment by purchase_id, named 'purchasePaymentList'.
      * <pre>
-     * <span style="color: #0000C0">purchaseBhv</span>.<span style="color: #CC4747">loadPurchasePaymentList</span>(<span style="color: #553000">purchaseList</span>, <span style="color: #553000">paymentCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">purchaseBhv</span>.<span style="color: #CC4747">loadPurchasePayment</span>(<span style="color: #553000">purchaseList</span>, <span style="color: #553000">paymentCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">paymentCB</span>.setupSelect...
      *     <span style="color: #553000">paymentCB</span>.query().set...
      *     <span style="color: #553000">paymentCB</span>.query().addOrderBy...
@@ -545,16 +567,16 @@ public abstract class BsPurchaseBhv extends AbstractBehaviorWritable<Purchase, P
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<PurchasePayment> loadPurchasePaymentList(List<Purchase> purchaseList, ConditionBeanSetupper<PurchasePaymentCB> refCBLambda) {
+    public NestedReferrerListGateway<PurchasePayment> loadPurchasePayment(List<Purchase> purchaseList, ConditionBeanSetupper<PurchasePaymentCB> refCBLambda) {
         xassLRArg(purchaseList, refCBLambda);
-        return doLoadPurchasePaymentList(purchaseList, new LoadReferrerOption<PurchasePaymentCB, PurchasePayment>().xinit(refCBLambda));
+        return doLoadPurchasePayment(purchaseList, new LoadReferrerOption<PurchasePaymentCB, PurchasePayment>().xinit(refCBLambda));
     }
 
     /**
      * Load referrer of purchasePaymentList by the set-upper of referrer. <br>
      * (購入支払)purchase_payment by purchase_id, named 'purchasePaymentList'.
      * <pre>
-     * <span style="color: #0000C0">purchaseBhv</span>.<span style="color: #CC4747">loadPurchasePaymentList</span>(<span style="color: #553000">purchase</span>, <span style="color: #553000">paymentCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">purchaseBhv</span>.<span style="color: #CC4747">loadPurchasePayment</span>(<span style="color: #553000">purchase</span>, <span style="color: #553000">paymentCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">paymentCB</span>.setupSelect...
      *     <span style="color: #553000">paymentCB</span>.query().set...
      *     <span style="color: #553000">paymentCB</span>.query().addOrderBy...
@@ -574,9 +596,9 @@ public abstract class BsPurchaseBhv extends AbstractBehaviorWritable<Purchase, P
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<PurchasePayment> loadPurchasePaymentList(Purchase purchase, ConditionBeanSetupper<PurchasePaymentCB> refCBLambda) {
+    public NestedReferrerListGateway<PurchasePayment> loadPurchasePayment(Purchase purchase, ConditionBeanSetupper<PurchasePaymentCB> refCBLambda) {
         xassLRArg(purchase, refCBLambda);
-        return doLoadPurchasePaymentList(xnewLRLs(purchase), new LoadReferrerOption<PurchasePaymentCB, PurchasePayment>().xinit(refCBLambda));
+        return doLoadPurchasePayment(xnewLRLs(purchase), new LoadReferrerOption<PurchasePaymentCB, PurchasePayment>().xinit(refCBLambda));
     }
 
     /**
@@ -585,9 +607,9 @@ public abstract class BsPurchaseBhv extends AbstractBehaviorWritable<Purchase, P
      * @param loadReferrerOption The option of load-referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<PurchasePayment> loadPurchasePaymentList(Purchase purchase, LoadReferrerOption<PurchasePaymentCB, PurchasePayment> loadReferrerOption) {
+    public NestedReferrerListGateway<PurchasePayment> loadPurchasePayment(Purchase purchase, LoadReferrerOption<PurchasePaymentCB, PurchasePayment> loadReferrerOption) {
         xassLRArg(purchase, loadReferrerOption);
-        return loadPurchasePaymentList(xnewLRLs(purchase), loadReferrerOption);
+        return loadPurchasePayment(xnewLRLs(purchase), loadReferrerOption);
     }
 
     /**
@@ -597,13 +619,13 @@ public abstract class BsPurchaseBhv extends AbstractBehaviorWritable<Purchase, P
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
     @SuppressWarnings("unchecked")
-    public NestedReferrerListGateway<PurchasePayment> loadPurchasePaymentList(List<Purchase> purchaseList, LoadReferrerOption<PurchasePaymentCB, PurchasePayment> loadReferrerOption) {
+    public NestedReferrerListGateway<PurchasePayment> loadPurchasePayment(List<Purchase> purchaseList, LoadReferrerOption<PurchasePaymentCB, PurchasePayment> loadReferrerOption) {
         xassLRArg(purchaseList, loadReferrerOption);
         if (purchaseList.isEmpty()) { return (NestedReferrerListGateway<PurchasePayment>)EMPTY_NREF_LGWAY; }
-        return doLoadPurchasePaymentList(purchaseList, loadReferrerOption);
+        return doLoadPurchasePayment(purchaseList, loadReferrerOption);
     }
 
-    protected NestedReferrerListGateway<PurchasePayment> doLoadPurchasePaymentList(List<Purchase> purchaseList, LoadReferrerOption<PurchasePaymentCB, PurchasePayment> option) {
+    protected NestedReferrerListGateway<PurchasePayment> doLoadPurchasePayment(List<Purchase> purchaseList, LoadReferrerOption<PurchasePaymentCB, PurchasePayment> option) {
         return helpLoadReferrerInternally(purchaseList, option, "purchasePaymentList");
     }
 
@@ -1351,9 +1373,8 @@ public abstract class BsPurchaseBhv extends AbstractBehaviorWritable<Purchase, P
      * <p>The invoker of behavior command should be not null when you call this method.</p>
      * @return The new-created all facade executor of outside-SQL. (NotNull)
      */
-    public OutsideSqlBasicExecutor<PurchaseBhv> outsideSql() {
-        OutsideSqlAllFacadeExecutor<PurchaseBhv> facadeExecutor = doOutsideSql();
-        return facadeExecutor.xbasicExecutor(); // variable to resolve generic type
+    public OutsideSqlAllFacadeExecutor<PurchaseBhv> outsideSql() {
+        return doOutsideSql();
     }
 
     // ===================================================================================

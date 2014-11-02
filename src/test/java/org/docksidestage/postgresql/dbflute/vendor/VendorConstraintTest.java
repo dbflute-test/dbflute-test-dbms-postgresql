@@ -101,7 +101,7 @@ public class VendorConstraintTest extends UnitContainerTestCase {
     //                                                ------
     public void test_update_unique_constraint_OriginalException() {
         // ## Arrange ##
-        Member member = memberBhv.selectByPK(memberIdThree);
+        Member member = memberBhv.selectByPK(memberIdThree).get();
         member.setMemberAccount("Pixy");
 
         // ## Act & Assert ##
@@ -167,12 +167,12 @@ public class VendorConstraintTest extends UnitContainerTestCase {
         // ## Arrange ##
         List<Member> memberList = new ArrayList<Member>();
         {
-            Member member = memberBhv.selectByPK(memberIdTwo);
+            Member member = memberBhv.selectByPK(memberIdTwo).get();
             member.setMemberAccount("AAA");
             memberList.add(member);
         }
         {
-            Member member = memberBhv.selectByPK(memberIdThree);
+            Member member = memberBhv.selectByPK(memberIdThree).get();
             member.setMemberAccount("Pixy");
             memberList.add(member);
         }
@@ -196,12 +196,12 @@ public class VendorConstraintTest extends UnitContainerTestCase {
         // ## Arrange ##
         List<Member> memberList = new ArrayList<Member>();
         {
-            Member member = memberBhv.selectByPK(memberIdTwo);
+            Member member = memberBhv.selectByPK(memberIdTwo).get();
             member.setMemberAccount("AAA");
             memberList.add(member);
         }
         {
-            Member member = memberBhv.selectByPK(memberIdThree);
+            Member member = memberBhv.selectByPK(memberIdThree).get();
             member.setMemberAccount("Pixy");
             memberList.add(member);
         }

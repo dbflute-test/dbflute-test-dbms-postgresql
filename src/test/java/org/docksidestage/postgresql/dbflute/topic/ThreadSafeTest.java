@@ -84,7 +84,7 @@ public class ThreadSafeTest extends UnitContainerTestCase {
                 Class<SimpleMember> entityType = SimpleMember.class;
 
                 // ## Act ##
-                List<SimpleMember> memberList = memberBhv.outsideSql().selectList(path, pmb, entityType);
+                List<SimpleMember> memberList = memberBhv.outsideSql().traditionalStyle().selectList(path, pmb, entityType);
 
                 // ## Assert ##
                 assertNotSame(0, memberList.size());
@@ -138,7 +138,7 @@ public class ThreadSafeTest extends UnitContainerTestCase {
     //                                                                              ======
     public void test_ThreadSafe_update_before_insert_sameExecution_alreadyUpdated() {
         final int memberId = 3;
-        final Member before = memberBhv.selectByPK(memberId);
+        final Member before = memberBhv.selectByPK(memberId).get();
         final Long versionNo = before.getVersionNo();
         cannonball(new CannonballRun() {
             public void drive(CannonballCar car) {
@@ -154,7 +154,7 @@ public class ThreadSafeTest extends UnitContainerTestCase {
                     long currentMillis = currentTimestamp().getTime();
                     long keyMillis = currentMillis - (entryNumber * 10000) - (i * 10000);
                     HandyDate handyDate = new HandyDate(new Timestamp(keyMillis));
-                    purchase.setPurchaseDatetime(handyDate.addDay(entryNumber).getTimestamp());
+                    purchase.setPurchaseDatetime(handyDate.addDay(entryNumber).getLocalDateTime());
                     purchase.setPurchaseCount(1234 + i);
                     purchase.setPurchasePrice(1234 + i);
                     purchase.setPaymentCompleteFlg_True();
@@ -167,7 +167,7 @@ public class ThreadSafeTest extends UnitContainerTestCase {
     }
 
     public void test_ThreadSafe_update_after_insert_sameExecution_mayBeDeadlock() {
-        final Purchase source = purchaseBhv.selectByPK(1L);
+        final Purchase source = purchaseBhv.selectByPK(1L).get();
         source.setPurchaseId(null);
         cannonball(new CannonballRun() {
             public void drive(CannonballCar car) {
@@ -176,7 +176,7 @@ public class ThreadSafeTest extends UnitContainerTestCase {
                 purchase.setMemberId(entryNumber % 2 == 1 ? 3 : 4);
                 purchase.setProductId(entryNumber % 3 == 1 ? 3 : (entryNumber % 3 == 2 ? 4 : 5));
                 long keyMillis = currentTimestamp().getTime() - (entryNumber * 1000);
-                purchase.setPurchaseDatetime(new Timestamp(keyMillis));
+                purchase.setPurchaseDatetime(toLocalDateTime(keyMillis));
                 purchaseBhv.insert(purchase);
 
                 // deadlock if update is executed after insert including updateNonstrict()

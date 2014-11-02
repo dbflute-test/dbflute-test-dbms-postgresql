@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.dbflute.Entity;
+import org.dbflute.optional.OptionalEntity;
 import org.dbflute.dbmeta.AbstractDBMeta;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
@@ -37,16 +38,17 @@ public class MemberSecurityDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((MemberSecurity)et).getMemberId(), (et, vl) -> ((MemberSecurity)et).setMemberId(cti(vl)), "memberId");
         setupEpg(_epgMap, et -> ((MemberSecurity)et).getLoginPassword(), (et, vl) -> ((MemberSecurity)et).setLoginPassword((String)vl), "loginPassword");
         setupEpg(_epgMap, et -> ((MemberSecurity)et).getReminderQuestion(), (et, vl) -> ((MemberSecurity)et).setReminderQuestion((String)vl), "reminderQuestion");
         setupEpg(_epgMap, et -> ((MemberSecurity)et).getReminderAnswer(), (et, vl) -> ((MemberSecurity)et).setReminderAnswer((String)vl), "reminderAnswer");
         setupEpg(_epgMap, et -> ((MemberSecurity)et).getReminderUseCount(), (et, vl) -> ((MemberSecurity)et).setReminderUseCount(cti(vl)), "reminderUseCount");
-        setupEpg(_epgMap, et -> ((MemberSecurity)et).getRegisterDatetime(), (et, vl) -> ((MemberSecurity)et).setRegisterDatetime((java.sql.Timestamp)vl), "registerDatetime");
+        setupEpg(_epgMap, et -> ((MemberSecurity)et).getRegisterDatetime(), (et, vl) -> ((MemberSecurity)et).setRegisterDatetime((java.time.LocalDateTime)vl), "registerDatetime");
         setupEpg(_epgMap, et -> ((MemberSecurity)et).getRegisterProcess(), (et, vl) -> ((MemberSecurity)et).setRegisterProcess((String)vl), "registerProcess");
         setupEpg(_epgMap, et -> ((MemberSecurity)et).getRegisterUser(), (et, vl) -> ((MemberSecurity)et).setRegisterUser((String)vl), "registerUser");
-        setupEpg(_epgMap, et -> ((MemberSecurity)et).getUpdateDatetime(), (et, vl) -> ((MemberSecurity)et).setUpdateDatetime((java.sql.Timestamp)vl), "updateDatetime");
+        setupEpg(_epgMap, et -> ((MemberSecurity)et).getUpdateDatetime(), (et, vl) -> ((MemberSecurity)et).setUpdateDatetime((java.time.LocalDateTime)vl), "updateDatetime");
         setupEpg(_epgMap, et -> ((MemberSecurity)et).getUpdateProcess(), (et, vl) -> ((MemberSecurity)et).setUpdateProcess((String)vl), "updateProcess");
         setupEpg(_epgMap, et -> ((MemberSecurity)et).getUpdateUser(), (et, vl) -> ((MemberSecurity)et).setUpdateUser((String)vl), "updateUser");
         setupEpg(_epgMap, et -> ((MemberSecurity)et).getVersionNo(), (et, vl) -> ((MemberSecurity)et).setVersionNo(ctl(vl)), "versionNo");
@@ -59,8 +61,9 @@ public class MemberSecurityDbm extends AbstractDBMeta {
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
     { xsetupEfpg(); }
+    @SuppressWarnings("unchecked")
     protected void xsetupEfpg() {
-        setupEfpg(_efpgMap, et -> ((MemberSecurity)et).getMember(), (et, vl) -> ((MemberSecurity)et).setMember((Member)vl), "member");
+        setupEfpg(_efpgMap, et -> ((MemberSecurity)et).getMember(), (et, vl) -> ((MemberSecurity)et).setMember((OptionalEntity<Member>)vl), "member");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }
@@ -88,10 +91,10 @@ public class MemberSecurityDbm extends AbstractDBMeta {
     protected final ColumnInfo _columnReminderQuestion = cci("reminder_question", "reminder_question", null, "リマインダ質問", String.class, "reminderQuestion", null, false, false, true, "varchar", 50, 0, null, false, null, "パスワードを忘れた際のリマインダ機能における質問の内容。", null, null, null);
     protected final ColumnInfo _columnReminderAnswer = cci("reminder_answer", "reminder_answer", null, "リマインダ回答", String.class, "reminderAnswer", null, false, false, true, "varchar", 50, 0, null, false, null, "パスワードを忘れた際のリマインダ機能における質問の答え。", null, null, null);
     protected final ColumnInfo _columnReminderUseCount = cci("reminder_use_count", "reminder_use_count", null, "リマインダ利用回数", Integer.class, "reminderUseCount", null, false, false, true, "int4", 10, 0, null, false, null, "リマインダを利用した回数。\n多いと忘れっぽい会員と言えるが、\nそんなことを知ってもしょうがない。", null, null, null);
-    protected final ColumnInfo _columnRegisterDatetime = cci("register_datetime", "register_datetime", null, null, java.sql.Timestamp.class, "registerDatetime", null, false, false, true, "timestamp", 26, 3, null, true, null, null, null, null, null);
+    protected final ColumnInfo _columnRegisterDatetime = cci("register_datetime", "register_datetime", null, null, java.time.LocalDateTime.class, "registerDatetime", null, false, false, true, "timestamp", 26, 3, null, true, null, null, null, null, null);
     protected final ColumnInfo _columnRegisterProcess = cci("register_process", "register_process", null, null, String.class, "registerProcess", null, false, false, true, "varchar", 200, 0, null, true, null, null, null, null, null);
     protected final ColumnInfo _columnRegisterUser = cci("register_user", "register_user", null, null, String.class, "registerUser", null, false, false, true, "varchar", 200, 0, null, true, null, null, null, null, null);
-    protected final ColumnInfo _columnUpdateDatetime = cci("update_datetime", "update_datetime", null, null, java.sql.Timestamp.class, "updateDatetime", null, false, false, true, "timestamp", 26, 3, null, true, null, null, null, null, null);
+    protected final ColumnInfo _columnUpdateDatetime = cci("update_datetime", "update_datetime", null, null, java.time.LocalDateTime.class, "updateDatetime", null, false, false, true, "timestamp", 26, 3, null, true, null, null, null, null, null);
     protected final ColumnInfo _columnUpdateProcess = cci("update_process", "update_process", null, null, String.class, "updateProcess", null, false, false, true, "varchar", 200, 0, null, true, null, null, null, null, null);
     protected final ColumnInfo _columnUpdateUser = cci("update_user", "update_user", null, null, String.class, "updateUser", null, false, false, true, "varchar", 200, 0, null, true, null, null, null, null, null);
     protected final ColumnInfo _columnVersionNo = cci("version_no", "version_no", null, null, Long.class, "versionNo", null, false, false, true, "int8", 19, 0, null, false, OptimisticLockType.VERSION_NO, null, null, null, null);
@@ -200,7 +203,7 @@ public class MemberSecurityDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignMember() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnMemberId(), MemberDbm.getInstance().columnMemberId());
-        return cfi("fk_member_sc_info_member", "member", this, MemberDbm.getInstance(), mp, 0, null, true, false, false, false, null, null, false, "memberSecurityAsOne");
+        return cfi("fk_member_sc_info_member", "member", this, MemberDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, true, false, false, false, null, null, false, "memberSecurityAsOne");
     }
 
     // -----------------------------------------------------

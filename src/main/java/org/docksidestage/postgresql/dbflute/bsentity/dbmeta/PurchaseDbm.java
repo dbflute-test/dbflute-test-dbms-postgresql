@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.dbflute.Entity;
+import org.dbflute.optional.OptionalEntity;
 import org.dbflute.dbmeta.AbstractDBMeta;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
@@ -37,11 +38,12 @@ public class PurchaseDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((Purchase)et).getPurchaseId(), (et, vl) -> ((Purchase)et).setPurchaseId(ctl(vl)), "purchaseId");
         setupEpg(_epgMap, et -> ((Purchase)et).getMemberId(), (et, vl) -> ((Purchase)et).setMemberId(cti(vl)), "memberId");
         setupEpg(_epgMap, et -> ((Purchase)et).getProductId(), (et, vl) -> ((Purchase)et).setProductId(cti(vl)), "productId");
-        setupEpg(_epgMap, et -> ((Purchase)et).getPurchaseDatetime(), (et, vl) -> ((Purchase)et).setPurchaseDatetime((java.sql.Timestamp)vl), "purchaseDatetime");
+        setupEpg(_epgMap, et -> ((Purchase)et).getPurchaseDatetime(), (et, vl) -> ((Purchase)et).setPurchaseDatetime((java.time.LocalDateTime)vl), "purchaseDatetime");
         setupEpg(_epgMap, et -> ((Purchase)et).getPurchaseCount(), (et, vl) -> ((Purchase)et).setPurchaseCount(cti(vl)), "purchaseCount");
         setupEpg(_epgMap, et -> ((Purchase)et).getPurchasePrice(), (et, vl) -> ((Purchase)et).setPurchasePrice(cti(vl)), "purchasePrice");
         setupEpg(_epgMap, et -> ((Purchase)et).getPaymentCompleteFlg(), (et, vl) -> {
@@ -53,10 +55,10 @@ public class PurchaseDbm extends AbstractDBMeta {
                 ((Purchase)et).mynativeMappingPaymentCompleteFlg(ctn(vl, Integer.class));
             }
         }, "paymentCompleteFlg");
-        setupEpg(_epgMap, et -> ((Purchase)et).getRegisterDatetime(), (et, vl) -> ((Purchase)et).setRegisterDatetime((java.sql.Timestamp)vl), "registerDatetime");
+        setupEpg(_epgMap, et -> ((Purchase)et).getRegisterDatetime(), (et, vl) -> ((Purchase)et).setRegisterDatetime((java.time.LocalDateTime)vl), "registerDatetime");
         setupEpg(_epgMap, et -> ((Purchase)et).getRegisterUser(), (et, vl) -> ((Purchase)et).setRegisterUser((String)vl), "registerUser");
         setupEpg(_epgMap, et -> ((Purchase)et).getRegisterProcess(), (et, vl) -> ((Purchase)et).setRegisterProcess((String)vl), "registerProcess");
-        setupEpg(_epgMap, et -> ((Purchase)et).getUpdateDatetime(), (et, vl) -> ((Purchase)et).setUpdateDatetime((java.sql.Timestamp)vl), "updateDatetime");
+        setupEpg(_epgMap, et -> ((Purchase)et).getUpdateDatetime(), (et, vl) -> ((Purchase)et).setUpdateDatetime((java.time.LocalDateTime)vl), "updateDatetime");
         setupEpg(_epgMap, et -> ((Purchase)et).getUpdateUser(), (et, vl) -> ((Purchase)et).setUpdateUser((String)vl), "updateUser");
         setupEpg(_epgMap, et -> ((Purchase)et).getUpdateProcess(), (et, vl) -> ((Purchase)et).setUpdateProcess((String)vl), "updateProcess");
         setupEpg(_epgMap, et -> ((Purchase)et).getVersionNo(), (et, vl) -> ((Purchase)et).setVersionNo(ctl(vl)), "versionNo");
@@ -69,9 +71,10 @@ public class PurchaseDbm extends AbstractDBMeta {
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
     { xsetupEfpg(); }
+    @SuppressWarnings("unchecked")
     protected void xsetupEfpg() {
-        setupEfpg(_efpgMap, et -> ((Purchase)et).getMember(), (et, vl) -> ((Purchase)et).setMember((Member)vl), "member");
-        setupEfpg(_efpgMap, et -> ((Purchase)et).getProduct(), (et, vl) -> ((Purchase)et).setProduct((Product)vl), "product");
+        setupEfpg(_efpgMap, et -> ((Purchase)et).getMember(), (et, vl) -> ((Purchase)et).setMember((OptionalEntity<Member>)vl), "member");
+        setupEfpg(_efpgMap, et -> ((Purchase)et).getProduct(), (et, vl) -> ((Purchase)et).setProduct((OptionalEntity<Product>)vl), "product");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }
@@ -97,14 +100,14 @@ public class PurchaseDbm extends AbstractDBMeta {
     protected final ColumnInfo _columnPurchaseId = cci("purchase_id", "purchase_id", null, null, Long.class, "purchaseId", null, true, true, true, "bigserial", 19, 0, "nextval('purchase_purchase_id_seq'::regclass)", false, null, null, null, "purchasePaymentList", null);
     protected final ColumnInfo _columnMemberId = cci("member_id", "member_id", null, "会員ID", Integer.class, "memberId", null, false, false, true, "int4", 10, 0, null, false, null, "会員を参照するID。\n購入を識別する自然キー（複合ユニーク制約）の筆頭要素。", "member", null, null);
     protected final ColumnInfo _columnProductId = cci("product_id", "product_id", null, "商品ID", Integer.class, "productId", null, false, false, true, "int4", 10, 0, null, false, null, "商品を参照するID。", "product", null, null);
-    protected final ColumnInfo _columnPurchaseDatetime = cci("purchase_datetime", "purchase_datetime", null, "購入日時", java.sql.Timestamp.class, "purchaseDatetime", null, false, false, true, "timestamp", 26, 3, null, false, null, "購入した瞬間の日時。", null, null, null);
+    protected final ColumnInfo _columnPurchaseDatetime = cci("purchase_datetime", "purchase_datetime", null, "購入日時", java.time.LocalDateTime.class, "purchaseDatetime", null, false, false, true, "timestamp", 26, 3, null, false, null, "購入した瞬間の日時。", null, null, null);
     protected final ColumnInfo _columnPurchaseCount = cci("purchase_count", "purchase_count", null, "購入数量", Integer.class, "purchaseCount", null, false, false, true, "int4", 10, 0, null, false, null, "購入した商品の（一回の購入における）数量。", null, null, null);
     protected final ColumnInfo _columnPurchasePrice = cci("purchase_price", "purchase_price", null, "購入価格", Integer.class, "purchasePrice", null, false, false, true, "int4", 10, 0, null, false, null, "購入によって実際に会員が支払った（支払う予定の）価格。\n基本は商品の定価に購入数量を掛けたものになるが、\nポイント利用や割引があったりと必ずしもそうはならない。", null, null, null);
     protected final ColumnInfo _columnPaymentCompleteFlg = cci("payment_complete_flg", "payment_complete_flg", null, "支払完了フラグ", Integer.class, "paymentCompleteFlg", null, false, false, true, "int4", 10, 0, null, false, null, "この購入に関しての支払いが完了しているか否か。", null, null, CDef.DefMeta.Flg);
-    protected final ColumnInfo _columnRegisterDatetime = cci("register_datetime", "register_datetime", null, null, java.sql.Timestamp.class, "registerDatetime", null, false, false, true, "timestamp", 26, 3, null, true, null, null, null, null, null);
+    protected final ColumnInfo _columnRegisterDatetime = cci("register_datetime", "register_datetime", null, null, java.time.LocalDateTime.class, "registerDatetime", null, false, false, true, "timestamp", 26, 3, null, true, null, null, null, null, null);
     protected final ColumnInfo _columnRegisterUser = cci("register_user", "register_user", null, null, String.class, "registerUser", null, false, false, true, "varchar", 200, 0, null, true, null, null, null, null, null);
     protected final ColumnInfo _columnRegisterProcess = cci("register_process", "register_process", null, null, String.class, "registerProcess", null, false, false, true, "varchar", 200, 0, null, true, null, null, null, null, null);
-    protected final ColumnInfo _columnUpdateDatetime = cci("update_datetime", "update_datetime", null, null, java.sql.Timestamp.class, "updateDatetime", null, false, false, true, "timestamp", 26, 3, null, true, null, null, null, null, null);
+    protected final ColumnInfo _columnUpdateDatetime = cci("update_datetime", "update_datetime", null, null, java.time.LocalDateTime.class, "updateDatetime", null, false, false, true, "timestamp", 26, 3, null, true, null, null, null, null, null);
     protected final ColumnInfo _columnUpdateUser = cci("update_user", "update_user", null, null, String.class, "updateUser", null, false, false, true, "varchar", 200, 0, null, true, null, null, null, null, null);
     protected final ColumnInfo _columnUpdateProcess = cci("update_process", "update_process", null, null, String.class, "updateProcess", null, false, false, true, "varchar", 200, 0, null, true, null, null, null, null, null);
     protected final ColumnInfo _columnVersionNo = cci("version_no", "version_no", null, null, Long.class, "versionNo", null, false, false, true, "int8", 19, 0, null, false, OptimisticLockType.VERSION_NO, null, null, null, null);
@@ -225,7 +228,7 @@ public class PurchaseDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignMember() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnMemberId(), MemberDbm.getInstance().columnMemberId());
-        return cfi("fk_purchase_member", "member", this, MemberDbm.getInstance(), mp, 0, null, false, false, false, false, null, null, false, "purchaseList");
+        return cfi("fk_purchase_member", "member", this, MemberDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "purchaseList");
     }
     /**
      * (商品)product by my product_id, named 'product'.
@@ -233,7 +236,7 @@ public class PurchaseDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignProduct() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnProductId(), ProductDbm.getInstance().columnProductId());
-        return cfi("fk_purchase_product", "product", this, ProductDbm.getInstance(), mp, 1, null, false, false, false, false, null, null, false, "purchaseList");
+        return cfi("fk_purchase_product", "product", this, ProductDbm.getInstance(), mp, 1, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "purchaseList");
     }
 
     // -----------------------------------------------------

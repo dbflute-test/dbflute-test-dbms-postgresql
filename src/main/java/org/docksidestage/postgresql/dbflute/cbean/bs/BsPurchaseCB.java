@@ -98,7 +98,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
      * @param purchaseDatetime (購入日時): +UQ, IX+, NotNull, timestamp(26, 3). (NotNull)
      * @return this. (NotNull)
      */
-    public PurchaseCB acceptUniqueOf(Integer memberId, Integer productId, java.sql.Timestamp purchaseDatetime) {
+    public PurchaseCB acceptUniqueOf(Integer memberId, Integer productId, java.time.LocalDateTime purchaseDatetime) {
         assertObjectNotNull("memberId", memberId);assertObjectNotNull("productId", productId);assertObjectNotNull("purchaseDatetime", purchaseDatetime);
         BsPurchaseCB cb = this;
         cb.query().setMemberId_Equal(memberId);cb.query().setProductId_Equal(productId);cb.query().setPurchaseDatetime_Equal(purchaseDatetime);
@@ -509,7 +509,7 @@ public class BsPurchaseCB extends AbstractConditionBean {
          * </pre>
          * @return The object to set up a function for referrer table. (NotNull)
          */
-        public HpSDRFunction<PurchasePaymentCB, PurchaseCQ> derivedPurchasePaymentList() {
+        public HpSDRFunction<PurchasePaymentCB, PurchaseCQ> derivedPurchasePayment() {
             assertDerived("purchasePaymentList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
             return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsderivePurchasePaymentList(fn, sq, al, op), _dbmetaProvider);
         }
@@ -521,6 +521,24 @@ public class BsPurchaseCB extends AbstractConditionBean {
             assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
             return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
         }
+    }
+
+    // ===================================================================================
+    //                                                                        Dream Cruise
+    //                                                                        ============
+    /**
+     * Welcome to the Dream Cruise for condition-bean deep world. <br>
+     * This is very specialty so you can get the frontier spirit. Bon voyage!
+     * @return The condition-bean for dream cruise, which is linked to main condition-bean.
+     */
+    public PurchaseCB dreamCruiseCB() {
+        PurchaseCB cb = new PurchaseCB();
+        cb.xsetupForDreamCruise((PurchaseCB) this);
+        return cb;
+    }
+
+    protected ConditionBean xdoCreateDreamCruiseCB() {
+        return dreamCruiseCB();
     }
 
     // [DBFlute-0.9.5.3]
@@ -554,24 +572,6 @@ public class BsPurchaseCB extends AbstractConditionBean {
         PurchaseCB cb = new PurchaseCB();
         cb.xsetupForColumnQuery((PurchaseCB)this);
         return cb;
-    }
-
-    // ===================================================================================
-    //                                                                        Dream Cruise
-    //                                                                        ============
-    /**
-     * Welcome to the Dream Cruise for condition-bean deep world. <br>
-     * This is very specialty so you can get the frontier spirit. Bon voyage!
-     * @return The condition-bean for dream cruise, which is linked to main condition-bean.
-     */
-    public PurchaseCB dreamCruiseCB() {
-        PurchaseCB cb = new PurchaseCB();
-        cb.xsetupForDreamCruise((PurchaseCB) this);
-        return cb;
-    }
-
-    protected ConditionBean xdoCreateDreamCruiseCB() {
-        return dreamCruiseCB();
     }
 
     // [DBFlute-0.9.6.3]

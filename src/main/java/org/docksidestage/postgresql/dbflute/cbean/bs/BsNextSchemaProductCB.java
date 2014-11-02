@@ -326,7 +326,7 @@ public class BsNextSchemaProductCB extends AbstractConditionBean {
          * </pre>
          * @return The object to set up a function for referrer table. (NotNull)
          */
-        public HpSDRFunction<WhiteSameNameCB, NextSchemaProductCQ> derivedWhiteSameNameList() {
+        public HpSDRFunction<WhiteSameNameCB, NextSchemaProductCQ> derivedWhiteSameName() {
             assertDerived("whiteSameNameList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
             return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsderiveWhiteSameNameList(fn, sq, al, op), _dbmetaProvider);
         }
@@ -338,6 +338,24 @@ public class BsNextSchemaProductCB extends AbstractConditionBean {
             assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
             return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
         }
+    }
+
+    // ===================================================================================
+    //                                                                        Dream Cruise
+    //                                                                        ============
+    /**
+     * Welcome to the Dream Cruise for condition-bean deep world. <br>
+     * This is very specialty so you can get the frontier spirit. Bon voyage!
+     * @return The condition-bean for dream cruise, which is linked to main condition-bean.
+     */
+    public NextSchemaProductCB dreamCruiseCB() {
+        NextSchemaProductCB cb = new NextSchemaProductCB();
+        cb.xsetupForDreamCruise((NextSchemaProductCB) this);
+        return cb;
+    }
+
+    protected ConditionBean xdoCreateDreamCruiseCB() {
+        return dreamCruiseCB();
     }
 
     // [DBFlute-0.9.5.3]
@@ -371,24 +389,6 @@ public class BsNextSchemaProductCB extends AbstractConditionBean {
         NextSchemaProductCB cb = new NextSchemaProductCB();
         cb.xsetupForColumnQuery((NextSchemaProductCB)this);
         return cb;
-    }
-
-    // ===================================================================================
-    //                                                                        Dream Cruise
-    //                                                                        ============
-    /**
-     * Welcome to the Dream Cruise for condition-bean deep world. <br>
-     * This is very specialty so you can get the frontier spirit. Bon voyage!
-     * @return The condition-bean for dream cruise, which is linked to main condition-bean.
-     */
-    public NextSchemaProductCB dreamCruiseCB() {
-        NextSchemaProductCB cb = new NextSchemaProductCB();
-        cb.xsetupForDreamCruise((NextSchemaProductCB) this);
-        return cb;
-    }
-
-    protected ConditionBean xdoCreateDreamCruiseCB() {
-        return dreamCruiseCB();
     }
 
     // [DBFlute-0.9.6.3]

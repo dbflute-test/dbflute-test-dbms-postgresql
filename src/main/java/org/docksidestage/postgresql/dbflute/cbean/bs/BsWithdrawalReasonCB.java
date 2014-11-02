@@ -12,6 +12,7 @@ import org.dbflute.cbean.scoping.*;
 import org.dbflute.dbmeta.DBMetaProvider;
 import org.dbflute.twowaysql.factory.SqlAnalyzerFactory;
 import org.dbflute.twowaysql.style.BoundDateDisplayTimeZoneProvider;
+import org.docksidestage.postgresql.dbflute.allcommon.CDef;
 import org.docksidestage.postgresql.dbflute.allcommon.DBFluteConfig;
 import org.docksidestage.postgresql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.postgresql.dbflute.allcommon.ImplementedInvokerAssistant;
@@ -80,13 +81,13 @@ public class BsWithdrawalReasonCB extends AbstractConditionBean {
     //                                                                 ===================
     /**
      * Accept the query condition of primary key as equal.
-     * @param withdrawalReasonCode (退会理由コード): PK, NotNull, bpchar(3). (NotNull)
+     * @param withdrawalReasonCode (退会理由コード): PK, NotNull, bpchar(3), classification=WithdrawalReason. (NotNull)
      * @return this. (NotNull)
      */
-    public WithdrawalReasonCB acceptPK(String withdrawalReasonCode) {
+    public WithdrawalReasonCB acceptPK(CDef.WithdrawalReason withdrawalReasonCode) {
         assertObjectNotNull("withdrawalReasonCode", withdrawalReasonCode);
         BsWithdrawalReasonCB cb = this;
-        cb.query().setWithdrawalReasonCode_Equal(withdrawalReasonCode);
+        cb.query().setWithdrawalReasonCode_Equal_AsWithdrawalReason(withdrawalReasonCode);
         return (WithdrawalReasonCB)this;
     }
 
@@ -309,7 +310,7 @@ public class BsWithdrawalReasonCB extends AbstractConditionBean {
                              , HpSDRFunctionFactory sdrFuncFactory)
         { super(baseCB, qyCall, purpose, dbmetaProvider, sdrFuncFactory); }
         /**
-         * (退会理由コード)withdrawal_reason_code: {PK, NotNull, bpchar(3)}
+         * (退会理由コード)withdrawal_reason_code: {PK, NotNull, bpchar(3), classification=WithdrawalReason}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnWithdrawalReasonCode() { return doColumn("withdrawal_reason_code"); }
@@ -343,7 +344,7 @@ public class BsWithdrawalReasonCB extends AbstractConditionBean {
          * </pre>
          * @return The object to set up a function for referrer table. (NotNull)
          */
-        public HpSDRFunction<MemberWithdrawalCB, WithdrawalReasonCQ> derivedMemberWithdrawalList() {
+        public HpSDRFunction<MemberWithdrawalCB, WithdrawalReasonCQ> derivedMemberWithdrawal() {
             assertDerived("memberWithdrawalList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
             return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsderiveMemberWithdrawalList(fn, sq, al, op), _dbmetaProvider);
         }
@@ -355,6 +356,24 @@ public class BsWithdrawalReasonCB extends AbstractConditionBean {
             assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
             return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
         }
+    }
+
+    // ===================================================================================
+    //                                                                        Dream Cruise
+    //                                                                        ============
+    /**
+     * Welcome to the Dream Cruise for condition-bean deep world. <br>
+     * This is very specialty so you can get the frontier spirit. Bon voyage!
+     * @return The condition-bean for dream cruise, which is linked to main condition-bean.
+     */
+    public WithdrawalReasonCB dreamCruiseCB() {
+        WithdrawalReasonCB cb = new WithdrawalReasonCB();
+        cb.xsetupForDreamCruise((WithdrawalReasonCB) this);
+        return cb;
+    }
+
+    protected ConditionBean xdoCreateDreamCruiseCB() {
+        return dreamCruiseCB();
     }
 
     // [DBFlute-0.9.5.3]
@@ -388,24 +407,6 @@ public class BsWithdrawalReasonCB extends AbstractConditionBean {
         WithdrawalReasonCB cb = new WithdrawalReasonCB();
         cb.xsetupForColumnQuery((WithdrawalReasonCB)this);
         return cb;
-    }
-
-    // ===================================================================================
-    //                                                                        Dream Cruise
-    //                                                                        ============
-    /**
-     * Welcome to the Dream Cruise for condition-bean deep world. <br>
-     * This is very specialty so you can get the frontier spirit. Bon voyage!
-     * @return The condition-bean for dream cruise, which is linked to main condition-bean.
-     */
-    public WithdrawalReasonCB dreamCruiseCB() {
-        WithdrawalReasonCB cb = new WithdrawalReasonCB();
-        cb.xsetupForDreamCruise((WithdrawalReasonCB) this);
-        return cb;
-    }
-
-    protected ConditionBean xdoCreateDreamCruiseCB() {
-        return dreamCruiseCB();
     }
 
     // [DBFlute-0.9.6.3]

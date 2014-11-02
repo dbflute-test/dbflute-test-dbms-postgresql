@@ -152,13 +152,13 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * {exists (select member_id from member_address where ...)} <br>
      * (会員住所情報)member_address by member_id, named 'memberAddressAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">existsMemberAddressList</span>(addressCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">existsMemberAddress</span>(addressCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     addressCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of MemberAddressList for 'exists'. (NotNull)
      */
-    public void existsMemberAddressList(SubQuery<MemberAddressCB> subCBLambda) {
+    public void existsMemberAddress(SubQuery<MemberAddressCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         MemberAddressCB cb = new MemberAddressCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepMemberId_ExistsReferrer_MemberAddressList(cb.query());
@@ -171,13 +171,13 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * {exists (select member_id from member_login where ...)} <br>
      * (会員ログイン)member_login by member_id, named 'memberLoginAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">existsMemberLoginList</span>(loginCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">existsMemberLogin</span>(loginCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     loginCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of MemberLoginList for 'exists'. (NotNull)
      */
-    public void existsMemberLoginList(SubQuery<MemberLoginCB> subCBLambda) {
+    public void existsMemberLogin(SubQuery<MemberLoginCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         MemberLoginCB cb = new MemberLoginCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepMemberId_ExistsReferrer_MemberLoginList(cb.query());
@@ -190,13 +190,13 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * {exists (select member_id from purchase where ...)} <br>
      * (購入)purchase by member_id, named 'purchaseAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">existsPurchaseList</span>(purchaseCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">existsPurchase</span>(purchaseCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     purchaseCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of PurchaseList for 'exists'. (NotNull)
      */
-    public void existsPurchaseList(SubQuery<PurchaseCB> subCBLambda) {
+    public void existsPurchase(SubQuery<PurchaseCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         PurchaseCB cb = new PurchaseCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepMemberId_ExistsReferrer_PurchaseList(cb.query());
@@ -209,13 +209,13 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * {not exists (select member_id from member_address where ...)} <br>
      * (会員住所情報)member_address by member_id, named 'memberAddressAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsMemberAddressList</span>(addressCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">notExistsMemberAddress</span>(addressCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     addressCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of MemberId_NotExistsReferrer_MemberAddressList for 'not exists'. (NotNull)
      */
-    public void notExistsMemberAddressList(SubQuery<MemberAddressCB> subCBLambda) {
+    public void notExistsMemberAddress(SubQuery<MemberAddressCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         MemberAddressCB cb = new MemberAddressCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepMemberId_NotExistsReferrer_MemberAddressList(cb.query());
@@ -228,13 +228,13 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * {not exists (select member_id from member_login where ...)} <br>
      * (会員ログイン)member_login by member_id, named 'memberLoginAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsMemberLoginList</span>(loginCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">notExistsMemberLogin</span>(loginCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     loginCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of MemberId_NotExistsReferrer_MemberLoginList for 'not exists'. (NotNull)
      */
-    public void notExistsMemberLoginList(SubQuery<MemberLoginCB> subCBLambda) {
+    public void notExistsMemberLogin(SubQuery<MemberLoginCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         MemberLoginCB cb = new MemberLoginCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepMemberId_NotExistsReferrer_MemberLoginList(cb.query());
@@ -247,13 +247,13 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * {not exists (select member_id from purchase where ...)} <br>
      * (購入)purchase by member_id, named 'purchaseAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsPurchaseList</span>(purchaseCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">notExistsPurchase</span>(purchaseCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     purchaseCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of MemberId_NotExistsReferrer_PurchaseList for 'not exists'. (NotNull)
      */
-    public void notExistsPurchaseList(SubQuery<PurchaseCB> subCBLambda) {
+    public void notExistsPurchase(SubQuery<PurchaseCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         PurchaseCB cb = new PurchaseCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepMemberId_NotExistsReferrer_PurchaseList(cb.query());
@@ -290,14 +290,14 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * {FOO &lt;= (select max(BAR) from member_address where ...)} <br>
      * (会員住所情報)member_address by member_id, named 'memberAddressAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedMemberAddressList()</span>.<span style="color: #CC4747">max</span>(addressCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">derivedMemberAddress()</span>.<span style="color: #CC4747">max</span>(addressCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     addressCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *     addressCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
      * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
      * </pre>
      * @return The object to set up a function for referrer table. (NotNull)
      */
-    public HpQDRFunction<MemberAddressCB> derivedMemberAddressList() {
+    public HpQDRFunction<MemberAddressCB> derivedMemberAddress() {
         return xcreateQDRFunctionMemberAddressList();
     }
     protected HpQDRFunction<MemberAddressCB> xcreateQDRFunctionMemberAddressList() {
@@ -317,14 +317,14 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * {FOO &lt;= (select max(BAR) from member_login where ...)} <br>
      * (会員ログイン)member_login by member_id, named 'memberLoginAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedMemberLoginList()</span>.<span style="color: #CC4747">max</span>(loginCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">derivedMemberLogin()</span>.<span style="color: #CC4747">max</span>(loginCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     loginCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *     loginCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
      * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
      * </pre>
      * @return The object to set up a function for referrer table. (NotNull)
      */
-    public HpQDRFunction<MemberLoginCB> derivedMemberLoginList() {
+    public HpQDRFunction<MemberLoginCB> derivedMemberLogin() {
         return xcreateQDRFunctionMemberLoginList();
     }
     protected HpQDRFunction<MemberLoginCB> xcreateQDRFunctionMemberLoginList() {
@@ -344,14 +344,14 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * {FOO &lt;= (select max(BAR) from purchase where ...)} <br>
      * (購入)purchase by member_id, named 'purchaseAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedPurchaseList()</span>.<span style="color: #CC4747">max</span>(purchaseCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">derivedPurchase()</span>.<span style="color: #CC4747">max</span>(purchaseCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     purchaseCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *     purchaseCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
      * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
      * </pre>
      * @return The object to set up a function for referrer table. (NotNull)
      */
-    public HpQDRFunction<PurchaseCB> derivedPurchaseList() {
+    public HpQDRFunction<PurchaseCB> derivedPurchase() {
         return xcreateQDRFunctionPurchaseList();
     }
     protected HpQDRFunction<PurchaseCB> xcreateQDRFunctionPurchaseList() {
@@ -745,7 +745,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * (正式会員日時)formalized_datetime: {IX, timestamp(26, 3)}
      * @param formalizedDatetime The value of formalizedDatetime as equal. (NullAllowed: if null, no condition)
      */
-    public void setFormalizedDatetime_Equal(java.sql.Timestamp formalizedDatetime) {
+    public void setFormalizedDatetime_Equal(java.time.LocalDateTime formalizedDatetime) {
         regFormalizedDatetime(CK_EQ,  formalizedDatetime);
     }
 
@@ -754,7 +754,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * (正式会員日時)formalized_datetime: {IX, timestamp(26, 3)}
      * @param formalizedDatetime The value of formalizedDatetime as greaterThan. (NullAllowed: if null, no condition)
      */
-    public void setFormalizedDatetime_GreaterThan(java.sql.Timestamp formalizedDatetime) {
+    public void setFormalizedDatetime_GreaterThan(java.time.LocalDateTime formalizedDatetime) {
         regFormalizedDatetime(CK_GT,  formalizedDatetime);
     }
 
@@ -763,7 +763,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * (正式会員日時)formalized_datetime: {IX, timestamp(26, 3)}
      * @param formalizedDatetime The value of formalizedDatetime as lessThan. (NullAllowed: if null, no condition)
      */
-    public void setFormalizedDatetime_LessThan(java.sql.Timestamp formalizedDatetime) {
+    public void setFormalizedDatetime_LessThan(java.time.LocalDateTime formalizedDatetime) {
         regFormalizedDatetime(CK_LT,  formalizedDatetime);
     }
 
@@ -772,7 +772,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * (正式会員日時)formalized_datetime: {IX, timestamp(26, 3)}
      * @param formalizedDatetime The value of formalizedDatetime as greaterEqual. (NullAllowed: if null, no condition)
      */
-    public void setFormalizedDatetime_GreaterEqual(java.sql.Timestamp formalizedDatetime) {
+    public void setFormalizedDatetime_GreaterEqual(java.time.LocalDateTime formalizedDatetime) {
         regFormalizedDatetime(CK_GE,  formalizedDatetime);
     }
 
@@ -781,7 +781,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * (正式会員日時)formalized_datetime: {IX, timestamp(26, 3)}
      * @param formalizedDatetime The value of formalizedDatetime as lessEqual. (NullAllowed: if null, no condition)
      */
-    public void setFormalizedDatetime_LessEqual(java.sql.Timestamp formalizedDatetime) {
+    public void setFormalizedDatetime_LessEqual(java.time.LocalDateTime formalizedDatetime) {
         regFormalizedDatetime(CK_LE, formalizedDatetime);
     }
 
@@ -794,7 +794,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of formalizedDatetime. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of from-to. (NotNull)
      */
-    public void setFormalizedDatetime_FromTo(Date fromDatetime, Date toDatetime, ConditionOptionCall<FromToOption> opLambda) {
+    public void setFormalizedDatetime_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, ConditionOptionCall<FromToOption> opLambda) {
         setFormalizedDatetime_FromTo(fromDatetime, toDatetime, xcFTOP(opLambda));
     }
 
@@ -807,8 +807,9 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of formalizedDatetime. (NullAllowed: if null, no to-condition)
      * @param fromToOption The option of from-to. (NotNull)
      */
-    public void setFormalizedDatetime_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ((fromDatetime != null ? new java.sql.Timestamp(fromDatetime.getTime()) : null), (toDatetime != null ? new java.sql.Timestamp(toDatetime.getTime()) : null), xgetCValueFormalizedDatetime(), "formalized_datetime", fromToOption);
+    public void setFormalizedDatetime_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, FromToOption fromToOption) {
+        String nm = "formalized_datetime"; FromToOption op = fromToOption;
+        regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValueFormalizedDatetime(), nm, op);
     }
 
     /**
@@ -822,7 +823,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * @param fromDate The from-date(yyyy/MM/dd) of formalizedDatetime. (NullAllowed: if null, no from-condition)
      * @param toDate The to-date(yyyy/MM/dd) of formalizedDatetime. (NullAllowed: if null, no to-condition)
      */
-    public void setFormalizedDatetime_DateFromTo(Date fromDate, Date toDate) {
+    public void setFormalizedDatetime_DateFromTo(java.time.LocalDateTime fromDate, java.time.LocalDateTime toDate) {
         setFormalizedDatetime_FromTo(fromDate, toDate, xcDFTOP());
     }
 
@@ -846,8 +847,8 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * (生年月日)birthdate: {date(13)}
      * @param birthdate The value of birthdate as equal. (NullAllowed: if null, no condition)
      */
-    public void setBirthdate_Equal(java.util.Date birthdate) {
-        regBirthdate(CK_EQ,  fCTPD(birthdate));
+    public void setBirthdate_Equal(java.time.LocalDate birthdate) {
+        regBirthdate(CK_EQ,  birthdate);
     }
 
     /**
@@ -855,8 +856,8 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * (生年月日)birthdate: {date(13)}
      * @param birthdate The value of birthdate as greaterThan. (NullAllowed: if null, no condition)
      */
-    public void setBirthdate_GreaterThan(java.util.Date birthdate) {
-        regBirthdate(CK_GT,  fCTPD(birthdate));
+    public void setBirthdate_GreaterThan(java.time.LocalDate birthdate) {
+        regBirthdate(CK_GT,  birthdate);
     }
 
     /**
@@ -864,8 +865,8 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * (生年月日)birthdate: {date(13)}
      * @param birthdate The value of birthdate as lessThan. (NullAllowed: if null, no condition)
      */
-    public void setBirthdate_LessThan(java.util.Date birthdate) {
-        regBirthdate(CK_LT,  fCTPD(birthdate));
+    public void setBirthdate_LessThan(java.time.LocalDate birthdate) {
+        regBirthdate(CK_LT,  birthdate);
     }
 
     /**
@@ -873,8 +874,8 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * (生年月日)birthdate: {date(13)}
      * @param birthdate The value of birthdate as greaterEqual. (NullAllowed: if null, no condition)
      */
-    public void setBirthdate_GreaterEqual(java.util.Date birthdate) {
-        regBirthdate(CK_GE,  fCTPD(birthdate));
+    public void setBirthdate_GreaterEqual(java.time.LocalDate birthdate) {
+        regBirthdate(CK_GE,  birthdate);
     }
 
     /**
@@ -882,8 +883,8 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * (生年月日)birthdate: {date(13)}
      * @param birthdate The value of birthdate as lessEqual. (NullAllowed: if null, no condition)
      */
-    public void setBirthdate_LessEqual(java.util.Date birthdate) {
-        regBirthdate(CK_LE, fCTPD(birthdate));
+    public void setBirthdate_LessEqual(java.time.LocalDate birthdate) {
+        regBirthdate(CK_LE, birthdate);
     }
 
     /**
@@ -895,7 +896,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of birthdate. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of from-to. (NotNull)
      */
-    public void setBirthdate_FromTo(Date fromDatetime, Date toDatetime, ConditionOptionCall<FromToOption> opLambda) {
+    public void setBirthdate_FromTo(java.time.LocalDate fromDatetime, java.time.LocalDate toDatetime, ConditionOptionCall<FromToOption> opLambda) {
         setBirthdate_FromTo(fromDatetime, toDatetime, xcFTOP(opLambda));
     }
 
@@ -908,8 +909,9 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of birthdate. (NullAllowed: if null, no to-condition)
      * @param fromToOption The option of from-to. (NotNull)
      */
-    public void setBirthdate_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ(fCTPD(fromDatetime), fCTPD(toDatetime), xgetCValueBirthdate(), "birthdate", fromToOption);
+    public void setBirthdate_FromTo(java.time.LocalDate fromDatetime, java.time.LocalDate toDatetime, FromToOption fromToOption) {
+        String nm = "birthdate"; FromToOption op = fromToOption;
+        regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValueBirthdate(), nm, op);
     }
 
     /**
@@ -923,7 +925,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * @param fromDate The from-date(yyyy/MM/dd) of birthdate. (NullAllowed: if null, no from-condition)
      * @param toDate The to-date(yyyy/MM/dd) of birthdate. (NullAllowed: if null, no to-condition)
      */
-    public void setBirthdate_DateFromTo(Date fromDate, Date toDate) {
+    public void setBirthdate_DateFromTo(java.time.LocalDate fromDate, java.time.LocalDate toDate) {
         setBirthdate_FromTo(fromDate, toDate, xcDFTOP());
     }
 
@@ -947,7 +949,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * (登録日時)register_datetime: {NotNull, timestamp(26, 3)}
      * @param registerDatetime The value of registerDatetime as equal. (NullAllowed: if null, no condition)
      */
-    public void setRegisterDatetime_Equal(java.sql.Timestamp registerDatetime) {
+    public void setRegisterDatetime_Equal(java.time.LocalDateTime registerDatetime) {
         regRegisterDatetime(CK_EQ,  registerDatetime);
     }
 
@@ -956,7 +958,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * (登録日時)register_datetime: {NotNull, timestamp(26, 3)}
      * @param registerDatetime The value of registerDatetime as greaterThan. (NullAllowed: if null, no condition)
      */
-    public void setRegisterDatetime_GreaterThan(java.sql.Timestamp registerDatetime) {
+    public void setRegisterDatetime_GreaterThan(java.time.LocalDateTime registerDatetime) {
         regRegisterDatetime(CK_GT,  registerDatetime);
     }
 
@@ -965,7 +967,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * (登録日時)register_datetime: {NotNull, timestamp(26, 3)}
      * @param registerDatetime The value of registerDatetime as lessThan. (NullAllowed: if null, no condition)
      */
-    public void setRegisterDatetime_LessThan(java.sql.Timestamp registerDatetime) {
+    public void setRegisterDatetime_LessThan(java.time.LocalDateTime registerDatetime) {
         regRegisterDatetime(CK_LT,  registerDatetime);
     }
 
@@ -974,7 +976,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * (登録日時)register_datetime: {NotNull, timestamp(26, 3)}
      * @param registerDatetime The value of registerDatetime as greaterEqual. (NullAllowed: if null, no condition)
      */
-    public void setRegisterDatetime_GreaterEqual(java.sql.Timestamp registerDatetime) {
+    public void setRegisterDatetime_GreaterEqual(java.time.LocalDateTime registerDatetime) {
         regRegisterDatetime(CK_GE,  registerDatetime);
     }
 
@@ -983,7 +985,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * (登録日時)register_datetime: {NotNull, timestamp(26, 3)}
      * @param registerDatetime The value of registerDatetime as lessEqual. (NullAllowed: if null, no condition)
      */
-    public void setRegisterDatetime_LessEqual(java.sql.Timestamp registerDatetime) {
+    public void setRegisterDatetime_LessEqual(java.time.LocalDateTime registerDatetime) {
         regRegisterDatetime(CK_LE, registerDatetime);
     }
 
@@ -996,7 +998,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of registerDatetime. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of from-to. (NotNull)
      */
-    public void setRegisterDatetime_FromTo(Date fromDatetime, Date toDatetime, ConditionOptionCall<FromToOption> opLambda) {
+    public void setRegisterDatetime_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, ConditionOptionCall<FromToOption> opLambda) {
         setRegisterDatetime_FromTo(fromDatetime, toDatetime, xcFTOP(opLambda));
     }
 
@@ -1009,8 +1011,9 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of registerDatetime. (NullAllowed: if null, no to-condition)
      * @param fromToOption The option of from-to. (NotNull)
      */
-    public void setRegisterDatetime_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ((fromDatetime != null ? new java.sql.Timestamp(fromDatetime.getTime()) : null), (toDatetime != null ? new java.sql.Timestamp(toDatetime.getTime()) : null), xgetCValueRegisterDatetime(), "register_datetime", fromToOption);
+    public void setRegisterDatetime_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, FromToOption fromToOption) {
+        String nm = "register_datetime"; FromToOption op = fromToOption;
+        regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValueRegisterDatetime(), nm, op);
     }
 
     /**
@@ -1024,7 +1027,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * @param fromDate The from-date(yyyy/MM/dd) of registerDatetime. (NullAllowed: if null, no from-condition)
      * @param toDate The to-date(yyyy/MM/dd) of registerDatetime. (NullAllowed: if null, no to-condition)
      */
-    public void setRegisterDatetime_DateFromTo(Date fromDate, Date toDate) {
+    public void setRegisterDatetime_DateFromTo(java.time.LocalDateTime fromDate, java.time.LocalDateTime toDate) {
         setRegisterDatetime_FromTo(fromDate, toDate, xcDFTOP());
     }
 
@@ -1252,7 +1255,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * (更新日時)update_datetime: {NotNull, timestamp(26, 3)}
      * @param updateDatetime The value of updateDatetime as equal. (NullAllowed: if null, no condition)
      */
-    public void setUpdateDatetime_Equal(java.sql.Timestamp updateDatetime) {
+    public void setUpdateDatetime_Equal(java.time.LocalDateTime updateDatetime) {
         regUpdateDatetime(CK_EQ,  updateDatetime);
     }
 
@@ -1261,7 +1264,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * (更新日時)update_datetime: {NotNull, timestamp(26, 3)}
      * @param updateDatetime The value of updateDatetime as greaterThan. (NullAllowed: if null, no condition)
      */
-    public void setUpdateDatetime_GreaterThan(java.sql.Timestamp updateDatetime) {
+    public void setUpdateDatetime_GreaterThan(java.time.LocalDateTime updateDatetime) {
         regUpdateDatetime(CK_GT,  updateDatetime);
     }
 
@@ -1270,7 +1273,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * (更新日時)update_datetime: {NotNull, timestamp(26, 3)}
      * @param updateDatetime The value of updateDatetime as lessThan. (NullAllowed: if null, no condition)
      */
-    public void setUpdateDatetime_LessThan(java.sql.Timestamp updateDatetime) {
+    public void setUpdateDatetime_LessThan(java.time.LocalDateTime updateDatetime) {
         regUpdateDatetime(CK_LT,  updateDatetime);
     }
 
@@ -1279,7 +1282,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * (更新日時)update_datetime: {NotNull, timestamp(26, 3)}
      * @param updateDatetime The value of updateDatetime as greaterEqual. (NullAllowed: if null, no condition)
      */
-    public void setUpdateDatetime_GreaterEqual(java.sql.Timestamp updateDatetime) {
+    public void setUpdateDatetime_GreaterEqual(java.time.LocalDateTime updateDatetime) {
         regUpdateDatetime(CK_GE,  updateDatetime);
     }
 
@@ -1288,7 +1291,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * (更新日時)update_datetime: {NotNull, timestamp(26, 3)}
      * @param updateDatetime The value of updateDatetime as lessEqual. (NullAllowed: if null, no condition)
      */
-    public void setUpdateDatetime_LessEqual(java.sql.Timestamp updateDatetime) {
+    public void setUpdateDatetime_LessEqual(java.time.LocalDateTime updateDatetime) {
         regUpdateDatetime(CK_LE, updateDatetime);
     }
 
@@ -1301,7 +1304,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of updateDatetime. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of from-to. (NotNull)
      */
-    public void setUpdateDatetime_FromTo(Date fromDatetime, Date toDatetime, ConditionOptionCall<FromToOption> opLambda) {
+    public void setUpdateDatetime_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, ConditionOptionCall<FromToOption> opLambda) {
         setUpdateDatetime_FromTo(fromDatetime, toDatetime, xcFTOP(opLambda));
     }
 
@@ -1314,8 +1317,9 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of updateDatetime. (NullAllowed: if null, no to-condition)
      * @param fromToOption The option of from-to. (NotNull)
      */
-    public void setUpdateDatetime_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ((fromDatetime != null ? new java.sql.Timestamp(fromDatetime.getTime()) : null), (toDatetime != null ? new java.sql.Timestamp(toDatetime.getTime()) : null), xgetCValueUpdateDatetime(), "update_datetime", fromToOption);
+    public void setUpdateDatetime_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, FromToOption fromToOption) {
+        String nm = "update_datetime"; FromToOption op = fromToOption;
+        regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValueUpdateDatetime(), nm, op);
     }
 
     /**
@@ -1329,7 +1333,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * @param fromDate The from-date(yyyy/MM/dd) of updateDatetime. (NullAllowed: if null, no from-condition)
      * @param toDate The to-date(yyyy/MM/dd) of updateDatetime. (NullAllowed: if null, no to-condition)
      */
-    public void setUpdateDatetime_DateFromTo(Date fromDate, Date toDate) {
+    public void setUpdateDatetime_DateFromTo(java.time.LocalDateTime fromDate, java.time.LocalDateTime toDate) {
         setUpdateDatetime_FromTo(fromDate, toDate, xcDFTOP());
     }
 

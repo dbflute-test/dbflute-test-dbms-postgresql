@@ -387,6 +387,24 @@ public class BsWhiteCompoundPkRefCB extends AbstractConditionBean {
         }
     }
 
+    // ===================================================================================
+    //                                                                        Dream Cruise
+    //                                                                        ============
+    /**
+     * Welcome to the Dream Cruise for condition-bean deep world. <br>
+     * This is very specialty so you can get the frontier spirit. Bon voyage!
+     * @return The condition-bean for dream cruise, which is linked to main condition-bean.
+     */
+    public WhiteCompoundPkRefCB dreamCruiseCB() {
+        WhiteCompoundPkRefCB cb = new WhiteCompoundPkRefCB();
+        cb.xsetupForDreamCruise((WhiteCompoundPkRefCB) this);
+        return cb;
+    }
+
+    protected ConditionBean xdoCreateDreamCruiseCB() {
+        return dreamCruiseCB();
+    }
+
     // [DBFlute-0.9.5.3]
     // ===================================================================================
     //                                                                        Column Query
@@ -418,24 +436,6 @@ public class BsWhiteCompoundPkRefCB extends AbstractConditionBean {
         WhiteCompoundPkRefCB cb = new WhiteCompoundPkRefCB();
         cb.xsetupForColumnQuery((WhiteCompoundPkRefCB)this);
         return cb;
-    }
-
-    // ===================================================================================
-    //                                                                        Dream Cruise
-    //                                                                        ============
-    /**
-     * Welcome to the Dream Cruise for condition-bean deep world. <br>
-     * This is very specialty so you can get the frontier spirit. Bon voyage!
-     * @return The condition-bean for dream cruise, which is linked to main condition-bean.
-     */
-    public WhiteCompoundPkRefCB dreamCruiseCB() {
-        WhiteCompoundPkRefCB cb = new WhiteCompoundPkRefCB();
-        cb.xsetupForDreamCruise((WhiteCompoundPkRefCB) this);
-        return cb;
-    }
-
-    protected ConditionBean xdoCreateDreamCruiseCB() {
-        return dreamCruiseCB();
     }
 
     // [DBFlute-0.9.6.3]

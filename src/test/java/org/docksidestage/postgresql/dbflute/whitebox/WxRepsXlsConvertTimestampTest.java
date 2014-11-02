@@ -1,9 +1,8 @@
 package org.docksidestage.postgresql.dbflute.whitebox;
 
-import java.sql.Timestamp;
+import java.time.LocalDateTime;
 
 import org.dbflute.cbean.result.ListResultBean;
-import org.dbflute.util.DfTypeUtil;
 import org.docksidestage.postgresql.dbflute.cbean.WhiteXlsManCB;
 import org.docksidestage.postgresql.dbflute.exbhv.WhiteXlsManBhv;
 import org.docksidestage.postgresql.dbflute.exentity.WhiteXlsMan;
@@ -69,7 +68,7 @@ public class WxRepsXlsConvertTimestampTest extends UnitContainerTestCase {
         assertEquals(null, fmt(delimiterList.get(5).getTimestampZeroSuffixMillis()));
     }
 
-    protected String fmt(Timestamp timestamp) {
-        return DfTypeUtil.toString(timestamp, "yyyy/MM/dd HH:mm:ss.SSS");
+    protected String fmt(LocalDateTime timestamp) {
+        return toString(timestamp, "yyyy/MM/dd HH:mm:ss.SSS");
     }
 }

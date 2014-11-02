@@ -37,8 +37,17 @@ public class ServiceRankDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
-        setupEpg(_epgMap, et -> ((ServiceRank)et).getServiceRankCode(), (et, vl) -> ((ServiceRank)et).setServiceRankCode((String)vl), "serviceRankCode");
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
+        setupEpg(_epgMap, et -> ((ServiceRank)et).getServiceRankCode(), (et, vl) -> {
+            ColumnInfo col = columnServiceRankCode();
+            CDef.ServiceRank cls = (CDef.ServiceRank)gcls(col, vl);
+            if (cls != null) {
+                ((ServiceRank)et).setServiceRankCodeAsServiceRank(cls);
+            } else {
+                ((ServiceRank)et).mynativeMappingServiceRankCode((String)vl);
+            }
+        }, "serviceRankCode");
         setupEpg(_epgMap, et -> ((ServiceRank)et).getServiceRankName(), (et, vl) -> ((ServiceRank)et).setServiceRankName((String)vl), "serviceRankName");
         setupEpg(_epgMap, et -> ((ServiceRank)et).getServicePointIncidence(), (et, vl) -> ((ServiceRank)et).setServicePointIncidence(ctb(vl)), "servicePointIncidence");
         setupEpg(_epgMap, et -> ((ServiceRank)et).getNewAcceptableFlg(), (et, vl) -> {
@@ -74,7 +83,7 @@ public class ServiceRankDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnServiceRankCode = cci("service_rank_code", "service_rank_code", null, "サービスランクコード", String.class, "serviceRankCode", null, true, false, true, "bpchar", 3, 0, null, false, null, "サービスランクを識別するコード。", null, "memberServiceList", null);
+    protected final ColumnInfo _columnServiceRankCode = cci("service_rank_code", "service_rank_code", null, "サービスランクコード", String.class, "serviceRankCode", null, true, false, true, "bpchar", 3, 0, null, false, null, "サービスランクを識別するコード。", null, "memberServiceList", CDef.DefMeta.ServiceRank);
     protected final ColumnInfo _columnServiceRankName = cci("service_rank_name", "service_rank_name", null, "サービスランク名称", String.class, "serviceRankName", null, false, false, true, "varchar", 50, 0, null, false, null, "サービスランクの名称。\n（ゴールドとかプラチナとか基本的には威厳のある名前）", null, null, null);
     protected final ColumnInfo _columnServicePointIncidence = cci("service_point_incidence", "service_point_incidence", null, "サービスポイント発生率", java.math.BigDecimal.class, "servicePointIncidence", null, false, false, true, "numeric", 5, 3, null, false, null, "購入ごとのサービスポイントの発生率。\n購入価格にこの値をかけた数が発生ポイント。\nExampleDBとして数少ない貴重な小数点ありのカラム。", null, null, null);
     protected final ColumnInfo _columnNewAcceptableFlg = cci("new_acceptable_flg", "new_acceptable_flg", null, "新規受け入れ可能フラグ", Integer.class, "newAcceptableFlg", null, false, false, true, "int4", 10, 0, null, false, null, "このランクへの新規受け入れができるかどうか。", null, null, CDef.DefMeta.Flg);
@@ -82,7 +91,7 @@ public class ServiceRankDbm extends AbstractDBMeta {
     protected final ColumnInfo _columnDisplayOrder = cci("display_order", "display_order", null, "表示順", Integer.class, "displayOrder", null, false, false, true, "int4", 10, 0, null, false, null, "UI上の表示順を表現する番号。", null, null, null);
 
     /**
-     * (サービスランクコード)service_rank_code: {PK, NotNull, bpchar(3)}
+     * (サービスランクコード)service_rank_code: {PK, NotNull, bpchar(3), classification=ServiceRank}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnServiceRankCode() { return _columnServiceRankCode; }

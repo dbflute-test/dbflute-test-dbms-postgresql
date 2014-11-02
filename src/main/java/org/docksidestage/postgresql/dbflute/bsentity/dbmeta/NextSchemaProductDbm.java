@@ -37,7 +37,8 @@ public class NextSchemaProductDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((NextSchemaProduct)et).getProductId(), (et, vl) -> ((NextSchemaProduct)et).setProductId(cti(vl)), "productId");
         setupEpg(_epgMap, et -> ((NextSchemaProduct)et).getProductName(), (et, vl) -> ((NextSchemaProduct)et).setProductName((String)vl), "productName");
     }

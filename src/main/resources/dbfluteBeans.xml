@@ -99,16 +99,6 @@
         <property name="behaviorSelector"><ref bean="behaviorSelector"/></property>
         <property name="commonColumnAutoSetupper"><ref bean="commonColumnAutoSetupper"/></property>
     </bean>
-	<bean id="regionBhv" class="org.docksidestage.postgresql.dbflute.exbhv.RegionBhv" autowire="byType">
-        <property name="behaviorCommandInvoker"><ref bean="behaviorCommandInvoker"/></property>
-        <property name="behaviorSelector"><ref bean="behaviorSelector"/></property>
-        <property name="commonColumnAutoSetupper"><ref bean="commonColumnAutoSetupper"/></property>
-    </bean>
-	<bean id="serviceRankBhv" class="org.docksidestage.postgresql.dbflute.exbhv.ServiceRankBhv" autowire="byType">
-        <property name="behaviorCommandInvoker"><ref bean="behaviorCommandInvoker"/></property>
-        <property name="behaviorSelector"><ref bean="behaviorSelector"/></property>
-        <property name="commonColumnAutoSetupper"><ref bean="commonColumnAutoSetupper"/></property>
-    </bean>
 	<bean id="summaryProductBhv" class="org.docksidestage.postgresql.dbflute.exbhv.SummaryProductBhv" autowire="byType">
         <property name="behaviorCommandInvoker"><ref bean="behaviorCommandInvoker"/></property>
         <property name="behaviorSelector"><ref bean="behaviorSelector"/></property>

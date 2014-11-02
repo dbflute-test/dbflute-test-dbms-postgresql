@@ -108,60 +108,81 @@ public abstract class BsNextschemaWhiteSameNameBhv extends AbstractBehaviorWrita
     //                                                                       Entity Select
     //                                                                       =============
     /**
-     * Select the entity by the condition-bean. #beforejava8 <br>
-     * <span style="color: #AD4747; font-size: 120%">The return might be null if no data, so you should have null check.</span> <br>
-     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, use selectEntityWithDeletedCheck().</span>
+     * Select the entity by the condition-bean. <br>
+     * It returns not-null optional entity, so you should ... <br>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, alwaysPresent().</span> <br>
+     * <span style="color: #AD4747; font-size: 120%">If it might be no data, isPresent() and orElse(), ...</span>
      * <pre>
-     * NextschemaWhiteSameName whiteSameName = <span style="color: #0000C0">whiteSameNameBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
+     * <span style="color: #0000C0">whiteSameNameBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().set...
+     * }).<span style="color: #CC4747">alwaysPresent</span>(<span style="color: #553000">whiteSameName</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if present, or exception</span>
+     *     ... = <span style="color: #553000">whiteSameName</span>.get...
      * });
-     * <span style="color: #70226C">if</span> (whiteSameName != <span style="color: #70226C">null</span>) { <span style="color: #3F7E5E">// null check</span>
-     *     ... = whiteSameName.get...();
-     * } <span style="color: #70226C">else</span> {
-     *     ...
-     * }
+     * 
+     * <span style="color: #3F7E5E">// if it might be no data, ...</span>
+     * <span style="color: #0000C0">whiteSameNameBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).<span style="color: #CC4747">ifPresent</span>(<span style="color: #553000">whiteSameName</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if present</span>
+     *     ... = <span style="color: #553000">whiteSameName</span>.get...
+     * }).<span style="color: #994747">orElse</span>(() <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if not present</span>
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of NextschemaWhiteSameName. (NotNull)
-     * @return The entity selected by the condition. (NullAllowed: if no data, it returns null)
+     * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
-    public NextschemaWhiteSameName selectEntity(CBCall<NextschemaWhiteSameNameCB> cbLambda) {
+    public OptionalEntity<NextschemaWhiteSameName> selectEntity(CBCall<NextschemaWhiteSameNameCB> cbLambda) {
         return facadeSelectEntity(createCB(cbLambda));
     }
 
     /**
-     * Select the entity by the condition-bean. #beforejava8 <br>
-     * <span style="color: #AD4747; font-size: 120%">The return might be null if no data, so you should have null check.</span> <br>
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, use selectEntityWithDeletedCheck().</span>
+     * Select the entity by the condition-bean. <br>
+     * It returns not-null optional entity, so you should ... <br>
+     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, alwaysPresent().</span> <br>
+     * <span style="color: #AD4747; font-size: 120%">If it might be no data, get() after check by isPresent() or orElse(), ...</span>
      * <pre>
      * NextschemaWhiteSameNameCB cb = <span style="color: #70226C">new</span> NextschemaWhiteSameNameCB();
-     * cb.query().setFoo...(value);
-     * NextschemaWhiteSameName whiteSameName = <span style="color: #0000C0">whiteSameNameBhv</span>.<span style="color: #DD4747">selectEntity</span>(cb);
-     * <span style="color: #70226C">if</span> (whiteSameName != <span style="color: #70226C">null</span>) { <span style="color: #3F7E5E">// null check</span>
-     *     ... = whiteSameName.get...();
-     * } <span style="color: #70226C">else</span> {
-     *     ...
-     * }
+     * cb.query().set...
+     * 
+     * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
+     * <span style="color: #0000C0">whiteSameNameBhv</span>.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(whiteSameName <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if present, or exception</span>
+     *     ... = whiteSameName.get...
+     * });
+     * 
+     * <span style="color: #3F7E5E">// if it might be no data, ...</span>
+     * <span style="color: #0000C0">whiteSameNameBhv</span>.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(whiteSameName <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if present</span>
+     *     ... = whiteSameName.get...
+     * }).<span style="color: #994747">orElse</span>(() <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if not present</span>
+     * });
      * </pre>
      * @param cb The condition-bean of NextschemaWhiteSameName. (NotNull)
-     * @return The entity selected by the condition. (NullAllowed: if no data, it returns null)
+     * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
-    public NextschemaWhiteSameName selectEntity(NextschemaWhiteSameNameCB cb) {
+    public OptionalEntity<NextschemaWhiteSameName> selectEntity(NextschemaWhiteSameNameCB cb) {
         return facadeSelectEntity(cb);
     }
 
-    protected NextschemaWhiteSameName facadeSelectEntity(NextschemaWhiteSameNameCB cb) {
-        return doSelectEntity(cb, typeOfSelectedEntity());
+    protected OptionalEntity<NextschemaWhiteSameName> facadeSelectEntity(NextschemaWhiteSameNameCB cb) {
+        return doSelectOptionalEntity(cb, typeOfSelectedEntity());
     }
 
     protected <ENTITY extends NextschemaWhiteSameName> OptionalEntity<ENTITY> doSelectOptionalEntity(NextschemaWhiteSameNameCB cb, Class<? extends ENTITY> tp) {
         return createOptionalEntity(doSelectEntity(cb, tp), cb);
     }
 
-    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)); }
+    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElse(null); }
 
     /**
      * Select the entity by the condition-bean with deleted check. <br>
@@ -202,16 +223,17 @@ public abstract class BsNextschemaWhiteSameNameBhv extends AbstractBehaviorWrita
     /**
      * Select the entity by the primary-key value.
      * @param sameNameId : PK, NotNull, int4(10). (NotNull)
-     * @return The entity selected by the PK. (NullAllowed: if no data, it returns null)
+     * @return The optional entity selected by the PK. (NotNull: if no data, empty entity)
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
-    public NextschemaWhiteSameName selectByPK(Integer sameNameId) {
+    public OptionalEntity<NextschemaWhiteSameName> selectByPK(Integer sameNameId) {
         return facadeSelectByPK(sameNameId);
     }
 
-    protected NextschemaWhiteSameName facadeSelectByPK(Integer sameNameId) {
-        return doSelectByPK(sameNameId, typeOfSelectedEntity());
+    protected OptionalEntity<NextschemaWhiteSameName> facadeSelectByPK(Integer sameNameId) {
+        return doSelectOptionalByPK(sameNameId, typeOfSelectedEntity());
     }
 
     protected <ENTITY extends NextschemaWhiteSameName> ENTITY doSelectByPK(Integer sameNameId, Class<? extends ENTITY> tp) {
@@ -368,7 +390,7 @@ public abstract class BsNextschemaWhiteSameNameBhv extends AbstractBehaviorWrita
      * Select the scalar value derived by a function from uniquely-selected records. <br>
      * You should call a function method after this method called like as follows:
      * <pre>
-     * <span style="color: #0000C0">whiteSameNameBhv</span>.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteSameNameBhv</span>.<span style="color: #CC4747">selectScalar</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...</span>; <span style="color: #3F7E5E">// required for the function</span>
      *     <span style="color: #553000">cb</span>.query().set...
      * });
@@ -377,7 +399,7 @@ public abstract class BsNextschemaWhiteSameNameBhv extends AbstractBehaviorWrita
      * @param resultType The type of result. (NotNull)
      * @return The scalar function object to specify function for scalar value. (NotNull)
      */
-    public <RESULT> HpSLSFunction<NextschemaWhiteSameNameCB, RESULT> scalarSelect(Class<RESULT> resultType) {
+    public <RESULT> HpSLSFunction<NextschemaWhiteSameNameCB, RESULT> selectScalar(Class<RESULT> resultType) {
         return facadeScalarSelect(resultType);
     }
 
@@ -467,7 +489,7 @@ public abstract class BsNextschemaWhiteSameNameBhv extends AbstractBehaviorWrita
      * Load referrer of whiteSameNameRefList by the set-upper of referrer. <br>
      * nextschema.white_same_name_ref by same_name_id, named 'whiteSameNameRefList'.
      * <pre>
-     * <span style="color: #0000C0">whiteSameNameBhv</span>.<span style="color: #CC4747">loadWhiteSameNameRefList</span>(<span style="color: #553000">whiteSameNameList</span>, <span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteSameNameBhv</span>.<span style="color: #CC4747">loadWhiteSameNameRef</span>(<span style="color: #553000">whiteSameNameList</span>, <span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">refCB</span>.setupSelect...
      *     <span style="color: #553000">refCB</span>.query().set...
      *     <span style="color: #553000">refCB</span>.query().addOrderBy...
@@ -489,16 +511,16 @@ public abstract class BsNextschemaWhiteSameNameBhv extends AbstractBehaviorWrita
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<NextschemaWhiteSameNameRef> loadWhiteSameNameRefList(List<NextschemaWhiteSameName> whiteSameNameList, ConditionBeanSetupper<NextschemaWhiteSameNameRefCB> refCBLambda) {
+    public NestedReferrerListGateway<NextschemaWhiteSameNameRef> loadWhiteSameNameRef(List<NextschemaWhiteSameName> whiteSameNameList, ConditionBeanSetupper<NextschemaWhiteSameNameRefCB> refCBLambda) {
         xassLRArg(whiteSameNameList, refCBLambda);
-        return doLoadWhiteSameNameRefList(whiteSameNameList, new LoadReferrerOption<NextschemaWhiteSameNameRefCB, NextschemaWhiteSameNameRef>().xinit(refCBLambda));
+        return doLoadWhiteSameNameRef(whiteSameNameList, new LoadReferrerOption<NextschemaWhiteSameNameRefCB, NextschemaWhiteSameNameRef>().xinit(refCBLambda));
     }
 
     /**
      * Load referrer of whiteSameNameRefList by the set-upper of referrer. <br>
      * nextschema.white_same_name_ref by same_name_id, named 'whiteSameNameRefList'.
      * <pre>
-     * <span style="color: #0000C0">whiteSameNameBhv</span>.<span style="color: #CC4747">loadWhiteSameNameRefList</span>(<span style="color: #553000">whiteSameName</span>, <span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteSameNameBhv</span>.<span style="color: #CC4747">loadWhiteSameNameRef</span>(<span style="color: #553000">whiteSameName</span>, <span style="color: #553000">refCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">refCB</span>.setupSelect...
      *     <span style="color: #553000">refCB</span>.query().set...
      *     <span style="color: #553000">refCB</span>.query().addOrderBy...
@@ -518,9 +540,9 @@ public abstract class BsNextschemaWhiteSameNameBhv extends AbstractBehaviorWrita
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<NextschemaWhiteSameNameRef> loadWhiteSameNameRefList(NextschemaWhiteSameName whiteSameName, ConditionBeanSetupper<NextschemaWhiteSameNameRefCB> refCBLambda) {
+    public NestedReferrerListGateway<NextschemaWhiteSameNameRef> loadWhiteSameNameRef(NextschemaWhiteSameName whiteSameName, ConditionBeanSetupper<NextschemaWhiteSameNameRefCB> refCBLambda) {
         xassLRArg(whiteSameName, refCBLambda);
-        return doLoadWhiteSameNameRefList(xnewLRLs(whiteSameName), new LoadReferrerOption<NextschemaWhiteSameNameRefCB, NextschemaWhiteSameNameRef>().xinit(refCBLambda));
+        return doLoadWhiteSameNameRef(xnewLRLs(whiteSameName), new LoadReferrerOption<NextschemaWhiteSameNameRefCB, NextschemaWhiteSameNameRef>().xinit(refCBLambda));
     }
 
     /**
@@ -529,9 +551,9 @@ public abstract class BsNextschemaWhiteSameNameBhv extends AbstractBehaviorWrita
      * @param loadReferrerOption The option of load-referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<NextschemaWhiteSameNameRef> loadWhiteSameNameRefList(NextschemaWhiteSameName whiteSameName, LoadReferrerOption<NextschemaWhiteSameNameRefCB, NextschemaWhiteSameNameRef> loadReferrerOption) {
+    public NestedReferrerListGateway<NextschemaWhiteSameNameRef> loadWhiteSameNameRef(NextschemaWhiteSameName whiteSameName, LoadReferrerOption<NextschemaWhiteSameNameRefCB, NextschemaWhiteSameNameRef> loadReferrerOption) {
         xassLRArg(whiteSameName, loadReferrerOption);
-        return loadWhiteSameNameRefList(xnewLRLs(whiteSameName), loadReferrerOption);
+        return loadWhiteSameNameRef(xnewLRLs(whiteSameName), loadReferrerOption);
     }
 
     /**
@@ -541,13 +563,13 @@ public abstract class BsNextschemaWhiteSameNameBhv extends AbstractBehaviorWrita
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
     @SuppressWarnings("unchecked")
-    public NestedReferrerListGateway<NextschemaWhiteSameNameRef> loadWhiteSameNameRefList(List<NextschemaWhiteSameName> whiteSameNameList, LoadReferrerOption<NextschemaWhiteSameNameRefCB, NextschemaWhiteSameNameRef> loadReferrerOption) {
+    public NestedReferrerListGateway<NextschemaWhiteSameNameRef> loadWhiteSameNameRef(List<NextschemaWhiteSameName> whiteSameNameList, LoadReferrerOption<NextschemaWhiteSameNameRefCB, NextschemaWhiteSameNameRef> loadReferrerOption) {
         xassLRArg(whiteSameNameList, loadReferrerOption);
         if (whiteSameNameList.isEmpty()) { return (NestedReferrerListGateway<NextschemaWhiteSameNameRef>)EMPTY_NREF_LGWAY; }
-        return doLoadWhiteSameNameRefList(whiteSameNameList, loadReferrerOption);
+        return doLoadWhiteSameNameRef(whiteSameNameList, loadReferrerOption);
     }
 
-    protected NestedReferrerListGateway<NextschemaWhiteSameNameRef> doLoadWhiteSameNameRefList(List<NextschemaWhiteSameName> whiteSameNameList, LoadReferrerOption<NextschemaWhiteSameNameRefCB, NextschemaWhiteSameNameRef> option) {
+    protected NestedReferrerListGateway<NextschemaWhiteSameNameRef> doLoadWhiteSameNameRef(List<NextschemaWhiteSameName> whiteSameNameList, LoadReferrerOption<NextschemaWhiteSameNameRefCB, NextschemaWhiteSameNameRef> option) {
         return helpLoadReferrerInternally(whiteSameNameList, option, "whiteSameNameRefList");
     }
 
@@ -1104,9 +1126,8 @@ public abstract class BsNextschemaWhiteSameNameBhv extends AbstractBehaviorWrita
      * <p>The invoker of behavior command should be not null when you call this method.</p>
      * @return The new-created all facade executor of outside-SQL. (NotNull)
      */
-    public OutsideSqlBasicExecutor<NextschemaWhiteSameNameBhv> outsideSql() {
-        OutsideSqlAllFacadeExecutor<NextschemaWhiteSameNameBhv> facadeExecutor = doOutsideSql();
-        return facadeExecutor.xbasicExecutor(); // variable to resolve generic type
+    public OutsideSqlAllFacadeExecutor<NextschemaWhiteSameNameBhv> outsideSql() {
+        return doOutsideSql();
     }
 
     // ===================================================================================

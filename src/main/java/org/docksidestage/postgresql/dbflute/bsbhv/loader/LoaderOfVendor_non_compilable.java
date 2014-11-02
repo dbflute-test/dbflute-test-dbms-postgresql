@@ -61,14 +61,14 @@ public class LoaderOfVendor_non_compilable {
     // ===================================================================================
     //                                                                       Load Referrer
     //                                                                       =============
-    protected List<Vendor_non_compilable> _referrerVendor_non_compilableByNextParentidSelfList;
+    protected List<Vendor_non_compilable> _referrerVendor_non_compilableByNextParentidSelf;
 
     /**
      * Load referrer of vendor_non_compilableByNextParentidSelfList by the set-upper of referrer. <br>
      * VENDOR-NON COMPILABLE by Next_ParentID, named 'vendor_non_compilableByNextParentidSelfList'.
      * <pre>
      * <span style="color: #0000C0">vendor_non_compilableBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">vendor_non_compilableList</span>, <span style="color: #553000">entityLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #553000">entityLoader</span>.<span style="color: #CC4747">loadVendor_non_compilableByNextParentidSelfList</span>(<span style="color: #553000">entityCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">entityLoader</span>.<span style="color: #CC4747">loadVendor_non_compilableByNextParentidSelf</span>(<span style="color: #553000">entityCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *         <span style="color: #553000">entityCB</span>.setupSelect...
      *         <span style="color: #553000">entityCB</span>.query().set...
      *         <span style="color: #553000">entityCB</span>.query().addOrderBy...
@@ -90,19 +90,19 @@ public class LoaderOfVendor_non_compilable {
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerLoaderGateway<LoaderOfVendor_non_compilable> loadVendor_non_compilableByNextParentidSelfList(ConditionBeanSetupper<Vendor_non_compilableCB> refCBLambda) {
-        myBhv().loadVendor_non_compilableByNextParentidSelfList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerVendor_non_compilableByNextParentidSelfList = refLs);
-        return hd -> hd.handle(new LoaderOfVendor_non_compilable().ready(_referrerVendor_non_compilableByNextParentidSelfList, _selector));
+    public NestedReferrerLoaderGateway<LoaderOfVendor_non_compilable> loadVendor_non_compilableByNextParentidSelf(ConditionBeanSetupper<Vendor_non_compilableCB> refCBLambda) {
+        myBhv().loadVendor_non_compilableByNextParentidSelf(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerVendor_non_compilableByNextParentidSelf = refLs);
+        return hd -> hd.handle(new LoaderOfVendor_non_compilable().ready(_referrerVendor_non_compilableByNextParentidSelf, _selector));
     }
 
-    protected List<Vendor_non_compilable> _referrerVendor_non_compilableByParent_idSelfList;
+    protected List<Vendor_non_compilable> _referrerVendor_non_compilableByParent_idSelf;
 
     /**
      * Load referrer of vendor_non_compilableByParent_idSelfList by the set-upper of referrer. <br>
      * VENDOR-NON COMPILABLE by PARENT-ID, named 'vendor_non_compilableByParent_idSelfList'.
      * <pre>
      * <span style="color: #0000C0">vendor_non_compilableBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">vendor_non_compilableList</span>, <span style="color: #553000">entityLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #553000">entityLoader</span>.<span style="color: #CC4747">loadVendor_non_compilableByParent_idSelfList</span>(<span style="color: #553000">entityCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">entityLoader</span>.<span style="color: #CC4747">loadVendor_non_compilableByParent_idSelf</span>(<span style="color: #553000">entityCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *         <span style="color: #553000">entityCB</span>.setupSelect...
      *         <span style="color: #553000">entityCB</span>.query().set...
      *         <span style="color: #553000">entityCB</span>.query().addOrderBy...
@@ -124,9 +124,9 @@ public class LoaderOfVendor_non_compilable {
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerLoaderGateway<LoaderOfVendor_non_compilable> loadVendor_non_compilableByParent_idSelfList(ConditionBeanSetupper<Vendor_non_compilableCB> refCBLambda) {
-        myBhv().loadVendor_non_compilableByParent_idSelfList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerVendor_non_compilableByParent_idSelfList = refLs);
-        return hd -> hd.handle(new LoaderOfVendor_non_compilable().ready(_referrerVendor_non_compilableByParent_idSelfList, _selector));
+    public NestedReferrerLoaderGateway<LoaderOfVendor_non_compilable> loadVendor_non_compilableByParent_idSelf(ConditionBeanSetupper<Vendor_non_compilableCB> refCBLambda) {
+        myBhv().loadVendor_non_compilableByParent_idSelf(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerVendor_non_compilableByParent_idSelf = refLs);
+        return hd -> hd.handle(new LoaderOfVendor_non_compilable().ready(_referrerVendor_non_compilableByParent_idSelf, _selector));
     }
 
     // ===================================================================================

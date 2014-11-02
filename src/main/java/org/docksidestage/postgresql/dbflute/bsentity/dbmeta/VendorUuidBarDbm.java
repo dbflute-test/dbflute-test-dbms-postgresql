@@ -37,7 +37,8 @@ public class VendorUuidBarDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((VendorUuidBar)et).getBarId(), (et, vl) -> ((VendorUuidBar)et).setBarId((java.util.UUID)vl), "barId");
         setupEpg(_epgMap, et -> ((VendorUuidBar)et).getBarName(), (et, vl) -> ((VendorUuidBar)et).setBarName((String)vl), "barName");
     }

@@ -271,8 +271,8 @@ public abstract class AbstractBsMemberAddressCQ extends AbstractConditionQuery {
      * (有効開始日)valid_begin_date: {+UQ, NotNull, date(13)}
      * @param validBeginDate The value of validBeginDate as equal. (NullAllowed: if null, no condition)
      */
-    public void setValidBeginDate_Equal(java.util.Date validBeginDate) {
-        regValidBeginDate(CK_EQ,  fCTPD(validBeginDate));
+    public void setValidBeginDate_Equal(java.time.LocalDate validBeginDate) {
+        regValidBeginDate(CK_EQ,  validBeginDate);
     }
 
     /**
@@ -280,8 +280,8 @@ public abstract class AbstractBsMemberAddressCQ extends AbstractConditionQuery {
      * (有効開始日)valid_begin_date: {+UQ, NotNull, date(13)}
      * @param validBeginDate The value of validBeginDate as greaterThan. (NullAllowed: if null, no condition)
      */
-    public void setValidBeginDate_GreaterThan(java.util.Date validBeginDate) {
-        regValidBeginDate(CK_GT,  fCTPD(validBeginDate));
+    public void setValidBeginDate_GreaterThan(java.time.LocalDate validBeginDate) {
+        regValidBeginDate(CK_GT,  validBeginDate);
     }
 
     /**
@@ -289,8 +289,8 @@ public abstract class AbstractBsMemberAddressCQ extends AbstractConditionQuery {
      * (有効開始日)valid_begin_date: {+UQ, NotNull, date(13)}
      * @param validBeginDate The value of validBeginDate as lessThan. (NullAllowed: if null, no condition)
      */
-    public void setValidBeginDate_LessThan(java.util.Date validBeginDate) {
-        regValidBeginDate(CK_LT,  fCTPD(validBeginDate));
+    public void setValidBeginDate_LessThan(java.time.LocalDate validBeginDate) {
+        regValidBeginDate(CK_LT,  validBeginDate);
     }
 
     /**
@@ -298,8 +298,8 @@ public abstract class AbstractBsMemberAddressCQ extends AbstractConditionQuery {
      * (有効開始日)valid_begin_date: {+UQ, NotNull, date(13)}
      * @param validBeginDate The value of validBeginDate as greaterEqual. (NullAllowed: if null, no condition)
      */
-    public void setValidBeginDate_GreaterEqual(java.util.Date validBeginDate) {
-        regValidBeginDate(CK_GE,  fCTPD(validBeginDate));
+    public void setValidBeginDate_GreaterEqual(java.time.LocalDate validBeginDate) {
+        regValidBeginDate(CK_GE,  validBeginDate);
     }
 
     /**
@@ -307,8 +307,8 @@ public abstract class AbstractBsMemberAddressCQ extends AbstractConditionQuery {
      * (有効開始日)valid_begin_date: {+UQ, NotNull, date(13)}
      * @param validBeginDate The value of validBeginDate as lessEqual. (NullAllowed: if null, no condition)
      */
-    public void setValidBeginDate_LessEqual(java.util.Date validBeginDate) {
-        regValidBeginDate(CK_LE, fCTPD(validBeginDate));
+    public void setValidBeginDate_LessEqual(java.time.LocalDate validBeginDate) {
+        regValidBeginDate(CK_LE, validBeginDate);
     }
 
     /**
@@ -320,7 +320,7 @@ public abstract class AbstractBsMemberAddressCQ extends AbstractConditionQuery {
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of validBeginDate. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of from-to. (NotNull)
      */
-    public void setValidBeginDate_FromTo(Date fromDatetime, Date toDatetime, ConditionOptionCall<FromToOption> opLambda) {
+    public void setValidBeginDate_FromTo(java.time.LocalDate fromDatetime, java.time.LocalDate toDatetime, ConditionOptionCall<FromToOption> opLambda) {
         setValidBeginDate_FromTo(fromDatetime, toDatetime, xcFTOP(opLambda));
     }
 
@@ -333,8 +333,9 @@ public abstract class AbstractBsMemberAddressCQ extends AbstractConditionQuery {
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of validBeginDate. (NullAllowed: if null, no to-condition)
      * @param fromToOption The option of from-to. (NotNull)
      */
-    public void setValidBeginDate_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ(fCTPD(fromDatetime), fCTPD(toDatetime), xgetCValueValidBeginDate(), "valid_begin_date", fromToOption);
+    public void setValidBeginDate_FromTo(java.time.LocalDate fromDatetime, java.time.LocalDate toDatetime, FromToOption fromToOption) {
+        String nm = "valid_begin_date"; FromToOption op = fromToOption;
+        regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValueValidBeginDate(), nm, op);
     }
 
     /**
@@ -348,7 +349,7 @@ public abstract class AbstractBsMemberAddressCQ extends AbstractConditionQuery {
      * @param fromDate The from-date(yyyy/MM/dd) of validBeginDate. (NullAllowed: if null, no from-condition)
      * @param toDate The to-date(yyyy/MM/dd) of validBeginDate. (NullAllowed: if null, no to-condition)
      */
-    public void setValidBeginDate_DateFromTo(Date fromDate, Date toDate) {
+    public void setValidBeginDate_DateFromTo(java.time.LocalDate fromDate, java.time.LocalDate toDate) {
         setValidBeginDate_FromTo(fromDate, toDate, xcDFTOP());
     }
 
@@ -360,8 +361,8 @@ public abstract class AbstractBsMemberAddressCQ extends AbstractConditionQuery {
      * (有効終了日)valid_end_date: {NotNull, date(13)}
      * @param validEndDate The value of validEndDate as equal. (NullAllowed: if null, no condition)
      */
-    public void setValidEndDate_Equal(java.util.Date validEndDate) {
-        regValidEndDate(CK_EQ,  fCTPD(validEndDate));
+    public void setValidEndDate_Equal(java.time.LocalDate validEndDate) {
+        regValidEndDate(CK_EQ,  validEndDate);
     }
 
     /**
@@ -369,8 +370,8 @@ public abstract class AbstractBsMemberAddressCQ extends AbstractConditionQuery {
      * (有効終了日)valid_end_date: {NotNull, date(13)}
      * @param validEndDate The value of validEndDate as greaterThan. (NullAllowed: if null, no condition)
      */
-    public void setValidEndDate_GreaterThan(java.util.Date validEndDate) {
-        regValidEndDate(CK_GT,  fCTPD(validEndDate));
+    public void setValidEndDate_GreaterThan(java.time.LocalDate validEndDate) {
+        regValidEndDate(CK_GT,  validEndDate);
     }
 
     /**
@@ -378,8 +379,8 @@ public abstract class AbstractBsMemberAddressCQ extends AbstractConditionQuery {
      * (有効終了日)valid_end_date: {NotNull, date(13)}
      * @param validEndDate The value of validEndDate as lessThan. (NullAllowed: if null, no condition)
      */
-    public void setValidEndDate_LessThan(java.util.Date validEndDate) {
-        regValidEndDate(CK_LT,  fCTPD(validEndDate));
+    public void setValidEndDate_LessThan(java.time.LocalDate validEndDate) {
+        regValidEndDate(CK_LT,  validEndDate);
     }
 
     /**
@@ -387,8 +388,8 @@ public abstract class AbstractBsMemberAddressCQ extends AbstractConditionQuery {
      * (有効終了日)valid_end_date: {NotNull, date(13)}
      * @param validEndDate The value of validEndDate as greaterEqual. (NullAllowed: if null, no condition)
      */
-    public void setValidEndDate_GreaterEqual(java.util.Date validEndDate) {
-        regValidEndDate(CK_GE,  fCTPD(validEndDate));
+    public void setValidEndDate_GreaterEqual(java.time.LocalDate validEndDate) {
+        regValidEndDate(CK_GE,  validEndDate);
     }
 
     /**
@@ -396,8 +397,8 @@ public abstract class AbstractBsMemberAddressCQ extends AbstractConditionQuery {
      * (有効終了日)valid_end_date: {NotNull, date(13)}
      * @param validEndDate The value of validEndDate as lessEqual. (NullAllowed: if null, no condition)
      */
-    public void setValidEndDate_LessEqual(java.util.Date validEndDate) {
-        regValidEndDate(CK_LE, fCTPD(validEndDate));
+    public void setValidEndDate_LessEqual(java.time.LocalDate validEndDate) {
+        regValidEndDate(CK_LE, validEndDate);
     }
 
     /**
@@ -409,7 +410,7 @@ public abstract class AbstractBsMemberAddressCQ extends AbstractConditionQuery {
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of validEndDate. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of from-to. (NotNull)
      */
-    public void setValidEndDate_FromTo(Date fromDatetime, Date toDatetime, ConditionOptionCall<FromToOption> opLambda) {
+    public void setValidEndDate_FromTo(java.time.LocalDate fromDatetime, java.time.LocalDate toDatetime, ConditionOptionCall<FromToOption> opLambda) {
         setValidEndDate_FromTo(fromDatetime, toDatetime, xcFTOP(opLambda));
     }
 
@@ -422,8 +423,9 @@ public abstract class AbstractBsMemberAddressCQ extends AbstractConditionQuery {
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of validEndDate. (NullAllowed: if null, no to-condition)
      * @param fromToOption The option of from-to. (NotNull)
      */
-    public void setValidEndDate_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ(fCTPD(fromDatetime), fCTPD(toDatetime), xgetCValueValidEndDate(), "valid_end_date", fromToOption);
+    public void setValidEndDate_FromTo(java.time.LocalDate fromDatetime, java.time.LocalDate toDatetime, FromToOption fromToOption) {
+        String nm = "valid_end_date"; FromToOption op = fromToOption;
+        regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValueValidEndDate(), nm, op);
     }
 
     /**
@@ -437,7 +439,7 @@ public abstract class AbstractBsMemberAddressCQ extends AbstractConditionQuery {
      * @param fromDate The from-date(yyyy/MM/dd) of validEndDate. (NullAllowed: if null, no from-condition)
      * @param toDate The to-date(yyyy/MM/dd) of validEndDate. (NullAllowed: if null, no to-condition)
      */
-    public void setValidEndDate_DateFromTo(Date fromDate, Date toDate) {
+    public void setValidEndDate_DateFromTo(java.time.LocalDate fromDate, java.time.LocalDate toDate) {
         setValidEndDate_FromTo(fromDate, toDate, xcDFTOP());
     }
 
@@ -554,11 +556,53 @@ public abstract class AbstractBsMemberAddressCQ extends AbstractConditionQuery {
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
-     * (地域ID)region_id: {NotNull, int4(10), FK to region}
+     * (地域ID)region_id: {NotNull, int4(10), FK to region, classification=Region}
      * @param regionId The value of regionId as equal. (NullAllowed: if null, no condition)
      */
-    public void setRegionId_Equal(Integer regionId) {
+    protected void setRegionId_Equal(Integer regionId) {
         doSetRegionId_Equal(regionId);
+    }
+
+    /**
+     * Equal(=). As Region. And NullIgnored, OnlyOnceRegistered. <br>
+     * (地域ID)region_id: {NotNull, int4(10), FK to region, classification=Region} <br>
+     * mainly region of member address
+     * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, no condition)
+     */
+    public void setRegionId_Equal_AsRegion(CDef.Region cdef) {
+        doSetRegionId_Equal(cTNum(cdef != null ? cdef.code() : null, Integer.class));
+    }
+
+    /**
+     * Equal(=). As America (1). And NullIgnored, OnlyOnceRegistered. <br>
+     * AMERICA
+     */
+    public void setRegionId_Equal_America() {
+        setRegionId_Equal_AsRegion(CDef.Region.America);
+    }
+
+    /**
+     * Equal(=). As Canada (2). And NullIgnored, OnlyOnceRegistered. <br>
+     * CANADA
+     */
+    public void setRegionId_Equal_Canada() {
+        setRegionId_Equal_AsRegion(CDef.Region.Canada);
+    }
+
+    /**
+     * Equal(=). As China (3). And NullIgnored, OnlyOnceRegistered. <br>
+     * CHINA
+     */
+    public void setRegionId_Equal_China() {
+        setRegionId_Equal_AsRegion(CDef.Region.China);
+    }
+
+    /**
+     * Equal(=). As Chiba (4). And NullIgnored, OnlyOnceRegistered. <br>
+     * CHIBA
+     */
+    public void setRegionId_Equal_Chiba() {
+        setRegionId_Equal_AsRegion(CDef.Region.Chiba);
     }
 
     protected void doSetRegionId_Equal(Integer regionId) {
@@ -566,74 +610,22 @@ public abstract class AbstractBsMemberAddressCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * (地域ID)region_id: {NotNull, int4(10), FK to region}
-     * @param regionId The value of regionId as greaterThan. (NullAllowed: if null, no condition)
-     */
-    public void setRegionId_GreaterThan(Integer regionId) {
-        regRegionId(CK_GT, regionId);
-    }
-
-    /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * (地域ID)region_id: {NotNull, int4(10), FK to region}
-     * @param regionId The value of regionId as lessThan. (NullAllowed: if null, no condition)
-     */
-    public void setRegionId_LessThan(Integer regionId) {
-        regRegionId(CK_LT, regionId);
-    }
-
-    /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * (地域ID)region_id: {NotNull, int4(10), FK to region}
-     * @param regionId The value of regionId as greaterEqual. (NullAllowed: if null, no condition)
-     */
-    public void setRegionId_GreaterEqual(Integer regionId) {
-        regRegionId(CK_GE, regionId);
-    }
-
-    /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * (地域ID)region_id: {NotNull, int4(10), FK to region}
-     * @param regionId The value of regionId as lessEqual. (NullAllowed: if null, no condition)
-     */
-    public void setRegionId_LessEqual(Integer regionId) {
-        regRegionId(CK_LE, regionId);
-    }
-
-    /**
-     * RangeOf with various options. (versatile) <br>
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
-     * And NullIgnored, OnlyOnceRegistered. <br>
-     * (地域ID)region_id: {NotNull, int4(10), FK to region}
-     * @param minNumber The min number of regionId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of regionId. (NullAllowed: if null, no to-condition)
-     * @param opLambda The callback for option of range-of. (NotNull)
-     */
-    public void setRegionId_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
-        setRegionId_RangeOf(minNumber, maxNumber, xcROOP(opLambda));
-    }
-
-    /**
-     * RangeOf with various options. (versatile) <br>
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
-     * And NullIgnored, OnlyOnceRegistered. <br>
-     * (地域ID)region_id: {NotNull, int4(10), FK to region}
-     * @param minNumber The min number of regionId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of regionId. (NullAllowed: if null, no to-condition)
-     * @param rangeOfOption The option of range-of. (NotNull)
-     */
-    public void setRegionId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, xgetCValueRegionId(), "region_id", rangeOfOption);
-    }
-
-    /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
-     * (地域ID)region_id: {NotNull, int4(10), FK to region}
+     * (地域ID)region_id: {NotNull, int4(10), FK to region, classification=Region}
      * @param regionIdList The collection of regionId as inScope. (NullAllowed: if null (or empty), no condition)
      */
     public void setRegionId_InScope(Collection<Integer> regionIdList) {
         doSetRegionId_InScope(regionIdList);
+    }
+
+    /**
+     * InScope {in (1, 2)}. As Region. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
+     * (地域ID)region_id: {NotNull, int4(10), FK to region, classification=Region} <br>
+     * mainly region of member address
+     * @param cdefList The list of classification definition (as ENUM type). (NullAllowed: if null (or empty), no condition)
+     */
+    public void setRegionId_InScope_AsRegion(Collection<CDef.Region> cdefList) {
+        doSetRegionId_InScope(cTNumL(cdefList, Integer.class));
     }
 
     protected void doSetRegionId_InScope(Collection<Integer> regionIdList) {
@@ -642,11 +634,21 @@ public abstract class AbstractBsMemberAddressCQ extends AbstractConditionQuery {
 
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
-     * (地域ID)region_id: {NotNull, int4(10), FK to region}
+     * (地域ID)region_id: {NotNull, int4(10), FK to region, classification=Region}
      * @param regionIdList The collection of regionId as notInScope. (NullAllowed: if null (or empty), no condition)
      */
     public void setRegionId_NotInScope(Collection<Integer> regionIdList) {
         doSetRegionId_NotInScope(regionIdList);
+    }
+
+    /**
+     * NotInScope {not in (1, 2)}. As Region. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
+     * (地域ID)region_id: {NotNull, int4(10), FK to region, classification=Region} <br>
+     * mainly region of member address
+     * @param cdefList The list of classification definition (as ENUM type). (NullAllowed: if null (or empty), no condition)
+     */
+    public void setRegionId_NotInScope_AsRegion(Collection<CDef.Region> cdefList) {
+        doSetRegionId_NotInScope(cTNumL(cdefList, Integer.class));
     }
 
     protected void doSetRegionId_NotInScope(Collection<Integer> regionIdList) {
@@ -661,7 +663,7 @@ public abstract class AbstractBsMemberAddressCQ extends AbstractConditionQuery {
      * register_datetime: {NotNull, timestamp(26, 3)}
      * @param registerDatetime The value of registerDatetime as equal. (NullAllowed: if null, no condition)
      */
-    public void setRegisterDatetime_Equal(java.sql.Timestamp registerDatetime) {
+    public void setRegisterDatetime_Equal(java.time.LocalDateTime registerDatetime) {
         regRegisterDatetime(CK_EQ,  registerDatetime);
     }
 
@@ -670,7 +672,7 @@ public abstract class AbstractBsMemberAddressCQ extends AbstractConditionQuery {
      * register_datetime: {NotNull, timestamp(26, 3)}
      * @param registerDatetime The value of registerDatetime as greaterThan. (NullAllowed: if null, no condition)
      */
-    public void setRegisterDatetime_GreaterThan(java.sql.Timestamp registerDatetime) {
+    public void setRegisterDatetime_GreaterThan(java.time.LocalDateTime registerDatetime) {
         regRegisterDatetime(CK_GT,  registerDatetime);
     }
 
@@ -679,7 +681,7 @@ public abstract class AbstractBsMemberAddressCQ extends AbstractConditionQuery {
      * register_datetime: {NotNull, timestamp(26, 3)}
      * @param registerDatetime The value of registerDatetime as lessThan. (NullAllowed: if null, no condition)
      */
-    public void setRegisterDatetime_LessThan(java.sql.Timestamp registerDatetime) {
+    public void setRegisterDatetime_LessThan(java.time.LocalDateTime registerDatetime) {
         regRegisterDatetime(CK_LT,  registerDatetime);
     }
 
@@ -688,7 +690,7 @@ public abstract class AbstractBsMemberAddressCQ extends AbstractConditionQuery {
      * register_datetime: {NotNull, timestamp(26, 3)}
      * @param registerDatetime The value of registerDatetime as greaterEqual. (NullAllowed: if null, no condition)
      */
-    public void setRegisterDatetime_GreaterEqual(java.sql.Timestamp registerDatetime) {
+    public void setRegisterDatetime_GreaterEqual(java.time.LocalDateTime registerDatetime) {
         regRegisterDatetime(CK_GE,  registerDatetime);
     }
 
@@ -697,7 +699,7 @@ public abstract class AbstractBsMemberAddressCQ extends AbstractConditionQuery {
      * register_datetime: {NotNull, timestamp(26, 3)}
      * @param registerDatetime The value of registerDatetime as lessEqual. (NullAllowed: if null, no condition)
      */
-    public void setRegisterDatetime_LessEqual(java.sql.Timestamp registerDatetime) {
+    public void setRegisterDatetime_LessEqual(java.time.LocalDateTime registerDatetime) {
         regRegisterDatetime(CK_LE, registerDatetime);
     }
 
@@ -710,7 +712,7 @@ public abstract class AbstractBsMemberAddressCQ extends AbstractConditionQuery {
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of registerDatetime. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of from-to. (NotNull)
      */
-    public void setRegisterDatetime_FromTo(Date fromDatetime, Date toDatetime, ConditionOptionCall<FromToOption> opLambda) {
+    public void setRegisterDatetime_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, ConditionOptionCall<FromToOption> opLambda) {
         setRegisterDatetime_FromTo(fromDatetime, toDatetime, xcFTOP(opLambda));
     }
 
@@ -723,8 +725,9 @@ public abstract class AbstractBsMemberAddressCQ extends AbstractConditionQuery {
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of registerDatetime. (NullAllowed: if null, no to-condition)
      * @param fromToOption The option of from-to. (NotNull)
      */
-    public void setRegisterDatetime_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ((fromDatetime != null ? new java.sql.Timestamp(fromDatetime.getTime()) : null), (toDatetime != null ? new java.sql.Timestamp(toDatetime.getTime()) : null), xgetCValueRegisterDatetime(), "register_datetime", fromToOption);
+    public void setRegisterDatetime_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, FromToOption fromToOption) {
+        String nm = "register_datetime"; FromToOption op = fromToOption;
+        regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValueRegisterDatetime(), nm, op);
     }
 
     /**
@@ -738,7 +741,7 @@ public abstract class AbstractBsMemberAddressCQ extends AbstractConditionQuery {
      * @param fromDate The from-date(yyyy/MM/dd) of registerDatetime. (NullAllowed: if null, no from-condition)
      * @param toDate The to-date(yyyy/MM/dd) of registerDatetime. (NullAllowed: if null, no to-condition)
      */
-    public void setRegisterDatetime_DateFromTo(Date fromDate, Date toDate) {
+    public void setRegisterDatetime_DateFromTo(java.time.LocalDateTime fromDate, java.time.LocalDateTime toDate) {
         setRegisterDatetime_FromTo(fromDate, toDate, xcDFTOP());
     }
 
@@ -966,7 +969,7 @@ public abstract class AbstractBsMemberAddressCQ extends AbstractConditionQuery {
      * update_datetime: {NotNull, timestamp(26, 3)}
      * @param updateDatetime The value of updateDatetime as equal. (NullAllowed: if null, no condition)
      */
-    public void setUpdateDatetime_Equal(java.sql.Timestamp updateDatetime) {
+    public void setUpdateDatetime_Equal(java.time.LocalDateTime updateDatetime) {
         regUpdateDatetime(CK_EQ,  updateDatetime);
     }
 
@@ -975,7 +978,7 @@ public abstract class AbstractBsMemberAddressCQ extends AbstractConditionQuery {
      * update_datetime: {NotNull, timestamp(26, 3)}
      * @param updateDatetime The value of updateDatetime as greaterThan. (NullAllowed: if null, no condition)
      */
-    public void setUpdateDatetime_GreaterThan(java.sql.Timestamp updateDatetime) {
+    public void setUpdateDatetime_GreaterThan(java.time.LocalDateTime updateDatetime) {
         regUpdateDatetime(CK_GT,  updateDatetime);
     }
 
@@ -984,7 +987,7 @@ public abstract class AbstractBsMemberAddressCQ extends AbstractConditionQuery {
      * update_datetime: {NotNull, timestamp(26, 3)}
      * @param updateDatetime The value of updateDatetime as lessThan. (NullAllowed: if null, no condition)
      */
-    public void setUpdateDatetime_LessThan(java.sql.Timestamp updateDatetime) {
+    public void setUpdateDatetime_LessThan(java.time.LocalDateTime updateDatetime) {
         regUpdateDatetime(CK_LT,  updateDatetime);
     }
 
@@ -993,7 +996,7 @@ public abstract class AbstractBsMemberAddressCQ extends AbstractConditionQuery {
      * update_datetime: {NotNull, timestamp(26, 3)}
      * @param updateDatetime The value of updateDatetime as greaterEqual. (NullAllowed: if null, no condition)
      */
-    public void setUpdateDatetime_GreaterEqual(java.sql.Timestamp updateDatetime) {
+    public void setUpdateDatetime_GreaterEqual(java.time.LocalDateTime updateDatetime) {
         regUpdateDatetime(CK_GE,  updateDatetime);
     }
 
@@ -1002,7 +1005,7 @@ public abstract class AbstractBsMemberAddressCQ extends AbstractConditionQuery {
      * update_datetime: {NotNull, timestamp(26, 3)}
      * @param updateDatetime The value of updateDatetime as lessEqual. (NullAllowed: if null, no condition)
      */
-    public void setUpdateDatetime_LessEqual(java.sql.Timestamp updateDatetime) {
+    public void setUpdateDatetime_LessEqual(java.time.LocalDateTime updateDatetime) {
         regUpdateDatetime(CK_LE, updateDatetime);
     }
 
@@ -1015,7 +1018,7 @@ public abstract class AbstractBsMemberAddressCQ extends AbstractConditionQuery {
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of updateDatetime. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of from-to. (NotNull)
      */
-    public void setUpdateDatetime_FromTo(Date fromDatetime, Date toDatetime, ConditionOptionCall<FromToOption> opLambda) {
+    public void setUpdateDatetime_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, ConditionOptionCall<FromToOption> opLambda) {
         setUpdateDatetime_FromTo(fromDatetime, toDatetime, xcFTOP(opLambda));
     }
 
@@ -1028,8 +1031,9 @@ public abstract class AbstractBsMemberAddressCQ extends AbstractConditionQuery {
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of updateDatetime. (NullAllowed: if null, no to-condition)
      * @param fromToOption The option of from-to. (NotNull)
      */
-    public void setUpdateDatetime_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ((fromDatetime != null ? new java.sql.Timestamp(fromDatetime.getTime()) : null), (toDatetime != null ? new java.sql.Timestamp(toDatetime.getTime()) : null), xgetCValueUpdateDatetime(), "update_datetime", fromToOption);
+    public void setUpdateDatetime_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, FromToOption fromToOption) {
+        String nm = "update_datetime"; FromToOption op = fromToOption;
+        regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValueUpdateDatetime(), nm, op);
     }
 
     /**
@@ -1043,7 +1047,7 @@ public abstract class AbstractBsMemberAddressCQ extends AbstractConditionQuery {
      * @param fromDate The from-date(yyyy/MM/dd) of updateDatetime. (NullAllowed: if null, no from-condition)
      * @param toDate The to-date(yyyy/MM/dd) of updateDatetime. (NullAllowed: if null, no to-condition)
      */
-    public void setUpdateDatetime_DateFromTo(Date fromDate, Date toDate) {
+    public void setUpdateDatetime_DateFromTo(java.time.LocalDateTime fromDate, java.time.LocalDateTime toDate) {
         setUpdateDatetime_FromTo(fromDate, toDate, xcDFTOP());
     }
 

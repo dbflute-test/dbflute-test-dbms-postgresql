@@ -83,7 +83,7 @@ public class BsVendorDatePkCB extends AbstractConditionBean {
      * @param fooDate : PK, NotNull, date(13). (NotNull)
      * @return this. (NotNull)
      */
-    public VendorDatePkCB acceptPK(java.util.Date fooDate) {
+    public VendorDatePkCB acceptPK(java.time.LocalDate fooDate) {
         assertObjectNotNull("fooDate", fooDate);
         BsVendorDatePkCB cb = this;
         cb.query().setFooDate_Equal(fooDate);
@@ -324,6 +324,24 @@ public class BsVendorDatePkCB extends AbstractConditionBean {
         }
     }
 
+    // ===================================================================================
+    //                                                                        Dream Cruise
+    //                                                                        ============
+    /**
+     * Welcome to the Dream Cruise for condition-bean deep world. <br>
+     * This is very specialty so you can get the frontier spirit. Bon voyage!
+     * @return The condition-bean for dream cruise, which is linked to main condition-bean.
+     */
+    public VendorDatePkCB dreamCruiseCB() {
+        VendorDatePkCB cb = new VendorDatePkCB();
+        cb.xsetupForDreamCruise((VendorDatePkCB) this);
+        return cb;
+    }
+
+    protected ConditionBean xdoCreateDreamCruiseCB() {
+        return dreamCruiseCB();
+    }
+
     // [DBFlute-0.9.5.3]
     // ===================================================================================
     //                                                                        Column Query
@@ -355,24 +373,6 @@ public class BsVendorDatePkCB extends AbstractConditionBean {
         VendorDatePkCB cb = new VendorDatePkCB();
         cb.xsetupForColumnQuery((VendorDatePkCB)this);
         return cb;
-    }
-
-    // ===================================================================================
-    //                                                                        Dream Cruise
-    //                                                                        ============
-    /**
-     * Welcome to the Dream Cruise for condition-bean deep world. <br>
-     * This is very specialty so you can get the frontier spirit. Bon voyage!
-     * @return The condition-bean for dream cruise, which is linked to main condition-bean.
-     */
-    public VendorDatePkCB dreamCruiseCB() {
-        VendorDatePkCB cb = new VendorDatePkCB();
-        cb.xsetupForDreamCruise((VendorDatePkCB) this);
-        return cb;
-    }
-
-    protected ConditionBean xdoCreateDreamCruiseCB() {
-        return dreamCruiseCB();
     }
 
     // [DBFlute-0.9.6.3]

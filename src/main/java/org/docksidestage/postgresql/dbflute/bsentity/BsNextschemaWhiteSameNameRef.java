@@ -3,9 +3,11 @@ package org.docksidestage.postgresql.dbflute.bsentity;
 import java.util.List;
 import java.util.ArrayList;
 
+import org.dbflute.Entity;
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
 import org.dbflute.dbmeta.accessory.DomainEntity;
+import org.dbflute.optional.OptionalEntity;
 import org.docksidestage.postgresql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
@@ -43,7 +45,7 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * Long sameNameRefId = entity.getSameNameRefId();
  * Integer sameNameId = entity.getSameNameId();
- * java.util.Date nextRefDate = entity.getNextRefDate();
+ * java.time.LocalDate nextRefDate = entity.getNextRefDate();
  * entity.setSameNameRefId(sameNameRefId);
  * entity.setSameNameId(sameNameId);
  * entity.setNextRefDate(nextRefDate);
@@ -69,7 +71,7 @@ public abstract class BsNextschemaWhiteSameNameRef extends AbstractEntity implem
     protected Integer _sameNameId;
 
     /** next_ref_date: {date(13)} */
-    protected java.util.Date _nextRefDate;
+    protected java.time.LocalDate _nextRefDate;
 
     // ===================================================================================
     //                                                                          Table Name
@@ -105,13 +107,15 @@ public abstract class BsNextschemaWhiteSameNameRef extends AbstractEntity implem
     //                                                                    Foreign Property
     //                                                                    ================
     /** nextschema.white_same_name by my same_name_id, named 'whiteSameName'. */
-    protected NextschemaWhiteSameName _whiteSameName;
+    protected OptionalEntity<NextschemaWhiteSameName> _whiteSameName;
 
     /**
      * [get] nextschema.white_same_name by my same_name_id, named 'whiteSameName'. <br>
-     * @return The entity of foreign property 'whiteSameName'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'whiteSameName'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public NextschemaWhiteSameName getWhiteSameName() {
+    public OptionalEntity<NextschemaWhiteSameName> getWhiteSameName() {
+        if (_whiteSameName == null) { _whiteSameName = OptionalEntity.relationEmpty(this, "whiteSameName"); }
         return _whiteSameName;
     }
 
@@ -119,7 +123,7 @@ public abstract class BsNextschemaWhiteSameNameRef extends AbstractEntity implem
      * [set] nextschema.white_same_name by my same_name_id, named 'whiteSameName'.
      * @param whiteSameName The entity of foreign property 'whiteSameName'. (NullAllowed)
      */
-    public void setWhiteSameName(NextschemaWhiteSameName whiteSameName) {
+    public void setWhiteSameName(OptionalEntity<NextschemaWhiteSameName> whiteSameName) {
         _whiteSameName = whiteSameName;
     }
 
@@ -155,9 +159,12 @@ public abstract class BsNextschemaWhiteSameNameRef extends AbstractEntity implem
     @Override
     protected String doBuildStringWithRelation(String li) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteSameName != null)
+        if (_whiteSameName != null && _whiteSameName.isPresent())
         { sb.append(li).append(xbRDS(_whiteSameName, "whiteSameName")); }
         return sb.toString();
+    }
+    protected <ET extends Entity> String xbRDS(org.dbflute.optional.OptionalEntity<ET> et, String name) { // buildRelationDisplayString()
+        return et.get().buildDisplayString(name, true, true);
     }
 
     @Override
@@ -165,7 +172,7 @@ public abstract class BsNextschemaWhiteSameNameRef extends AbstractEntity implem
         StringBuilder sb = new StringBuilder();
         sb.append(dm).append(xfND(_sameNameRefId));
         sb.append(dm).append(xfND(_sameNameId));
-        sb.append(dm).append(xfUD(_nextRefDate));
+        sb.append(dm).append(xfND(_nextRefDate));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -176,7 +183,7 @@ public abstract class BsNextschemaWhiteSameNameRef extends AbstractEntity implem
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteSameName != null)
+        if (_whiteSameName != null && _whiteSameName.isPresent())
         { sb.append(dm).append("whiteSameName"); }
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length()).insert(0, "(").append(")");
@@ -232,7 +239,7 @@ public abstract class BsNextschemaWhiteSameNameRef extends AbstractEntity implem
      * [get] next_ref_date: {date(13)} <br>
      * @return The value of the column 'next_ref_date'. (NullAllowed even if selected: for no constraint)
      */
-    public java.util.Date getNextRefDate() {
+    public java.time.LocalDate getNextRefDate() {
         checkSpecifiedProperty("nextRefDate");
         return _nextRefDate;
     }
@@ -241,7 +248,7 @@ public abstract class BsNextschemaWhiteSameNameRef extends AbstractEntity implem
      * [set] next_ref_date: {date(13)} <br>
      * @param nextRefDate The value of the column 'next_ref_date'. (NullAllowed: null update allowed for no constraint)
      */
-    public void setNextRefDate(java.util.Date nextRefDate) {
+    public void setNextRefDate(java.time.LocalDate nextRefDate) {
         registerModifiedProperty("nextRefDate");
         _nextRefDate = nextRefDate;
     }

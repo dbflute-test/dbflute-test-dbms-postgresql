@@ -1,15 +1,17 @@
 package org.docksidestage.postgresql.dbflute.vendor;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 import org.dbflute.bhv.core.context.ConditionBeanContext;
 import org.dbflute.bhv.core.context.ContextStack;
 import org.dbflute.bhv.readable.EntityRowHandler;
 import org.dbflute.bhv.referrer.ConditionBeanSetupper;
+import org.dbflute.cbean.ConditionQuery;
 import org.dbflute.cbean.result.ListResultBean;
 import org.dbflute.cbean.result.PagingResultBean;
+import org.dbflute.cbean.sqlclause.SqlClause;
 import org.dbflute.cbean.sqlclause.SqlClausePostgreSql;
 import org.dbflute.dbmeta.info.ColumnInfo;
 import org.dbflute.exception.BatchEntityAlreadyUpdatedException;
@@ -18,18 +20,21 @@ import org.dbflute.exception.EntityAlreadyUpdatedException;
 import org.dbflute.outsidesql.OutsideSqlContext;
 import org.dbflute.util.DfCollectionUtil;
 import org.dbflute.util.DfReflectionUtil;
-import org.dbflute.util.DfTypeUtil;
 import org.docksidestage.postgresql.dbflute.bsentity.dbmeta.MemberStatusDbm;
 import org.docksidestage.postgresql.dbflute.cbean.MemberCB;
 import org.docksidestage.postgresql.dbflute.cbean.MemberStatusCB;
+import org.docksidestage.postgresql.dbflute.cbean.VendorCheckCB;
 import org.docksidestage.postgresql.dbflute.cbean.VendorDateFkCB;
 import org.docksidestage.postgresql.dbflute.cbean.VendorDatePkCB;
+import org.docksidestage.postgresql.dbflute.cbean.cq.VendorCheckCQ;
 import org.docksidestage.postgresql.dbflute.exbhv.MemberBhv;
 import org.docksidestage.postgresql.dbflute.exbhv.MemberStatusBhv;
+import org.docksidestage.postgresql.dbflute.exbhv.VendorCheckBhv;
 import org.docksidestage.postgresql.dbflute.exbhv.VendorDateFkBhv;
 import org.docksidestage.postgresql.dbflute.exbhv.VendorDatePkBhv;
 import org.docksidestage.postgresql.dbflute.exentity.Member;
 import org.docksidestage.postgresql.dbflute.exentity.MemberStatus;
+import org.docksidestage.postgresql.dbflute.exentity.VendorCheck;
 import org.docksidestage.postgresql.dbflute.exentity.VendorDateFk;
 import org.docksidestage.postgresql.dbflute.exentity.VendorDatePk;
 import org.docksidestage.postgresql.unit.UnitContainerTestCase;
@@ -38,13 +43,14 @@ import org.docksidestage.postgresql.unit.UnitContainerTestCase;
  * @author jflute
  * @since 0.6.1 (2008/01/23 Wednesday)
  */
-public class VendorCheckTest extends UnitContainerTestCase {
+public class VendorWeatheryTest extends UnitContainerTestCase {
 
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
     private MemberBhv memberBhv;
     private MemberStatusBhv memberStatusBhv;
+    private VendorCheckBhv vendorCheckBhv;
     private VendorDatePkBhv vendorDatePkBhv;
     private VendorDateFkBhv vendorDateFkBhv;
 
@@ -65,8 +71,8 @@ public class VendorCheckTest extends UnitContainerTestCase {
             member.setMemberName("testName" + count);
             member.setMemberAccount("testAccount" + count);
             member.setMemberStatusCode_Provisional();
-            member.setFormalizedDatetime(currentTimestamp());
-            member.setBirthdate(currentTimestamp());
+            member.setFormalizedDatetime(currentLocalDateTime());
+            member.setBirthdate(currentLocalDate());
             if (count == 1) {
                 member.setVersionNo(999999999L);
             } else {
@@ -111,8 +117,8 @@ public class VendorCheckTest extends UnitContainerTestCase {
             member.setMemberName("testName" + count);
             member.setMemberAccount("testAccount" + count);
             member.setMemberStatusCode_Provisional();
-            member.setFormalizedDatetime(currentTimestamp());
-            member.setBirthdate(currentTimestamp());
+            member.setFormalizedDatetime(currentLocalDateTime());
+            member.setBirthdate(currentLocalDate());
             if (count == 1) {
                 member.setMemberId(9999999);
             } else {
@@ -210,8 +216,7 @@ public class VendorCheckTest extends UnitContainerTestCase {
                 // because it forces classification setting at this project
                 //memberStatus.setMemberStatusCode(memberStatusCode);
                 ColumnInfo columnMemberStatusCode = MemberStatusDbm.getInstance().columnMemberStatusCode();
-                DfReflectionUtil.invokeForcedly(columnMemberStatusCode.getWriteMethod(), memberStatus,
-                        new Object[] { memberStatusCode });
+                DfReflectionUtil.invokeForcedly(columnMemberStatusCode.getWriteMethod(), memberStatus, new Object[] { memberStatusCode });
 
                 memberStatus.setMemberStatusName(memberName + count);
                 memberStatus.setDescription("foo");
@@ -277,7 +282,7 @@ public class VendorCheckTest extends UnitContainerTestCase {
     //                                                                        ============
     public void test_dateInScope_query() {
         // ## Arrange ##
-        Date date = DfTypeUtil.toDate("1965-03-03");
+        LocalDate date = toLocalDate("1965-03-03");
         {
             VendorDatePk vendorDatePk = new VendorDatePk();
             vendorDatePk.setFooDate(date);
@@ -292,12 +297,12 @@ public class VendorCheckTest extends UnitContainerTestCase {
         VendorDatePk actual = vendorDatePkBhv.selectEntityWithDeletedCheck(cb);
 
         // ## Assert ##
-        assertEquals("1965/03/03", DfTypeUtil.toString(actual.getFooDate(), "yyyy/MM/dd"));
+        assertEquals("1965/03/03", toString(actual.getFooDate(), "yyyy/MM/dd"));
     }
 
     public void test_dateInScope_LoadReferrer() {
         // ## Arrange ##
-        Date date = DfTypeUtil.toDate("1965-03-03");
+        LocalDate date = toLocalDate("1965-03-03");
         {
             VendorDatePk vendorDatePk = new VendorDatePk();
             vendorDatePk.setFooDate(date);
@@ -316,7 +321,7 @@ public class VendorCheckTest extends UnitContainerTestCase {
         VendorDatePk pk = vendorDatePkBhv.selectEntityWithDeletedCheck(cb);
 
         // ## Act ##
-        vendorDatePkBhv.loadVendorDateFkList(pk, new ConditionBeanSetupper<VendorDateFkCB>() {
+        vendorDatePkBhv.loadVendorDateFk(pk, new ConditionBeanSetupper<VendorDateFkCB>() {
             public void setup(VendorDateFkCB cb) {
                 cb.query().addOrderBy_BarId_Asc();
             }
@@ -365,8 +370,85 @@ public class VendorCheckTest extends UnitContainerTestCase {
         if (suppress) {
             assertTrue(clause.contains("limit 4 offset 8"));
         } else {
-            assertTrue(clause
-                    .contains("limit /*pmb.sqlClause.pagingBindingLimit*/0 offset /*pmb.sqlClause.pagingBindingOffset*/0"));
+            assertTrue(clause.contains("limit /*pmb.sqlClause.pagingBindingLimit*/0 offset /*pmb.sqlClause.pagingBindingOffset*/0"));
         }
+    }
+
+    // ===================================================================================
+    //                                                                          Short Char
+    //                                                                          ==========
+    public void test_shortChar_inout_trimmed_value() {
+        // *This test does not depend on shortCharHandlingMode of DBFlute 
+        // ## Arrange ##
+        String code = "AB";
+
+        VendorCheck vendorCheck = new VendorCheck();
+        vendorCheck.setVendorCheckId(99999L);
+        vendorCheck.setTypeOfChar(code);
+        vendorCheckBhv.insert(vendorCheck);
+
+        VendorCheckCB cb = new VendorCheckCB();
+        cb.query().setVendorCheckId_Equal(99999L);
+        cb.query().setTypeOfChar_Equal(code + " ");
+
+        // ## Act ##
+        VendorCheck actual = vendorCheckBhv.selectEntityWithDeletedCheck(cb);
+
+        // ## Assert ##
+        assertEquals(code + " ", actual.getTypeOfChar()); // DB remains it
+    }
+
+    public void test_shortChar_inout_filled_value() {
+        // *This test does not depend on shortCharHandlingMode of DBFlute 
+        // ## Arrange ##
+        String code = "AB ";
+
+        VendorCheck vendorCheck = new VendorCheck();
+        vendorCheck.setVendorCheckId(99999L);
+        vendorCheck.setTypeOfChar(code);
+        vendorCheckBhv.insert(vendorCheck);
+
+        VendorCheckCB cb = new VendorCheckCB();
+        cb.query().setVendorCheckId_Equal(99999L);
+        cb.query().setTypeOfChar_Equal(code);
+
+        // ## Act ##
+        VendorCheck actual = vendorCheckBhv.selectEntityWithDeletedCheck(cb);
+
+        // ## Assert ##
+        assertEquals(code, actual.getTypeOfChar()); // DB remains it
+    }
+
+    public void test_shortChar_condition() {
+        // *This test does not depend on shortCharHandlingMode of DBFlute 
+        // ## Arrange ##
+        String code = "AB ";
+
+        VendorCheck vendorCheck = new VendorCheck();
+        vendorCheck.setVendorCheckId(99999L);
+        vendorCheck.setTypeOfChar(code);
+        vendorCheckBhv.insert(vendorCheck);
+
+        VendorCheckCB cb = new VendorCheckCB() {
+            // internal manipulation (Don't mimic it)
+            @Override
+            protected VendorCheckCQ xcreateCQ(ConditionQuery childQuery, SqlClause sqlClause, String aliasName, int nestLevel) {
+                return new VendorCheckCQ(childQuery, sqlClause, aliasName, nestLevel) {
+                    @Override
+                    protected String hSC(String propertyName, String value, Integer size, String modeCode) {
+                        return value; // do nothing for not depending on shortCharHandlingMode
+                    }
+                };
+            }
+        };
+        cb.query().setVendorCheckId_Equal(99999L);
+        cb.query().setTypeOfChar_Equal(code.trim());
+        assertTrue(cb.toDisplaySql().contains("'AB'"));
+
+        // ## Act ##
+        VendorCheck actual = vendorCheckBhv.selectEntityWithDeletedCheck(cb);
+
+        // ## Assert ##
+        assertEquals(code, actual.getTypeOfChar());
     }
 }

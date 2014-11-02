@@ -457,7 +457,7 @@ public class BsVendor_non_compilableCB extends AbstractConditionBean {
          * </pre>
          * @return The object to set up a function for referrer table. (NotNull)
          */
-        public HpSDRFunction<Vendor_non_compilableCB, Vendor_non_compilableCQ> derivedVendor_non_compilableByNextParentidSelfList() {
+        public HpSDRFunction<Vendor_non_compilableCB, Vendor_non_compilableCQ> derivedVendor_non_compilableByNextParentidSelf() {
             assertDerived("vendor_non_compilableByNextParentidSelfList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
             return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsderiveVendor_non_compilableByNextParentidSelfList(fn, sq, al, op), _dbmetaProvider);
         }
@@ -473,7 +473,7 @@ public class BsVendor_non_compilableCB extends AbstractConditionBean {
          * </pre>
          * @return The object to set up a function for referrer table. (NotNull)
          */
-        public HpSDRFunction<Vendor_non_compilableCB, Vendor_non_compilableCQ> derivedVendor_non_compilableByParent_idSelfList() {
+        public HpSDRFunction<Vendor_non_compilableCB, Vendor_non_compilableCQ> derivedVendor_non_compilableByParent_idSelf() {
             assertDerived("vendor_non_compilableByParent_idSelfList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
             return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsderiveVendor_non_compilableByParent_idSelfList(fn, sq, al, op), _dbmetaProvider);
         }
@@ -485,6 +485,24 @@ public class BsVendor_non_compilableCB extends AbstractConditionBean {
             assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
             return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
         }
+    }
+
+    // ===================================================================================
+    //                                                                        Dream Cruise
+    //                                                                        ============
+    /**
+     * Welcome to the Dream Cruise for condition-bean deep world. <br>
+     * This is very specialty so you can get the frontier spirit. Bon voyage!
+     * @return The condition-bean for dream cruise, which is linked to main condition-bean.
+     */
+    public Vendor_non_compilableCB dreamCruiseCB() {
+        Vendor_non_compilableCB cb = new Vendor_non_compilableCB();
+        cb.xsetupForDreamCruise((Vendor_non_compilableCB) this);
+        return cb;
+    }
+
+    protected ConditionBean xdoCreateDreamCruiseCB() {
+        return dreamCruiseCB();
     }
 
     // [DBFlute-0.9.5.3]
@@ -518,24 +536,6 @@ public class BsVendor_non_compilableCB extends AbstractConditionBean {
         Vendor_non_compilableCB cb = new Vendor_non_compilableCB();
         cb.xsetupForColumnQuery((Vendor_non_compilableCB)this);
         return cb;
-    }
-
-    // ===================================================================================
-    //                                                                        Dream Cruise
-    //                                                                        ============
-    /**
-     * Welcome to the Dream Cruise for condition-bean deep world. <br>
-     * This is very specialty so you can get the frontier spirit. Bon voyage!
-     * @return The condition-bean for dream cruise, which is linked to main condition-bean.
-     */
-    public Vendor_non_compilableCB dreamCruiseCB() {
-        Vendor_non_compilableCB cb = new Vendor_non_compilableCB();
-        cb.xsetupForDreamCruise((Vendor_non_compilableCB) this);
-        return cb;
-    }
-
-    protected ConditionBean xdoCreateDreamCruiseCB() {
-        return dreamCruiseCB();
     }
 
     // [DBFlute-0.9.6.3]

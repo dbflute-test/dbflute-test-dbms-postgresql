@@ -335,10 +335,28 @@ public class BsWhiteCompoundPkCB extends AbstractConditionBean {
          * </pre>
          * @return The object to set up a function for referrer table. (NotNull)
          */
-        public HpSDRFunction<WhiteCompoundPkRefCB, WhiteCompoundPkCQ> derivedWhiteCompoundPkRefList() {
+        public HpSDRFunction<WhiteCompoundPkRefCB, WhiteCompoundPkCQ> derivedWhiteCompoundPkRef() {
             assertDerived("whiteCompoundPkRefList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
             return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsderiveWhiteCompoundPkRefList(fn, sq, al, op), _dbmetaProvider);
         }
+    }
+
+    // ===================================================================================
+    //                                                                        Dream Cruise
+    //                                                                        ============
+    /**
+     * Welcome to the Dream Cruise for condition-bean deep world. <br>
+     * This is very specialty so you can get the frontier spirit. Bon voyage!
+     * @return The condition-bean for dream cruise, which is linked to main condition-bean.
+     */
+    public WhiteCompoundPkCB dreamCruiseCB() {
+        WhiteCompoundPkCB cb = new WhiteCompoundPkCB();
+        cb.xsetupForDreamCruise((WhiteCompoundPkCB) this);
+        return cb;
+    }
+
+    protected ConditionBean xdoCreateDreamCruiseCB() {
+        return dreamCruiseCB();
     }
 
     // [DBFlute-0.9.5.3]
@@ -372,24 +390,6 @@ public class BsWhiteCompoundPkCB extends AbstractConditionBean {
         WhiteCompoundPkCB cb = new WhiteCompoundPkCB();
         cb.xsetupForColumnQuery((WhiteCompoundPkCB)this);
         return cb;
-    }
-
-    // ===================================================================================
-    //                                                                        Dream Cruise
-    //                                                                        ============
-    /**
-     * Welcome to the Dream Cruise for condition-bean deep world. <br>
-     * This is very specialty so you can get the frontier spirit. Bon voyage!
-     * @return The condition-bean for dream cruise, which is linked to main condition-bean.
-     */
-    public WhiteCompoundPkCB dreamCruiseCB() {
-        WhiteCompoundPkCB cb = new WhiteCompoundPkCB();
-        cb.xsetupForDreamCruise((WhiteCompoundPkCB) this);
-        return cb;
-    }
-
-    protected ConditionBean xdoCreateDreamCruiseCB() {
-        return dreamCruiseCB();
     }
 
     // [DBFlute-0.9.6.3]

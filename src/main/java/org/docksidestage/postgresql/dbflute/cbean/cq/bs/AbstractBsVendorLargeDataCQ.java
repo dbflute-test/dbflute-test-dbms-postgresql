@@ -152,13 +152,13 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
      * {exists (select large_data_id from vendor_large_data_ref where ...)} <br>
      * vendor_large_data_ref by large_data_id, named 'vendorLargeDataRefAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">existsVendorLargeDataRefList</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">existsVendorLargeDataRef</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     refCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of VendorLargeDataRefList for 'exists'. (NotNull)
      */
-    public void existsVendorLargeDataRefList(SubQuery<VendorLargeDataRefCB> subCBLambda) {
+    public void existsVendorLargeDataRef(SubQuery<VendorLargeDataRefCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         VendorLargeDataRefCB cb = new VendorLargeDataRefCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepLargeDataId_ExistsReferrer_VendorLargeDataRefList(cb.query());
@@ -171,13 +171,13 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
      * {not exists (select large_data_id from vendor_large_data_ref where ...)} <br>
      * vendor_large_data_ref by large_data_id, named 'vendorLargeDataRefAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsVendorLargeDataRefList</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">notExistsVendorLargeDataRef</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     refCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of LargeDataId_NotExistsReferrer_VendorLargeDataRefList for 'not exists'. (NotNull)
      */
-    public void notExistsVendorLargeDataRefList(SubQuery<VendorLargeDataRefCB> subCBLambda) {
+    public void notExistsVendorLargeDataRef(SubQuery<VendorLargeDataRefCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         VendorLargeDataRefCB cb = new VendorLargeDataRefCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepLargeDataId_NotExistsReferrer_VendorLargeDataRefList(cb.query());
@@ -198,14 +198,14 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
      * {FOO &lt;= (select max(BAR) from vendor_large_data_ref where ...)} <br>
      * vendor_large_data_ref by large_data_id, named 'vendorLargeDataRefAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedVendorLargeDataRefList()</span>.<span style="color: #CC4747">max</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">derivedVendorLargeDataRef()</span>.<span style="color: #CC4747">max</span>(refCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     refCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *     refCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
      * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
      * </pre>
      * @return The object to set up a function for referrer table. (NotNull)
      */
-    public HpQDRFunction<VendorLargeDataRefCB> derivedVendorLargeDataRefList() {
+    public HpQDRFunction<VendorLargeDataRefCB> derivedVendorLargeDataRef() {
         return xcreateQDRFunctionVendorLargeDataRefList();
     }
     protected HpQDRFunction<VendorLargeDataRefCB> xcreateQDRFunctionVendorLargeDataRefList() {

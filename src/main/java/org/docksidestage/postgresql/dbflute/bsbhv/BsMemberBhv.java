@@ -67,6 +67,7 @@ public abstract class BsMemberBhv extends AbstractBehaviorWritable<Member, Membe
     /** Simple Member Select */
     public static final String PATH_selectSimpleMember = "selectSimpleMember";
     public static final String PATH_selectUnpaidSummaryMember = "selectUnpaidSummaryMember";
+    /** Force Withdrawal Update */
     public static final String PATH_updateMemberChangedToWithdrawalForcedly = "updateMemberChangedToWithdrawalForcedly";
     public static final String PATH_subdirectory_selectSubDirectoryCheck = "subdirectory:selectSubDirectoryCheck";
     public static final String PATH_whitebox_cmentity_selectCommonColumnMember = "whitebox:cmentity:selectCommonColumnMember";
@@ -127,60 +128,81 @@ public abstract class BsMemberBhv extends AbstractBehaviorWritable<Member, Membe
     //                                                                       Entity Select
     //                                                                       =============
     /**
-     * Select the entity by the condition-bean. #beforejava8 <br>
-     * <span style="color: #AD4747; font-size: 120%">The return might be null if no data, so you should have null check.</span> <br>
-     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, use selectEntityWithDeletedCheck().</span>
+     * Select the entity by the condition-bean. <br>
+     * It returns not-null optional entity, so you should ... <br>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, alwaysPresent().</span> <br>
+     * <span style="color: #AD4747; font-size: 120%">If it might be no data, isPresent() and orElse(), ...</span>
      * <pre>
-     * Member member = <span style="color: #0000C0">memberBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
+     * <span style="color: #0000C0">memberBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().set...
+     * }).<span style="color: #CC4747">alwaysPresent</span>(<span style="color: #553000">member</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if present, or exception</span>
+     *     ... = <span style="color: #553000">member</span>.get...
      * });
-     * <span style="color: #70226C">if</span> (member != <span style="color: #70226C">null</span>) { <span style="color: #3F7E5E">// null check</span>
-     *     ... = member.get...();
-     * } <span style="color: #70226C">else</span> {
-     *     ...
-     * }
+     * 
+     * <span style="color: #3F7E5E">// if it might be no data, ...</span>
+     * <span style="color: #0000C0">memberBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).<span style="color: #CC4747">ifPresent</span>(<span style="color: #553000">member</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if present</span>
+     *     ... = <span style="color: #553000">member</span>.get...
+     * }).<span style="color: #994747">orElse</span>(() <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if not present</span>
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of Member. (NotNull)
-     * @return The entity selected by the condition. (NullAllowed: if no data, it returns null)
+     * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
-    public Member selectEntity(CBCall<MemberCB> cbLambda) {
+    public OptionalEntity<Member> selectEntity(CBCall<MemberCB> cbLambda) {
         return facadeSelectEntity(createCB(cbLambda));
     }
 
     /**
-     * Select the entity by the condition-bean. #beforejava8 <br>
-     * <span style="color: #AD4747; font-size: 120%">The return might be null if no data, so you should have null check.</span> <br>
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, use selectEntityWithDeletedCheck().</span>
+     * Select the entity by the condition-bean. <br>
+     * It returns not-null optional entity, so you should ... <br>
+     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, alwaysPresent().</span> <br>
+     * <span style="color: #AD4747; font-size: 120%">If it might be no data, get() after check by isPresent() or orElse(), ...</span>
      * <pre>
      * MemberCB cb = <span style="color: #70226C">new</span> MemberCB();
-     * cb.query().setFoo...(value);
-     * Member member = <span style="color: #0000C0">memberBhv</span>.<span style="color: #DD4747">selectEntity</span>(cb);
-     * <span style="color: #70226C">if</span> (member != <span style="color: #70226C">null</span>) { <span style="color: #3F7E5E">// null check</span>
-     *     ... = member.get...();
-     * } <span style="color: #70226C">else</span> {
-     *     ...
-     * }
+     * cb.query().set...
+     * 
+     * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
+     * <span style="color: #0000C0">memberBhv</span>.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(member <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if present, or exception</span>
+     *     ... = member.get...
+     * });
+     * 
+     * <span style="color: #3F7E5E">// if it might be no data, ...</span>
+     * <span style="color: #0000C0">memberBhv</span>.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(member <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if present</span>
+     *     ... = member.get...
+     * }).<span style="color: #994747">orElse</span>(() <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if not present</span>
+     * });
      * </pre>
      * @param cb The condition-bean of Member. (NotNull)
-     * @return The entity selected by the condition. (NullAllowed: if no data, it returns null)
+     * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
-    public Member selectEntity(MemberCB cb) {
+    public OptionalEntity<Member> selectEntity(MemberCB cb) {
         return facadeSelectEntity(cb);
     }
 
-    protected Member facadeSelectEntity(MemberCB cb) {
-        return doSelectEntity(cb, typeOfSelectedEntity());
+    protected OptionalEntity<Member> facadeSelectEntity(MemberCB cb) {
+        return doSelectOptionalEntity(cb, typeOfSelectedEntity());
     }
 
     protected <ENTITY extends Member> OptionalEntity<ENTITY> doSelectOptionalEntity(MemberCB cb, Class<? extends ENTITY> tp) {
         return createOptionalEntity(doSelectEntity(cb, tp), cb);
     }
 
-    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)); }
+    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElse(null); }
 
     /**
      * Select the entity by the condition-bean with deleted check. <br>
@@ -221,16 +243,17 @@ public abstract class BsMemberBhv extends AbstractBehaviorWritable<Member, Membe
     /**
      * Select the entity by the primary-key value.
      * @param memberId (会員ID): PK, ID, NotNull, serial(10), FK to MEMBER_ADDRESS. (NotNull)
-     * @return The entity selected by the PK. (NullAllowed: if no data, it returns null)
+     * @return The optional entity selected by the PK. (NotNull: if no data, empty entity)
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
-    public Member selectByPK(Integer memberId) {
+    public OptionalEntity<Member> selectByPK(Integer memberId) {
         return facadeSelectByPK(memberId);
     }
 
-    protected Member facadeSelectByPK(Integer memberId) {
-        return doSelectByPK(memberId, typeOfSelectedEntity());
+    protected OptionalEntity<Member> facadeSelectByPK(Integer memberId) {
+        return doSelectOptionalByPK(memberId, typeOfSelectedEntity());
     }
 
     protected <ENTITY extends Member> ENTITY doSelectByPK(Integer memberId, Class<? extends ENTITY> tp) {
@@ -412,7 +435,7 @@ public abstract class BsMemberBhv extends AbstractBehaviorWritable<Member, Membe
      * Select the scalar value derived by a function from uniquely-selected records. <br>
      * You should call a function method after this method called like as follows:
      * <pre>
-     * <span style="color: #0000C0">memberBhv</span>.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">memberBhv</span>.<span style="color: #CC4747">selectScalar</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...</span>; <span style="color: #3F7E5E">// required for the function</span>
      *     <span style="color: #553000">cb</span>.query().set...
      * });
@@ -421,7 +444,7 @@ public abstract class BsMemberBhv extends AbstractBehaviorWritable<Member, Membe
      * @param resultType The type of result. (NotNull)
      * @return The scalar function object to specify function for scalar value. (NotNull)
      */
-    public <RESULT> HpSLSFunction<MemberCB, RESULT> scalarSelect(Class<RESULT> resultType) {
+    public <RESULT> HpSLSFunction<MemberCB, RESULT> selectScalar(Class<RESULT> resultType) {
         return facadeScalarSelect(resultType);
     }
 
@@ -528,7 +551,7 @@ public abstract class BsMemberBhv extends AbstractBehaviorWritable<Member, Membe
      * Load referrer of memberAddressList by the set-upper of referrer. <br>
      * (会員住所情報)member_address by member_id, named 'memberAddressList'.
      * <pre>
-     * <span style="color: #0000C0">memberBhv</span>.<span style="color: #CC4747">loadMemberAddressList</span>(<span style="color: #553000">memberList</span>, <span style="color: #553000">addressCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">memberBhv</span>.<span style="color: #CC4747">loadMemberAddress</span>(<span style="color: #553000">memberList</span>, <span style="color: #553000">addressCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">addressCB</span>.setupSelect...
      *     <span style="color: #553000">addressCB</span>.query().set...
      *     <span style="color: #553000">addressCB</span>.query().addOrderBy...
@@ -550,16 +573,16 @@ public abstract class BsMemberBhv extends AbstractBehaviorWritable<Member, Membe
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<MemberAddress> loadMemberAddressList(List<Member> memberList, ConditionBeanSetupper<MemberAddressCB> refCBLambda) {
+    public NestedReferrerListGateway<MemberAddress> loadMemberAddress(List<Member> memberList, ConditionBeanSetupper<MemberAddressCB> refCBLambda) {
         xassLRArg(memberList, refCBLambda);
-        return doLoadMemberAddressList(memberList, new LoadReferrerOption<MemberAddressCB, MemberAddress>().xinit(refCBLambda));
+        return doLoadMemberAddress(memberList, new LoadReferrerOption<MemberAddressCB, MemberAddress>().xinit(refCBLambda));
     }
 
     /**
      * Load referrer of memberAddressList by the set-upper of referrer. <br>
      * (会員住所情報)member_address by member_id, named 'memberAddressList'.
      * <pre>
-     * <span style="color: #0000C0">memberBhv</span>.<span style="color: #CC4747">loadMemberAddressList</span>(<span style="color: #553000">member</span>, <span style="color: #553000">addressCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">memberBhv</span>.<span style="color: #CC4747">loadMemberAddress</span>(<span style="color: #553000">member</span>, <span style="color: #553000">addressCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">addressCB</span>.setupSelect...
      *     <span style="color: #553000">addressCB</span>.query().set...
      *     <span style="color: #553000">addressCB</span>.query().addOrderBy...
@@ -579,9 +602,9 @@ public abstract class BsMemberBhv extends AbstractBehaviorWritable<Member, Membe
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<MemberAddress> loadMemberAddressList(Member member, ConditionBeanSetupper<MemberAddressCB> refCBLambda) {
+    public NestedReferrerListGateway<MemberAddress> loadMemberAddress(Member member, ConditionBeanSetupper<MemberAddressCB> refCBLambda) {
         xassLRArg(member, refCBLambda);
-        return doLoadMemberAddressList(xnewLRLs(member), new LoadReferrerOption<MemberAddressCB, MemberAddress>().xinit(refCBLambda));
+        return doLoadMemberAddress(xnewLRLs(member), new LoadReferrerOption<MemberAddressCB, MemberAddress>().xinit(refCBLambda));
     }
 
     /**
@@ -590,9 +613,9 @@ public abstract class BsMemberBhv extends AbstractBehaviorWritable<Member, Membe
      * @param loadReferrerOption The option of load-referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<MemberAddress> loadMemberAddressList(Member member, LoadReferrerOption<MemberAddressCB, MemberAddress> loadReferrerOption) {
+    public NestedReferrerListGateway<MemberAddress> loadMemberAddress(Member member, LoadReferrerOption<MemberAddressCB, MemberAddress> loadReferrerOption) {
         xassLRArg(member, loadReferrerOption);
-        return loadMemberAddressList(xnewLRLs(member), loadReferrerOption);
+        return loadMemberAddress(xnewLRLs(member), loadReferrerOption);
     }
 
     /**
@@ -602,13 +625,13 @@ public abstract class BsMemberBhv extends AbstractBehaviorWritable<Member, Membe
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
     @SuppressWarnings("unchecked")
-    public NestedReferrerListGateway<MemberAddress> loadMemberAddressList(List<Member> memberList, LoadReferrerOption<MemberAddressCB, MemberAddress> loadReferrerOption) {
+    public NestedReferrerListGateway<MemberAddress> loadMemberAddress(List<Member> memberList, LoadReferrerOption<MemberAddressCB, MemberAddress> loadReferrerOption) {
         xassLRArg(memberList, loadReferrerOption);
         if (memberList.isEmpty()) { return (NestedReferrerListGateway<MemberAddress>)EMPTY_NREF_LGWAY; }
-        return doLoadMemberAddressList(memberList, loadReferrerOption);
+        return doLoadMemberAddress(memberList, loadReferrerOption);
     }
 
-    protected NestedReferrerListGateway<MemberAddress> doLoadMemberAddressList(List<Member> memberList, LoadReferrerOption<MemberAddressCB, MemberAddress> option) {
+    protected NestedReferrerListGateway<MemberAddress> doLoadMemberAddress(List<Member> memberList, LoadReferrerOption<MemberAddressCB, MemberAddress> option) {
         return helpLoadReferrerInternally(memberList, option, "memberAddressList");
     }
 
@@ -616,7 +639,7 @@ public abstract class BsMemberBhv extends AbstractBehaviorWritable<Member, Membe
      * Load referrer of memberLoginList by the set-upper of referrer. <br>
      * (会員ログイン)member_login by member_id, named 'memberLoginList'.
      * <pre>
-     * <span style="color: #0000C0">memberBhv</span>.<span style="color: #CC4747">loadMemberLoginList</span>(<span style="color: #553000">memberList</span>, <span style="color: #553000">loginCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">memberBhv</span>.<span style="color: #CC4747">loadMemberLogin</span>(<span style="color: #553000">memberList</span>, <span style="color: #553000">loginCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">loginCB</span>.setupSelect...
      *     <span style="color: #553000">loginCB</span>.query().set...
      *     <span style="color: #553000">loginCB</span>.query().addOrderBy...
@@ -638,16 +661,16 @@ public abstract class BsMemberBhv extends AbstractBehaviorWritable<Member, Membe
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<MemberLogin> loadMemberLoginList(List<Member> memberList, ConditionBeanSetupper<MemberLoginCB> refCBLambda) {
+    public NestedReferrerListGateway<MemberLogin> loadMemberLogin(List<Member> memberList, ConditionBeanSetupper<MemberLoginCB> refCBLambda) {
         xassLRArg(memberList, refCBLambda);
-        return doLoadMemberLoginList(memberList, new LoadReferrerOption<MemberLoginCB, MemberLogin>().xinit(refCBLambda));
+        return doLoadMemberLogin(memberList, new LoadReferrerOption<MemberLoginCB, MemberLogin>().xinit(refCBLambda));
     }
 
     /**
      * Load referrer of memberLoginList by the set-upper of referrer. <br>
      * (会員ログイン)member_login by member_id, named 'memberLoginList'.
      * <pre>
-     * <span style="color: #0000C0">memberBhv</span>.<span style="color: #CC4747">loadMemberLoginList</span>(<span style="color: #553000">member</span>, <span style="color: #553000">loginCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">memberBhv</span>.<span style="color: #CC4747">loadMemberLogin</span>(<span style="color: #553000">member</span>, <span style="color: #553000">loginCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">loginCB</span>.setupSelect...
      *     <span style="color: #553000">loginCB</span>.query().set...
      *     <span style="color: #553000">loginCB</span>.query().addOrderBy...
@@ -667,9 +690,9 @@ public abstract class BsMemberBhv extends AbstractBehaviorWritable<Member, Membe
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<MemberLogin> loadMemberLoginList(Member member, ConditionBeanSetupper<MemberLoginCB> refCBLambda) {
+    public NestedReferrerListGateway<MemberLogin> loadMemberLogin(Member member, ConditionBeanSetupper<MemberLoginCB> refCBLambda) {
         xassLRArg(member, refCBLambda);
-        return doLoadMemberLoginList(xnewLRLs(member), new LoadReferrerOption<MemberLoginCB, MemberLogin>().xinit(refCBLambda));
+        return doLoadMemberLogin(xnewLRLs(member), new LoadReferrerOption<MemberLoginCB, MemberLogin>().xinit(refCBLambda));
     }
 
     /**
@@ -678,9 +701,9 @@ public abstract class BsMemberBhv extends AbstractBehaviorWritable<Member, Membe
      * @param loadReferrerOption The option of load-referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<MemberLogin> loadMemberLoginList(Member member, LoadReferrerOption<MemberLoginCB, MemberLogin> loadReferrerOption) {
+    public NestedReferrerListGateway<MemberLogin> loadMemberLogin(Member member, LoadReferrerOption<MemberLoginCB, MemberLogin> loadReferrerOption) {
         xassLRArg(member, loadReferrerOption);
-        return loadMemberLoginList(xnewLRLs(member), loadReferrerOption);
+        return loadMemberLogin(xnewLRLs(member), loadReferrerOption);
     }
 
     /**
@@ -690,13 +713,13 @@ public abstract class BsMemberBhv extends AbstractBehaviorWritable<Member, Membe
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
     @SuppressWarnings("unchecked")
-    public NestedReferrerListGateway<MemberLogin> loadMemberLoginList(List<Member> memberList, LoadReferrerOption<MemberLoginCB, MemberLogin> loadReferrerOption) {
+    public NestedReferrerListGateway<MemberLogin> loadMemberLogin(List<Member> memberList, LoadReferrerOption<MemberLoginCB, MemberLogin> loadReferrerOption) {
         xassLRArg(memberList, loadReferrerOption);
         if (memberList.isEmpty()) { return (NestedReferrerListGateway<MemberLogin>)EMPTY_NREF_LGWAY; }
-        return doLoadMemberLoginList(memberList, loadReferrerOption);
+        return doLoadMemberLogin(memberList, loadReferrerOption);
     }
 
-    protected NestedReferrerListGateway<MemberLogin> doLoadMemberLoginList(List<Member> memberList, LoadReferrerOption<MemberLoginCB, MemberLogin> option) {
+    protected NestedReferrerListGateway<MemberLogin> doLoadMemberLogin(List<Member> memberList, LoadReferrerOption<MemberLoginCB, MemberLogin> option) {
         return helpLoadReferrerInternally(memberList, option, "memberLoginList");
     }
 
@@ -704,7 +727,7 @@ public abstract class BsMemberBhv extends AbstractBehaviorWritable<Member, Membe
      * Load referrer of purchaseList by the set-upper of referrer. <br>
      * (購入)purchase by member_id, named 'purchaseList'.
      * <pre>
-     * <span style="color: #0000C0">memberBhv</span>.<span style="color: #CC4747">loadPurchaseList</span>(<span style="color: #553000">memberList</span>, <span style="color: #553000">purchaseCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">memberBhv</span>.<span style="color: #CC4747">loadPurchase</span>(<span style="color: #553000">memberList</span>, <span style="color: #553000">purchaseCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">purchaseCB</span>.setupSelect...
      *     <span style="color: #553000">purchaseCB</span>.query().set...
      *     <span style="color: #553000">purchaseCB</span>.query().addOrderBy...
@@ -726,16 +749,16 @@ public abstract class BsMemberBhv extends AbstractBehaviorWritable<Member, Membe
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<Purchase> loadPurchaseList(List<Member> memberList, ConditionBeanSetupper<PurchaseCB> refCBLambda) {
+    public NestedReferrerListGateway<Purchase> loadPurchase(List<Member> memberList, ConditionBeanSetupper<PurchaseCB> refCBLambda) {
         xassLRArg(memberList, refCBLambda);
-        return doLoadPurchaseList(memberList, new LoadReferrerOption<PurchaseCB, Purchase>().xinit(refCBLambda));
+        return doLoadPurchase(memberList, new LoadReferrerOption<PurchaseCB, Purchase>().xinit(refCBLambda));
     }
 
     /**
      * Load referrer of purchaseList by the set-upper of referrer. <br>
      * (購入)purchase by member_id, named 'purchaseList'.
      * <pre>
-     * <span style="color: #0000C0">memberBhv</span>.<span style="color: #CC4747">loadPurchaseList</span>(<span style="color: #553000">member</span>, <span style="color: #553000">purchaseCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">memberBhv</span>.<span style="color: #CC4747">loadPurchase</span>(<span style="color: #553000">member</span>, <span style="color: #553000">purchaseCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">purchaseCB</span>.setupSelect...
      *     <span style="color: #553000">purchaseCB</span>.query().set...
      *     <span style="color: #553000">purchaseCB</span>.query().addOrderBy...
@@ -755,9 +778,9 @@ public abstract class BsMemberBhv extends AbstractBehaviorWritable<Member, Membe
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<Purchase> loadPurchaseList(Member member, ConditionBeanSetupper<PurchaseCB> refCBLambda) {
+    public NestedReferrerListGateway<Purchase> loadPurchase(Member member, ConditionBeanSetupper<PurchaseCB> refCBLambda) {
         xassLRArg(member, refCBLambda);
-        return doLoadPurchaseList(xnewLRLs(member), new LoadReferrerOption<PurchaseCB, Purchase>().xinit(refCBLambda));
+        return doLoadPurchase(xnewLRLs(member), new LoadReferrerOption<PurchaseCB, Purchase>().xinit(refCBLambda));
     }
 
     /**
@@ -766,9 +789,9 @@ public abstract class BsMemberBhv extends AbstractBehaviorWritable<Member, Membe
      * @param loadReferrerOption The option of load-referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<Purchase> loadPurchaseList(Member member, LoadReferrerOption<PurchaseCB, Purchase> loadReferrerOption) {
+    public NestedReferrerListGateway<Purchase> loadPurchase(Member member, LoadReferrerOption<PurchaseCB, Purchase> loadReferrerOption) {
         xassLRArg(member, loadReferrerOption);
-        return loadPurchaseList(xnewLRLs(member), loadReferrerOption);
+        return loadPurchase(xnewLRLs(member), loadReferrerOption);
     }
 
     /**
@@ -778,13 +801,13 @@ public abstract class BsMemberBhv extends AbstractBehaviorWritable<Member, Membe
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
     @SuppressWarnings("unchecked")
-    public NestedReferrerListGateway<Purchase> loadPurchaseList(List<Member> memberList, LoadReferrerOption<PurchaseCB, Purchase> loadReferrerOption) {
+    public NestedReferrerListGateway<Purchase> loadPurchase(List<Member> memberList, LoadReferrerOption<PurchaseCB, Purchase> loadReferrerOption) {
         xassLRArg(memberList, loadReferrerOption);
         if (memberList.isEmpty()) { return (NestedReferrerListGateway<Purchase>)EMPTY_NREF_LGWAY; }
-        return doLoadPurchaseList(memberList, loadReferrerOption);
+        return doLoadPurchase(memberList, loadReferrerOption);
     }
 
-    protected NestedReferrerListGateway<Purchase> doLoadPurchaseList(List<Member> memberList, LoadReferrerOption<PurchaseCB, Purchase> option) {
+    protected NestedReferrerListGateway<Purchase> doLoadPurchase(List<Member> memberList, LoadReferrerOption<PurchaseCB, Purchase> option) {
         return helpLoadReferrerInternally(memberList, option, "purchaseList");
     }
 
@@ -1572,9 +1595,8 @@ public abstract class BsMemberBhv extends AbstractBehaviorWritable<Member, Membe
      * <p>The invoker of behavior command should be not null when you call this method.</p>
      * @return The new-created all facade executor of outside-SQL. (NotNull)
      */
-    public OutsideSqlBasicExecutor<MemberBhv> outsideSql() {
-        OutsideSqlAllFacadeExecutor<MemberBhv> facadeExecutor = doOutsideSql();
-        return facadeExecutor.xbasicExecutor(); // variable to resolve generic type
+    public OutsideSqlAllFacadeExecutor<MemberBhv> outsideSql() {
+        return doOutsideSql();
     }
 
     // ===================================================================================

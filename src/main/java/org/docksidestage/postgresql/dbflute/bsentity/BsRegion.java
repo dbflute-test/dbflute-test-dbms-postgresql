@@ -7,6 +7,7 @@ import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
 import org.dbflute.dbmeta.accessory.DomainEntity;
 import org.docksidestage.postgresql.dbflute.allcommon.DBMetaInstanceHandler;
+import org.docksidestage.postgresql.dbflute.allcommon.CDef;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
 /**
@@ -63,7 +64,7 @@ public abstract class BsRegion extends AbstractEntity implements DomainEntity {
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    /** (地域ID)region_id: {PK, NotNull, int4(10)} */
+    /** (地域ID)region_id: {PK, NotNull, int4(10), classification=Region} */
     protected Integer _regionId;
 
     /** (地域名称)region_name: {NotNull, varchar(50)} */
@@ -97,6 +98,112 @@ public abstract class BsRegion extends AbstractEntity implements DomainEntity {
     public boolean hasPrimaryKeyValue() {
         if (_regionId == null) { return false; }
         return true;
+    }
+
+    // ===================================================================================
+    //                                                             Classification Property
+    //                                                             =======================
+    /**
+     * Get the value of regionId as the classification of Region. <br>
+     * (地域ID)region_id: {PK, NotNull, int4(10), classification=Region} <br>
+     * mainly region of member address
+     * <p>It's treated as case insensitive and if the code value is null, it returns null.</p>
+     * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
+     */
+    public CDef.Region getRegionIdAsRegion() {
+        return CDef.Region.codeOf(getRegionId());
+    }
+
+    /**
+     * Set the value of regionId as the classification of Region. <br>
+     * (地域ID)region_id: {PK, NotNull, int4(10), classification=Region} <br>
+     * mainly region of member address
+     * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, null value is set to the column)
+     */
+    public void setRegionIdAsRegion(CDef.Region cdef) {
+        setRegionId(cdef != null ? toNumber(cdef.code(), Integer.class) : null);
+    }
+
+    // ===================================================================================
+    //                                                              Classification Setting
+    //                                                              ======================
+    /**
+     * Set the value of regionId as America (1). <br>
+     * AMERICA
+     */
+    public void setRegionId_America() {
+        setRegionIdAsRegion(CDef.Region.America);
+    }
+
+    /**
+     * Set the value of regionId as Canada (2). <br>
+     * CANADA
+     */
+    public void setRegionId_Canada() {
+        setRegionIdAsRegion(CDef.Region.Canada);
+    }
+
+    /**
+     * Set the value of regionId as China (3). <br>
+     * CHINA
+     */
+    public void setRegionId_China() {
+        setRegionIdAsRegion(CDef.Region.China);
+    }
+
+    /**
+     * Set the value of regionId as Chiba (4). <br>
+     * CHIBA
+     */
+    public void setRegionId_Chiba() {
+        setRegionIdAsRegion(CDef.Region.Chiba);
+    }
+
+    // ===================================================================================
+    //                                                        Classification Determination
+    //                                                        ============================
+    /**
+     * Is the value of regionId America? <br>
+     * AMERICA
+     * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
+     * @return The determination, true or false.
+     */
+    public boolean isRegionIdAmerica() {
+        CDef.Region cdef = getRegionIdAsRegion();
+        return cdef != null ? cdef.equals(CDef.Region.America) : false;
+    }
+
+    /**
+     * Is the value of regionId Canada? <br>
+     * CANADA
+     * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
+     * @return The determination, true or false.
+     */
+    public boolean isRegionIdCanada() {
+        CDef.Region cdef = getRegionIdAsRegion();
+        return cdef != null ? cdef.equals(CDef.Region.Canada) : false;
+    }
+
+    /**
+     * Is the value of regionId China? <br>
+     * CHINA
+     * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
+     * @return The determination, true or false.
+     */
+    public boolean isRegionIdChina() {
+        CDef.Region cdef = getRegionIdAsRegion();
+        return cdef != null ? cdef.equals(CDef.Region.China) : false;
+    }
+
+    /**
+     * Is the value of regionId Chiba? <br>
+     * CHIBA
+     * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
+     * @return The determination, true or false.
+     */
+    public boolean isRegionIdChiba() {
+        CDef.Region cdef = getRegionIdAsRegion();
+        return cdef != null ? cdef.equals(CDef.Region.Chiba) : false;
     }
 
     // ===================================================================================
@@ -191,7 +298,7 @@ public abstract class BsRegion extends AbstractEntity implements DomainEntity {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] (地域ID)region_id: {PK, NotNull, int4(10)} <br>
+     * [get] (地域ID)region_id: {PK, NotNull, int4(10), classification=Region} <br>
      * 地域を識別するID。<br>
      * 珍しく(固定的な)マスタテーブルとしては数値だが、<br>
      * Exampleなのでやはり色々なパターンがないと。
@@ -203,13 +310,14 @@ public abstract class BsRegion extends AbstractEntity implements DomainEntity {
     }
 
     /**
-     * [set] (地域ID)region_id: {PK, NotNull, int4(10)} <br>
+     * [set] (地域ID)region_id: {PK, NotNull, int4(10), classification=Region} <br>
      * 地域を識別するID。<br>
      * 珍しく(固定的な)マスタテーブルとしては数値だが、<br>
      * Exampleなのでやはり色々なパターンがないと。
      * @param regionId The value of the column 'region_id'. (basically NotNull if update: for the constraint)
      */
-    public void setRegionId(Integer regionId) {
+    protected void setRegionId(Integer regionId) {
+        checkClassificationCode("region_id", CDef.DefMeta.Region, regionId);
         registerModifiedProperty("regionId");
         _regionId = regionId;
     }
@@ -232,5 +340,13 @@ public abstract class BsRegion extends AbstractEntity implements DomainEntity {
     public void setRegionName(String regionName) {
         registerModifiedProperty("regionName");
         _regionName = regionName;
+    }
+
+    /**
+     * For framework so basically DON'T use this method.
+     * @param regionId The value of the column 'region_id'. (basically NotNull if update: for the constraint)
+     */
+    public void mynativeMappingRegionId(Integer regionId) {
+        setRegionId(regionId);
     }
 }

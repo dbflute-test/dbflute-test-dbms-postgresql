@@ -48,11 +48,62 @@ public abstract class AbstractBsServiceRankCQ extends AbstractConditionQuery {
     //                                                                               =====
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * (サービスランクコード)service_rank_code: {PK, NotNull, bpchar(3)}
+     * (サービスランクコード)service_rank_code: {PK, NotNull, bpchar(3), classification=ServiceRank}
      * @param serviceRankCode The value of serviceRankCode as equal. (NullAllowed: if null (or empty), no condition)
      */
-    public void setServiceRankCode_Equal(String serviceRankCode) {
+    protected void setServiceRankCode_Equal(String serviceRankCode) {
         doSetServiceRankCode_Equal(fRES(serviceRankCode));
+    }
+
+    /**
+     * Equal(=). As ServiceRank. And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * (サービスランクコード)service_rank_code: {PK, NotNull, bpchar(3), classification=ServiceRank} <br>
+     * 会員が受けられるサービスのランクを示す
+     * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, no condition)
+     */
+    public void setServiceRankCode_Equal_AsServiceRank(CDef.ServiceRank cdef) {
+        doSetServiceRankCode_Equal(cdef != null ? cdef.code() : null);
+    }
+
+    /**
+     * Equal(=). As Platinum (PLT). And OnlyOnceRegistered. <br>
+     * PLATINUM: platinum rank
+     */
+    public void setServiceRankCode_Equal_Platinum() {
+        setServiceRankCode_Equal_AsServiceRank(CDef.ServiceRank.Platinum);
+    }
+
+    /**
+     * Equal(=). As Gold (GLD). And OnlyOnceRegistered. <br>
+     * GOLD: gold rank
+     */
+    public void setServiceRankCode_Equal_Gold() {
+        setServiceRankCode_Equal_AsServiceRank(CDef.ServiceRank.Gold);
+    }
+
+    /**
+     * Equal(=). As Silver (SIL). And OnlyOnceRegistered. <br>
+     * SILVER: silver rank
+     */
+    public void setServiceRankCode_Equal_Silver() {
+        setServiceRankCode_Equal_AsServiceRank(CDef.ServiceRank.Silver);
+    }
+
+    /**
+     * Equal(=). As Bronze (BRZ). And OnlyOnceRegistered. <br>
+     * BRONZE: bronze rank
+     */
+    public void setServiceRankCode_Equal_Bronze() {
+        setServiceRankCode_Equal_AsServiceRank(CDef.ServiceRank.Bronze);
+    }
+
+    /**
+     * Equal(=). As Plastic (PLS). And OnlyOnceRegistered. <br>
+     * PLASTIC: plastic rank (deprecated: テーブル区分値の非推奨要素指定のテストのため)
+     */
+    @Deprecated
+    public void setServiceRankCode_Equal_Plastic() {
+        setServiceRankCode_Equal_AsServiceRank(CDef.ServiceRank.Plastic);
     }
 
     protected void doSetServiceRankCode_Equal(String serviceRankCode) {
@@ -61,11 +112,62 @@ public abstract class AbstractBsServiceRankCQ extends AbstractConditionQuery {
 
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
-     * (サービスランクコード)service_rank_code: {PK, NotNull, bpchar(3)}
+     * (サービスランクコード)service_rank_code: {PK, NotNull, bpchar(3), classification=ServiceRank}
      * @param serviceRankCode The value of serviceRankCode as notEqual. (NullAllowed: if null (or empty), no condition)
      */
-    public void setServiceRankCode_NotEqual(String serviceRankCode) {
+    protected void setServiceRankCode_NotEqual(String serviceRankCode) {
         doSetServiceRankCode_NotEqual(fRES(serviceRankCode));
+    }
+
+    /**
+     * NotEqual(&lt;&gt;). As ServiceRank. And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
+     * (サービスランクコード)service_rank_code: {PK, NotNull, bpchar(3), classification=ServiceRank} <br>
+     * 会員が受けられるサービスのランクを示す
+     * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, no condition)
+     */
+    public void setServiceRankCode_NotEqual_AsServiceRank(CDef.ServiceRank cdef) {
+        doSetServiceRankCode_NotEqual(cdef != null ? cdef.code() : null);
+    }
+
+    /**
+     * NotEqual(&lt;&gt;). As Platinum (PLT). And OnlyOnceRegistered. <br>
+     * PLATINUM: platinum rank
+     */
+    public void setServiceRankCode_NotEqual_Platinum() {
+        setServiceRankCode_NotEqual_AsServiceRank(CDef.ServiceRank.Platinum);
+    }
+
+    /**
+     * NotEqual(&lt;&gt;). As Gold (GLD). And OnlyOnceRegistered. <br>
+     * GOLD: gold rank
+     */
+    public void setServiceRankCode_NotEqual_Gold() {
+        setServiceRankCode_NotEqual_AsServiceRank(CDef.ServiceRank.Gold);
+    }
+
+    /**
+     * NotEqual(&lt;&gt;). As Silver (SIL). And OnlyOnceRegistered. <br>
+     * SILVER: silver rank
+     */
+    public void setServiceRankCode_NotEqual_Silver() {
+        setServiceRankCode_NotEqual_AsServiceRank(CDef.ServiceRank.Silver);
+    }
+
+    /**
+     * NotEqual(&lt;&gt;). As Bronze (BRZ). And OnlyOnceRegistered. <br>
+     * BRONZE: bronze rank
+     */
+    public void setServiceRankCode_NotEqual_Bronze() {
+        setServiceRankCode_NotEqual_AsServiceRank(CDef.ServiceRank.Bronze);
+    }
+
+    /**
+     * NotEqual(&lt;&gt;). As Plastic (PLS). And OnlyOnceRegistered. <br>
+     * PLASTIC: plastic rank (deprecated: テーブル区分値の非推奨要素指定のテストのため)
+     */
+    @Deprecated
+    public void setServiceRankCode_NotEqual_Plastic() {
+        setServiceRankCode_NotEqual_AsServiceRank(CDef.ServiceRank.Plastic);
     }
 
     protected void doSetServiceRankCode_NotEqual(String serviceRankCode) {
@@ -74,11 +176,21 @@ public abstract class AbstractBsServiceRankCQ extends AbstractConditionQuery {
 
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * (サービスランクコード)service_rank_code: {PK, NotNull, bpchar(3)}
+     * (サービスランクコード)service_rank_code: {PK, NotNull, bpchar(3), classification=ServiceRank}
      * @param serviceRankCodeList The collection of serviceRankCode as inScope. (NullAllowed: if null (or empty), no condition)
      */
     public void setServiceRankCode_InScope(Collection<String> serviceRankCodeList) {
         doSetServiceRankCode_InScope(serviceRankCodeList);
+    }
+
+    /**
+     * InScope {in ('a', 'b')}. As ServiceRank. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
+     * (サービスランクコード)service_rank_code: {PK, NotNull, bpchar(3), classification=ServiceRank} <br>
+     * 会員が受けられるサービスのランクを示す
+     * @param cdefList The list of classification definition (as ENUM type). (NullAllowed: if null (or empty), no condition)
+     */
+    public void setServiceRankCode_InScope_AsServiceRank(Collection<CDef.ServiceRank> cdefList) {
+        doSetServiceRankCode_InScope(cTStrL(cdefList));
     }
 
     protected void doSetServiceRankCode_InScope(Collection<String> serviceRankCodeList) {
@@ -87,11 +199,21 @@ public abstract class AbstractBsServiceRankCQ extends AbstractConditionQuery {
 
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
-     * (サービスランクコード)service_rank_code: {PK, NotNull, bpchar(3)}
+     * (サービスランクコード)service_rank_code: {PK, NotNull, bpchar(3), classification=ServiceRank}
      * @param serviceRankCodeList The collection of serviceRankCode as notInScope. (NullAllowed: if null (or empty), no condition)
      */
     public void setServiceRankCode_NotInScope(Collection<String> serviceRankCodeList) {
         doSetServiceRankCode_NotInScope(serviceRankCodeList);
+    }
+
+    /**
+     * NotInScope {not in ('a', 'b')}. As ServiceRank. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
+     * (サービスランクコード)service_rank_code: {PK, NotNull, bpchar(3), classification=ServiceRank} <br>
+     * 会員が受けられるサービスのランクを示す
+     * @param cdefList The list of classification definition (as ENUM type). (NullAllowed: if null (or empty), no condition)
+     */
+    public void setServiceRankCode_NotInScope_AsServiceRank(Collection<CDef.ServiceRank> cdefList) {
+        doSetServiceRankCode_NotInScope(cTStrL(cdefList));
     }
 
     protected void doSetServiceRankCode_NotInScope(Collection<String> serviceRankCodeList) {
@@ -99,70 +221,17 @@ public abstract class AbstractBsServiceRankCQ extends AbstractConditionQuery {
     }
 
     /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * (サービスランクコード)service_rank_code: {PK, NotNull, bpchar(3)} <br>
-     * <pre>e.g. setServiceRankCode_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param serviceRankCode The value of serviceRankCode as likeSearch. (NullAllowed: if null (or empty), no condition)
-     * @param opLambda The callback for option of like-search. (NotNull)
-     */
-    public void setServiceRankCode_LikeSearch(String serviceRankCode, ConditionOptionCall<LikeSearchOption> opLambda) {
-        setServiceRankCode_LikeSearch(serviceRankCode, xcLSOP(opLambda));
-    }
-
-    /**
-     * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * (サービスランクコード)service_rank_code: {PK, NotNull, bpchar(3)} <br>
-     * <pre>e.g. setServiceRankCode_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param serviceRankCode The value of serviceRankCode as likeSearch. (NullAllowed: if null (or empty), no condition)
-     * @param likeSearchOption The option of like-search. (NotNull)
-     */
-    public void setServiceRankCode_LikeSearch(String serviceRankCode, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_LS, fRES(serviceRankCode), xgetCValueServiceRankCode(), "service_rank_code", likeSearchOption);
-    }
-
-    /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
-     * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * (サービスランクコード)service_rank_code: {PK, NotNull, bpchar(3)}
-     * @param serviceRankCode The value of serviceRankCode as notLikeSearch. (NullAllowed: if null (or empty), no condition)
-     * @param opLambda The callback for option of like-search. (NotNull)
-     */
-    public void setServiceRankCode_NotLikeSearch(String serviceRankCode, ConditionOptionCall<LikeSearchOption> opLambda) {
-        setServiceRankCode_NotLikeSearch(serviceRankCode, xcLSOP(opLambda));
-    }
-
-    /**
-     * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
-     * And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * (サービスランクコード)service_rank_code: {PK, NotNull, bpchar(3)}
-     * @param serviceRankCode The value of serviceRankCode as notLikeSearch. (NullAllowed: if null (or empty), no condition)
-     * @param likeSearchOption The option of not-like-search. (NotNull)
-     */
-    public void setServiceRankCode_NotLikeSearch(String serviceRankCode, LikeSearchOption likeSearchOption) {
-        regLSQ(CK_NLS, fRES(serviceRankCode), xgetCValueServiceRankCode(), "service_rank_code", likeSearchOption);
-    }
-
-    /**
-     * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
-     * (サービスランクコード)service_rank_code: {PK, NotNull, bpchar(3)}
-     * @param serviceRankCode The value of serviceRankCode as prefixSearch. (NullAllowed: if null (or empty), no condition)
-     */
-    public void setServiceRankCode_PrefixSearch(String serviceRankCode) {
-        setServiceRankCode_LikeSearch(serviceRankCode, xcLSOPPre());
-    }
-
-    /**
      * Set up ExistsReferrer (correlated sub-query). <br>
      * {exists (select service_rank_code from member_service where ...)} <br>
      * (会員サービス)member_service by service_rank_code, named 'memberServiceAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">existsMemberServiceList</span>(serviceCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">existsMemberService</span>(serviceCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     serviceCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of MemberServiceList for 'exists'. (NotNull)
      */
-    public void existsMemberServiceList(SubQuery<MemberServiceCB> subCBLambda) {
+    public void existsMemberService(SubQuery<MemberServiceCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         MemberServiceCB cb = new MemberServiceCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepServiceRankCode_ExistsReferrer_MemberServiceList(cb.query());
@@ -175,13 +244,13 @@ public abstract class AbstractBsServiceRankCQ extends AbstractConditionQuery {
      * {not exists (select service_rank_code from member_service where ...)} <br>
      * (会員サービス)member_service by service_rank_code, named 'memberServiceAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsMemberServiceList</span>(serviceCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">notExistsMemberService</span>(serviceCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     serviceCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of ServiceRankCode_NotExistsReferrer_MemberServiceList for 'not exists'. (NotNull)
      */
-    public void notExistsMemberServiceList(SubQuery<MemberServiceCB> subCBLambda) {
+    public void notExistsMemberService(SubQuery<MemberServiceCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         MemberServiceCB cb = new MemberServiceCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepServiceRankCode_NotExistsReferrer_MemberServiceList(cb.query());
@@ -202,14 +271,14 @@ public abstract class AbstractBsServiceRankCQ extends AbstractConditionQuery {
      * {FOO &lt;= (select max(BAR) from member_service where ...)} <br>
      * (会員サービス)member_service by service_rank_code, named 'memberServiceAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedMemberServiceList()</span>.<span style="color: #CC4747">max</span>(serviceCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">derivedMemberService()</span>.<span style="color: #CC4747">max</span>(serviceCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     serviceCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *     serviceCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
      * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
      * </pre>
      * @return The object to set up a function for referrer table. (NotNull)
      */
-    public HpQDRFunction<MemberServiceCB> derivedMemberServiceList() {
+    public HpQDRFunction<MemberServiceCB> derivedMemberService() {
         return xcreateQDRFunctionMemberServiceList();
     }
     protected HpQDRFunction<MemberServiceCB> xcreateQDRFunctionMemberServiceList() {
@@ -226,13 +295,13 @@ public abstract class AbstractBsServiceRankCQ extends AbstractConditionQuery {
 
     /**
      * IsNull {is null}. And OnlyOnceRegistered. <br>
-     * (サービスランクコード)service_rank_code: {PK, NotNull, bpchar(3)}
+     * (サービスランクコード)service_rank_code: {PK, NotNull, bpchar(3), classification=ServiceRank}
      */
     public void setServiceRankCode_IsNull() { regServiceRankCode(CK_ISN, DOBJ); }
 
     /**
      * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
-     * (サービスランクコード)service_rank_code: {PK, NotNull, bpchar(3)}
+     * (サービスランクコード)service_rank_code: {PK, NotNull, bpchar(3), classification=ServiceRank}
      */
     public void setServiceRankCode_IsNotNull() { regServiceRankCode(CK_ISNN, DOBJ); }
 

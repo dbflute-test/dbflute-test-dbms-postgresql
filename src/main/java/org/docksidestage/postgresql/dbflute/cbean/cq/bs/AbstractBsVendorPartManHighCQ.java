@@ -379,8 +379,8 @@ public abstract class AbstractBsVendorPartManHighCQ extends AbstractConditionQue
      * part_man_date: {date(13)}
      * @param partManDate The value of partManDate as equal. (NullAllowed: if null, no condition)
      */
-    public void setPartManDate_Equal(java.util.Date partManDate) {
-        regPartManDate(CK_EQ,  fCTPD(partManDate));
+    public void setPartManDate_Equal(java.time.LocalDate partManDate) {
+        regPartManDate(CK_EQ,  partManDate);
     }
 
     /**
@@ -388,8 +388,8 @@ public abstract class AbstractBsVendorPartManHighCQ extends AbstractConditionQue
      * part_man_date: {date(13)}
      * @param partManDate The value of partManDate as greaterThan. (NullAllowed: if null, no condition)
      */
-    public void setPartManDate_GreaterThan(java.util.Date partManDate) {
-        regPartManDate(CK_GT,  fCTPD(partManDate));
+    public void setPartManDate_GreaterThan(java.time.LocalDate partManDate) {
+        regPartManDate(CK_GT,  partManDate);
     }
 
     /**
@@ -397,8 +397,8 @@ public abstract class AbstractBsVendorPartManHighCQ extends AbstractConditionQue
      * part_man_date: {date(13)}
      * @param partManDate The value of partManDate as lessThan. (NullAllowed: if null, no condition)
      */
-    public void setPartManDate_LessThan(java.util.Date partManDate) {
-        regPartManDate(CK_LT,  fCTPD(partManDate));
+    public void setPartManDate_LessThan(java.time.LocalDate partManDate) {
+        regPartManDate(CK_LT,  partManDate);
     }
 
     /**
@@ -406,8 +406,8 @@ public abstract class AbstractBsVendorPartManHighCQ extends AbstractConditionQue
      * part_man_date: {date(13)}
      * @param partManDate The value of partManDate as greaterEqual. (NullAllowed: if null, no condition)
      */
-    public void setPartManDate_GreaterEqual(java.util.Date partManDate) {
-        regPartManDate(CK_GE,  fCTPD(partManDate));
+    public void setPartManDate_GreaterEqual(java.time.LocalDate partManDate) {
+        regPartManDate(CK_GE,  partManDate);
     }
 
     /**
@@ -415,8 +415,8 @@ public abstract class AbstractBsVendorPartManHighCQ extends AbstractConditionQue
      * part_man_date: {date(13)}
      * @param partManDate The value of partManDate as lessEqual. (NullAllowed: if null, no condition)
      */
-    public void setPartManDate_LessEqual(java.util.Date partManDate) {
-        regPartManDate(CK_LE, fCTPD(partManDate));
+    public void setPartManDate_LessEqual(java.time.LocalDate partManDate) {
+        regPartManDate(CK_LE, partManDate);
     }
 
     /**
@@ -428,7 +428,7 @@ public abstract class AbstractBsVendorPartManHighCQ extends AbstractConditionQue
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of partManDate. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of from-to. (NotNull)
      */
-    public void setPartManDate_FromTo(Date fromDatetime, Date toDatetime, ConditionOptionCall<FromToOption> opLambda) {
+    public void setPartManDate_FromTo(java.time.LocalDate fromDatetime, java.time.LocalDate toDatetime, ConditionOptionCall<FromToOption> opLambda) {
         setPartManDate_FromTo(fromDatetime, toDatetime, xcFTOP(opLambda));
     }
 
@@ -441,8 +441,9 @@ public abstract class AbstractBsVendorPartManHighCQ extends AbstractConditionQue
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of partManDate. (NullAllowed: if null, no to-condition)
      * @param fromToOption The option of from-to. (NotNull)
      */
-    public void setPartManDate_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ(fCTPD(fromDatetime), fCTPD(toDatetime), xgetCValuePartManDate(), "part_man_date", fromToOption);
+    public void setPartManDate_FromTo(java.time.LocalDate fromDatetime, java.time.LocalDate toDatetime, FromToOption fromToOption) {
+        String nm = "part_man_date"; FromToOption op = fromToOption;
+        regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValuePartManDate(), nm, op);
     }
 
     /**
@@ -456,7 +457,7 @@ public abstract class AbstractBsVendorPartManHighCQ extends AbstractConditionQue
      * @param fromDate The from-date(yyyy/MM/dd) of partManDate. (NullAllowed: if null, no from-condition)
      * @param toDate The to-date(yyyy/MM/dd) of partManDate. (NullAllowed: if null, no to-condition)
      */
-    public void setPartManDate_DateFromTo(Date fromDate, Date toDate) {
+    public void setPartManDate_DateFromTo(java.time.LocalDate fromDate, java.time.LocalDate toDate) {
         setPartManDate_FromTo(fromDate, toDate, xcDFTOP());
     }
 

@@ -3,9 +3,11 @@ package org.docksidestage.postgresql.dbflute.bsentity;
 import java.util.List;
 import java.util.ArrayList;
 
+import org.dbflute.Entity;
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
 import org.dbflute.dbmeta.accessory.DomainEntity;
+import org.dbflute.optional.OptionalEntity;
 import org.docksidestage.postgresql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
@@ -42,7 +44,7 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  * [get/set template]
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * Integer barId = entity.getBarId();
- * java.util.Date barDate = entity.getBarDate();
+ * java.time.LocalDate barDate = entity.getBarDate();
  * entity.setBarId(barId);
  * entity.setBarDate(barDate);
  * = = = = = = = = = =/
@@ -64,7 +66,7 @@ public abstract class BsVendorDateFk extends AbstractEntity implements DomainEnt
     protected Integer _barId;
 
     /** bar_date: {NotNull, date(13), FK to vendor_date_pk} */
-    protected java.util.Date _barDate;
+    protected java.time.LocalDate _barDate;
 
     // ===================================================================================
     //                                                                          Table Name
@@ -100,13 +102,15 @@ public abstract class BsVendorDateFk extends AbstractEntity implements DomainEnt
     //                                                                    Foreign Property
     //                                                                    ================
     /** vendor_date_pk by my bar_date, named 'vendorDatePk'. */
-    protected VendorDatePk _vendorDatePk;
+    protected OptionalEntity<VendorDatePk> _vendorDatePk;
 
     /**
      * [get] vendor_date_pk by my bar_date, named 'vendorDatePk'. <br>
-     * @return The entity of foreign property 'vendorDatePk'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'vendorDatePk'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public VendorDatePk getVendorDatePk() {
+    public OptionalEntity<VendorDatePk> getVendorDatePk() {
+        if (_vendorDatePk == null) { _vendorDatePk = OptionalEntity.relationEmpty(this, "vendorDatePk"); }
         return _vendorDatePk;
     }
 
@@ -114,7 +118,7 @@ public abstract class BsVendorDateFk extends AbstractEntity implements DomainEnt
      * [set] vendor_date_pk by my bar_date, named 'vendorDatePk'.
      * @param vendorDatePk The entity of foreign property 'vendorDatePk'. (NullAllowed)
      */
-    public void setVendorDatePk(VendorDatePk vendorDatePk) {
+    public void setVendorDatePk(OptionalEntity<VendorDatePk> vendorDatePk) {
         _vendorDatePk = vendorDatePk;
     }
 
@@ -150,16 +154,19 @@ public abstract class BsVendorDateFk extends AbstractEntity implements DomainEnt
     @Override
     protected String doBuildStringWithRelation(String li) {
         StringBuilder sb = new StringBuilder();
-        if (_vendorDatePk != null)
+        if (_vendorDatePk != null && _vendorDatePk.isPresent())
         { sb.append(li).append(xbRDS(_vendorDatePk, "vendorDatePk")); }
         return sb.toString();
+    }
+    protected <ET extends Entity> String xbRDS(org.dbflute.optional.OptionalEntity<ET> et, String name) { // buildRelationDisplayString()
+        return et.get().buildDisplayString(name, true, true);
     }
 
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
         sb.append(dm).append(xfND(_barId));
-        sb.append(dm).append(xfUD(_barDate));
+        sb.append(dm).append(xfND(_barDate));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -170,7 +177,7 @@ public abstract class BsVendorDateFk extends AbstractEntity implements DomainEnt
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_vendorDatePk != null)
+        if (_vendorDatePk != null && _vendorDatePk.isPresent())
         { sb.append(dm).append("vendorDatePk"); }
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length()).insert(0, "(").append(")");
@@ -208,7 +215,7 @@ public abstract class BsVendorDateFk extends AbstractEntity implements DomainEnt
      * [get] bar_date: {NotNull, date(13), FK to vendor_date_pk} <br>
      * @return The value of the column 'bar_date'. (basically NotNull if selected: for the constraint)
      */
-    public java.util.Date getBarDate() {
+    public java.time.LocalDate getBarDate() {
         checkSpecifiedProperty("barDate");
         return _barDate;
     }
@@ -217,7 +224,7 @@ public abstract class BsVendorDateFk extends AbstractEntity implements DomainEnt
      * [set] bar_date: {NotNull, date(13), FK to vendor_date_pk} <br>
      * @param barDate The value of the column 'bar_date'. (basically NotNull if update: for the constraint)
      */
-    public void setBarDate(java.util.Date barDate) {
+    public void setBarDate(java.time.LocalDate barDate) {
         registerModifiedProperty("barDate");
         _barDate = barDate;
     }

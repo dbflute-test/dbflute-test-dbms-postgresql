@@ -26,6 +26,7 @@ public class WxBhvQueryUpdatePostgreSQLTest extends UnitContainerTestCase {
     public void test_queryUpdate_basic() {
         // ## Arrange ##
         Member member = new Member();
+        member.setMemberName("queryUpdate()");
         member.setMemberStatusCode_Provisional();
         member.setFormalizedDatetime(null);
 
@@ -38,6 +39,7 @@ public class WxBhvQueryUpdatePostgreSQLTest extends UnitContainerTestCase {
         // ## Assert ##
         assertNotSame(0, updatedCount);
         MemberCB actualCB = new MemberCB();
+        actualCB.query().setMemberName_Equal("queryUpdate()");
         actualCB.query().setMemberStatusCode_Equal_Provisional();
         actualCB.query().setFormalizedDatetime_IsNull();
         actualCB.query().setUpdateUser_Equal(getAccessContext().getAccessUser()); // common column
@@ -106,7 +108,7 @@ public class WxBhvQueryUpdatePostgreSQLTest extends UnitContainerTestCase {
 
         MemberCB cb = new MemberCB();
         cb.query().setMemberStatusCode_Equal_Formalized();
-        cb.query().existsPurchaseList(new SubQuery<PurchaseCB>() {
+        cb.query().existsPurchase(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
                 subCB.query().setPurchasePrice_GreaterEqual(2000);
             }
@@ -121,7 +123,7 @@ public class WxBhvQueryUpdatePostgreSQLTest extends UnitContainerTestCase {
         actualCB.query().setMemberStatusCode_Equal_Provisional();
         actualCB.query().setFormalizedDatetime_IsNull();
         actualCB.query().setUpdateUser_Equal(getAccessContext().getAccessUser());
-        actualCB.query().existsPurchaseList(new SubQuery<PurchaseCB>() {
+        actualCB.query().existsPurchase(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
                 subCB.query().setPurchasePrice_GreaterEqual(2000);
             }
@@ -182,7 +184,7 @@ public class WxBhvQueryUpdatePostgreSQLTest extends UnitContainerTestCase {
         // ## Arrange ##
         deleteMemberReferrer();
         MemberCB cb = new MemberCB();
-        cb.query().existsPurchaseList(new SubQuery<PurchaseCB>() {
+        cb.query().existsPurchase(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
                 subCB.query().setPurchasePrice_GreaterEqual(2000);
             }

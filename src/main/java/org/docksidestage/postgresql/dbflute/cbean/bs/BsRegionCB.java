@@ -12,6 +12,7 @@ import org.dbflute.cbean.scoping.*;
 import org.dbflute.dbmeta.DBMetaProvider;
 import org.dbflute.twowaysql.factory.SqlAnalyzerFactory;
 import org.dbflute.twowaysql.style.BoundDateDisplayTimeZoneProvider;
+import org.docksidestage.postgresql.dbflute.allcommon.CDef;
 import org.docksidestage.postgresql.dbflute.allcommon.DBFluteConfig;
 import org.docksidestage.postgresql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.postgresql.dbflute.allcommon.ImplementedInvokerAssistant;
@@ -80,13 +81,13 @@ public class BsRegionCB extends AbstractConditionBean {
     //                                                                 ===================
     /**
      * Accept the query condition of primary key as equal.
-     * @param regionId (地域ID): PK, NotNull, int4(10). (NotNull)
+     * @param regionId (地域ID): PK, NotNull, int4(10), classification=Region. (NotNull)
      * @return this. (NotNull)
      */
-    public RegionCB acceptPK(Integer regionId) {
+    public RegionCB acceptPK(CDef.Region regionId) {
         assertObjectNotNull("regionId", regionId);
         BsRegionCB cb = this;
-        cb.query().setRegionId_Equal(regionId);
+        cb.query().setRegionId_Equal_AsRegion(regionId);
         return (RegionCB)this;
     }
 
@@ -297,7 +298,7 @@ public class BsRegionCB extends AbstractConditionBean {
                              , HpSDRFunctionFactory sdrFuncFactory)
         { super(baseCB, qyCall, purpose, dbmetaProvider, sdrFuncFactory); }
         /**
-         * (地域ID)region_id: {PK, NotNull, int4(10)}
+         * (地域ID)region_id: {PK, NotNull, int4(10), classification=Region}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnRegionId() { return doColumn("region_id"); }
@@ -326,7 +327,7 @@ public class BsRegionCB extends AbstractConditionBean {
          * </pre>
          * @return The object to set up a function for referrer table. (NotNull)
          */
-        public HpSDRFunction<MemberAddressCB, RegionCQ> derivedMemberAddressList() {
+        public HpSDRFunction<MemberAddressCB, RegionCQ> derivedMemberAddress() {
             assertDerived("memberAddressList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
             return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsderiveMemberAddressList(fn, sq, al, op), _dbmetaProvider);
         }
@@ -338,6 +339,24 @@ public class BsRegionCB extends AbstractConditionBean {
             assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
             return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
         }
+    }
+
+    // ===================================================================================
+    //                                                                        Dream Cruise
+    //                                                                        ============
+    /**
+     * Welcome to the Dream Cruise for condition-bean deep world. <br>
+     * This is very specialty so you can get the frontier spirit. Bon voyage!
+     * @return The condition-bean for dream cruise, which is linked to main condition-bean.
+     */
+    public RegionCB dreamCruiseCB() {
+        RegionCB cb = new RegionCB();
+        cb.xsetupForDreamCruise((RegionCB) this);
+        return cb;
+    }
+
+    protected ConditionBean xdoCreateDreamCruiseCB() {
+        return dreamCruiseCB();
     }
 
     // [DBFlute-0.9.5.3]
@@ -371,24 +390,6 @@ public class BsRegionCB extends AbstractConditionBean {
         RegionCB cb = new RegionCB();
         cb.xsetupForColumnQuery((RegionCB)this);
         return cb;
-    }
-
-    // ===================================================================================
-    //                                                                        Dream Cruise
-    //                                                                        ============
-    /**
-     * Welcome to the Dream Cruise for condition-bean deep world. <br>
-     * This is very specialty so you can get the frontier spirit. Bon voyage!
-     * @return The condition-bean for dream cruise, which is linked to main condition-bean.
-     */
-    public RegionCB dreamCruiseCB() {
-        RegionCB cb = new RegionCB();
-        cb.xsetupForDreamCruise((RegionCB) this);
-        return cb;
-    }
-
-    protected ConditionBean xdoCreateDreamCruiseCB() {
-        return dreamCruiseCB();
     }
 
     // [DBFlute-0.9.6.3]

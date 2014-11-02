@@ -37,8 +37,17 @@ public class RegionDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
-        setupEpg(_epgMap, et -> ((Region)et).getRegionId(), (et, vl) -> ((Region)et).setRegionId(cti(vl)), "regionId");
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
+        setupEpg(_epgMap, et -> ((Region)et).getRegionId(), (et, vl) -> {
+            ColumnInfo col = columnRegionId();
+            CDef.Region cls = (CDef.Region)gcls(col, vl);
+            if (cls != null) {
+                ((Region)et).setRegionIdAsRegion(cls);
+            } else {
+                ((Region)et).mynativeMappingRegionId(ctn(vl, Integer.class));
+            }
+        }, "regionId");
         setupEpg(_epgMap, et -> ((Region)et).getRegionName(), (et, vl) -> ((Region)et).setRegionName((String)vl), "regionName");
     }
     public PropertyGateway findPropertyGateway(String prop)
@@ -62,11 +71,11 @@ public class RegionDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnRegionId = cci("region_id", "region_id", null, "地域ID", Integer.class, "regionId", null, true, false, true, "int4", 10, 0, null, false, null, "地域を識別するID。\n珍しく(固定的な)マスタテーブルとしては数値だが、\nExampleなのでやはり色々なパターンがないと。", null, "memberAddressList", null);
+    protected final ColumnInfo _columnRegionId = cci("region_id", "region_id", null, "地域ID", Integer.class, "regionId", null, true, false, true, "int4", 10, 0, null, false, null, "地域を識別するID。\n珍しく(固定的な)マスタテーブルとしては数値だが、\nExampleなのでやはり色々なパターンがないと。", null, "memberAddressList", CDef.DefMeta.Region);
     protected final ColumnInfo _columnRegionName = cci("region_name", "region_name", null, "地域名称", String.class, "regionName", null, false, false, true, "varchar", 50, 0, null, false, null, "地域を表す名称。", null, null, null);
 
     /**
-     * (地域ID)region_id: {PK, NotNull, int4(10)}
+     * (地域ID)region_id: {PK, NotNull, int4(10), classification=Region}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnRegionId() { return _columnRegionId; }

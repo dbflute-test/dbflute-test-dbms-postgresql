@@ -44,7 +44,7 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  * Integer partManId = entity.getPartManId();
  * String partManName = entity.getPartManName();
  * Integer partManPoint = entity.getPartManPoint();
- * java.util.Date partManDate = entity.getPartManDate();
+ * java.time.LocalDate partManDate = entity.getPartManDate();
  * entity.setPartManId(partManId);
  * entity.setPartManName(partManName);
  * entity.setPartManPoint(partManPoint);
@@ -74,7 +74,7 @@ public abstract class BsVendorPartManHigh extends AbstractEntity implements Doma
     protected Integer _partManPoint;
 
     /** part_man_date: {date(13)} */
-    protected java.util.Date _partManDate;
+    protected java.time.LocalDate _partManDate;
 
     // ===================================================================================
     //                                                                          Table Name
@@ -149,7 +149,7 @@ public abstract class BsVendorPartManHigh extends AbstractEntity implements Doma
         sb.append(dm).append(xfND(_partManId));
         sb.append(dm).append(xfND(_partManName));
         sb.append(dm).append(xfND(_partManPoint));
-        sb.append(dm).append(xfUD(_partManDate));
+        sb.append(dm).append(xfND(_partManDate));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -228,7 +228,7 @@ public abstract class BsVendorPartManHigh extends AbstractEntity implements Doma
      * [get] part_man_date: {date(13)} <br>
      * @return The value of the column 'part_man_date'. (NullAllowed even if selected: for no constraint)
      */
-    public java.util.Date getPartManDate() {
+    public java.time.LocalDate getPartManDate() {
         checkSpecifiedProperty("partManDate");
         return _partManDate;
     }
@@ -237,7 +237,7 @@ public abstract class BsVendorPartManHigh extends AbstractEntity implements Doma
      * [set] part_man_date: {date(13)} <br>
      * @param partManDate The value of the column 'part_man_date'. (NullAllowed: null update allowed for no constraint)
      */
-    public void setPartManDate(java.util.Date partManDate) {
+    public void setPartManDate(java.time.LocalDate partManDate) {
         registerModifiedProperty("partManDate");
         _partManDate = partManDate;
     }

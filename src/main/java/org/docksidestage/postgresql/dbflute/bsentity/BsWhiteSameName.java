@@ -3,9 +3,11 @@ package org.docksidestage.postgresql.dbflute.bsentity;
 import java.util.List;
 import java.util.ArrayList;
 
+import org.dbflute.Entity;
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
 import org.dbflute.dbmeta.accessory.DomainEntity;
+import org.dbflute.optional.OptionalEntity;
 import org.docksidestage.postgresql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
@@ -110,13 +112,15 @@ public abstract class BsWhiteSameName extends AbstractEntity implements DomainEn
     //                                                                    Foreign Property
     //                                                                    ================
     /** next_schema_product by my next_schema_product_id, named 'nextSchemaProduct'. */
-    protected NextSchemaProduct _nextSchemaProduct;
+    protected OptionalEntity<NextSchemaProduct> _nextSchemaProduct;
 
     /**
      * [get] next_schema_product by my next_schema_product_id, named 'nextSchemaProduct'. <br>
-     * @return The entity of foreign property 'nextSchemaProduct'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'nextSchemaProduct'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public NextSchemaProduct getNextSchemaProduct() {
+    public OptionalEntity<NextSchemaProduct> getNextSchemaProduct() {
+        if (_nextSchemaProduct == null) { _nextSchemaProduct = OptionalEntity.relationEmpty(this, "nextSchemaProduct"); }
         return _nextSchemaProduct;
     }
 
@@ -124,7 +128,7 @@ public abstract class BsWhiteSameName extends AbstractEntity implements DomainEn
      * [set] next_schema_product by my next_schema_product_id, named 'nextSchemaProduct'.
      * @param nextSchemaProduct The entity of foreign property 'nextSchemaProduct'. (NullAllowed)
      */
-    public void setNextSchemaProduct(NextSchemaProduct nextSchemaProduct) {
+    public void setNextSchemaProduct(OptionalEntity<NextSchemaProduct> nextSchemaProduct) {
         _nextSchemaProduct = nextSchemaProduct;
     }
 
@@ -180,11 +184,14 @@ public abstract class BsWhiteSameName extends AbstractEntity implements DomainEn
     @Override
     protected String doBuildStringWithRelation(String li) {
         StringBuilder sb = new StringBuilder();
-        if (_nextSchemaProduct != null)
+        if (_nextSchemaProduct != null && _nextSchemaProduct.isPresent())
         { sb.append(li).append(xbRDS(_nextSchemaProduct, "nextSchemaProduct")); }
         if (_whiteSameNameRefList != null) { for (WhiteSameNameRef et : _whiteSameNameRefList)
         { if (et != null) { sb.append(li).append(xbRDS(et, "whiteSameNameRefList")); } } }
         return sb.toString();
+    }
+    protected <ET extends Entity> String xbRDS(org.dbflute.optional.OptionalEntity<ET> et, String name) { // buildRelationDisplayString()
+        return et.get().buildDisplayString(name, true, true);
     }
 
     @Override
@@ -204,7 +211,7 @@ public abstract class BsWhiteSameName extends AbstractEntity implements DomainEn
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_nextSchemaProduct != null)
+        if (_nextSchemaProduct != null && _nextSchemaProduct.isPresent())
         { sb.append(dm).append("nextSchemaProduct"); }
         if (_whiteSameNameRefList != null && !_whiteSameNameRefList.isEmpty())
         { sb.append(dm).append("whiteSameNameRefList"); }
