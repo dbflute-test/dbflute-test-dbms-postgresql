@@ -6,7 +6,6 @@ import java.sql.SQLException;
 import java.util.Vector;
 
 import org.dbflute.cbean.result.ListResultBean;
-import org.dbflute.jdbc.StatementConfig;
 import org.dbflute.util.DfReflectionUtil;
 import org.docksidestage.postgresql.dbflute.allcommon.DBFluteConfig;
 import org.docksidestage.postgresql.dbflute.cbean.MemberCB;
@@ -108,8 +107,7 @@ public class WxCursorSelectPostgreSQLTest extends UnitContainerTestCase {
         PurchaseSummaryMemberPmb pmb = new PurchaseSummaryMemberPmb();
 
         // ## Act ##
-        StatementConfig config = new StatementConfig().suppressDefault();
-        memberBhv.outsideSql().configure(config).selectCursor(pmb, new PurchaseSummaryMemberCursorHandler() {
+        memberBhv.outsideSql().configure(conf -> conf.suppressDefault()).selectCursor(pmb, new PurchaseSummaryMemberCursorHandler() {
             @Override
             protected Object fetchCursor(PurchaseSummaryMemberCursor cursor) throws SQLException {
                 // ## Assert ##

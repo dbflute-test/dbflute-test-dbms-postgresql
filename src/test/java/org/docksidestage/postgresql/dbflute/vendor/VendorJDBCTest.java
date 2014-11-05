@@ -26,7 +26,6 @@ import org.dbflute.exception.SQLFailureException;
 import org.dbflute.hook.CallbackContext;
 import org.dbflute.hook.SqlLogHandler;
 import org.dbflute.hook.SqlLogInfo;
-import org.dbflute.jdbc.StatementConfig;
 import org.dbflute.utflute.core.thread.ThreadFireExecution;
 import org.dbflute.utflute.core.thread.ThreadFireOption;
 import org.dbflute.utflute.core.thread.ThreadFireResource;
@@ -104,8 +103,6 @@ public class VendorJDBCTest extends UnitContainerTestCase {
     public void test_ResultSet_rowData_specifyFetchSize() {
         // ## Arrange ##
         PurchaseSummaryMemberPmb pmb = new PurchaseSummaryMemberPmb();
-        StatementConfig config = new StatementConfig();
-        config.fetchSize(3); // and transaction is required for fetching
 
         // ## Act ##
         PurchaseSummaryMemberCursorHandler handler = new PurchaseSummaryMemberCursorHandler() {
@@ -140,7 +137,7 @@ public class VendorJDBCTest extends UnitContainerTestCase {
                 return null;
             }
         };
-        memberBhv.outsideSql().configure(config).selectCursor(pmb, handler);
+        memberBhv.outsideSql().configure(conf -> conf.fetchSize(3)).selectCursor(pmb, handler); // and transaction is required for fetching
     }
 
     protected int assertDbAccess() {
@@ -204,17 +201,18 @@ public class VendorJDBCTest extends UnitContainerTestCase {
                             return null;
                         }
                     };
-                    StatementConfig config = new StatementConfig().fetchSize(4);
-                    if (TestingResultSetType.FORWARD_ONLY.equals(resultSetType)) {
-                        config.typeForwardOnly();
-                    } else if (TestingResultSetType.SCROLL_INSENSITIVE.equals(resultSetType)) {
-                        config.typeScrollInsensitive();
-                    } else if (sensitive) {
-                        config.typeScrollSensitive();
-                    } else {
-                        fail();
-                    }
-                    memberBhv.outsideSql().configure(config).selectCursor(pmb, handler);
+                    memberBhv.outsideSql().configure(conf -> {
+                        conf.fetchSize(4);
+                        if (TestingResultSetType.FORWARD_ONLY.equals(resultSetType)) {
+                            conf.typeForwardOnly();
+                        } else if (TestingResultSetType.SCROLL_INSENSITIVE.equals(resultSetType)) {
+                            conf.typeScrollInsensitive();
+                        } else if (sensitive) {
+                            conf.typeScrollSensitive();
+                        } else {
+                            fail();
+                        }
+                    }).selectCursor(pmb, handler);
                 } else {
                     sleep(500);
                     MemberCB cb = new MemberCB();
@@ -272,7 +270,7 @@ public class VendorJDBCTest extends UnitContainerTestCase {
                     member.setMemberAccount("same"); // same value to wait for lock
                     member.setMemberStatusCode_Formalized();
                     sleep(1000);
-                    memberBhv.varyingInsert(member, op -> op.configure(new StatementConfig().queryTimeout(1)));
+                    memberBhv.varyingInsert(member, op -> op.configure(conf -> conf.queryTimeout(1)));
                 }
                 return null;
             }
