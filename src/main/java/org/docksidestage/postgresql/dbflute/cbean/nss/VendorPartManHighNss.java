@@ -11,7 +11,7 @@ public class VendorPartManHighNss {
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    protected VendorPartManHighCQ _query;
+    protected final VendorPartManHighCQ _query;
     public VendorPartManHighNss(VendorPartManHighCQ query) { _query = query; }
     public boolean hasConditionQuery() { return _query != null; }
 

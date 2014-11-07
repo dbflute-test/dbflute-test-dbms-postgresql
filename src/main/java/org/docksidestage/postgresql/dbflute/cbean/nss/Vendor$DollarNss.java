@@ -11,7 +11,7 @@ public class Vendor$DollarNss {
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    protected Vendor$DollarCQ _query;
+    protected final Vendor$DollarCQ _query;
     public Vendor$DollarNss(Vendor$DollarCQ query) { _query = query; }
     public boolean hasConditionQuery() { return _query != null; }
 

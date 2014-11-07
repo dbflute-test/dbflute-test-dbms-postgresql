@@ -333,7 +333,8 @@ public class BsNextschemaWhiteSameNameCB extends AbstractConditionBean {
          */
         public HpSDRFunction<NextschemaWhiteSameNameRefCB, NextschemaWhiteSameNameCQ> derivedWhiteSameNameRef() {
             assertDerived("whiteSameNameRefList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsderiveWhiteSameNameRefList(fn, sq, al, op), _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (String fn, SubQuery<NextschemaWhiteSameNameRefCB> sq, NextschemaWhiteSameNameCQ cq, String al, DerivedReferrerOption op)
+                    -> cq.xsderiveWhiteSameNameRefList(fn, sq, al, op), _dbmetaProvider);
         }
         /**
          * Prepare for (Specify)MyselfDerived (SubQuery).
@@ -341,7 +342,8 @@ public class BsNextschemaWhiteSameNameCB extends AbstractConditionBean {
          */
         public HpSDRFunction<NextschemaWhiteSameNameCB, NextschemaWhiteSameNameCQ> myselfDerived() {
             assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (String fn, SubQuery<NextschemaWhiteSameNameCB> sq, NextschemaWhiteSameNameCQ cq, String al, DerivedReferrerOption op)
+                    -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
         }
     }
 

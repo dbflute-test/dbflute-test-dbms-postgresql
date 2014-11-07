@@ -459,7 +459,8 @@ public class BsVendor_non_compilableCB extends AbstractConditionBean {
          */
         public HpSDRFunction<Vendor_non_compilableCB, Vendor_non_compilableCQ> derivedVendor_non_compilableByNextParentidSelf() {
             assertDerived("vendor_non_compilableByNextParentidSelfList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsderiveVendor_non_compilableByNextParentidSelfList(fn, sq, al, op), _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (String fn, SubQuery<Vendor_non_compilableCB> sq, Vendor_non_compilableCQ cq, String al, DerivedReferrerOption op)
+                    -> cq.xsderiveVendor_non_compilableByNextParentidSelfList(fn, sq, al, op), _dbmetaProvider);
         }
         /**
          * Prepare for (Specify)DerivedReferrer (correlated sub-query). <br>
@@ -475,7 +476,8 @@ public class BsVendor_non_compilableCB extends AbstractConditionBean {
          */
         public HpSDRFunction<Vendor_non_compilableCB, Vendor_non_compilableCQ> derivedVendor_non_compilableByParent_idSelf() {
             assertDerived("vendor_non_compilableByParent_idSelfList"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsderiveVendor_non_compilableByParent_idSelfList(fn, sq, al, op), _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (String fn, SubQuery<Vendor_non_compilableCB> sq, Vendor_non_compilableCQ cq, String al, DerivedReferrerOption op)
+                    -> cq.xsderiveVendor_non_compilableByParent_idSelfList(fn, sq, al, op), _dbmetaProvider);
         }
         /**
          * Prepare for (Specify)MyselfDerived (SubQuery).
@@ -483,7 +485,8 @@ public class BsVendor_non_compilableCB extends AbstractConditionBean {
          */
         public HpSDRFunction<Vendor_non_compilableCB, Vendor_non_compilableCQ> myselfDerived() {
             assertDerived("myselfDerived"); if (xhasSyncQyCall()) { xsyncQyCall().qy(); } // for sync (for example, this in ColumnQuery)
-            return cHSDRF(_baseCB, _qyCall.qy(), (fn, sq, cq, al, op) -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
+            return cHSDRF(_baseCB, _qyCall.qy(), (String fn, SubQuery<Vendor_non_compilableCB> sq, Vendor_non_compilableCQ cq, String al, DerivedReferrerOption op)
+                    -> cq.xsmyselfDerive(fn, sq, al, op), _dbmetaProvider);
         }
     }
 

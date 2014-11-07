@@ -11,7 +11,7 @@ public class VendorDateFkNss {
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    protected VendorDateFkCQ _query;
+    protected final VendorDateFkCQ _query;
     public VendorDateFkNss(VendorDateFkCQ query) { _query = query; }
     public boolean hasConditionQuery() { return _query != null; }
 

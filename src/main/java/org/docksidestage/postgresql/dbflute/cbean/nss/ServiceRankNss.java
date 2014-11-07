@@ -11,7 +11,7 @@ public class ServiceRankNss {
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    protected ServiceRankCQ _query;
+    protected final ServiceRankCQ _query;
     public ServiceRankNss(ServiceRankCQ query) { _query = query; }
     public boolean hasConditionQuery() { return _query != null; }
 
