@@ -26,9 +26,9 @@ import org.dbflute.exception.SQLFailureException;
 import org.dbflute.hook.CallbackContext;
 import org.dbflute.hook.SqlLogHandler;
 import org.dbflute.hook.SqlLogInfo;
-import org.dbflute.utflute.core.thread.ThreadFireExecution;
-import org.dbflute.utflute.core.thread.ThreadFireOption;
-import org.dbflute.utflute.core.thread.ThreadFireResource;
+import org.dbflute.utflute.core.cannonball.CannonballCar;
+import org.dbflute.utflute.core.cannonball.CannonballOption;
+import org.dbflute.utflute.core.cannonball.CannonballRun;
 import org.dbflute.utflute.core.transaction.TransactionPerformer;
 import org.dbflute.util.DfReflectionUtil;
 import org.docksidestage.postgresql.dbflute.allcommon.CDef;
@@ -177,9 +177,9 @@ public class VendorJDBCTest extends UnitContainerTestCase {
         final boolean sensitive = TestingResultSetType.SCROLL_SENSITIVE.equals(resultSetType);
 
         // ## Act ##
-        threadFire(new ThreadFireExecution<Void>() {
-            public Void execute(ThreadFireResource resource) {
-                long threadId = resource.getThreadId();
+        cannonball(new CannonballRun() {
+            public void drive(CannonballCar car) {
+                long threadId = car.getThreadId();
                 log("threadId: " + threadId);
                 if (threadId % 2 == 0) {
                     PurchaseSummaryMemberPmb pmb = new PurchaseSummaryMemberPmb();
@@ -220,9 +220,8 @@ public class VendorJDBCTest extends UnitContainerTestCase {
                     member.setBirthdate(updateDate);
                     memberBhv.varyingQueryUpdate(member, cb, op -> op.allowNonQueryUpdate());
                 }
-                return null;
             }
-        }, new ThreadFireOption().commitTx().threadCount(2).repeatCount(1));
+        }, new CannonballOption().commitTx().threadCount(2).repeatCount(1));
         performNewTransaction(new TransactionPerformer() {
             public boolean perform() {
                 memberBhv.varyingBatchUpdateNonstrict(beforeList, op -> op.specify(colCB -> {
@@ -254,8 +253,8 @@ public class VendorJDBCTest extends UnitContainerTestCase {
     //                                                                       Query Timeout
     //                                                                       =============
     public void test_QueryTimeout_insert() throws Exception {
-        threadFire(new ThreadFireExecution<Void>() {
-            public Void execute(ThreadFireResource resource) {
+        cannonball(new CannonballRun() {
+            public void drive(CannonballCar car) {
                 final long threadId = Thread.currentThread().getId();
                 if (threadId % 2 == 0) {
                     Member member = new Member();
@@ -272,9 +271,8 @@ public class VendorJDBCTest extends UnitContainerTestCase {
                     sleep(1000);
                     memberBhv.varyingInsert(member, op -> op.configure(conf -> conf.queryTimeout(1)));
                 }
-                return null;
             }
-        }, new ThreadFireOption().threadCount(2).repeatCount(1).expectExceptionAny("Jdbc3PreparedStatement.setQueryTimeout(int)"));
+        }, new CannonballOption().threadCount(2).repeatCount(1).expectExceptionAny("Jdbc3PreparedStatement.setQueryTimeout(int)"));
         // org.postgresql.jdbc3.Jdbc3PreparedStatement.setQueryTimeout(int) unsupported
     }
 

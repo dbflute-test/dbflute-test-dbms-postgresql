@@ -11,9 +11,6 @@ import org.dbflute.utflute.core.cannonball.CannonballCar;
 import org.dbflute.utflute.core.cannonball.CannonballFinalizer;
 import org.dbflute.utflute.core.cannonball.CannonballOption;
 import org.dbflute.utflute.core.cannonball.CannonballRun;
-import org.dbflute.utflute.core.thread.ThreadFireExecution;
-import org.dbflute.utflute.core.thread.ThreadFireOption;
-import org.dbflute.utflute.core.thread.ThreadFireResource;
 import org.dbflute.util.DfCollectionUtil;
 import org.docksidestage.postgresql.dbflute.cbean.MemberCB;
 import org.docksidestage.postgresql.dbflute.exbhv.MemberBhv;
@@ -48,8 +45,8 @@ public class ThreadSafeTest extends UnitContainerTestCase {
     //                                                                       ConditionBean
     //                                                                       =============
     public void test_ThreadSafe_conditionBean_sameExecution() {
-        threadFire(new ThreadFireExecution<List<Member>>() {
-            public List<Member> execute(ThreadFireResource resource) {
+        cannonball(new CannonballRun() {
+            public void drive(CannonballCar car) {
                 // ## Arrange ##
                 MemberCB cb = new MemberCB();
                 cb.setupSelect_MemberStatus();
@@ -64,17 +61,17 @@ public class ThreadSafeTest extends UnitContainerTestCase {
                 for (Member member : memberList) {
                     assertTrue(member.getMemberName().startsWith("S"));
                 }
-                return memberList;
+                car.goal(memberList);
             }
-        }, new ThreadFireOption().expectSameResult());
+        }, new CannonballOption().expectSameResult());
     }
 
     // ===================================================================================
     //                                                                          OutsideSql
     //                                                                          ==========
     public void test_ThreadSafe_outsideSql_sameExecution() {
-        threadFire(new ThreadFireExecution<List<SimpleMember>>() {
-            public List<SimpleMember> execute(ThreadFireResource resource) {
+        cannonball(new CannonballRun() {
+            public void drive(CannonballCar car) {
                 // ## Arrange ##
                 String path = MemberBhv.PATH_selectSimpleMember;
 
@@ -99,9 +96,9 @@ public class ThreadSafeTest extends UnitContainerTestCase {
                     assertNotNull(memberStatusName);
                     assertTrue(memberName.startsWith("S"));
                 }
-                return memberList;
+                car.goal(memberList);
             }
-        }, new ThreadFireOption().expectSameResult());
+        }, new CannonballOption().expectSameResult());
     }
 
     // ===================================================================================

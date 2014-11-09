@@ -8,10 +8,6 @@ import org.dbflute.helper.HandyDate;
 import org.dbflute.utflute.core.cannonball.CannonballCar;
 import org.dbflute.utflute.core.cannonball.CannonballOption;
 import org.dbflute.utflute.core.cannonball.CannonballRun;
-import org.dbflute.utflute.core.thread.ThreadFireExecution;
-import org.dbflute.utflute.core.thread.ThreadFireFinallyRunner;
-import org.dbflute.utflute.core.thread.ThreadFireOption;
-import org.dbflute.utflute.core.thread.ThreadFireResource;
 import org.dbflute.util.DfCollectionUtil;
 import org.docksidestage.postgresql.dbflute.cbean.MemberCB;
 import org.docksidestage.postgresql.dbflute.exbhv.MemberBhv;
@@ -46,8 +42,8 @@ public class VendorLockTest extends UnitContainerTestCase {
     public void test_insert_after_empty_queryDelete_nonDeadlock() {
         final Set<String> markSet = DfCollectionUtil.newHashSet();
         final Set<Integer> insertedIdSet = DfCollectionUtil.newHashSet();
-        threadFire(new ThreadFireExecution<Void>() {
-            public Void execute(ThreadFireResource resource) {
+        cannonball(new CannonballRun() {
+            public void drive(CannonballCar car) {
                 long threadId = Thread.currentThread().getId();
 
                 // empty delete (update, for update) locks new record
@@ -62,15 +58,12 @@ public class VendorLockTest extends UnitContainerTestCase {
                 memberBhv.insert(inserted);
                 markSet.add("success: " + threadId);
                 insertedIdSet.add(inserted.getMemberId());
-                return null;
             }
-        }, new ThreadFireOption().commitTx().expectSameResult().finallyRunner(new ThreadFireFinallyRunner() {
-            public void run() {
-                if (!insertedIdSet.isEmpty()) {
-                    MemberCB cb = new MemberCB();
-                    cb.query().setMemberId_InScope(insertedIdSet);
-                    memberBhv.queryDelete(cb);
-                }
+        }, new CannonballOption().commitTx().expectSameResult().finalizer(() -> {
+            if (!insertedIdSet.isEmpty()) {
+                MemberCB cb = new MemberCB();
+                cb.query().setMemberId_InScope(insertedIdSet);
+                memberBhv.queryDelete(cb);
             }
         }));
         log(markSet);
