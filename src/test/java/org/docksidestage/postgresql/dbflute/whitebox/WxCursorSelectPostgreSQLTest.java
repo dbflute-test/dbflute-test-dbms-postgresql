@@ -50,6 +50,11 @@ public class WxCursorSelectPostgreSQLTest extends UnitContainerTestCase {
         return true;
     }
 
+    @Override
+    protected boolean isDestroyContainerAtTearDown() {
+        return true;
+    }
+
     // ===================================================================================
     //                                                                               Basic
     //                                                                               =====
