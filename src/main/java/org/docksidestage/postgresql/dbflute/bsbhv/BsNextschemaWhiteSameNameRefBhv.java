@@ -60,10 +60,12 @@ public abstract class BsNextschemaWhiteSameNameRefBhv extends AbstractBehaviorWr
     /*df:endQueryPath*/
 
     // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public NextschemaWhiteSameNameRefDbm getDBMeta() { return NextschemaWhiteSameNameRefDbm.getInstance(); }
+    public NextschemaWhiteSameNameRefDbm asDBMeta() { return NextschemaWhiteSameNameRefDbm.getInstance(); }
+    /** {@inheritDoc} */
+    public String asTableDbName() { return "nextschema.white_same_name_ref"; }
 
     // ===================================================================================
     //                                                                        New Instance
@@ -408,7 +410,7 @@ public abstract class BsNextschemaWhiteSameNameRefBhv extends AbstractBehaviorWr
     //                                                                            ========
     @Override
     protected Number doReadNextVal() {
-        String msg = "This table is NOT related to sequence: " + getTableDbName();
+        String msg = "This table is NOT related to sequence: " + asTableDbName();
         throw new UnsupportedOperationException(msg);
     }
 

@@ -60,10 +60,12 @@ public abstract class BsPurchasePaymentBhv extends AbstractBehaviorWritable<Purc
     /*df:endQueryPath*/
 
     // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public PurchasePaymentDbm getDBMeta() { return PurchasePaymentDbm.getInstance(); }
+    public PurchasePaymentDbm asDBMeta() { return PurchasePaymentDbm.getInstance(); }
+    /** {@inheritDoc} */
+    public String asTableDbName() { return "purchase_payment"; }
 
     // ===================================================================================
     //                                                                        New Instance

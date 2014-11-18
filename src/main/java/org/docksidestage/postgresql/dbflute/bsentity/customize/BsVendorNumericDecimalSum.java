@@ -61,24 +61,16 @@ public abstract class BsVendorNumericDecimalSum extends AbstractEntity implement
     protected java.math.BigDecimal _decimalDigitSum;
 
     // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public String getTableDbName() {
-        return "VendorNumericDecimalSum";
-    }
-
-    /** {@inheritDoc} */
-    public String getTablePropertyName() {
-        return "vendorNumericDecimalSum";
-    }
-
-    // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
-    /** {@inheritDoc} */
-    public DBMeta getDBMeta() {
+    public DBMeta asDBMeta() {
         return org.docksidestage.postgresql.dbflute.bsentity.customize.dbmeta.VendorNumericDecimalSumDbm.getInstance();
+    }
+
+    /** {@inheritDoc} */
+    public String asTableDbName() {
+        return "VendorNumericDecimalSum";
     }
 
     // ===================================================================================
@@ -116,7 +108,7 @@ public abstract class BsVendorNumericDecimalSum extends AbstractEntity implement
     @Override
     protected int doHashCode(int initial) {
         int hs = initial;
-        hs = xCH(hs, getTableDbName());
+        hs = xCH(hs, asTableDbName());
         hs = xCH(hs, _decimalDigitSum);
         return hs;
     }

@@ -60,10 +60,12 @@ public abstract class BsNextSchemaProductBhv extends AbstractBehaviorWritable<Ne
     /*df:endQueryPath*/
 
     // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public NextSchemaProductDbm getDBMeta() { return NextSchemaProductDbm.getInstance(); }
+    public NextSchemaProductDbm asDBMeta() { return NextSchemaProductDbm.getInstance(); }
+    /** {@inheritDoc} */
+    public String asTableDbName() { return "next_schema_product"; }
 
     // ===================================================================================
     //                                                                        New Instance

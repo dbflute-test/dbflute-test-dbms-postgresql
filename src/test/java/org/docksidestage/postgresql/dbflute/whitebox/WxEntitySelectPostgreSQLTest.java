@@ -1,7 +1,6 @@
 package org.docksidestage.postgresql.dbflute.whitebox;
 
 import org.dbflute.cbean.result.ListResultBean;
-import org.dbflute.exception.EntityAlreadyDeletedException;
 import org.dbflute.exception.EntityDuplicatedException;
 import org.docksidestage.postgresql.dbflute.allcommon.DBFluteConfig;
 import org.docksidestage.postgresql.dbflute.cbean.VendorLargeDataRefCB;
@@ -23,8 +22,6 @@ public class WxEntitySelectPostgreSQLTest extends UnitContainerTestCase {
     @Override
     public void setUp() throws Exception {
         xclearCachedContainer();
-        DBFluteConfig.getInstance().unlock();
-        DBFluteConfig.getInstance().setEntitySelectFetchSize(1);
         super.setUp();
     }
 
@@ -33,9 +30,6 @@ public class WxEntitySelectPostgreSQLTest extends UnitContainerTestCase {
         vendorLargeDataRefBhv.getFetchSizeMap().clear();
         vendorLargeDataRefBhv.getRowDataClassMap().clear();
         super.tearDown();
-        DBFluteConfig.getInstance().unlock();
-        DBFluteConfig.getInstance().setEntitySelectFetchSize(null);
-        DBFluteConfig.getInstance().lock();
     }
 
     @Override
@@ -51,15 +45,17 @@ public class WxEntitySelectPostgreSQLTest extends UnitContainerTestCase {
     // ===================================================================================
     //                                                                          Fetch Size
     //                                                                          ==========
+    public void test_pagingSynchronizedFetchSize_DBFluteConfig() throws Exception {
+        assertEquals(1, DBFluteConfig.getInstance().getEntitySelectFetchSize());
+    }
+
     public void test_entitySelectFetchSize_defaultFetchSize() throws Exception {
         VendorLargeDataRefCB cb = new VendorLargeDataRefCB();
         cb.query().setLargeDataRefId_IsNotNull(); // to avoid no condition exception
 
         try {
-            vendorLargeDataRefBhv.selectEntity(cb).get();
+            vendorLargeDataRefBhv.selectEntity(cb);
             fail();
-        } catch (EntityAlreadyDeletedException e) { // because large data is not required 
-            log(e.getMessage());
         } catch (EntityDuplicatedException e) { // needs manual test by large data
             log(e.getMessage());
         }
@@ -77,8 +73,7 @@ public class WxEntitySelectPostgreSQLTest extends UnitContainerTestCase {
         ListResultBean<VendorLargeDataRef> memberList = vendorLargeDataRefBhv.selectList(cb);
 
         // ## Assert ##
-        // because large data is not required
-        //assertHasAnyElement(memberList);
+        assertHasAnyElement(memberList);
         assertEquals(countAll, memberList.size());
         assertEquals(0, vendorLargeDataRefBhv.getFetchSizeMap().get("selectList"));
         assertEquals(countAll, vendorLargeDataRefBhv.getRowDataClassMap().get("selectList").size());

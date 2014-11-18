@@ -71,8 +71,8 @@ public class RegionDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnRegionId = cci("region_id", "region_id", null, "地域ID", Integer.class, "regionId", null, true, false, true, "int4", 10, 0, null, false, null, "地域を識別するID。\n珍しく(固定的な)マスタテーブルとしては数値だが、\nExampleなのでやはり色々なパターンがないと。", null, "memberAddressList", CDef.DefMeta.Region);
-    protected final ColumnInfo _columnRegionName = cci("region_name", "region_name", null, "地域名称", String.class, "regionName", null, false, false, true, "varchar", 50, 0, null, false, null, "地域を表す名称。", null, null, null);
+    protected final ColumnInfo _columnRegionId = cci("region_id", "region_id", null, "地域ID", Integer.class, "regionId", null, true, false, true, "int4", 10, 0, null, false, null, "地域を識別するID。\n珍しく(固定的な)マスタテーブルとしては数値だが、\nExampleなのでやはり色々なパターンがないと。", null, "memberAddressList", CDef.DefMeta.Region, false);
+    protected final ColumnInfo _columnRegionName = cci("region_name", "region_name", null, "地域名称", String.class, "regionName", null, false, false, true, "varchar", 50, 0, null, false, null, "地域を表す名称。", null, null, null, false);
 
     /**
      * (地域ID)region_id: {PK, NotNull, int4(10), classification=Region}

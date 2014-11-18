@@ -60,10 +60,12 @@ public abstract class BsVendorDatePkBhv extends AbstractBehaviorWritable<VendorD
     /*df:endQueryPath*/
 
     // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public VendorDatePkDbm getDBMeta() { return VendorDatePkDbm.getInstance(); }
+    public VendorDatePkDbm asDBMeta() { return VendorDatePkDbm.getInstance(); }
+    /** {@inheritDoc} */
+    public String asTableDbName() { return "vendor_date_pk"; }
 
     // ===================================================================================
     //                                                                        New Instance
@@ -408,7 +410,7 @@ public abstract class BsVendorDatePkBhv extends AbstractBehaviorWritable<VendorD
     //                                                                            ========
     @Override
     protected Number doReadNextVal() {
-        String msg = "This table is NOT related to sequence: " + getTableDbName();
+        String msg = "This table is NOT related to sequence: " + asTableDbName();
         throw new UnsupportedOperationException(msg);
     }
 

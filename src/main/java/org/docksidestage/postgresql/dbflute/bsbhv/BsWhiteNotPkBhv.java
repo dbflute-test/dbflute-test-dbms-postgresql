@@ -59,10 +59,12 @@ public abstract class BsWhiteNotPkBhv extends AbstractBehaviorReadable<WhiteNotP
     /*df:endQueryPath*/
 
     // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public WhiteNotPkDbm getDBMeta() { return WhiteNotPkDbm.getInstance(); }
+    public WhiteNotPkDbm asDBMeta() { return WhiteNotPkDbm.getInstance(); }
+    /** {@inheritDoc} */
+    public String asTableDbName() { return "white_not_pk"; }
 
     // ===================================================================================
     //                                                                        New Instance
@@ -378,7 +380,7 @@ public abstract class BsWhiteNotPkBhv extends AbstractBehaviorReadable<WhiteNotP
     //                                                                            ========
     @Override
     protected Number doReadNextVal() {
-        String msg = "This table is NOT related to sequence: " + getTableDbName();
+        String msg = "This table is NOT related to sequence: " + asTableDbName();
         throw new UnsupportedOperationException(msg);
     }
 

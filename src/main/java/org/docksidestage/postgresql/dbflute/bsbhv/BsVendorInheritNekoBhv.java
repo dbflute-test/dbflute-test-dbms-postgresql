@@ -60,10 +60,12 @@ public abstract class BsVendorInheritNekoBhv extends AbstractBehaviorWritable<Ve
     /*df:endQueryPath*/
 
     // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public VendorInheritNekoDbm getDBMeta() { return VendorInheritNekoDbm.getInstance(); }
+    public VendorInheritNekoDbm asDBMeta() { return VendorInheritNekoDbm.getInstance(); }
+    /** {@inheritDoc} */
+    public String asTableDbName() { return "vendor_inherit_neko"; }
 
     // ===================================================================================
     //                                                                        New Instance
@@ -408,7 +410,7 @@ public abstract class BsVendorInheritNekoBhv extends AbstractBehaviorWritable<Ve
     //                                                                            ========
     @Override
     protected Number doReadNextVal() {
-        String msg = "This table is NOT related to sequence: " + getTableDbName();
+        String msg = "This table is NOT related to sequence: " + asTableDbName();
         throw new UnsupportedOperationException(msg);
     }
 

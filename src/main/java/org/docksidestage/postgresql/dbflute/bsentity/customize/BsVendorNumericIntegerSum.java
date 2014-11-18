@@ -61,24 +61,16 @@ public abstract class BsVendorNumericIntegerSum extends AbstractEntity implement
     protected java.math.BigDecimal _integerNonDigitSum;
 
     // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public String getTableDbName() {
-        return "VendorNumericIntegerSum";
-    }
-
-    /** {@inheritDoc} */
-    public String getTablePropertyName() {
-        return "vendorNumericIntegerSum";
-    }
-
-    // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
-    /** {@inheritDoc} */
-    public DBMeta getDBMeta() {
+    public DBMeta asDBMeta() {
         return org.docksidestage.postgresql.dbflute.bsentity.customize.dbmeta.VendorNumericIntegerSumDbm.getInstance();
+    }
+
+    /** {@inheritDoc} */
+    public String asTableDbName() {
+        return "VendorNumericIntegerSum";
     }
 
     // ===================================================================================
@@ -116,7 +108,7 @@ public abstract class BsVendorNumericIntegerSum extends AbstractEntity implement
     @Override
     protected int doHashCode(int initial) {
         int hs = initial;
-        hs = xCH(hs, getTableDbName());
+        hs = xCH(hs, asTableDbName());
         hs = xCH(hs, _integerNonDigitSum);
         return hs;
     }

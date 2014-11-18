@@ -74,10 +74,10 @@ public class WhiteCompoundPkRefDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnMultipleFirstId = cci("multiple_first_id", "multiple_first_id", null, null, Integer.class, "multipleFirstId", null, true, false, true, "int4", 10, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnMultipleSecondId = cci("multiple_second_id", "multiple_second_id", null, null, Integer.class, "multipleSecondId", null, true, false, true, "int4", 10, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnRefFirstId = cci("ref_first_id", "ref_first_id", null, null, Integer.class, "refFirstId", null, false, false, true, "int4", 10, 0, null, false, null, null, "whiteCompoundPk", null, null);
-    protected final ColumnInfo _columnRefSecondId = cci("ref_second_id", "ref_second_id", null, null, Integer.class, "refSecondId", null, false, false, true, "int4", 10, 0, null, false, null, null, "whiteCompoundPk", null, null);
+    protected final ColumnInfo _columnMultipleFirstId = cci("multiple_first_id", "multiple_first_id", null, null, Integer.class, "multipleFirstId", null, true, false, true, "int4", 10, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnMultipleSecondId = cci("multiple_second_id", "multiple_second_id", null, null, Integer.class, "multipleSecondId", null, true, false, true, "int4", 10, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnRefFirstId = cci("ref_first_id", "ref_first_id", null, null, Integer.class, "refFirstId", null, false, false, true, "int4", 10, 0, null, false, null, null, "whiteCompoundPk", null, null, false);
+    protected final ColumnInfo _columnRefSecondId = cci("ref_second_id", "ref_second_id", null, null, Integer.class, "refSecondId", null, false, false, true, "int4", 10, 0, null, false, null, null, "whiteCompoundPk", null, null, false);
 
     /**
      * multiple_first_id: {PK, NotNull, int4(10)}
@@ -142,7 +142,7 @@ public class WhiteCompoundPkRefDbm extends AbstractDBMeta {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMapSized(4);
         mp.put(columnRefFirstId(), WhiteCompoundPkDbm.getInstance().columnPkFirstId());
         mp.put(columnRefSecondId(), WhiteCompoundPkDbm.getInstance().columnPkSecondId());
-        return cfi("fk_white_compound_pk_ref", "whiteCompoundPk", this, WhiteCompoundPkDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "whiteCompoundPkRefList");
+        return cfi("fk_white_compound_pk_ref", "whiteCompoundPk", this, WhiteCompoundPkDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "whiteCompoundPkRefList", false);
     }
 
     // -----------------------------------------------------

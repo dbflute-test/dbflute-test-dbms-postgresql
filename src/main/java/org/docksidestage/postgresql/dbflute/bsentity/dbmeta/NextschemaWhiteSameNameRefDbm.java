@@ -73,9 +73,9 @@ public class NextschemaWhiteSameNameRefDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnSameNameRefId = cci("same_name_ref_id", "same_name_ref_id", null, null, Long.class, "sameNameRefId", null, true, false, true, "int8", 19, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnSameNameId = cci("same_name_id", "same_name_id", null, null, Integer.class, "sameNameId", null, false, false, true, "int4", 10, 0, null, false, null, null, "whiteSameName", null, null);
-    protected final ColumnInfo _columnNextRefDate = cci("next_ref_date", "next_ref_date", null, null, java.time.LocalDate.class, "nextRefDate", null, false, false, false, "date", 13, 0, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnSameNameRefId = cci("same_name_ref_id", "same_name_ref_id", null, null, Long.class, "sameNameRefId", null, true, false, true, "int8", 19, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnSameNameId = cci("same_name_id", "same_name_id", null, null, Integer.class, "sameNameId", null, false, false, true, "int4", 10, 0, null, false, null, null, "whiteSameName", null, null, false);
+    protected final ColumnInfo _columnNextRefDate = cci("next_ref_date", "next_ref_date", null, null, java.time.LocalDate.class, "nextRefDate", null, false, false, false, "date", 13, 0, null, false, null, null, null, null, null, false);
 
     /**
      * same_name_ref_id: {PK, NotNull, int8(19)}
@@ -127,7 +127,7 @@ public class NextschemaWhiteSameNameRefDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignWhiteSameName() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnSameNameId(), NextschemaWhiteSameNameDbm.getInstance().columnSameNameId());
-        return cfi("fk_white_same_name_ref", "whiteSameName", this, NextschemaWhiteSameNameDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "whiteSameNameRefList");
+        return cfi("fk_white_same_name_ref", "whiteSameName", this, NextschemaWhiteSameNameDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "whiteSameNameRefList", false);
     }
 
     // -----------------------------------------------------

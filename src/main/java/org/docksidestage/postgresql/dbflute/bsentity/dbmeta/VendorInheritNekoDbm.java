@@ -63,12 +63,12 @@ public class VendorInheritNekoDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnInuId = cci("inu_id", "inu_id", null, null, Integer.class, "inuId", null, false, false, true, "int4", 10, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnInuName = cci("inu_name", "inu_name", null, null, String.class, "inuName", null, false, false, true, "varchar", 2147483647, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnInuDate = cci("inu_date", "inu_date", null, null, java.time.LocalDate.class, "inuDate", null, false, false, false, "date", 13, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnNekoId = cci("neko_id", "neko_id", null, null, Integer.class, "nekoId", null, true, false, true, "int4", 10, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnNekoName = cci("neko_name", "neko_name", null, null, String.class, "nekoName", null, false, false, true, "varchar", 2147483647, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnNekoDate = cci("neko_date", "neko_date", null, null, java.time.LocalDate.class, "nekoDate", null, false, false, false, "date", 13, 0, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnInuId = cci("inu_id", "inu_id", null, null, Integer.class, "inuId", null, false, false, true, "int4", 10, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnInuName = cci("inu_name", "inu_name", null, null, String.class, "inuName", null, false, false, true, "varchar", 2147483647, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnInuDate = cci("inu_date", "inu_date", null, null, java.time.LocalDate.class, "inuDate", null, false, false, false, "date", 13, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnNekoId = cci("neko_id", "neko_id", null, null, Integer.class, "nekoId", null, true, false, true, "int4", 10, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnNekoName = cci("neko_name", "neko_name", null, null, String.class, "nekoName", null, false, false, true, "varchar", 2147483647, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnNekoDate = cci("neko_date", "neko_date", null, null, java.time.LocalDate.class, "nekoDate", null, false, false, false, "date", 13, 0, null, false, null, null, null, null, null, false);
 
     /**
      * inu_id: {NotNull, int4(10)}

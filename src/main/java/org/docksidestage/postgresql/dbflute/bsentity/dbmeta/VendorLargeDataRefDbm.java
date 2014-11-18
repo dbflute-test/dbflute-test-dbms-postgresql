@@ -80,15 +80,15 @@ public class VendorLargeDataRefDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnLargeDataRefId = cci("large_data_ref_id", "large_data_ref_id", null, null, Long.class, "largeDataRefId", null, true, false, true, "int8", 19, 0, null, false, null, null, null, "vendorLargeDataRefSelfList", null);
-    protected final ColumnInfo _columnLargeDataId = cci("large_data_id", "large_data_id", null, null, Long.class, "largeDataId", null, false, false, true, "int8", 19, 0, null, false, null, null, "vendorLargeData", null, null);
-    protected final ColumnInfo _columnDateIndex = cci("date_index", "date_index", null, null, java.time.LocalDate.class, "dateIndex", null, false, false, true, "date", 13, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnDateNoIndex = cci("date_no_index", "date_no_index", null, null, java.time.LocalDate.class, "dateNoIndex", null, false, false, true, "date", 13, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnTimestampIndex = cci("timestamp_index", "timestamp_index", null, null, java.time.LocalDateTime.class, "timestampIndex", null, false, false, true, "timestamp", 26, 3, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnTimestampNoIndex = cci("timestamp_no_index", "timestamp_no_index", null, null, java.time.LocalDateTime.class, "timestampNoIndex", null, false, false, true, "timestamp", 26, 3, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnNullableDecimalIndex = cci("nullable_decimal_index", "nullable_decimal_index", null, null, java.math.BigDecimal.class, "nullableDecimalIndex", null, false, false, false, "numeric", 12, 3, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnNullableDecimalNoIndex = cci("nullable_decimal_no_index", "nullable_decimal_no_index", null, null, java.math.BigDecimal.class, "nullableDecimalNoIndex", null, false, false, false, "numeric", 12, 3, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnSelfParentId = cci("self_parent_id", "self_parent_id", null, null, Long.class, "selfParentId", null, false, false, false, "int8", 19, 0, null, false, null, null, "vendorLargeDataRefSelf", null, null);
+    protected final ColumnInfo _columnLargeDataRefId = cci("large_data_ref_id", "large_data_ref_id", null, null, Long.class, "largeDataRefId", null, true, false, true, "int8", 19, 0, null, false, null, null, null, "vendorLargeDataRefSelfList", null, false);
+    protected final ColumnInfo _columnLargeDataId = cci("large_data_id", "large_data_id", null, null, Long.class, "largeDataId", null, false, false, true, "int8", 19, 0, null, false, null, null, "vendorLargeData", null, null, false);
+    protected final ColumnInfo _columnDateIndex = cci("date_index", "date_index", null, null, java.time.LocalDate.class, "dateIndex", null, false, false, true, "date", 13, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnDateNoIndex = cci("date_no_index", "date_no_index", null, null, java.time.LocalDate.class, "dateNoIndex", null, false, false, true, "date", 13, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTimestampIndex = cci("timestamp_index", "timestamp_index", null, null, java.time.LocalDateTime.class, "timestampIndex", null, false, false, true, "timestamp", 26, 3, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTimestampNoIndex = cci("timestamp_no_index", "timestamp_no_index", null, null, java.time.LocalDateTime.class, "timestampNoIndex", null, false, false, true, "timestamp", 26, 3, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnNullableDecimalIndex = cci("nullable_decimal_index", "nullable_decimal_index", null, null, java.math.BigDecimal.class, "nullableDecimalIndex", null, false, false, false, "numeric", 12, 3, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnNullableDecimalNoIndex = cci("nullable_decimal_no_index", "nullable_decimal_no_index", null, null, java.math.BigDecimal.class, "nullableDecimalNoIndex", null, false, false, false, "numeric", 12, 3, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnSelfParentId = cci("self_parent_id", "self_parent_id", null, null, Long.class, "selfParentId", null, false, false, false, "int8", 19, 0, null, false, null, null, "vendorLargeDataRefSelf", null, null, false);
 
     /**
      * large_data_ref_id: {PK, NotNull, int8(19)}
@@ -176,7 +176,7 @@ public class VendorLargeDataRefDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignVendorLargeData() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnLargeDataId(), VendorLargeDataDbm.getInstance().columnLargeDataId());
-        return cfi("fk_vendor_large_data_ref_data", "vendorLargeData", this, VendorLargeDataDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "vendorLargeDataRefList");
+        return cfi("fk_vendor_large_data_ref_data", "vendorLargeData", this, VendorLargeDataDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "vendorLargeDataRefList", false);
     }
     /**
      * vendor_large_data_ref by my self_parent_id, named 'vendorLargeDataRefSelf'.
@@ -184,7 +184,7 @@ public class VendorLargeDataRefDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignVendorLargeDataRefSelf() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnSelfParentId(), VendorLargeDataRefDbm.getInstance().columnLargeDataRefId());
-        return cfi("fk_vendor_large_data_ref_self", "vendorLargeDataRefSelf", this, VendorLargeDataRefDbm.getInstance(), mp, 1, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "vendorLargeDataRefSelfList");
+        return cfi("fk_vendor_large_data_ref_self", "vendorLargeDataRefSelf", this, VendorLargeDataRefDbm.getInstance(), mp, 1, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "vendorLargeDataRefSelfList", false);
     }
 
     // -----------------------------------------------------

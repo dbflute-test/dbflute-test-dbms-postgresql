@@ -60,9 +60,9 @@ public class WhiteCompoundPkDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnPkFirstId = cci("pk_first_id", "pk_first_id", null, null, Integer.class, "pkFirstId", null, true, false, true, "int4", 10, 0, null, false, null, null, null, "whiteCompoundPkRefList", null);
-    protected final ColumnInfo _columnPkSecondId = cci("pk_second_id", "pk_second_id", null, null, Integer.class, "pkSecondId", null, true, false, true, "int4", 10, 0, null, false, null, null, null, "whiteCompoundPkRefList", null);
-    protected final ColumnInfo _columnPkName = cci("pk_name", "pk_name", null, null, String.class, "pkName", null, false, false, true, "varchar", 200, 0, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnPkFirstId = cci("pk_first_id", "pk_first_id", null, null, Integer.class, "pkFirstId", null, true, false, true, "int4", 10, 0, null, false, null, null, null, "whiteCompoundPkRefList", null, false);
+    protected final ColumnInfo _columnPkSecondId = cci("pk_second_id", "pk_second_id", null, null, Integer.class, "pkSecondId", null, true, false, true, "int4", 10, 0, null, false, null, null, null, "whiteCompoundPkRefList", null, false);
+    protected final ColumnInfo _columnPkName = cci("pk_name", "pk_name", null, null, String.class, "pkName", null, false, false, true, "varchar", 200, 0, null, false, null, null, null, null, null, false);
 
     /**
      * pk_first_id: {PK, NotNull, int4(10)}

@@ -60,10 +60,12 @@ public abstract class BsMemberServiceBhv extends AbstractBehaviorWritable<Member
     /*df:endQueryPath*/
 
     // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public MemberServiceDbm getDBMeta() { return MemberServiceDbm.getInstance(); }
+    public MemberServiceDbm asDBMeta() { return MemberServiceDbm.getInstance(); }
+    /** {@inheritDoc} */
+    public String asTableDbName() { return "member_service"; }
 
     // ===================================================================================
     //                                                                        New Instance

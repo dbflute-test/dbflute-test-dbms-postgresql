@@ -76,24 +76,16 @@ public abstract class BsVendorUnsupportedAlias extends AbstractEntity implements
     protected java.time.LocalDate _dollar$exists;
 
     // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public String getTableDbName() {
-        return "VendorUnsupportedAlias";
-    }
-
-    /** {@inheritDoc} */
-    public String getTablePropertyName() {
-        return "vendorUnsupportedAlias";
-    }
-
-    // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
-    /** {@inheritDoc} */
-    public DBMeta getDBMeta() {
+    public DBMeta asDBMeta() {
         return org.docksidestage.postgresql.dbflute.bsentity.customize.dbmeta.VendorUnsupportedAliasDbm.getInstance();
+    }
+
+    /** {@inheritDoc} */
+    public String asTableDbName() {
+        return "VendorUnsupportedAlias";
     }
 
     // ===================================================================================
@@ -134,7 +126,7 @@ public abstract class BsVendorUnsupportedAlias extends AbstractEntity implements
     @Override
     protected int doHashCode(int initial) {
         int hs = initial;
-        hs = xCH(hs, getTableDbName());
+        hs = xCH(hs, asTableDbName());
         hs = xCH(hs, _vendorCheckId);
         hs = xCH(hs, _hyphen_exists);
         hs = xCH(hs, _space_exists);

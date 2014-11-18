@@ -58,7 +58,7 @@ public class VendorNumericIntegerSumDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnIntegerNonDigitSum = cci("integer_non_digit_sum", "integer_non_digit_sum", null, null, java.math.BigDecimal.class, "integerNonDigitSum", null, false, false, false, "numeric", 131089, 0, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnIntegerNonDigitSum = cci("integer_non_digit_sum", "integer_non_digit_sum", null, null, java.math.BigDecimal.class, "integerNonDigitSum", null, false, false, false, "numeric", 131089, 0, null, false, null, null, null, null, null, false);
 
     /**
      * integer_non_digit_sum: {numeric(131089)}

@@ -60,10 +60,12 @@ public abstract class BsVendorPartManBhv extends AbstractBehaviorWritable<Vendor
     /*df:endQueryPath*/
 
     // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public VendorPartManDbm getDBMeta() { return VendorPartManDbm.getInstance(); }
+    public VendorPartManDbm asDBMeta() { return VendorPartManDbm.getInstance(); }
+    /** {@inheritDoc} */
+    public String asTableDbName() { return "vendor_part_man"; }
 
     // ===================================================================================
     //                                                                        New Instance
@@ -408,7 +410,7 @@ public abstract class BsVendorPartManBhv extends AbstractBehaviorWritable<Vendor
     //                                                                            ========
     @Override
     protected Number doReadNextVal() {
-        String msg = "This table is NOT related to sequence: " + getTableDbName();
+        String msg = "This table is NOT related to sequence: " + asTableDbName();
         throw new UnsupportedOperationException(msg);
     }
 

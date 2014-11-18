@@ -80,10 +80,12 @@ public abstract class BsMemberBhv extends AbstractBehaviorWritable<Member, Membe
     /*df:endQueryPath*/
 
     // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public MemberDbm getDBMeta() { return MemberDbm.getInstance(); }
+    public MemberDbm asDBMeta() { return MemberDbm.getInstance(); }
+    /** {@inheritDoc} */
+    public String asTableDbName() { return "member"; }
 
     // ===================================================================================
     //                                                                        New Instance

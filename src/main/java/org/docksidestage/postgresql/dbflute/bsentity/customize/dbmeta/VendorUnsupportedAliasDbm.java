@@ -61,10 +61,10 @@ public class VendorUnsupportedAliasDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnVendorCheckId = cci("vendor_check_id", "vendor_check_id", null, null, Long.class, "vendorCheckId", null, false, false, false, "numeric", 16, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnHyphen_exists = cci("HYPHEN-EXISTS", "\"HYPHEN-EXISTS\"", null, null, String.class, "hyphen_exists", null, false, false, false, "varchar", 2147483647, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnSpace_exists = cci("SPACE EXISTS", "\"SPACE EXISTS\"", null, null, Integer.class, "space_exists", null, false, false, false, "int4", 10, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnDollar$exists = cci("DOLLAR$EXISTS", "DOLLAR$EXISTS", null, null, java.time.LocalDate.class, "dollar$exists", null, false, false, false, "date", 13, 0, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnVendorCheckId = cci("vendor_check_id", "vendor_check_id", null, null, Long.class, "vendorCheckId", null, false, false, false, "numeric", 16, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnHyphen_exists = cci("HYPHEN-EXISTS", "\"HYPHEN-EXISTS\"", null, null, String.class, "hyphen_exists", null, false, false, false, "varchar", 2147483647, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnSpace_exists = cci("SPACE EXISTS", "\"SPACE EXISTS\"", null, null, Integer.class, "space_exists", null, false, false, false, "int4", 10, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnDollar$exists = cci("DOLLAR$EXISTS", "DOLLAR$EXISTS", null, null, java.time.LocalDate.class, "dollar$exists", null, false, false, false, "date", 13, 0, null, false, null, null, null, null, null, false);
 
     /**
      * vendor_check_id: {numeric(16), refers to vendor_check.vendor_check_id}

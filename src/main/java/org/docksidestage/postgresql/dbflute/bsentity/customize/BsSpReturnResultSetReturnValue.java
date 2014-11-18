@@ -82,24 +82,16 @@ public abstract class BsSpReturnResultSetReturnValue extends AbstractEntity impl
     protected String _memberStatusCode;
 
     // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public String getTableDbName() {
-        return "SpReturnResultSetReturnValue";
-    }
-
-    /** {@inheritDoc} */
-    public String getTablePropertyName() {
-        return "spReturnResultSetReturnValue";
-    }
-
-    // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
-    /** {@inheritDoc} */
-    public DBMeta getDBMeta() {
+    public DBMeta asDBMeta() {
         return org.docksidestage.postgresql.dbflute.bsentity.customize.dbmeta.SpReturnResultSetReturnValueDbm.getInstance();
+    }
+
+    /** {@inheritDoc} */
+    public String asTableDbName() {
+        return "SpReturnResultSetReturnValue";
     }
 
     // ===================================================================================
@@ -228,7 +220,7 @@ public abstract class BsSpReturnResultSetReturnValue extends AbstractEntity impl
     @Override
     protected int doHashCode(int initial) {
         int hs = initial;
-        hs = xCH(hs, getTableDbName());
+        hs = xCH(hs, asTableDbName());
         hs = xCH(hs, _memberId);
         hs = xCH(hs, _memberName);
         hs = xCH(hs, _birthdate);
