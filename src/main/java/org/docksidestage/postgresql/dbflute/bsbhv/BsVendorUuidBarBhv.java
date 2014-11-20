@@ -624,11 +624,7 @@ public abstract class BsVendorUuidBarBhv extends AbstractBehaviorWritable<Vendor
      * <span style="color: #3F7E5E">//vendorUuidBar.set...;</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * vendorUuidBar.<span style="color: #CC4747">setVersionNo</span>(value);
-     * try {
-     *     <span style="color: #0000C0">vendorUuidBarBhv</span>.<span style="color: #CC4747">update</span>(vendorUuidBar);
-     * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
-     *     ...
-     * }
+     * <span style="color: #0000C0">vendorUuidBarBhv</span>.<span style="color: #CC4747">update</span>(vendorUuidBar);
      * </pre>
      * @param vendorUuidBar The entity of update. (NotNull, PrimaryKeyNotNull)
      * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
@@ -789,9 +785,9 @@ public abstract class BsVendorUuidBarBhv extends AbstractBehaviorWritable<Vendor
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
      * <span style="color: #3F7E5E">//vendorUuidBar.setVersionNo(value);</span>
-     * VendorUuidBarCB cb = <span style="color: #70226C">new</span> VendorUuidBarCB();
-     * cb.query().setFoo...(value);
-     * <span style="color: #0000C0">vendorUuidBarBhv</span>.<span style="color: #CC4747">queryUpdate</span>(vendorUuidBar, cb);
+     * <span style="color: #0000C0">vendorUuidBarBhv</span>.<span style="color: #CC4747">queryUpdate</span>(vendorUuidBar, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * });
      * </pre>
      * @param vendorUuidBar The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cbLambda The callback for condition-bean of VendorUuidBar. (NotNull)
@@ -831,9 +827,9 @@ public abstract class BsVendorUuidBarBhv extends AbstractBehaviorWritable<Vendor
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * VendorUuidBarCB cb = new VendorUuidBarCB();
-     * cb.query().setFoo...(value);
-     * <span style="color: #0000C0">vendorUuidBarBhv</span>.<span style="color: #CC4747">queryDelete</span>(vendorUuidBar, cb);
+     * <span style="color: #0000C0">vendorUuidBarBhv</span>.<span style="color: #CC4747">queryDelete</span>(vendorUuidBar, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of VendorUuidBar. (NotNull)
      * @return The deleted count.
@@ -873,10 +869,10 @@ public abstract class BsVendorUuidBarBhv extends AbstractBehaviorWritable<Vendor
      * <span style="color: #3F7E5E">// if auto-increment, you don't need to set the PK value</span>
      * vendorUuidBar.setFoo...(value);
      * vendorUuidBar.setBar...(value);
-     * InsertOption&lt;VendorUuidBarCB&gt; option = new InsertOption&lt;VendorUuidBarCB&gt;();
-     * <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
-     * option.disableCommonColumnAutoSetup();
-     * <span style="color: #0000C0">vendorUuidBarBhv</span>.<span style="color: #CC4747">varyingInsert</span>(vendorUuidBar, option);
+     * <span style="color: #0000C0">vendorUuidBarBhv</span>.<span style="color: #CC4747">varyingInsert</span>(vendorUuidBar, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
+     *     <span style="color: #553000">op</span>.disableCommonColumnAutoSetup();
+     * });
      * ... = vendorUuidBar.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * @param vendorUuidBar The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
@@ -897,18 +893,12 @@ public abstract class BsVendorUuidBarBhv extends AbstractBehaviorWritable<Vendor
      * vendorUuidBar.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * vendorUuidBar.<span style="color: #CC4747">setVersionNo</span>(value);
-     * <span style="color: #70226C">try</span> {
-     *     <span style="color: #3F7E5E">// you can update by self calculation values</span>
-     *     UpdateOption&lt;VendorUuidBarCB&gt; option = new UpdateOption&lt;VendorUuidBarCB&gt;();
-     *     option.self(new SpecifyQuery&lt;VendorUuidBarCB&gt;() {
-     *         public void specify(VendorUuidBarCB cb) {
-     *             cb.specify().<span style="color: #CC4747">columnXxxCount()</span>;
-     *         }
+     * <span style="color: #3F7E5E">// you can update by self calculation values</span>
+     * <span style="color: #0000C0">vendorUuidBarBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(vendorUuidBar, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">columnXxxCount()</span>;
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
-     *     <span style="color: #0000C0">vendorUuidBarBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(vendorUuidBar, option);
-     * } <span style="color: #70226C">catch</span> (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
-     *     ...
-     * }
+     * });
      * </pre>
      * @param vendorUuidBar The entity of update. (NotNull, PrimaryKeyNotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
@@ -1017,15 +1007,13 @@ public abstract class BsVendorUuidBarBhv extends AbstractBehaviorWritable<Vendor
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
      * <span style="color: #3F7E5E">//vendorUuidBar.setVersionNo(value);</span>
-     * VendorUuidBarCB cb = new VendorUuidBarCB();
-     * cb.query().setFoo...(value);
-     * UpdateOption&lt;VendorUuidBarCB&gt; option = <span style="color: #70226C">new</span> UpdateOption&lt;VendorUuidBarCB&gt;();
-     * option.self(new SpecifyQuery&lt;VendorUuidBarCB&gt;() {
-     *     public void specify(VendorUuidBarCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
-     *     }
-     * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * <span style="color: #0000C0">vendorUuidBarBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(vendorUuidBar, cb, option);
+     * <span style="color: #0000C0">vendorUuidBarBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(vendorUuidBar, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * }, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">colCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">colCB</span>.specify().<span style="color: #CC4747">columnFooCount()</span>;
+     *     }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
+     * });
      * </pre>
      * @param vendorUuidBar The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cbLambda The callback for condition-bean of VendorUuidBar. (NotNull)
@@ -1053,13 +1041,11 @@ public abstract class BsVendorUuidBarBhv extends AbstractBehaviorWritable<Vendor
      * <span style="color: #3F7E5E">//vendorUuidBar.setVersionNo(value);</span>
      * VendorUuidBarCB cb = <span style="color: #70226C">new</span> VendorUuidBarCB();
      * cb.query().setFoo...(value);
-     * UpdateOption&lt;VendorUuidBarCB&gt; option = <span style="color: #70226C">new</span> UpdateOption&lt;VendorUuidBarCB&gt;();
-     * option.self(new SpecifyQuery&lt;VendorUuidBarCB&gt;() {
-     *     public void specify(VendorUuidBarCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
-     *     }
-     * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * <span style="color: #0000C0">vendorUuidBarBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(vendorUuidBar, cb, option);
+     * <span style="color: #0000C0">vendorUuidBarBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(vendorUuidBar, cb, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">colCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">colCB</span>.specify().<span style="color: #CC4747">columnFooCount()</span>;
+     *     }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
+     * });
      * </pre>
      * @param vendorUuidBar The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cb The condition-bean of VendorUuidBar. (NotNull)
@@ -1074,7 +1060,14 @@ public abstract class BsVendorUuidBarBhv extends AbstractBehaviorWritable<Vendor
     /**
      * Delete the several entities by query with varying requests non-strictly. <br>
      * For example, allowNonQueryDelete(). <br>
-     * Other specifications are same as batchUpdateNonstrict(entityList).
+     * Other specifications are same as queryDelete(cb).
+     * <pre>
+     * <span style="color: #0000C0">vendorUuidBarBhv</span>.<span style="color: #CC4747">queryDelete</span>(vendorUuidBar, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * }, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>...
+     * });
+     * </pre>
      * @param cbLambda The callback for condition-bean of VendorUuidBar. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
@@ -1087,7 +1080,7 @@ public abstract class BsVendorUuidBarBhv extends AbstractBehaviorWritable<Vendor
     /**
      * Delete the several entities by query with varying requests non-strictly. <br>
      * For example, allowNonQueryDelete(). <br>
-     * Other specifications are same as batchUpdateNonstrict(entityList).
+     * Other specifications are same as queryDelete(cb).
      * @param cb The condition-bean of VendorUuidBar. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
