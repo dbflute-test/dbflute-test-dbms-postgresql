@@ -37,13 +37,14 @@ public class CommonColumnMemberDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((CommonColumnMember)et).getMemberId(), (et, vl) -> ((CommonColumnMember)et).setMemberId(cti(vl)), "memberId");
         setupEpg(_epgMap, et -> ((CommonColumnMember)et).getMemberName(), (et, vl) -> ((CommonColumnMember)et).setMemberName((String)vl), "memberName");
-        setupEpg(_epgMap, et -> ((CommonColumnMember)et).getRegisterDatetime(), (et, vl) -> ((CommonColumnMember)et).setRegisterDatetime((java.sql.Timestamp)vl), "registerDatetime");
+        setupEpg(_epgMap, et -> ((CommonColumnMember)et).getRegisterDatetime(), (et, vl) -> ((CommonColumnMember)et).setRegisterDatetime((java.time.LocalDateTime)vl), "registerDatetime");
         setupEpg(_epgMap, et -> ((CommonColumnMember)et).getRegisterUser(), (et, vl) -> ((CommonColumnMember)et).setRegisterUser((String)vl), "registerUser");
         setupEpg(_epgMap, et -> ((CommonColumnMember)et).getRegisterProcess(), (et, vl) -> ((CommonColumnMember)et).setRegisterProcess((String)vl), "registerProcess");
-        setupEpg(_epgMap, et -> ((CommonColumnMember)et).getUpdateDatetime(), (et, vl) -> ((CommonColumnMember)et).setUpdateDatetime((java.sql.Timestamp)vl), "updateDatetime");
+        setupEpg(_epgMap, et -> ((CommonColumnMember)et).getUpdateDatetime(), (et, vl) -> ((CommonColumnMember)et).setUpdateDatetime((java.time.LocalDateTime)vl), "updateDatetime");
         setupEpg(_epgMap, et -> ((CommonColumnMember)et).getUpdateUser(), (et, vl) -> ((CommonColumnMember)et).setUpdateUser((String)vl), "updateUser");
         setupEpg(_epgMap, et -> ((CommonColumnMember)et).getUpdateProcess(), (et, vl) -> ((CommonColumnMember)et).setUpdateProcess((String)vl), "updateProcess");
     }
@@ -64,14 +65,14 @@ public class CommonColumnMemberDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnMemberId = cci("member_id", "member_id", null, "会員ID", Integer.class, "memberId", null, false, false, false, "serial", 10, 0, null, false, null, "会員を識別するID。連番として自動採番される。\n（会員IDだけに限らず）採番方法はDBMS次第。", null, null, null);
-    protected final ColumnInfo _columnMemberName = cci("member_name", "member_name", null, "会員名称", String.class, "memberName", null, false, false, false, "varchar", 200, 0, null, false, null, "会員のフルネームの名称。\n苗字と名前を分けて管理することも多いが、ここでは Example なので単純にひとまとめ。", null, null, null);
-    protected final ColumnInfo _columnRegisterDatetime = cci("register_datetime", "register_datetime", null, "登録日時", java.sql.Timestamp.class, "registerDatetime", null, false, false, false, "timestamp", 26, 3, null, false, null, "レコードが登録された日時。\n会員が登録された日時とほぼ等しいが、そういった業務的な役割を兼務させるのはあまり推奨されない。\nどのテーブルでも同じなので、共通カラムの説明はこのテーブルでしか書かない。", null, null, null);
-    protected final ColumnInfo _columnRegisterUser = cci("register_user", "register_user", null, "登録ユーザ", String.class, "registerUser", null, false, false, false, "varchar", 200, 0, null, false, null, "レコードを登録したユーザ。\n会員テーブルであれば当然、会員自身であるはずだが、他のテーブルの場合では管理画面から運用者による登録など考えられるので、しっかり保持しておく。", null, null, null);
-    protected final ColumnInfo _columnRegisterProcess = cci("register_process", "register_process", null, null, String.class, "registerProcess", null, false, false, false, "varchar", 200, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnUpdateDatetime = cci("update_datetime", "update_datetime", null, "更新日時", java.sql.Timestamp.class, "updateDatetime", null, false, false, false, "timestamp", 26, 3, null, false, null, "レコードが（最後に）更新された日時。\n業務的な利用はあまり推奨されないと別項目で説明したが、このカラムはソートの要素としてよく利用される。", null, null, null);
-    protected final ColumnInfo _columnUpdateUser = cci("update_user", "update_user", null, "更新ユーザ", String.class, "updateUser", null, false, false, false, "varchar", 200, 0, null, false, null, "レコードを更新したユーザ。\nシステムは誰が何をしたのかちゃんと覚えている。", null, null, null);
-    protected final ColumnInfo _columnUpdateProcess = cci("update_process", "update_process", null, null, String.class, "updateProcess", null, false, false, false, "varchar", 200, 0, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnMemberId = cci("member_id", "member_id", null, "会員ID", Integer.class, "memberId", null, false, false, false, "serial", 10, 0, null, false, null, "会員を識別するID。連番として自動採番される。\n（会員IDだけに限らず）採番方法はDBMS次第。", null, null, null, false);
+    protected final ColumnInfo _columnMemberName = cci("member_name", "member_name", null, "会員名称", String.class, "memberName", null, false, false, false, "varchar", 200, 0, null, false, null, "会員のフルネームの名称。\n苗字と名前を分けて管理することも多いが、ここでは Example なので単純にひとまとめ。", null, null, null, false);
+    protected final ColumnInfo _columnRegisterDatetime = cci("register_datetime", "register_datetime", null, "登録日時", java.time.LocalDateTime.class, "registerDatetime", null, false, false, false, "timestamp", 26, 3, null, false, null, "レコードが登録された日時。\n会員が登録された日時とほぼ等しいが、そういった業務的な役割を兼務させるのはあまり推奨されない。\nどのテーブルでも同じなので、共通カラムの説明はこのテーブルでしか書かない。", null, null, null, false);
+    protected final ColumnInfo _columnRegisterUser = cci("register_user", "register_user", null, "登録ユーザ", String.class, "registerUser", null, false, false, false, "varchar", 200, 0, null, false, null, "レコードを登録したユーザ。\n会員テーブルであれば当然、会員自身であるはずだが、他のテーブルの場合では管理画面から運用者による登録など考えられるので、しっかり保持しておく。", null, null, null, false);
+    protected final ColumnInfo _columnRegisterProcess = cci("register_process", "register_process", null, null, String.class, "registerProcess", null, false, false, false, "varchar", 200, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnUpdateDatetime = cci("update_datetime", "update_datetime", null, "更新日時", java.time.LocalDateTime.class, "updateDatetime", null, false, false, false, "timestamp", 26, 3, null, false, null, "レコードが（最後に）更新された日時。\n業務的な利用はあまり推奨されないと別項目で説明したが、このカラムはソートの要素としてよく利用される。", null, null, null, false);
+    protected final ColumnInfo _columnUpdateUser = cci("update_user", "update_user", null, "更新ユーザ", String.class, "updateUser", null, false, false, false, "varchar", 200, 0, null, false, null, "レコードを更新したユーザ。\nシステムは誰が何をしたのかちゃんと覚えている。", null, null, null, false);
+    protected final ColumnInfo _columnUpdateProcess = cci("update_process", "update_process", null, null, String.class, "updateProcess", null, false, false, false, "varchar", 200, 0, null, false, null, null, null, null, null, false);
 
     /**
      * (会員ID)member_id: {serial(10), refers to member.member_id}

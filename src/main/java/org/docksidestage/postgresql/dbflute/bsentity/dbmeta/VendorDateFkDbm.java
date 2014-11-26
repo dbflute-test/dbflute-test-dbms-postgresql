@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.dbflute.Entity;
+import org.dbflute.optional.OptionalEntity;
 import org.dbflute.dbmeta.AbstractDBMeta;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
@@ -37,9 +38,10 @@ public class VendorDateFkDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((VendorDateFk)et).getBarId(), (et, vl) -> ((VendorDateFk)et).setBarId(cti(vl)), "barId");
-        setupEpg(_epgMap, et -> ((VendorDateFk)et).getBarDate(), (et, vl) -> ((VendorDateFk)et).setBarDate((java.util.Date)vl), "barDate");
+        setupEpg(_epgMap, et -> ((VendorDateFk)et).getBarDate(), (et, vl) -> ((VendorDateFk)et).setBarDate((java.time.LocalDate)vl), "barDate");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -49,8 +51,9 @@ public class VendorDateFkDbm extends AbstractDBMeta {
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
     { xsetupEfpg(); }
+    @SuppressWarnings("unchecked")
     protected void xsetupEfpg() {
-        setupEfpg(_efpgMap, et -> ((VendorDateFk)et).getVendorDatePk(), (et, vl) -> ((VendorDateFk)et).setVendorDatePk((VendorDatePk)vl), "vendorDatePk");
+        setupEfpg(_efpgMap, et -> ((VendorDateFk)et).getVendorDatePk(), (et, vl) -> ((VendorDateFk)et).setVendorDatePk((OptionalEntity<VendorDatePk>)vl), "vendorDatePk");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }
@@ -69,8 +72,8 @@ public class VendorDateFkDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnBarId = cci("bar_id", "bar_id", null, null, Integer.class, "barId", null, true, false, true, "int4", 10, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnBarDate = cci("bar_date", "bar_date", null, null, java.util.Date.class, "barDate", null, false, false, true, "date", 13, 0, null, false, null, null, "vendorDatePk", null, null);
+    protected final ColumnInfo _columnBarId = cci("bar_id", "bar_id", null, null, Integer.class, "barId", null, true, false, true, "int4", 10, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnBarDate = cci("bar_date", "bar_date", null, null, java.time.LocalDate.class, "barDate", null, false, false, true, "date", 13, 0, null, false, null, null, "vendorDatePk", null, null, false);
 
     /**
      * bar_id: {PK, NotNull, int4(10)}
@@ -116,7 +119,7 @@ public class VendorDateFkDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignVendorDatePk() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnBarDate(), VendorDatePkDbm.getInstance().columnFooDate());
-        return cfi("fk_vendor_date_fk_pk", "vendorDatePk", this, VendorDatePkDbm.getInstance(), mp, 0, null, false, false, false, false, null, null, false, "vendorDateFkList");
+        return cfi("fk_vendor_date_fk_pk", "vendorDatePk", this, VendorDatePkDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "vendorDateFkList", false);
     }
 
     // -----------------------------------------------------

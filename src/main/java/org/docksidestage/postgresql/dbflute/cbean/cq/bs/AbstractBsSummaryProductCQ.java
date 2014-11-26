@@ -29,17 +29,14 @@ public abstract class AbstractBsSummaryProductCQ extends AbstractConditionQuery 
     }
 
     // ===================================================================================
-    //                                                                     DBMeta Provider
-    //                                                                     ===============
+    //                                                                             DB Meta
+    //                                                                             =======
     @Override
     protected DBMetaProvider xgetDBMetaProvider() {
         return DBMetaInstanceHandler.getProvider();
     }
 
-    // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
-    public String getTableDbName() {
+    public String asTableDbName() {
         return "summary_product";
     }
 
@@ -419,7 +416,7 @@ public abstract class AbstractBsSummaryProductCQ extends AbstractConditionQuery 
      * latest_purchase_datetime: {timestamp(29, 6)}
      * @param latestPurchaseDatetime The value of latestPurchaseDatetime as equal. (NullAllowed: if null, no condition)
      */
-    public void setLatestPurchaseDatetime_Equal(java.sql.Timestamp latestPurchaseDatetime) {
+    public void setLatestPurchaseDatetime_Equal(java.time.LocalDateTime latestPurchaseDatetime) {
         regLatestPurchaseDatetime(CK_EQ,  latestPurchaseDatetime);
     }
 
@@ -428,7 +425,7 @@ public abstract class AbstractBsSummaryProductCQ extends AbstractConditionQuery 
      * latest_purchase_datetime: {timestamp(29, 6)}
      * @param latestPurchaseDatetime The value of latestPurchaseDatetime as greaterThan. (NullAllowed: if null, no condition)
      */
-    public void setLatestPurchaseDatetime_GreaterThan(java.sql.Timestamp latestPurchaseDatetime) {
+    public void setLatestPurchaseDatetime_GreaterThan(java.time.LocalDateTime latestPurchaseDatetime) {
         regLatestPurchaseDatetime(CK_GT,  latestPurchaseDatetime);
     }
 
@@ -437,7 +434,7 @@ public abstract class AbstractBsSummaryProductCQ extends AbstractConditionQuery 
      * latest_purchase_datetime: {timestamp(29, 6)}
      * @param latestPurchaseDatetime The value of latestPurchaseDatetime as lessThan. (NullAllowed: if null, no condition)
      */
-    public void setLatestPurchaseDatetime_LessThan(java.sql.Timestamp latestPurchaseDatetime) {
+    public void setLatestPurchaseDatetime_LessThan(java.time.LocalDateTime latestPurchaseDatetime) {
         regLatestPurchaseDatetime(CK_LT,  latestPurchaseDatetime);
     }
 
@@ -446,7 +443,7 @@ public abstract class AbstractBsSummaryProductCQ extends AbstractConditionQuery 
      * latest_purchase_datetime: {timestamp(29, 6)}
      * @param latestPurchaseDatetime The value of latestPurchaseDatetime as greaterEqual. (NullAllowed: if null, no condition)
      */
-    public void setLatestPurchaseDatetime_GreaterEqual(java.sql.Timestamp latestPurchaseDatetime) {
+    public void setLatestPurchaseDatetime_GreaterEqual(java.time.LocalDateTime latestPurchaseDatetime) {
         regLatestPurchaseDatetime(CK_GE,  latestPurchaseDatetime);
     }
 
@@ -455,7 +452,7 @@ public abstract class AbstractBsSummaryProductCQ extends AbstractConditionQuery 
      * latest_purchase_datetime: {timestamp(29, 6)}
      * @param latestPurchaseDatetime The value of latestPurchaseDatetime as lessEqual. (NullAllowed: if null, no condition)
      */
-    public void setLatestPurchaseDatetime_LessEqual(java.sql.Timestamp latestPurchaseDatetime) {
+    public void setLatestPurchaseDatetime_LessEqual(java.time.LocalDateTime latestPurchaseDatetime) {
         regLatestPurchaseDatetime(CK_LE, latestPurchaseDatetime);
     }
 
@@ -468,7 +465,7 @@ public abstract class AbstractBsSummaryProductCQ extends AbstractConditionQuery 
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of latestPurchaseDatetime. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of from-to. (NotNull)
      */
-    public void setLatestPurchaseDatetime_FromTo(Date fromDatetime, Date toDatetime, ConditionOptionCall<FromToOption> opLambda) {
+    public void setLatestPurchaseDatetime_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, ConditionOptionCall<FromToOption> opLambda) {
         setLatestPurchaseDatetime_FromTo(fromDatetime, toDatetime, xcFTOP(opLambda));
     }
 
@@ -481,8 +478,9 @@ public abstract class AbstractBsSummaryProductCQ extends AbstractConditionQuery 
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of latestPurchaseDatetime. (NullAllowed: if null, no to-condition)
      * @param fromToOption The option of from-to. (NotNull)
      */
-    public void setLatestPurchaseDatetime_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ((fromDatetime != null ? new java.sql.Timestamp(fromDatetime.getTime()) : null), (toDatetime != null ? new java.sql.Timestamp(toDatetime.getTime()) : null), xgetCValueLatestPurchaseDatetime(), "latest_purchase_datetime", fromToOption);
+    public void setLatestPurchaseDatetime_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, FromToOption fromToOption) {
+        String nm = "latest_purchase_datetime"; FromToOption op = fromToOption;
+        regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValueLatestPurchaseDatetime(), nm, op);
     }
 
     /**
@@ -496,7 +494,7 @@ public abstract class AbstractBsSummaryProductCQ extends AbstractConditionQuery 
      * @param fromDate The from-date(yyyy/MM/dd) of latestPurchaseDatetime. (NullAllowed: if null, no from-condition)
      * @param toDate The to-date(yyyy/MM/dd) of latestPurchaseDatetime. (NullAllowed: if null, no to-condition)
      */
-    public void setLatestPurchaseDatetime_DateFromTo(Date fromDate, Date toDate) {
+    public void setLatestPurchaseDatetime_DateFromTo(java.time.LocalDateTime fromDate, java.time.LocalDateTime toDate) {
         setLatestPurchaseDatetime_FromTo(fromDate, toDate, xcDFTOP());
     }
 

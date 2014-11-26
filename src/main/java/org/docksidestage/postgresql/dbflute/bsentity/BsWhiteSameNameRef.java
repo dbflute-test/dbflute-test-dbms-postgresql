@@ -3,9 +3,11 @@ package org.docksidestage.postgresql.dbflute.bsentity;
 import java.util.List;
 import java.util.ArrayList;
 
+import org.dbflute.Entity;
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
 import org.dbflute.dbmeta.accessory.DomainEntity;
+import org.dbflute.optional.OptionalEntity;
 import org.docksidestage.postgresql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
@@ -72,24 +74,16 @@ public abstract class BsWhiteSameNameRef extends AbstractEntity implements Domai
     protected Long _nextSameNameId;
 
     // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public String getTableDbName() {
+    public DBMeta asDBMeta() {
+        return DBMetaInstanceHandler.findDBMeta(asTableDbName());
+    }
+
+    /** {@inheritDoc} */
+    public String asTableDbName() {
         return "white_same_name_ref";
-    }
-
-    /** {@inheritDoc} */
-    public String getTablePropertyName() {
-        return "whiteSameNameRef";
-    }
-
-    // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
-    /** {@inheritDoc} */
-    public DBMeta getDBMeta() {
-        return DBMetaInstanceHandler.findDBMeta(getTableDbName());
     }
 
     // ===================================================================================
@@ -105,13 +99,15 @@ public abstract class BsWhiteSameNameRef extends AbstractEntity implements Domai
     //                                                                    Foreign Property
     //                                                                    ================
     /** white_same_name by my same_name_id, named 'whiteSameName'. */
-    protected WhiteSameName _whiteSameName;
+    protected OptionalEntity<WhiteSameName> _whiteSameName;
 
     /**
      * [get] white_same_name by my same_name_id, named 'whiteSameName'. <br>
-     * @return The entity of foreign property 'whiteSameName'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'whiteSameName'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public WhiteSameName getWhiteSameName() {
+    public OptionalEntity<WhiteSameName> getWhiteSameName() {
+        if (_whiteSameName == null) { _whiteSameName = OptionalEntity.relationEmpty(this, "whiteSameName"); }
         return _whiteSameName;
     }
 
@@ -119,7 +115,7 @@ public abstract class BsWhiteSameNameRef extends AbstractEntity implements Domai
      * [set] white_same_name by my same_name_id, named 'whiteSameName'.
      * @param whiteSameName The entity of foreign property 'whiteSameName'. (NullAllowed)
      */
-    public void setWhiteSameName(WhiteSameName whiteSameName) {
+    public void setWhiteSameName(OptionalEntity<WhiteSameName> whiteSameName) {
         _whiteSameName = whiteSameName;
     }
 
@@ -147,7 +143,7 @@ public abstract class BsWhiteSameNameRef extends AbstractEntity implements Domai
     @Override
     protected int doHashCode(int initial) {
         int hs = initial;
-        hs = xCH(hs, getTableDbName());
+        hs = xCH(hs, asTableDbName());
         hs = xCH(hs, _sameNameRefId);
         return hs;
     }
@@ -155,9 +151,12 @@ public abstract class BsWhiteSameNameRef extends AbstractEntity implements Domai
     @Override
     protected String doBuildStringWithRelation(String li) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteSameName != null)
+        if (_whiteSameName != null && _whiteSameName.isPresent())
         { sb.append(li).append(xbRDS(_whiteSameName, "whiteSameName")); }
         return sb.toString();
+    }
+    protected <ET extends Entity> String xbRDS(org.dbflute.optional.OptionalEntity<ET> et, String name) { // buildRelationDisplayString()
+        return et.get().buildDisplayString(name, true, true);
     }
 
     @Override
@@ -176,7 +175,7 @@ public abstract class BsWhiteSameNameRef extends AbstractEntity implements Domai
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteSameName != null)
+        if (_whiteSameName != null && _whiteSameName.isPresent())
         { sb.append(dm).append("whiteSameName"); }
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length()).insert(0, "(").append(")");

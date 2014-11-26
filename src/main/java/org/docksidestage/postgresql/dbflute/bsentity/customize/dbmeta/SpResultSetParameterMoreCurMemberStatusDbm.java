@@ -37,7 +37,8 @@ public class SpResultSetParameterMoreCurMemberStatusDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((SpResultSetParameterMoreCurMemberStatus)et).getMemberStatusCode(), (et, vl) -> {
             ColumnInfo col = columnMemberStatusCode();
             CDef.MemberStatus cls = (CDef.MemberStatus)gcls(col, vl);
@@ -68,10 +69,10 @@ public class SpResultSetParameterMoreCurMemberStatusDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnMemberStatusCode = cci("member_status_code", "member_status_code", null, "会員ステータスコード", String.class, "memberStatusCode", null, false, false, false, "bpchar", 3, 0, null, false, null, "会員ステータスを識別するコード。\n固定的なデータなので、連番とか番号にはせず、\nデータを直接見たときも人が直感的にわかるように、\nこのような３桁のコード形式にしている。", null, null, CDef.DefMeta.MemberStatus);
-    protected final ColumnInfo _columnMemberStatusName = cci("member_status_name", "member_status_name", null, "会員ステータス名称", String.class, "memberStatusName", null, false, false, false, "varchar", 50, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnDescription = cci("description", "description", null, "説明", String.class, "description", null, false, false, false, "varchar", 200, 0, null, false, null, "会員ステータスそれぞれの説明。\n気の利いた説明があるとディベロッパーがとても助かる。", null, null, null);
-    protected final ColumnInfo _columnDisplayOrder = cci("display_order", "display_order", null, "表示順", Integer.class, "displayOrder", null, false, false, false, "int4", 10, 0, null, false, null, "UI上のステータスの表示順を示すNO。\n並べるときは、このカラムに対して昇順のソート条件にする。", null, null, null);
+    protected final ColumnInfo _columnMemberStatusCode = cci("member_status_code", "member_status_code", null, "会員ステータスコード", String.class, "memberStatusCode", null, false, false, false, "bpchar", 3, 0, null, false, null, "会員ステータスを識別するコード。\n固定的なデータなので、連番とか番号にはせず、\nデータを直接見たときも人が直感的にわかるように、\nこのような３桁のコード形式にしている。", null, null, CDef.DefMeta.MemberStatus, false);
+    protected final ColumnInfo _columnMemberStatusName = cci("member_status_name", "member_status_name", null, "会員ステータス名称", String.class, "memberStatusName", null, false, false, false, "varchar", 50, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnDescription = cci("description", "description", null, "説明", String.class, "description", null, false, false, false, "varchar", 200, 0, null, false, null, "会員ステータスそれぞれの説明。\n気の利いた説明があるとディベロッパーがとても助かる。", null, null, null, false);
+    protected final ColumnInfo _columnDisplayOrder = cci("display_order", "display_order", null, "表示順", Integer.class, "displayOrder", null, false, false, false, "int4", 10, 0, null, false, null, "UI上のステータスの表示順を示すNO。\n並べるときは、このカラムに対して昇順のソート条件にする。", null, null, null, false);
 
     /**
      * (会員ステータスコード)member_status_code: {bpchar(3), refers to member_status.member_status_code, classification=MemberStatus}

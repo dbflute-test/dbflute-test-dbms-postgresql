@@ -11,7 +11,7 @@ public class VendorUuidBarNss {
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    protected VendorUuidBarCQ _query;
+    protected final VendorUuidBarCQ _query;
     public VendorUuidBarNss(VendorUuidBarCQ query) { _query = query; }
     public boolean hasConditionQuery() { return _query != null; }
 

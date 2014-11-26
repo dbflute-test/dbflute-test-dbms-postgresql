@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.dbflute.Entity;
+import org.dbflute.optional.OptionalEntity;
 import org.dbflute.dbmeta.AbstractDBMeta;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
@@ -37,17 +38,26 @@ public class MemberAddressDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((MemberAddress)et).getMemberAddressId(), (et, vl) -> ((MemberAddress)et).setMemberAddressId(cti(vl)), "memberAddressId");
         setupEpg(_epgMap, et -> ((MemberAddress)et).getMemberId(), (et, vl) -> ((MemberAddress)et).setMemberId(cti(vl)), "memberId");
-        setupEpg(_epgMap, et -> ((MemberAddress)et).getValidBeginDate(), (et, vl) -> ((MemberAddress)et).setValidBeginDate((java.util.Date)vl), "validBeginDate");
-        setupEpg(_epgMap, et -> ((MemberAddress)et).getValidEndDate(), (et, vl) -> ((MemberAddress)et).setValidEndDate((java.util.Date)vl), "validEndDate");
+        setupEpg(_epgMap, et -> ((MemberAddress)et).getValidBeginDate(), (et, vl) -> ((MemberAddress)et).setValidBeginDate((java.time.LocalDate)vl), "validBeginDate");
+        setupEpg(_epgMap, et -> ((MemberAddress)et).getValidEndDate(), (et, vl) -> ((MemberAddress)et).setValidEndDate((java.time.LocalDate)vl), "validEndDate");
         setupEpg(_epgMap, et -> ((MemberAddress)et).getAddress(), (et, vl) -> ((MemberAddress)et).setAddress((String)vl), "address");
-        setupEpg(_epgMap, et -> ((MemberAddress)et).getRegionId(), (et, vl) -> ((MemberAddress)et).setRegionId(cti(vl)), "regionId");
-        setupEpg(_epgMap, et -> ((MemberAddress)et).getRegisterDatetime(), (et, vl) -> ((MemberAddress)et).setRegisterDatetime((java.sql.Timestamp)vl), "registerDatetime");
+        setupEpg(_epgMap, et -> ((MemberAddress)et).getRegionId(), (et, vl) -> {
+            ColumnInfo col = columnRegionId();
+            CDef.Region cls = (CDef.Region)gcls(col, vl);
+            if (cls != null) {
+                ((MemberAddress)et).setRegionIdAsRegion(cls);
+            } else {
+                ((MemberAddress)et).mynativeMappingRegionId(ctn(vl, Integer.class));
+            }
+        }, "regionId");
+        setupEpg(_epgMap, et -> ((MemberAddress)et).getRegisterDatetime(), (et, vl) -> ((MemberAddress)et).setRegisterDatetime((java.time.LocalDateTime)vl), "registerDatetime");
         setupEpg(_epgMap, et -> ((MemberAddress)et).getRegisterProcess(), (et, vl) -> ((MemberAddress)et).setRegisterProcess((String)vl), "registerProcess");
         setupEpg(_epgMap, et -> ((MemberAddress)et).getRegisterUser(), (et, vl) -> ((MemberAddress)et).setRegisterUser((String)vl), "registerUser");
-        setupEpg(_epgMap, et -> ((MemberAddress)et).getUpdateDatetime(), (et, vl) -> ((MemberAddress)et).setUpdateDatetime((java.sql.Timestamp)vl), "updateDatetime");
+        setupEpg(_epgMap, et -> ((MemberAddress)et).getUpdateDatetime(), (et, vl) -> ((MemberAddress)et).setUpdateDatetime((java.time.LocalDateTime)vl), "updateDatetime");
         setupEpg(_epgMap, et -> ((MemberAddress)et).getUpdateProcess(), (et, vl) -> ((MemberAddress)et).setUpdateProcess((String)vl), "updateProcess");
         setupEpg(_epgMap, et -> ((MemberAddress)et).getUpdateUser(), (et, vl) -> ((MemberAddress)et).setUpdateUser((String)vl), "updateUser");
         setupEpg(_epgMap, et -> ((MemberAddress)et).getVersionNo(), (et, vl) -> ((MemberAddress)et).setVersionNo(ctl(vl)), "versionNo");
@@ -60,9 +70,10 @@ public class MemberAddressDbm extends AbstractDBMeta {
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
     { xsetupEfpg(); }
+    @SuppressWarnings("unchecked")
     protected void xsetupEfpg() {
-        setupEfpg(_efpgMap, et -> ((MemberAddress)et).getMember(), (et, vl) -> ((MemberAddress)et).setMember((Member)vl), "member");
-        setupEfpg(_efpgMap, et -> ((MemberAddress)et).getRegion(), (et, vl) -> ((MemberAddress)et).setRegion((Region)vl), "region");
+        setupEfpg(_efpgMap, et -> ((MemberAddress)et).getMember(), (et, vl) -> ((MemberAddress)et).setMember((OptionalEntity<Member>)vl), "member");
+        setupEfpg(_efpgMap, et -> ((MemberAddress)et).getRegion(), (et, vl) -> ((MemberAddress)et).setRegion((OptionalEntity<Region>)vl), "region");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }
@@ -85,19 +96,19 @@ public class MemberAddressDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnMemberAddressId = cci("member_address_id", "member_address_id", null, "会員住所ID", Integer.class, "memberAddressId", null, true, true, true, "serial", 10, 0, "nextval('member_address_member_address_id_seq'::regclass)", false, null, "会員住所を識別するID。\n履歴分も含むテーブルなので、これ自体はFKではない。", null, null, null);
-    protected final ColumnInfo _columnMemberId = cci("member_id", "member_id", null, "会員ID", Integer.class, "memberId", null, false, false, true, "int4", 10, 0, null, false, null, "会員を参照するID。\n履歴分を含むため、これだけではユニークにはならない。\n有効開始日と合わせて複合ユニーク制約となるが、\n厳密には完全な制約にはなっていない。\n有効期間の概念はRDBでは表現しきれないのである。", "member", null, null);
-    protected final ColumnInfo _columnValidBeginDate = cci("valid_begin_date", "valid_begin_date", null, "有効開始日", java.util.Date.class, "validBeginDate", null, false, false, true, "date", 13, 0, null, false, null, "一つの有効期間の開始を示す日付。\n前の有効終了日の次の日の値が格納される。", null, null, null);
-    protected final ColumnInfo _columnValidEndDate = cci("valid_end_date", "valid_end_date", null, "有効終了日", java.util.Date.class, "validEndDate", null, false, false, true, "date", 13, 0, null, false, null, "有効期間の終了日。\n次の有効開始日の一日前の値が格納される。\nただし、次の有効期間がない場合は 9999/12/31 となる。", null, null, null);
-    protected final ColumnInfo _columnAddress = cci("address", "address", null, "住所", String.class, "address", null, false, false, true, "varchar", 200, 0, null, false, null, "まるごと住所", null, null, null);
-    protected final ColumnInfo _columnRegionId = cci("region_id", "region_id", null, "地域ID", Integer.class, "regionId", null, false, false, true, "int4", 10, 0, null, false, null, "地域を参照するID。\nここでは特に住所の内容と連動しているわけではない。\n（業務的one-to-oneの親テーブルの表現したかっ...）", "region", null, null);
-    protected final ColumnInfo _columnRegisterDatetime = cci("register_datetime", "register_datetime", null, null, java.sql.Timestamp.class, "registerDatetime", null, false, false, true, "timestamp", 26, 3, null, true, null, null, null, null, null);
-    protected final ColumnInfo _columnRegisterProcess = cci("register_process", "register_process", null, null, String.class, "registerProcess", null, false, false, true, "varchar", 200, 0, null, true, null, null, null, null, null);
-    protected final ColumnInfo _columnRegisterUser = cci("register_user", "register_user", null, null, String.class, "registerUser", null, false, false, true, "varchar", 200, 0, null, true, null, null, null, null, null);
-    protected final ColumnInfo _columnUpdateDatetime = cci("update_datetime", "update_datetime", null, null, java.sql.Timestamp.class, "updateDatetime", null, false, false, true, "timestamp", 26, 3, null, true, null, null, null, null, null);
-    protected final ColumnInfo _columnUpdateProcess = cci("update_process", "update_process", null, null, String.class, "updateProcess", null, false, false, true, "varchar", 200, 0, null, true, null, null, null, null, null);
-    protected final ColumnInfo _columnUpdateUser = cci("update_user", "update_user", null, null, String.class, "updateUser", null, false, false, true, "varchar", 200, 0, null, true, null, null, null, null, null);
-    protected final ColumnInfo _columnVersionNo = cci("version_no", "version_no", null, null, Long.class, "versionNo", null, false, false, true, "int8", 19, 0, null, false, OptimisticLockType.VERSION_NO, null, null, null, null);
+    protected final ColumnInfo _columnMemberAddressId = cci("member_address_id", "member_address_id", null, "会員住所ID", Integer.class, "memberAddressId", null, true, true, true, "serial", 10, 0, "nextval('member_address_member_address_id_seq'::regclass)", false, null, "会員住所を識別するID。\n履歴分も含むテーブルなので、これ自体はFKではない。", null, null, null, false);
+    protected final ColumnInfo _columnMemberId = cci("member_id", "member_id", null, "会員ID", Integer.class, "memberId", null, false, false, true, "int4", 10, 0, null, false, null, "会員を参照するID。\n履歴分を含むため、これだけではユニークにはならない。\n有効開始日と合わせて複合ユニーク制約となるが、\n厳密には完全な制約にはなっていない。\n有効期間の概念はRDBでは表現しきれないのである。", "member", null, null, false);
+    protected final ColumnInfo _columnValidBeginDate = cci("valid_begin_date", "valid_begin_date", null, "有効開始日", java.time.LocalDate.class, "validBeginDate", null, false, false, true, "date", 13, 0, null, false, null, "一つの有効期間の開始を示す日付。\n前の有効終了日の次の日の値が格納される。", null, null, null, false);
+    protected final ColumnInfo _columnValidEndDate = cci("valid_end_date", "valid_end_date", null, "有効終了日", java.time.LocalDate.class, "validEndDate", null, false, false, true, "date", 13, 0, null, false, null, "有効期間の終了日。\n次の有効開始日の一日前の値が格納される。\nただし、次の有効期間がない場合は 9999/12/31 となる。", null, null, null, false);
+    protected final ColumnInfo _columnAddress = cci("address", "address", null, "住所", String.class, "address", null, false, false, true, "varchar", 200, 0, null, false, null, "まるごと住所", null, null, null, false);
+    protected final ColumnInfo _columnRegionId = cci("region_id", "region_id", null, "地域ID", Integer.class, "regionId", null, false, false, true, "int4", 10, 0, null, false, null, "地域を参照するID。\nここでは特に住所の内容と連動しているわけではない。\n（業務的one-to-oneの親テーブルの表現したかっ...）", "region", null, CDef.DefMeta.Region, false);
+    protected final ColumnInfo _columnRegisterDatetime = cci("register_datetime", "register_datetime", null, null, java.time.LocalDateTime.class, "registerDatetime", null, false, false, true, "timestamp", 26, 3, null, true, null, null, null, null, null, false);
+    protected final ColumnInfo _columnRegisterProcess = cci("register_process", "register_process", null, null, String.class, "registerProcess", null, false, false, true, "varchar", 200, 0, null, true, null, null, null, null, null, false);
+    protected final ColumnInfo _columnRegisterUser = cci("register_user", "register_user", null, null, String.class, "registerUser", null, false, false, true, "varchar", 200, 0, null, true, null, null, null, null, null, false);
+    protected final ColumnInfo _columnUpdateDatetime = cci("update_datetime", "update_datetime", null, null, java.time.LocalDateTime.class, "updateDatetime", null, false, false, true, "timestamp", 26, 3, null, true, null, null, null, null, null, false);
+    protected final ColumnInfo _columnUpdateProcess = cci("update_process", "update_process", null, null, String.class, "updateProcess", null, false, false, true, "varchar", 200, 0, null, true, null, null, null, null, null, false);
+    protected final ColumnInfo _columnUpdateUser = cci("update_user", "update_user", null, null, String.class, "updateUser", null, false, false, true, "varchar", 200, 0, null, true, null, null, null, null, null, false);
+    protected final ColumnInfo _columnVersionNo = cci("version_no", "version_no", null, null, Long.class, "versionNo", null, false, false, true, "int8", 19, 0, null, false, OptimisticLockType.VERSION_NO, null, null, null, null, false);
 
     /**
      * (会員住所ID)member_address_id: {PK, ID, NotNull, serial(10)}
@@ -125,7 +136,7 @@ public class MemberAddressDbm extends AbstractDBMeta {
      */
     public ColumnInfo columnAddress() { return _columnAddress; }
     /**
-     * (地域ID)region_id: {NotNull, int4(10), FK to region}
+     * (地域ID)region_id: {NotNull, int4(10), FK to region, classification=Region}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnRegionId() { return _columnRegionId; }
@@ -209,7 +220,7 @@ public class MemberAddressDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignMember() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnMemberId(), MemberDbm.getInstance().columnMemberId());
-        return cfi("fk_member_address_member", "member", this, MemberDbm.getInstance(), mp, 0, null, false, false, false, false, null, null, false, "memberAddressList");
+        return cfi("fk_member_address_member", "member", this, MemberDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "memberAddressList", false);
     }
     /**
      * (地域)region by my region_id, named 'region'.
@@ -217,7 +228,7 @@ public class MemberAddressDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignRegion() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnRegionId(), RegionDbm.getInstance().columnRegionId());
-        return cfi("fk_member_address_region", "region", this, RegionDbm.getInstance(), mp, 1, null, false, false, false, false, null, null, false, "memberAddressList");
+        return cfi("fk_member_address_region", "region", this, RegionDbm.getInstance(), mp, 1, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "memberAddressList", false);
     }
 
     // -----------------------------------------------------

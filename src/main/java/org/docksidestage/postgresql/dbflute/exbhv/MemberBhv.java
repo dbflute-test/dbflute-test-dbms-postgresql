@@ -8,7 +8,6 @@ import org.docksidestage.postgresql.dbflute.exbhv.cursor.PurchaseSummaryMemberCu
 import org.docksidestage.postgresql.dbflute.exbhv.cursor.PurchaseSummaryMemberCursorHandler;
 import org.docksidestage.postgresql.dbflute.exbhv.pmbean.PurchaseSummaryMemberPmb;
 
-
 /**
  * The behavior of member. <br />
  * You can implement your original methods here. <br />
@@ -17,7 +16,7 @@ import org.docksidestage.postgresql.dbflute.exbhv.pmbean.PurchaseSummaryMemberPm
  * @author DBFlute(AutoGenerator)
  */
 public class MemberBhv extends org.docksidestage.postgresql.dbflute.bsbhv.BsMemberBhv {
-    
+
     // ===================================================================================
     //                                                                          Definition
     //                                                                          ==========
@@ -50,6 +49,6 @@ public class MemberBhv extends org.docksidestage.postgresql.dbflute.bsbhv.BsMemb
                 return null;// ここで処理が完結してるので戻り値は不要
             }
         };
-        outsideSql().cursorHandling().selectCursor(PATH_selectPurchaseSummaryMember, pmb, handler);
+        outsideSql().selectCursor(pmb, handler);
     }
 }

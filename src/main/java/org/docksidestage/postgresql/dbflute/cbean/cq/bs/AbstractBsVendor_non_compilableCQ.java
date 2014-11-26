@@ -29,17 +29,14 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     }
 
     // ===================================================================================
-    //                                                                     DBMeta Provider
-    //                                                                     ===============
+    //                                                                             DB Meta
+    //                                                                             =======
     @Override
     protected DBMetaProvider xgetDBMetaProvider() {
         return DBMetaInstanceHandler.getProvider();
     }
 
-    // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
-    public String getTableDbName() {
+    public String asTableDbName() {
         return "VENDOR-NON COMPILABLE";
     }
 
@@ -152,13 +149,13 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
      * {exists (select Next_ParentID from VENDOR-NON COMPILABLE where ...)} <br>
      * VENDOR-NON COMPILABLE by Next_ParentID, named 'vendor_non_compilableByNextParentidSelfAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">existsVendor_non_compilableByNextParentidSelfList</span>(entityCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">existsVendor_non_compilableByNextParentidSelf</span>(entityCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     entityCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of Vendor_non_compilableByNextParentidSelfList for 'exists'. (NotNull)
      */
-    public void existsVendor_non_compilableByNextParentidSelfList(SubQuery<Vendor_non_compilableCB> subCBLambda) {
+    public void existsVendor_non_compilableByNextParentidSelf(SubQuery<Vendor_non_compilableCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         Vendor_non_compilableCB cb = new Vendor_non_compilableCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepNon_compilable_id_ExistsReferrer_Vendor_non_compilableByNextParentidSelfList(cb.query());
@@ -171,13 +168,13 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
      * {exists (select PARENT-ID from VENDOR-NON COMPILABLE where ...)} <br>
      * VENDOR-NON COMPILABLE by PARENT-ID, named 'vendor_non_compilableByParent_idSelfAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">existsVendor_non_compilableByParent_idSelfList</span>(entityCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">existsVendor_non_compilableByParent_idSelf</span>(entityCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     entityCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of Vendor_non_compilableByParent_idSelfList for 'exists'. (NotNull)
      */
-    public void existsVendor_non_compilableByParent_idSelfList(SubQuery<Vendor_non_compilableCB> subCBLambda) {
+    public void existsVendor_non_compilableByParent_idSelf(SubQuery<Vendor_non_compilableCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         Vendor_non_compilableCB cb = new Vendor_non_compilableCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepNon_compilable_id_ExistsReferrer_Vendor_non_compilableByParent_idSelfList(cb.query());
@@ -190,13 +187,13 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
      * {not exists (select Next_ParentID from VENDOR-NON COMPILABLE where ...)} <br>
      * VENDOR-NON COMPILABLE by Next_ParentID, named 'vendor_non_compilableByNextParentidSelfAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsVendor_non_compilableByNextParentidSelfList</span>(entityCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">notExistsVendor_non_compilableByNextParentidSelf</span>(entityCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     entityCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of Non_compilable_id_NotExistsReferrer_Vendor_non_compilableByNextParentidSelfList for 'not exists'. (NotNull)
      */
-    public void notExistsVendor_non_compilableByNextParentidSelfList(SubQuery<Vendor_non_compilableCB> subCBLambda) {
+    public void notExistsVendor_non_compilableByNextParentidSelf(SubQuery<Vendor_non_compilableCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         Vendor_non_compilableCB cb = new Vendor_non_compilableCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepNon_compilable_id_NotExistsReferrer_Vendor_non_compilableByNextParentidSelfList(cb.query());
@@ -209,13 +206,13 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
      * {not exists (select PARENT-ID from VENDOR-NON COMPILABLE where ...)} <br>
      * VENDOR-NON COMPILABLE by PARENT-ID, named 'vendor_non_compilableByParent_idSelfAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsVendor_non_compilableByParent_idSelfList</span>(entityCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">notExistsVendor_non_compilableByParent_idSelf</span>(entityCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     entityCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of Non_compilable_id_NotExistsReferrer_Vendor_non_compilableByParent_idSelfList for 'not exists'. (NotNull)
      */
-    public void notExistsVendor_non_compilableByParent_idSelfList(SubQuery<Vendor_non_compilableCB> subCBLambda) {
+    public void notExistsVendor_non_compilableByParent_idSelf(SubQuery<Vendor_non_compilableCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         Vendor_non_compilableCB cb = new Vendor_non_compilableCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepNon_compilable_id_NotExistsReferrer_Vendor_non_compilableByParent_idSelfList(cb.query());
@@ -244,14 +241,14 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
      * {FOO &lt;= (select max(BAR) from VENDOR-NON COMPILABLE where ...)} <br>
      * VENDOR-NON COMPILABLE by Next_ParentID, named 'vendor_non_compilableByNextParentidSelfAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedVendor_non_compilableByNextParentidSelfList()</span>.<span style="color: #CC4747">max</span>(entityCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">derivedVendor_non_compilableByNextParentidSelf()</span>.<span style="color: #CC4747">max</span>(entityCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     entityCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *     entityCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
      * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
      * </pre>
      * @return The object to set up a function for referrer table. (NotNull)
      */
-    public HpQDRFunction<Vendor_non_compilableCB> derivedVendor_non_compilableByNextParentidSelfList() {
+    public HpQDRFunction<Vendor_non_compilableCB> derivedVendor_non_compilableByNextParentidSelf() {
         return xcreateQDRFunctionVendor_non_compilableByNextParentidSelfList();
     }
     protected HpQDRFunction<Vendor_non_compilableCB> xcreateQDRFunctionVendor_non_compilableByNextParentidSelfList() {
@@ -271,14 +268,14 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
      * {FOO &lt;= (select max(BAR) from VENDOR-NON COMPILABLE where ...)} <br>
      * VENDOR-NON COMPILABLE by PARENT-ID, named 'vendor_non_compilableByParent_idSelfAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedVendor_non_compilableByParent_idSelfList()</span>.<span style="color: #CC4747">max</span>(entityCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">derivedVendor_non_compilableByParent_idSelf()</span>.<span style="color: #CC4747">max</span>(entityCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     entityCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *     entityCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
      * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
      * </pre>
      * @return The object to set up a function for referrer table. (NotNull)
      */
-    public HpQDRFunction<Vendor_non_compilableCB> derivedVendor_non_compilableByParent_idSelfList() {
+    public HpQDRFunction<Vendor_non_compilableCB> derivedVendor_non_compilableByParent_idSelf() {
         return xcreateQDRFunctionVendor_non_compilableByParent_idSelfList();
     }
     protected HpQDRFunction<Vendor_non_compilableCB> xcreateQDRFunctionVendor_non_compilableByParent_idSelfList() {

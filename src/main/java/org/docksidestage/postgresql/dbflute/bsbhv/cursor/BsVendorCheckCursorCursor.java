@@ -121,10 +121,10 @@ public class BsVendorCheckCursorCursor {
     protected ValueType _vtTypeOfReal = vt(java.math.BigDecimal.class);
     protected ValueType _vtTypeOfFloat = vt(java.math.BigDecimal.class);
     protected ValueType _vtTypeOfMoney = vt(java.math.BigDecimal.class);
-    protected ValueType _vtTypeOfDate = vt(java.util.Date.class);
-    protected ValueType _vtTypeOfTimestamp = vt(java.sql.Timestamp.class);
-    protected ValueType _vtTypeOfTime = vt(java.sql.Time.class);
-    protected ValueType _vtTypeOfTimetz = vt(java.sql.Time.class);
+    protected ValueType _vtTypeOfDate = vt(java.time.LocalDate.class);
+    protected ValueType _vtTypeOfTimestamp = vt(java.time.LocalDateTime.class);
+    protected ValueType _vtTypeOfTime = vt(java.time.LocalTime.class);
+    protected ValueType _vtTypeOfTimetz = vt(java.time.LocalTime.class);
     protected ValueType _vtTypeOfInterval = vt(String.class);
     protected ValueType _vtTypeOfBool = vt(Boolean.class);
     protected ValueType _vtTypeOfBit = vt(Boolean.class);
@@ -334,8 +334,8 @@ public class BsVendorCheckCursorCursor {
      * @return The value of typeOfDate. (NullAllowed)
      * @throws SQLException When it fails to get the value from result set.
      */
-    public java.util.Date getTypeOfDate() throws SQLException {
-        return (java.util.Date)_vtTypeOfDate.getValue(_rs, DB_NAME_type_of_date);
+    public java.time.LocalDate getTypeOfDate() throws SQLException {
+        return (java.time.LocalDate)_vtTypeOfDate.getValue(_rs, DB_NAME_type_of_date);
     }
 
     /**
@@ -343,8 +343,8 @@ public class BsVendorCheckCursorCursor {
      * @return The value of typeOfTimestamp. (NullAllowed)
      * @throws SQLException When it fails to get the value from result set.
      */
-    public java.sql.Timestamp getTypeOfTimestamp() throws SQLException {
-        return (java.sql.Timestamp)_vtTypeOfTimestamp.getValue(_rs, DB_NAME_type_of_timestamp);
+    public java.time.LocalDateTime getTypeOfTimestamp() throws SQLException {
+        return (java.time.LocalDateTime)_vtTypeOfTimestamp.getValue(_rs, DB_NAME_type_of_timestamp);
     }
 
     /**
@@ -352,8 +352,8 @@ public class BsVendorCheckCursorCursor {
      * @return The value of typeOfTime. (NullAllowed)
      * @throws SQLException When it fails to get the value from result set.
      */
-    public java.sql.Time getTypeOfTime() throws SQLException {
-        return (java.sql.Time)_vtTypeOfTime.getValue(_rs, DB_NAME_type_of_time);
+    public java.time.LocalTime getTypeOfTime() throws SQLException {
+        return (java.time.LocalTime)_vtTypeOfTime.getValue(_rs, DB_NAME_type_of_time);
     }
 
     /**
@@ -361,8 +361,8 @@ public class BsVendorCheckCursorCursor {
      * @return The value of typeOfTimetz. (NullAllowed)
      * @throws SQLException When it fails to get the value from result set.
      */
-    public java.sql.Time getTypeOfTimetz() throws SQLException {
-        return (java.sql.Time)_vtTypeOfTimetz.getValue(_rs, DB_NAME_type_of_timetz);
+    public java.time.LocalTime getTypeOfTimetz() throws SQLException {
+        return (java.time.LocalTime)_vtTypeOfTimetz.getValue(_rs, DB_NAME_type_of_timetz);
     }
 
     /**

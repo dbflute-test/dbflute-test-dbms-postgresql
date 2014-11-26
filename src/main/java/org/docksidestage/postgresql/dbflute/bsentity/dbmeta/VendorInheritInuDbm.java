@@ -37,10 +37,11 @@ public class VendorInheritInuDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((VendorInheritInu)et).getInuId(), (et, vl) -> ((VendorInheritInu)et).setInuId(cti(vl)), "inuId");
         setupEpg(_epgMap, et -> ((VendorInheritInu)et).getInuName(), (et, vl) -> ((VendorInheritInu)et).setInuName((String)vl), "inuName");
-        setupEpg(_epgMap, et -> ((VendorInheritInu)et).getInuDate(), (et, vl) -> ((VendorInheritInu)et).setInuDate((java.util.Date)vl), "inuDate");
+        setupEpg(_epgMap, et -> ((VendorInheritInu)et).getInuDate(), (et, vl) -> ((VendorInheritInu)et).setInuDate((java.time.LocalDate)vl), "inuDate");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -59,9 +60,9 @@ public class VendorInheritInuDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnInuId = cci("inu_id", "inu_id", null, null, Integer.class, "inuId", null, true, false, true, "int4", 10, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnInuName = cci("inu_name", "inu_name", null, null, String.class, "inuName", null, false, false, true, "varchar", 2147483647, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnInuDate = cci("inu_date", "inu_date", null, null, java.util.Date.class, "inuDate", null, false, false, false, "date", 13, 0, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnInuId = cci("inu_id", "inu_id", null, null, Integer.class, "inuId", null, true, false, true, "int4", 10, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnInuName = cci("inu_name", "inu_name", null, null, String.class, "inuName", null, false, false, true, "varchar", 2147483647, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnInuDate = cci("inu_date", "inu_date", null, null, java.time.LocalDate.class, "inuDate", null, false, false, false, "date", 13, 0, null, false, null, null, null, null, null, false);
 
     /**
      * inu_id: {PK, NotNull, int4(10)}

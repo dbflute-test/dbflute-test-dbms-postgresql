@@ -37,7 +37,8 @@ public class ProductStatusDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((ProductStatus)et).getProductStatusCode(), (et, vl) -> ((ProductStatus)et).setProductStatusCode((String)vl), "productStatusCode");
         setupEpg(_epgMap, et -> ((ProductStatus)et).getProductStatusName(), (et, vl) -> ((ProductStatus)et).setProductStatusName((String)vl), "productStatusName");
         setupEpg(_epgMap, et -> ((ProductStatus)et).getDisplayOrder(), (et, vl) -> ((ProductStatus)et).setDisplayOrder(cti(vl)), "displayOrder");
@@ -63,9 +64,9 @@ public class ProductStatusDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnProductStatusCode = cci("product_status_code", "product_status_code", null, "商品ステータスコード", String.class, "productStatusCode", null, true, false, true, "bpchar", 3, 0, null, false, null, "商品ステータスを識別するコード。", null, "productList", null);
-    protected final ColumnInfo _columnProductStatusName = cci("product_status_name", "product_status_name", null, null, String.class, "productStatusName", null, false, false, true, "varchar", 50, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnDisplayOrder = cci("display_order", "display_order", null, null, Integer.class, "displayOrder", null, false, false, true, "int4", 10, 0, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnProductStatusCode = cci("product_status_code", "product_status_code", null, "商品ステータスコード", String.class, "productStatusCode", null, true, false, true, "bpchar", 3, 0, null, false, null, "商品ステータスを識別するコード。", null, "productList", null, false);
+    protected final ColumnInfo _columnProductStatusName = cci("product_status_name", "product_status_name", null, null, String.class, "productStatusName", null, false, false, true, "varchar", 50, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnDisplayOrder = cci("display_order", "display_order", null, null, Integer.class, "displayOrder", null, false, false, true, "int4", 10, 0, null, false, null, null, null, null, null, false);
 
     /**
      * (商品ステータスコード)product_status_code: {PK, NotNull, bpchar(3)}

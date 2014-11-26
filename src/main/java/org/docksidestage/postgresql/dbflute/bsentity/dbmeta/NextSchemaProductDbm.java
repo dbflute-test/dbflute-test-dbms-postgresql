@@ -37,7 +37,8 @@ public class NextSchemaProductDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((NextSchemaProduct)et).getProductId(), (et, vl) -> ((NextSchemaProduct)et).setProductId(cti(vl)), "productId");
         setupEpg(_epgMap, et -> ((NextSchemaProduct)et).getProductName(), (et, vl) -> ((NextSchemaProduct)et).setProductName((String)vl), "productName");
     }
@@ -58,8 +59,8 @@ public class NextSchemaProductDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnProductId = cci("product_id", "product_id", null, null, Integer.class, "productId", null, true, true, true, "serial", 10, 0, "nextval('nextschema.next_schema_product_product_id_seq'::regclass)", false, null, null, null, "whiteSameNameList", null);
-    protected final ColumnInfo _columnProductName = cci("product_name", "product_name", null, null, String.class, "productName", null, false, false, true, "varchar", 200, 0, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnProductId = cci("product_id", "product_id", null, null, Integer.class, "productId", null, true, true, true, "serial", 10, 0, "nextval('nextschema.next_schema_product_product_id_seq'::regclass)", false, null, null, null, "whiteSameNameList", null, false);
+    protected final ColumnInfo _columnProductName = cci("product_name", "product_name", null, null, String.class, "productName", null, false, false, true, "varchar", 200, 0, null, false, null, null, null, null, null, false);
 
     /**
      * product_id: {PK, ID, NotNull, serial(10)}

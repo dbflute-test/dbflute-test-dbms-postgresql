@@ -11,7 +11,7 @@ public class RegionNss {
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    protected RegionCQ _query;
+    protected final RegionCQ _query;
     public RegionNss(RegionCQ query) { _query = query; }
     public boolean hasConditionQuery() { return _query != null; }
 

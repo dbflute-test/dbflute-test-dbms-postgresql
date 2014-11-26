@@ -12,13 +12,13 @@ public interface EntityDefinedCommonColumn extends Entity {
      * Get the value of registerDatetime.
      * @return The instance of the property type. (NullAllowed)
      */
-    java.sql.Timestamp getRegisterDatetime();
+    java.time.LocalDateTime getRegisterDatetime();
 
     /**
      * Set the value of registerDatetime.
      * @param registerDatetime The instance of the property type. (NullAllowed)
      */
-    void setRegisterDatetime(java.sql.Timestamp registerDatetime);
+    void setRegisterDatetime(java.time.LocalDateTime registerDatetime);
 
     /**
      * Get the value of registerUser.
@@ -48,13 +48,13 @@ public interface EntityDefinedCommonColumn extends Entity {
      * Get the value of updateDatetime.
      * @return The instance of the property type. (NullAllowed)
      */
-    java.sql.Timestamp getUpdateDatetime();
+    java.time.LocalDateTime getUpdateDatetime();
 
     /**
      * Set the value of updateDatetime.
      * @param updateDatetime The instance of the property type. (NullAllowed)
      */
-    void setUpdateDatetime(java.sql.Timestamp updateDatetime);
+    void setUpdateDatetime(java.time.LocalDateTime updateDatetime);
 
     /**
      * Get the value of updateUser.

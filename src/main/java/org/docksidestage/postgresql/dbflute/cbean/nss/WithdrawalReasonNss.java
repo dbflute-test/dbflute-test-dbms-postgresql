@@ -11,7 +11,7 @@ public class WithdrawalReasonNss {
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    protected WithdrawalReasonCQ _query;
+    protected final WithdrawalReasonCQ _query;
     public WithdrawalReasonNss(WithdrawalReasonCQ query) { _query = query; }
     public boolean hasConditionQuery() { return _query != null; }
 

@@ -44,7 +44,7 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  * Integer productId = entity.getProductId();
  * String productName = entity.getProductName();
  * String productStatusCode = entity.getProductStatusCode();
- * java.sql.Timestamp latestPurchaseDatetime = entity.getLatestPurchaseDatetime();
+ * java.time.LocalDateTime latestPurchaseDatetime = entity.getLatestPurchaseDatetime();
  * entity.setProductId(productId);
  * entity.setProductName(productName);
  * entity.setProductStatusCode(productStatusCode);
@@ -74,27 +74,19 @@ public abstract class BsSummaryProduct extends AbstractEntity implements DomainE
     protected String _productStatusCode;
 
     /** latest_purchase_datetime: {timestamp(29, 6)} */
-    protected java.sql.Timestamp _latestPurchaseDatetime;
+    protected java.time.LocalDateTime _latestPurchaseDatetime;
 
     // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public String getTableDbName() {
+    public DBMeta asDBMeta() {
+        return DBMetaInstanceHandler.findDBMeta(asTableDbName());
+    }
+
+    /** {@inheritDoc} */
+    public String asTableDbName() {
         return "summary_product";
-    }
-
-    /** {@inheritDoc} */
-    public String getTablePropertyName() {
-        return "summaryProduct";
-    }
-
-    // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
-    /** {@inheritDoc} */
-    public DBMeta getDBMeta() {
-        return DBMetaInstanceHandler.findDBMeta(getTableDbName());
     }
 
     // ===================================================================================
@@ -135,7 +127,7 @@ public abstract class BsSummaryProduct extends AbstractEntity implements DomainE
     @Override
     protected int doHashCode(int initial) {
         int hs = initial;
-        hs = xCH(hs, getTableDbName());
+        hs = xCH(hs, asTableDbName());
         hs = xCH(hs, _productId);
         hs = xCH(hs, _productName);
         hs = xCH(hs, _productStatusCode);
@@ -233,7 +225,7 @@ public abstract class BsSummaryProduct extends AbstractEntity implements DomainE
      * [get] latest_purchase_datetime: {timestamp(29, 6)} <br>
      * @return The value of the column 'latest_purchase_datetime'. (NullAllowed even if selected: for no constraint)
      */
-    public java.sql.Timestamp getLatestPurchaseDatetime() {
+    public java.time.LocalDateTime getLatestPurchaseDatetime() {
         checkSpecifiedProperty("latestPurchaseDatetime");
         return _latestPurchaseDatetime;
     }
@@ -242,7 +234,7 @@ public abstract class BsSummaryProduct extends AbstractEntity implements DomainE
      * [set] latest_purchase_datetime: {timestamp(29, 6)} <br>
      * @param latestPurchaseDatetime The value of the column 'latest_purchase_datetime'. (NullAllowed: null update allowed for no constraint)
      */
-    public void setLatestPurchaseDatetime(java.sql.Timestamp latestPurchaseDatetime) {
+    public void setLatestPurchaseDatetime(java.time.LocalDateTime latestPurchaseDatetime) {
         registerModifiedProperty("latestPurchaseDatetime");
         _latestPurchaseDatetime = latestPurchaseDatetime;
     }

@@ -61,14 +61,14 @@ public class LoaderOfNextSchemaProduct {
     // ===================================================================================
     //                                                                       Load Referrer
     //                                                                       =============
-    protected List<WhiteSameName> _referrerWhiteSameNameList;
+    protected List<WhiteSameName> _referrerWhiteSameName;
 
     /**
      * Load referrer of whiteSameNameList by the set-upper of referrer. <br>
      * white_same_name by next_schema_product_id, named 'whiteSameNameList'.
      * <pre>
      * <span style="color: #0000C0">nextSchemaProductBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">nextSchemaProductList</span>, <span style="color: #553000">productLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #553000">productLoader</span>.<span style="color: #CC4747">loadWhiteSameNameList</span>(<span style="color: #553000">nameCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">productLoader</span>.<span style="color: #CC4747">loadWhiteSameName</span>(<span style="color: #553000">nameCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *         <span style="color: #553000">nameCB</span>.setupSelect...
      *         <span style="color: #553000">nameCB</span>.query().set...
      *         <span style="color: #553000">nameCB</span>.query().addOrderBy...
@@ -90,9 +90,9 @@ public class LoaderOfNextSchemaProduct {
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerLoaderGateway<LoaderOfWhiteSameName> loadWhiteSameNameList(ConditionBeanSetupper<WhiteSameNameCB> refCBLambda) {
-        myBhv().loadWhiteSameNameList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhiteSameNameList = refLs);
-        return hd -> hd.handle(new LoaderOfWhiteSameName().ready(_referrerWhiteSameNameList, _selector));
+    public NestedReferrerLoaderGateway<LoaderOfWhiteSameName> loadWhiteSameName(ConditionBeanSetupper<WhiteSameNameCB> refCBLambda) {
+        myBhv().loadWhiteSameName(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerWhiteSameName = refLs);
+        return hd -> hd.handle(new LoaderOfWhiteSameName().ready(_referrerWhiteSameName, _selector));
     }
 
     // ===================================================================================

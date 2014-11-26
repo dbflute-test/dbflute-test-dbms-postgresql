@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.dbflute.Entity;
+import org.dbflute.optional.OptionalEntity;
 import org.dbflute.dbmeta.AbstractDBMeta;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
@@ -37,7 +38,8 @@ public class MemberDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((Member)et).getMemberId(), (et, vl) -> ((Member)et).setMemberId(cti(vl)), "memberId");
         setupEpg(_epgMap, et -> ((Member)et).getMemberName(), (et, vl) -> ((Member)et).setMemberName((String)vl), "memberName");
         setupEpg(_epgMap, et -> ((Member)et).getMemberAccount(), (et, vl) -> ((Member)et).setMemberAccount((String)vl), "memberAccount");
@@ -50,12 +52,12 @@ public class MemberDbm extends AbstractDBMeta {
                 ((Member)et).mynativeMappingMemberStatusCode((String)vl);
             }
         }, "memberStatusCode");
-        setupEpg(_epgMap, et -> ((Member)et).getFormalizedDatetime(), (et, vl) -> ((Member)et).setFormalizedDatetime((java.sql.Timestamp)vl), "formalizedDatetime");
-        setupEpg(_epgMap, et -> ((Member)et).getBirthdate(), (et, vl) -> ((Member)et).setBirthdate((java.util.Date)vl), "birthdate");
-        setupEpg(_epgMap, et -> ((Member)et).getRegisterDatetime(), (et, vl) -> ((Member)et).setRegisterDatetime((java.sql.Timestamp)vl), "registerDatetime");
+        setupEpg(_epgMap, et -> ((Member)et).getFormalizedDatetime(), (et, vl) -> ((Member)et).setFormalizedDatetime((java.time.LocalDateTime)vl), "formalizedDatetime");
+        setupEpg(_epgMap, et -> ((Member)et).getBirthdate(), (et, vl) -> ((Member)et).setBirthdate((java.time.LocalDate)vl), "birthdate");
+        setupEpg(_epgMap, et -> ((Member)et).getRegisterDatetime(), (et, vl) -> ((Member)et).setRegisterDatetime((java.time.LocalDateTime)vl), "registerDatetime");
         setupEpg(_epgMap, et -> ((Member)et).getRegisterUser(), (et, vl) -> ((Member)et).setRegisterUser((String)vl), "registerUser");
         setupEpg(_epgMap, et -> ((Member)et).getRegisterProcess(), (et, vl) -> ((Member)et).setRegisterProcess((String)vl), "registerProcess");
-        setupEpg(_epgMap, et -> ((Member)et).getUpdateDatetime(), (et, vl) -> ((Member)et).setUpdateDatetime((java.sql.Timestamp)vl), "updateDatetime");
+        setupEpg(_epgMap, et -> ((Member)et).getUpdateDatetime(), (et, vl) -> ((Member)et).setUpdateDatetime((java.time.LocalDateTime)vl), "updateDatetime");
         setupEpg(_epgMap, et -> ((Member)et).getUpdateUser(), (et, vl) -> ((Member)et).setUpdateUser((String)vl), "updateUser");
         setupEpg(_epgMap, et -> ((Member)et).getUpdateProcess(), (et, vl) -> ((Member)et).setUpdateProcess((String)vl), "updateProcess");
         setupEpg(_epgMap, et -> ((Member)et).getVersionNo(), (et, vl) -> ((Member)et).setVersionNo(ctl(vl)), "versionNo");
@@ -68,13 +70,14 @@ public class MemberDbm extends AbstractDBMeta {
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
     { xsetupEfpg(); }
+    @SuppressWarnings("unchecked")
     protected void xsetupEfpg() {
-        setupEfpg(_efpgMap, et -> ((Member)et).getMemberStatus(), (et, vl) -> ((Member)et).setMemberStatus((MemberStatus)vl), "memberStatus");
-        setupEfpg(_efpgMap, et -> ((Member)et).getMemberAddressAsValid(), (et, vl) -> ((Member)et).setMemberAddressAsValid((MemberAddress)vl), "memberAddressAsValid");
-        setupEfpg(_efpgMap, et -> ((Member)et).getMemberLoginAsLatest(), (et, vl) -> ((Member)et).setMemberLoginAsLatest((MemberLogin)vl), "memberLoginAsLatest");
-        setupEfpg(_efpgMap, et -> ((Member)et).getMemberSecurityAsOne(), (et, vl) -> ((Member)et).setMemberSecurityAsOne((MemberSecurity)vl), "memberSecurityAsOne");
-        setupEfpg(_efpgMap, et -> ((Member)et).getMemberServiceAsOne(), (et, vl) -> ((Member)et).setMemberServiceAsOne((MemberService)vl), "memberServiceAsOne");
-        setupEfpg(_efpgMap, et -> ((Member)et).getMemberWithdrawalAsOne(), (et, vl) -> ((Member)et).setMemberWithdrawalAsOne((MemberWithdrawal)vl), "memberWithdrawalAsOne");
+        setupEfpg(_efpgMap, et -> ((Member)et).getMemberStatus(), (et, vl) -> ((Member)et).setMemberStatus((OptionalEntity<MemberStatus>)vl), "memberStatus");
+        setupEfpg(_efpgMap, et -> ((Member)et).getMemberAddressAsValid(), (et, vl) -> ((Member)et).setMemberAddressAsValid((OptionalEntity<MemberAddress>)vl), "memberAddressAsValid");
+        setupEfpg(_efpgMap, et -> ((Member)et).getMemberLoginAsLatest(), (et, vl) -> ((Member)et).setMemberLoginAsLatest((OptionalEntity<MemberLogin>)vl), "memberLoginAsLatest");
+        setupEfpg(_efpgMap, et -> ((Member)et).getMemberSecurityAsOne(), (et, vl) -> ((Member)et).setMemberSecurityAsOne((OptionalEntity<MemberSecurity>)vl), "memberSecurityAsOne");
+        setupEfpg(_efpgMap, et -> ((Member)et).getMemberServiceAsOne(), (et, vl) -> ((Member)et).setMemberServiceAsOne((OptionalEntity<MemberService>)vl), "memberServiceAsOne");
+        setupEfpg(_efpgMap, et -> ((Member)et).getMemberWithdrawalAsOne(), (et, vl) -> ((Member)et).setMemberWithdrawalAsOne((OptionalEntity<MemberWithdrawal>)vl), "memberWithdrawalAsOne");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }
@@ -97,19 +100,19 @@ public class MemberDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnMemberId = cci("member_id", "member_id", null, "会員ID", Integer.class, "memberId", null, true, true, true, "serial", 10, 0, "nextval('member_member_id_seq'::regclass)", false, null, "会員を識別するID。連番として自動採番される。\n（会員IDだけに限らず）採番方法はDBMS次第。", "memberAddressAsValid,memberLoginAsLatest,memberSecurityAsOne,memberServiceAsOne,memberWithdrawalAsOne", "memberAddressList,memberLoginList,purchaseList", null);
-    protected final ColumnInfo _columnMemberName = cci("member_name", "member_name", null, "会員名称", String.class, "memberName", null, false, false, true, "varchar", 200, 0, null, false, null, "会員のフルネームの名称。\n苗字と名前を分けて管理することも多いが、ここでは Example なので単純にひとまとめ。", null, null, null);
-    protected final ColumnInfo _columnMemberAccount = cci("member_account", "member_account", null, "会員アカウント", String.class, "memberAccount", null, false, false, true, "varchar", 50, 0, null, false, null, "会員がログイン時に利用するアカウントNO。\n昨今、メールアドレスをログインIDとすることが多いので、あまり見かけなくないかも。", null, null, null);
-    protected final ColumnInfo _columnMemberStatusCode = cci("member_status_code", "member_status_code", null, "会員ステータスコード", String.class, "memberStatusCode", null, false, false, true, "bpchar", 3, 0, null, false, null, "会員ステータスを参照するコード。\nステータスが変わるたびに、このカラムが更新される。", "memberStatus", null, CDef.DefMeta.MemberStatus);
-    protected final ColumnInfo _columnFormalizedDatetime = cci("formalized_datetime", "formalized_datetime", null, "正式会員日時", java.sql.Timestamp.class, "formalizedDatetime", null, false, false, false, "timestamp", 26, 3, null, false, null, "会員が正式に確定した日時。\n一度確定したら更新されない。", null, null, null);
-    protected final ColumnInfo _columnBirthdate = cci("birthdate", "birthdate", null, "生年月日", java.util.Date.class, "birthdate", null, false, false, false, "date", 13, 0, null, false, null, "必須項目ではないので、このデータがない会員もいる。", null, null, null);
-    protected final ColumnInfo _columnRegisterDatetime = cci("register_datetime", "register_datetime", null, "登録日時", java.sql.Timestamp.class, "registerDatetime", null, false, false, true, "timestamp", 26, 3, null, true, null, "レコードが登録された日時。\n会員が登録された日時とほぼ等しいが、そういった業務的な役割を兼務させるのはあまり推奨されない。\nどのテーブルでも同じなので、共通カラムの説明はこのテーブルでしか書かない。", null, null, null);
-    protected final ColumnInfo _columnRegisterUser = cci("register_user", "register_user", null, "登録ユーザ", String.class, "registerUser", null, false, false, true, "varchar", 200, 0, null, true, null, "レコードを登録したユーザ。\n会員テーブルであれば当然、会員自身であるはずだが、他のテーブルの場合では管理画面から運用者による登録など考えられるので、しっかり保持しておく。", null, null, null);
-    protected final ColumnInfo _columnRegisterProcess = cci("register_process", "register_process", null, null, String.class, "registerProcess", null, false, false, true, "varchar", 200, 0, null, true, null, null, null, null, null);
-    protected final ColumnInfo _columnUpdateDatetime = cci("update_datetime", "update_datetime", null, "更新日時", java.sql.Timestamp.class, "updateDatetime", null, false, false, true, "timestamp", 26, 3, null, true, null, "レコードが（最後に）更新された日時。\n業務的な利用はあまり推奨されないと別項目で説明したが、このカラムはソートの要素としてよく利用される。", null, null, null);
-    protected final ColumnInfo _columnUpdateUser = cci("update_user", "update_user", null, "更新ユーザ", String.class, "updateUser", null, false, false, true, "varchar", 200, 0, null, true, null, "レコードを更新したユーザ。\nシステムは誰が何をしたのかちゃんと覚えている。", null, null, null);
-    protected final ColumnInfo _columnUpdateProcess = cci("update_process", "update_process", null, null, String.class, "updateProcess", null, false, false, true, "varchar", 200, 0, null, true, null, null, null, null, null);
-    protected final ColumnInfo _columnVersionNo = cci("version_no", "version_no", null, "バージョンNO", Long.class, "versionNo", null, false, false, true, "int8", 19, 0, null, false, OptimisticLockType.VERSION_NO, "レコードのバージョンを示すNO。\n更新回数と等しく、主に排他制御のために利用される。", null, null, null);
+    protected final ColumnInfo _columnMemberId = cci("member_id", "member_id", null, "会員ID", Integer.class, "memberId", null, true, true, true, "serial", 10, 0, "nextval('member_member_id_seq'::regclass)", false, null, "会員を識別するID。連番として自動採番される。\n（会員IDだけに限らず）採番方法はDBMS次第。", "memberAddressAsValid,memberLoginAsLatest,memberSecurityAsOne,memberServiceAsOne,memberWithdrawalAsOne", "memberAddressList,memberLoginList,purchaseList", null, false);
+    protected final ColumnInfo _columnMemberName = cci("member_name", "member_name", null, "会員名称", String.class, "memberName", null, false, false, true, "varchar", 200, 0, null, false, null, "会員のフルネームの名称。\n苗字と名前を分けて管理することも多いが、ここでは Example なので単純にひとまとめ。", null, null, null, false);
+    protected final ColumnInfo _columnMemberAccount = cci("member_account", "member_account", null, "会員アカウント", String.class, "memberAccount", null, false, false, true, "varchar", 50, 0, null, false, null, "会員がログイン時に利用するアカウントNO。\n昨今、メールアドレスをログインIDとすることが多いので、あまり見かけなくないかも。", null, null, null, false);
+    protected final ColumnInfo _columnMemberStatusCode = cci("member_status_code", "member_status_code", null, "会員ステータスコード", String.class, "memberStatusCode", null, false, false, true, "bpchar", 3, 0, null, false, null, "会員ステータスを参照するコード。\nステータスが変わるたびに、このカラムが更新される。", "memberStatus", null, CDef.DefMeta.MemberStatus, false);
+    protected final ColumnInfo _columnFormalizedDatetime = cci("formalized_datetime", "formalized_datetime", null, "正式会員日時", java.time.LocalDateTime.class, "formalizedDatetime", null, false, false, false, "timestamp", 26, 3, null, false, null, "会員が正式に確定した日時。\n一度確定したら更新されない。", null, null, null, false);
+    protected final ColumnInfo _columnBirthdate = cci("birthdate", "birthdate", null, "生年月日", java.time.LocalDate.class, "birthdate", null, false, false, false, "date", 13, 0, null, false, null, "必須項目ではないので、このデータがない会員もいる。", null, null, null, false);
+    protected final ColumnInfo _columnRegisterDatetime = cci("register_datetime", "register_datetime", null, "登録日時", java.time.LocalDateTime.class, "registerDatetime", null, false, false, true, "timestamp", 26, 3, null, true, null, "レコードが登録された日時。\n会員が登録された日時とほぼ等しいが、そういった業務的な役割を兼務させるのはあまり推奨されない。\nどのテーブルでも同じなので、共通カラムの説明はこのテーブルでしか書かない。", null, null, null, false);
+    protected final ColumnInfo _columnRegisterUser = cci("register_user", "register_user", null, "登録ユーザ", String.class, "registerUser", null, false, false, true, "varchar", 200, 0, null, true, null, "レコードを登録したユーザ。\n会員テーブルであれば当然、会員自身であるはずだが、他のテーブルの場合では管理画面から運用者による登録など考えられるので、しっかり保持しておく。", null, null, null, false);
+    protected final ColumnInfo _columnRegisterProcess = cci("register_process", "register_process", null, null, String.class, "registerProcess", null, false, false, true, "varchar", 200, 0, null, true, null, null, null, null, null, false);
+    protected final ColumnInfo _columnUpdateDatetime = cci("update_datetime", "update_datetime", null, "更新日時", java.time.LocalDateTime.class, "updateDatetime", null, false, false, true, "timestamp", 26, 3, null, true, null, "レコードが（最後に）更新された日時。\n業務的な利用はあまり推奨されないと別項目で説明したが、このカラムはソートの要素としてよく利用される。", null, null, null, false);
+    protected final ColumnInfo _columnUpdateUser = cci("update_user", "update_user", null, "更新ユーザ", String.class, "updateUser", null, false, false, true, "varchar", 200, 0, null, true, null, "レコードを更新したユーザ。\nシステムは誰が何をしたのかちゃんと覚えている。", null, null, null, false);
+    protected final ColumnInfo _columnUpdateProcess = cci("update_process", "update_process", null, null, String.class, "updateProcess", null, false, false, true, "varchar", 200, 0, null, true, null, null, null, null, null, false);
+    protected final ColumnInfo _columnVersionNo = cci("version_no", "version_no", null, "バージョンNO", Long.class, "versionNo", null, false, false, true, "int8", 19, 0, null, false, OptimisticLockType.VERSION_NO, "レコードのバージョンを示すNO。\n更新回数と等しく、主に排他制御のために利用される。", null, null, null, false);
 
     /**
      * (会員ID)member_id: {PK, ID, NotNull, serial(10), FK to MEMBER_ADDRESS}
@@ -221,7 +224,7 @@ public class MemberDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignMemberStatus() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnMemberStatusCode(), MemberStatusDbm.getInstance().columnMemberStatusCode());
-        return cfi("fk_member_member_status", "memberStatus", this, MemberStatusDbm.getInstance(), mp, 0, null, false, false, false, false, null, null, false, "memberList");
+        return cfi("fk_member_member_status", "memberStatus", this, MemberStatusDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "memberList", false);
     }
     /**
      * (会員住所情報)member_address by my member_id, named 'memberAddressAsValid'.
@@ -229,7 +232,7 @@ public class MemberDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignMemberAddressAsValid() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnMemberId(), MemberAddressDbm.getInstance().columnMemberId());
-        return cfi("FK_MEMBER_MEMBER_ADDRESS_VALID", "memberAddressAsValid", this, MemberAddressDbm.getInstance(), mp, 1, null, true, true, false, true, "$$foreignAlias$$.VALID_BEGIN_DATE <= /*$$locationBase$$.parameterMapMemberAddressAsValid.targetDate*/null\n     and $$foreignAlias$$.VALID_END_DATE >= /*$$locationBase$$.parameterMapMemberAddressAsValid.targetDate*/null", newArrayList("targetDate"), false, null);
+        return cfi("FK_MEMBER_MEMBER_ADDRESS_VALID", "memberAddressAsValid", this, MemberAddressDbm.getInstance(), mp, 1, org.dbflute.optional.OptionalEntity.class, true, true, false, true, "$$foreignAlias$$.VALID_BEGIN_DATE <= /*$$locationBase$$.parameterMapMemberAddressAsValid.targetDate*/null\n     and $$foreignAlias$$.VALID_END_DATE >= /*$$locationBase$$.parameterMapMemberAddressAsValid.targetDate*/null", newArrayList("targetDate"), false, null, false);
     }
     /**
      * (会員ログイン)member_login by my member_id, named 'memberLoginAsLatest'.
@@ -237,7 +240,7 @@ public class MemberDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignMemberLoginAsLatest() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnMemberId(), MemberLoginDbm.getInstance().columnMemberId());
-        return cfi("FK_MEMBER_MEMBER_LOGIN_LATEST", "memberLoginAsLatest", this, MemberLoginDbm.getInstance(), mp, 2, null, true, true, false, true, "$$foreignAlias$$.LOGIN_DATETIME = ($$sqbegin$$\nselect max(login.LOGIN_DATETIME)\n  from MEMBER_LOGIN login\n where login.MEMBER_ID = $$foreignAlias$$.MEMBER_ID\n)$$sqend$$", null, true, null);
+        return cfi("FK_MEMBER_MEMBER_LOGIN_LATEST", "memberLoginAsLatest", this, MemberLoginDbm.getInstance(), mp, 2, org.dbflute.optional.OptionalEntity.class, true, true, false, true, "$$foreignAlias$$.LOGIN_DATETIME = ($$sqbegin$$\nselect max(login.LOGIN_DATETIME)\n  from MEMBER_LOGIN login\n where login.MEMBER_ID = $$foreignAlias$$.MEMBER_ID\n)$$sqend$$", null, true, null, false);
     }
     /**
      * (会員セキュリティ情報)member_security by member_id, named 'memberSecurityAsOne'.
@@ -245,7 +248,7 @@ public class MemberDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignMemberSecurityAsOne() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnMemberId(), MemberSecurityDbm.getInstance().columnMemberId());
-        return cfi("fk_member_sc_info_member", "memberSecurityAsOne", this, MemberSecurityDbm.getInstance(), mp, 3, null, true, false, true, false, null, null, false, "member");
+        return cfi("fk_member_sc_info_member", "memberSecurityAsOne", this, MemberSecurityDbm.getInstance(), mp, 3, org.dbflute.optional.OptionalEntity.class, true, false, true, false, null, null, false, "member", false);
     }
     /**
      * (会員サービス)member_service by member_id, named 'memberServiceAsOne'.
@@ -253,7 +256,7 @@ public class MemberDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignMemberServiceAsOne() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnMemberId(), MemberServiceDbm.getInstance().columnMemberId());
-        return cfi("fk_member_service_member", "memberServiceAsOne", this, MemberServiceDbm.getInstance(), mp, 4, null, true, false, true, false, null, null, false, "member");
+        return cfi("fk_member_service_member", "memberServiceAsOne", this, MemberServiceDbm.getInstance(), mp, 4, org.dbflute.optional.OptionalEntity.class, true, false, true, false, null, null, false, "member", false);
     }
     /**
      * (会員退会情報)member_withdrawal by member_id, named 'memberWithdrawalAsOne'.
@@ -261,7 +264,7 @@ public class MemberDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignMemberWithdrawalAsOne() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnMemberId(), MemberWithdrawalDbm.getInstance().columnMemberId());
-        return cfi("fk_member_withdrawal_info_member", "memberWithdrawalAsOne", this, MemberWithdrawalDbm.getInstance(), mp, 5, null, true, false, true, false, null, null, false, "member");
+        return cfi("fk_member_withdrawal_info_member", "memberWithdrawalAsOne", this, MemberWithdrawalDbm.getInstance(), mp, 5, org.dbflute.optional.OptionalEntity.class, true, false, true, false, null, null, false, "member", false);
     }
 
     // -----------------------------------------------------

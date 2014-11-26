@@ -141,14 +141,14 @@ public class BsMemberServiceCQ extends AbstractBsMemberServiceCQ {
 
     /** 
      * Add order-by as ascend. <br>
-     * (サービスランクコード)service_rank_code: {NotNull, bpchar(3), FK to service_rank}
+     * (サービスランクコード)service_rank_code: {NotNull, bpchar(3), FK to service_rank, classification=ServiceRank}
      * @return this. (NotNull)
      */
     public BsMemberServiceCQ addOrderBy_ServiceRankCode_Asc() { regOBA("service_rank_code"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * (サービスランクコード)service_rank_code: {NotNull, bpchar(3), FK to service_rank}
+     * (サービスランクコード)service_rank_code: {NotNull, bpchar(3), FK to service_rank, classification=ServiceRank}
      * @return this. (NotNull)
      */
     public BsMemberServiceCQ addOrderBy_ServiceRankCode_Desc() { regOBD("service_rank_code"); return this; }

@@ -11,7 +11,7 @@ public class WhiteCompoundPkRefNss {
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    protected WhiteCompoundPkRefCQ _query;
+    protected final WhiteCompoundPkRefCQ _query;
     public WhiteCompoundPkRefNss(WhiteCompoundPkRefCQ query) { _query = query; }
     public boolean hasConditionQuery() { return _query != null; }
 

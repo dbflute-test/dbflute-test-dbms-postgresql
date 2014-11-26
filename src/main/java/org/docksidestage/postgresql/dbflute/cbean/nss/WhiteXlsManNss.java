@@ -11,7 +11,7 @@ public class WhiteXlsManNss {
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    protected WhiteXlsManCQ _query;
+    protected final WhiteXlsManCQ _query;
     public WhiteXlsManNss(WhiteXlsManCQ query) { _query = query; }
     public boolean hasConditionQuery() { return _query != null; }
 

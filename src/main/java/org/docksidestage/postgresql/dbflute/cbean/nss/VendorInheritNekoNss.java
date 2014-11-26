@@ -11,7 +11,7 @@ public class VendorInheritNekoNss {
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    protected VendorInheritNekoCQ _query;
+    protected final VendorInheritNekoCQ _query;
     public VendorInheritNekoNss(VendorInheritNekoCQ query) { _query = query; }
     public boolean hasConditionQuery() { return _query != null; }
 

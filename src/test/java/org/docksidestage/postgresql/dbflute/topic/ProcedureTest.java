@@ -1,12 +1,11 @@
 package org.docksidestage.postgresql.dbflute.topic;
 
 import java.math.BigDecimal;
-import java.sql.Timestamp;
-import java.util.Date;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.List;
 import java.util.UUID;
 
-import org.dbflute.util.DfTypeUtil;
 import org.docksidestage.postgresql.dbflute.allcommon.CDef;
 import org.docksidestage.postgresql.dbflute.exbhv.MemberLoginBhv;
 import org.docksidestage.postgresql.dbflute.exbhv.VendorCheckBhv;
@@ -94,9 +93,9 @@ public class ProcedureTest extends UnitContainerTestCase {
         pmb.setVvInoutInteger(2345);
         pmb.setVvOutBigint(3456L);
         pmb.setVvInoutBigint(4567L);
-        pmb.setVvvInDate(currentDate());
+        pmb.setVvvInDate(currentLocalDate());
         assertNull(pmb.getVvvOutTimestamp());
-        pmb.setVvvInTime(DfTypeUtil.toTime(currentDate()));
+        pmb.setVvvInTime(toLocalTime(currentLocalDate()));
         pmb.setVvvvInBool(true);
         pmb.setVvvvInBytea("corge".getBytes("UTF-8"));
         pmb.setVvvvInUuid(UUID.fromString("A0EEBC99-9C0B-4EF8-BB6D-6BB9BD380A11"));
@@ -145,11 +144,11 @@ public class ProcedureTest extends UnitContainerTestCase {
             log(member);
             Integer memberId = member.getMemberId();
             String memberName = member.getMemberName();
-            Date birthdate = member.getBirthdate();
+            LocalDate birthdate = member.getBirthdate();
             if (birthdate != null) {
                 existsBirthdate = true;
             }
-            Timestamp formalizedDatetime = member.getFormalizedDatetime();
+            LocalDateTime formalizedDatetime = member.getFormalizedDatetime();
             if (formalizedDatetime != null) {
                 existsFormalizedDatetime = true;
             }

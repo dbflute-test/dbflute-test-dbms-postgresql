@@ -3,11 +3,14 @@ package org.docksidestage.postgresql.dbflute.bsentity;
 import java.util.List;
 import java.util.ArrayList;
 
+import org.dbflute.Entity;
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
 import org.dbflute.dbmeta.accessory.DomainEntity;
+import org.dbflute.optional.OptionalEntity;
 import org.docksidestage.postgresql.dbflute.allcommon.EntityDefinedCommonColumn;
 import org.docksidestage.postgresql.dbflute.allcommon.DBMetaInstanceHandler;
+import org.docksidestage.postgresql.dbflute.allcommon.CDef;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
 /**
@@ -47,14 +50,14 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * Integer memberAddressId = entity.getMemberAddressId();
  * Integer memberId = entity.getMemberId();
- * java.util.Date validBeginDate = entity.getValidBeginDate();
- * java.util.Date validEndDate = entity.getValidEndDate();
+ * java.time.LocalDate validBeginDate = entity.getValidBeginDate();
+ * java.time.LocalDate validEndDate = entity.getValidEndDate();
  * String address = entity.getAddress();
  * Integer regionId = entity.getRegionId();
- * java.sql.Timestamp registerDatetime = entity.getRegisterDatetime();
+ * java.time.LocalDateTime registerDatetime = entity.getRegisterDatetime();
  * String registerProcess = entity.getRegisterProcess();
  * String registerUser = entity.getRegisterUser();
- * java.sql.Timestamp updateDatetime = entity.getUpdateDatetime();
+ * java.time.LocalDateTime updateDatetime = entity.getUpdateDatetime();
  * String updateProcess = entity.getUpdateProcess();
  * String updateUser = entity.getUpdateUser();
  * Long versionNo = entity.getVersionNo();
@@ -93,19 +96,19 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
     protected Integer _memberId;
 
     /** (有効開始日)valid_begin_date: {+UQ, NotNull, date(13)} */
-    protected java.util.Date _validBeginDate;
+    protected java.time.LocalDate _validBeginDate;
 
     /** (有効終了日)valid_end_date: {NotNull, date(13)} */
-    protected java.util.Date _validEndDate;
+    protected java.time.LocalDate _validEndDate;
 
     /** (住所)address: {NotNull, varchar(200)} */
     protected String _address;
 
-    /** (地域ID)region_id: {NotNull, int4(10), FK to region} */
+    /** (地域ID)region_id: {NotNull, int4(10), FK to region, classification=Region} */
     protected Integer _regionId;
 
     /** register_datetime: {NotNull, timestamp(26, 3)} */
-    protected java.sql.Timestamp _registerDatetime;
+    protected java.time.LocalDateTime _registerDatetime;
 
     /** register_process: {NotNull, varchar(200)} */
     protected String _registerProcess;
@@ -114,7 +117,7 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
     protected String _registerUser;
 
     /** update_datetime: {NotNull, timestamp(26, 3)} */
-    protected java.sql.Timestamp _updateDatetime;
+    protected java.time.LocalDateTime _updateDatetime;
 
     /** update_process: {NotNull, varchar(200)} */
     protected String _updateProcess;
@@ -126,24 +129,16 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
     protected Long _versionNo;
 
     // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public String getTableDbName() {
+    public DBMeta asDBMeta() {
+        return DBMetaInstanceHandler.findDBMeta(asTableDbName());
+    }
+
+    /** {@inheritDoc} */
+    public String asTableDbName() {
         return "member_address";
-    }
-
-    /** {@inheritDoc} */
-    public String getTablePropertyName() {
-        return "memberAddress";
-    }
-
-    // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
-    /** {@inheritDoc} */
-    public DBMeta getDBMeta() {
-        return DBMetaInstanceHandler.findDBMeta(getTableDbName());
     }
 
     // ===================================================================================
@@ -161,7 +156,7 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
      * @param memberId (会員ID): UQ+, NotNull, int4(10), FK to member. (NotNull)
      * @param validBeginDate (有効開始日): +UQ, NotNull, date(13). (NotNull)
      */
-    public void uniqueBy(Integer memberId, java.util.Date validBeginDate) {
+    public void uniqueBy(Integer memberId, java.time.LocalDate validBeginDate) {
         __uniqueDrivenProperties.clear();
         __uniqueDrivenProperties.addPropertyName("memberId");
         __uniqueDrivenProperties.addPropertyName("validBeginDate");
@@ -169,16 +164,124 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
     }
 
     // ===================================================================================
+    //                                                             Classification Property
+    //                                                             =======================
+    /**
+     * Get the value of regionId as the classification of Region. <br>
+     * (地域ID)region_id: {NotNull, int4(10), FK to region, classification=Region} <br>
+     * mainly region of member address
+     * <p>It's treated as case insensitive and if the code value is null, it returns null.</p>
+     * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
+     */
+    public CDef.Region getRegionIdAsRegion() {
+        return CDef.Region.codeOf(getRegionId());
+    }
+
+    /**
+     * Set the value of regionId as the classification of Region. <br>
+     * (地域ID)region_id: {NotNull, int4(10), FK to region, classification=Region} <br>
+     * mainly region of member address
+     * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, null value is set to the column)
+     */
+    public void setRegionIdAsRegion(CDef.Region cdef) {
+        setRegionId(cdef != null ? toNumber(cdef.code(), Integer.class) : null);
+    }
+
+    // ===================================================================================
+    //                                                              Classification Setting
+    //                                                              ======================
+    /**
+     * Set the value of regionId as America (1). <br>
+     * AMERICA
+     */
+    public void setRegionId_America() {
+        setRegionIdAsRegion(CDef.Region.America);
+    }
+
+    /**
+     * Set the value of regionId as Canada (2). <br>
+     * CANADA
+     */
+    public void setRegionId_Canada() {
+        setRegionIdAsRegion(CDef.Region.Canada);
+    }
+
+    /**
+     * Set the value of regionId as China (3). <br>
+     * CHINA
+     */
+    public void setRegionId_China() {
+        setRegionIdAsRegion(CDef.Region.China);
+    }
+
+    /**
+     * Set the value of regionId as Chiba (4). <br>
+     * CHIBA
+     */
+    public void setRegionId_Chiba() {
+        setRegionIdAsRegion(CDef.Region.Chiba);
+    }
+
+    // ===================================================================================
+    //                                                        Classification Determination
+    //                                                        ============================
+    /**
+     * Is the value of regionId America? <br>
+     * AMERICA
+     * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
+     * @return The determination, true or false.
+     */
+    public boolean isRegionIdAmerica() {
+        CDef.Region cdef = getRegionIdAsRegion();
+        return cdef != null ? cdef.equals(CDef.Region.America) : false;
+    }
+
+    /**
+     * Is the value of regionId Canada? <br>
+     * CANADA
+     * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
+     * @return The determination, true or false.
+     */
+    public boolean isRegionIdCanada() {
+        CDef.Region cdef = getRegionIdAsRegion();
+        return cdef != null ? cdef.equals(CDef.Region.Canada) : false;
+    }
+
+    /**
+     * Is the value of regionId China? <br>
+     * CHINA
+     * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
+     * @return The determination, true or false.
+     */
+    public boolean isRegionIdChina() {
+        CDef.Region cdef = getRegionIdAsRegion();
+        return cdef != null ? cdef.equals(CDef.Region.China) : false;
+    }
+
+    /**
+     * Is the value of regionId Chiba? <br>
+     * CHIBA
+     * <p>It's treated as case insensitive and if the code value is null, it returns false.</p>
+     * @return The determination, true or false.
+     */
+    public boolean isRegionIdChiba() {
+        CDef.Region cdef = getRegionIdAsRegion();
+        return cdef != null ? cdef.equals(CDef.Region.Chiba) : false;
+    }
+
+    // ===================================================================================
     //                                                                    Foreign Property
     //                                                                    ================
     /** (会員)member by my member_id, named 'member'. */
-    protected Member _member;
+    protected OptionalEntity<Member> _member;
 
     /**
      * [get] (会員)member by my member_id, named 'member'. <br>
-     * @return The entity of foreign property 'member'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'member'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public Member getMember() {
+    public OptionalEntity<Member> getMember() {
+        if (_member == null) { _member = OptionalEntity.relationEmpty(this, "member"); }
         return _member;
     }
 
@@ -186,18 +289,20 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
      * [set] (会員)member by my member_id, named 'member'.
      * @param member The entity of foreign property 'member'. (NullAllowed)
      */
-    public void setMember(Member member) {
+    public void setMember(OptionalEntity<Member> member) {
         _member = member;
     }
 
     /** (地域)region by my region_id, named 'region'. */
-    protected Region _region;
+    protected OptionalEntity<Region> _region;
 
     /**
      * [get] (地域)region by my region_id, named 'region'. <br>
-     * @return The entity of foreign property 'region'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'region'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public Region getRegion() {
+    public OptionalEntity<Region> getRegion() {
+        if (_region == null) { _region = OptionalEntity.relationEmpty(this, "region"); }
         return _region;
     }
 
@@ -205,7 +310,7 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
      * [set] (地域)region by my region_id, named 'region'.
      * @param region The entity of foreign property 'region'. (NullAllowed)
      */
-    public void setRegion(Region region) {
+    public void setRegion(OptionalEntity<Region> region) {
         _region = region;
     }
 
@@ -233,7 +338,7 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
     @Override
     protected int doHashCode(int initial) {
         int hs = initial;
-        hs = xCH(hs, getTableDbName());
+        hs = xCH(hs, asTableDbName());
         hs = xCH(hs, _memberAddressId);
         return hs;
     }
@@ -241,11 +346,14 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
     @Override
     protected String doBuildStringWithRelation(String li) {
         StringBuilder sb = new StringBuilder();
-        if (_member != null)
+        if (_member != null && _member.isPresent())
         { sb.append(li).append(xbRDS(_member, "member")); }
-        if (_region != null)
+        if (_region != null && _region.isPresent())
         { sb.append(li).append(xbRDS(_region, "region")); }
         return sb.toString();
+    }
+    protected <ET extends Entity> String xbRDS(org.dbflute.optional.OptionalEntity<ET> et, String name) { // buildRelationDisplayString()
+        return et.get().buildDisplayString(name, true, true);
     }
 
     @Override
@@ -253,8 +361,8 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
         StringBuilder sb = new StringBuilder();
         sb.append(dm).append(xfND(_memberAddressId));
         sb.append(dm).append(xfND(_memberId));
-        sb.append(dm).append(xfUD(_validBeginDate));
-        sb.append(dm).append(xfUD(_validEndDate));
+        sb.append(dm).append(xfND(_validBeginDate));
+        sb.append(dm).append(xfND(_validEndDate));
         sb.append(dm).append(xfND(_address));
         sb.append(dm).append(xfND(_regionId));
         sb.append(dm).append(xfND(_registerDatetime));
@@ -274,9 +382,9 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_member != null)
+        if (_member != null && _member.isPresent())
         { sb.append(dm).append("member"); }
-        if (_region != null)
+        if (_region != null && _region.isPresent())
         { sb.append(dm).append("region"); }
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length()).insert(0, "(").append(")");
@@ -348,7 +456,7 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
      * 前の有効終了日の次の日の値が格納される。
      * @return The value of the column 'valid_begin_date'. (basically NotNull if selected: for the constraint)
      */
-    public java.util.Date getValidBeginDate() {
+    public java.time.LocalDate getValidBeginDate() {
         checkSpecifiedProperty("validBeginDate");
         return _validBeginDate;
     }
@@ -359,7 +467,7 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
      * 前の有効終了日の次の日の値が格納される。
      * @param validBeginDate The value of the column 'valid_begin_date'. (basically NotNull if update: for the constraint)
      */
-    public void setValidBeginDate(java.util.Date validBeginDate) {
+    public void setValidBeginDate(java.time.LocalDate validBeginDate) {
         registerModifiedProperty("validBeginDate");
         _validBeginDate = validBeginDate;
     }
@@ -371,7 +479,7 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
      * ただし、次の有効期間がない場合は 9999/12/31 となる。
      * @return The value of the column 'valid_end_date'. (basically NotNull if selected: for the constraint)
      */
-    public java.util.Date getValidEndDate() {
+    public java.time.LocalDate getValidEndDate() {
         checkSpecifiedProperty("validEndDate");
         return _validEndDate;
     }
@@ -383,7 +491,7 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
      * ただし、次の有効期間がない場合は 9999/12/31 となる。
      * @param validEndDate The value of the column 'valid_end_date'. (basically NotNull if update: for the constraint)
      */
-    public void setValidEndDate(java.util.Date validEndDate) {
+    public void setValidEndDate(java.time.LocalDate validEndDate) {
         registerModifiedProperty("validEndDate");
         _validEndDate = validEndDate;
     }
@@ -409,7 +517,7 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
     }
 
     /**
-     * [get] (地域ID)region_id: {NotNull, int4(10), FK to region} <br>
+     * [get] (地域ID)region_id: {NotNull, int4(10), FK to region, classification=Region} <br>
      * 地域を参照するID。<br>
      * ここでは特に住所の内容と連動しているわけではない。<br>
      * （業務的one-to-oneの親テーブルの表現したかっ...）
@@ -421,13 +529,14 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
     }
 
     /**
-     * [set] (地域ID)region_id: {NotNull, int4(10), FK to region} <br>
+     * [set] (地域ID)region_id: {NotNull, int4(10), FK to region, classification=Region} <br>
      * 地域を参照するID。<br>
      * ここでは特に住所の内容と連動しているわけではない。<br>
      * （業務的one-to-oneの親テーブルの表現したかっ...）
      * @param regionId The value of the column 'region_id'. (basically NotNull if update: for the constraint)
      */
-    public void setRegionId(Integer regionId) {
+    protected void setRegionId(Integer regionId) {
+        checkClassificationCode("region_id", CDef.DefMeta.Region, regionId);
         registerModifiedProperty("regionId");
         _regionId = regionId;
     }
@@ -436,7 +545,7 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
      * [get] register_datetime: {NotNull, timestamp(26, 3)} <br>
      * @return The value of the column 'register_datetime'. (basically NotNull if selected: for the constraint)
      */
-    public java.sql.Timestamp getRegisterDatetime() {
+    public java.time.LocalDateTime getRegisterDatetime() {
         checkSpecifiedProperty("registerDatetime");
         return _registerDatetime;
     }
@@ -445,7 +554,7 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
      * [set] register_datetime: {NotNull, timestamp(26, 3)} <br>
      * @param registerDatetime The value of the column 'register_datetime'. (basically NotNull if update: for the constraint)
      */
-    public void setRegisterDatetime(java.sql.Timestamp registerDatetime) {
+    public void setRegisterDatetime(java.time.LocalDateTime registerDatetime) {
         registerModifiedProperty("registerDatetime");
         _registerDatetime = registerDatetime;
     }
@@ -490,7 +599,7 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
      * [get] update_datetime: {NotNull, timestamp(26, 3)} <br>
      * @return The value of the column 'update_datetime'. (basically NotNull if selected: for the constraint)
      */
-    public java.sql.Timestamp getUpdateDatetime() {
+    public java.time.LocalDateTime getUpdateDatetime() {
         checkSpecifiedProperty("updateDatetime");
         return _updateDatetime;
     }
@@ -499,7 +608,7 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
      * [set] update_datetime: {NotNull, timestamp(26, 3)} <br>
      * @param updateDatetime The value of the column 'update_datetime'. (basically NotNull if update: for the constraint)
      */
-    public void setUpdateDatetime(java.sql.Timestamp updateDatetime) {
+    public void setUpdateDatetime(java.time.LocalDateTime updateDatetime) {
         registerModifiedProperty("updateDatetime");
         _updateDatetime = updateDatetime;
     }
@@ -556,5 +665,13 @@ public abstract class BsMemberAddress extends AbstractEntity implements DomainEn
     public void setVersionNo(Long versionNo) {
         registerModifiedProperty("versionNo");
         _versionNo = versionNo;
+    }
+
+    /**
+     * For framework so basically DON'T use this method.
+     * @param regionId The value of the column 'region_id'. (basically NotNull if update: for the constraint)
+     */
+    public void mynativeMappingRegionId(Integer regionId) {
+        setRegionId(regionId);
     }
 }

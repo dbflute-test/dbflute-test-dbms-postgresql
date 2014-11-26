@@ -60,10 +60,12 @@ public abstract class BsMemberWithdrawalBhv extends AbstractBehaviorWritable<Mem
     /*df:endQueryPath*/
 
     // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public MemberWithdrawalDbm getDBMeta() { return MemberWithdrawalDbm.getInstance(); }
+    public MemberWithdrawalDbm asDBMeta() { return MemberWithdrawalDbm.getInstance(); }
+    /** {@inheritDoc} */
+    public String asTableDbName() { return "member_withdrawal"; }
 
     // ===================================================================================
     //                                                                        New Instance
@@ -108,60 +110,81 @@ public abstract class BsMemberWithdrawalBhv extends AbstractBehaviorWritable<Mem
     //                                                                       Entity Select
     //                                                                       =============
     /**
-     * Select the entity by the condition-bean. #beforejava8 <br>
-     * <span style="color: #AD4747; font-size: 120%">The return might be null if no data, so you should have null check.</span> <br>
-     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, use selectEntityWithDeletedCheck().</span>
+     * Select the entity by the condition-bean. <br>
+     * It returns not-null optional entity, so you should ... <br>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, alwaysPresent().</span> <br>
+     * <span style="color: #AD4747; font-size: 120%">If it might be no data, isPresent() and orElse(), ...</span>
      * <pre>
-     * MemberWithdrawal memberWithdrawal = <span style="color: #0000C0">memberWithdrawalBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
+     * <span style="color: #0000C0">memberWithdrawalBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().set...
+     * }).<span style="color: #CC4747">alwaysPresent</span>(<span style="color: #553000">memberWithdrawal</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if present, or exception</span>
+     *     ... = <span style="color: #553000">memberWithdrawal</span>.get...
      * });
-     * <span style="color: #70226C">if</span> (memberWithdrawal != <span style="color: #70226C">null</span>) { <span style="color: #3F7E5E">// null check</span>
-     *     ... = memberWithdrawal.get...();
-     * } <span style="color: #70226C">else</span> {
-     *     ...
-     * }
+     * 
+     * <span style="color: #3F7E5E">// if it might be no data, ...</span>
+     * <span style="color: #0000C0">memberWithdrawalBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).<span style="color: #CC4747">ifPresent</span>(<span style="color: #553000">memberWithdrawal</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if present</span>
+     *     ... = <span style="color: #553000">memberWithdrawal</span>.get...
+     * }).<span style="color: #994747">orElse</span>(() <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if not present</span>
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of MemberWithdrawal. (NotNull)
-     * @return The entity selected by the condition. (NullAllowed: if no data, it returns null)
+     * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
-    public MemberWithdrawal selectEntity(CBCall<MemberWithdrawalCB> cbLambda) {
+    public OptionalEntity<MemberWithdrawal> selectEntity(CBCall<MemberWithdrawalCB> cbLambda) {
         return facadeSelectEntity(createCB(cbLambda));
     }
 
     /**
-     * Select the entity by the condition-bean. #beforejava8 <br>
-     * <span style="color: #AD4747; font-size: 120%">The return might be null if no data, so you should have null check.</span> <br>
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, use selectEntityWithDeletedCheck().</span>
+     * Select the entity by the condition-bean. <br>
+     * It returns not-null optional entity, so you should ... <br>
+     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, alwaysPresent().</span> <br>
+     * <span style="color: #AD4747; font-size: 120%">If it might be no data, get() after check by isPresent() or orElse(), ...</span>
      * <pre>
      * MemberWithdrawalCB cb = <span style="color: #70226C">new</span> MemberWithdrawalCB();
-     * cb.query().setFoo...(value);
-     * MemberWithdrawal memberWithdrawal = <span style="color: #0000C0">memberWithdrawalBhv</span>.<span style="color: #DD4747">selectEntity</span>(cb);
-     * <span style="color: #70226C">if</span> (memberWithdrawal != <span style="color: #70226C">null</span>) { <span style="color: #3F7E5E">// null check</span>
-     *     ... = memberWithdrawal.get...();
-     * } <span style="color: #70226C">else</span> {
-     *     ...
-     * }
+     * cb.query().set...
+     * 
+     * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
+     * <span style="color: #0000C0">memberWithdrawalBhv</span>.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(memberWithdrawal <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if present, or exception</span>
+     *     ... = memberWithdrawal.get...
+     * });
+     * 
+     * <span style="color: #3F7E5E">// if it might be no data, ...</span>
+     * <span style="color: #0000C0">memberWithdrawalBhv</span>.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(memberWithdrawal <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if present</span>
+     *     ... = memberWithdrawal.get...
+     * }).<span style="color: #994747">orElse</span>(() <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if not present</span>
+     * });
      * </pre>
      * @param cb The condition-bean of MemberWithdrawal. (NotNull)
-     * @return The entity selected by the condition. (NullAllowed: if no data, it returns null)
+     * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
-    public MemberWithdrawal selectEntity(MemberWithdrawalCB cb) {
+    public OptionalEntity<MemberWithdrawal> selectEntity(MemberWithdrawalCB cb) {
         return facadeSelectEntity(cb);
     }
 
-    protected MemberWithdrawal facadeSelectEntity(MemberWithdrawalCB cb) {
-        return doSelectEntity(cb, typeOfSelectedEntity());
+    protected OptionalEntity<MemberWithdrawal> facadeSelectEntity(MemberWithdrawalCB cb) {
+        return doSelectOptionalEntity(cb, typeOfSelectedEntity());
     }
 
     protected <ENTITY extends MemberWithdrawal> OptionalEntity<ENTITY> doSelectOptionalEntity(MemberWithdrawalCB cb, Class<? extends ENTITY> tp) {
         return createOptionalEntity(doSelectEntity(cb, tp), cb);
     }
 
-    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)); }
+    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElse(null); }
 
     /**
      * Select the entity by the condition-bean with deleted check. <br>
@@ -202,16 +225,17 @@ public abstract class BsMemberWithdrawalBhv extends AbstractBehaviorWritable<Mem
     /**
      * Select the entity by the primary-key value.
      * @param memberId : PK, NotNull, int4(10), FK to member. (NotNull)
-     * @return The entity selected by the PK. (NullAllowed: if no data, it returns null)
+     * @return The optional entity selected by the PK. (NotNull: if no data, empty entity)
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
-    public MemberWithdrawal selectByPK(Integer memberId) {
+    public OptionalEntity<MemberWithdrawal> selectByPK(Integer memberId) {
         return facadeSelectByPK(memberId);
     }
 
-    protected MemberWithdrawal facadeSelectByPK(Integer memberId) {
-        return doSelectByPK(memberId, typeOfSelectedEntity());
+    protected OptionalEntity<MemberWithdrawal> facadeSelectByPK(Integer memberId) {
+        return doSelectOptionalByPK(memberId, typeOfSelectedEntity());
     }
 
     protected <ENTITY extends MemberWithdrawal> ENTITY doSelectByPK(Integer memberId, Class<? extends ENTITY> tp) {
@@ -368,7 +392,7 @@ public abstract class BsMemberWithdrawalBhv extends AbstractBehaviorWritable<Mem
      * Select the scalar value derived by a function from uniquely-selected records. <br>
      * You should call a function method after this method called like as follows:
      * <pre>
-     * <span style="color: #0000C0">memberWithdrawalBhv</span>.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">memberWithdrawalBhv</span>.<span style="color: #CC4747">selectScalar</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...</span>; <span style="color: #3F7E5E">// required for the function</span>
      *     <span style="color: #553000">cb</span>.query().set...
      * });
@@ -377,7 +401,7 @@ public abstract class BsMemberWithdrawalBhv extends AbstractBehaviorWritable<Mem
      * @param resultType The type of result. (NotNull)
      * @return The scalar function object to specify function for scalar value. (NotNull)
      */
-    public <RESULT> HpSLSFunction<MemberWithdrawalCB, RESULT> scalarSelect(Class<RESULT> resultType) {
+    public <RESULT> HpSLSFunction<MemberWithdrawalCB, RESULT> selectScalar(Class<RESULT> resultType) {
         return facadeScalarSelect(resultType);
     }
 
@@ -386,7 +410,7 @@ public abstract class BsMemberWithdrawalBhv extends AbstractBehaviorWritable<Mem
     //                                                                            ========
     @Override
     protected Number doReadNextVal() {
-        String msg = "This table is NOT related to sequence: " + getTableDbName();
+        String msg = "This table is NOT related to sequence: " + asTableDbName();
         throw new UnsupportedOperationException(msg);
     }
 
@@ -528,11 +552,7 @@ public abstract class BsMemberWithdrawalBhv extends AbstractBehaviorWritable<Mem
      * <span style="color: #3F7E5E">//memberWithdrawal.set...;</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * memberWithdrawal.<span style="color: #CC4747">setVersionNo</span>(value);
-     * try {
-     *     <span style="color: #0000C0">memberWithdrawalBhv</span>.<span style="color: #CC4747">update</span>(memberWithdrawal);
-     * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
-     *     ...
-     * }
+     * <span style="color: #0000C0">memberWithdrawalBhv</span>.<span style="color: #CC4747">update</span>(memberWithdrawal);
      * </pre>
      * @param memberWithdrawal The entity of update. (NotNull, PrimaryKeyNotNull)
      * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
@@ -693,9 +713,9 @@ public abstract class BsMemberWithdrawalBhv extends AbstractBehaviorWritable<Mem
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
      * <span style="color: #3F7E5E">//memberWithdrawal.setVersionNo(value);</span>
-     * MemberWithdrawalCB cb = <span style="color: #70226C">new</span> MemberWithdrawalCB();
-     * cb.query().setFoo...(value);
-     * <span style="color: #0000C0">memberWithdrawalBhv</span>.<span style="color: #CC4747">queryUpdate</span>(memberWithdrawal, cb);
+     * <span style="color: #0000C0">memberWithdrawalBhv</span>.<span style="color: #CC4747">queryUpdate</span>(memberWithdrawal, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * });
      * </pre>
      * @param memberWithdrawal The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cbLambda The callback for condition-bean of MemberWithdrawal. (NotNull)
@@ -735,9 +755,9 @@ public abstract class BsMemberWithdrawalBhv extends AbstractBehaviorWritable<Mem
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * MemberWithdrawalCB cb = new MemberWithdrawalCB();
-     * cb.query().setFoo...(value);
-     * <span style="color: #0000C0">memberWithdrawalBhv</span>.<span style="color: #CC4747">queryDelete</span>(memberWithdrawal, cb);
+     * <span style="color: #0000C0">memberWithdrawalBhv</span>.<span style="color: #CC4747">queryDelete</span>(memberWithdrawal, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of MemberWithdrawal. (NotNull)
      * @return The deleted count.
@@ -777,10 +797,10 @@ public abstract class BsMemberWithdrawalBhv extends AbstractBehaviorWritable<Mem
      * <span style="color: #3F7E5E">// if auto-increment, you don't need to set the PK value</span>
      * memberWithdrawal.setFoo...(value);
      * memberWithdrawal.setBar...(value);
-     * InsertOption&lt;MemberWithdrawalCB&gt; option = new InsertOption&lt;MemberWithdrawalCB&gt;();
-     * <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
-     * option.disableCommonColumnAutoSetup();
-     * <span style="color: #0000C0">memberWithdrawalBhv</span>.<span style="color: #CC4747">varyingInsert</span>(memberWithdrawal, option);
+     * <span style="color: #0000C0">memberWithdrawalBhv</span>.<span style="color: #CC4747">varyingInsert</span>(memberWithdrawal, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
+     *     <span style="color: #553000">op</span>.disableCommonColumnAutoSetup();
+     * });
      * ... = memberWithdrawal.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * @param memberWithdrawal The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
@@ -801,18 +821,12 @@ public abstract class BsMemberWithdrawalBhv extends AbstractBehaviorWritable<Mem
      * memberWithdrawal.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * memberWithdrawal.<span style="color: #CC4747">setVersionNo</span>(value);
-     * <span style="color: #70226C">try</span> {
-     *     <span style="color: #3F7E5E">// you can update by self calculation values</span>
-     *     UpdateOption&lt;MemberWithdrawalCB&gt; option = new UpdateOption&lt;MemberWithdrawalCB&gt;();
-     *     option.self(new SpecifyQuery&lt;MemberWithdrawalCB&gt;() {
-     *         public void specify(MemberWithdrawalCB cb) {
-     *             cb.specify().<span style="color: #CC4747">columnXxxCount()</span>;
-     *         }
+     * <span style="color: #3F7E5E">// you can update by self calculation values</span>
+     * <span style="color: #0000C0">memberWithdrawalBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(memberWithdrawal, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">columnXxxCount()</span>;
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
-     *     <span style="color: #0000C0">memberWithdrawalBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(memberWithdrawal, option);
-     * } <span style="color: #70226C">catch</span> (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
-     *     ...
-     * }
+     * });
      * </pre>
      * @param memberWithdrawal The entity of update. (NotNull, PrimaryKeyNotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
@@ -921,15 +935,13 @@ public abstract class BsMemberWithdrawalBhv extends AbstractBehaviorWritable<Mem
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
      * <span style="color: #3F7E5E">//memberWithdrawal.setVersionNo(value);</span>
-     * MemberWithdrawalCB cb = new MemberWithdrawalCB();
-     * cb.query().setFoo...(value);
-     * UpdateOption&lt;MemberWithdrawalCB&gt; option = <span style="color: #70226C">new</span> UpdateOption&lt;MemberWithdrawalCB&gt;();
-     * option.self(new SpecifyQuery&lt;MemberWithdrawalCB&gt;() {
-     *     public void specify(MemberWithdrawalCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
-     *     }
-     * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * <span style="color: #0000C0">memberWithdrawalBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(memberWithdrawal, cb, option);
+     * <span style="color: #0000C0">memberWithdrawalBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(memberWithdrawal, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * }, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">colCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">colCB</span>.specify().<span style="color: #CC4747">columnFooCount()</span>;
+     *     }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
+     * });
      * </pre>
      * @param memberWithdrawal The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cbLambda The callback for condition-bean of MemberWithdrawal. (NotNull)
@@ -957,13 +969,11 @@ public abstract class BsMemberWithdrawalBhv extends AbstractBehaviorWritable<Mem
      * <span style="color: #3F7E5E">//memberWithdrawal.setVersionNo(value);</span>
      * MemberWithdrawalCB cb = <span style="color: #70226C">new</span> MemberWithdrawalCB();
      * cb.query().setFoo...(value);
-     * UpdateOption&lt;MemberWithdrawalCB&gt; option = <span style="color: #70226C">new</span> UpdateOption&lt;MemberWithdrawalCB&gt;();
-     * option.self(new SpecifyQuery&lt;MemberWithdrawalCB&gt;() {
-     *     public void specify(MemberWithdrawalCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
-     *     }
-     * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * <span style="color: #0000C0">memberWithdrawalBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(memberWithdrawal, cb, option);
+     * <span style="color: #0000C0">memberWithdrawalBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(memberWithdrawal, cb, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">colCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">colCB</span>.specify().<span style="color: #CC4747">columnFooCount()</span>;
+     *     }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
+     * });
      * </pre>
      * @param memberWithdrawal The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cb The condition-bean of MemberWithdrawal. (NotNull)
@@ -978,7 +988,14 @@ public abstract class BsMemberWithdrawalBhv extends AbstractBehaviorWritable<Mem
     /**
      * Delete the several entities by query with varying requests non-strictly. <br>
      * For example, allowNonQueryDelete(). <br>
-     * Other specifications are same as batchUpdateNonstrict(entityList).
+     * Other specifications are same as queryDelete(cb).
+     * <pre>
+     * <span style="color: #0000C0">memberWithdrawalBhv</span>.<span style="color: #CC4747">queryDelete</span>(memberWithdrawal, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * }, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>...
+     * });
+     * </pre>
      * @param cbLambda The callback for condition-bean of MemberWithdrawal. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
@@ -991,7 +1008,7 @@ public abstract class BsMemberWithdrawalBhv extends AbstractBehaviorWritable<Mem
     /**
      * Delete the several entities by query with varying requests non-strictly. <br>
      * For example, allowNonQueryDelete(). <br>
-     * Other specifications are same as batchUpdateNonstrict(entityList).
+     * Other specifications are same as queryDelete(cb).
      * @param cb The condition-bean of MemberWithdrawal. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
@@ -1032,9 +1049,8 @@ public abstract class BsMemberWithdrawalBhv extends AbstractBehaviorWritable<Mem
      * <p>The invoker of behavior command should be not null when you call this method.</p>
      * @return The new-created all facade executor of outside-SQL. (NotNull)
      */
-    public OutsideSqlBasicExecutor<MemberWithdrawalBhv> outsideSql() {
-        OutsideSqlAllFacadeExecutor<MemberWithdrawalBhv> facadeExecutor = doOutsideSql();
-        return facadeExecutor.xbasicExecutor(); // variable to resolve generic type
+    public OutsideSqlAllFacadeExecutor<MemberWithdrawalBhv> outsideSql() {
+        return doOutsideSql();
     }
 
     // ===================================================================================

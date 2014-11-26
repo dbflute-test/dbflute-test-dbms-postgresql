@@ -39,15 +39,15 @@ public class VendorFunctionTest extends UnitContainerTestCase {
         }
         {
             MemberCB cb = new MemberCB();
-            cb.query().derivedMemberLoginList().count(new SubQuery<MemberLoginCB>() {
+            cb.query().derivedMemberLogin().count(new SubQuery<MemberLoginCB>() {
                 public void query(MemberLoginCB subCB) {
                     subCB.specify().columnMemberLoginId();
                 }
             }).equal(0);
-            memberBhv.selectEntityWithDeletedCheck(cb); // expect no exception
+            assertNotSame(0, memberBhv.selectCount(cb));
         }
         MemberCB cb = new MemberCB();
-        cb.specify().derivedMemberLoginList().max(new SubQuery<MemberLoginCB>() {
+        cb.specify().derivedMemberLogin().max(new SubQuery<MemberLoginCB>() {
             public void query(MemberLoginCB subCB) {
                 subCB.specify().columnLoginDatetime();
             }
@@ -83,7 +83,7 @@ public class VendorFunctionTest extends UnitContainerTestCase {
             countAll = memberBhv.selectCount(cb);
         }
         MemberCB cb = new MemberCB();
-        cb.specify().derivedPurchaseList().avg(new SubQuery<PurchaseCB>() {
+        cb.specify().derivedPurchase().avg(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
                 subCB.specify().columnPurchaseCount();
             }
@@ -121,7 +121,7 @@ public class VendorFunctionTest extends UnitContainerTestCase {
             countAll = memberBhv.selectCount(cb);
         }
         MemberCB cb = new MemberCB();
-        cb.specify().derivedPurchaseList().avg(new SubQuery<PurchaseCB>() {
+        cb.specify().derivedPurchase().avg(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
                 subCB.specify().columnPurchaseCount();
             }
@@ -157,7 +157,7 @@ public class VendorFunctionTest extends UnitContainerTestCase {
         }
         String coalesce = "1985-09-11 12:34:56.789";
         MemberCB cb = new MemberCB();
-        cb.specify().derivedPurchaseList().max(new SubQuery<PurchaseCB>() {
+        cb.specify().derivedPurchase().max(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
                 subCB.specify().columnPurchaseDatetime();
             }
@@ -191,7 +191,7 @@ public class VendorFunctionTest extends UnitContainerTestCase {
     public void test_ColumnQuery_truncMonth_right() {
         // ## Arrange ##
         MemberCB cb = new MemberCB();
-        cb.specify().derivedPurchaseList().max(new SubQuery<PurchaseCB>() {
+        cb.specify().derivedPurchase().max(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
                 subCB.specify().columnPurchaseDatetime();
             }
@@ -230,7 +230,7 @@ public class VendorFunctionTest extends UnitContainerTestCase {
     public void test_ColumnQuery_truncDay_right() {
         // ## Arrange ##
         MemberCB cb = new MemberCB();
-        cb.specify().derivedPurchaseList().max(new SubQuery<PurchaseCB>() {
+        cb.specify().derivedPurchase().max(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
                 subCB.specify().columnPurchaseDatetime();
             }
@@ -289,7 +289,7 @@ public class VendorFunctionTest extends UnitContainerTestCase {
     public void test_ColumnQuery_truncTime_right() {
         // ## Arrange ##
         MemberCB cb = new MemberCB();
-        cb.specify().derivedPurchaseList().max(new SubQuery<PurchaseCB>() {
+        cb.specify().derivedPurchase().max(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
                 subCB.specify().columnPurchaseDatetime();
             }
@@ -336,7 +336,7 @@ public class VendorFunctionTest extends UnitContainerTestCase {
         ListResultBean<Member> plainList;
         {
             MemberCB cb = new MemberCB();
-            cb.specify().derivedPurchaseList().max(new SubQuery<PurchaseCB>() {
+            cb.specify().derivedPurchase().max(new SubQuery<PurchaseCB>() {
                 public void query(PurchaseCB subCB) {
                     subCB.specify().columnPurchaseDatetime();
                 }
@@ -344,7 +344,7 @@ public class VendorFunctionTest extends UnitContainerTestCase {
             plainList = memberBhv.selectList(cb);
         }
         MemberCB cb = new MemberCB();
-        cb.specify().derivedPurchaseList().max(new SubQuery<PurchaseCB>() {
+        cb.specify().derivedPurchase().max(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
                 subCB.specify().columnPurchaseDatetime();
             }
@@ -387,7 +387,7 @@ public class VendorFunctionTest extends UnitContainerTestCase {
         ListResultBean<Member> plainList;
         {
             MemberCB cb = new MemberCB();
-            cb.specify().derivedPurchaseList().max(new SubQuery<PurchaseCB>() {
+            cb.specify().derivedPurchase().max(new SubQuery<PurchaseCB>() {
                 public void query(PurchaseCB subCB) {
                     subCB.specify().columnPurchaseDatetime();
                 }
@@ -395,7 +395,7 @@ public class VendorFunctionTest extends UnitContainerTestCase {
             plainList = memberBhv.selectList(cb);
         }
         MemberCB cb = new MemberCB();
-        cb.specify().derivedPurchaseList().max(new SubQuery<PurchaseCB>() {
+        cb.specify().derivedPurchase().max(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
                 subCB.specify().columnPurchaseDatetime();
             }
@@ -435,7 +435,7 @@ public class VendorFunctionTest extends UnitContainerTestCase {
     public void test_QueryDerivedReferrer_dateAdd_right() {
         // ## Arrange ##
         MemberCB cb = new MemberCB();
-        cb.query().derivedPurchaseList().max(new SubQuery<PurchaseCB>() {
+        cb.query().derivedPurchase().max(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
                 subCB.specify().columnPurchaseDatetime();
             }
@@ -535,14 +535,14 @@ public class VendorFunctionTest extends UnitContainerTestCase {
             }
         }).greaterEqual(new SpecifyQuery<MemberCB>() {
             public void specify(MemberCB cb) {
-                cb.specify().derivedPurchaseList().max(new SubQuery<PurchaseCB>() {
+                cb.specify().derivedPurchase().max(new SubQuery<PurchaseCB>() {
                     public void query(PurchaseCB subCB) {
                         subCB.specify().columnPurchaseDatetime();
                     }
                 }, null);
             }
         }).convert(op -> op.addDay(3).truncTime());
-        cb.query().queryMemberStatus().existsMemberList(new SubQuery<MemberCB>() {
+        cb.query().queryMemberStatus().existsMember(new SubQuery<MemberCB>() {
             public void query(MemberCB subCB) {
                 subCB.columnQuery(new SpecifyQuery<MemberCB>() {
                     public void specify(MemberCB cb) {
@@ -550,7 +550,7 @@ public class VendorFunctionTest extends UnitContainerTestCase {
                     }
                 }).greaterEqual(new SpecifyQuery<MemberCB>() {
                     public void specify(MemberCB cb) {
-                        cb.specify().derivedPurchaseList().max(new SubQuery<PurchaseCB>() {
+                        cb.specify().derivedPurchase().max(new SubQuery<PurchaseCB>() {
                             public void query(PurchaseCB subCB) {
                                 subCB.specify().columnPurchaseDatetime();
                             }
@@ -574,14 +574,14 @@ public class VendorFunctionTest extends UnitContainerTestCase {
     public void test_ColumnQuery_dateAdd_derived_bothSide() {
         // ## Arrange ##
         MemberCB cb = new MemberCB();
-        cb.specify().derivedPurchaseList().max(new SubQuery<PurchaseCB>() {
+        cb.specify().derivedPurchase().max(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
                 subCB.specify().columnPurchaseDatetime();
             }
         }, Member.ALIAS_latestLoginDatetime, op -> op.addYear(1000));
         cb.columnQuery(new SpecifyQuery<MemberCB>() {
             public void specify(MemberCB cb) {
-                cb.specify().derivedPurchaseList().max(new SubQuery<PurchaseCB>() {
+                cb.specify().derivedPurchase().max(new SubQuery<PurchaseCB>() {
                     public void query(PurchaseCB subCB) {
                         subCB.specify().columnPurchaseDatetime();
                     }
@@ -589,7 +589,7 @@ public class VendorFunctionTest extends UnitContainerTestCase {
             }
         }).equal(new SpecifyQuery<MemberCB>() {
             public void specify(MemberCB cb) {
-                cb.specify().derivedPurchaseList().max(new SubQuery<PurchaseCB>() {
+                cb.specify().derivedPurchase().max(new SubQuery<PurchaseCB>() {
                     public void query(PurchaseCB subCB) {
                         subCB.specify().columnPurchaseDatetime();
                     }

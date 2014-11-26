@@ -29,17 +29,14 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
     }
 
     // ===================================================================================
-    //                                                                     DBMeta Provider
-    //                                                                     ===============
+    //                                                                             DB Meta
+    //                                                                             =======
     @Override
     protected DBMetaProvider xgetDBMetaProvider() {
         return DBMetaInstanceHandler.getProvider();
     }
 
-    // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
-    public String getTableDbName() {
+    public String asTableDbName() {
         return "region";
     }
 
@@ -48,11 +45,53 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
     //                                                                               =====
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
-     * (地域ID)region_id: {PK, NotNull, int4(10)}
+     * (地域ID)region_id: {PK, NotNull, int4(10), classification=Region}
      * @param regionId The value of regionId as equal. (NullAllowed: if null, no condition)
      */
-    public void setRegionId_Equal(Integer regionId) {
+    protected void setRegionId_Equal(Integer regionId) {
         doSetRegionId_Equal(regionId);
+    }
+
+    /**
+     * Equal(=). As Region. And NullIgnored, OnlyOnceRegistered. <br>
+     * (地域ID)region_id: {PK, NotNull, int4(10), classification=Region} <br>
+     * mainly region of member address
+     * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, no condition)
+     */
+    public void setRegionId_Equal_AsRegion(CDef.Region cdef) {
+        doSetRegionId_Equal(cTNum(cdef != null ? cdef.code() : null, Integer.class));
+    }
+
+    /**
+     * Equal(=). As America (1). And NullIgnored, OnlyOnceRegistered. <br>
+     * AMERICA
+     */
+    public void setRegionId_Equal_America() {
+        setRegionId_Equal_AsRegion(CDef.Region.America);
+    }
+
+    /**
+     * Equal(=). As Canada (2). And NullIgnored, OnlyOnceRegistered. <br>
+     * CANADA
+     */
+    public void setRegionId_Equal_Canada() {
+        setRegionId_Equal_AsRegion(CDef.Region.Canada);
+    }
+
+    /**
+     * Equal(=). As China (3). And NullIgnored, OnlyOnceRegistered. <br>
+     * CHINA
+     */
+    public void setRegionId_Equal_China() {
+        setRegionId_Equal_AsRegion(CDef.Region.China);
+    }
+
+    /**
+     * Equal(=). As Chiba (4). And NullIgnored, OnlyOnceRegistered. <br>
+     * CHIBA
+     */
+    public void setRegionId_Equal_Chiba() {
+        setRegionId_Equal_AsRegion(CDef.Region.Chiba);
     }
 
     protected void doSetRegionId_Equal(Integer regionId) {
@@ -60,74 +99,22 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
     }
 
     /**
-     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * (地域ID)region_id: {PK, NotNull, int4(10)}
-     * @param regionId The value of regionId as greaterThan. (NullAllowed: if null, no condition)
-     */
-    public void setRegionId_GreaterThan(Integer regionId) {
-        regRegionId(CK_GT, regionId);
-    }
-
-    /**
-     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * (地域ID)region_id: {PK, NotNull, int4(10)}
-     * @param regionId The value of regionId as lessThan. (NullAllowed: if null, no condition)
-     */
-    public void setRegionId_LessThan(Integer regionId) {
-        regRegionId(CK_LT, regionId);
-    }
-
-    /**
-     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * (地域ID)region_id: {PK, NotNull, int4(10)}
-     * @param regionId The value of regionId as greaterEqual. (NullAllowed: if null, no condition)
-     */
-    public void setRegionId_GreaterEqual(Integer regionId) {
-        regRegionId(CK_GE, regionId);
-    }
-
-    /**
-     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * (地域ID)region_id: {PK, NotNull, int4(10)}
-     * @param regionId The value of regionId as lessEqual. (NullAllowed: if null, no condition)
-     */
-    public void setRegionId_LessEqual(Integer regionId) {
-        regRegionId(CK_LE, regionId);
-    }
-
-    /**
-     * RangeOf with various options. (versatile) <br>
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
-     * And NullIgnored, OnlyOnceRegistered. <br>
-     * (地域ID)region_id: {PK, NotNull, int4(10)}
-     * @param minNumber The min number of regionId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of regionId. (NullAllowed: if null, no to-condition)
-     * @param opLambda The callback for option of range-of. (NotNull)
-     */
-    public void setRegionId_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
-        setRegionId_RangeOf(minNumber, maxNumber, xcROOP(opLambda));
-    }
-
-    /**
-     * RangeOf with various options. (versatile) <br>
-     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
-     * And NullIgnored, OnlyOnceRegistered. <br>
-     * (地域ID)region_id: {PK, NotNull, int4(10)}
-     * @param minNumber The min number of regionId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of regionId. (NullAllowed: if null, no to-condition)
-     * @param rangeOfOption The option of range-of. (NotNull)
-     */
-    public void setRegionId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, xgetCValueRegionId(), "region_id", rangeOfOption);
-    }
-
-    /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
-     * (地域ID)region_id: {PK, NotNull, int4(10)}
+     * (地域ID)region_id: {PK, NotNull, int4(10), classification=Region}
      * @param regionIdList The collection of regionId as inScope. (NullAllowed: if null (or empty), no condition)
      */
     public void setRegionId_InScope(Collection<Integer> regionIdList) {
         doSetRegionId_InScope(regionIdList);
+    }
+
+    /**
+     * InScope {in (1, 2)}. As Region. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
+     * (地域ID)region_id: {PK, NotNull, int4(10), classification=Region} <br>
+     * mainly region of member address
+     * @param cdefList The list of classification definition (as ENUM type). (NullAllowed: if null (or empty), no condition)
+     */
+    public void setRegionId_InScope_AsRegion(Collection<CDef.Region> cdefList) {
+        doSetRegionId_InScope(cTNumL(cdefList, Integer.class));
     }
 
     protected void doSetRegionId_InScope(Collection<Integer> regionIdList) {
@@ -136,11 +123,21 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
 
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
-     * (地域ID)region_id: {PK, NotNull, int4(10)}
+     * (地域ID)region_id: {PK, NotNull, int4(10), classification=Region}
      * @param regionIdList The collection of regionId as notInScope. (NullAllowed: if null (or empty), no condition)
      */
     public void setRegionId_NotInScope(Collection<Integer> regionIdList) {
         doSetRegionId_NotInScope(regionIdList);
+    }
+
+    /**
+     * NotInScope {not in (1, 2)}. As Region. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
+     * (地域ID)region_id: {PK, NotNull, int4(10), classification=Region} <br>
+     * mainly region of member address
+     * @param cdefList The list of classification definition (as ENUM type). (NullAllowed: if null (or empty), no condition)
+     */
+    public void setRegionId_NotInScope_AsRegion(Collection<CDef.Region> cdefList) {
+        doSetRegionId_NotInScope(cTNumL(cdefList, Integer.class));
     }
 
     protected void doSetRegionId_NotInScope(Collection<Integer> regionIdList) {
@@ -152,13 +149,13 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
      * {exists (select region_id from member_address where ...)} <br>
      * (会員住所情報)member_address by region_id, named 'memberAddressAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">existsMemberAddressList</span>(addressCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">existsMemberAddress</span>(addressCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     addressCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of MemberAddressList for 'exists'. (NotNull)
      */
-    public void existsMemberAddressList(SubQuery<MemberAddressCB> subCBLambda) {
+    public void existsMemberAddress(SubQuery<MemberAddressCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         MemberAddressCB cb = new MemberAddressCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepRegionId_ExistsReferrer_MemberAddressList(cb.query());
@@ -171,13 +168,13 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
      * {not exists (select region_id from member_address where ...)} <br>
      * (会員住所情報)member_address by region_id, named 'memberAddressAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsMemberAddressList</span>(addressCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">notExistsMemberAddress</span>(addressCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     addressCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of RegionId_NotExistsReferrer_MemberAddressList for 'not exists'. (NotNull)
      */
-    public void notExistsMemberAddressList(SubQuery<MemberAddressCB> subCBLambda) {
+    public void notExistsMemberAddress(SubQuery<MemberAddressCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         MemberAddressCB cb = new MemberAddressCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepRegionId_NotExistsReferrer_MemberAddressList(cb.query());
@@ -198,14 +195,14 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
      * {FOO &lt;= (select max(BAR) from member_address where ...)} <br>
      * (会員住所情報)member_address by region_id, named 'memberAddressAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedMemberAddressList()</span>.<span style="color: #CC4747">max</span>(addressCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">derivedMemberAddress()</span>.<span style="color: #CC4747">max</span>(addressCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     addressCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *     addressCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
      * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
      * </pre>
      * @return The object to set up a function for referrer table. (NotNull)
      */
-    public HpQDRFunction<MemberAddressCB> derivedMemberAddressList() {
+    public HpQDRFunction<MemberAddressCB> derivedMemberAddress() {
         return xcreateQDRFunctionMemberAddressList();
     }
     protected HpQDRFunction<MemberAddressCB> xcreateQDRFunctionMemberAddressList() {
@@ -222,13 +219,13 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
 
     /**
      * IsNull {is null}. And OnlyOnceRegistered. <br>
-     * (地域ID)region_id: {PK, NotNull, int4(10)}
+     * (地域ID)region_id: {PK, NotNull, int4(10), classification=Region}
      */
     public void setRegionId_IsNull() { regRegionId(CK_ISN, DOBJ); }
 
     /**
      * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
-     * (地域ID)region_id: {PK, NotNull, int4(10)}
+     * (地域ID)region_id: {PK, NotNull, int4(10), classification=Region}
      */
     public void setRegionId_IsNotNull() { regRegionId(CK_ISNN, DOBJ); }
 

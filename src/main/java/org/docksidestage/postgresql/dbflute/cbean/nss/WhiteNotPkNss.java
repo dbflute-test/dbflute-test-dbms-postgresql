@@ -11,7 +11,7 @@ public class WhiteNotPkNss {
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    protected WhiteNotPkCQ _query;
+    protected final WhiteNotPkCQ _query;
     public WhiteNotPkNss(WhiteNotPkCQ query) { _query = query; }
     public boolean hasConditionQuery() { return _query != null; }
 

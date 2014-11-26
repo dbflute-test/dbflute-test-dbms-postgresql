@@ -43,7 +43,7 @@ import org.docksidestage.postgresql.dbflute.exentity.customize.*;
  * Long vendorCheckId = entity.getVendorCheckId();
  * String hyphen_exists = entity.getHyphen_exists();
  * Integer space_exists = entity.getSpace_exists();
- * java.util.Date dollar$exists = entity.getDollar$exists();
+ * java.time.LocalDate dollar$exists = entity.getDollar$exists();
  * entity.setVendorCheckId(vendorCheckId);
  * entity.setHyphen_exists(hyphen_exists);
  * entity.setSpace_exists(space_exists);
@@ -73,27 +73,19 @@ public abstract class BsVendorUnsupportedAlias extends AbstractEntity implements
     protected Integer _space_exists;
 
     /** DOLLAR$EXISTS: {date(13), refers to vendor_check} */
-    protected java.util.Date _dollar$exists;
+    protected java.time.LocalDate _dollar$exists;
 
     // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public String getTableDbName() {
-        return "VendorUnsupportedAlias";
-    }
-
-    /** {@inheritDoc} */
-    public String getTablePropertyName() {
-        return "vendorUnsupportedAlias";
-    }
-
-    // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
-    /** {@inheritDoc} */
-    public DBMeta getDBMeta() {
+    public DBMeta asDBMeta() {
         return org.docksidestage.postgresql.dbflute.bsentity.customize.dbmeta.VendorUnsupportedAliasDbm.getInstance();
+    }
+
+    /** {@inheritDoc} */
+    public String asTableDbName() {
+        return "VendorUnsupportedAlias";
     }
 
     // ===================================================================================
@@ -134,7 +126,7 @@ public abstract class BsVendorUnsupportedAlias extends AbstractEntity implements
     @Override
     protected int doHashCode(int initial) {
         int hs = initial;
-        hs = xCH(hs, getTableDbName());
+        hs = xCH(hs, asTableDbName());
         hs = xCH(hs, _vendorCheckId);
         hs = xCH(hs, _hyphen_exists);
         hs = xCH(hs, _space_exists);
@@ -153,7 +145,7 @@ public abstract class BsVendorUnsupportedAlias extends AbstractEntity implements
         sb.append(dm).append(xfND(_vendorCheckId));
         sb.append(dm).append(xfND(_hyphen_exists));
         sb.append(dm).append(xfND(_space_exists));
-        sb.append(dm).append(xfUD(_dollar$exists));
+        sb.append(dm).append(xfND(_dollar$exists));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -232,7 +224,7 @@ public abstract class BsVendorUnsupportedAlias extends AbstractEntity implements
      * [get] DOLLAR$EXISTS: {date(13), refers to vendor_check} <br>
      * @return The value of the column 'DOLLAR$EXISTS'. (NullAllowed even if selected: for no constraint)
      */
-    public java.util.Date getDollar$exists() {
+    public java.time.LocalDate getDollar$exists() {
         checkSpecifiedProperty("dollar$exists");
         return _dollar$exists;
     }
@@ -241,7 +233,7 @@ public abstract class BsVendorUnsupportedAlias extends AbstractEntity implements
      * [set] DOLLAR$EXISTS: {date(13), refers to vendor_check} <br>
      * @param dollar$exists The value of the column 'DOLLAR$EXISTS'. (NullAllowed: null update allowed for no constraint)
      */
-    public void setDollar$exists(java.util.Date dollar$exists) {
+    public void setDollar$exists(java.time.LocalDate dollar$exists) {
         registerModifiedProperty("dollar$exists");
         _dollar$exists = dollar$exists;
     }

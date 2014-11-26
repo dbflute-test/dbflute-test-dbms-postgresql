@@ -3,9 +3,11 @@ package org.docksidestage.postgresql.dbflute.bsentity;
 import java.util.List;
 import java.util.ArrayList;
 
+import org.dbflute.Entity;
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
 import org.dbflute.dbmeta.accessory.DomainEntity;
+import org.dbflute.optional.OptionalEntity;
 import org.docksidestage.postgresql.dbflute.allcommon.EntityDefinedCommonColumn;
 import org.docksidestage.postgresql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.postgresql.dbflute.exentity.*;
@@ -48,10 +50,10 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  * String productCategoryCode = entity.getProductCategoryCode();
  * String productStatusCode = entity.getProductStatusCode();
  * Integer regularPrice = entity.getRegularPrice();
- * java.sql.Timestamp registerDatetime = entity.getRegisterDatetime();
+ * java.time.LocalDateTime registerDatetime = entity.getRegisterDatetime();
  * String registerUser = entity.getRegisterUser();
  * String registerProcess = entity.getRegisterProcess();
- * java.sql.Timestamp updateDatetime = entity.getUpdateDatetime();
+ * java.time.LocalDateTime updateDatetime = entity.getUpdateDatetime();
  * String updateUser = entity.getUpdateUser();
  * String updateProcess = entity.getUpdateProcess();
  * Long versionNo = entity.getVersionNo();
@@ -102,7 +104,7 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity, 
     protected Integer _regularPrice;
 
     /** register_datetime: {NotNull, timestamp(26, 3)} */
-    protected java.sql.Timestamp _registerDatetime;
+    protected java.time.LocalDateTime _registerDatetime;
 
     /** register_user: {NotNull, varchar(200)} */
     protected String _registerUser;
@@ -111,7 +113,7 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity, 
     protected String _registerProcess;
 
     /** update_datetime: {NotNull, timestamp(26, 3)} */
-    protected java.sql.Timestamp _updateDatetime;
+    protected java.time.LocalDateTime _updateDatetime;
 
     /** update_user: {NotNull, varchar(200)} */
     protected String _updateUser;
@@ -123,24 +125,16 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity, 
     protected Long _versionNo;
 
     // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public String getTableDbName() {
-        return "product";
+    public DBMeta asDBMeta() {
+        return DBMetaInstanceHandler.findDBMeta(asTableDbName());
     }
 
     /** {@inheritDoc} */
-    public String getTablePropertyName() {
+    public String asTableDbName() {
         return "product";
-    }
-
-    // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
-    /** {@inheritDoc} */
-    public DBMeta getDBMeta() {
-        return DBMetaInstanceHandler.findDBMeta(getTableDbName());
     }
 
     // ===================================================================================
@@ -167,13 +161,15 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity, 
     //                                                                    Foreign Property
     //                                                                    ================
     /** (商品カテゴリ)product_category by my product_category_code, named 'productCategory'. */
-    protected ProductCategory _productCategory;
+    protected OptionalEntity<ProductCategory> _productCategory;
 
     /**
      * [get] (商品カテゴリ)product_category by my product_category_code, named 'productCategory'. <br>
-     * @return The entity of foreign property 'productCategory'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'productCategory'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public ProductCategory getProductCategory() {
+    public OptionalEntity<ProductCategory> getProductCategory() {
+        if (_productCategory == null) { _productCategory = OptionalEntity.relationEmpty(this, "productCategory"); }
         return _productCategory;
     }
 
@@ -181,18 +177,20 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity, 
      * [set] (商品カテゴリ)product_category by my product_category_code, named 'productCategory'.
      * @param productCategory The entity of foreign property 'productCategory'. (NullAllowed)
      */
-    public void setProductCategory(ProductCategory productCategory) {
+    public void setProductCategory(OptionalEntity<ProductCategory> productCategory) {
         _productCategory = productCategory;
     }
 
     /** (商品ステータス)product_status by my product_status_code, named 'productStatus'. */
-    protected ProductStatus _productStatus;
+    protected OptionalEntity<ProductStatus> _productStatus;
 
     /**
      * [get] (商品ステータス)product_status by my product_status_code, named 'productStatus'. <br>
-     * @return The entity of foreign property 'productStatus'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'productStatus'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public ProductStatus getProductStatus() {
+    public OptionalEntity<ProductStatus> getProductStatus() {
+        if (_productStatus == null) { _productStatus = OptionalEntity.relationEmpty(this, "productStatus"); }
         return _productStatus;
     }
 
@@ -200,7 +198,7 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity, 
      * [set] (商品ステータス)product_status by my product_status_code, named 'productStatus'.
      * @param productStatus The entity of foreign property 'productStatus'. (NullAllowed)
      */
-    public void setProductStatus(ProductStatus productStatus) {
+    public void setProductStatus(OptionalEntity<ProductStatus> productStatus) {
         _productStatus = productStatus;
     }
 
@@ -248,7 +246,7 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity, 
     @Override
     protected int doHashCode(int initial) {
         int hs = initial;
-        hs = xCH(hs, getTableDbName());
+        hs = xCH(hs, asTableDbName());
         hs = xCH(hs, _productId);
         return hs;
     }
@@ -256,13 +254,16 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity, 
     @Override
     protected String doBuildStringWithRelation(String li) {
         StringBuilder sb = new StringBuilder();
-        if (_productCategory != null)
+        if (_productCategory != null && _productCategory.isPresent())
         { sb.append(li).append(xbRDS(_productCategory, "productCategory")); }
-        if (_productStatus != null)
+        if (_productStatus != null && _productStatus.isPresent())
         { sb.append(li).append(xbRDS(_productStatus, "productStatus")); }
         if (_purchaseList != null) { for (Purchase et : _purchaseList)
         { if (et != null) { sb.append(li).append(xbRDS(et, "purchaseList")); } } }
         return sb.toString();
+    }
+    protected <ET extends Entity> String xbRDS(org.dbflute.optional.OptionalEntity<ET> et, String name) { // buildRelationDisplayString()
+        return et.get().buildDisplayString(name, true, true);
     }
 
     @Override
@@ -291,9 +292,9 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity, 
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_productCategory != null)
+        if (_productCategory != null && _productCategory.isPresent())
         { sb.append(dm).append("productCategory"); }
-        if (_productStatus != null)
+        if (_productStatus != null && _productStatus.isPresent())
         { sb.append(dm).append("productStatus"); }
         if (_purchaseList != null && !_purchaseList.isEmpty())
         { sb.append(dm).append("purchaseList"); }
@@ -431,7 +432,7 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity, 
      * [get] register_datetime: {NotNull, timestamp(26, 3)} <br>
      * @return The value of the column 'register_datetime'. (basically NotNull if selected: for the constraint)
      */
-    public java.sql.Timestamp getRegisterDatetime() {
+    public java.time.LocalDateTime getRegisterDatetime() {
         checkSpecifiedProperty("registerDatetime");
         return _registerDatetime;
     }
@@ -440,7 +441,7 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity, 
      * [set] register_datetime: {NotNull, timestamp(26, 3)} <br>
      * @param registerDatetime The value of the column 'register_datetime'. (basically NotNull if update: for the constraint)
      */
-    public void setRegisterDatetime(java.sql.Timestamp registerDatetime) {
+    public void setRegisterDatetime(java.time.LocalDateTime registerDatetime) {
         registerModifiedProperty("registerDatetime");
         _registerDatetime = registerDatetime;
     }
@@ -485,7 +486,7 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity, 
      * [get] update_datetime: {NotNull, timestamp(26, 3)} <br>
      * @return The value of the column 'update_datetime'. (basically NotNull if selected: for the constraint)
      */
-    public java.sql.Timestamp getUpdateDatetime() {
+    public java.time.LocalDateTime getUpdateDatetime() {
         checkSpecifiedProperty("updateDatetime");
         return _updateDatetime;
     }
@@ -494,7 +495,7 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity, 
      * [set] update_datetime: {NotNull, timestamp(26, 3)} <br>
      * @param updateDatetime The value of the column 'update_datetime'. (basically NotNull if update: for the constraint)
      */
-    public void setUpdateDatetime(java.sql.Timestamp updateDatetime) {
+    public void setUpdateDatetime(java.time.LocalDateTime updateDatetime) {
         registerModifiedProperty("updateDatetime");
         _updateDatetime = updateDatetime;
     }

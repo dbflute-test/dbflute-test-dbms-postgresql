@@ -37,7 +37,8 @@ public class VendorUuidBarDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((VendorUuidBar)et).getBarId(), (et, vl) -> ((VendorUuidBar)et).setBarId((java.util.UUID)vl), "barId");
         setupEpg(_epgMap, et -> ((VendorUuidBar)et).getBarName(), (et, vl) -> ((VendorUuidBar)et).setBarName((String)vl), "barName");
     }
@@ -58,8 +59,8 @@ public class VendorUuidBarDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnBarId = cci("bar_id", "bar_id", null, null, java.util.UUID.class, "barId", null, true, false, true, "uuid", 2147483647, 0, null, false, null, null, null, "vendorUuidFooList", null);
-    protected final ColumnInfo _columnBarName = cci("bar_name", "bar_name", null, null, String.class, "barName", null, false, false, true, "varchar", 2147483647, 0, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnBarId = cci("bar_id", "bar_id", null, null, java.util.UUID.class, "barId", null, true, false, true, "uuid", 2147483647, 0, null, false, null, null, null, "vendorUuidFooList", null, false);
+    protected final ColumnInfo _columnBarName = cci("bar_name", "bar_name", null, null, String.class, "barName", null, false, false, true, "varchar", 2147483647, 0, null, false, null, null, null, null, null, false);
 
     /**
      * bar_id: {PK, NotNull, uuid(2147483647)}

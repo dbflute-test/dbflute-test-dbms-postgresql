@@ -37,7 +37,8 @@ public class VendorNumericDecimalSumDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((VendorNumericDecimalSum)et).getDecimalDigitSum(), (et, vl) -> ((VendorNumericDecimalSum)et).setDecimalDigitSum(ctb(vl)), "decimalDigitSum");
     }
     public PropertyGateway findPropertyGateway(String prop)
@@ -57,7 +58,7 @@ public class VendorNumericDecimalSumDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnDecimalDigitSum = cci("decimal_digit_sum", "decimal_digit_sum", null, null, java.math.BigDecimal.class, "decimalDigitSum", null, false, false, false, "numeric", 131089, 0, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnDecimalDigitSum = cci("decimal_digit_sum", "decimal_digit_sum", null, null, java.math.BigDecimal.class, "decimalDigitSum", null, false, false, false, "numeric", 131089, 0, null, false, null, null, null, null, null, false);
 
     /**
      * decimal_digit_sum: {numeric(131089)}

@@ -29,17 +29,14 @@ public abstract class AbstractBsVendorDatePkCQ extends AbstractConditionQuery {
     }
 
     // ===================================================================================
-    //                                                                     DBMeta Provider
-    //                                                                     ===============
+    //                                                                             DB Meta
+    //                                                                             =======
     @Override
     protected DBMetaProvider xgetDBMetaProvider() {
         return DBMetaInstanceHandler.getProvider();
     }
 
-    // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
-    public String getTableDbName() {
+    public String asTableDbName() {
         return "vendor_date_pk";
     }
 
@@ -51,8 +48,8 @@ public abstract class AbstractBsVendorDatePkCQ extends AbstractConditionQuery {
      * foo_date: {PK, NotNull, date(13)}
      * @param fooDate The value of fooDate as equal. (NullAllowed: if null, no condition)
      */
-    public void setFooDate_Equal(java.util.Date fooDate) {
-        regFooDate(CK_EQ,  fCTPD(fooDate));
+    public void setFooDate_Equal(java.time.LocalDate fooDate) {
+        regFooDate(CK_EQ,  fooDate);
     }
 
     /**
@@ -60,8 +57,8 @@ public abstract class AbstractBsVendorDatePkCQ extends AbstractConditionQuery {
      * foo_date: {PK, NotNull, date(13)}
      * @param fooDate The value of fooDate as greaterThan. (NullAllowed: if null, no condition)
      */
-    public void setFooDate_GreaterThan(java.util.Date fooDate) {
-        regFooDate(CK_GT,  fCTPD(fooDate));
+    public void setFooDate_GreaterThan(java.time.LocalDate fooDate) {
+        regFooDate(CK_GT,  fooDate);
     }
 
     /**
@@ -69,8 +66,8 @@ public abstract class AbstractBsVendorDatePkCQ extends AbstractConditionQuery {
      * foo_date: {PK, NotNull, date(13)}
      * @param fooDate The value of fooDate as lessThan. (NullAllowed: if null, no condition)
      */
-    public void setFooDate_LessThan(java.util.Date fooDate) {
-        regFooDate(CK_LT,  fCTPD(fooDate));
+    public void setFooDate_LessThan(java.time.LocalDate fooDate) {
+        regFooDate(CK_LT,  fooDate);
     }
 
     /**
@@ -78,8 +75,8 @@ public abstract class AbstractBsVendorDatePkCQ extends AbstractConditionQuery {
      * foo_date: {PK, NotNull, date(13)}
      * @param fooDate The value of fooDate as greaterEqual. (NullAllowed: if null, no condition)
      */
-    public void setFooDate_GreaterEqual(java.util.Date fooDate) {
-        regFooDate(CK_GE,  fCTPD(fooDate));
+    public void setFooDate_GreaterEqual(java.time.LocalDate fooDate) {
+        regFooDate(CK_GE,  fooDate);
     }
 
     /**
@@ -87,8 +84,8 @@ public abstract class AbstractBsVendorDatePkCQ extends AbstractConditionQuery {
      * foo_date: {PK, NotNull, date(13)}
      * @param fooDate The value of fooDate as lessEqual. (NullAllowed: if null, no condition)
      */
-    public void setFooDate_LessEqual(java.util.Date fooDate) {
-        regFooDate(CK_LE, fCTPD(fooDate));
+    public void setFooDate_LessEqual(java.time.LocalDate fooDate) {
+        regFooDate(CK_LE, fooDate);
     }
 
     /**
@@ -100,7 +97,7 @@ public abstract class AbstractBsVendorDatePkCQ extends AbstractConditionQuery {
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of fooDate. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of from-to. (NotNull)
      */
-    public void setFooDate_FromTo(Date fromDatetime, Date toDatetime, ConditionOptionCall<FromToOption> opLambda) {
+    public void setFooDate_FromTo(java.time.LocalDate fromDatetime, java.time.LocalDate toDatetime, ConditionOptionCall<FromToOption> opLambda) {
         setFooDate_FromTo(fromDatetime, toDatetime, xcFTOP(opLambda));
     }
 
@@ -113,8 +110,9 @@ public abstract class AbstractBsVendorDatePkCQ extends AbstractConditionQuery {
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of fooDate. (NullAllowed: if null, no to-condition)
      * @param fromToOption The option of from-to. (NotNull)
      */
-    public void setFooDate_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ(fCTPD(fromDatetime), fCTPD(toDatetime), xgetCValueFooDate(), "foo_date", fromToOption);
+    public void setFooDate_FromTo(java.time.LocalDate fromDatetime, java.time.LocalDate toDatetime, FromToOption fromToOption) {
+        String nm = "foo_date"; FromToOption op = fromToOption;
+        regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValueFooDate(), nm, op);
     }
 
     /**
@@ -128,7 +126,7 @@ public abstract class AbstractBsVendorDatePkCQ extends AbstractConditionQuery {
      * @param fromDate The from-date(yyyy/MM/dd) of fooDate. (NullAllowed: if null, no from-condition)
      * @param toDate The to-date(yyyy/MM/dd) of fooDate. (NullAllowed: if null, no to-condition)
      */
-    public void setFooDate_DateFromTo(Date fromDate, Date toDate) {
+    public void setFooDate_DateFromTo(java.time.LocalDate fromDate, java.time.LocalDate toDate) {
         setFooDate_FromTo(fromDate, toDate, xcDFTOP());
     }
 
@@ -137,11 +135,11 @@ public abstract class AbstractBsVendorDatePkCQ extends AbstractConditionQuery {
      * foo_date: {PK, NotNull, date(13)}
      * @param fooDateList The collection of fooDate as inScope. (NullAllowed: if null (or empty), no condition)
      */
-    public void setFooDate_InScope(Collection<java.util.Date> fooDateList) {
+    public void setFooDate_InScope(Collection<java.time.LocalDate> fooDateList) {
         doSetFooDate_InScope(fooDateList);
     }
 
-    protected void doSetFooDate_InScope(Collection<java.util.Date> fooDateList) {
+    protected void doSetFooDate_InScope(Collection<java.time.LocalDate> fooDateList) {
         regINS(CK_INS, cTL(fooDateList), xgetCValueFooDate(), "foo_date");
     }
 

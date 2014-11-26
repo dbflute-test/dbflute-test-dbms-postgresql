@@ -84,12 +84,11 @@ public class WxAdditionalSchemaPostgreSQLTest extends UnitContainerTestCase {
 
         // ## Act ##
         ListResultBean<NextschemaWhiteSameName> mainList = nextschemaWhiteSameNameBhv.selectList(cb);
-        nextschemaWhiteSameNameBhv.loadWhiteSameNameRefList(mainList,
-                new ConditionBeanSetupper<NextschemaWhiteSameNameRefCB>() {
-                    public void setup(NextschemaWhiteSameNameRefCB cb) {
-                        cb.setupSelect_WhiteSameName();
-                    }
-                });
+        nextschemaWhiteSameNameBhv.loadWhiteSameNameRef(mainList, new ConditionBeanSetupper<NextschemaWhiteSameNameRefCB>() {
+            public void setup(NextschemaWhiteSameNameRefCB cb) {
+                cb.setupSelect_WhiteSameName();
+            }
+        });
 
         // ## Assert ##
         assertHasAnyElement(mainList); // expect no exception for now
@@ -135,7 +134,7 @@ public class WxAdditionalSchemaPostgreSQLTest extends UnitContainerTestCase {
             NextschemaWhiteSameNameRef ref = new NextschemaWhiteSameNameRef();
             ref.setSameNameRefId(111L);
             ref.setSameNameId(101);
-            ref.setNextRefDate(new HandyDate("2013/07/06").getDate());
+            ref.setNextRefDate(new HandyDate("2013/07/06").getLocalDate());
             nextschemaWhiteSameNameRefBhv.insert(ref);
         }
     }

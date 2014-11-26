@@ -29,17 +29,14 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     }
 
     // ===================================================================================
-    //                                                                     DBMeta Provider
-    //                                                                     ===============
+    //                                                                             DB Meta
+    //                                                                             =======
     @Override
     protected DBMetaProvider xgetDBMetaProvider() {
         return DBMetaInstanceHandler.getProvider();
     }
 
-    // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
-    public String getTableDbName() {
+    public String asTableDbName() {
         return "white_xls_man";
     }
 
@@ -293,7 +290,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
      * timestamp_zero_default_millis: {timestamp(26, 3)}
      * @param timestampZeroDefaultMillis The value of timestampZeroDefaultMillis as equal. (NullAllowed: if null, no condition)
      */
-    public void setTimestampZeroDefaultMillis_Equal(java.sql.Timestamp timestampZeroDefaultMillis) {
+    public void setTimestampZeroDefaultMillis_Equal(java.time.LocalDateTime timestampZeroDefaultMillis) {
         regTimestampZeroDefaultMillis(CK_EQ,  timestampZeroDefaultMillis);
     }
 
@@ -302,7 +299,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
      * timestamp_zero_default_millis: {timestamp(26, 3)}
      * @param timestampZeroDefaultMillis The value of timestampZeroDefaultMillis as greaterThan. (NullAllowed: if null, no condition)
      */
-    public void setTimestampZeroDefaultMillis_GreaterThan(java.sql.Timestamp timestampZeroDefaultMillis) {
+    public void setTimestampZeroDefaultMillis_GreaterThan(java.time.LocalDateTime timestampZeroDefaultMillis) {
         regTimestampZeroDefaultMillis(CK_GT,  timestampZeroDefaultMillis);
     }
 
@@ -311,7 +308,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
      * timestamp_zero_default_millis: {timestamp(26, 3)}
      * @param timestampZeroDefaultMillis The value of timestampZeroDefaultMillis as lessThan. (NullAllowed: if null, no condition)
      */
-    public void setTimestampZeroDefaultMillis_LessThan(java.sql.Timestamp timestampZeroDefaultMillis) {
+    public void setTimestampZeroDefaultMillis_LessThan(java.time.LocalDateTime timestampZeroDefaultMillis) {
         regTimestampZeroDefaultMillis(CK_LT,  timestampZeroDefaultMillis);
     }
 
@@ -320,7 +317,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
      * timestamp_zero_default_millis: {timestamp(26, 3)}
      * @param timestampZeroDefaultMillis The value of timestampZeroDefaultMillis as greaterEqual. (NullAllowed: if null, no condition)
      */
-    public void setTimestampZeroDefaultMillis_GreaterEqual(java.sql.Timestamp timestampZeroDefaultMillis) {
+    public void setTimestampZeroDefaultMillis_GreaterEqual(java.time.LocalDateTime timestampZeroDefaultMillis) {
         regTimestampZeroDefaultMillis(CK_GE,  timestampZeroDefaultMillis);
     }
 
@@ -329,7 +326,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
      * timestamp_zero_default_millis: {timestamp(26, 3)}
      * @param timestampZeroDefaultMillis The value of timestampZeroDefaultMillis as lessEqual. (NullAllowed: if null, no condition)
      */
-    public void setTimestampZeroDefaultMillis_LessEqual(java.sql.Timestamp timestampZeroDefaultMillis) {
+    public void setTimestampZeroDefaultMillis_LessEqual(java.time.LocalDateTime timestampZeroDefaultMillis) {
         regTimestampZeroDefaultMillis(CK_LE, timestampZeroDefaultMillis);
     }
 
@@ -342,7 +339,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of timestampZeroDefaultMillis. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of from-to. (NotNull)
      */
-    public void setTimestampZeroDefaultMillis_FromTo(Date fromDatetime, Date toDatetime, ConditionOptionCall<FromToOption> opLambda) {
+    public void setTimestampZeroDefaultMillis_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, ConditionOptionCall<FromToOption> opLambda) {
         setTimestampZeroDefaultMillis_FromTo(fromDatetime, toDatetime, xcFTOP(opLambda));
     }
 
@@ -355,8 +352,9 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of timestampZeroDefaultMillis. (NullAllowed: if null, no to-condition)
      * @param fromToOption The option of from-to. (NotNull)
      */
-    public void setTimestampZeroDefaultMillis_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ((fromDatetime != null ? new java.sql.Timestamp(fromDatetime.getTime()) : null), (toDatetime != null ? new java.sql.Timestamp(toDatetime.getTime()) : null), xgetCValueTimestampZeroDefaultMillis(), "timestamp_zero_default_millis", fromToOption);
+    public void setTimestampZeroDefaultMillis_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, FromToOption fromToOption) {
+        String nm = "timestamp_zero_default_millis"; FromToOption op = fromToOption;
+        regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValueTimestampZeroDefaultMillis(), nm, op);
     }
 
     /**
@@ -370,7 +368,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
      * @param fromDate The from-date(yyyy/MM/dd) of timestampZeroDefaultMillis. (NullAllowed: if null, no from-condition)
      * @param toDate The to-date(yyyy/MM/dd) of timestampZeroDefaultMillis. (NullAllowed: if null, no to-condition)
      */
-    public void setTimestampZeroDefaultMillis_DateFromTo(Date fromDate, Date toDate) {
+    public void setTimestampZeroDefaultMillis_DateFromTo(java.time.LocalDateTime fromDate, java.time.LocalDateTime toDate) {
         setTimestampZeroDefaultMillis_FromTo(fromDate, toDate, xcDFTOP());
     }
 
@@ -394,7 +392,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
      * timestamp_zero_prefix_millis: {timestamp(26, 3)}
      * @param timestampZeroPrefixMillis The value of timestampZeroPrefixMillis as equal. (NullAllowed: if null, no condition)
      */
-    public void setTimestampZeroPrefixMillis_Equal(java.sql.Timestamp timestampZeroPrefixMillis) {
+    public void setTimestampZeroPrefixMillis_Equal(java.time.LocalDateTime timestampZeroPrefixMillis) {
         regTimestampZeroPrefixMillis(CK_EQ,  timestampZeroPrefixMillis);
     }
 
@@ -403,7 +401,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
      * timestamp_zero_prefix_millis: {timestamp(26, 3)}
      * @param timestampZeroPrefixMillis The value of timestampZeroPrefixMillis as greaterThan. (NullAllowed: if null, no condition)
      */
-    public void setTimestampZeroPrefixMillis_GreaterThan(java.sql.Timestamp timestampZeroPrefixMillis) {
+    public void setTimestampZeroPrefixMillis_GreaterThan(java.time.LocalDateTime timestampZeroPrefixMillis) {
         regTimestampZeroPrefixMillis(CK_GT,  timestampZeroPrefixMillis);
     }
 
@@ -412,7 +410,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
      * timestamp_zero_prefix_millis: {timestamp(26, 3)}
      * @param timestampZeroPrefixMillis The value of timestampZeroPrefixMillis as lessThan. (NullAllowed: if null, no condition)
      */
-    public void setTimestampZeroPrefixMillis_LessThan(java.sql.Timestamp timestampZeroPrefixMillis) {
+    public void setTimestampZeroPrefixMillis_LessThan(java.time.LocalDateTime timestampZeroPrefixMillis) {
         regTimestampZeroPrefixMillis(CK_LT,  timestampZeroPrefixMillis);
     }
 
@@ -421,7 +419,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
      * timestamp_zero_prefix_millis: {timestamp(26, 3)}
      * @param timestampZeroPrefixMillis The value of timestampZeroPrefixMillis as greaterEqual. (NullAllowed: if null, no condition)
      */
-    public void setTimestampZeroPrefixMillis_GreaterEqual(java.sql.Timestamp timestampZeroPrefixMillis) {
+    public void setTimestampZeroPrefixMillis_GreaterEqual(java.time.LocalDateTime timestampZeroPrefixMillis) {
         regTimestampZeroPrefixMillis(CK_GE,  timestampZeroPrefixMillis);
     }
 
@@ -430,7 +428,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
      * timestamp_zero_prefix_millis: {timestamp(26, 3)}
      * @param timestampZeroPrefixMillis The value of timestampZeroPrefixMillis as lessEqual. (NullAllowed: if null, no condition)
      */
-    public void setTimestampZeroPrefixMillis_LessEqual(java.sql.Timestamp timestampZeroPrefixMillis) {
+    public void setTimestampZeroPrefixMillis_LessEqual(java.time.LocalDateTime timestampZeroPrefixMillis) {
         regTimestampZeroPrefixMillis(CK_LE, timestampZeroPrefixMillis);
     }
 
@@ -443,7 +441,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of timestampZeroPrefixMillis. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of from-to. (NotNull)
      */
-    public void setTimestampZeroPrefixMillis_FromTo(Date fromDatetime, Date toDatetime, ConditionOptionCall<FromToOption> opLambda) {
+    public void setTimestampZeroPrefixMillis_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, ConditionOptionCall<FromToOption> opLambda) {
         setTimestampZeroPrefixMillis_FromTo(fromDatetime, toDatetime, xcFTOP(opLambda));
     }
 
@@ -456,8 +454,9 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of timestampZeroPrefixMillis. (NullAllowed: if null, no to-condition)
      * @param fromToOption The option of from-to. (NotNull)
      */
-    public void setTimestampZeroPrefixMillis_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ((fromDatetime != null ? new java.sql.Timestamp(fromDatetime.getTime()) : null), (toDatetime != null ? new java.sql.Timestamp(toDatetime.getTime()) : null), xgetCValueTimestampZeroPrefixMillis(), "timestamp_zero_prefix_millis", fromToOption);
+    public void setTimestampZeroPrefixMillis_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, FromToOption fromToOption) {
+        String nm = "timestamp_zero_prefix_millis"; FromToOption op = fromToOption;
+        regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValueTimestampZeroPrefixMillis(), nm, op);
     }
 
     /**
@@ -471,7 +470,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
      * @param fromDate The from-date(yyyy/MM/dd) of timestampZeroPrefixMillis. (NullAllowed: if null, no from-condition)
      * @param toDate The to-date(yyyy/MM/dd) of timestampZeroPrefixMillis. (NullAllowed: if null, no to-condition)
      */
-    public void setTimestampZeroPrefixMillis_DateFromTo(Date fromDate, Date toDate) {
+    public void setTimestampZeroPrefixMillis_DateFromTo(java.time.LocalDateTime fromDate, java.time.LocalDateTime toDate) {
         setTimestampZeroPrefixMillis_FromTo(fromDate, toDate, xcDFTOP());
     }
 
@@ -495,7 +494,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
      * timestamp_zero_suffix_millis: {timestamp(26, 3)}
      * @param timestampZeroSuffixMillis The value of timestampZeroSuffixMillis as equal. (NullAllowed: if null, no condition)
      */
-    public void setTimestampZeroSuffixMillis_Equal(java.sql.Timestamp timestampZeroSuffixMillis) {
+    public void setTimestampZeroSuffixMillis_Equal(java.time.LocalDateTime timestampZeroSuffixMillis) {
         regTimestampZeroSuffixMillis(CK_EQ,  timestampZeroSuffixMillis);
     }
 
@@ -504,7 +503,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
      * timestamp_zero_suffix_millis: {timestamp(26, 3)}
      * @param timestampZeroSuffixMillis The value of timestampZeroSuffixMillis as greaterThan. (NullAllowed: if null, no condition)
      */
-    public void setTimestampZeroSuffixMillis_GreaterThan(java.sql.Timestamp timestampZeroSuffixMillis) {
+    public void setTimestampZeroSuffixMillis_GreaterThan(java.time.LocalDateTime timestampZeroSuffixMillis) {
         regTimestampZeroSuffixMillis(CK_GT,  timestampZeroSuffixMillis);
     }
 
@@ -513,7 +512,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
      * timestamp_zero_suffix_millis: {timestamp(26, 3)}
      * @param timestampZeroSuffixMillis The value of timestampZeroSuffixMillis as lessThan. (NullAllowed: if null, no condition)
      */
-    public void setTimestampZeroSuffixMillis_LessThan(java.sql.Timestamp timestampZeroSuffixMillis) {
+    public void setTimestampZeroSuffixMillis_LessThan(java.time.LocalDateTime timestampZeroSuffixMillis) {
         regTimestampZeroSuffixMillis(CK_LT,  timestampZeroSuffixMillis);
     }
 
@@ -522,7 +521,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
      * timestamp_zero_suffix_millis: {timestamp(26, 3)}
      * @param timestampZeroSuffixMillis The value of timestampZeroSuffixMillis as greaterEqual. (NullAllowed: if null, no condition)
      */
-    public void setTimestampZeroSuffixMillis_GreaterEqual(java.sql.Timestamp timestampZeroSuffixMillis) {
+    public void setTimestampZeroSuffixMillis_GreaterEqual(java.time.LocalDateTime timestampZeroSuffixMillis) {
         regTimestampZeroSuffixMillis(CK_GE,  timestampZeroSuffixMillis);
     }
 
@@ -531,7 +530,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
      * timestamp_zero_suffix_millis: {timestamp(26, 3)}
      * @param timestampZeroSuffixMillis The value of timestampZeroSuffixMillis as lessEqual. (NullAllowed: if null, no condition)
      */
-    public void setTimestampZeroSuffixMillis_LessEqual(java.sql.Timestamp timestampZeroSuffixMillis) {
+    public void setTimestampZeroSuffixMillis_LessEqual(java.time.LocalDateTime timestampZeroSuffixMillis) {
         regTimestampZeroSuffixMillis(CK_LE, timestampZeroSuffixMillis);
     }
 
@@ -544,7 +543,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of timestampZeroSuffixMillis. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of from-to. (NotNull)
      */
-    public void setTimestampZeroSuffixMillis_FromTo(Date fromDatetime, Date toDatetime, ConditionOptionCall<FromToOption> opLambda) {
+    public void setTimestampZeroSuffixMillis_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, ConditionOptionCall<FromToOption> opLambda) {
         setTimestampZeroSuffixMillis_FromTo(fromDatetime, toDatetime, xcFTOP(opLambda));
     }
 
@@ -557,8 +556,9 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of timestampZeroSuffixMillis. (NullAllowed: if null, no to-condition)
      * @param fromToOption The option of from-to. (NotNull)
      */
-    public void setTimestampZeroSuffixMillis_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ((fromDatetime != null ? new java.sql.Timestamp(fromDatetime.getTime()) : null), (toDatetime != null ? new java.sql.Timestamp(toDatetime.getTime()) : null), xgetCValueTimestampZeroSuffixMillis(), "timestamp_zero_suffix_millis", fromToOption);
+    public void setTimestampZeroSuffixMillis_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, FromToOption fromToOption) {
+        String nm = "timestamp_zero_suffix_millis"; FromToOption op = fromToOption;
+        regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValueTimestampZeroSuffixMillis(), nm, op);
     }
 
     /**
@@ -572,7 +572,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
      * @param fromDate The from-date(yyyy/MM/dd) of timestampZeroSuffixMillis. (NullAllowed: if null, no from-condition)
      * @param toDate The to-date(yyyy/MM/dd) of timestampZeroSuffixMillis. (NullAllowed: if null, no to-condition)
      */
-    public void setTimestampZeroSuffixMillis_DateFromTo(Date fromDate, Date toDate) {
+    public void setTimestampZeroSuffixMillis_DateFromTo(java.time.LocalDateTime fromDate, java.time.LocalDateTime toDate) {
         setTimestampZeroSuffixMillis_FromTo(fromDate, toDate, xcDFTOP());
     }
 

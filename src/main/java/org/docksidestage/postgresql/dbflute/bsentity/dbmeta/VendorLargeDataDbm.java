@@ -37,7 +37,8 @@ public class VendorLargeDataDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((VendorLargeData)et).getLargeDataId(), (et, vl) -> ((VendorLargeData)et).setLargeDataId(ctl(vl)), "largeDataId");
         setupEpg(_epgMap, et -> ((VendorLargeData)et).getStringIndex(), (et, vl) -> ((VendorLargeData)et).setStringIndex((String)vl), "stringIndex");
         setupEpg(_epgMap, et -> ((VendorLargeData)et).getStringNoIndex(), (et, vl) -> ((VendorLargeData)et).setStringNoIndex((String)vl), "stringNoIndex");
@@ -63,13 +64,13 @@ public class VendorLargeDataDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnLargeDataId = cci("large_data_id", "large_data_id", null, null, Long.class, "largeDataId", null, true, false, true, "int8", 19, 0, null, false, null, null, null, "vendorLargeDataRefList", null);
-    protected final ColumnInfo _columnStringIndex = cci("string_index", "string_index", null, null, String.class, "stringIndex", null, false, false, true, "varchar", 200, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnStringNoIndex = cci("string_no_index", "string_no_index", null, null, String.class, "stringNoIndex", null, false, false, true, "varchar", 200, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnStringUniqueIndex = cci("string_unique_index", "string_unique_index", null, null, String.class, "stringUniqueIndex", null, false, false, true, "varchar", 200, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnIntflgIndex = cci("intflg_index", "intflg_index", null, null, Integer.class, "intflgIndex", null, false, false, true, "int4", 10, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnNumericIntegerIndex = cci("numeric_integer_index", "numeric_integer_index", null, null, Integer.class, "numericIntegerIndex", null, false, false, true, "numeric", 8, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnNumericIntegerNoIndex = cci("numeric_integer_no_index", "numeric_integer_no_index", null, null, Integer.class, "numericIntegerNoIndex", null, false, false, true, "numeric", 8, 0, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnLargeDataId = cci("large_data_id", "large_data_id", null, null, Long.class, "largeDataId", null, true, false, true, "int8", 19, 0, null, false, null, null, null, "vendorLargeDataRefList", null, false);
+    protected final ColumnInfo _columnStringIndex = cci("string_index", "string_index", null, null, String.class, "stringIndex", null, false, false, true, "varchar", 200, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnStringNoIndex = cci("string_no_index", "string_no_index", null, null, String.class, "stringNoIndex", null, false, false, true, "varchar", 200, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnStringUniqueIndex = cci("string_unique_index", "string_unique_index", null, null, String.class, "stringUniqueIndex", null, false, false, true, "varchar", 200, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnIntflgIndex = cci("intflg_index", "intflg_index", null, null, Integer.class, "intflgIndex", null, false, false, true, "int4", 10, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnNumericIntegerIndex = cci("numeric_integer_index", "numeric_integer_index", null, null, Integer.class, "numericIntegerIndex", null, false, false, true, "numeric", 8, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnNumericIntegerNoIndex = cci("numeric_integer_no_index", "numeric_integer_no_index", null, null, Integer.class, "numericIntegerNoIndex", null, false, false, true, "numeric", 8, 0, null, false, null, null, null, null, null, false);
 
     /**
      * large_data_id: {PK, NotNull, int8(19)}

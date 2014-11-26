@@ -3,9 +3,11 @@ package org.docksidestage.postgresql.dbflute.bsentity;
 import java.util.List;
 import java.util.ArrayList;
 
+import org.dbflute.Entity;
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
 import org.dbflute.dbmeta.accessory.DomainEntity;
+import org.dbflute.optional.OptionalEntity;
 import org.docksidestage.postgresql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.postgresql.dbflute.allcommon.CDef;
 import org.docksidestage.postgresql.dbflute.exentity.*;
@@ -46,7 +48,7 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * Long memberLoginId = entity.getMemberLoginId();
  * Integer memberId = entity.getMemberId();
- * java.sql.Timestamp loginDatetime = entity.getLoginDatetime();
+ * java.time.LocalDateTime loginDatetime = entity.getLoginDatetime();
  * Integer mobileLoginFlg = entity.getMobileLoginFlg();
  * String loginMemberStatusCode = entity.getLoginMemberStatusCode();
  * entity.setMemberLoginId(memberLoginId);
@@ -76,7 +78,7 @@ public abstract class BsMemberLogin extends AbstractEntity implements DomainEnti
     protected Integer _memberId;
 
     /** (ログイン日時)login_datetime: {+UQ, IX, NotNull, timestamp(26, 3)} */
-    protected java.sql.Timestamp _loginDatetime;
+    protected java.time.LocalDateTime _loginDatetime;
 
     /** (モバイルログインフラグ)mobile_login_flg: {NotNull, int4(10), classification=Flg} */
     protected Integer _mobileLoginFlg;
@@ -85,24 +87,16 @@ public abstract class BsMemberLogin extends AbstractEntity implements DomainEnti
     protected String _loginMemberStatusCode;
 
     // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public String getTableDbName() {
+    public DBMeta asDBMeta() {
+        return DBMetaInstanceHandler.findDBMeta(asTableDbName());
+    }
+
+    /** {@inheritDoc} */
+    public String asTableDbName() {
         return "member_login";
-    }
-
-    /** {@inheritDoc} */
-    public String getTablePropertyName() {
-        return "memberLogin";
-    }
-
-    // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
-    /** {@inheritDoc} */
-    public DBMeta getDBMeta() {
-        return DBMetaInstanceHandler.findDBMeta(getTableDbName());
     }
 
     // ===================================================================================
@@ -120,7 +114,7 @@ public abstract class BsMemberLogin extends AbstractEntity implements DomainEnti
      * @param memberId (会員ID): UQ+, NotNull, int4(10), FK to member. (NotNull)
      * @param loginDatetime (ログイン日時): +UQ, IX, NotNull, timestamp(26, 3). (NotNull)
      */
-    public void uniqueBy(Integer memberId, java.sql.Timestamp loginDatetime) {
+    public void uniqueBy(Integer memberId, java.time.LocalDateTime loginDatetime) {
         __uniqueDrivenProperties.clear();
         __uniqueDrivenProperties.addPropertyName("memberId");
         __uniqueDrivenProperties.addPropertyName("loginDatetime");
@@ -298,13 +292,15 @@ public abstract class BsMemberLogin extends AbstractEntity implements DomainEnti
     //                                                                    Foreign Property
     //                                                                    ================
     /** (会員ステータス)member_status by my login_member_status_code, named 'memberStatus'. */
-    protected MemberStatus _memberStatus;
+    protected OptionalEntity<MemberStatus> _memberStatus;
 
     /**
      * [get] (会員ステータス)member_status by my login_member_status_code, named 'memberStatus'. <br>
-     * @return The entity of foreign property 'memberStatus'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'memberStatus'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public MemberStatus getMemberStatus() {
+    public OptionalEntity<MemberStatus> getMemberStatus() {
+        if (_memberStatus == null) { _memberStatus = OptionalEntity.relationEmpty(this, "memberStatus"); }
         return _memberStatus;
     }
 
@@ -312,18 +308,20 @@ public abstract class BsMemberLogin extends AbstractEntity implements DomainEnti
      * [set] (会員ステータス)member_status by my login_member_status_code, named 'memberStatus'.
      * @param memberStatus The entity of foreign property 'memberStatus'. (NullAllowed)
      */
-    public void setMemberStatus(MemberStatus memberStatus) {
+    public void setMemberStatus(OptionalEntity<MemberStatus> memberStatus) {
         _memberStatus = memberStatus;
     }
 
     /** (会員)member by my member_id, named 'member'. */
-    protected Member _member;
+    protected OptionalEntity<Member> _member;
 
     /**
      * [get] (会員)member by my member_id, named 'member'. <br>
-     * @return The entity of foreign property 'member'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'member'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public Member getMember() {
+    public OptionalEntity<Member> getMember() {
+        if (_member == null) { _member = OptionalEntity.relationEmpty(this, "member"); }
         return _member;
     }
 
@@ -331,7 +329,7 @@ public abstract class BsMemberLogin extends AbstractEntity implements DomainEnti
      * [set] (会員)member by my member_id, named 'member'.
      * @param member The entity of foreign property 'member'. (NullAllowed)
      */
-    public void setMember(Member member) {
+    public void setMember(OptionalEntity<Member> member) {
         _member = member;
     }
 
@@ -359,7 +357,7 @@ public abstract class BsMemberLogin extends AbstractEntity implements DomainEnti
     @Override
     protected int doHashCode(int initial) {
         int hs = initial;
-        hs = xCH(hs, getTableDbName());
+        hs = xCH(hs, asTableDbName());
         hs = xCH(hs, _memberLoginId);
         return hs;
     }
@@ -367,11 +365,14 @@ public abstract class BsMemberLogin extends AbstractEntity implements DomainEnti
     @Override
     protected String doBuildStringWithRelation(String li) {
         StringBuilder sb = new StringBuilder();
-        if (_memberStatus != null)
+        if (_memberStatus != null && _memberStatus.isPresent())
         { sb.append(li).append(xbRDS(_memberStatus, "memberStatus")); }
-        if (_member != null)
+        if (_member != null && _member.isPresent())
         { sb.append(li).append(xbRDS(_member, "member")); }
         return sb.toString();
+    }
+    protected <ET extends Entity> String xbRDS(org.dbflute.optional.OptionalEntity<ET> et, String name) { // buildRelationDisplayString()
+        return et.get().buildDisplayString(name, true, true);
     }
 
     @Override
@@ -392,9 +393,9 @@ public abstract class BsMemberLogin extends AbstractEntity implements DomainEnti
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_memberStatus != null)
+        if (_memberStatus != null && _memberStatus.isPresent())
         { sb.append(dm).append("memberStatus"); }
-        if (_member != null)
+        if (_member != null && _member.isPresent())
         { sb.append(dm).append("member"); }
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length()).insert(0, "(").append(")");
@@ -451,7 +452,7 @@ public abstract class BsMemberLogin extends AbstractEntity implements DomainEnti
      * ログインした瞬間の日時。
      * @return The value of the column 'login_datetime'. (basically NotNull if selected: for the constraint)
      */
-    public java.sql.Timestamp getLoginDatetime() {
+    public java.time.LocalDateTime getLoginDatetime() {
         checkSpecifiedProperty("loginDatetime");
         return _loginDatetime;
     }
@@ -461,7 +462,7 @@ public abstract class BsMemberLogin extends AbstractEntity implements DomainEnti
      * ログインした瞬間の日時。
      * @param loginDatetime The value of the column 'login_datetime'. (basically NotNull if update: for the constraint)
      */
-    public void setLoginDatetime(java.sql.Timestamp loginDatetime) {
+    public void setLoginDatetime(java.time.LocalDateTime loginDatetime) {
         registerModifiedProperty("loginDatetime");
         _loginDatetime = loginDatetime;
     }

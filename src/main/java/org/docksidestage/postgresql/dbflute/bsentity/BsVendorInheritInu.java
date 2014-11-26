@@ -43,7 +43,7 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * Integer inuId = entity.getInuId();
  * String inuName = entity.getInuName();
- * java.util.Date inuDate = entity.getInuDate();
+ * java.time.LocalDate inuDate = entity.getInuDate();
  * entity.setInuId(inuId);
  * entity.setInuName(inuName);
  * entity.setInuDate(inuDate);
@@ -69,27 +69,19 @@ public abstract class BsVendorInheritInu extends AbstractEntity implements Domai
     protected String _inuName;
 
     /** inu_date: {date(13)} */
-    protected java.util.Date _inuDate;
+    protected java.time.LocalDate _inuDate;
 
     // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public String getTableDbName() {
+    public DBMeta asDBMeta() {
+        return DBMetaInstanceHandler.findDBMeta(asTableDbName());
+    }
+
+    /** {@inheritDoc} */
+    public String asTableDbName() {
         return "vendor_inherit_inu";
-    }
-
-    /** {@inheritDoc} */
-    public String getTablePropertyName() {
-        return "vendorInheritInu";
-    }
-
-    // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
-    /** {@inheritDoc} */
-    public DBMeta getDBMeta() {
-        return DBMetaInstanceHandler.findDBMeta(getTableDbName());
     }
 
     // ===================================================================================
@@ -128,7 +120,7 @@ public abstract class BsVendorInheritInu extends AbstractEntity implements Domai
     @Override
     protected int doHashCode(int initial) {
         int hs = initial;
-        hs = xCH(hs, getTableDbName());
+        hs = xCH(hs, asTableDbName());
         hs = xCH(hs, _inuId);
         return hs;
     }
@@ -143,7 +135,7 @@ public abstract class BsVendorInheritInu extends AbstractEntity implements Domai
         StringBuilder sb = new StringBuilder();
         sb.append(dm).append(xfND(_inuId));
         sb.append(dm).append(xfND(_inuName));
-        sb.append(dm).append(xfUD(_inuDate));
+        sb.append(dm).append(xfND(_inuDate));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -204,7 +196,7 @@ public abstract class BsVendorInheritInu extends AbstractEntity implements Domai
      * [get] inu_date: {date(13)} <br>
      * @return The value of the column 'inu_date'. (NullAllowed even if selected: for no constraint)
      */
-    public java.util.Date getInuDate() {
+    public java.time.LocalDate getInuDate() {
         checkSpecifiedProperty("inuDate");
         return _inuDate;
     }
@@ -213,7 +205,7 @@ public abstract class BsVendorInheritInu extends AbstractEntity implements Domai
      * [set] inu_date: {date(13)} <br>
      * @param inuDate The value of the column 'inu_date'. (NullAllowed: null update allowed for no constraint)
      */
-    public void setInuDate(java.util.Date inuDate) {
+    public void setInuDate(java.time.LocalDate inuDate) {
         registerModifiedProperty("inuDate");
         _inuDate = inuDate;
     }

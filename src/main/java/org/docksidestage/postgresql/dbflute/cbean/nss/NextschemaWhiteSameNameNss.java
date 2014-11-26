@@ -11,7 +11,7 @@ public class NextschemaWhiteSameNameNss {
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    protected NextschemaWhiteSameNameCQ _query;
+    protected final NextschemaWhiteSameNameCQ _query;
     public NextschemaWhiteSameNameNss(NextschemaWhiteSameNameCQ query) { _query = query; }
     public boolean hasConditionQuery() { return _query != null; }
 

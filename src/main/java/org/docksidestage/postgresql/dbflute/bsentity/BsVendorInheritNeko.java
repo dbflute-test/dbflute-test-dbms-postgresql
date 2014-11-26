@@ -43,10 +43,10 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * Integer inuId = entity.getInuId();
  * String inuName = entity.getInuName();
- * java.util.Date inuDate = entity.getInuDate();
+ * java.time.LocalDate inuDate = entity.getInuDate();
  * Integer nekoId = entity.getNekoId();
  * String nekoName = entity.getNekoName();
- * java.util.Date nekoDate = entity.getNekoDate();
+ * java.time.LocalDate nekoDate = entity.getNekoDate();
  * entity.setInuId(inuId);
  * entity.setInuName(inuName);
  * entity.setInuDate(inuDate);
@@ -75,7 +75,7 @@ public abstract class BsVendorInheritNeko extends AbstractEntity implements Doma
     protected String _inuName;
 
     /** inu_date: {date(13)} */
-    protected java.util.Date _inuDate;
+    protected java.time.LocalDate _inuDate;
 
     /** neko_id: {PK, NotNull, int4(10)} */
     protected Integer _nekoId;
@@ -84,27 +84,19 @@ public abstract class BsVendorInheritNeko extends AbstractEntity implements Doma
     protected String _nekoName;
 
     /** neko_date: {date(13)} */
-    protected java.util.Date _nekoDate;
+    protected java.time.LocalDate _nekoDate;
 
     // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public String getTableDbName() {
+    public DBMeta asDBMeta() {
+        return DBMetaInstanceHandler.findDBMeta(asTableDbName());
+    }
+
+    /** {@inheritDoc} */
+    public String asTableDbName() {
         return "vendor_inherit_neko";
-    }
-
-    /** {@inheritDoc} */
-    public String getTablePropertyName() {
-        return "vendorInheritNeko";
-    }
-
-    // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
-    /** {@inheritDoc} */
-    public DBMeta getDBMeta() {
-        return DBMetaInstanceHandler.findDBMeta(getTableDbName());
     }
 
     // ===================================================================================
@@ -143,7 +135,7 @@ public abstract class BsVendorInheritNeko extends AbstractEntity implements Doma
     @Override
     protected int doHashCode(int initial) {
         int hs = initial;
-        hs = xCH(hs, getTableDbName());
+        hs = xCH(hs, asTableDbName());
         hs = xCH(hs, _nekoId);
         return hs;
     }
@@ -158,10 +150,10 @@ public abstract class BsVendorInheritNeko extends AbstractEntity implements Doma
         StringBuilder sb = new StringBuilder();
         sb.append(dm).append(xfND(_inuId));
         sb.append(dm).append(xfND(_inuName));
-        sb.append(dm).append(xfUD(_inuDate));
+        sb.append(dm).append(xfND(_inuDate));
         sb.append(dm).append(xfND(_nekoId));
         sb.append(dm).append(xfND(_nekoName));
-        sb.append(dm).append(xfUD(_nekoDate));
+        sb.append(dm).append(xfND(_nekoDate));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -222,7 +214,7 @@ public abstract class BsVendorInheritNeko extends AbstractEntity implements Doma
      * [get] inu_date: {date(13)} <br>
      * @return The value of the column 'inu_date'. (NullAllowed even if selected: for no constraint)
      */
-    public java.util.Date getInuDate() {
+    public java.time.LocalDate getInuDate() {
         checkSpecifiedProperty("inuDate");
         return _inuDate;
     }
@@ -231,7 +223,7 @@ public abstract class BsVendorInheritNeko extends AbstractEntity implements Doma
      * [set] inu_date: {date(13)} <br>
      * @param inuDate The value of the column 'inu_date'. (NullAllowed: null update allowed for no constraint)
      */
-    public void setInuDate(java.util.Date inuDate) {
+    public void setInuDate(java.time.LocalDate inuDate) {
         registerModifiedProperty("inuDate");
         _inuDate = inuDate;
     }
@@ -276,7 +268,7 @@ public abstract class BsVendorInheritNeko extends AbstractEntity implements Doma
      * [get] neko_date: {date(13)} <br>
      * @return The value of the column 'neko_date'. (NullAllowed even if selected: for no constraint)
      */
-    public java.util.Date getNekoDate() {
+    public java.time.LocalDate getNekoDate() {
         checkSpecifiedProperty("nekoDate");
         return _nekoDate;
     }
@@ -285,7 +277,7 @@ public abstract class BsVendorInheritNeko extends AbstractEntity implements Doma
      * [set] neko_date: {date(13)} <br>
      * @param nekoDate The value of the column 'neko_date'. (NullAllowed: null update allowed for no constraint)
      */
-    public void setNekoDate(java.util.Date nekoDate) {
+    public void setNekoDate(java.time.LocalDate nekoDate) {
         registerModifiedProperty("nekoDate");
         _nekoDate = nekoDate;
     }

@@ -60,10 +60,12 @@ public abstract class BsProductCategoryBhv extends AbstractBehaviorWritable<Prod
     /*df:endQueryPath*/
 
     // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public ProductCategoryDbm getDBMeta() { return ProductCategoryDbm.getInstance(); }
+    public ProductCategoryDbm asDBMeta() { return ProductCategoryDbm.getInstance(); }
+    /** {@inheritDoc} */
+    public String asTableDbName() { return "product_category"; }
 
     // ===================================================================================
     //                                                                        New Instance
@@ -108,60 +110,81 @@ public abstract class BsProductCategoryBhv extends AbstractBehaviorWritable<Prod
     //                                                                       Entity Select
     //                                                                       =============
     /**
-     * Select the entity by the condition-bean. #beforejava8 <br>
-     * <span style="color: #AD4747; font-size: 120%">The return might be null if no data, so you should have null check.</span> <br>
-     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, use selectEntityWithDeletedCheck().</span>
+     * Select the entity by the condition-bean. <br>
+     * It returns not-null optional entity, so you should ... <br>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, alwaysPresent().</span> <br>
+     * <span style="color: #AD4747; font-size: 120%">If it might be no data, isPresent() and orElse(), ...</span>
      * <pre>
-     * ProductCategory productCategory = <span style="color: #0000C0">productCategoryBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
+     * <span style="color: #0000C0">productCategoryBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().set...
+     * }).<span style="color: #CC4747">alwaysPresent</span>(<span style="color: #553000">productCategory</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if present, or exception</span>
+     *     ... = <span style="color: #553000">productCategory</span>.get...
      * });
-     * <span style="color: #70226C">if</span> (productCategory != <span style="color: #70226C">null</span>) { <span style="color: #3F7E5E">// null check</span>
-     *     ... = productCategory.get...();
-     * } <span style="color: #70226C">else</span> {
-     *     ...
-     * }
+     * 
+     * <span style="color: #3F7E5E">// if it might be no data, ...</span>
+     * <span style="color: #0000C0">productCategoryBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).<span style="color: #CC4747">ifPresent</span>(<span style="color: #553000">productCategory</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if present</span>
+     *     ... = <span style="color: #553000">productCategory</span>.get...
+     * }).<span style="color: #994747">orElse</span>(() <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if not present</span>
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of ProductCategory. (NotNull)
-     * @return The entity selected by the condition. (NullAllowed: if no data, it returns null)
+     * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
-    public ProductCategory selectEntity(CBCall<ProductCategoryCB> cbLambda) {
+    public OptionalEntity<ProductCategory> selectEntity(CBCall<ProductCategoryCB> cbLambda) {
         return facadeSelectEntity(createCB(cbLambda));
     }
 
     /**
-     * Select the entity by the condition-bean. #beforejava8 <br>
-     * <span style="color: #AD4747; font-size: 120%">The return might be null if no data, so you should have null check.</span> <br>
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, use selectEntityWithDeletedCheck().</span>
+     * Select the entity by the condition-bean. <br>
+     * It returns not-null optional entity, so you should ... <br>
+     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, alwaysPresent().</span> <br>
+     * <span style="color: #AD4747; font-size: 120%">If it might be no data, get() after check by isPresent() or orElse(), ...</span>
      * <pre>
      * ProductCategoryCB cb = <span style="color: #70226C">new</span> ProductCategoryCB();
-     * cb.query().setFoo...(value);
-     * ProductCategory productCategory = <span style="color: #0000C0">productCategoryBhv</span>.<span style="color: #DD4747">selectEntity</span>(cb);
-     * <span style="color: #70226C">if</span> (productCategory != <span style="color: #70226C">null</span>) { <span style="color: #3F7E5E">// null check</span>
-     *     ... = productCategory.get...();
-     * } <span style="color: #70226C">else</span> {
-     *     ...
-     * }
+     * cb.query().set...
+     * 
+     * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
+     * <span style="color: #0000C0">productCategoryBhv</span>.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(productCategory <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if present, or exception</span>
+     *     ... = productCategory.get...
+     * });
+     * 
+     * <span style="color: #3F7E5E">// if it might be no data, ...</span>
+     * <span style="color: #0000C0">productCategoryBhv</span>.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(productCategory <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if present</span>
+     *     ... = productCategory.get...
+     * }).<span style="color: #994747">orElse</span>(() <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if not present</span>
+     * });
      * </pre>
      * @param cb The condition-bean of ProductCategory. (NotNull)
-     * @return The entity selected by the condition. (NullAllowed: if no data, it returns null)
+     * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
-    public ProductCategory selectEntity(ProductCategoryCB cb) {
+    public OptionalEntity<ProductCategory> selectEntity(ProductCategoryCB cb) {
         return facadeSelectEntity(cb);
     }
 
-    protected ProductCategory facadeSelectEntity(ProductCategoryCB cb) {
-        return doSelectEntity(cb, typeOfSelectedEntity());
+    protected OptionalEntity<ProductCategory> facadeSelectEntity(ProductCategoryCB cb) {
+        return doSelectOptionalEntity(cb, typeOfSelectedEntity());
     }
 
     protected <ENTITY extends ProductCategory> OptionalEntity<ENTITY> doSelectOptionalEntity(ProductCategoryCB cb, Class<? extends ENTITY> tp) {
         return createOptionalEntity(doSelectEntity(cb, tp), cb);
     }
 
-    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)); }
+    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElse(null); }
 
     /**
      * Select the entity by the condition-bean with deleted check. <br>
@@ -202,16 +225,17 @@ public abstract class BsProductCategoryBhv extends AbstractBehaviorWritable<Prod
     /**
      * Select the entity by the primary-key value.
      * @param productCategoryCode (商品カテゴリコード): PK, NotNull, bpchar(3). (NotNull)
-     * @return The entity selected by the PK. (NullAllowed: if no data, it returns null)
+     * @return The optional entity selected by the PK. (NotNull: if no data, empty entity)
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
-    public ProductCategory selectByPK(String productCategoryCode) {
+    public OptionalEntity<ProductCategory> selectByPK(String productCategoryCode) {
         return facadeSelectByPK(productCategoryCode);
     }
 
-    protected ProductCategory facadeSelectByPK(String productCategoryCode) {
-        return doSelectByPK(productCategoryCode, typeOfSelectedEntity());
+    protected OptionalEntity<ProductCategory> facadeSelectByPK(String productCategoryCode) {
+        return doSelectOptionalByPK(productCategoryCode, typeOfSelectedEntity());
     }
 
     protected <ENTITY extends ProductCategory> ENTITY doSelectByPK(String productCategoryCode, Class<? extends ENTITY> tp) {
@@ -368,7 +392,7 @@ public abstract class BsProductCategoryBhv extends AbstractBehaviorWritable<Prod
      * Select the scalar value derived by a function from uniquely-selected records. <br>
      * You should call a function method after this method called like as follows:
      * <pre>
-     * <span style="color: #0000C0">productCategoryBhv</span>.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">productCategoryBhv</span>.<span style="color: #CC4747">selectScalar</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...</span>; <span style="color: #3F7E5E">// required for the function</span>
      *     <span style="color: #553000">cb</span>.query().set...
      * });
@@ -377,7 +401,7 @@ public abstract class BsProductCategoryBhv extends AbstractBehaviorWritable<Prod
      * @param resultType The type of result. (NotNull)
      * @return The scalar function object to specify function for scalar value. (NotNull)
      */
-    public <RESULT> HpSLSFunction<ProductCategoryCB, RESULT> scalarSelect(Class<RESULT> resultType) {
+    public <RESULT> HpSLSFunction<ProductCategoryCB, RESULT> selectScalar(Class<RESULT> resultType) {
         return facadeScalarSelect(resultType);
     }
 
@@ -386,7 +410,7 @@ public abstract class BsProductCategoryBhv extends AbstractBehaviorWritable<Prod
     //                                                                            ========
     @Override
     protected Number doReadNextVal() {
-        String msg = "This table is NOT related to sequence: " + getTableDbName();
+        String msg = "This table is NOT related to sequence: " + asTableDbName();
         throw new UnsupportedOperationException(msg);
     }
 
@@ -467,7 +491,7 @@ public abstract class BsProductCategoryBhv extends AbstractBehaviorWritable<Prod
      * Load referrer of productList by the set-upper of referrer. <br>
      * (商品)product by product_category_code, named 'productList'.
      * <pre>
-     * <span style="color: #0000C0">productCategoryBhv</span>.<span style="color: #CC4747">loadProductList</span>(<span style="color: #553000">productCategoryList</span>, <span style="color: #553000">productCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">productCategoryBhv</span>.<span style="color: #CC4747">loadProduct</span>(<span style="color: #553000">productCategoryList</span>, <span style="color: #553000">productCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">productCB</span>.setupSelect...
      *     <span style="color: #553000">productCB</span>.query().set...
      *     <span style="color: #553000">productCB</span>.query().addOrderBy...
@@ -489,16 +513,16 @@ public abstract class BsProductCategoryBhv extends AbstractBehaviorWritable<Prod
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<Product> loadProductList(List<ProductCategory> productCategoryList, ConditionBeanSetupper<ProductCB> refCBLambda) {
+    public NestedReferrerListGateway<Product> loadProduct(List<ProductCategory> productCategoryList, ConditionBeanSetupper<ProductCB> refCBLambda) {
         xassLRArg(productCategoryList, refCBLambda);
-        return doLoadProductList(productCategoryList, new LoadReferrerOption<ProductCB, Product>().xinit(refCBLambda));
+        return doLoadProduct(productCategoryList, new LoadReferrerOption<ProductCB, Product>().xinit(refCBLambda));
     }
 
     /**
      * Load referrer of productList by the set-upper of referrer. <br>
      * (商品)product by product_category_code, named 'productList'.
      * <pre>
-     * <span style="color: #0000C0">productCategoryBhv</span>.<span style="color: #CC4747">loadProductList</span>(<span style="color: #553000">productCategory</span>, <span style="color: #553000">productCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">productCategoryBhv</span>.<span style="color: #CC4747">loadProduct</span>(<span style="color: #553000">productCategory</span>, <span style="color: #553000">productCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">productCB</span>.setupSelect...
      *     <span style="color: #553000">productCB</span>.query().set...
      *     <span style="color: #553000">productCB</span>.query().addOrderBy...
@@ -518,9 +542,9 @@ public abstract class BsProductCategoryBhv extends AbstractBehaviorWritable<Prod
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<Product> loadProductList(ProductCategory productCategory, ConditionBeanSetupper<ProductCB> refCBLambda) {
+    public NestedReferrerListGateway<Product> loadProduct(ProductCategory productCategory, ConditionBeanSetupper<ProductCB> refCBLambda) {
         xassLRArg(productCategory, refCBLambda);
-        return doLoadProductList(xnewLRLs(productCategory), new LoadReferrerOption<ProductCB, Product>().xinit(refCBLambda));
+        return doLoadProduct(xnewLRLs(productCategory), new LoadReferrerOption<ProductCB, Product>().xinit(refCBLambda));
     }
 
     /**
@@ -529,9 +553,9 @@ public abstract class BsProductCategoryBhv extends AbstractBehaviorWritable<Prod
      * @param loadReferrerOption The option of load-referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<Product> loadProductList(ProductCategory productCategory, LoadReferrerOption<ProductCB, Product> loadReferrerOption) {
+    public NestedReferrerListGateway<Product> loadProduct(ProductCategory productCategory, LoadReferrerOption<ProductCB, Product> loadReferrerOption) {
         xassLRArg(productCategory, loadReferrerOption);
-        return loadProductList(xnewLRLs(productCategory), loadReferrerOption);
+        return loadProduct(xnewLRLs(productCategory), loadReferrerOption);
     }
 
     /**
@@ -541,13 +565,13 @@ public abstract class BsProductCategoryBhv extends AbstractBehaviorWritable<Prod
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
     @SuppressWarnings("unchecked")
-    public NestedReferrerListGateway<Product> loadProductList(List<ProductCategory> productCategoryList, LoadReferrerOption<ProductCB, Product> loadReferrerOption) {
+    public NestedReferrerListGateway<Product> loadProduct(List<ProductCategory> productCategoryList, LoadReferrerOption<ProductCB, Product> loadReferrerOption) {
         xassLRArg(productCategoryList, loadReferrerOption);
         if (productCategoryList.isEmpty()) { return (NestedReferrerListGateway<Product>)EMPTY_NREF_LGWAY; }
-        return doLoadProductList(productCategoryList, loadReferrerOption);
+        return doLoadProduct(productCategoryList, loadReferrerOption);
     }
 
-    protected NestedReferrerListGateway<Product> doLoadProductList(List<ProductCategory> productCategoryList, LoadReferrerOption<ProductCB, Product> option) {
+    protected NestedReferrerListGateway<Product> doLoadProduct(List<ProductCategory> productCategoryList, LoadReferrerOption<ProductCB, Product> option) {
         return helpLoadReferrerInternally(productCategoryList, option, "productList");
     }
 
@@ -555,7 +579,7 @@ public abstract class BsProductCategoryBhv extends AbstractBehaviorWritable<Prod
      * Load referrer of productCategorySelfList by the set-upper of referrer. <br>
      * (商品カテゴリ)product_category by parent_category_code, named 'productCategorySelfList'.
      * <pre>
-     * <span style="color: #0000C0">productCategoryBhv</span>.<span style="color: #CC4747">loadProductCategorySelfList</span>(<span style="color: #553000">productCategoryList</span>, <span style="color: #553000">categoryCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">productCategoryBhv</span>.<span style="color: #CC4747">loadProductCategorySelf</span>(<span style="color: #553000">productCategoryList</span>, <span style="color: #553000">categoryCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">categoryCB</span>.setupSelect...
      *     <span style="color: #553000">categoryCB</span>.query().set...
      *     <span style="color: #553000">categoryCB</span>.query().addOrderBy...
@@ -577,16 +601,16 @@ public abstract class BsProductCategoryBhv extends AbstractBehaviorWritable<Prod
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<ProductCategory> loadProductCategorySelfList(List<ProductCategory> productCategoryList, ConditionBeanSetupper<ProductCategoryCB> refCBLambda) {
+    public NestedReferrerListGateway<ProductCategory> loadProductCategorySelf(List<ProductCategory> productCategoryList, ConditionBeanSetupper<ProductCategoryCB> refCBLambda) {
         xassLRArg(productCategoryList, refCBLambda);
-        return doLoadProductCategorySelfList(productCategoryList, new LoadReferrerOption<ProductCategoryCB, ProductCategory>().xinit(refCBLambda));
+        return doLoadProductCategorySelf(productCategoryList, new LoadReferrerOption<ProductCategoryCB, ProductCategory>().xinit(refCBLambda));
     }
 
     /**
      * Load referrer of productCategorySelfList by the set-upper of referrer. <br>
      * (商品カテゴリ)product_category by parent_category_code, named 'productCategorySelfList'.
      * <pre>
-     * <span style="color: #0000C0">productCategoryBhv</span>.<span style="color: #CC4747">loadProductCategorySelfList</span>(<span style="color: #553000">productCategory</span>, <span style="color: #553000">categoryCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">productCategoryBhv</span>.<span style="color: #CC4747">loadProductCategorySelf</span>(<span style="color: #553000">productCategory</span>, <span style="color: #553000">categoryCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">categoryCB</span>.setupSelect...
      *     <span style="color: #553000">categoryCB</span>.query().set...
      *     <span style="color: #553000">categoryCB</span>.query().addOrderBy...
@@ -606,9 +630,9 @@ public abstract class BsProductCategoryBhv extends AbstractBehaviorWritable<Prod
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<ProductCategory> loadProductCategorySelfList(ProductCategory productCategory, ConditionBeanSetupper<ProductCategoryCB> refCBLambda) {
+    public NestedReferrerListGateway<ProductCategory> loadProductCategorySelf(ProductCategory productCategory, ConditionBeanSetupper<ProductCategoryCB> refCBLambda) {
         xassLRArg(productCategory, refCBLambda);
-        return doLoadProductCategorySelfList(xnewLRLs(productCategory), new LoadReferrerOption<ProductCategoryCB, ProductCategory>().xinit(refCBLambda));
+        return doLoadProductCategorySelf(xnewLRLs(productCategory), new LoadReferrerOption<ProductCategoryCB, ProductCategory>().xinit(refCBLambda));
     }
 
     /**
@@ -617,9 +641,9 @@ public abstract class BsProductCategoryBhv extends AbstractBehaviorWritable<Prod
      * @param loadReferrerOption The option of load-referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<ProductCategory> loadProductCategorySelfList(ProductCategory productCategory, LoadReferrerOption<ProductCategoryCB, ProductCategory> loadReferrerOption) {
+    public NestedReferrerListGateway<ProductCategory> loadProductCategorySelf(ProductCategory productCategory, LoadReferrerOption<ProductCategoryCB, ProductCategory> loadReferrerOption) {
         xassLRArg(productCategory, loadReferrerOption);
-        return loadProductCategorySelfList(xnewLRLs(productCategory), loadReferrerOption);
+        return loadProductCategorySelf(xnewLRLs(productCategory), loadReferrerOption);
     }
 
     /**
@@ -629,13 +653,13 @@ public abstract class BsProductCategoryBhv extends AbstractBehaviorWritable<Prod
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
     @SuppressWarnings("unchecked")
-    public NestedReferrerListGateway<ProductCategory> loadProductCategorySelfList(List<ProductCategory> productCategoryList, LoadReferrerOption<ProductCategoryCB, ProductCategory> loadReferrerOption) {
+    public NestedReferrerListGateway<ProductCategory> loadProductCategorySelf(List<ProductCategory> productCategoryList, LoadReferrerOption<ProductCategoryCB, ProductCategory> loadReferrerOption) {
         xassLRArg(productCategoryList, loadReferrerOption);
         if (productCategoryList.isEmpty()) { return (NestedReferrerListGateway<ProductCategory>)EMPTY_NREF_LGWAY; }
-        return doLoadProductCategorySelfList(productCategoryList, loadReferrerOption);
+        return doLoadProductCategorySelf(productCategoryList, loadReferrerOption);
     }
 
-    protected NestedReferrerListGateway<ProductCategory> doLoadProductCategorySelfList(List<ProductCategory> productCategoryList, LoadReferrerOption<ProductCategoryCB, ProductCategory> option) {
+    protected NestedReferrerListGateway<ProductCategory> doLoadProductCategorySelf(List<ProductCategory> productCategoryList, LoadReferrerOption<ProductCategoryCB, ProductCategory> option) {
         return helpLoadReferrerInternally(productCategoryList, option, "productCategorySelfList");
     }
 
@@ -696,11 +720,7 @@ public abstract class BsProductCategoryBhv extends AbstractBehaviorWritable<Prod
      * <span style="color: #3F7E5E">//productCategory.set...;</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * productCategory.<span style="color: #CC4747">setVersionNo</span>(value);
-     * try {
-     *     <span style="color: #0000C0">productCategoryBhv</span>.<span style="color: #CC4747">update</span>(productCategory);
-     * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
-     *     ...
-     * }
+     * <span style="color: #0000C0">productCategoryBhv</span>.<span style="color: #CC4747">update</span>(productCategory);
      * </pre>
      * @param productCategory The entity of update. (NotNull, PrimaryKeyNotNull)
      * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
@@ -861,9 +881,9 @@ public abstract class BsProductCategoryBhv extends AbstractBehaviorWritable<Prod
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
      * <span style="color: #3F7E5E">//productCategory.setVersionNo(value);</span>
-     * ProductCategoryCB cb = <span style="color: #70226C">new</span> ProductCategoryCB();
-     * cb.query().setFoo...(value);
-     * <span style="color: #0000C0">productCategoryBhv</span>.<span style="color: #CC4747">queryUpdate</span>(productCategory, cb);
+     * <span style="color: #0000C0">productCategoryBhv</span>.<span style="color: #CC4747">queryUpdate</span>(productCategory, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * });
      * </pre>
      * @param productCategory The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cbLambda The callback for condition-bean of ProductCategory. (NotNull)
@@ -903,9 +923,9 @@ public abstract class BsProductCategoryBhv extends AbstractBehaviorWritable<Prod
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * ProductCategoryCB cb = new ProductCategoryCB();
-     * cb.query().setFoo...(value);
-     * <span style="color: #0000C0">productCategoryBhv</span>.<span style="color: #CC4747">queryDelete</span>(productCategory, cb);
+     * <span style="color: #0000C0">productCategoryBhv</span>.<span style="color: #CC4747">queryDelete</span>(productCategory, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of ProductCategory. (NotNull)
      * @return The deleted count.
@@ -945,10 +965,10 @@ public abstract class BsProductCategoryBhv extends AbstractBehaviorWritable<Prod
      * <span style="color: #3F7E5E">// if auto-increment, you don't need to set the PK value</span>
      * productCategory.setFoo...(value);
      * productCategory.setBar...(value);
-     * InsertOption&lt;ProductCategoryCB&gt; option = new InsertOption&lt;ProductCategoryCB&gt;();
-     * <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
-     * option.disableCommonColumnAutoSetup();
-     * <span style="color: #0000C0">productCategoryBhv</span>.<span style="color: #CC4747">varyingInsert</span>(productCategory, option);
+     * <span style="color: #0000C0">productCategoryBhv</span>.<span style="color: #CC4747">varyingInsert</span>(productCategory, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
+     *     <span style="color: #553000">op</span>.disableCommonColumnAutoSetup();
+     * });
      * ... = productCategory.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * @param productCategory The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
@@ -969,18 +989,12 @@ public abstract class BsProductCategoryBhv extends AbstractBehaviorWritable<Prod
      * productCategory.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * productCategory.<span style="color: #CC4747">setVersionNo</span>(value);
-     * <span style="color: #70226C">try</span> {
-     *     <span style="color: #3F7E5E">// you can update by self calculation values</span>
-     *     UpdateOption&lt;ProductCategoryCB&gt; option = new UpdateOption&lt;ProductCategoryCB&gt;();
-     *     option.self(new SpecifyQuery&lt;ProductCategoryCB&gt;() {
-     *         public void specify(ProductCategoryCB cb) {
-     *             cb.specify().<span style="color: #CC4747">columnXxxCount()</span>;
-     *         }
+     * <span style="color: #3F7E5E">// you can update by self calculation values</span>
+     * <span style="color: #0000C0">productCategoryBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(productCategory, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">columnXxxCount()</span>;
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
-     *     <span style="color: #0000C0">productCategoryBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(productCategory, option);
-     * } <span style="color: #70226C">catch</span> (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
-     *     ...
-     * }
+     * });
      * </pre>
      * @param productCategory The entity of update. (NotNull, PrimaryKeyNotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
@@ -1089,15 +1103,13 @@ public abstract class BsProductCategoryBhv extends AbstractBehaviorWritable<Prod
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
      * <span style="color: #3F7E5E">//productCategory.setVersionNo(value);</span>
-     * ProductCategoryCB cb = new ProductCategoryCB();
-     * cb.query().setFoo...(value);
-     * UpdateOption&lt;ProductCategoryCB&gt; option = <span style="color: #70226C">new</span> UpdateOption&lt;ProductCategoryCB&gt;();
-     * option.self(new SpecifyQuery&lt;ProductCategoryCB&gt;() {
-     *     public void specify(ProductCategoryCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
-     *     }
-     * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * <span style="color: #0000C0">productCategoryBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(productCategory, cb, option);
+     * <span style="color: #0000C0">productCategoryBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(productCategory, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * }, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">colCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">colCB</span>.specify().<span style="color: #CC4747">columnFooCount()</span>;
+     *     }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
+     * });
      * </pre>
      * @param productCategory The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cbLambda The callback for condition-bean of ProductCategory. (NotNull)
@@ -1125,13 +1137,11 @@ public abstract class BsProductCategoryBhv extends AbstractBehaviorWritable<Prod
      * <span style="color: #3F7E5E">//productCategory.setVersionNo(value);</span>
      * ProductCategoryCB cb = <span style="color: #70226C">new</span> ProductCategoryCB();
      * cb.query().setFoo...(value);
-     * UpdateOption&lt;ProductCategoryCB&gt; option = <span style="color: #70226C">new</span> UpdateOption&lt;ProductCategoryCB&gt;();
-     * option.self(new SpecifyQuery&lt;ProductCategoryCB&gt;() {
-     *     public void specify(ProductCategoryCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
-     *     }
-     * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * <span style="color: #0000C0">productCategoryBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(productCategory, cb, option);
+     * <span style="color: #0000C0">productCategoryBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(productCategory, cb, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">colCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">colCB</span>.specify().<span style="color: #CC4747">columnFooCount()</span>;
+     *     }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
+     * });
      * </pre>
      * @param productCategory The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cb The condition-bean of ProductCategory. (NotNull)
@@ -1146,7 +1156,14 @@ public abstract class BsProductCategoryBhv extends AbstractBehaviorWritable<Prod
     /**
      * Delete the several entities by query with varying requests non-strictly. <br>
      * For example, allowNonQueryDelete(). <br>
-     * Other specifications are same as batchUpdateNonstrict(entityList).
+     * Other specifications are same as queryDelete(cb).
+     * <pre>
+     * <span style="color: #0000C0">productCategoryBhv</span>.<span style="color: #CC4747">queryDelete</span>(productCategory, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * }, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>...
+     * });
+     * </pre>
      * @param cbLambda The callback for condition-bean of ProductCategory. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
@@ -1159,7 +1176,7 @@ public abstract class BsProductCategoryBhv extends AbstractBehaviorWritable<Prod
     /**
      * Delete the several entities by query with varying requests non-strictly. <br>
      * For example, allowNonQueryDelete(). <br>
-     * Other specifications are same as batchUpdateNonstrict(entityList).
+     * Other specifications are same as queryDelete(cb).
      * @param cb The condition-bean of ProductCategory. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
@@ -1200,9 +1217,8 @@ public abstract class BsProductCategoryBhv extends AbstractBehaviorWritable<Prod
      * <p>The invoker of behavior command should be not null when you call this method.</p>
      * @return The new-created all facade executor of outside-SQL. (NotNull)
      */
-    public OutsideSqlBasicExecutor<ProductCategoryBhv> outsideSql() {
-        OutsideSqlAllFacadeExecutor<ProductCategoryBhv> facadeExecutor = doOutsideSql();
-        return facadeExecutor.xbasicExecutor(); // variable to resolve generic type
+    public OutsideSqlAllFacadeExecutor<ProductCategoryBhv> outsideSql() {
+        return doOutsideSql();
     }
 
     // ===================================================================================

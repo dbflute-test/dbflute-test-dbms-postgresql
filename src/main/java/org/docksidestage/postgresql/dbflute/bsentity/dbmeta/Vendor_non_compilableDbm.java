@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.dbflute.Entity;
+import org.dbflute.optional.OptionalEntity;
 import org.dbflute.dbmeta.AbstractDBMeta;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
@@ -37,7 +38,8 @@ public class Vendor_non_compilableDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((Vendor_non_compilable)et).getNon_compilable_id(), (et, vl) -> ((Vendor_non_compilable)et).setNon_compilable_id(cti(vl)), "non_compilable_id");
         setupEpg(_epgMap, et -> ((Vendor_non_compilable)et).getNon_compilable_name(), (et, vl) -> ((Vendor_non_compilable)et).setNon_compilable_name((String)vl), "non_compilable_name");
         setupEpg(_epgMap, et -> ((Vendor_non_compilable)et).getParent_id(), (et, vl) -> ((Vendor_non_compilable)et).setParent_id(cti(vl)), "parent_id");
@@ -51,9 +53,10 @@ public class Vendor_non_compilableDbm extends AbstractDBMeta {
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
     { xsetupEfpg(); }
+    @SuppressWarnings("unchecked")
     protected void xsetupEfpg() {
-        setupEfpg(_efpgMap, et -> ((Vendor_non_compilable)et).getVendor_non_compilableByNextParentidSelf(), (et, vl) -> ((Vendor_non_compilable)et).setVendor_non_compilableByNextParentidSelf((Vendor_non_compilable)vl), "vendor_non_compilableByNextParentidSelf");
-        setupEfpg(_efpgMap, et -> ((Vendor_non_compilable)et).getVendor_non_compilableByParent_idSelf(), (et, vl) -> ((Vendor_non_compilable)et).setVendor_non_compilableByParent_idSelf((Vendor_non_compilable)vl), "vendor_non_compilableByParent_idSelf");
+        setupEfpg(_efpgMap, et -> ((Vendor_non_compilable)et).getVendor_non_compilableByNextParentidSelf(), (et, vl) -> ((Vendor_non_compilable)et).setVendor_non_compilableByNextParentidSelf((OptionalEntity<Vendor_non_compilable>)vl), "vendor_non_compilableByNextParentidSelf");
+        setupEfpg(_efpgMap, et -> ((Vendor_non_compilable)et).getVendor_non_compilableByParent_idSelf(), (et, vl) -> ((Vendor_non_compilable)et).setVendor_non_compilableByParent_idSelf((OptionalEntity<Vendor_non_compilable>)vl), "vendor_non_compilableByParent_idSelf");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }
@@ -72,10 +75,10 @@ public class Vendor_non_compilableDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnNon_compilable_id = cci("NON-COMPILABLE ID", "\"NON-COMPILABLE ID\"", null, null, Integer.class, "non_compilable_id", null, true, false, true, "int4", 10, 0, null, false, null, null, null, "vendor_non_compilableByNextParentidSelfList,vendor_non_compilableByParent_idSelfList", null);
-    protected final ColumnInfo _columnNon_compilable_name = cci("NON COMPILABLE-NAME", "\"NON COMPILABLE-NAME\"", null, null, String.class, "non_compilable_name", null, false, false, false, "varchar", 64, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnParent_id = cci("PARENT-ID", "\"PARENT-ID\"", null, null, Integer.class, "parent_id", null, false, false, false, "int4", 10, 0, null, false, null, null, "vendor_non_compilableByParent_idSelf", null, null);
-    protected final ColumnInfo _columnNextParentid = cci("Next_ParentID", "\"Next_ParentID\"", null, null, Integer.class, "nextParentid", null, false, false, false, "int4", 10, 0, null, false, null, null, "vendor_non_compilableByNextParentidSelf", null, null);
+    protected final ColumnInfo _columnNon_compilable_id = cci("NON-COMPILABLE ID", "\"NON-COMPILABLE ID\"", null, null, Integer.class, "non_compilable_id", null, true, false, true, "int4", 10, 0, null, false, null, null, null, "vendor_non_compilableByNextParentidSelfList,vendor_non_compilableByParent_idSelfList", null, false);
+    protected final ColumnInfo _columnNon_compilable_name = cci("NON COMPILABLE-NAME", "\"NON COMPILABLE-NAME\"", null, null, String.class, "non_compilable_name", null, false, false, false, "varchar", 64, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnParent_id = cci("PARENT-ID", "\"PARENT-ID\"", null, null, Integer.class, "parent_id", null, false, false, false, "int4", 10, 0, null, false, null, null, "vendor_non_compilableByParent_idSelf", null, null, false);
+    protected final ColumnInfo _columnNextParentid = cci("Next_ParentID", "\"Next_ParentID\"", null, null, Integer.class, "nextParentid", null, false, false, false, "int4", 10, 0, null, false, null, null, "vendor_non_compilableByNextParentidSelf", null, null, false);
 
     /**
      * NON-COMPILABLE ID: {PK, NotNull, int4(10)}
@@ -133,7 +136,7 @@ public class Vendor_non_compilableDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignVendor_non_compilableByNextParentidSelf() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnNextParentid(), Vendor_non_compilableDbm.getInstance().columnNon_compilable_id());
-        return cfi("Fk_Vendor_ForeignKey_NAME_CaseCrisis", "vendor_non_compilableByNextParentidSelf", this, Vendor_non_compilableDbm.getInstance(), mp, 0, null, false, false, false, false, null, null, false, "vendor_non_compilableByNextParentidSelfList");
+        return cfi("Fk_Vendor_ForeignKey_NAME_CaseCrisis", "vendor_non_compilableByNextParentidSelf", this, Vendor_non_compilableDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "vendor_non_compilableByNextParentidSelfList", false);
     }
     /**
      * VENDOR-NON COMPILABLE by my PARENT-ID, named 'vendor_non_compilableByParent_idSelf'.
@@ -141,7 +144,7 @@ public class Vendor_non_compilableDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignVendor_non_compilableByParent_idSelf() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnParent_id(), Vendor_non_compilableDbm.getInstance().columnNon_compilable_id());
-        return cfi("fk_vendor_non_comppilable_self", "vendor_non_compilableByParent_idSelf", this, Vendor_non_compilableDbm.getInstance(), mp, 1, null, false, false, false, false, null, null, false, "vendor_non_compilableByParent_idSelfList");
+        return cfi("fk_vendor_non_comppilable_self", "vendor_non_compilableByParent_idSelf", this, Vendor_non_compilableDbm.getInstance(), mp, 1, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "vendor_non_compilableByParent_idSelfList", false);
     }
 
     // -----------------------------------------------------

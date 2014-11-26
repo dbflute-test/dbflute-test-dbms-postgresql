@@ -3,9 +3,11 @@ package org.docksidestage.postgresql.dbflute.bsentity;
 import java.util.List;
 import java.util.ArrayList;
 
+import org.dbflute.Entity;
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
 import org.dbflute.dbmeta.accessory.DomainEntity;
+import org.dbflute.optional.OptionalEntity;
 import org.docksidestage.postgresql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
@@ -77,24 +79,16 @@ public abstract class BsVendor_non_compilable extends AbstractEntity implements 
     protected Integer _nextParentid;
 
     // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public String getTableDbName() {
+    public DBMeta asDBMeta() {
+        return DBMetaInstanceHandler.findDBMeta(asTableDbName());
+    }
+
+    /** {@inheritDoc} */
+    public String asTableDbName() {
         return "VENDOR-NON COMPILABLE";
-    }
-
-    /** {@inheritDoc} */
-    public String getTablePropertyName() {
-        return "vendor_non_compilable";
-    }
-
-    // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
-    /** {@inheritDoc} */
-    public DBMeta getDBMeta() {
-        return DBMetaInstanceHandler.findDBMeta(getTableDbName());
     }
 
     // ===================================================================================
@@ -121,13 +115,15 @@ public abstract class BsVendor_non_compilable extends AbstractEntity implements 
     //                                                                    Foreign Property
     //                                                                    ================
     /** VENDOR-NON COMPILABLE by my Next_ParentID, named 'vendor_non_compilableByNextParentidSelf'. */
-    protected Vendor_non_compilable _vendor_non_compilableByNextParentidSelf;
+    protected OptionalEntity<Vendor_non_compilable> _vendor_non_compilableByNextParentidSelf;
 
     /**
      * [get] VENDOR-NON COMPILABLE by my Next_ParentID, named 'vendor_non_compilableByNextParentidSelf'. <br>
-     * @return The entity of foreign property 'vendor_non_compilableByNextParentidSelf'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'vendor_non_compilableByNextParentidSelf'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public Vendor_non_compilable getVendor_non_compilableByNextParentidSelf() {
+    public OptionalEntity<Vendor_non_compilable> getVendor_non_compilableByNextParentidSelf() {
+        if (_vendor_non_compilableByNextParentidSelf == null) { _vendor_non_compilableByNextParentidSelf = OptionalEntity.relationEmpty(this, "vendor_non_compilableByNextParentidSelf"); }
         return _vendor_non_compilableByNextParentidSelf;
     }
 
@@ -135,18 +131,20 @@ public abstract class BsVendor_non_compilable extends AbstractEntity implements 
      * [set] VENDOR-NON COMPILABLE by my Next_ParentID, named 'vendor_non_compilableByNextParentidSelf'.
      * @param vendor_non_compilableByNextParentidSelf The entity of foreign property 'vendor_non_compilableByNextParentidSelf'. (NullAllowed)
      */
-    public void setVendor_non_compilableByNextParentidSelf(Vendor_non_compilable vendor_non_compilableByNextParentidSelf) {
+    public void setVendor_non_compilableByNextParentidSelf(OptionalEntity<Vendor_non_compilable> vendor_non_compilableByNextParentidSelf) {
         _vendor_non_compilableByNextParentidSelf = vendor_non_compilableByNextParentidSelf;
     }
 
     /** VENDOR-NON COMPILABLE by my PARENT-ID, named 'vendor_non_compilableByParent_idSelf'. */
-    protected Vendor_non_compilable _vendor_non_compilableByParent_idSelf;
+    protected OptionalEntity<Vendor_non_compilable> _vendor_non_compilableByParent_idSelf;
 
     /**
      * [get] VENDOR-NON COMPILABLE by my PARENT-ID, named 'vendor_non_compilableByParent_idSelf'. <br>
-     * @return The entity of foreign property 'vendor_non_compilableByParent_idSelf'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'vendor_non_compilableByParent_idSelf'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public Vendor_non_compilable getVendor_non_compilableByParent_idSelf() {
+    public OptionalEntity<Vendor_non_compilable> getVendor_non_compilableByParent_idSelf() {
+        if (_vendor_non_compilableByParent_idSelf == null) { _vendor_non_compilableByParent_idSelf = OptionalEntity.relationEmpty(this, "vendor_non_compilableByParent_idSelf"); }
         return _vendor_non_compilableByParent_idSelf;
     }
 
@@ -154,7 +152,7 @@ public abstract class BsVendor_non_compilable extends AbstractEntity implements 
      * [set] VENDOR-NON COMPILABLE by my PARENT-ID, named 'vendor_non_compilableByParent_idSelf'.
      * @param vendor_non_compilableByParent_idSelf The entity of foreign property 'vendor_non_compilableByParent_idSelf'. (NullAllowed)
      */
-    public void setVendor_non_compilableByParent_idSelf(Vendor_non_compilable vendor_non_compilableByParent_idSelf) {
+    public void setVendor_non_compilableByParent_idSelf(OptionalEntity<Vendor_non_compilable> vendor_non_compilableByParent_idSelf) {
         _vendor_non_compilableByParent_idSelf = vendor_non_compilableByParent_idSelf;
     }
 
@@ -222,7 +220,7 @@ public abstract class BsVendor_non_compilable extends AbstractEntity implements 
     @Override
     protected int doHashCode(int initial) {
         int hs = initial;
-        hs = xCH(hs, getTableDbName());
+        hs = xCH(hs, asTableDbName());
         hs = xCH(hs, _non_compilable_id);
         return hs;
     }
@@ -230,15 +228,18 @@ public abstract class BsVendor_non_compilable extends AbstractEntity implements 
     @Override
     protected String doBuildStringWithRelation(String li) {
         StringBuilder sb = new StringBuilder();
-        if (_vendor_non_compilableByNextParentidSelf != null)
+        if (_vendor_non_compilableByNextParentidSelf != null && _vendor_non_compilableByNextParentidSelf.isPresent())
         { sb.append(li).append(xbRDS(_vendor_non_compilableByNextParentidSelf, "vendor_non_compilableByNextParentidSelf")); }
-        if (_vendor_non_compilableByParent_idSelf != null)
+        if (_vendor_non_compilableByParent_idSelf != null && _vendor_non_compilableByParent_idSelf.isPresent())
         { sb.append(li).append(xbRDS(_vendor_non_compilableByParent_idSelf, "vendor_non_compilableByParent_idSelf")); }
         if (_vendor_non_compilableByNextParentidSelfList != null) { for (Vendor_non_compilable et : _vendor_non_compilableByNextParentidSelfList)
         { if (et != null) { sb.append(li).append(xbRDS(et, "vendor_non_compilableByNextParentidSelfList")); } } }
         if (_vendor_non_compilableByParent_idSelfList != null) { for (Vendor_non_compilable et : _vendor_non_compilableByParent_idSelfList)
         { if (et != null) { sb.append(li).append(xbRDS(et, "vendor_non_compilableByParent_idSelfList")); } } }
         return sb.toString();
+    }
+    protected <ET extends Entity> String xbRDS(org.dbflute.optional.OptionalEntity<ET> et, String name) { // buildRelationDisplayString()
+        return et.get().buildDisplayString(name, true, true);
     }
 
     @Override
@@ -258,9 +259,9 @@ public abstract class BsVendor_non_compilable extends AbstractEntity implements 
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_vendor_non_compilableByNextParentidSelf != null)
+        if (_vendor_non_compilableByNextParentidSelf != null && _vendor_non_compilableByNextParentidSelf.isPresent())
         { sb.append(dm).append("vendor_non_compilableByNextParentidSelf"); }
-        if (_vendor_non_compilableByParent_idSelf != null)
+        if (_vendor_non_compilableByParent_idSelf != null && _vendor_non_compilableByParent_idSelf.isPresent())
         { sb.append(dm).append("vendor_non_compilableByParent_idSelf"); }
         if (_vendor_non_compilableByNextParentidSelfList != null && !_vendor_non_compilableByNextParentidSelfList.isEmpty())
         { sb.append(dm).append("vendor_non_compilableByNextParentidSelfList"); }

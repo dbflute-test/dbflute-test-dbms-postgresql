@@ -23,10 +23,10 @@ public class BsCompareDatePmb implements ExecuteHandlingPmb<MemberBhv>, FetchBea
     protected Integer _memberId;
 
     /** The parameter of birthdateFrom. */
-    protected Date _birthdateFrom;
+    protected java.time.LocalDate _birthdateFrom;
 
     /** The parameter of formalizedDatetimeFrom. */
-    protected java.sql.Timestamp _formalizedDatetimeFrom;
+    protected java.time.LocalDateTime _formalizedDatetimeFrom;
 
     /** The max size of safety result. */
     protected int _safetyMaxResultSize;
@@ -83,6 +83,16 @@ public class BsCompareDatePmb implements ExecuteHandlingPmb<MemberBhv>, FetchBea
     //                                                  Date
     //                                                  ----
     protected Date toUtilDate(Object date) { return PmbCustodial.toUtilDate(date, _timeZone); }
+    protected <DATE> DATE toLocalDate(Date date, Class<DATE> localType) { return PmbCustodial.toLocalDate(date, localType, chooseRealTimeZone()); }
+    protected TimeZone chooseRealTimeZone() { return PmbCustodial.chooseRealTimeZone(_timeZone); }
+
+    /**
+     * Set time-zone, basically for LocalDate conversion. <br>
+     * Normally you don't need to set this, you can adjust other ways. <br>
+     * (DBFlute system's time-zone is used as default)
+     * @param timeZone The time-zone for filtering. (NullAllowed: if null, default zone)
+     */
+    public void zone(TimeZone timeZone) { _timeZone = timeZone; }
 
     // -----------------------------------------------------
     //                                    by Option Handling
@@ -110,7 +120,7 @@ public class BsCompareDatePmb implements ExecuteHandlingPmb<MemberBhv>, FetchBea
         final String dm = ", ";
         final StringBuilder sb = new StringBuilder();
         sb.append(dm).append(_memberId);
-        sb.append(dm).append(PmbCustodial.formatUtilDate(_birthdateFrom, "yyyy-MM-dd", _timeZone));
+        sb.append(dm).append(_birthdateFrom);
         sb.append(dm).append(_formalizedDatetimeFrom);
         if (sb.length() > 0) { sb.delete(0, dm.length()); }
         sb.insert(0, "{").append("}");
@@ -140,15 +150,15 @@ public class BsCompareDatePmb implements ExecuteHandlingPmb<MemberBhv>, FetchBea
      * [get] birthdateFrom <br>
      * @return The value of birthdateFrom. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
-    public Date getBirthdateFrom() {
-        return toUtilDate(_birthdateFrom);
+    public java.time.LocalDate getBirthdateFrom() {
+        return _birthdateFrom;
     }
 
     /**
      * [set] birthdateFrom <br>
      * @param birthdateFrom The value of birthdateFrom. (NullAllowed)
      */
-    public void setBirthdateFrom(Date birthdateFrom) {
+    public void setBirthdateFrom(java.time.LocalDate birthdateFrom) {
         _birthdateFrom = birthdateFrom;
     }
 
@@ -156,7 +166,7 @@ public class BsCompareDatePmb implements ExecuteHandlingPmb<MemberBhv>, FetchBea
      * [get] formalizedDatetimeFrom <br>
      * @return The value of formalizedDatetimeFrom. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
-    public java.sql.Timestamp getFormalizedDatetimeFrom() {
+    public java.time.LocalDateTime getFormalizedDatetimeFrom() {
         return _formalizedDatetimeFrom;
     }
 
@@ -164,7 +174,7 @@ public class BsCompareDatePmb implements ExecuteHandlingPmb<MemberBhv>, FetchBea
      * [set] formalizedDatetimeFrom <br>
      * @param formalizedDatetimeFrom The value of formalizedDatetimeFrom. (NullAllowed)
      */
-    public void setFormalizedDatetimeFrom(java.sql.Timestamp formalizedDatetimeFrom) {
+    public void setFormalizedDatetimeFrom(java.time.LocalDateTime formalizedDatetimeFrom) {
         _formalizedDatetimeFrom = formalizedDatetimeFrom;
     }
 }

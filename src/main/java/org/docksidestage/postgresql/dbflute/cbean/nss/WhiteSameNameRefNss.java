@@ -11,7 +11,7 @@ public class WhiteSameNameRefNss {
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    protected WhiteSameNameRefCQ _query;
+    protected final WhiteSameNameRefCQ _query;
     public WhiteSameNameRefNss(WhiteSameNameRefCQ query) { _query = query; }
     public boolean hasConditionQuery() { return _query != null; }
 

@@ -60,10 +60,12 @@ public abstract class BsWhiteCompoundPkRefBhv extends AbstractBehaviorWritable<W
     /*df:endQueryPath*/
 
     // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public WhiteCompoundPkRefDbm getDBMeta() { return WhiteCompoundPkRefDbm.getInstance(); }
+    public WhiteCompoundPkRefDbm asDBMeta() { return WhiteCompoundPkRefDbm.getInstance(); }
+    /** {@inheritDoc} */
+    public String asTableDbName() { return "white_compound_pk_ref"; }
 
     // ===================================================================================
     //                                                                        New Instance
@@ -108,60 +110,81 @@ public abstract class BsWhiteCompoundPkRefBhv extends AbstractBehaviorWritable<W
     //                                                                       Entity Select
     //                                                                       =============
     /**
-     * Select the entity by the condition-bean. #beforejava8 <br>
-     * <span style="color: #AD4747; font-size: 120%">The return might be null if no data, so you should have null check.</span> <br>
-     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, use selectEntityWithDeletedCheck().</span>
+     * Select the entity by the condition-bean. <br>
+     * It returns not-null optional entity, so you should ... <br>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, alwaysPresent().</span> <br>
+     * <span style="color: #AD4747; font-size: 120%">If it might be no data, isPresent() and orElse(), ...</span>
      * <pre>
-     * WhiteCompoundPkRef whiteCompoundPkRef = <span style="color: #0000C0">whiteCompoundPkRefBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
+     * <span style="color: #0000C0">whiteCompoundPkRefBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().set...
+     * }).<span style="color: #CC4747">alwaysPresent</span>(<span style="color: #553000">whiteCompoundPkRef</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if present, or exception</span>
+     *     ... = <span style="color: #553000">whiteCompoundPkRef</span>.get...
      * });
-     * <span style="color: #70226C">if</span> (whiteCompoundPkRef != <span style="color: #70226C">null</span>) { <span style="color: #3F7E5E">// null check</span>
-     *     ... = whiteCompoundPkRef.get...();
-     * } <span style="color: #70226C">else</span> {
-     *     ...
-     * }
+     * 
+     * <span style="color: #3F7E5E">// if it might be no data, ...</span>
+     * <span style="color: #0000C0">whiteCompoundPkRefBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).<span style="color: #CC4747">ifPresent</span>(<span style="color: #553000">whiteCompoundPkRef</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if present</span>
+     *     ... = <span style="color: #553000">whiteCompoundPkRef</span>.get...
+     * }).<span style="color: #994747">orElse</span>(() <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if not present</span>
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteCompoundPkRef. (NotNull)
-     * @return The entity selected by the condition. (NullAllowed: if no data, it returns null)
+     * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
-    public WhiteCompoundPkRef selectEntity(CBCall<WhiteCompoundPkRefCB> cbLambda) {
+    public OptionalEntity<WhiteCompoundPkRef> selectEntity(CBCall<WhiteCompoundPkRefCB> cbLambda) {
         return facadeSelectEntity(createCB(cbLambda));
     }
 
     /**
-     * Select the entity by the condition-bean. #beforejava8 <br>
-     * <span style="color: #AD4747; font-size: 120%">The return might be null if no data, so you should have null check.</span> <br>
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, use selectEntityWithDeletedCheck().</span>
+     * Select the entity by the condition-bean. <br>
+     * It returns not-null optional entity, so you should ... <br>
+     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, alwaysPresent().</span> <br>
+     * <span style="color: #AD4747; font-size: 120%">If it might be no data, get() after check by isPresent() or orElse(), ...</span>
      * <pre>
      * WhiteCompoundPkRefCB cb = <span style="color: #70226C">new</span> WhiteCompoundPkRefCB();
-     * cb.query().setFoo...(value);
-     * WhiteCompoundPkRef whiteCompoundPkRef = <span style="color: #0000C0">whiteCompoundPkRefBhv</span>.<span style="color: #DD4747">selectEntity</span>(cb);
-     * <span style="color: #70226C">if</span> (whiteCompoundPkRef != <span style="color: #70226C">null</span>) { <span style="color: #3F7E5E">// null check</span>
-     *     ... = whiteCompoundPkRef.get...();
-     * } <span style="color: #70226C">else</span> {
-     *     ...
-     * }
+     * cb.query().set...
+     * 
+     * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
+     * <span style="color: #0000C0">whiteCompoundPkRefBhv</span>.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(whiteCompoundPkRef <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if present, or exception</span>
+     *     ... = whiteCompoundPkRef.get...
+     * });
+     * 
+     * <span style="color: #3F7E5E">// if it might be no data, ...</span>
+     * <span style="color: #0000C0">whiteCompoundPkRefBhv</span>.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(whiteCompoundPkRef <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if present</span>
+     *     ... = whiteCompoundPkRef.get...
+     * }).<span style="color: #994747">orElse</span>(() <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if not present</span>
+     * });
      * </pre>
      * @param cb The condition-bean of WhiteCompoundPkRef. (NotNull)
-     * @return The entity selected by the condition. (NullAllowed: if no data, it returns null)
+     * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
-    public WhiteCompoundPkRef selectEntity(WhiteCompoundPkRefCB cb) {
+    public OptionalEntity<WhiteCompoundPkRef> selectEntity(WhiteCompoundPkRefCB cb) {
         return facadeSelectEntity(cb);
     }
 
-    protected WhiteCompoundPkRef facadeSelectEntity(WhiteCompoundPkRefCB cb) {
-        return doSelectEntity(cb, typeOfSelectedEntity());
+    protected OptionalEntity<WhiteCompoundPkRef> facadeSelectEntity(WhiteCompoundPkRefCB cb) {
+        return doSelectOptionalEntity(cb, typeOfSelectedEntity());
     }
 
     protected <ENTITY extends WhiteCompoundPkRef> OptionalEntity<ENTITY> doSelectOptionalEntity(WhiteCompoundPkRefCB cb, Class<? extends ENTITY> tp) {
         return createOptionalEntity(doSelectEntity(cb, tp), cb);
     }
 
-    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)); }
+    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElse(null); }
 
     /**
      * Select the entity by the condition-bean with deleted check. <br>
@@ -203,16 +226,17 @@ public abstract class BsWhiteCompoundPkRefBhv extends AbstractBehaviorWritable<W
      * Select the entity by the primary-key value.
      * @param multipleFirstId : PK, NotNull, int4(10). (NotNull)
      * @param multipleSecondId : PK, NotNull, int4(10). (NotNull)
-     * @return The entity selected by the PK. (NullAllowed: if no data, it returns null)
+     * @return The optional entity selected by the PK. (NotNull: if no data, empty entity)
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
-    public WhiteCompoundPkRef selectByPK(Integer multipleFirstId, Integer multipleSecondId) {
+    public OptionalEntity<WhiteCompoundPkRef> selectByPK(Integer multipleFirstId, Integer multipleSecondId) {
         return facadeSelectByPK(multipleFirstId, multipleSecondId);
     }
 
-    protected WhiteCompoundPkRef facadeSelectByPK(Integer multipleFirstId, Integer multipleSecondId) {
-        return doSelectByPK(multipleFirstId, multipleSecondId, typeOfSelectedEntity());
+    protected OptionalEntity<WhiteCompoundPkRef> facadeSelectByPK(Integer multipleFirstId, Integer multipleSecondId) {
+        return doSelectOptionalByPK(multipleFirstId, multipleSecondId, typeOfSelectedEntity());
     }
 
     protected <ENTITY extends WhiteCompoundPkRef> ENTITY doSelectByPK(Integer multipleFirstId, Integer multipleSecondId, Class<? extends ENTITY> tp) {
@@ -369,7 +393,7 @@ public abstract class BsWhiteCompoundPkRefBhv extends AbstractBehaviorWritable<W
      * Select the scalar value derived by a function from uniquely-selected records. <br>
      * You should call a function method after this method called like as follows:
      * <pre>
-     * <span style="color: #0000C0">whiteCompoundPkRefBhv</span>.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteCompoundPkRefBhv</span>.<span style="color: #CC4747">selectScalar</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...</span>; <span style="color: #3F7E5E">// required for the function</span>
      *     <span style="color: #553000">cb</span>.query().set...
      * });
@@ -378,7 +402,7 @@ public abstract class BsWhiteCompoundPkRefBhv extends AbstractBehaviorWritable<W
      * @param resultType The type of result. (NotNull)
      * @return The scalar function object to specify function for scalar value. (NotNull)
      */
-    public <RESULT> HpSLSFunction<WhiteCompoundPkRefCB, RESULT> scalarSelect(Class<RESULT> resultType) {
+    public <RESULT> HpSLSFunction<WhiteCompoundPkRefCB, RESULT> selectScalar(Class<RESULT> resultType) {
         return facadeScalarSelect(resultType);
     }
 
@@ -387,7 +411,7 @@ public abstract class BsWhiteCompoundPkRefBhv extends AbstractBehaviorWritable<W
     //                                                                            ========
     @Override
     protected Number doReadNextVal() {
-        String msg = "This table is NOT related to sequence: " + getTableDbName();
+        String msg = "This table is NOT related to sequence: " + asTableDbName();
         throw new UnsupportedOperationException(msg);
     }
 
@@ -513,11 +537,7 @@ public abstract class BsWhiteCompoundPkRefBhv extends AbstractBehaviorWritable<W
      * <span style="color: #3F7E5E">//whiteCompoundPkRef.set...;</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * whiteCompoundPkRef.<span style="color: #CC4747">setVersionNo</span>(value);
-     * try {
-     *     <span style="color: #0000C0">whiteCompoundPkRefBhv</span>.<span style="color: #CC4747">update</span>(whiteCompoundPkRef);
-     * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
-     *     ...
-     * }
+     * <span style="color: #0000C0">whiteCompoundPkRefBhv</span>.<span style="color: #CC4747">update</span>(whiteCompoundPkRef);
      * </pre>
      * @param whiteCompoundPkRef The entity of update. (NotNull, PrimaryKeyNotNull)
      * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
@@ -678,9 +698,9 @@ public abstract class BsWhiteCompoundPkRefBhv extends AbstractBehaviorWritable<W
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
      * <span style="color: #3F7E5E">//whiteCompoundPkRef.setVersionNo(value);</span>
-     * WhiteCompoundPkRefCB cb = <span style="color: #70226C">new</span> WhiteCompoundPkRefCB();
-     * cb.query().setFoo...(value);
-     * <span style="color: #0000C0">whiteCompoundPkRefBhv</span>.<span style="color: #CC4747">queryUpdate</span>(whiteCompoundPkRef, cb);
+     * <span style="color: #0000C0">whiteCompoundPkRefBhv</span>.<span style="color: #CC4747">queryUpdate</span>(whiteCompoundPkRef, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * });
      * </pre>
      * @param whiteCompoundPkRef The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cbLambda The callback for condition-bean of WhiteCompoundPkRef. (NotNull)
@@ -720,9 +740,9 @@ public abstract class BsWhiteCompoundPkRefBhv extends AbstractBehaviorWritable<W
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * WhiteCompoundPkRefCB cb = new WhiteCompoundPkRefCB();
-     * cb.query().setFoo...(value);
-     * <span style="color: #0000C0">whiteCompoundPkRefBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteCompoundPkRef, cb);
+     * <span style="color: #0000C0">whiteCompoundPkRefBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteCompoundPkRef, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of WhiteCompoundPkRef. (NotNull)
      * @return The deleted count.
@@ -762,10 +782,10 @@ public abstract class BsWhiteCompoundPkRefBhv extends AbstractBehaviorWritable<W
      * <span style="color: #3F7E5E">// if auto-increment, you don't need to set the PK value</span>
      * whiteCompoundPkRef.setFoo...(value);
      * whiteCompoundPkRef.setBar...(value);
-     * InsertOption&lt;WhiteCompoundPkRefCB&gt; option = new InsertOption&lt;WhiteCompoundPkRefCB&gt;();
-     * <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
-     * option.disableCommonColumnAutoSetup();
-     * <span style="color: #0000C0">whiteCompoundPkRefBhv</span>.<span style="color: #CC4747">varyingInsert</span>(whiteCompoundPkRef, option);
+     * <span style="color: #0000C0">whiteCompoundPkRefBhv</span>.<span style="color: #CC4747">varyingInsert</span>(whiteCompoundPkRef, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
+     *     <span style="color: #553000">op</span>.disableCommonColumnAutoSetup();
+     * });
      * ... = whiteCompoundPkRef.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * @param whiteCompoundPkRef The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
@@ -786,18 +806,12 @@ public abstract class BsWhiteCompoundPkRefBhv extends AbstractBehaviorWritable<W
      * whiteCompoundPkRef.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * whiteCompoundPkRef.<span style="color: #CC4747">setVersionNo</span>(value);
-     * <span style="color: #70226C">try</span> {
-     *     <span style="color: #3F7E5E">// you can update by self calculation values</span>
-     *     UpdateOption&lt;WhiteCompoundPkRefCB&gt; option = new UpdateOption&lt;WhiteCompoundPkRefCB&gt;();
-     *     option.self(new SpecifyQuery&lt;WhiteCompoundPkRefCB&gt;() {
-     *         public void specify(WhiteCompoundPkRefCB cb) {
-     *             cb.specify().<span style="color: #CC4747">columnXxxCount()</span>;
-     *         }
+     * <span style="color: #3F7E5E">// you can update by self calculation values</span>
+     * <span style="color: #0000C0">whiteCompoundPkRefBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(whiteCompoundPkRef, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">columnXxxCount()</span>;
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
-     *     <span style="color: #0000C0">whiteCompoundPkRefBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(whiteCompoundPkRef, option);
-     * } <span style="color: #70226C">catch</span> (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
-     *     ...
-     * }
+     * });
      * </pre>
      * @param whiteCompoundPkRef The entity of update. (NotNull, PrimaryKeyNotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
@@ -906,15 +920,13 @@ public abstract class BsWhiteCompoundPkRefBhv extends AbstractBehaviorWritable<W
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
      * <span style="color: #3F7E5E">//whiteCompoundPkRef.setVersionNo(value);</span>
-     * WhiteCompoundPkRefCB cb = new WhiteCompoundPkRefCB();
-     * cb.query().setFoo...(value);
-     * UpdateOption&lt;WhiteCompoundPkRefCB&gt; option = <span style="color: #70226C">new</span> UpdateOption&lt;WhiteCompoundPkRefCB&gt;();
-     * option.self(new SpecifyQuery&lt;WhiteCompoundPkRefCB&gt;() {
-     *     public void specify(WhiteCompoundPkRefCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
-     *     }
-     * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * <span style="color: #0000C0">whiteCompoundPkRefBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteCompoundPkRef, cb, option);
+     * <span style="color: #0000C0">whiteCompoundPkRefBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteCompoundPkRef, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * }, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">colCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">colCB</span>.specify().<span style="color: #CC4747">columnFooCount()</span>;
+     *     }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
+     * });
      * </pre>
      * @param whiteCompoundPkRef The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cbLambda The callback for condition-bean of WhiteCompoundPkRef. (NotNull)
@@ -942,13 +954,11 @@ public abstract class BsWhiteCompoundPkRefBhv extends AbstractBehaviorWritable<W
      * <span style="color: #3F7E5E">//whiteCompoundPkRef.setVersionNo(value);</span>
      * WhiteCompoundPkRefCB cb = <span style="color: #70226C">new</span> WhiteCompoundPkRefCB();
      * cb.query().setFoo...(value);
-     * UpdateOption&lt;WhiteCompoundPkRefCB&gt; option = <span style="color: #70226C">new</span> UpdateOption&lt;WhiteCompoundPkRefCB&gt;();
-     * option.self(new SpecifyQuery&lt;WhiteCompoundPkRefCB&gt;() {
-     *     public void specify(WhiteCompoundPkRefCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
-     *     }
-     * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * <span style="color: #0000C0">whiteCompoundPkRefBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteCompoundPkRef, cb, option);
+     * <span style="color: #0000C0">whiteCompoundPkRefBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(whiteCompoundPkRef, cb, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">colCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">colCB</span>.specify().<span style="color: #CC4747">columnFooCount()</span>;
+     *     }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
+     * });
      * </pre>
      * @param whiteCompoundPkRef The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cb The condition-bean of WhiteCompoundPkRef. (NotNull)
@@ -963,7 +973,14 @@ public abstract class BsWhiteCompoundPkRefBhv extends AbstractBehaviorWritable<W
     /**
      * Delete the several entities by query with varying requests non-strictly. <br>
      * For example, allowNonQueryDelete(). <br>
-     * Other specifications are same as batchUpdateNonstrict(entityList).
+     * Other specifications are same as queryDelete(cb).
+     * <pre>
+     * <span style="color: #0000C0">whiteCompoundPkRefBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteCompoundPkRef, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * }, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>...
+     * });
+     * </pre>
      * @param cbLambda The callback for condition-bean of WhiteCompoundPkRef. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
@@ -976,7 +993,7 @@ public abstract class BsWhiteCompoundPkRefBhv extends AbstractBehaviorWritable<W
     /**
      * Delete the several entities by query with varying requests non-strictly. <br>
      * For example, allowNonQueryDelete(). <br>
-     * Other specifications are same as batchUpdateNonstrict(entityList).
+     * Other specifications are same as queryDelete(cb).
      * @param cb The condition-bean of WhiteCompoundPkRef. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
@@ -1017,9 +1034,8 @@ public abstract class BsWhiteCompoundPkRefBhv extends AbstractBehaviorWritable<W
      * <p>The invoker of behavior command should be not null when you call this method.</p>
      * @return The new-created all facade executor of outside-SQL. (NotNull)
      */
-    public OutsideSqlBasicExecutor<WhiteCompoundPkRefBhv> outsideSql() {
-        OutsideSqlAllFacadeExecutor<WhiteCompoundPkRefBhv> facadeExecutor = doOutsideSql();
-        return facadeExecutor.xbasicExecutor(); // variable to resolve generic type
+    public OutsideSqlAllFacadeExecutor<WhiteCompoundPkRefBhv> outsideSql() {
+        return doOutsideSql();
     }
 
     // ===================================================================================

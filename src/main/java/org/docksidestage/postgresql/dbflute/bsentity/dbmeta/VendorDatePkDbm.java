@@ -37,8 +37,9 @@ public class VendorDatePkDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
-        setupEpg(_epgMap, et -> ((VendorDatePk)et).getFooDate(), (et, vl) -> ((VendorDatePk)et).setFooDate((java.util.Date)vl), "fooDate");
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
+        setupEpg(_epgMap, et -> ((VendorDatePk)et).getFooDate(), (et, vl) -> ((VendorDatePk)et).setFooDate((java.time.LocalDate)vl), "fooDate");
         setupEpg(_epgMap, et -> ((VendorDatePk)et).getFooName(), (et, vl) -> ((VendorDatePk)et).setFooName((String)vl), "fooName");
     }
     public PropertyGateway findPropertyGateway(String prop)
@@ -58,8 +59,8 @@ public class VendorDatePkDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnFooDate = cci("foo_date", "foo_date", null, null, java.util.Date.class, "fooDate", null, true, false, true, "date", 13, 0, null, false, null, null, null, "vendorDateFkList", null);
-    protected final ColumnInfo _columnFooName = cci("foo_name", "foo_name", null, null, String.class, "fooName", null, false, false, true, "varchar", 2147483647, 0, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnFooDate = cci("foo_date", "foo_date", null, null, java.time.LocalDate.class, "fooDate", null, true, false, true, "date", 13, 0, null, false, null, null, null, "vendorDateFkList", null, false);
+    protected final ColumnInfo _columnFooName = cci("foo_name", "foo_name", null, null, String.class, "fooName", null, false, false, true, "varchar", 2147483647, 0, null, false, null, null, null, null, null, false);
 
     /**
      * foo_date: {PK, NotNull, date(13)}

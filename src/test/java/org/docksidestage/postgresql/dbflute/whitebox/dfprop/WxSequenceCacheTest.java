@@ -150,7 +150,7 @@ public class WxSequenceCacheTest extends UnitContainerTestCase {
             purchase.setProductId(3);
             purchase.setPurchasePrice(123);
             purchase.setPurchaseCount(3);
-            purchase.setPurchaseDatetime(currentTimestamp());
+            purchase.setPurchaseDatetime(currentLocalDateTime());
             purchase.setPaymentCompleteFlg_True();
 
             // ## Act ##
@@ -168,7 +168,7 @@ public class WxSequenceCacheTest extends UnitContainerTestCase {
             purchase.setProductId(4);
             purchase.setPurchasePrice(123);
             purchase.setPurchaseCount(3);
-            purchase.setPurchaseDatetime(currentTimestamp());
+            purchase.setPurchaseDatetime(currentLocalDateTime());
             purchase.setPaymentCompleteFlg_True();
 
             // ## Act ##
@@ -190,7 +190,7 @@ public class WxSequenceCacheTest extends UnitContainerTestCase {
             purchase.setProductId(3);
             purchase.setPurchasePrice(123);
             purchase.setPurchaseCount(3);
-            purchase.setPurchaseDatetime(currentTimestamp());
+            purchase.setPurchaseDatetime(currentLocalDateTime());
             purchase.setPaymentCompleteFlg_True();
             purchaesList.add(purchase);
         }
@@ -200,7 +200,7 @@ public class WxSequenceCacheTest extends UnitContainerTestCase {
             purchase.setProductId(4);
             purchase.setPurchasePrice(123);
             purchase.setPurchaseCount(3);
-            purchase.setPurchaseDatetime(currentTimestamp());
+            purchase.setPurchaseDatetime(currentLocalDateTime());
             purchase.setPaymentCompleteFlg_True();
             purchaesList.add(purchase);
         }

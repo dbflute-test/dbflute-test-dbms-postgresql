@@ -37,8 +37,17 @@ public class WithdrawalReasonDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
-        setupEpg(_epgMap, et -> ((WithdrawalReason)et).getWithdrawalReasonCode(), (et, vl) -> ((WithdrawalReason)et).setWithdrawalReasonCode((String)vl), "withdrawalReasonCode");
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
+        setupEpg(_epgMap, et -> ((WithdrawalReason)et).getWithdrawalReasonCode(), (et, vl) -> {
+            ColumnInfo col = columnWithdrawalReasonCode();
+            CDef.WithdrawalReason cls = (CDef.WithdrawalReason)gcls(col, vl);
+            if (cls != null) {
+                ((WithdrawalReason)et).setWithdrawalReasonCodeAsWithdrawalReason(cls);
+            } else {
+                ((WithdrawalReason)et).mynativeMappingWithdrawalReasonCode((String)vl);
+            }
+        }, "withdrawalReasonCode");
         setupEpg(_epgMap, et -> ((WithdrawalReason)et).getWithdrawalReasonText(), (et, vl) -> ((WithdrawalReason)et).setWithdrawalReasonText((String)vl), "withdrawalReasonText");
         setupEpg(_epgMap, et -> ((WithdrawalReason)et).getDisplayOrder(), (et, vl) -> ((WithdrawalReason)et).setDisplayOrder(cti(vl)), "displayOrder");
     }
@@ -63,12 +72,12 @@ public class WithdrawalReasonDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnWithdrawalReasonCode = cci("withdrawal_reason_code", "withdrawal_reason_code", null, "退会理由コード", String.class, "withdrawalReasonCode", null, true, false, true, "bpchar", 3, 0, null, false, null, null, null, "memberWithdrawalList", null);
-    protected final ColumnInfo _columnWithdrawalReasonText = cci("withdrawal_reason_text", "withdrawal_reason_text", null, "退会理由テキスト", String.class, "withdrawalReasonText", null, false, false, true, "text", 2147483647, 0, null, false, null, "退会理由の内容。テキスト形式なので目いっぱい書けるが、\nそうするとUI側できれいに見せるのが大変でしょうね。", null, null, null);
-    protected final ColumnInfo _columnDisplayOrder = cci("display_order", "display_order", null, null, Integer.class, "displayOrder", null, false, false, true, "int4", 10, 0, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnWithdrawalReasonCode = cci("withdrawal_reason_code", "withdrawal_reason_code", null, "退会理由コード", String.class, "withdrawalReasonCode", null, true, false, true, "bpchar", 3, 0, null, false, null, null, null, "memberWithdrawalList", CDef.DefMeta.WithdrawalReason, false);
+    protected final ColumnInfo _columnWithdrawalReasonText = cci("withdrawal_reason_text", "withdrawal_reason_text", null, "退会理由テキスト", String.class, "withdrawalReasonText", null, false, false, true, "text", 2147483647, 0, null, false, null, "退会理由の内容。テキスト形式なので目いっぱい書けるが、\nそうするとUI側できれいに見せるのが大変でしょうね。", null, null, null, false);
+    protected final ColumnInfo _columnDisplayOrder = cci("display_order", "display_order", null, null, Integer.class, "displayOrder", null, false, false, true, "int4", 10, 0, null, false, null, null, null, null, null, false);
 
     /**
-     * (退会理由コード)withdrawal_reason_code: {PK, NotNull, bpchar(3)}
+     * (退会理由コード)withdrawal_reason_code: {PK, NotNull, bpchar(3), classification=WithdrawalReason}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnWithdrawalReasonCode() { return _columnWithdrawalReasonCode; }

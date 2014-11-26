@@ -24,7 +24,7 @@ public class WxForceClassificationSettingTest extends UnitContainerTestCase {
         purchaseBhv.updateNonstrict(purchase);
 
         // ## Act ##
-        Purchase actual = purchaseBhv.selectByPK(3L);
+        Purchase actual = purchaseBhv.selectByPK(3L).get();
 
         // ## Assert ##
         assertNotNull(actual.getPaymentCompleteFlg());
@@ -43,8 +43,8 @@ public class WxForceClassificationSettingTest extends UnitContainerTestCase {
         // ## Assert ##
         assertNotNull(actual.getPaymentCompleteFlg());
         assertTrue(actual.isPaymentCompleteFlgTrue());
-        assertNotNull(actual.getMember().getMemberStatusCode());
-        assertNotNull(actual.getMember().getMemberStatusCodeAsMemberStatus());
+        assertNotNull(actual.getMember().get().getMemberStatusCode());
+        assertNotNull(actual.getMember().get().getMemberStatusCodeAsMemberStatus());
     }
 
     public void test_select_illegal_classification() throws Exception {
@@ -57,7 +57,7 @@ public class WxForceClassificationSettingTest extends UnitContainerTestCase {
 
         // ## Act ##
         // no exception because of check is false at dfprop
-        Purchase actual = purchaseBhv.selectByPK(3L);
+        Purchase actual = purchaseBhv.selectByPK(3L).get();
 
         // ## Assert ##
         assertEquals(99999, actual.getPaymentCompleteFlg());

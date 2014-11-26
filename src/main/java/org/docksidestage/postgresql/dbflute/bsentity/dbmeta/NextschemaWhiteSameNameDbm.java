@@ -37,7 +37,8 @@ public class NextschemaWhiteSameNameDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((NextschemaWhiteSameName)et).getSameNameId(), (et, vl) -> ((NextschemaWhiteSameName)et).setSameNameId(cti(vl)), "sameNameId");
         setupEpg(_epgMap, et -> ((NextschemaWhiteSameName)et).getSameNameName(), (et, vl) -> ((NextschemaWhiteSameName)et).setSameNameName((String)vl), "sameNameName");
         setupEpg(_epgMap, et -> ((NextschemaWhiteSameName)et).getSameNameLong(), (et, vl) -> ((NextschemaWhiteSameName)et).setSameNameLong(ctl(vl)), "sameNameLong");
@@ -59,9 +60,9 @@ public class NextschemaWhiteSameNameDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnSameNameId = cci("same_name_id", "same_name_id", null, null, Integer.class, "sameNameId", null, true, false, true, "int4", 10, 0, null, false, null, null, null, "whiteSameNameRefList", null);
-    protected final ColumnInfo _columnSameNameName = cci("same_name_name", "same_name_name", null, null, String.class, "sameNameName", null, false, false, false, "varchar", 100, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnSameNameLong = cci("same_name_long", "same_name_long", null, null, Long.class, "sameNameLong", null, false, false, false, "int8", 19, 0, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnSameNameId = cci("same_name_id", "same_name_id", null, null, Integer.class, "sameNameId", null, true, false, true, "int4", 10, 0, null, false, null, null, null, "whiteSameNameRefList", null, false);
+    protected final ColumnInfo _columnSameNameName = cci("same_name_name", "same_name_name", null, null, String.class, "sameNameName", null, false, false, false, "varchar", 100, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnSameNameLong = cci("same_name_long", "same_name_long", null, null, Long.class, "sameNameLong", null, false, false, false, "int8", 19, 0, null, false, null, null, null, null, null, false);
 
     /**
      * same_name_id: {PK, NotNull, int4(10)}

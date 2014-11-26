@@ -60,10 +60,12 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
     /*df:endQueryPath*/
 
     // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public Vendor_non_compilableDbm getDBMeta() { return Vendor_non_compilableDbm.getInstance(); }
+    public Vendor_non_compilableDbm asDBMeta() { return Vendor_non_compilableDbm.getInstance(); }
+    /** {@inheritDoc} */
+    public String asTableDbName() { return "VENDOR-NON COMPILABLE"; }
 
     // ===================================================================================
     //                                                                        New Instance
@@ -108,60 +110,81 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
     //                                                                       Entity Select
     //                                                                       =============
     /**
-     * Select the entity by the condition-bean. #beforejava8 <br>
-     * <span style="color: #AD4747; font-size: 120%">The return might be null if no data, so you should have null check.</span> <br>
-     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, use selectEntityWithDeletedCheck().</span>
+     * Select the entity by the condition-bean. <br>
+     * It returns not-null optional entity, so you should ... <br>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, alwaysPresent().</span> <br>
+     * <span style="color: #AD4747; font-size: 120%">If it might be no data, isPresent() and orElse(), ...</span>
      * <pre>
-     * Vendor_non_compilable vendor_non_compilable = <span style="color: #0000C0">vendor_non_compilableBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
+     * <span style="color: #0000C0">vendor_non_compilableBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().set...
+     * }).<span style="color: #CC4747">alwaysPresent</span>(<span style="color: #553000">vendor_non_compilable</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if present, or exception</span>
+     *     ... = <span style="color: #553000">vendor_non_compilable</span>.get...
      * });
-     * <span style="color: #70226C">if</span> (vendor_non_compilable != <span style="color: #70226C">null</span>) { <span style="color: #3F7E5E">// null check</span>
-     *     ... = vendor_non_compilable.get...();
-     * } <span style="color: #70226C">else</span> {
-     *     ...
-     * }
+     * 
+     * <span style="color: #3F7E5E">// if it might be no data, ...</span>
+     * <span style="color: #0000C0">vendor_non_compilableBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).<span style="color: #CC4747">ifPresent</span>(<span style="color: #553000">vendor_non_compilable</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if present</span>
+     *     ... = <span style="color: #553000">vendor_non_compilable</span>.get...
+     * }).<span style="color: #994747">orElse</span>(() <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if not present</span>
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of Vendor_non_compilable. (NotNull)
-     * @return The entity selected by the condition. (NullAllowed: if no data, it returns null)
+     * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
-    public Vendor_non_compilable selectEntity(CBCall<Vendor_non_compilableCB> cbLambda) {
+    public OptionalEntity<Vendor_non_compilable> selectEntity(CBCall<Vendor_non_compilableCB> cbLambda) {
         return facadeSelectEntity(createCB(cbLambda));
     }
 
     /**
-     * Select the entity by the condition-bean. #beforejava8 <br>
-     * <span style="color: #AD4747; font-size: 120%">The return might be null if no data, so you should have null check.</span> <br>
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, use selectEntityWithDeletedCheck().</span>
+     * Select the entity by the condition-bean. <br>
+     * It returns not-null optional entity, so you should ... <br>
+     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, alwaysPresent().</span> <br>
+     * <span style="color: #AD4747; font-size: 120%">If it might be no data, get() after check by isPresent() or orElse(), ...</span>
      * <pre>
      * Vendor_non_compilableCB cb = <span style="color: #70226C">new</span> Vendor_non_compilableCB();
-     * cb.query().setFoo...(value);
-     * Vendor_non_compilable vendor_non_compilable = <span style="color: #0000C0">vendor_non_compilableBhv</span>.<span style="color: #DD4747">selectEntity</span>(cb);
-     * <span style="color: #70226C">if</span> (vendor_non_compilable != <span style="color: #70226C">null</span>) { <span style="color: #3F7E5E">// null check</span>
-     *     ... = vendor_non_compilable.get...();
-     * } <span style="color: #70226C">else</span> {
-     *     ...
-     * }
+     * cb.query().set...
+     * 
+     * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
+     * <span style="color: #0000C0">vendor_non_compilableBhv</span>.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(vendor_non_compilable <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if present, or exception</span>
+     *     ... = vendor_non_compilable.get...
+     * });
+     * 
+     * <span style="color: #3F7E5E">// if it might be no data, ...</span>
+     * <span style="color: #0000C0">vendor_non_compilableBhv</span>.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(vendor_non_compilable <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if present</span>
+     *     ... = vendor_non_compilable.get...
+     * }).<span style="color: #994747">orElse</span>(() <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if not present</span>
+     * });
      * </pre>
      * @param cb The condition-bean of Vendor_non_compilable. (NotNull)
-     * @return The entity selected by the condition. (NullAllowed: if no data, it returns null)
+     * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
-    public Vendor_non_compilable selectEntity(Vendor_non_compilableCB cb) {
+    public OptionalEntity<Vendor_non_compilable> selectEntity(Vendor_non_compilableCB cb) {
         return facadeSelectEntity(cb);
     }
 
-    protected Vendor_non_compilable facadeSelectEntity(Vendor_non_compilableCB cb) {
-        return doSelectEntity(cb, typeOfSelectedEntity());
+    protected OptionalEntity<Vendor_non_compilable> facadeSelectEntity(Vendor_non_compilableCB cb) {
+        return doSelectOptionalEntity(cb, typeOfSelectedEntity());
     }
 
     protected <ENTITY extends Vendor_non_compilable> OptionalEntity<ENTITY> doSelectOptionalEntity(Vendor_non_compilableCB cb, Class<? extends ENTITY> tp) {
         return createOptionalEntity(doSelectEntity(cb, tp), cb);
     }
 
-    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)); }
+    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElse(null); }
 
     /**
      * Select the entity by the condition-bean with deleted check. <br>
@@ -202,16 +225,17 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
     /**
      * Select the entity by the primary-key value.
      * @param non_compilable_id : PK, NotNull, int4(10). (NotNull)
-     * @return The entity selected by the PK. (NullAllowed: if no data, it returns null)
+     * @return The optional entity selected by the PK. (NotNull: if no data, empty entity)
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
-    public Vendor_non_compilable selectByPK(Integer non_compilable_id) {
+    public OptionalEntity<Vendor_non_compilable> selectByPK(Integer non_compilable_id) {
         return facadeSelectByPK(non_compilable_id);
     }
 
-    protected Vendor_non_compilable facadeSelectByPK(Integer non_compilable_id) {
-        return doSelectByPK(non_compilable_id, typeOfSelectedEntity());
+    protected OptionalEntity<Vendor_non_compilable> facadeSelectByPK(Integer non_compilable_id) {
+        return doSelectOptionalByPK(non_compilable_id, typeOfSelectedEntity());
     }
 
     protected <ENTITY extends Vendor_non_compilable> ENTITY doSelectByPK(Integer non_compilable_id, Class<? extends ENTITY> tp) {
@@ -393,7 +417,7 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      * Select the scalar value derived by a function from uniquely-selected records. <br>
      * You should call a function method after this method called like as follows:
      * <pre>
-     * <span style="color: #0000C0">vendor_non_compilableBhv</span>.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">vendor_non_compilableBhv</span>.<span style="color: #CC4747">selectScalar</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...</span>; <span style="color: #3F7E5E">// required for the function</span>
      *     <span style="color: #553000">cb</span>.query().set...
      * });
@@ -402,7 +426,7 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      * @param resultType The type of result. (NotNull)
      * @return The scalar function object to specify function for scalar value. (NotNull)
      */
-    public <RESULT> HpSLSFunction<Vendor_non_compilableCB, RESULT> scalarSelect(Class<RESULT> resultType) {
+    public <RESULT> HpSLSFunction<Vendor_non_compilableCB, RESULT> selectScalar(Class<RESULT> resultType) {
         return facadeScalarSelect(resultType);
     }
 
@@ -411,7 +435,7 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
     //                                                                            ========
     @Override
     protected Number doReadNextVal() {
-        String msg = "This table is NOT related to sequence: " + getTableDbName();
+        String msg = "This table is NOT related to sequence: " + asTableDbName();
         throw new UnsupportedOperationException(msg);
     }
 
@@ -492,7 +516,7 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      * Load referrer of vendor_non_compilableByNextParentidSelfList by the set-upper of referrer. <br>
      * VENDOR-NON COMPILABLE by Next_ParentID, named 'vendor_non_compilableByNextParentidSelfList'.
      * <pre>
-     * <span style="color: #0000C0">vendor_non_compilableBhv</span>.<span style="color: #CC4747">loadVendor_non_compilableByNextParentidSelfList</span>(<span style="color: #553000">vendor_non_compilableList</span>, <span style="color: #553000">entityCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">vendor_non_compilableBhv</span>.<span style="color: #CC4747">loadVendor_non_compilableByNextParentidSelf</span>(<span style="color: #553000">vendor_non_compilableList</span>, <span style="color: #553000">entityCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">entityCB</span>.setupSelect...
      *     <span style="color: #553000">entityCB</span>.query().set...
      *     <span style="color: #553000">entityCB</span>.query().addOrderBy...
@@ -514,16 +538,16 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<Vendor_non_compilable> loadVendor_non_compilableByNextParentidSelfList(List<Vendor_non_compilable> vendor_non_compilableList, ConditionBeanSetupper<Vendor_non_compilableCB> refCBLambda) {
+    public NestedReferrerListGateway<Vendor_non_compilable> loadVendor_non_compilableByNextParentidSelf(List<Vendor_non_compilable> vendor_non_compilableList, ConditionBeanSetupper<Vendor_non_compilableCB> refCBLambda) {
         xassLRArg(vendor_non_compilableList, refCBLambda);
-        return doLoadVendor_non_compilableByNextParentidSelfList(vendor_non_compilableList, new LoadReferrerOption<Vendor_non_compilableCB, Vendor_non_compilable>().xinit(refCBLambda));
+        return doLoadVendor_non_compilableByNextParentidSelf(vendor_non_compilableList, new LoadReferrerOption<Vendor_non_compilableCB, Vendor_non_compilable>().xinit(refCBLambda));
     }
 
     /**
      * Load referrer of vendor_non_compilableByNextParentidSelfList by the set-upper of referrer. <br>
      * VENDOR-NON COMPILABLE by Next_ParentID, named 'vendor_non_compilableByNextParentidSelfList'.
      * <pre>
-     * <span style="color: #0000C0">vendor_non_compilableBhv</span>.<span style="color: #CC4747">loadVendor_non_compilableByNextParentidSelfList</span>(<span style="color: #553000">vendor_non_compilable</span>, <span style="color: #553000">entityCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">vendor_non_compilableBhv</span>.<span style="color: #CC4747">loadVendor_non_compilableByNextParentidSelf</span>(<span style="color: #553000">vendor_non_compilable</span>, <span style="color: #553000">entityCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">entityCB</span>.setupSelect...
      *     <span style="color: #553000">entityCB</span>.query().set...
      *     <span style="color: #553000">entityCB</span>.query().addOrderBy...
@@ -543,9 +567,9 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<Vendor_non_compilable> loadVendor_non_compilableByNextParentidSelfList(Vendor_non_compilable vendor_non_compilable, ConditionBeanSetupper<Vendor_non_compilableCB> refCBLambda) {
+    public NestedReferrerListGateway<Vendor_non_compilable> loadVendor_non_compilableByNextParentidSelf(Vendor_non_compilable vendor_non_compilable, ConditionBeanSetupper<Vendor_non_compilableCB> refCBLambda) {
         xassLRArg(vendor_non_compilable, refCBLambda);
-        return doLoadVendor_non_compilableByNextParentidSelfList(xnewLRLs(vendor_non_compilable), new LoadReferrerOption<Vendor_non_compilableCB, Vendor_non_compilable>().xinit(refCBLambda));
+        return doLoadVendor_non_compilableByNextParentidSelf(xnewLRLs(vendor_non_compilable), new LoadReferrerOption<Vendor_non_compilableCB, Vendor_non_compilable>().xinit(refCBLambda));
     }
 
     /**
@@ -554,9 +578,9 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      * @param loadReferrerOption The option of load-referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<Vendor_non_compilable> loadVendor_non_compilableByNextParentidSelfList(Vendor_non_compilable vendor_non_compilable, LoadReferrerOption<Vendor_non_compilableCB, Vendor_non_compilable> loadReferrerOption) {
+    public NestedReferrerListGateway<Vendor_non_compilable> loadVendor_non_compilableByNextParentidSelf(Vendor_non_compilable vendor_non_compilable, LoadReferrerOption<Vendor_non_compilableCB, Vendor_non_compilable> loadReferrerOption) {
         xassLRArg(vendor_non_compilable, loadReferrerOption);
-        return loadVendor_non_compilableByNextParentidSelfList(xnewLRLs(vendor_non_compilable), loadReferrerOption);
+        return loadVendor_non_compilableByNextParentidSelf(xnewLRLs(vendor_non_compilable), loadReferrerOption);
     }
 
     /**
@@ -566,13 +590,13 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
     @SuppressWarnings("unchecked")
-    public NestedReferrerListGateway<Vendor_non_compilable> loadVendor_non_compilableByNextParentidSelfList(List<Vendor_non_compilable> vendor_non_compilableList, LoadReferrerOption<Vendor_non_compilableCB, Vendor_non_compilable> loadReferrerOption) {
+    public NestedReferrerListGateway<Vendor_non_compilable> loadVendor_non_compilableByNextParentidSelf(List<Vendor_non_compilable> vendor_non_compilableList, LoadReferrerOption<Vendor_non_compilableCB, Vendor_non_compilable> loadReferrerOption) {
         xassLRArg(vendor_non_compilableList, loadReferrerOption);
         if (vendor_non_compilableList.isEmpty()) { return (NestedReferrerListGateway<Vendor_non_compilable>)EMPTY_NREF_LGWAY; }
-        return doLoadVendor_non_compilableByNextParentidSelfList(vendor_non_compilableList, loadReferrerOption);
+        return doLoadVendor_non_compilableByNextParentidSelf(vendor_non_compilableList, loadReferrerOption);
     }
 
-    protected NestedReferrerListGateway<Vendor_non_compilable> doLoadVendor_non_compilableByNextParentidSelfList(List<Vendor_non_compilable> vendor_non_compilableList, LoadReferrerOption<Vendor_non_compilableCB, Vendor_non_compilable> option) {
+    protected NestedReferrerListGateway<Vendor_non_compilable> doLoadVendor_non_compilableByNextParentidSelf(List<Vendor_non_compilable> vendor_non_compilableList, LoadReferrerOption<Vendor_non_compilableCB, Vendor_non_compilable> option) {
         return helpLoadReferrerInternally(vendor_non_compilableList, option, "vendor_non_compilableByNextParentidSelfList");
     }
 
@@ -580,7 +604,7 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      * Load referrer of vendor_non_compilableByParent_idSelfList by the set-upper of referrer. <br>
      * VENDOR-NON COMPILABLE by PARENT-ID, named 'vendor_non_compilableByParent_idSelfList'.
      * <pre>
-     * <span style="color: #0000C0">vendor_non_compilableBhv</span>.<span style="color: #CC4747">loadVendor_non_compilableByParent_idSelfList</span>(<span style="color: #553000">vendor_non_compilableList</span>, <span style="color: #553000">entityCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">vendor_non_compilableBhv</span>.<span style="color: #CC4747">loadVendor_non_compilableByParent_idSelf</span>(<span style="color: #553000">vendor_non_compilableList</span>, <span style="color: #553000">entityCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">entityCB</span>.setupSelect...
      *     <span style="color: #553000">entityCB</span>.query().set...
      *     <span style="color: #553000">entityCB</span>.query().addOrderBy...
@@ -602,16 +626,16 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<Vendor_non_compilable> loadVendor_non_compilableByParent_idSelfList(List<Vendor_non_compilable> vendor_non_compilableList, ConditionBeanSetupper<Vendor_non_compilableCB> refCBLambda) {
+    public NestedReferrerListGateway<Vendor_non_compilable> loadVendor_non_compilableByParent_idSelf(List<Vendor_non_compilable> vendor_non_compilableList, ConditionBeanSetupper<Vendor_non_compilableCB> refCBLambda) {
         xassLRArg(vendor_non_compilableList, refCBLambda);
-        return doLoadVendor_non_compilableByParent_idSelfList(vendor_non_compilableList, new LoadReferrerOption<Vendor_non_compilableCB, Vendor_non_compilable>().xinit(refCBLambda));
+        return doLoadVendor_non_compilableByParent_idSelf(vendor_non_compilableList, new LoadReferrerOption<Vendor_non_compilableCB, Vendor_non_compilable>().xinit(refCBLambda));
     }
 
     /**
      * Load referrer of vendor_non_compilableByParent_idSelfList by the set-upper of referrer. <br>
      * VENDOR-NON COMPILABLE by PARENT-ID, named 'vendor_non_compilableByParent_idSelfList'.
      * <pre>
-     * <span style="color: #0000C0">vendor_non_compilableBhv</span>.<span style="color: #CC4747">loadVendor_non_compilableByParent_idSelfList</span>(<span style="color: #553000">vendor_non_compilable</span>, <span style="color: #553000">entityCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">vendor_non_compilableBhv</span>.<span style="color: #CC4747">loadVendor_non_compilableByParent_idSelf</span>(<span style="color: #553000">vendor_non_compilable</span>, <span style="color: #553000">entityCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">entityCB</span>.setupSelect...
      *     <span style="color: #553000">entityCB</span>.query().set...
      *     <span style="color: #553000">entityCB</span>.query().addOrderBy...
@@ -631,9 +655,9 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<Vendor_non_compilable> loadVendor_non_compilableByParent_idSelfList(Vendor_non_compilable vendor_non_compilable, ConditionBeanSetupper<Vendor_non_compilableCB> refCBLambda) {
+    public NestedReferrerListGateway<Vendor_non_compilable> loadVendor_non_compilableByParent_idSelf(Vendor_non_compilable vendor_non_compilable, ConditionBeanSetupper<Vendor_non_compilableCB> refCBLambda) {
         xassLRArg(vendor_non_compilable, refCBLambda);
-        return doLoadVendor_non_compilableByParent_idSelfList(xnewLRLs(vendor_non_compilable), new LoadReferrerOption<Vendor_non_compilableCB, Vendor_non_compilable>().xinit(refCBLambda));
+        return doLoadVendor_non_compilableByParent_idSelf(xnewLRLs(vendor_non_compilable), new LoadReferrerOption<Vendor_non_compilableCB, Vendor_non_compilable>().xinit(refCBLambda));
     }
 
     /**
@@ -642,9 +666,9 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      * @param loadReferrerOption The option of load-referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<Vendor_non_compilable> loadVendor_non_compilableByParent_idSelfList(Vendor_non_compilable vendor_non_compilable, LoadReferrerOption<Vendor_non_compilableCB, Vendor_non_compilable> loadReferrerOption) {
+    public NestedReferrerListGateway<Vendor_non_compilable> loadVendor_non_compilableByParent_idSelf(Vendor_non_compilable vendor_non_compilable, LoadReferrerOption<Vendor_non_compilableCB, Vendor_non_compilable> loadReferrerOption) {
         xassLRArg(vendor_non_compilable, loadReferrerOption);
-        return loadVendor_non_compilableByParent_idSelfList(xnewLRLs(vendor_non_compilable), loadReferrerOption);
+        return loadVendor_non_compilableByParent_idSelf(xnewLRLs(vendor_non_compilable), loadReferrerOption);
     }
 
     /**
@@ -654,13 +678,13 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
     @SuppressWarnings("unchecked")
-    public NestedReferrerListGateway<Vendor_non_compilable> loadVendor_non_compilableByParent_idSelfList(List<Vendor_non_compilable> vendor_non_compilableList, LoadReferrerOption<Vendor_non_compilableCB, Vendor_non_compilable> loadReferrerOption) {
+    public NestedReferrerListGateway<Vendor_non_compilable> loadVendor_non_compilableByParent_idSelf(List<Vendor_non_compilable> vendor_non_compilableList, LoadReferrerOption<Vendor_non_compilableCB, Vendor_non_compilable> loadReferrerOption) {
         xassLRArg(vendor_non_compilableList, loadReferrerOption);
         if (vendor_non_compilableList.isEmpty()) { return (NestedReferrerListGateway<Vendor_non_compilable>)EMPTY_NREF_LGWAY; }
-        return doLoadVendor_non_compilableByParent_idSelfList(vendor_non_compilableList, loadReferrerOption);
+        return doLoadVendor_non_compilableByParent_idSelf(vendor_non_compilableList, loadReferrerOption);
     }
 
-    protected NestedReferrerListGateway<Vendor_non_compilable> doLoadVendor_non_compilableByParent_idSelfList(List<Vendor_non_compilable> vendor_non_compilableList, LoadReferrerOption<Vendor_non_compilableCB, Vendor_non_compilable> option) {
+    protected NestedReferrerListGateway<Vendor_non_compilable> doLoadVendor_non_compilableByParent_idSelf(List<Vendor_non_compilable> vendor_non_compilableList, LoadReferrerOption<Vendor_non_compilableCB, Vendor_non_compilable> option) {
         return helpLoadReferrerInternally(vendor_non_compilableList, option, "vendor_non_compilableByParent_idSelfList");
     }
 
@@ -729,11 +753,7 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      * <span style="color: #3F7E5E">//vendor_non_compilable.set...;</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * vendor_non_compilable.<span style="color: #CC4747">setVersionNo</span>(value);
-     * try {
-     *     <span style="color: #0000C0">vendor_non_compilableBhv</span>.<span style="color: #CC4747">update</span>(vendor_non_compilable);
-     * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
-     *     ...
-     * }
+     * <span style="color: #0000C0">vendor_non_compilableBhv</span>.<span style="color: #CC4747">update</span>(vendor_non_compilable);
      * </pre>
      * @param vendor_non_compilable The entity of update. (NotNull, PrimaryKeyNotNull)
      * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
@@ -894,9 +914,9 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
      * <span style="color: #3F7E5E">//vendor_non_compilable.setVersionNo(value);</span>
-     * Vendor_non_compilableCB cb = <span style="color: #70226C">new</span> Vendor_non_compilableCB();
-     * cb.query().setFoo...(value);
-     * <span style="color: #0000C0">vendor_non_compilableBhv</span>.<span style="color: #CC4747">queryUpdate</span>(vendor_non_compilable, cb);
+     * <span style="color: #0000C0">vendor_non_compilableBhv</span>.<span style="color: #CC4747">queryUpdate</span>(vendor_non_compilable, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * });
      * </pre>
      * @param vendor_non_compilable The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cbLambda The callback for condition-bean of Vendor_non_compilable. (NotNull)
@@ -936,9 +956,9 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * Vendor_non_compilableCB cb = new Vendor_non_compilableCB();
-     * cb.query().setFoo...(value);
-     * <span style="color: #0000C0">vendor_non_compilableBhv</span>.<span style="color: #CC4747">queryDelete</span>(vendor_non_compilable, cb);
+     * <span style="color: #0000C0">vendor_non_compilableBhv</span>.<span style="color: #CC4747">queryDelete</span>(vendor_non_compilable, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of Vendor_non_compilable. (NotNull)
      * @return The deleted count.
@@ -978,10 +998,10 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      * <span style="color: #3F7E5E">// if auto-increment, you don't need to set the PK value</span>
      * vendor_non_compilable.setFoo...(value);
      * vendor_non_compilable.setBar...(value);
-     * InsertOption&lt;Vendor_non_compilableCB&gt; option = new InsertOption&lt;Vendor_non_compilableCB&gt;();
-     * <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
-     * option.disableCommonColumnAutoSetup();
-     * <span style="color: #0000C0">vendor_non_compilableBhv</span>.<span style="color: #CC4747">varyingInsert</span>(vendor_non_compilable, option);
+     * <span style="color: #0000C0">vendor_non_compilableBhv</span>.<span style="color: #CC4747">varyingInsert</span>(vendor_non_compilable, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
+     *     <span style="color: #553000">op</span>.disableCommonColumnAutoSetup();
+     * });
      * ... = vendor_non_compilable.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * @param vendor_non_compilable The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
@@ -1002,18 +1022,12 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      * vendor_non_compilable.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * vendor_non_compilable.<span style="color: #CC4747">setVersionNo</span>(value);
-     * <span style="color: #70226C">try</span> {
-     *     <span style="color: #3F7E5E">// you can update by self calculation values</span>
-     *     UpdateOption&lt;Vendor_non_compilableCB&gt; option = new UpdateOption&lt;Vendor_non_compilableCB&gt;();
-     *     option.self(new SpecifyQuery&lt;Vendor_non_compilableCB&gt;() {
-     *         public void specify(Vendor_non_compilableCB cb) {
-     *             cb.specify().<span style="color: #CC4747">columnXxxCount()</span>;
-     *         }
+     * <span style="color: #3F7E5E">// you can update by self calculation values</span>
+     * <span style="color: #0000C0">vendor_non_compilableBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(vendor_non_compilable, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">columnXxxCount()</span>;
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
-     *     <span style="color: #0000C0">vendor_non_compilableBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(vendor_non_compilable, option);
-     * } <span style="color: #70226C">catch</span> (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
-     *     ...
-     * }
+     * });
      * </pre>
      * @param vendor_non_compilable The entity of update. (NotNull, PrimaryKeyNotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
@@ -1122,15 +1136,13 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
      * <span style="color: #3F7E5E">//vendor_non_compilable.setVersionNo(value);</span>
-     * Vendor_non_compilableCB cb = new Vendor_non_compilableCB();
-     * cb.query().setFoo...(value);
-     * UpdateOption&lt;Vendor_non_compilableCB&gt; option = <span style="color: #70226C">new</span> UpdateOption&lt;Vendor_non_compilableCB&gt;();
-     * option.self(new SpecifyQuery&lt;Vendor_non_compilableCB&gt;() {
-     *     public void specify(Vendor_non_compilableCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
-     *     }
-     * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * <span style="color: #0000C0">vendor_non_compilableBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(vendor_non_compilable, cb, option);
+     * <span style="color: #0000C0">vendor_non_compilableBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(vendor_non_compilable, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * }, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">colCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">colCB</span>.specify().<span style="color: #CC4747">columnFooCount()</span>;
+     *     }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
+     * });
      * </pre>
      * @param vendor_non_compilable The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cbLambda The callback for condition-bean of Vendor_non_compilable. (NotNull)
@@ -1158,13 +1170,11 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      * <span style="color: #3F7E5E">//vendor_non_compilable.setVersionNo(value);</span>
      * Vendor_non_compilableCB cb = <span style="color: #70226C">new</span> Vendor_non_compilableCB();
      * cb.query().setFoo...(value);
-     * UpdateOption&lt;Vendor_non_compilableCB&gt; option = <span style="color: #70226C">new</span> UpdateOption&lt;Vendor_non_compilableCB&gt;();
-     * option.self(new SpecifyQuery&lt;Vendor_non_compilableCB&gt;() {
-     *     public void specify(Vendor_non_compilableCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
-     *     }
-     * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * <span style="color: #0000C0">vendor_non_compilableBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(vendor_non_compilable, cb, option);
+     * <span style="color: #0000C0">vendor_non_compilableBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(vendor_non_compilable, cb, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">colCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">colCB</span>.specify().<span style="color: #CC4747">columnFooCount()</span>;
+     *     }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
+     * });
      * </pre>
      * @param vendor_non_compilable The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cb The condition-bean of Vendor_non_compilable. (NotNull)
@@ -1179,7 +1189,14 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
     /**
      * Delete the several entities by query with varying requests non-strictly. <br>
      * For example, allowNonQueryDelete(). <br>
-     * Other specifications are same as batchUpdateNonstrict(entityList).
+     * Other specifications are same as queryDelete(cb).
+     * <pre>
+     * <span style="color: #0000C0">vendor_non_compilableBhv</span>.<span style="color: #CC4747">queryDelete</span>(vendor_non_compilable, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * }, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>...
+     * });
+     * </pre>
      * @param cbLambda The callback for condition-bean of Vendor_non_compilable. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
@@ -1192,7 +1209,7 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
     /**
      * Delete the several entities by query with varying requests non-strictly. <br>
      * For example, allowNonQueryDelete(). <br>
-     * Other specifications are same as batchUpdateNonstrict(entityList).
+     * Other specifications are same as queryDelete(cb).
      * @param cb The condition-bean of Vendor_non_compilable. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
@@ -1233,9 +1250,8 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      * <p>The invoker of behavior command should be not null when you call this method.</p>
      * @return The new-created all facade executor of outside-SQL. (NotNull)
      */
-    public OutsideSqlBasicExecutor<Vendor_non_compilableBhv> outsideSql() {
-        OutsideSqlAllFacadeExecutor<Vendor_non_compilableBhv> facadeExecutor = doOutsideSql();
-        return facadeExecutor.xbasicExecutor(); // variable to resolve generic type
+    public OutsideSqlAllFacadeExecutor<Vendor_non_compilableBhv> outsideSql() {
+        return doOutsideSql();
     }
 
     // ===================================================================================

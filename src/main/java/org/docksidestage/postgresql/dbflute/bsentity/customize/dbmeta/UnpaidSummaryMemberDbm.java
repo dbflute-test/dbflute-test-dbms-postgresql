@@ -37,7 +37,8 @@ public class UnpaidSummaryMemberDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((UnpaidSummaryMember)et).getUnpaidManId(), (et, vl) -> ((UnpaidSummaryMember)et).setUnpaidManId(cti(vl)), "unpaidManId");
         setupEpg(_epgMap, et -> ((UnpaidSummaryMember)et).getUnpaidManName(), (et, vl) -> ((UnpaidSummaryMember)et).setUnpaidManName((String)vl), "unpaidManName");
         setupEpg(_epgMap, et -> ((UnpaidSummaryMember)et).getUnpaidPriceSummary(), (et, vl) -> ((UnpaidSummaryMember)et).setUnpaidPriceSummary(ctl(vl)), "unpaidPriceSummary");
@@ -60,10 +61,10 @@ public class UnpaidSummaryMemberDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnUnpaidManId = cci("unpaid_man_id", "unpaid_man_id", null, null, Integer.class, "unpaidManId", null, true, false, false, "serial", 10, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnUnpaidManName = cci("unpaid_man_name", "unpaid_man_name", null, null, String.class, "unpaidManName", null, false, false, false, "varchar", 200, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnUnpaidPriceSummary = cci("unpaid_price_summary", "unpaid_price_summary", null, null, Long.class, "unpaidPriceSummary", null, false, false, false, "int8", 19, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnStatusName = cci("status_name", "status_name", null, null, String.class, "statusName", null, false, false, false, "varchar", 50, 0, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnUnpaidManId = cci("unpaid_man_id", "unpaid_man_id", null, null, Integer.class, "unpaidManId", null, true, false, false, "serial", 10, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnUnpaidManName = cci("unpaid_man_name", "unpaid_man_name", null, null, String.class, "unpaidManName", null, false, false, false, "varchar", 200, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnUnpaidPriceSummary = cci("unpaid_price_summary", "unpaid_price_summary", null, null, Long.class, "unpaidPriceSummary", null, false, false, false, "int8", 19, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnStatusName = cci("status_name", "status_name", null, null, String.class, "statusName", null, false, false, false, "varchar", 50, 0, null, false, null, null, null, null, null, false);
 
     /**
      * unpaid_man_id: {PK, serial(10), refers to member}

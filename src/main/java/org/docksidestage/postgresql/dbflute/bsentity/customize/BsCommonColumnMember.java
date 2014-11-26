@@ -42,10 +42,10 @@ import org.docksidestage.postgresql.dbflute.exentity.customize.*;
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * Integer memberId = entity.getMemberId();
  * String memberName = entity.getMemberName();
- * java.sql.Timestamp registerDatetime = entity.getRegisterDatetime();
+ * java.time.LocalDateTime registerDatetime = entity.getRegisterDatetime();
  * String registerUser = entity.getRegisterUser();
  * String registerProcess = entity.getRegisterProcess();
- * java.sql.Timestamp updateDatetime = entity.getUpdateDatetime();
+ * java.time.LocalDateTime updateDatetime = entity.getUpdateDatetime();
  * String updateUser = entity.getUpdateUser();
  * String updateProcess = entity.getUpdateProcess();
  * entity.setMemberId(memberId);
@@ -78,7 +78,7 @@ public abstract class BsCommonColumnMember extends AbstractEntity implements Cus
     protected String _memberName;
 
     /** (登録日時)register_datetime: {timestamp(26, 3), refers to member.register_datetime} */
-    protected java.sql.Timestamp _registerDatetime;
+    protected java.time.LocalDateTime _registerDatetime;
 
     /** (登録ユーザ)register_user: {varchar(200), refers to member.register_user} */
     protected String _registerUser;
@@ -87,7 +87,7 @@ public abstract class BsCommonColumnMember extends AbstractEntity implements Cus
     protected String _registerProcess;
 
     /** (更新日時)update_datetime: {timestamp(26, 3), refers to member.update_datetime} */
-    protected java.sql.Timestamp _updateDatetime;
+    protected java.time.LocalDateTime _updateDatetime;
 
     /** (更新ユーザ)update_user: {varchar(200), refers to member.update_user} */
     protected String _updateUser;
@@ -96,24 +96,16 @@ public abstract class BsCommonColumnMember extends AbstractEntity implements Cus
     protected String _updateProcess;
 
     // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public String getTableDbName() {
-        return "CommonColumnMember";
-    }
-
-    /** {@inheritDoc} */
-    public String getTablePropertyName() {
-        return "commonColumnMember";
-    }
-
-    // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
-    /** {@inheritDoc} */
-    public DBMeta getDBMeta() {
+    public DBMeta asDBMeta() {
         return org.docksidestage.postgresql.dbflute.bsentity.customize.dbmeta.CommonColumnMemberDbm.getInstance();
+    }
+
+    /** {@inheritDoc} */
+    public String asTableDbName() {
+        return "CommonColumnMember";
     }
 
     // ===================================================================================
@@ -158,7 +150,7 @@ public abstract class BsCommonColumnMember extends AbstractEntity implements Cus
     @Override
     protected int doHashCode(int initial) {
         int hs = initial;
-        hs = xCH(hs, getTableDbName());
+        hs = xCH(hs, asTableDbName());
         hs = xCH(hs, _memberId);
         hs = xCH(hs, _memberName);
         hs = xCH(hs, _registerDatetime);
@@ -257,7 +249,7 @@ public abstract class BsCommonColumnMember extends AbstractEntity implements Cus
      * どのテーブルでも同じなので、共通カラムの説明はこのテーブルでしか書かない。
      * @return The value of the column 'register_datetime'. (NullAllowed even if selected: for no constraint)
      */
-    public java.sql.Timestamp getRegisterDatetime() {
+    public java.time.LocalDateTime getRegisterDatetime() {
         checkSpecifiedProperty("registerDatetime");
         return _registerDatetime;
     }
@@ -269,7 +261,7 @@ public abstract class BsCommonColumnMember extends AbstractEntity implements Cus
      * どのテーブルでも同じなので、共通カラムの説明はこのテーブルでしか書かない。
      * @param registerDatetime The value of the column 'register_datetime'. (NullAllowed: null update allowed for no constraint)
      */
-    public void setRegisterDatetime(java.sql.Timestamp registerDatetime) {
+    public void setRegisterDatetime(java.time.LocalDateTime registerDatetime) {
         registerModifiedProperty("registerDatetime");
         _registerDatetime = registerDatetime;
     }
@@ -320,7 +312,7 @@ public abstract class BsCommonColumnMember extends AbstractEntity implements Cus
      * 業務的な利用はあまり推奨されないと別項目で説明したが、このカラムはソートの要素としてよく利用される。
      * @return The value of the column 'update_datetime'. (NullAllowed even if selected: for no constraint)
      */
-    public java.sql.Timestamp getUpdateDatetime() {
+    public java.time.LocalDateTime getUpdateDatetime() {
         checkSpecifiedProperty("updateDatetime");
         return _updateDatetime;
     }
@@ -331,7 +323,7 @@ public abstract class BsCommonColumnMember extends AbstractEntity implements Cus
      * 業務的な利用はあまり推奨されないと別項目で説明したが、このカラムはソートの要素としてよく利用される。
      * @param updateDatetime The value of the column 'update_datetime'. (NullAllowed: null update allowed for no constraint)
      */
-    public void setUpdateDatetime(java.sql.Timestamp updateDatetime) {
+    public void setUpdateDatetime(java.time.LocalDateTime updateDatetime) {
         registerModifiedProperty("updateDatetime");
         _updateDatetime = updateDatetime;
     }

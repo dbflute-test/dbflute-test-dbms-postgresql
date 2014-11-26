@@ -37,11 +37,12 @@ public class VendorPartManHighDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((VendorPartManHigh)et).getPartManId(), (et, vl) -> ((VendorPartManHigh)et).setPartManId(cti(vl)), "partManId");
         setupEpg(_epgMap, et -> ((VendorPartManHigh)et).getPartManName(), (et, vl) -> ((VendorPartManHigh)et).setPartManName((String)vl), "partManName");
         setupEpg(_epgMap, et -> ((VendorPartManHigh)et).getPartManPoint(), (et, vl) -> ((VendorPartManHigh)et).setPartManPoint(cti(vl)), "partManPoint");
-        setupEpg(_epgMap, et -> ((VendorPartManHigh)et).getPartManDate(), (et, vl) -> ((VendorPartManHigh)et).setPartManDate((java.util.Date)vl), "partManDate");
+        setupEpg(_epgMap, et -> ((VendorPartManHigh)et).getPartManDate(), (et, vl) -> ((VendorPartManHigh)et).setPartManDate((java.time.LocalDate)vl), "partManDate");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -60,10 +61,10 @@ public class VendorPartManHighDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnPartManId = cci("part_man_id", "part_man_id", null, null, Integer.class, "partManId", null, true, false, true, "int4", 10, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnPartManName = cci("part_man_name", "part_man_name", null, null, String.class, "partManName", null, false, false, true, "varchar", 2147483647, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnPartManPoint = cci("part_man_point", "part_man_point", null, null, Integer.class, "partManPoint", null, false, false, true, "int4", 10, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnPartManDate = cci("part_man_date", "part_man_date", null, null, java.util.Date.class, "partManDate", null, false, false, false, "date", 13, 0, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnPartManId = cci("part_man_id", "part_man_id", null, null, Integer.class, "partManId", null, true, false, true, "int4", 10, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnPartManName = cci("part_man_name", "part_man_name", null, null, String.class, "partManName", null, false, false, true, "varchar", 2147483647, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnPartManPoint = cci("part_man_point", "part_man_point", null, null, Integer.class, "partManPoint", null, false, false, true, "int4", 10, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnPartManDate = cci("part_man_date", "part_man_date", null, null, java.time.LocalDate.class, "partManDate", null, false, false, false, "date", 13, 0, null, false, null, null, null, null, null, false);
 
     /**
      * part_man_id: {PK, NotNull, int4(10)}

@@ -3,9 +3,11 @@ package org.docksidestage.postgresql.dbflute.bsentity;
 import java.util.List;
 import java.util.ArrayList;
 
+import org.dbflute.Entity;
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
 import org.dbflute.dbmeta.accessory.DomainEntity;
+import org.dbflute.optional.OptionalEntity;
 import org.docksidestage.postgresql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
@@ -72,24 +74,16 @@ public abstract class BsVendorUuidFoo extends AbstractEntity implements DomainEn
     protected java.util.UUID _barId;
 
     // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public String getTableDbName() {
+    public DBMeta asDBMeta() {
+        return DBMetaInstanceHandler.findDBMeta(asTableDbName());
+    }
+
+    /** {@inheritDoc} */
+    public String asTableDbName() {
         return "vendor_uuid_foo";
-    }
-
-    /** {@inheritDoc} */
-    public String getTablePropertyName() {
-        return "vendorUuidFoo";
-    }
-
-    // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
-    /** {@inheritDoc} */
-    public DBMeta getDBMeta() {
-        return DBMetaInstanceHandler.findDBMeta(getTableDbName());
     }
 
     // ===================================================================================
@@ -105,13 +99,15 @@ public abstract class BsVendorUuidFoo extends AbstractEntity implements DomainEn
     //                                                                    Foreign Property
     //                                                                    ================
     /** vendor_uuid_bar by my bar_id, named 'vendorUuidBar'. */
-    protected VendorUuidBar _vendorUuidBar;
+    protected OptionalEntity<VendorUuidBar> _vendorUuidBar;
 
     /**
      * [get] vendor_uuid_bar by my bar_id, named 'vendorUuidBar'. <br>
-     * @return The entity of foreign property 'vendorUuidBar'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'vendorUuidBar'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public VendorUuidBar getVendorUuidBar() {
+    public OptionalEntity<VendorUuidBar> getVendorUuidBar() {
+        if (_vendorUuidBar == null) { _vendorUuidBar = OptionalEntity.relationEmpty(this, "vendorUuidBar"); }
         return _vendorUuidBar;
     }
 
@@ -119,7 +115,7 @@ public abstract class BsVendorUuidFoo extends AbstractEntity implements DomainEn
      * [set] vendor_uuid_bar by my bar_id, named 'vendorUuidBar'.
      * @param vendorUuidBar The entity of foreign property 'vendorUuidBar'. (NullAllowed)
      */
-    public void setVendorUuidBar(VendorUuidBar vendorUuidBar) {
+    public void setVendorUuidBar(OptionalEntity<VendorUuidBar> vendorUuidBar) {
         _vendorUuidBar = vendorUuidBar;
     }
 
@@ -147,7 +143,7 @@ public abstract class BsVendorUuidFoo extends AbstractEntity implements DomainEn
     @Override
     protected int doHashCode(int initial) {
         int hs = initial;
-        hs = xCH(hs, getTableDbName());
+        hs = xCH(hs, asTableDbName());
         hs = xCH(hs, _fooId);
         return hs;
     }
@@ -155,9 +151,12 @@ public abstract class BsVendorUuidFoo extends AbstractEntity implements DomainEn
     @Override
     protected String doBuildStringWithRelation(String li) {
         StringBuilder sb = new StringBuilder();
-        if (_vendorUuidBar != null)
+        if (_vendorUuidBar != null && _vendorUuidBar.isPresent())
         { sb.append(li).append(xbRDS(_vendorUuidBar, "vendorUuidBar")); }
         return sb.toString();
+    }
+    protected <ET extends Entity> String xbRDS(org.dbflute.optional.OptionalEntity<ET> et, String name) { // buildRelationDisplayString()
+        return et.get().buildDisplayString(name, true, true);
     }
 
     @Override
@@ -176,7 +175,7 @@ public abstract class BsVendorUuidFoo extends AbstractEntity implements DomainEn
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_vendorUuidBar != null)
+        if (_vendorUuidBar != null && _vendorUuidBar.isPresent())
         { sb.append(dm).append("vendorUuidBar"); }
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length()).insert(0, "(").append(")");

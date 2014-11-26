@@ -61,14 +61,14 @@ public class LoaderOfVendorDatePk {
     // ===================================================================================
     //                                                                       Load Referrer
     //                                                                       =============
-    protected List<VendorDateFk> _referrerVendorDateFkList;
+    protected List<VendorDateFk> _referrerVendorDateFk;
 
     /**
      * Load referrer of vendorDateFkList by the set-upper of referrer. <br>
      * vendor_date_fk by bar_date, named 'vendorDateFkList'.
      * <pre>
      * <span style="color: #0000C0">vendorDatePkBhv</span>.<span style="color: #994747">load</span>(<span style="color: #553000">vendorDatePkList</span>, <span style="color: #553000">pkLoader</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
-     *     <span style="color: #553000">pkLoader</span>.<span style="color: #CC4747">loadVendorDateFkList</span>(<span style="color: #553000">fkCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">pkLoader</span>.<span style="color: #CC4747">loadVendorDateFk</span>(<span style="color: #553000">fkCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *         <span style="color: #553000">fkCB</span>.setupSelect...
      *         <span style="color: #553000">fkCB</span>.query().set...
      *         <span style="color: #553000">fkCB</span>.query().addOrderBy...
@@ -90,9 +90,9 @@ public class LoaderOfVendorDatePk {
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerLoaderGateway<LoaderOfVendorDateFk> loadVendorDateFkList(ConditionBeanSetupper<VendorDateFkCB> refCBLambda) {
-        myBhv().loadVendorDateFkList(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerVendorDateFkList = refLs);
-        return hd -> hd.handle(new LoaderOfVendorDateFk().ready(_referrerVendorDateFkList, _selector));
+    public NestedReferrerLoaderGateway<LoaderOfVendorDateFk> loadVendorDateFk(ConditionBeanSetupper<VendorDateFkCB> refCBLambda) {
+        myBhv().loadVendorDateFk(_selectedList, refCBLambda).withNestedReferrer(refLs -> _referrerVendorDateFk = refLs);
+        return hd -> hd.handle(new LoaderOfVendorDateFk().ready(_referrerVendorDateFk, _selector));
     }
 
     // ===================================================================================

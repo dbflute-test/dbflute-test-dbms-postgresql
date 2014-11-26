@@ -272,14 +272,14 @@ public class VendorQueryTest extends UnitContainerTestCase {
     public void test_query_derivedReferrer_between_Integer() {
         // ## Arrange ##
         MemberCB cb = new MemberCB();
-        cb.specify().derivedPurchaseList().sum(new SubQuery<PurchaseCB>() {
+        cb.specify().derivedPurchase().sum(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
                 subCB.specify().columnPurchaseCount();
             }
         }, Member.ALIAS_loginCount); // rental property
         Integer fromCount = 3;
         Integer toCount = 6;
-        cb.query().derivedPurchaseList().sum(new SubQuery<PurchaseCB>() {
+        cb.query().derivedPurchase().sum(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
                 subCB.specify().columnPurchaseCount();
             }
@@ -302,14 +302,14 @@ public class VendorQueryTest extends UnitContainerTestCase {
     public void test_query_derivedReferrer_between_Date() {
         // ## Arrange ##
         MemberCB cb = new MemberCB();
-        cb.specify().derivedPurchaseList().max(new SubQuery<PurchaseCB>() {
+        cb.specify().derivedPurchase().max(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
                 subCB.specify().columnPurchaseDatetime();
             }
         }, Member.ALIAS_latestLoginDatetime); // rental
         Date fromDate = toDate("2007/11/01");
         Date toDate = toDate("2007/11/02");
-        cb.query().derivedPurchaseList().max(new SubQuery<PurchaseCB>() {
+        cb.query().derivedPurchase().max(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
                 subCB.specify().columnPurchaseDatetime();
             }

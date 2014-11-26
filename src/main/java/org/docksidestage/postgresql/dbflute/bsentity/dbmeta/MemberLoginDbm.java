@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.dbflute.Entity;
+import org.dbflute.optional.OptionalEntity;
 import org.dbflute.dbmeta.AbstractDBMeta;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
@@ -37,10 +38,11 @@ public class MemberLoginDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((MemberLogin)et).getMemberLoginId(), (et, vl) -> ((MemberLogin)et).setMemberLoginId(ctl(vl)), "memberLoginId");
         setupEpg(_epgMap, et -> ((MemberLogin)et).getMemberId(), (et, vl) -> ((MemberLogin)et).setMemberId(cti(vl)), "memberId");
-        setupEpg(_epgMap, et -> ((MemberLogin)et).getLoginDatetime(), (et, vl) -> ((MemberLogin)et).setLoginDatetime((java.sql.Timestamp)vl), "loginDatetime");
+        setupEpg(_epgMap, et -> ((MemberLogin)et).getLoginDatetime(), (et, vl) -> ((MemberLogin)et).setLoginDatetime((java.time.LocalDateTime)vl), "loginDatetime");
         setupEpg(_epgMap, et -> ((MemberLogin)et).getMobileLoginFlg(), (et, vl) -> {
             ColumnInfo col = columnMobileLoginFlg();
             CDef.Flg cls = (CDef.Flg)gcls(col, vl);
@@ -68,9 +70,10 @@ public class MemberLoginDbm extends AbstractDBMeta {
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
     { xsetupEfpg(); }
+    @SuppressWarnings("unchecked")
     protected void xsetupEfpg() {
-        setupEfpg(_efpgMap, et -> ((MemberLogin)et).getMemberStatus(), (et, vl) -> ((MemberLogin)et).setMemberStatus((MemberStatus)vl), "memberStatus");
-        setupEfpg(_efpgMap, et -> ((MemberLogin)et).getMember(), (et, vl) -> ((MemberLogin)et).setMember((Member)vl), "member");
+        setupEfpg(_efpgMap, et -> ((MemberLogin)et).getMemberStatus(), (et, vl) -> ((MemberLogin)et).setMemberStatus((OptionalEntity<MemberStatus>)vl), "memberStatus");
+        setupEfpg(_efpgMap, et -> ((MemberLogin)et).getMember(), (et, vl) -> ((MemberLogin)et).setMember((OptionalEntity<Member>)vl), "member");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }
@@ -93,11 +96,11 @@ public class MemberLoginDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnMemberLoginId = cci("member_login_id", "member_login_id", null, "会員ログインID", Long.class, "memberLoginId", null, true, true, true, "bigserial", 19, 0, "nextval('member_login_member_login_id_seq'::regclass)", false, null, null, null, null, null);
-    protected final ColumnInfo _columnMemberId = cci("member_id", "member_id", null, "会員ID", Integer.class, "memberId", null, false, false, true, "int4", 10, 0, null, false, null, null, "member", null, null);
-    protected final ColumnInfo _columnLoginDatetime = cci("login_datetime", "login_datetime", null, "ログイン日時", java.sql.Timestamp.class, "loginDatetime", null, false, false, true, "timestamp", 26, 3, null, false, null, "ログインした瞬間の日時。", null, null, null);
-    protected final ColumnInfo _columnMobileLoginFlg = cci("mobile_login_flg", "mobile_login_flg", null, "モバイルログインフラグ", Integer.class, "mobileLoginFlg", null, false, false, true, "int4", 10, 0, null, false, null, "モバイル機器からのログインか否か。", null, null, CDef.DefMeta.Flg);
-    protected final ColumnInfo _columnLoginMemberStatusCode = cci("login_member_status_code", "login_member_status_code", null, "ログイン会員ステータスコード", String.class, "loginMemberStatusCode", null, false, false, true, "bpchar", 3, 0, null, false, null, "ログイン時の会員ステータス", "memberStatus", null, CDef.DefMeta.MemberStatus);
+    protected final ColumnInfo _columnMemberLoginId = cci("member_login_id", "member_login_id", null, "会員ログインID", Long.class, "memberLoginId", null, true, true, true, "bigserial", 19, 0, "nextval('member_login_member_login_id_seq'::regclass)", false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnMemberId = cci("member_id", "member_id", null, "会員ID", Integer.class, "memberId", null, false, false, true, "int4", 10, 0, null, false, null, null, "member", null, null, false);
+    protected final ColumnInfo _columnLoginDatetime = cci("login_datetime", "login_datetime", null, "ログイン日時", java.time.LocalDateTime.class, "loginDatetime", null, false, false, true, "timestamp", 26, 3, null, false, null, "ログインした瞬間の日時。", null, null, null, false);
+    protected final ColumnInfo _columnMobileLoginFlg = cci("mobile_login_flg", "mobile_login_flg", null, "モバイルログインフラグ", Integer.class, "mobileLoginFlg", null, false, false, true, "int4", 10, 0, null, false, null, "モバイル機器からのログインか否か。", null, null, CDef.DefMeta.Flg, false);
+    protected final ColumnInfo _columnLoginMemberStatusCode = cci("login_member_status_code", "login_member_status_code", null, "ログイン会員ステータスコード", String.class, "loginMemberStatusCode", null, false, false, true, "bpchar", 3, 0, null, false, null, "ログイン時の会員ステータス", "memberStatus", null, CDef.DefMeta.MemberStatus, false);
 
     /**
      * (会員ログインID)member_login_id: {PK, ID, NotNull, bigserial(19)}
@@ -161,7 +164,7 @@ public class MemberLoginDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignMemberStatus() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnLoginMemberStatusCode(), MemberStatusDbm.getInstance().columnMemberStatusCode());
-        return cfi("fk_member_login_member_status", "memberStatus", this, MemberStatusDbm.getInstance(), mp, 0, null, false, false, false, false, null, null, false, "memberLoginList");
+        return cfi("fk_member_login_member_status", "memberStatus", this, MemberStatusDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "memberLoginList", false);
     }
     /**
      * (会員)member by my member_id, named 'member'.
@@ -169,7 +172,7 @@ public class MemberLoginDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignMember() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnMemberId(), MemberDbm.getInstance().columnMemberId());
-        return cfi("fk_member_login_member", "member", this, MemberDbm.getInstance(), mp, 1, null, false, false, false, false, null, null, false, "memberLoginList");
+        return cfi("fk_member_login_member", "member", this, MemberDbm.getInstance(), mp, 1, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "memberLoginList", false);
     }
 
     // -----------------------------------------------------

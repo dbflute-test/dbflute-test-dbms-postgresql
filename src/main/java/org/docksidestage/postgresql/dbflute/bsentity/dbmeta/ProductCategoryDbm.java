@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.dbflute.Entity;
+import org.dbflute.optional.OptionalEntity;
 import org.dbflute.dbmeta.AbstractDBMeta;
 import org.dbflute.dbmeta.info.*;
 import org.dbflute.dbmeta.name.*;
@@ -37,7 +38,8 @@ public class ProductCategoryDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((ProductCategory)et).getProductCategoryCode(), (et, vl) -> ((ProductCategory)et).setProductCategoryCode((String)vl), "productCategoryCode");
         setupEpg(_epgMap, et -> ((ProductCategory)et).getProductCategoryName(), (et, vl) -> ((ProductCategory)et).setProductCategoryName((String)vl), "productCategoryName");
         setupEpg(_epgMap, et -> ((ProductCategory)et).getParentCategoryCode(), (et, vl) -> ((ProductCategory)et).setParentCategoryCode((String)vl), "parentCategoryCode");
@@ -50,8 +52,9 @@ public class ProductCategoryDbm extends AbstractDBMeta {
     //                                      ----------------
     protected final Map<String, PropertyGateway> _efpgMap = newHashMap();
     { xsetupEfpg(); }
+    @SuppressWarnings("unchecked")
     protected void xsetupEfpg() {
-        setupEfpg(_efpgMap, et -> ((ProductCategory)et).getProductCategorySelf(), (et, vl) -> ((ProductCategory)et).setProductCategorySelf((ProductCategory)vl), "productCategorySelf");
+        setupEfpg(_efpgMap, et -> ((ProductCategory)et).getProductCategorySelf(), (et, vl) -> ((ProductCategory)et).setProductCategorySelf((OptionalEntity<ProductCategory>)vl), "productCategorySelf");
     }
     public PropertyGateway findForeignPropertyGateway(String prop)
     { return doFindEfpg(_efpgMap, prop); }
@@ -74,9 +77,9 @@ public class ProductCategoryDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnProductCategoryCode = cci("product_category_code", "product_category_code", null, "商品カテゴリコード", String.class, "productCategoryCode", null, true, false, true, "bpchar", 3, 0, null, false, null, null, null, "productList,productCategorySelfList", null);
-    protected final ColumnInfo _columnProductCategoryName = cci("product_category_name", "product_category_name", null, "商品カテゴリ名称", String.class, "productCategoryName", null, false, false, true, "varchar", 50, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnParentCategoryCode = cci("parent_category_code", "parent_category_code", null, "親カテゴリコード", String.class, "parentCategoryCode", null, false, false, false, "bpchar", 3, 0, null, false, null, "最上位の場合はデータなし。", "productCategorySelf", null, null);
+    protected final ColumnInfo _columnProductCategoryCode = cci("product_category_code", "product_category_code", null, "商品カテゴリコード", String.class, "productCategoryCode", null, true, false, true, "bpchar", 3, 0, null, false, null, null, null, "productList,productCategorySelfList", null, false);
+    protected final ColumnInfo _columnProductCategoryName = cci("product_category_name", "product_category_name", null, "商品カテゴリ名称", String.class, "productCategoryName", null, false, false, true, "varchar", 50, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnParentCategoryCode = cci("parent_category_code", "parent_category_code", null, "親カテゴリコード", String.class, "parentCategoryCode", null, false, false, false, "bpchar", 3, 0, null, false, null, "最上位の場合はデータなし。", "productCategorySelf", null, null, false);
 
     /**
      * (商品カテゴリコード)product_category_code: {PK, NotNull, bpchar(3)}
@@ -128,7 +131,7 @@ public class ProductCategoryDbm extends AbstractDBMeta {
      */
     public ForeignInfo foreignProductCategorySelf() {
         Map<ColumnInfo, ColumnInfo> mp = newLinkedHashMap(columnParentCategoryCode(), ProductCategoryDbm.getInstance().columnProductCategoryCode());
-        return cfi("fk_product_category_parent", "productCategorySelf", this, ProductCategoryDbm.getInstance(), mp, 0, null, false, false, false, false, null, null, false, "productCategorySelfList");
+        return cfi("fk_product_category_parent", "productCategorySelf", this, ProductCategoryDbm.getInstance(), mp, 0, org.dbflute.optional.OptionalEntity.class, false, false, false, false, null, null, false, "productCategorySelfList", false);
     }
 
     // -----------------------------------------------------

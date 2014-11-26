@@ -3,9 +3,11 @@ package org.docksidestage.postgresql.dbflute.bsentity;
 import java.util.List;
 import java.util.ArrayList;
 
+import org.dbflute.Entity;
 import org.dbflute.dbmeta.DBMeta;
 import org.dbflute.dbmeta.AbstractEntity;
 import org.dbflute.dbmeta.accessory.DomainEntity;
+import org.dbflute.optional.OptionalEntity;
 import org.docksidestage.postgresql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
@@ -77,24 +79,16 @@ public abstract class BsWhiteCompoundPkRef extends AbstractEntity implements Dom
     protected Integer _refSecondId;
 
     // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public String getTableDbName() {
+    public DBMeta asDBMeta() {
+        return DBMetaInstanceHandler.findDBMeta(asTableDbName());
+    }
+
+    /** {@inheritDoc} */
+    public String asTableDbName() {
         return "white_compound_pk_ref";
-    }
-
-    /** {@inheritDoc} */
-    public String getTablePropertyName() {
-        return "whiteCompoundPkRef";
-    }
-
-    // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
-    /** {@inheritDoc} */
-    public DBMeta getDBMeta() {
-        return DBMetaInstanceHandler.findDBMeta(getTableDbName());
     }
 
     // ===================================================================================
@@ -111,13 +105,15 @@ public abstract class BsWhiteCompoundPkRef extends AbstractEntity implements Dom
     //                                                                    Foreign Property
     //                                                                    ================
     /** white_compound_pk by my ref_first_id, ref_second_id, named 'whiteCompoundPk'. */
-    protected WhiteCompoundPk _whiteCompoundPk;
+    protected OptionalEntity<WhiteCompoundPk> _whiteCompoundPk;
 
     /**
      * [get] white_compound_pk by my ref_first_id, ref_second_id, named 'whiteCompoundPk'. <br>
-     * @return The entity of foreign property 'whiteCompoundPk'. (NullAllowed: when e.g. null FK column, no setupSelect)
+     * Optional: alwaysPresent(), ifPresent().orElse(), get(), ...
+     * @return The entity of foreign property 'whiteCompoundPk'. (NotNull, EmptyAllowed: when e.g. null FK column, no setupSelect)
      */
-    public WhiteCompoundPk getWhiteCompoundPk() {
+    public OptionalEntity<WhiteCompoundPk> getWhiteCompoundPk() {
+        if (_whiteCompoundPk == null) { _whiteCompoundPk = OptionalEntity.relationEmpty(this, "whiteCompoundPk"); }
         return _whiteCompoundPk;
     }
 
@@ -125,7 +121,7 @@ public abstract class BsWhiteCompoundPkRef extends AbstractEntity implements Dom
      * [set] white_compound_pk by my ref_first_id, ref_second_id, named 'whiteCompoundPk'.
      * @param whiteCompoundPk The entity of foreign property 'whiteCompoundPk'. (NullAllowed)
      */
-    public void setWhiteCompoundPk(WhiteCompoundPk whiteCompoundPk) {
+    public void setWhiteCompoundPk(OptionalEntity<WhiteCompoundPk> whiteCompoundPk) {
         _whiteCompoundPk = whiteCompoundPk;
     }
 
@@ -154,7 +150,7 @@ public abstract class BsWhiteCompoundPkRef extends AbstractEntity implements Dom
     @Override
     protected int doHashCode(int initial) {
         int hs = initial;
-        hs = xCH(hs, getTableDbName());
+        hs = xCH(hs, asTableDbName());
         hs = xCH(hs, _multipleFirstId);
         hs = xCH(hs, _multipleSecondId);
         return hs;
@@ -163,9 +159,12 @@ public abstract class BsWhiteCompoundPkRef extends AbstractEntity implements Dom
     @Override
     protected String doBuildStringWithRelation(String li) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteCompoundPk != null)
+        if (_whiteCompoundPk != null && _whiteCompoundPk.isPresent())
         { sb.append(li).append(xbRDS(_whiteCompoundPk, "whiteCompoundPk")); }
         return sb.toString();
+    }
+    protected <ET extends Entity> String xbRDS(org.dbflute.optional.OptionalEntity<ET> et, String name) { // buildRelationDisplayString()
+        return et.get().buildDisplayString(name, true, true);
     }
 
     @Override
@@ -185,7 +184,7 @@ public abstract class BsWhiteCompoundPkRef extends AbstractEntity implements Dom
     @Override
     protected String doBuildRelationString(String dm) {
         StringBuilder sb = new StringBuilder();
-        if (_whiteCompoundPk != null)
+        if (_whiteCompoundPk != null && _whiteCompoundPk.isPresent())
         { sb.append(dm).append("whiteCompoundPk"); }
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length()).insert(0, "(").append(")");

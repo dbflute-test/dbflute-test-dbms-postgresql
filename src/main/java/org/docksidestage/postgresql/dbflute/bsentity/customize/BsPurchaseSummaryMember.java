@@ -42,8 +42,8 @@ import org.docksidestage.postgresql.dbflute.exentity.customize.*;
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * Integer memberId = entity.getMemberId();
  * String memberName = entity.getMemberName();
- * java.util.Date birthdate = entity.getBirthdate();
- * java.sql.Timestamp formalizedDatetime = entity.getFormalizedDatetime();
+ * java.time.LocalDate birthdate = entity.getBirthdate();
+ * java.time.LocalDateTime formalizedDatetime = entity.getFormalizedDatetime();
  * Long purchaseSummary = entity.getPurchaseSummary();
  * entity.setMemberId(memberId);
  * entity.setMemberName(memberName);
@@ -72,33 +72,25 @@ public abstract class BsPurchaseSummaryMember extends AbstractEntity implements 
     protected String _memberName;
 
     /** (生年月日)birthdate: {date(13), refers to member.birthdate} */
-    protected java.util.Date _birthdate;
+    protected java.time.LocalDate _birthdate;
 
     /** (正式会員日時)formalized_datetime: {timestamp(26, 3), refers to member.formalized_datetime} */
-    protected java.sql.Timestamp _formalizedDatetime;
+    protected java.time.LocalDateTime _formalizedDatetime;
 
     /** purchase_summary: {int8(19)} */
     protected Long _purchaseSummary;
 
     // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public String getTableDbName() {
-        return "PurchaseSummaryMember";
-    }
-
-    /** {@inheritDoc} */
-    public String getTablePropertyName() {
-        return "purchaseSummaryMember";
-    }
-
-    // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
-    /** {@inheritDoc} */
-    public DBMeta getDBMeta() {
+    public DBMeta asDBMeta() {
         return org.docksidestage.postgresql.dbflute.bsentity.customize.dbmeta.PurchaseSummaryMemberDbm.getInstance();
+    }
+
+    /** {@inheritDoc} */
+    public String asTableDbName() {
+        return "PurchaseSummaryMember";
     }
 
     // ===================================================================================
@@ -140,7 +132,7 @@ public abstract class BsPurchaseSummaryMember extends AbstractEntity implements 
     @Override
     protected int doHashCode(int initial) {
         int hs = initial;
-        hs = xCH(hs, getTableDbName());
+        hs = xCH(hs, asTableDbName());
         hs = xCH(hs, _memberId);
         hs = xCH(hs, _memberName);
         hs = xCH(hs, _birthdate);
@@ -159,7 +151,7 @@ public abstract class BsPurchaseSummaryMember extends AbstractEntity implements 
         StringBuilder sb = new StringBuilder();
         sb.append(dm).append(xfND(_memberId));
         sb.append(dm).append(xfND(_memberName));
-        sb.append(dm).append(xfUD(_birthdate));
+        sb.append(dm).append(xfND(_birthdate));
         sb.append(dm).append(xfND(_formalizedDatetime));
         sb.append(dm).append(xfND(_purchaseSummary));
         if (sb.length() > dm.length()) {
@@ -231,7 +223,7 @@ public abstract class BsPurchaseSummaryMember extends AbstractEntity implements 
      * 必須項目ではないので、このデータがない会員もいる。
      * @return The value of the column 'birthdate'. (NullAllowed even if selected: for no constraint)
      */
-    public java.util.Date getBirthdate() {
+    public java.time.LocalDate getBirthdate() {
         checkSpecifiedProperty("birthdate");
         return _birthdate;
     }
@@ -241,7 +233,7 @@ public abstract class BsPurchaseSummaryMember extends AbstractEntity implements 
      * 必須項目ではないので、このデータがない会員もいる。
      * @param birthdate The value of the column 'birthdate'. (NullAllowed: null update allowed for no constraint)
      */
-    public void setBirthdate(java.util.Date birthdate) {
+    public void setBirthdate(java.time.LocalDate birthdate) {
         registerModifiedProperty("birthdate");
         _birthdate = birthdate;
     }
@@ -252,7 +244,7 @@ public abstract class BsPurchaseSummaryMember extends AbstractEntity implements 
      * 一度確定したら更新されない。
      * @return The value of the column 'formalized_datetime'. (NullAllowed even if selected: for no constraint)
      */
-    public java.sql.Timestamp getFormalizedDatetime() {
+    public java.time.LocalDateTime getFormalizedDatetime() {
         checkSpecifiedProperty("formalizedDatetime");
         return _formalizedDatetime;
     }
@@ -263,7 +255,7 @@ public abstract class BsPurchaseSummaryMember extends AbstractEntity implements 
      * 一度確定したら更新されない。
      * @param formalizedDatetime The value of the column 'formalized_datetime'. (NullAllowed: null update allowed for no constraint)
      */
-    public void setFormalizedDatetime(java.sql.Timestamp formalizedDatetime) {
+    public void setFormalizedDatetime(java.time.LocalDateTime formalizedDatetime) {
         registerModifiedProperty("formalizedDatetime");
         _formalizedDatetime = formalizedDatetime;
     }

@@ -95,14 +95,14 @@ public class BsWithdrawalReasonCQ extends AbstractBsWithdrawalReasonCQ {
 
     /** 
      * Add order-by as ascend. <br>
-     * (退会理由コード)withdrawal_reason_code: {PK, NotNull, bpchar(3)}
+     * (退会理由コード)withdrawal_reason_code: {PK, NotNull, bpchar(3), classification=WithdrawalReason}
      * @return this. (NotNull)
      */
     public BsWithdrawalReasonCQ addOrderBy_WithdrawalReasonCode_Asc() { regOBA("withdrawal_reason_code"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * (退会理由コード)withdrawal_reason_code: {PK, NotNull, bpchar(3)}
+     * (退会理由コード)withdrawal_reason_code: {PK, NotNull, bpchar(3), classification=WithdrawalReason}
      * @return this. (NotNull)
      */
     public BsWithdrawalReasonCQ addOrderBy_WithdrawalReasonCode_Desc() { regOBD("withdrawal_reason_code"); return this; }

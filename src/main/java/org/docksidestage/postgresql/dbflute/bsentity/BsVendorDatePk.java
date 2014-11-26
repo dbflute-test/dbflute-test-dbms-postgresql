@@ -41,7 +41,7 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  * 
  * [get/set template]
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * java.util.Date fooDate = entity.getFooDate();
+ * java.time.LocalDate fooDate = entity.getFooDate();
  * String fooName = entity.getFooName();
  * entity.setFooDate(fooDate);
  * entity.setFooName(fooName);
@@ -61,30 +61,22 @@ public abstract class BsVendorDatePk extends AbstractEntity implements DomainEnt
     //                                                                           Attribute
     //                                                                           =========
     /** foo_date: {PK, NotNull, date(13)} */
-    protected java.util.Date _fooDate;
+    protected java.time.LocalDate _fooDate;
 
     /** foo_name: {NotNull, varchar(2147483647)} */
     protected String _fooName;
 
     // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public String getTableDbName() {
+    public DBMeta asDBMeta() {
+        return DBMetaInstanceHandler.findDBMeta(asTableDbName());
+    }
+
+    /** {@inheritDoc} */
+    public String asTableDbName() {
         return "vendor_date_pk";
-    }
-
-    /** {@inheritDoc} */
-    public String getTablePropertyName() {
-        return "vendorDatePk";
-    }
-
-    // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
-    /** {@inheritDoc} */
-    public DBMeta getDBMeta() {
-        return DBMetaInstanceHandler.findDBMeta(getTableDbName());
     }
 
     // ===================================================================================
@@ -143,7 +135,7 @@ public abstract class BsVendorDatePk extends AbstractEntity implements DomainEnt
     @Override
     protected int doHashCode(int initial) {
         int hs = initial;
-        hs = xCH(hs, getTableDbName());
+        hs = xCH(hs, asTableDbName());
         hs = xCH(hs, _fooDate);
         return hs;
     }
@@ -159,7 +151,7 @@ public abstract class BsVendorDatePk extends AbstractEntity implements DomainEnt
     @Override
     protected String doBuildColumnString(String dm) {
         StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(xfUD(_fooDate));
+        sb.append(dm).append(xfND(_fooDate));
         sb.append(dm).append(xfND(_fooName));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
@@ -191,7 +183,7 @@ public abstract class BsVendorDatePk extends AbstractEntity implements DomainEnt
      * [get] foo_date: {PK, NotNull, date(13)} <br>
      * @return The value of the column 'foo_date'. (basically NotNull if selected: for the constraint)
      */
-    public java.util.Date getFooDate() {
+    public java.time.LocalDate getFooDate() {
         checkSpecifiedProperty("fooDate");
         return _fooDate;
     }
@@ -200,7 +192,7 @@ public abstract class BsVendorDatePk extends AbstractEntity implements DomainEnt
      * [set] foo_date: {PK, NotNull, date(13)} <br>
      * @param fooDate The value of the column 'foo_date'. (basically NotNull if update: for the constraint)
      */
-    public void setFooDate(java.util.Date fooDate) {
+    public void setFooDate(java.time.LocalDate fooDate) {
         registerModifiedProperty("fooDate");
         _fooDate = fooDate;
     }

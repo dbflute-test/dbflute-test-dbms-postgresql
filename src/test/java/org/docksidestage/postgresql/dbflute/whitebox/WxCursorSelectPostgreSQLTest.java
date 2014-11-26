@@ -6,7 +6,6 @@ import java.sql.SQLException;
 import java.util.Vector;
 
 import org.dbflute.cbean.result.ListResultBean;
-import org.dbflute.jdbc.StatementConfig;
 import org.dbflute.util.DfReflectionUtil;
 import org.docksidestage.postgresql.dbflute.allcommon.DBFluteConfig;
 import org.docksidestage.postgresql.dbflute.cbean.MemberCB;
@@ -29,37 +28,20 @@ public class WxCursorSelectPostgreSQLTest extends UnitContainerTestCase {
     private MemberBhv memberBhv;
 
     // ===================================================================================
-    //                                                                            Settings
-    //                                                                            ========
-    @Override
-    public void setUp() throws Exception {
-        DBFluteConfig.getInstance().unlock();
-        DBFluteConfig.getInstance().setCursorSelectFetchSize(4);
-        super.setUp();
-    }
-
-    @Override
-    public void tearDown() throws Exception {
-        super.tearDown();
-        DBFluteConfig.getInstance().unlock();
-        DBFluteConfig.getInstance().setCursorSelectFetchSize(null);
-        DBFluteConfig.getInstance().lock();
-    }
-
-    @Override
-    protected boolean isUseOneTimeContainer() {
-        return true;
-    }
-
-    // ===================================================================================
     //                                                                               Basic
     //                                                                               =====
+    public void test_pagingSynchronizedFetchSize_DBFluteConfig() throws Exception {
+        assertEquals(100, DBFluteConfig.getInstance().getCursorSelectFetchSize());
+    }
+
     public void test_cursorSelectFetchSize_basic() {
         // ## Arrange ##
+        int countAll = memberBhv.selectCount(cb -> {});
+        assertTrue(countAll < 100);
         PurchaseSummaryMemberPmb pmb = new PurchaseSummaryMemberPmb();
-        assertEquals(4, DBFluteConfig.getInstance().getCursorSelectFetchSize());
 
-        PurchaseSummaryMemberCursorHandler handler = new PurchaseSummaryMemberCursorHandler() {
+        // ## Act ##
+        memberBhv.outsideSql().configure(conf -> conf.suppressDefault()).selectCursor(pmb, new PurchaseSummaryMemberCursorHandler() {
             @Override
             protected Object fetchCursor(PurchaseSummaryMemberCursor cursor) throws SQLException {
                 // ## Assert ##
@@ -68,13 +50,13 @@ public class WxCursorSelectPostgreSQLTest extends UnitContainerTestCase {
                 log(rs.getClass());
 
                 Vector<Object> rows = extractRowDataOnResutSet(rs);
-                assertEquals(4, rows.size());
+                assertEquals(countAll, rows.size());
                 assertDbAccess();
 
                 rs.next(); // select first row
 
                 assertEquals(extractRowDataOnResutSet(rs), rows);
-                assertEquals(4, rows.size());
+                assertEquals(countAll, rows.size());
                 assertDbAccess();
 
                 rs.next(); // select second row
@@ -82,65 +64,68 @@ public class WxCursorSelectPostgreSQLTest extends UnitContainerTestCase {
                 rs.next(); // select fourth row
 
                 assertEquals(extractRowDataOnResutSet(rs), rows);
-                assertEquals(4, rows.size());
+                assertEquals(countAll, rows.size());
 
                 rs.next(); // select fifth row
 
-                assertFalse(extractRowDataOnResutSet(rs).equals(rows));
-                assertEquals(4, rows.size());
+                assertEquals(extractRowDataOnResutSet(rs), rows);
+                assertEquals(countAll, rows.size());
                 return null;
             }
-        };
+        });
+    }
 
-        // ## Act ##
-        memberBhv.outsideSql().cursorHandling().selectCursor(pmb, handler);
+    public void test_cursorSelectFetchSize_specified() {
+        // TODO jflute test: only execution OK, batch NG
+        // ## Arrange ##
+        Integer originally = DBFluteConfig.getInstance().getCursorSelectFetchSize();
+        DBFluteConfig.getInstance().unlock();
+        DBFluteConfig.getInstance().setCursorSelectFetchSize(4);
+        try {
+            PurchaseSummaryMemberPmb pmb = new PurchaseSummaryMemberPmb();
+            PurchaseSummaryMemberCursorHandler handler = new PurchaseSummaryMemberCursorHandler() {
+                @Override
+                protected Object fetchCursor(PurchaseSummaryMemberCursor cursor) throws SQLException {
+                    // ## Assert ##
+                    ResultSet rs = cursor.cursor();
+                    log("ResultSet   = " + rs.getClass());
+                    log(rs.getClass());
+
+                    Vector<Object> rows = extractRowDataOnResutSet(rs);
+                    assertEquals(4, rows.size());
+                    assertDbAccess();
+
+                    rs.next(); // select first row
+
+                    assertEquals(extractRowDataOnResutSet(rs), rows);
+                    assertEquals(4, rows.size());
+                    assertDbAccess();
+
+                    rs.next(); // select second row
+                    rs.next(); // select third row
+                    rs.next(); // select fourth row
+
+                    assertEquals(extractRowDataOnResutSet(rs), rows);
+                    assertEquals(4, rows.size());
+
+                    rs.next(); // select fifth row
+
+                    assertFalse(extractRowDataOnResutSet(rs).equals(rows));
+                    assertEquals(4, rows.size());
+                    return null;
+                }
+            };
+
+            // ## Act ##
+            memberBhv.outsideSql().selectCursor(pmb, handler);
+        } finally {
+            DBFluteConfig.getInstance().setCursorSelectFetchSize(originally);
+            DBFluteConfig.getInstance().lock();
+        }
     }
 
     protected void assertDbAccess() {
         memberBhv.selectCount(new MemberCB()); // can select in PostgreSQL
-    }
-
-    // ===================================================================================
-    //                                                                             Default
-    //                                                                             =======
-    public void test_cursorSelectFetchSize_default() {
-        // ## Arrange ##
-        PurchaseSummaryMemberPmb pmb = new PurchaseSummaryMemberPmb();
-
-        // ## Act ##
-        memberBhv.outsideSql().configure(new StatementConfig().suppressDefault()).cursorHandling()
-                .selectCursor(pmb, new PurchaseSummaryMemberCursorHandler() {
-                    @Override
-                    protected Object fetchCursor(PurchaseSummaryMemberCursor cursor) throws SQLException {
-                        // ## Assert ##
-                        ResultSet rs = cursor.cursor();
-                        log("ResultSet   = " + rs.getClass());
-                        log(rs.getClass());
-
-                        Vector<Object> rows = extractRowDataOnResutSet(rs);
-                        assertEquals(20, rows.size());
-                        assertDbAccess();
-
-                        rs.next(); // select first row
-
-                        assertEquals(extractRowDataOnResutSet(rs), rows);
-                        assertEquals(20, rows.size());
-                        assertDbAccess();
-
-                        rs.next(); // select second row
-                        rs.next(); // select third row
-                        rs.next(); // select fourth row
-
-                        assertEquals(extractRowDataOnResutSet(rs), rows);
-                        assertEquals(20, rows.size());
-
-                        rs.next(); // select fifth row
-
-                        assertEquals(extractRowDataOnResutSet(rs), rows);
-                        assertEquals(20, rows.size());
-                        return null;
-                    }
-                });
     }
 
     // ===================================================================================

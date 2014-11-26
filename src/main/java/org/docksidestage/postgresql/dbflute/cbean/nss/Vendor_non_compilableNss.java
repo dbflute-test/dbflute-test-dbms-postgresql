@@ -11,7 +11,7 @@ public class Vendor_non_compilableNss {
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    protected Vendor_non_compilableCQ _query;
+    protected final Vendor_non_compilableCQ _query;
     public Vendor_non_compilableNss(Vendor_non_compilableCQ query) { _query = query; }
     public boolean hasConditionQuery() { return _query != null; }
 

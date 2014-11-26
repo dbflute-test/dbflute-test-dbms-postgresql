@@ -37,7 +37,8 @@ public class SimpleVendorCheckDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((SimpleVendorCheck)et).getVendorCheckId(), (et, vl) -> ((SimpleVendorCheck)et).setVendorCheckId(ctl(vl)), "vendorCheckId");
         setupEpg(_epgMap, et -> ((SimpleVendorCheck)et).getTypeOfVarchar(), (et, vl) -> ((SimpleVendorCheck)et).setTypeOfVarchar((String)vl), "typeOfVarchar");
         setupEpg(_epgMap, et -> ((SimpleVendorCheck)et).getTypeOfVcArray(), (et, vl) -> ((SimpleVendorCheck)et).setTypeOfVcArray((org.docksidestage.postgresql.mytype.MyArray)vl), "typeOfVcArray");
@@ -51,11 +52,11 @@ public class SimpleVendorCheckDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((SimpleVendorCheck)et).getTypeOfIntArray(), (et, vl) -> ((SimpleVendorCheck)et).setTypeOfIntArray((org.docksidestage.postgresql.mytype.MyArray)vl), "typeOfIntArray");
         setupEpg(_epgMap, et -> ((SimpleVendorCheck)et).getTypeOfInt4(), (et, vl) -> ((SimpleVendorCheck)et).setTypeOfInt4(cti(vl)), "typeOfInt4");
         setupEpg(_epgMap, et -> ((SimpleVendorCheck)et).getTypeOfMoney(), (et, vl) -> ((SimpleVendorCheck)et).setTypeOfMoney(ctb(vl)), "typeOfMoney");
-        setupEpg(_epgMap, et -> ((SimpleVendorCheck)et).getTypeOfDate(), (et, vl) -> ((SimpleVendorCheck)et).setTypeOfDate((java.util.Date)vl), "typeOfDate");
-        setupEpg(_epgMap, et -> ((SimpleVendorCheck)et).getTypeOfTime(), (et, vl) -> ((SimpleVendorCheck)et).setTypeOfTime((java.sql.Time)vl), "typeOfTime");
-        setupEpg(_epgMap, et -> ((SimpleVendorCheck)et).getTypeOfTimestamp(), (et, vl) -> ((SimpleVendorCheck)et).setTypeOfTimestamp((java.sql.Timestamp)vl), "typeOfTimestamp");
+        setupEpg(_epgMap, et -> ((SimpleVendorCheck)et).getTypeOfDate(), (et, vl) -> ((SimpleVendorCheck)et).setTypeOfDate((java.time.LocalDate)vl), "typeOfDate");
+        setupEpg(_epgMap, et -> ((SimpleVendorCheck)et).getTypeOfTime(), (et, vl) -> ((SimpleVendorCheck)et).setTypeOfTime((java.time.LocalTime)vl), "typeOfTime");
+        setupEpg(_epgMap, et -> ((SimpleVendorCheck)et).getTypeOfTimestamp(), (et, vl) -> ((SimpleVendorCheck)et).setTypeOfTimestamp((java.time.LocalDateTime)vl), "typeOfTimestamp");
         setupEpg(_epgMap, et -> ((SimpleVendorCheck)et).getTypeOfInterval(), (et, vl) -> ((SimpleVendorCheck)et).setTypeOfInterval((String)vl), "typeOfInterval");
-        setupEpg(_epgMap, et -> ((SimpleVendorCheck)et).getTypeOfTimetz(), (et, vl) -> ((SimpleVendorCheck)et).setTypeOfTimetz((java.sql.Time)vl), "typeOfTimetz");
+        setupEpg(_epgMap, et -> ((SimpleVendorCheck)et).getTypeOfTimetz(), (et, vl) -> ((SimpleVendorCheck)et).setTypeOfTimetz((java.time.LocalTime)vl), "typeOfTimetz");
         setupEpg(_epgMap, et -> ((SimpleVendorCheck)et).getTypeOfBool(), (et, vl) -> {
             ColumnInfo col = columnTypeOfBool();
             CDef.TrueFalse cls = (CDef.TrueFalse)gcls(col, vl);
@@ -88,30 +89,30 @@ public class SimpleVendorCheckDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnVendorCheckId = cci("vendor_check_id", "vendor_check_id", null, null, Long.class, "vendorCheckId", null, false, false, false, "numeric", 16, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnTypeOfVarchar = cci("type_of_varchar", "type_of_varchar", null, null, String.class, "typeOfVarchar", null, false, false, false, "varchar", 2147483647, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnTypeOfVcArray = cci("type_of_vc_array", "type_of_vc_array", null, null, org.docksidestage.postgresql.mytype.MyArray.class, "typeOfVcArray", null, false, false, false, "_varchar", 2147483647, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnTypeOfText = cci("type_of_text", "type_of_text", null, null, String.class, "typeOfText", null, false, false, false, "text", 2147483647, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnTypeOfNumericInteger = cci("type_of_numeric_integer", "type_of_numeric_integer", null, null, Integer.class, "typeOfNumericInteger", null, false, false, false, "numeric", 5, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnTypeOfNumericBigint = cci("type_of_numeric_bigint", "type_of_numeric_bigint", null, null, Long.class, "typeOfNumericBigint", null, false, false, false, "numeric", 12, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnTypeOfNumericDecimal = cci("type_of_numeric_decimal", "type_of_numeric_decimal", null, null, java.math.BigDecimal.class, "typeOfNumericDecimal", null, false, false, false, "numeric", 5, 3, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnTypeOfDecimal = cci("type_of_decimal", "type_of_decimal", null, null, java.math.BigDecimal.class, "typeOfDecimal", null, false, false, false, "numeric", 131089, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnTypeOfBigint = cci("type_of_bigint", "type_of_bigint", null, null, Long.class, "typeOfBigint", null, false, false, false, "int8", 19, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnTypeOfInt8 = cci("type_of_int8", "type_of_int8", null, null, Long.class, "typeOfInt8", null, false, false, false, "int8", 19, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnTypeOfIntArray = cci("type_of_int_array", "type_of_int_array", null, null, org.docksidestage.postgresql.mytype.MyArray.class, "typeOfIntArray", null, false, false, false, "_int8", 19, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnTypeOfInt4 = cci("type_of_int4", "type_of_int4", null, null, Integer.class, "typeOfInt4", null, false, false, false, "int4", 10, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnTypeOfMoney = cci("type_of_money", "type_of_money", null, null, java.math.BigDecimal.class, "typeOfMoney", null, false, false, false, "money", 2147483647, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnTypeOfDate = cci("type_of_date", "type_of_date", null, null, java.util.Date.class, "typeOfDate", null, false, false, false, "date", 13, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnTypeOfTime = cci("type_of_time", "type_of_time", null, null, java.sql.Time.class, "typeOfTime", null, false, false, false, "time", 15, 6, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnTypeOfTimestamp = cci("type_of_timestamp", "type_of_timestamp", null, null, java.sql.Timestamp.class, "typeOfTimestamp", null, false, false, false, "timestamp", 29, 6, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnTypeOfInterval = cci("type_of_interval", "type_of_interval", null, null, String.class, "typeOfInterval", null, false, false, false, "interval", 49, 6, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnTypeOfTimetz = cci("type_of_timetz", "type_of_timetz", null, null, java.sql.Time.class, "typeOfTimetz", null, false, false, false, "timetz", 21, 6, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnTypeOfBool = cci("type_of_bool", "type_of_bool", null, null, Boolean.class, "typeOfBool", null, false, false, false, "bool", 1, 0, null, false, null, null, null, null, CDef.DefMeta.TrueFalse);
-    protected final ColumnInfo _columnTypeOfBit = cci("type_of_bit", "type_of_bit", null, null, Boolean.class, "typeOfBit", null, false, false, false, "bit", 1, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnTypeOfBytea = cci("type_of_bytea", "type_of_bytea", null, null, byte[].class, "typeOfBytea", null, false, false, false, "bytea", 2147483647, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnTypeOfUuid = cci("type_of_uuid", "type_of_uuid", null, null, java.util.UUID.class, "typeOfUuid", null, false, false, false, "uuid", 2147483647, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnTypeOfOid = cci("type_of_oid", "type_of_oid", null, null, byte[].class, "typeOfOid", null, false, false, false, "oid", 10, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnTypeOfXml = cci("type_of_xml", "type_of_xml", null, null, org.docksidestage.postgresql.mytype.MyXML.class, "typeOfXml", null, false, false, false, "xml", 2147483647, 0, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnVendorCheckId = cci("vendor_check_id", "vendor_check_id", null, null, Long.class, "vendorCheckId", null, false, false, false, "numeric", 16, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfVarchar = cci("type_of_varchar", "type_of_varchar", null, null, String.class, "typeOfVarchar", null, false, false, false, "varchar", 2147483647, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfVcArray = cci("type_of_vc_array", "type_of_vc_array", null, null, org.docksidestage.postgresql.mytype.MyArray.class, "typeOfVcArray", null, false, false, false, "_varchar", 2147483647, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfText = cci("type_of_text", "type_of_text", null, null, String.class, "typeOfText", null, false, false, false, "text", 2147483647, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfNumericInteger = cci("type_of_numeric_integer", "type_of_numeric_integer", null, null, Integer.class, "typeOfNumericInteger", null, false, false, false, "numeric", 5, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfNumericBigint = cci("type_of_numeric_bigint", "type_of_numeric_bigint", null, null, Long.class, "typeOfNumericBigint", null, false, false, false, "numeric", 12, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfNumericDecimal = cci("type_of_numeric_decimal", "type_of_numeric_decimal", null, null, java.math.BigDecimal.class, "typeOfNumericDecimal", null, false, false, false, "numeric", 5, 3, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfDecimal = cci("type_of_decimal", "type_of_decimal", null, null, java.math.BigDecimal.class, "typeOfDecimal", null, false, false, false, "numeric", 131089, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfBigint = cci("type_of_bigint", "type_of_bigint", null, null, Long.class, "typeOfBigint", null, false, false, false, "int8", 19, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfInt8 = cci("type_of_int8", "type_of_int8", null, null, Long.class, "typeOfInt8", null, false, false, false, "int8", 19, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfIntArray = cci("type_of_int_array", "type_of_int_array", null, null, org.docksidestage.postgresql.mytype.MyArray.class, "typeOfIntArray", null, false, false, false, "_int8", 19, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfInt4 = cci("type_of_int4", "type_of_int4", null, null, Integer.class, "typeOfInt4", null, false, false, false, "int4", 10, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfMoney = cci("type_of_money", "type_of_money", null, null, java.math.BigDecimal.class, "typeOfMoney", null, false, false, false, "money", 2147483647, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfDate = cci("type_of_date", "type_of_date", null, null, java.time.LocalDate.class, "typeOfDate", null, false, false, false, "date", 13, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfTime = cci("type_of_time", "type_of_time", null, null, java.time.LocalTime.class, "typeOfTime", null, false, false, false, "time", 15, 6, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfTimestamp = cci("type_of_timestamp", "type_of_timestamp", null, null, java.time.LocalDateTime.class, "typeOfTimestamp", null, false, false, false, "timestamp", 29, 6, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfInterval = cci("type_of_interval", "type_of_interval", null, null, String.class, "typeOfInterval", null, false, false, false, "interval", 49, 6, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfTimetz = cci("type_of_timetz", "type_of_timetz", null, null, java.time.LocalTime.class, "typeOfTimetz", null, false, false, false, "timetz", 21, 6, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfBool = cci("type_of_bool", "type_of_bool", null, null, Boolean.class, "typeOfBool", null, false, false, false, "bool", 1, 0, null, false, null, null, null, null, CDef.DefMeta.TrueFalse, false);
+    protected final ColumnInfo _columnTypeOfBit = cci("type_of_bit", "type_of_bit", null, null, Boolean.class, "typeOfBit", null, false, false, false, "bit", 1, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfBytea = cci("type_of_bytea", "type_of_bytea", null, null, byte[].class, "typeOfBytea", null, false, false, false, "bytea", 2147483647, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfUuid = cci("type_of_uuid", "type_of_uuid", null, null, java.util.UUID.class, "typeOfUuid", null, false, false, false, "uuid", 2147483647, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfOid = cci("type_of_oid", "type_of_oid", null, null, byte[].class, "typeOfOid", null, false, false, false, "oid", 10, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfXml = cci("type_of_xml", "type_of_xml", null, null, org.docksidestage.postgresql.mytype.MyXML.class, "typeOfXml", null, false, false, false, "xml", 2147483647, 0, null, false, null, null, null, null, null, false);
 
     /**
      * vendor_check_id: {numeric(16), refers to vendor_check.vendor_check_id}

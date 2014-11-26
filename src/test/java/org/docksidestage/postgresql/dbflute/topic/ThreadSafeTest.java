@@ -11,9 +11,6 @@ import org.dbflute.utflute.core.cannonball.CannonballCar;
 import org.dbflute.utflute.core.cannonball.CannonballFinalizer;
 import org.dbflute.utflute.core.cannonball.CannonballOption;
 import org.dbflute.utflute.core.cannonball.CannonballRun;
-import org.dbflute.utflute.core.thread.ThreadFireExecution;
-import org.dbflute.utflute.core.thread.ThreadFireOption;
-import org.dbflute.utflute.core.thread.ThreadFireResource;
 import org.dbflute.util.DfCollectionUtil;
 import org.docksidestage.postgresql.dbflute.cbean.MemberCB;
 import org.docksidestage.postgresql.dbflute.exbhv.MemberBhv;
@@ -48,8 +45,8 @@ public class ThreadSafeTest extends UnitContainerTestCase {
     //                                                                       ConditionBean
     //                                                                       =============
     public void test_ThreadSafe_conditionBean_sameExecution() {
-        threadFire(new ThreadFireExecution<List<Member>>() {
-            public List<Member> execute(ThreadFireResource resource) {
+        cannonball(new CannonballRun() {
+            public void drive(CannonballCar car) {
                 // ## Arrange ##
                 MemberCB cb = new MemberCB();
                 cb.setupSelect_MemberStatus();
@@ -64,17 +61,17 @@ public class ThreadSafeTest extends UnitContainerTestCase {
                 for (Member member : memberList) {
                     assertTrue(member.getMemberName().startsWith("S"));
                 }
-                return memberList;
+                car.goal(memberList);
             }
-        }, new ThreadFireOption().expectSameResult());
+        }, new CannonballOption().expectSameResult());
     }
 
     // ===================================================================================
     //                                                                          OutsideSql
     //                                                                          ==========
     public void test_ThreadSafe_outsideSql_sameExecution() {
-        threadFire(new ThreadFireExecution<List<SimpleMember>>() {
-            public List<SimpleMember> execute(ThreadFireResource resource) {
+        cannonball(new CannonballRun() {
+            public void drive(CannonballCar car) {
                 // ## Arrange ##
                 String path = MemberBhv.PATH_selectSimpleMember;
 
@@ -84,7 +81,7 @@ public class ThreadSafeTest extends UnitContainerTestCase {
                 Class<SimpleMember> entityType = SimpleMember.class;
 
                 // ## Act ##
-                List<SimpleMember> memberList = memberBhv.outsideSql().selectList(path, pmb, entityType);
+                List<SimpleMember> memberList = memberBhv.outsideSql().traditionalStyle().selectList(path, pmb, entityType);
 
                 // ## Assert ##
                 assertNotSame(0, memberList.size());
@@ -99,9 +96,9 @@ public class ThreadSafeTest extends UnitContainerTestCase {
                     assertNotNull(memberStatusName);
                     assertTrue(memberName.startsWith("S"));
                 }
-                return memberList;
+                car.goal(memberList);
             }
-        }, new ThreadFireOption().expectSameResult());
+        }, new CannonballOption().expectSameResult());
     }
 
     // ===================================================================================
@@ -138,7 +135,7 @@ public class ThreadSafeTest extends UnitContainerTestCase {
     //                                                                              ======
     public void test_ThreadSafe_update_before_insert_sameExecution_alreadyUpdated() {
         final int memberId = 3;
-        final Member before = memberBhv.selectByPK(memberId);
+        final Member before = memberBhv.selectByPK(memberId).get();
         final Long versionNo = before.getVersionNo();
         cannonball(new CannonballRun() {
             public void drive(CannonballCar car) {
@@ -154,7 +151,7 @@ public class ThreadSafeTest extends UnitContainerTestCase {
                     long currentMillis = currentTimestamp().getTime();
                     long keyMillis = currentMillis - (entryNumber * 10000) - (i * 10000);
                     HandyDate handyDate = new HandyDate(new Timestamp(keyMillis));
-                    purchase.setPurchaseDatetime(handyDate.addDay(entryNumber).getTimestamp());
+                    purchase.setPurchaseDatetime(handyDate.addDay(entryNumber).getLocalDateTime());
                     purchase.setPurchaseCount(1234 + i);
                     purchase.setPurchasePrice(1234 + i);
                     purchase.setPaymentCompleteFlg_True();
@@ -167,7 +164,7 @@ public class ThreadSafeTest extends UnitContainerTestCase {
     }
 
     public void test_ThreadSafe_update_after_insert_sameExecution_mayBeDeadlock() {
-        final Purchase source = purchaseBhv.selectByPK(1L);
+        final Purchase source = purchaseBhv.selectByPK(1L).get();
         source.setPurchaseId(null);
         cannonball(new CannonballRun() {
             public void drive(CannonballCar car) {
@@ -176,7 +173,7 @@ public class ThreadSafeTest extends UnitContainerTestCase {
                 purchase.setMemberId(entryNumber % 2 == 1 ? 3 : 4);
                 purchase.setProductId(entryNumber % 3 == 1 ? 3 : (entryNumber % 3 == 2 ? 4 : 5));
                 long keyMillis = currentTimestamp().getTime() - (entryNumber * 1000);
-                purchase.setPurchaseDatetime(new Timestamp(keyMillis));
+                purchase.setPurchaseDatetime(toLocalDateTime(keyMillis));
                 purchaseBhv.insert(purchase);
 
                 // deadlock if update is executed after insert including updateNonstrict()

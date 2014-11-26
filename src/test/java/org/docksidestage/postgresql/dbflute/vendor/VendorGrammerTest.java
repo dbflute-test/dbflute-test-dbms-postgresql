@@ -1,6 +1,7 @@
 package org.docksidestage.postgresql.dbflute.vendor;
 
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.LinkedHashMap;
@@ -81,8 +82,7 @@ public class VendorGrammerTest extends UnitContainerTestCase {
         int countAll;
         {
             PurchaseCB cb = new PurchaseCB();
-            cb.query().queryMember().queryMemberWithdrawalAsOne().queryWithdrawalReason()
-                    .setWithdrawalReasonCode_IsNotNull();
+            cb.query().queryMember().queryMemberWithdrawalAsOne().queryWithdrawalReason().setWithdrawalReasonCode_IsNotNull();
             countAll = purchaseBhv.selectCount(cb);
         }
 
@@ -103,10 +103,10 @@ public class VendorGrammerTest extends UnitContainerTestCase {
         boolean existsSecurity = false;
         boolean notExistsSecurity = false;
         for (Purchase purchase : purchaseList) {
-            Member member = purchase.getMember();
+            Member member = purchase.getMember().get();
             log(purchase.getPurchaseId() + ", " + member.getMemberId() + ", " + member.getMemberName() + ", "
                     + member.getMemberSecurityAsOne());
-            MemberSecurity security = member.getMemberSecurityAsOne();
+            MemberSecurity security = member.getMemberSecurityAsOne().orElse(null);
             if (security != null) {
                 assertTrue(member.getMemberId() < 10);
                 existsSecurity = true;
@@ -144,7 +144,7 @@ public class VendorGrammerTest extends UnitContainerTestCase {
         // ## Act ##
         int inserted = memberWithdrawalBhv.queryInsert(new QueryInsertSetupper<MemberWithdrawal, MemberWithdrawalCB>() {
             public ConditionBean setup(MemberWithdrawal entity, MemberWithdrawalCB intoCB) {
-                entity.setWithdrawalReasonCode(firstReason.getWithdrawalReasonCode());
+                entity.setWithdrawalReasonCodeAsWithdrawalReason(firstReason.getWithdrawalReasonCodeAsWithdrawalReason());
                 MemberCB cb = new MemberCB();
 
                 intoCB.specify().columnMemberId().mappedFrom(cb.specify().columnMemberId());
@@ -198,7 +198,7 @@ public class VendorGrammerTest extends UnitContainerTestCase {
         {
             MemberCB cb = new MemberCB();
             cb.setupSelect_MemberStatus();
-            cb.specify().derivedMemberLoginList().max(new SubQuery<MemberLoginCB>() {
+            cb.specify().derivedMemberLogin().max(new SubQuery<MemberLoginCB>() {
                 public void query(MemberLoginCB subCB) {
                     subCB.specify().columnLoginDatetime();
                     subCB.query().setMobileLoginFlg_Equal_True();
@@ -210,14 +210,14 @@ public class VendorGrammerTest extends UnitContainerTestCase {
                 formalizedMemberMap.put(member.getMemberId(), member);
             }
         }
-        final Timestamp coalesce = DfTypeUtil.toTimestamp("1234-10-24 12:34:56.147");
+        final LocalDateTime coalesce = DfTypeUtil.toLocalDateTime("1234-10-24 12:34:56.147");
 
         // ## Act ##
         memberWithdrawalBhv.queryInsert(new QueryInsertSetupper<MemberWithdrawal, MemberWithdrawalCB>() {
             public ConditionBean setup(MemberWithdrawal entity, MemberWithdrawalCB intoCB) {
                 MemberCB cb = new MemberCB();
                 cb.setupSelect_MemberStatus();
-                cb.specify().derivedMemberLoginList().max(new SubQuery<MemberLoginCB>() {
+                cb.specify().derivedMemberLogin().max(new SubQuery<MemberLoginCB>() {
                     public void query(MemberLoginCB subCB) {
                         subCB.specify().columnLoginDatetime();
                         subCB.query().setMobileLoginFlg_Equal_True();
@@ -226,8 +226,7 @@ public class VendorGrammerTest extends UnitContainerTestCase {
 
                 intoCB.specify().columnMemberId().mappedFrom(cb.specify().columnMemberId());
                 intoCB.specify().columnWithdrawalDatetime().mappedFromDerived(Member.ALIAS_latestLoginDatetime);
-                intoCB.specify().columnWithdrawalReasonInputText()
-                        .mappedFrom(cb.specify().specifyMemberStatus().columnMemberStatusName());
+                intoCB.specify().columnWithdrawalReasonInputText().mappedFrom(cb.specify().specifyMemberStatus().columnMemberStatusName());
 
                 cb.query().setMemberStatusCode_Equal_Formalized();
                 cb.query().addOrderBy_Birthdate_Desc().withNullsLast();
@@ -248,21 +247,23 @@ public class VendorGrammerTest extends UnitContainerTestCase {
         String fmt = "yyyy-MM-dd HH:mm:ss.SSS";
         Set<String> existsSet = new HashSet<String>();
         for (MemberWithdrawal actual : actualList) {
-            String withdrawalDatetime = DfTypeUtil.toString(actual.getWithdrawalDatetime(), fmt);
-            String coalesceDatetime = DfTypeUtil.toString(coalesce, fmt);
+            String withdrawalDatetime = toString(actual.getWithdrawalDatetime(), fmt);
+            String coalesceDatetime = toString(coalesce, fmt);
             Member member = formalizedMemberMap.get(actual.getMemberId());
             assertNotNull(member);
+            Timestamp latestLoginDatetime = member.getLatestLoginDatetime();
+            log(member.getMemberId(), member.getMemberName(), withdrawalDatetime, latestLoginDatetime);
             if (withdrawalDatetime.equals(coalesceDatetime)) {
-                assertNull(member.getLatestLoginDatetime());
+                assertNull(latestLoginDatetime);
                 existsSet.add("coalesce");
             } else {
-                String latestLoginDatetime = DfTypeUtil.toString(member.getLatestLoginDatetime(), fmt);
-                assertNotNull(latestLoginDatetime);
-                assertEquals(latestLoginDatetime, withdrawalDatetime);
+                String latestLoginExp = toString(latestLoginDatetime, fmt);
+                assertNotNull(latestLoginExp);
+                assertEquals(latestLoginExp, withdrawalDatetime);
                 existsSet.add("latest");
             }
             assertNull(actual.getWithdrawalReasonCode());
-            assertEquals(member.getMemberStatus().getMemberStatusName(), actual.getWithdrawalReasonInputText());
+            assertEquals(member.getMemberStatus().get().getMemberStatusName(), actual.getWithdrawalReasonInputText());
         }
         assertEquals(2, existsSet.size());
     }
@@ -284,8 +285,8 @@ public class VendorGrammerTest extends UnitContainerTestCase {
 
         // ## Assert ##
         assertHasAnyElement(memberList);
-        List<CDef.MemberStatus> expectedList = newArrayList(CDef.MemberStatus.Withdrawal, CDef.MemberStatus.Formalized,
-                CDef.MemberStatus.Provisional);
+        List<CDef.MemberStatus> expectedList =
+                newArrayList(CDef.MemberStatus.Withdrawal, CDef.MemberStatus.Formalized, CDef.MemberStatus.Provisional);
         Set<CDef.MemberStatus> actualSet = newLinkedHashSet();
         for (Member member : memberList) {
             actualSet.add(member.getMemberStatusCodeAsMemberStatus());

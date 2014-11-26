@@ -11,7 +11,7 @@ public class MemberStatusNss {
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    protected MemberStatusCQ _query;
+    protected final MemberStatusCQ _query;
     public MemberStatusNss(MemberStatusCQ query) { _query = query; }
     public boolean hasConditionQuery() { return _query != null; }
 

@@ -31,7 +31,7 @@ public class WxBizOneToOnePostgreDerivedTest extends UnitContainerTestCase {
 
         // ## Assert ##
         assertHasAnyElement(memberList);
-        memberBhv.loadMemberLoginList(memberList, new ConditionBeanSetupper<MemberLoginCB>() {
+        memberBhv.loadMemberLogin(memberList, new ConditionBeanSetupper<MemberLoginCB>() {
             public void setup(MemberLoginCB cb) {
                 cb.query().addOrderBy_LoginDatetime_Desc();
             }
@@ -39,7 +39,7 @@ public class WxBizOneToOnePostgreDerivedTest extends UnitContainerTestCase {
         StringBuilder sb = new StringBuilder();
         boolean existsNull = false;
         for (Member member : memberList) {
-            MemberLogin actualLogin = member.getMemberLoginAsLatest();
+            MemberLogin actualLogin = member.getMemberLoginAsLatest().orElse(null);
             if (actualLogin == null) {
                 existsNull = true;
             }

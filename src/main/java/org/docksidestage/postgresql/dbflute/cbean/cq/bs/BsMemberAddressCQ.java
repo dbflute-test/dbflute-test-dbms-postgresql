@@ -181,14 +181,14 @@ public class BsMemberAddressCQ extends AbstractBsMemberAddressCQ {
 
     /** 
      * Add order-by as ascend. <br>
-     * (地域ID)region_id: {NotNull, int4(10), FK to region}
+     * (地域ID)region_id: {NotNull, int4(10), FK to region, classification=Region}
      * @return this. (NotNull)
      */
     public BsMemberAddressCQ addOrderBy_RegionId_Asc() { regOBA("region_id"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * (地域ID)region_id: {NotNull, int4(10), FK to region}
+     * (地域ID)region_id: {NotNull, int4(10), FK to region, classification=Region}
      * @return this. (NotNull)
      */
     public BsMemberAddressCQ addOrderBy_RegionId_Desc() { regOBD("region_id"); return this; }

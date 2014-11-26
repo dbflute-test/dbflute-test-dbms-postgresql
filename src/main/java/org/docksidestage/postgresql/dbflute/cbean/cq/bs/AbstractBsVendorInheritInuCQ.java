@@ -29,17 +29,14 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
     }
 
     // ===================================================================================
-    //                                                                     DBMeta Provider
-    //                                                                     ===============
+    //                                                                             DB Meta
+    //                                                                             =======
     @Override
     protected DBMetaProvider xgetDBMetaProvider() {
         return DBMetaInstanceHandler.getProvider();
     }
 
-    // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
-    public String getTableDbName() {
+    public String asTableDbName() {
         return "vendor_inherit_inu";
     }
 
@@ -275,8 +272,8 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
      * inu_date: {date(13)}
      * @param inuDate The value of inuDate as equal. (NullAllowed: if null, no condition)
      */
-    public void setInuDate_Equal(java.util.Date inuDate) {
-        regInuDate(CK_EQ,  fCTPD(inuDate));
+    public void setInuDate_Equal(java.time.LocalDate inuDate) {
+        regInuDate(CK_EQ,  inuDate);
     }
 
     /**
@@ -284,8 +281,8 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
      * inu_date: {date(13)}
      * @param inuDate The value of inuDate as greaterThan. (NullAllowed: if null, no condition)
      */
-    public void setInuDate_GreaterThan(java.util.Date inuDate) {
-        regInuDate(CK_GT,  fCTPD(inuDate));
+    public void setInuDate_GreaterThan(java.time.LocalDate inuDate) {
+        regInuDate(CK_GT,  inuDate);
     }
 
     /**
@@ -293,8 +290,8 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
      * inu_date: {date(13)}
      * @param inuDate The value of inuDate as lessThan. (NullAllowed: if null, no condition)
      */
-    public void setInuDate_LessThan(java.util.Date inuDate) {
-        regInuDate(CK_LT,  fCTPD(inuDate));
+    public void setInuDate_LessThan(java.time.LocalDate inuDate) {
+        regInuDate(CK_LT,  inuDate);
     }
 
     /**
@@ -302,8 +299,8 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
      * inu_date: {date(13)}
      * @param inuDate The value of inuDate as greaterEqual. (NullAllowed: if null, no condition)
      */
-    public void setInuDate_GreaterEqual(java.util.Date inuDate) {
-        regInuDate(CK_GE,  fCTPD(inuDate));
+    public void setInuDate_GreaterEqual(java.time.LocalDate inuDate) {
+        regInuDate(CK_GE,  inuDate);
     }
 
     /**
@@ -311,8 +308,8 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
      * inu_date: {date(13)}
      * @param inuDate The value of inuDate as lessEqual. (NullAllowed: if null, no condition)
      */
-    public void setInuDate_LessEqual(java.util.Date inuDate) {
-        regInuDate(CK_LE, fCTPD(inuDate));
+    public void setInuDate_LessEqual(java.time.LocalDate inuDate) {
+        regInuDate(CK_LE, inuDate);
     }
 
     /**
@@ -324,7 +321,7 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of inuDate. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of from-to. (NotNull)
      */
-    public void setInuDate_FromTo(Date fromDatetime, Date toDatetime, ConditionOptionCall<FromToOption> opLambda) {
+    public void setInuDate_FromTo(java.time.LocalDate fromDatetime, java.time.LocalDate toDatetime, ConditionOptionCall<FromToOption> opLambda) {
         setInuDate_FromTo(fromDatetime, toDatetime, xcFTOP(opLambda));
     }
 
@@ -337,8 +334,9 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of inuDate. (NullAllowed: if null, no to-condition)
      * @param fromToOption The option of from-to. (NotNull)
      */
-    public void setInuDate_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ(fCTPD(fromDatetime), fCTPD(toDatetime), xgetCValueInuDate(), "inu_date", fromToOption);
+    public void setInuDate_FromTo(java.time.LocalDate fromDatetime, java.time.LocalDate toDatetime, FromToOption fromToOption) {
+        String nm = "inu_date"; FromToOption op = fromToOption;
+        regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValueInuDate(), nm, op);
     }
 
     /**
@@ -352,7 +350,7 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
      * @param fromDate The from-date(yyyy/MM/dd) of inuDate. (NullAllowed: if null, no from-condition)
      * @param toDate The to-date(yyyy/MM/dd) of inuDate. (NullAllowed: if null, no to-condition)
      */
-    public void setInuDate_DateFromTo(Date fromDate, Date toDate) {
+    public void setInuDate_DateFromTo(java.time.LocalDate fromDate, java.time.LocalDate toDate) {
         setInuDate_FromTo(fromDate, toDate, xcDFTOP());
     }
 

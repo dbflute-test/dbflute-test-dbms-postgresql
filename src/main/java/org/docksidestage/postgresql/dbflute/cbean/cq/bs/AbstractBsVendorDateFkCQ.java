@@ -29,17 +29,14 @@ public abstract class AbstractBsVendorDateFkCQ extends AbstractConditionQuery {
     }
 
     // ===================================================================================
-    //                                                                     DBMeta Provider
-    //                                                                     ===============
+    //                                                                             DB Meta
+    //                                                                             =======
     @Override
     protected DBMetaProvider xgetDBMetaProvider() {
         return DBMetaInstanceHandler.getProvider();
     }
 
-    // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
-    public String getTableDbName() {
+    public String asTableDbName() {
         return "vendor_date_fk";
     }
 
@@ -167,8 +164,8 @@ public abstract class AbstractBsVendorDateFkCQ extends AbstractConditionQuery {
      * bar_date: {NotNull, date(13), FK to vendor_date_pk}
      * @param barDate The value of barDate as equal. (NullAllowed: if null, no condition)
      */
-    public void setBarDate_Equal(java.util.Date barDate) {
-        regBarDate(CK_EQ,  fCTPD(barDate));
+    public void setBarDate_Equal(java.time.LocalDate barDate) {
+        regBarDate(CK_EQ,  barDate);
     }
 
     /**
@@ -176,8 +173,8 @@ public abstract class AbstractBsVendorDateFkCQ extends AbstractConditionQuery {
      * bar_date: {NotNull, date(13), FK to vendor_date_pk}
      * @param barDate The value of barDate as greaterThan. (NullAllowed: if null, no condition)
      */
-    public void setBarDate_GreaterThan(java.util.Date barDate) {
-        regBarDate(CK_GT,  fCTPD(barDate));
+    public void setBarDate_GreaterThan(java.time.LocalDate barDate) {
+        regBarDate(CK_GT,  barDate);
     }
 
     /**
@@ -185,8 +182,8 @@ public abstract class AbstractBsVendorDateFkCQ extends AbstractConditionQuery {
      * bar_date: {NotNull, date(13), FK to vendor_date_pk}
      * @param barDate The value of barDate as lessThan. (NullAllowed: if null, no condition)
      */
-    public void setBarDate_LessThan(java.util.Date barDate) {
-        regBarDate(CK_LT,  fCTPD(barDate));
+    public void setBarDate_LessThan(java.time.LocalDate barDate) {
+        regBarDate(CK_LT,  barDate);
     }
 
     /**
@@ -194,8 +191,8 @@ public abstract class AbstractBsVendorDateFkCQ extends AbstractConditionQuery {
      * bar_date: {NotNull, date(13), FK to vendor_date_pk}
      * @param barDate The value of barDate as greaterEqual. (NullAllowed: if null, no condition)
      */
-    public void setBarDate_GreaterEqual(java.util.Date barDate) {
-        regBarDate(CK_GE,  fCTPD(barDate));
+    public void setBarDate_GreaterEqual(java.time.LocalDate barDate) {
+        regBarDate(CK_GE,  barDate);
     }
 
     /**
@@ -203,8 +200,8 @@ public abstract class AbstractBsVendorDateFkCQ extends AbstractConditionQuery {
      * bar_date: {NotNull, date(13), FK to vendor_date_pk}
      * @param barDate The value of barDate as lessEqual. (NullAllowed: if null, no condition)
      */
-    public void setBarDate_LessEqual(java.util.Date barDate) {
-        regBarDate(CK_LE, fCTPD(barDate));
+    public void setBarDate_LessEqual(java.time.LocalDate barDate) {
+        regBarDate(CK_LE, barDate);
     }
 
     /**
@@ -216,7 +213,7 @@ public abstract class AbstractBsVendorDateFkCQ extends AbstractConditionQuery {
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of barDate. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of from-to. (NotNull)
      */
-    public void setBarDate_FromTo(Date fromDatetime, Date toDatetime, ConditionOptionCall<FromToOption> opLambda) {
+    public void setBarDate_FromTo(java.time.LocalDate fromDatetime, java.time.LocalDate toDatetime, ConditionOptionCall<FromToOption> opLambda) {
         setBarDate_FromTo(fromDatetime, toDatetime, xcFTOP(opLambda));
     }
 
@@ -229,8 +226,9 @@ public abstract class AbstractBsVendorDateFkCQ extends AbstractConditionQuery {
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of barDate. (NullAllowed: if null, no to-condition)
      * @param fromToOption The option of from-to. (NotNull)
      */
-    public void setBarDate_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ(fCTPD(fromDatetime), fCTPD(toDatetime), xgetCValueBarDate(), "bar_date", fromToOption);
+    public void setBarDate_FromTo(java.time.LocalDate fromDatetime, java.time.LocalDate toDatetime, FromToOption fromToOption) {
+        String nm = "bar_date"; FromToOption op = fromToOption;
+        regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValueBarDate(), nm, op);
     }
 
     /**
@@ -244,7 +242,7 @@ public abstract class AbstractBsVendorDateFkCQ extends AbstractConditionQuery {
      * @param fromDate The from-date(yyyy/MM/dd) of barDate. (NullAllowed: if null, no from-condition)
      * @param toDate The to-date(yyyy/MM/dd) of barDate. (NullAllowed: if null, no to-condition)
      */
-    public void setBarDate_DateFromTo(Date fromDate, Date toDate) {
+    public void setBarDate_DateFromTo(java.time.LocalDate fromDate, java.time.LocalDate toDate) {
         setBarDate_FromTo(fromDate, toDate, xcDFTOP());
     }
 
@@ -253,11 +251,11 @@ public abstract class AbstractBsVendorDateFkCQ extends AbstractConditionQuery {
      * bar_date: {NotNull, date(13), FK to vendor_date_pk}
      * @param barDateList The collection of barDate as inScope. (NullAllowed: if null (or empty), no condition)
      */
-    public void setBarDate_InScope(Collection<java.util.Date> barDateList) {
+    public void setBarDate_InScope(Collection<java.time.LocalDate> barDateList) {
         doSetBarDate_InScope(barDateList);
     }
 
-    protected void doSetBarDate_InScope(Collection<java.util.Date> barDateList) {
+    protected void doSetBarDate_InScope(Collection<java.time.LocalDate> barDateList) {
         regINS(CK_INS, cTL(barDateList), xgetCValueBarDate(), "bar_date");
     }
 

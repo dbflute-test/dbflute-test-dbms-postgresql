@@ -47,9 +47,9 @@ public class WxCBDreamCruisePostgreSQLTest extends UnitContainerTestCase {
         MemberCB cb = new MemberCB();
         cb.specify().columnBirthdate();
         final MemberCB dreamCruiseCB = cb.dreamCruiseCB();
-        cb.query().existsPurchaseList(new SubQuery<PurchaseCB>() {
+        cb.query().existsPurchase(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
-                subCB.query().queryProduct().notExistsPurchaseList(new SubQuery<PurchaseCB>() {
+                subCB.query().queryProduct().notExistsPurchase(new SubQuery<PurchaseCB>() {
                     public void query(PurchaseCB subCB) {
                         subCB.columnQuery(new SpecifyQuery<PurchaseCB>() {
                             public void specify(PurchaseCB cb) {
@@ -83,12 +83,11 @@ public class WxCBDreamCruisePostgreSQLTest extends UnitContainerTestCase {
         MemberCB cb = new MemberCB();
         cb.specify().columnBirthdate();
         final MemberCB dreamCruiseCB = cb.dreamCruiseCB();
-        cb.query().existsPurchaseList(new SubQuery<PurchaseCB>() {
+        cb.query().existsPurchase(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
-                subCB.query().queryProduct().notExistsPurchaseList(new SubQuery<PurchaseCB>() {
+                subCB.query().queryProduct().notExistsPurchase(new SubQuery<PurchaseCB>() {
                     public void query(PurchaseCB subCB) {
-                        SpecifiedColumn pointColumn = dreamCruiseCB.specify().specifyMemberServiceAsOne()
-                                .columnServicePointCount();
+                        SpecifiedColumn pointColumn = dreamCruiseCB.specify().specifyMemberServiceAsOne().columnServicePointCount();
                         subCB.columnQuery(new SpecifyQuery<PurchaseCB>() {
                             public void specify(PurchaseCB cb) {
                                 cb.specify().columnMemberId();
@@ -119,9 +118,9 @@ public class WxCBDreamCruisePostgreSQLTest extends UnitContainerTestCase {
 
     protected List<Member> selectMyOnlyProductMember() throws Exception {
         MemberCB cb = new MemberCB();
-        cb.query().existsPurchaseList(new SubQuery<PurchaseCB>() {
+        cb.query().existsPurchase(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
-                subCB.query().queryProduct().derivedPurchaseList().countDistinct(new SubQuery<PurchaseCB>() {
+                subCB.query().queryProduct().derivedPurchase().countDistinct(new SubQuery<PurchaseCB>() {
                     public void query(PurchaseCB subCB) {
                         subCB.specify().columnMemberId();
                     }
@@ -138,9 +137,9 @@ public class WxCBDreamCruisePostgreSQLTest extends UnitContainerTestCase {
         MemberCB cb = new MemberCB();
         cb.specify().columnBirthdate();
         final MemberCB dreamCruiseCB = cb.dreamCruiseCB();
-        cb.query().existsPurchaseList(new SubQuery<PurchaseCB>() {
+        cb.query().existsPurchase(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
-                subCB.query().queryProduct().notExistsPurchaseList(new SubQuery<PurchaseCB>() {
+                subCB.query().queryProduct().notExistsPurchase(new SubQuery<PurchaseCB>() {
                     public void query(PurchaseCB subCB) {
                         subCB.columnQuery(new SpecifyQuery<PurchaseCB>() {
                             public void specify(PurchaseCB cb) {
@@ -210,7 +209,7 @@ public class WxCBDreamCruisePostgreSQLTest extends UnitContainerTestCase {
         // ## Arrange ##
         {
             Member member = new Member();
-            member.setBirthdate(toDate("2014/09/10"));
+            member.setBirthdate(toLocalDate("2014/09/10"));
             memberBhv.varyingQueryUpdate(member, new MemberCB(), op -> op.allowNonQueryUpdate());
         }
         MemberCB cb = new MemberCB();
@@ -259,10 +258,8 @@ public class WxCBDreamCruisePostgreSQLTest extends UnitContainerTestCase {
         }
         assertMarked("exists");
         String sql = cb.toDisplaySql();
+        assertContains(sql, "where dfloc.birthdate <= cast('2015-04-05' as timestamp) + (dfloc.version_no || 'months')::interval");
         assertContains(sql,
-                "where dfloc.birthdate <= cast('2015-04-05' as timestamp) + (dfloc.version_no || 'months')::interval");
-        assertContains(
-                sql,
                 "and dfloc.birthdate < cast(cast('2014-09-01' as timestamp) + (dfloc.member_id || 'days')::interval as timestamp) + '1 minutes'");
         assertContains(sql, "and dfloc.birthdate >= '2006-09-26'");
     }
@@ -271,7 +268,7 @@ public class WxCBDreamCruisePostgreSQLTest extends UnitContainerTestCase {
         // ## Arrange ##
         {
             Member member = new Member();
-            member.setFormalizedDatetime(toTimestamp("2014/09/10 12:34:56"));
+            member.setFormalizedDatetime(toLocalDateTime("2014/09/10 12:34:56"));
             memberBhv.varyingQueryUpdate(member, new MemberCB(), op -> op.allowNonQueryUpdate());
         }
         MemberCB cb = new MemberCB();
@@ -315,8 +312,7 @@ public class WxCBDreamCruisePostgreSQLTest extends UnitContainerTestCase {
             assertTrue(member.getMemberId() >= 10);
         }
         String sql = cb.toDisplaySql();
-        assertContains(
-                sql,
+        assertContains(sql,
                 "where dfloc.formalized_datetime <= cast('2015-04-05 12:34:56.000' as timestamp) + (dfloc.version_no || 'months')::interval");
         assertContains(
                 sql,
@@ -328,7 +324,7 @@ public class WxCBDreamCruisePostgreSQLTest extends UnitContainerTestCase {
         // ## Arrange ##
         {
             Member member = new Member();
-            member.setBirthdate(toDate("2014/09/10"));
+            member.setBirthdate(toLocalDate("2014/09/10"));
             memberBhv.varyingQueryUpdate(member, new MemberCB(), op -> op.allowNonQueryUpdate());
         }
         MemberCB cb = new MemberCB();
@@ -377,10 +373,8 @@ public class WxCBDreamCruisePostgreSQLTest extends UnitContainerTestCase {
         }
         assertMarked("exists");
         String sql = cb.toDisplaySql();
+        assertContains(sql, "where dfloc.birthdate >= cast('2006-09-26' as timestamp) - (dfloc.version_no || 'months')::interval");
         assertContains(sql,
-                "where dfloc.birthdate >= cast('2006-09-26' as timestamp) - (dfloc.version_no || 'months')::interval");
-        assertContains(
-                sql,
                 "and dfloc.birthdate <= cast(cast('2014-09-20' as timestamp) - (dfloc.member_id || 'days')::interval as timestamp) + '-1 minutes'");
         assertContains(sql, "and dfloc.birthdate <= '2015-04-05'");
     }
@@ -427,7 +421,7 @@ public class WxCBDreamCruisePostgreSQLTest extends UnitContainerTestCase {
             serviceMap.put(service.getMemberId(), service);
         }
         MemberCB cb = new MemberCB();
-        cb.specify().derivedPurchaseList().max(new SubQuery<PurchaseCB>() {
+        cb.specify().derivedPurchase().max(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
                 subCB.specify().columnPurchasePrice();
             }
@@ -461,12 +455,12 @@ public class WxCBDreamCruisePostgreSQLTest extends UnitContainerTestCase {
             serviceMap.put(service.getMemberId(), service);
         }
         MemberCB cb = new MemberCB();
-        cb.specify().derivedPurchaseList().max(new SubQuery<PurchaseCB>() {
+        cb.specify().derivedPurchase().max(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
                 subCB.specify().columnPurchasePrice();
             }
         }, Member.ALIAS_highestPurchasePrice);
-        cb.specify().derivedPurchaseList().max(new SubQuery<PurchaseCB>() {
+        cb.specify().derivedPurchase().max(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
                 subCB.specify().columnPurchaseCount();
             }

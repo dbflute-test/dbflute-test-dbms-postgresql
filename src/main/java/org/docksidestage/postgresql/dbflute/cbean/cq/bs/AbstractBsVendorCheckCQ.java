@@ -29,17 +29,14 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
     }
 
     // ===================================================================================
-    //                                                                     DBMeta Provider
-    //                                                                     ===============
+    //                                                                             DB Meta
+    //                                                                             =======
     @Override
     protected DBMetaProvider xgetDBMetaProvider() {
         return DBMetaInstanceHandler.getProvider();
     }
 
-    // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
-    public String getTableDbName() {
+    public String asTableDbName() {
         return "vendor_check";
     }
 
@@ -1737,8 +1734,8 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * type_of_date: {date(13)}
      * @param typeOfDate The value of typeOfDate as equal. (NullAllowed: if null, no condition)
      */
-    public void setTypeOfDate_Equal(java.util.Date typeOfDate) {
-        regTypeOfDate(CK_EQ,  fCTPD(typeOfDate));
+    public void setTypeOfDate_Equal(java.time.LocalDate typeOfDate) {
+        regTypeOfDate(CK_EQ,  typeOfDate);
     }
 
     /**
@@ -1746,8 +1743,8 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * type_of_date: {date(13)}
      * @param typeOfDate The value of typeOfDate as greaterThan. (NullAllowed: if null, no condition)
      */
-    public void setTypeOfDate_GreaterThan(java.util.Date typeOfDate) {
-        regTypeOfDate(CK_GT,  fCTPD(typeOfDate));
+    public void setTypeOfDate_GreaterThan(java.time.LocalDate typeOfDate) {
+        regTypeOfDate(CK_GT,  typeOfDate);
     }
 
     /**
@@ -1755,8 +1752,8 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * type_of_date: {date(13)}
      * @param typeOfDate The value of typeOfDate as lessThan. (NullAllowed: if null, no condition)
      */
-    public void setTypeOfDate_LessThan(java.util.Date typeOfDate) {
-        regTypeOfDate(CK_LT,  fCTPD(typeOfDate));
+    public void setTypeOfDate_LessThan(java.time.LocalDate typeOfDate) {
+        regTypeOfDate(CK_LT,  typeOfDate);
     }
 
     /**
@@ -1764,8 +1761,8 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * type_of_date: {date(13)}
      * @param typeOfDate The value of typeOfDate as greaterEqual. (NullAllowed: if null, no condition)
      */
-    public void setTypeOfDate_GreaterEqual(java.util.Date typeOfDate) {
-        regTypeOfDate(CK_GE,  fCTPD(typeOfDate));
+    public void setTypeOfDate_GreaterEqual(java.time.LocalDate typeOfDate) {
+        regTypeOfDate(CK_GE,  typeOfDate);
     }
 
     /**
@@ -1773,8 +1770,8 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * type_of_date: {date(13)}
      * @param typeOfDate The value of typeOfDate as lessEqual. (NullAllowed: if null, no condition)
      */
-    public void setTypeOfDate_LessEqual(java.util.Date typeOfDate) {
-        regTypeOfDate(CK_LE, fCTPD(typeOfDate));
+    public void setTypeOfDate_LessEqual(java.time.LocalDate typeOfDate) {
+        regTypeOfDate(CK_LE, typeOfDate);
     }
 
     /**
@@ -1786,7 +1783,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of typeOfDate. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of from-to. (NotNull)
      */
-    public void setTypeOfDate_FromTo(Date fromDatetime, Date toDatetime, ConditionOptionCall<FromToOption> opLambda) {
+    public void setTypeOfDate_FromTo(java.time.LocalDate fromDatetime, java.time.LocalDate toDatetime, ConditionOptionCall<FromToOption> opLambda) {
         setTypeOfDate_FromTo(fromDatetime, toDatetime, xcFTOP(opLambda));
     }
 
@@ -1799,8 +1796,9 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of typeOfDate. (NullAllowed: if null, no to-condition)
      * @param fromToOption The option of from-to. (NotNull)
      */
-    public void setTypeOfDate_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ(fCTPD(fromDatetime), fCTPD(toDatetime), xgetCValueTypeOfDate(), "type_of_date", fromToOption);
+    public void setTypeOfDate_FromTo(java.time.LocalDate fromDatetime, java.time.LocalDate toDatetime, FromToOption fromToOption) {
+        String nm = "type_of_date"; FromToOption op = fromToOption;
+        regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValueTypeOfDate(), nm, op);
     }
 
     /**
@@ -1814,7 +1812,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * @param fromDate The from-date(yyyy/MM/dd) of typeOfDate. (NullAllowed: if null, no from-condition)
      * @param toDate The to-date(yyyy/MM/dd) of typeOfDate. (NullAllowed: if null, no to-condition)
      */
-    public void setTypeOfDate_DateFromTo(Date fromDate, Date toDate) {
+    public void setTypeOfDate_DateFromTo(java.time.LocalDate fromDate, java.time.LocalDate toDate) {
         setTypeOfDate_FromTo(fromDate, toDate, xcDFTOP());
     }
 
@@ -1838,7 +1836,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * type_of_timestamp: {timestamp(29, 6)}
      * @param typeOfTimestamp The value of typeOfTimestamp as equal. (NullAllowed: if null, no condition)
      */
-    public void setTypeOfTimestamp_Equal(java.sql.Timestamp typeOfTimestamp) {
+    public void setTypeOfTimestamp_Equal(java.time.LocalDateTime typeOfTimestamp) {
         regTypeOfTimestamp(CK_EQ,  typeOfTimestamp);
     }
 
@@ -1847,7 +1845,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * type_of_timestamp: {timestamp(29, 6)}
      * @param typeOfTimestamp The value of typeOfTimestamp as greaterThan. (NullAllowed: if null, no condition)
      */
-    public void setTypeOfTimestamp_GreaterThan(java.sql.Timestamp typeOfTimestamp) {
+    public void setTypeOfTimestamp_GreaterThan(java.time.LocalDateTime typeOfTimestamp) {
         regTypeOfTimestamp(CK_GT,  typeOfTimestamp);
     }
 
@@ -1856,7 +1854,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * type_of_timestamp: {timestamp(29, 6)}
      * @param typeOfTimestamp The value of typeOfTimestamp as lessThan. (NullAllowed: if null, no condition)
      */
-    public void setTypeOfTimestamp_LessThan(java.sql.Timestamp typeOfTimestamp) {
+    public void setTypeOfTimestamp_LessThan(java.time.LocalDateTime typeOfTimestamp) {
         regTypeOfTimestamp(CK_LT,  typeOfTimestamp);
     }
 
@@ -1865,7 +1863,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * type_of_timestamp: {timestamp(29, 6)}
      * @param typeOfTimestamp The value of typeOfTimestamp as greaterEqual. (NullAllowed: if null, no condition)
      */
-    public void setTypeOfTimestamp_GreaterEqual(java.sql.Timestamp typeOfTimestamp) {
+    public void setTypeOfTimestamp_GreaterEqual(java.time.LocalDateTime typeOfTimestamp) {
         regTypeOfTimestamp(CK_GE,  typeOfTimestamp);
     }
 
@@ -1874,7 +1872,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * type_of_timestamp: {timestamp(29, 6)}
      * @param typeOfTimestamp The value of typeOfTimestamp as lessEqual. (NullAllowed: if null, no condition)
      */
-    public void setTypeOfTimestamp_LessEqual(java.sql.Timestamp typeOfTimestamp) {
+    public void setTypeOfTimestamp_LessEqual(java.time.LocalDateTime typeOfTimestamp) {
         regTypeOfTimestamp(CK_LE, typeOfTimestamp);
     }
 
@@ -1887,7 +1885,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of typeOfTimestamp. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of from-to. (NotNull)
      */
-    public void setTypeOfTimestamp_FromTo(Date fromDatetime, Date toDatetime, ConditionOptionCall<FromToOption> opLambda) {
+    public void setTypeOfTimestamp_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, ConditionOptionCall<FromToOption> opLambda) {
         setTypeOfTimestamp_FromTo(fromDatetime, toDatetime, xcFTOP(opLambda));
     }
 
@@ -1900,8 +1898,9 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of typeOfTimestamp. (NullAllowed: if null, no to-condition)
      * @param fromToOption The option of from-to. (NotNull)
      */
-    public void setTypeOfTimestamp_FromTo(Date fromDatetime, Date toDatetime, FromToOption fromToOption) {
-        regFTQ((fromDatetime != null ? new java.sql.Timestamp(fromDatetime.getTime()) : null), (toDatetime != null ? new java.sql.Timestamp(toDatetime.getTime()) : null), xgetCValueTypeOfTimestamp(), "type_of_timestamp", fromToOption);
+    public void setTypeOfTimestamp_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, FromToOption fromToOption) {
+        String nm = "type_of_timestamp"; FromToOption op = fromToOption;
+        regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValueTypeOfTimestamp(), nm, op);
     }
 
     /**
@@ -1915,7 +1914,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * @param fromDate The from-date(yyyy/MM/dd) of typeOfTimestamp. (NullAllowed: if null, no from-condition)
      * @param toDate The to-date(yyyy/MM/dd) of typeOfTimestamp. (NullAllowed: if null, no to-condition)
      */
-    public void setTypeOfTimestamp_DateFromTo(Date fromDate, Date toDate) {
+    public void setTypeOfTimestamp_DateFromTo(java.time.LocalDateTime fromDate, java.time.LocalDateTime toDate) {
         setTypeOfTimestamp_FromTo(fromDate, toDate, xcDFTOP());
     }
 
@@ -1939,7 +1938,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * type_of_time: {time(15, 6)}
      * @param typeOfTime The value of typeOfTime as equal. (NullAllowed: if null, no condition)
      */
-    public void setTypeOfTime_Equal(java.sql.Time typeOfTime) {
+    public void setTypeOfTime_Equal(java.time.LocalTime typeOfTime) {
         regTypeOfTime(CK_EQ,  typeOfTime);
     }
 
@@ -1948,7 +1947,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * type_of_time: {time(15, 6)}
      * @param typeOfTime The value of typeOfTime as greaterThan. (NullAllowed: if null, no condition)
      */
-    public void setTypeOfTime_GreaterThan(java.sql.Time typeOfTime) {
+    public void setTypeOfTime_GreaterThan(java.time.LocalTime typeOfTime) {
         regTypeOfTime(CK_GT,  typeOfTime);
     }
 
@@ -1957,7 +1956,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * type_of_time: {time(15, 6)}
      * @param typeOfTime The value of typeOfTime as lessThan. (NullAllowed: if null, no condition)
      */
-    public void setTypeOfTime_LessThan(java.sql.Time typeOfTime) {
+    public void setTypeOfTime_LessThan(java.time.LocalTime typeOfTime) {
         regTypeOfTime(CK_LT,  typeOfTime);
     }
 
@@ -1966,7 +1965,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * type_of_time: {time(15, 6)}
      * @param typeOfTime The value of typeOfTime as greaterEqual. (NullAllowed: if null, no condition)
      */
-    public void setTypeOfTime_GreaterEqual(java.sql.Time typeOfTime) {
+    public void setTypeOfTime_GreaterEqual(java.time.LocalTime typeOfTime) {
         regTypeOfTime(CK_GE,  typeOfTime);
     }
 
@@ -1975,7 +1974,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * type_of_time: {time(15, 6)}
      * @param typeOfTime The value of typeOfTime as lessEqual. (NullAllowed: if null, no condition)
      */
-    public void setTypeOfTime_LessEqual(java.sql.Time typeOfTime) {
+    public void setTypeOfTime_LessEqual(java.time.LocalTime typeOfTime) {
         regTypeOfTime(CK_LE, typeOfTime);
     }
 
@@ -1999,7 +1998,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * type_of_timetz: {timetz(21, 6)}
      * @param typeOfTimetz The value of typeOfTimetz as equal. (NullAllowed: if null, no condition)
      */
-    public void setTypeOfTimetz_Equal(java.sql.Time typeOfTimetz) {
+    public void setTypeOfTimetz_Equal(java.time.LocalTime typeOfTimetz) {
         regTypeOfTimetz(CK_EQ,  typeOfTimetz);
     }
 
@@ -2008,7 +2007,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * type_of_timetz: {timetz(21, 6)}
      * @param typeOfTimetz The value of typeOfTimetz as greaterThan. (NullAllowed: if null, no condition)
      */
-    public void setTypeOfTimetz_GreaterThan(java.sql.Time typeOfTimetz) {
+    public void setTypeOfTimetz_GreaterThan(java.time.LocalTime typeOfTimetz) {
         regTypeOfTimetz(CK_GT,  typeOfTimetz);
     }
 
@@ -2017,7 +2016,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * type_of_timetz: {timetz(21, 6)}
      * @param typeOfTimetz The value of typeOfTimetz as lessThan. (NullAllowed: if null, no condition)
      */
-    public void setTypeOfTimetz_LessThan(java.sql.Time typeOfTimetz) {
+    public void setTypeOfTimetz_LessThan(java.time.LocalTime typeOfTimetz) {
         regTypeOfTimetz(CK_LT,  typeOfTimetz);
     }
 
@@ -2026,7 +2025,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * type_of_timetz: {timetz(21, 6)}
      * @param typeOfTimetz The value of typeOfTimetz as greaterEqual. (NullAllowed: if null, no condition)
      */
-    public void setTypeOfTimetz_GreaterEqual(java.sql.Time typeOfTimetz) {
+    public void setTypeOfTimetz_GreaterEqual(java.time.LocalTime typeOfTimetz) {
         regTypeOfTimetz(CK_GE,  typeOfTimetz);
     }
 
@@ -2035,7 +2034,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * type_of_timetz: {timetz(21, 6)}
      * @param typeOfTimetz The value of typeOfTimetz as lessEqual. (NullAllowed: if null, no condition)
      */
-    public void setTypeOfTimetz_LessEqual(java.sql.Time typeOfTimetz) {
+    public void setTypeOfTimetz_LessEqual(java.time.LocalTime typeOfTimetz) {
         regTypeOfTimetz(CK_LE, typeOfTimetz);
     }
 

@@ -11,7 +11,7 @@ public class VendorInheritInuNss {
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    protected VendorInheritInuCQ _query;
+    protected final VendorInheritInuCQ _query;
     public VendorInheritInuNss(VendorInheritInuCQ query) { _query = query; }
     public boolean hasConditionQuery() { return _query != null; }
 

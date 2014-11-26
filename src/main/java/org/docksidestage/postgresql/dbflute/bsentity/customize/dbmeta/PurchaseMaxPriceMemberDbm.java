@@ -37,7 +37,8 @@ public class PurchaseMaxPriceMemberDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((PurchaseMaxPriceMember)et).getMemberId(), (et, vl) -> ((PurchaseMaxPriceMember)et).setMemberId(cti(vl)), "memberId");
         setupEpg(_epgMap, et -> ((PurchaseMaxPriceMember)et).getMemberName(), (et, vl) -> ((PurchaseMaxPriceMember)et).setMemberName((String)vl), "memberName");
         setupEpg(_epgMap, et -> ((PurchaseMaxPriceMember)et).getPurchaseMaxPrice(), (et, vl) -> ((PurchaseMaxPriceMember)et).setPurchaseMaxPrice(cti(vl)), "purchaseMaxPrice");
@@ -60,10 +61,10 @@ public class PurchaseMaxPriceMemberDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnMemberId = cci("member_id", "member_id", null, "会員ID", Integer.class, "memberId", null, false, false, false, "serial", 10, 0, null, false, null, "会員を識別するID。連番として自動採番される。\n（会員IDだけに限らず）採番方法はDBMS次第。", null, null, null);
-    protected final ColumnInfo _columnMemberName = cci("member_name", "member_name", null, "会員名称", String.class, "memberName", null, false, false, false, "varchar", 200, 0, null, false, null, "会員のフルネームの名称。\n苗字と名前を分けて管理することも多いが、ここでは Example なので単純にひとまとめ。\n// member's name", null, null, null);
-    protected final ColumnInfo _columnPurchaseMaxPrice = cci("purchase_max_price", "purchase_max_price", null, null, Integer.class, "purchaseMaxPrice", null, false, false, false, "int4", 10, 0, null, false, null, "// max price of the member's purchases", null, null, null);
-    protected final ColumnInfo _columnMemberStatusName = cci("member_status_name", "member_status_name", null, "会員ステータス名称", String.class, "memberStatusName", null, false, false, false, "varchar", 50, 0, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnMemberId = cci("member_id", "member_id", null, "会員ID", Integer.class, "memberId", null, false, false, false, "serial", 10, 0, null, false, null, "会員を識別するID。連番として自動採番される。\n（会員IDだけに限らず）採番方法はDBMS次第。", null, null, null, false);
+    protected final ColumnInfo _columnMemberName = cci("member_name", "member_name", null, "会員名称", String.class, "memberName", null, false, false, false, "varchar", 200, 0, null, false, null, "会員のフルネームの名称。\n苗字と名前を分けて管理することも多いが、ここでは Example なので単純にひとまとめ。\n// member's name", null, null, null, false);
+    protected final ColumnInfo _columnPurchaseMaxPrice = cci("purchase_max_price", "purchase_max_price", null, null, Integer.class, "purchaseMaxPrice", null, false, false, false, "int4", 10, 0, null, false, null, "// max price of the member's purchases", null, null, null, false);
+    protected final ColumnInfo _columnMemberStatusName = cci("member_status_name", "member_status_name", null, "会員ステータス名称", String.class, "memberStatusName", null, false, false, false, "varchar", 50, 0, null, false, null, null, null, null, null, false);
 
     /**
      * (会員ID)member_id: {serial(10), refers to member.member_id}

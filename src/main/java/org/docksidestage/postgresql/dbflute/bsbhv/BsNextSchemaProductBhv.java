@@ -60,10 +60,12 @@ public abstract class BsNextSchemaProductBhv extends AbstractBehaviorWritable<Ne
     /*df:endQueryPath*/
 
     // ===================================================================================
-    //                                                                              DBMeta
-    //                                                                              ======
+    //                                                                             DB Meta
+    //                                                                             =======
     /** {@inheritDoc} */
-    public NextSchemaProductDbm getDBMeta() { return NextSchemaProductDbm.getInstance(); }
+    public NextSchemaProductDbm asDBMeta() { return NextSchemaProductDbm.getInstance(); }
+    /** {@inheritDoc} */
+    public String asTableDbName() { return "next_schema_product"; }
 
     // ===================================================================================
     //                                                                        New Instance
@@ -108,60 +110,81 @@ public abstract class BsNextSchemaProductBhv extends AbstractBehaviorWritable<Ne
     //                                                                       Entity Select
     //                                                                       =============
     /**
-     * Select the entity by the condition-bean. #beforejava8 <br>
-     * <span style="color: #AD4747; font-size: 120%">The return might be null if no data, so you should have null check.</span> <br>
-     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, use selectEntityWithDeletedCheck().</span>
+     * Select the entity by the condition-bean. <br>
+     * It returns not-null optional entity, so you should ... <br>
+     * <span style="color: #AD4747; font-size: 120%">If the data is always present as your business rule, alwaysPresent().</span> <br>
+     * <span style="color: #AD4747; font-size: 120%">If it might be no data, isPresent() and orElse(), ...</span>
      * <pre>
-     * NextSchemaProduct nextSchemaProduct = <span style="color: #0000C0">nextSchemaProductBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
+     * <span style="color: #0000C0">nextSchemaProductBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().set...
+     * }).<span style="color: #CC4747">alwaysPresent</span>(<span style="color: #553000">nextSchemaProduct</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if present, or exception</span>
+     *     ... = <span style="color: #553000">nextSchemaProduct</span>.get...
      * });
-     * <span style="color: #70226C">if</span> (nextSchemaProduct != <span style="color: #70226C">null</span>) { <span style="color: #3F7E5E">// null check</span>
-     *     ... = nextSchemaProduct.get...();
-     * } <span style="color: #70226C">else</span> {
-     *     ...
-     * }
+     * 
+     * <span style="color: #3F7E5E">// if it might be no data, ...</span>
+     * <span style="color: #0000C0">nextSchemaProductBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().set...
+     * }).<span style="color: #CC4747">ifPresent</span>(<span style="color: #553000">nextSchemaProduct</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if present</span>
+     *     ... = <span style="color: #553000">nextSchemaProduct</span>.get...
+     * }).<span style="color: #994747">orElse</span>(() <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if not present</span>
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of NextSchemaProduct. (NotNull)
-     * @return The entity selected by the condition. (NullAllowed: if no data, it returns null)
+     * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
-    public NextSchemaProduct selectEntity(CBCall<NextSchemaProductCB> cbLambda) {
+    public OptionalEntity<NextSchemaProduct> selectEntity(CBCall<NextSchemaProductCB> cbLambda) {
         return facadeSelectEntity(createCB(cbLambda));
     }
 
     /**
-     * Select the entity by the condition-bean. #beforejava8 <br>
-     * <span style="color: #AD4747; font-size: 120%">The return might be null if no data, so you should have null check.</span> <br>
-     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, use selectEntityWithDeletedCheck().</span>
+     * Select the entity by the condition-bean. <br>
+     * It returns not-null optional entity, so you should ... <br>
+     * <span style="color: #AD4747; font-size: 120%">If the data always exists as your business rule, alwaysPresent().</span> <br>
+     * <span style="color: #AD4747; font-size: 120%">If it might be no data, get() after check by isPresent() or orElse(), ...</span>
      * <pre>
      * NextSchemaProductCB cb = <span style="color: #70226C">new</span> NextSchemaProductCB();
-     * cb.query().setFoo...(value);
-     * NextSchemaProduct nextSchemaProduct = <span style="color: #0000C0">nextSchemaProductBhv</span>.<span style="color: #DD4747">selectEntity</span>(cb);
-     * <span style="color: #70226C">if</span> (nextSchemaProduct != <span style="color: #70226C">null</span>) { <span style="color: #3F7E5E">// null check</span>
-     *     ... = nextSchemaProduct.get...();
-     * } <span style="color: #70226C">else</span> {
-     *     ...
-     * }
+     * cb.query().set...
+     * 
+     * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
+     * <span style="color: #0000C0">nextSchemaProductBhv</span>.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(nextSchemaProduct <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if present, or exception</span>
+     *     ... = nextSchemaProduct.get...
+     * });
+     * 
+     * <span style="color: #3F7E5E">// if it might be no data, ...</span>
+     * <span style="color: #0000C0">nextSchemaProductBhv</span>.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(nextSchemaProduct <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if present</span>
+     *     ... = nextSchemaProduct.get...
+     * }).<span style="color: #994747">orElse</span>(() <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// called if not present</span>
+     * });
      * </pre>
      * @param cb The condition-bean of NextSchemaProduct. (NotNull)
-     * @return The entity selected by the condition. (NullAllowed: if no data, it returns null)
+     * @return The optional entity selected by the condition. (NotNull: if no data, empty entity)
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
-    public NextSchemaProduct selectEntity(NextSchemaProductCB cb) {
+    public OptionalEntity<NextSchemaProduct> selectEntity(NextSchemaProductCB cb) {
         return facadeSelectEntity(cb);
     }
 
-    protected NextSchemaProduct facadeSelectEntity(NextSchemaProductCB cb) {
-        return doSelectEntity(cb, typeOfSelectedEntity());
+    protected OptionalEntity<NextSchemaProduct> facadeSelectEntity(NextSchemaProductCB cb) {
+        return doSelectOptionalEntity(cb, typeOfSelectedEntity());
     }
 
     protected <ENTITY extends NextSchemaProduct> OptionalEntity<ENTITY> doSelectOptionalEntity(NextSchemaProductCB cb, Class<? extends ENTITY> tp) {
         return createOptionalEntity(doSelectEntity(cb, tp), cb);
     }
 
-    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)); }
+    protected Entity doReadEntity(ConditionBean cb) { return facadeSelectEntity(downcast(cb)).orElse(null); }
 
     /**
      * Select the entity by the condition-bean with deleted check. <br>
@@ -202,16 +225,17 @@ public abstract class BsNextSchemaProductBhv extends AbstractBehaviorWritable<Ne
     /**
      * Select the entity by the primary-key value.
      * @param productId : PK, ID, NotNull, serial(10). (NotNull)
-     * @return The entity selected by the PK. (NullAllowed: if no data, it returns null)
+     * @return The optional entity selected by the PK. (NotNull: if no data, empty entity)
+     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
      * @throws EntityDuplicatedException When the entity has been duplicated.
      * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
      */
-    public NextSchemaProduct selectByPK(Integer productId) {
+    public OptionalEntity<NextSchemaProduct> selectByPK(Integer productId) {
         return facadeSelectByPK(productId);
     }
 
-    protected NextSchemaProduct facadeSelectByPK(Integer productId) {
-        return doSelectByPK(productId, typeOfSelectedEntity());
+    protected OptionalEntity<NextSchemaProduct> facadeSelectByPK(Integer productId) {
+        return doSelectOptionalByPK(productId, typeOfSelectedEntity());
     }
 
     protected <ENTITY extends NextSchemaProduct> ENTITY doSelectByPK(Integer productId, Class<? extends ENTITY> tp) {
@@ -368,7 +392,7 @@ public abstract class BsNextSchemaProductBhv extends AbstractBehaviorWritable<Ne
      * Select the scalar value derived by a function from uniquely-selected records. <br>
      * You should call a function method after this method called like as follows:
      * <pre>
-     * <span style="color: #0000C0">nextSchemaProductBhv</span>.<span style="color: #CC4747">scalarSelect</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">nextSchemaProductBhv</span>.<span style="color: #CC4747">selectScalar</span>(Date.class).max(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">column...</span>; <span style="color: #3F7E5E">// required for the function</span>
      *     <span style="color: #553000">cb</span>.query().set...
      * });
@@ -377,7 +401,7 @@ public abstract class BsNextSchemaProductBhv extends AbstractBehaviorWritable<Ne
      * @param resultType The type of result. (NotNull)
      * @return The scalar function object to specify function for scalar value. (NotNull)
      */
-    public <RESULT> HpSLSFunction<NextSchemaProductCB, RESULT> scalarSelect(Class<RESULT> resultType) {
+    public <RESULT> HpSLSFunction<NextSchemaProductCB, RESULT> selectScalar(Class<RESULT> resultType) {
         return facadeScalarSelect(resultType);
     }
 
@@ -484,7 +508,7 @@ public abstract class BsNextSchemaProductBhv extends AbstractBehaviorWritable<Ne
      * Load referrer of whiteSameNameList by the set-upper of referrer. <br>
      * white_same_name by next_schema_product_id, named 'whiteSameNameList'.
      * <pre>
-     * <span style="color: #0000C0">nextSchemaProductBhv</span>.<span style="color: #CC4747">loadWhiteSameNameList</span>(<span style="color: #553000">nextSchemaProductList</span>, <span style="color: #553000">nameCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">nextSchemaProductBhv</span>.<span style="color: #CC4747">loadWhiteSameName</span>(<span style="color: #553000">nextSchemaProductList</span>, <span style="color: #553000">nameCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">nameCB</span>.setupSelect...
      *     <span style="color: #553000">nameCB</span>.query().set...
      *     <span style="color: #553000">nameCB</span>.query().addOrderBy...
@@ -506,16 +530,16 @@ public abstract class BsNextSchemaProductBhv extends AbstractBehaviorWritable<Ne
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhiteSameName> loadWhiteSameNameList(List<NextSchemaProduct> nextSchemaProductList, ConditionBeanSetupper<WhiteSameNameCB> refCBLambda) {
+    public NestedReferrerListGateway<WhiteSameName> loadWhiteSameName(List<NextSchemaProduct> nextSchemaProductList, ConditionBeanSetupper<WhiteSameNameCB> refCBLambda) {
         xassLRArg(nextSchemaProductList, refCBLambda);
-        return doLoadWhiteSameNameList(nextSchemaProductList, new LoadReferrerOption<WhiteSameNameCB, WhiteSameName>().xinit(refCBLambda));
+        return doLoadWhiteSameName(nextSchemaProductList, new LoadReferrerOption<WhiteSameNameCB, WhiteSameName>().xinit(refCBLambda));
     }
 
     /**
      * Load referrer of whiteSameNameList by the set-upper of referrer. <br>
      * white_same_name by next_schema_product_id, named 'whiteSameNameList'.
      * <pre>
-     * <span style="color: #0000C0">nextSchemaProductBhv</span>.<span style="color: #CC4747">loadWhiteSameNameList</span>(<span style="color: #553000">nextSchemaProduct</span>, <span style="color: #553000">nameCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">nextSchemaProductBhv</span>.<span style="color: #CC4747">loadWhiteSameName</span>(<span style="color: #553000">nextSchemaProduct</span>, <span style="color: #553000">nameCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">nameCB</span>.setupSelect...
      *     <span style="color: #553000">nameCB</span>.query().set...
      *     <span style="color: #553000">nameCB</span>.query().addOrderBy...
@@ -535,9 +559,9 @@ public abstract class BsNextSchemaProductBhv extends AbstractBehaviorWritable<Ne
      * @param refCBLambda The callback to set up referrer condition-bean for loading referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhiteSameName> loadWhiteSameNameList(NextSchemaProduct nextSchemaProduct, ConditionBeanSetupper<WhiteSameNameCB> refCBLambda) {
+    public NestedReferrerListGateway<WhiteSameName> loadWhiteSameName(NextSchemaProduct nextSchemaProduct, ConditionBeanSetupper<WhiteSameNameCB> refCBLambda) {
         xassLRArg(nextSchemaProduct, refCBLambda);
-        return doLoadWhiteSameNameList(xnewLRLs(nextSchemaProduct), new LoadReferrerOption<WhiteSameNameCB, WhiteSameName>().xinit(refCBLambda));
+        return doLoadWhiteSameName(xnewLRLs(nextSchemaProduct), new LoadReferrerOption<WhiteSameNameCB, WhiteSameName>().xinit(refCBLambda));
     }
 
     /**
@@ -546,9 +570,9 @@ public abstract class BsNextSchemaProductBhv extends AbstractBehaviorWritable<Ne
      * @param loadReferrerOption The option of load-referrer. (NotNull)
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
-    public NestedReferrerListGateway<WhiteSameName> loadWhiteSameNameList(NextSchemaProduct nextSchemaProduct, LoadReferrerOption<WhiteSameNameCB, WhiteSameName> loadReferrerOption) {
+    public NestedReferrerListGateway<WhiteSameName> loadWhiteSameName(NextSchemaProduct nextSchemaProduct, LoadReferrerOption<WhiteSameNameCB, WhiteSameName> loadReferrerOption) {
         xassLRArg(nextSchemaProduct, loadReferrerOption);
-        return loadWhiteSameNameList(xnewLRLs(nextSchemaProduct), loadReferrerOption);
+        return loadWhiteSameName(xnewLRLs(nextSchemaProduct), loadReferrerOption);
     }
 
     /**
@@ -558,13 +582,13 @@ public abstract class BsNextSchemaProductBhv extends AbstractBehaviorWritable<Ne
      * @return The callback interface which you can load nested referrer by calling withNestedReferrer(). (NotNull)
      */
     @SuppressWarnings("unchecked")
-    public NestedReferrerListGateway<WhiteSameName> loadWhiteSameNameList(List<NextSchemaProduct> nextSchemaProductList, LoadReferrerOption<WhiteSameNameCB, WhiteSameName> loadReferrerOption) {
+    public NestedReferrerListGateway<WhiteSameName> loadWhiteSameName(List<NextSchemaProduct> nextSchemaProductList, LoadReferrerOption<WhiteSameNameCB, WhiteSameName> loadReferrerOption) {
         xassLRArg(nextSchemaProductList, loadReferrerOption);
         if (nextSchemaProductList.isEmpty()) { return (NestedReferrerListGateway<WhiteSameName>)EMPTY_NREF_LGWAY; }
-        return doLoadWhiteSameNameList(nextSchemaProductList, loadReferrerOption);
+        return doLoadWhiteSameName(nextSchemaProductList, loadReferrerOption);
     }
 
-    protected NestedReferrerListGateway<WhiteSameName> doLoadWhiteSameNameList(List<NextSchemaProduct> nextSchemaProductList, LoadReferrerOption<WhiteSameNameCB, WhiteSameName> option) {
+    protected NestedReferrerListGateway<WhiteSameName> doLoadWhiteSameName(List<NextSchemaProduct> nextSchemaProductList, LoadReferrerOption<WhiteSameNameCB, WhiteSameName> option) {
         return helpLoadReferrerInternally(nextSchemaProductList, option, "whiteSameNameList");
     }
 
@@ -617,11 +641,7 @@ public abstract class BsNextSchemaProductBhv extends AbstractBehaviorWritable<Ne
      * <span style="color: #3F7E5E">//nextSchemaProduct.set...;</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * nextSchemaProduct.<span style="color: #CC4747">setVersionNo</span>(value);
-     * try {
-     *     <span style="color: #0000C0">nextSchemaProductBhv</span>.<span style="color: #CC4747">update</span>(nextSchemaProduct);
-     * } catch (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
-     *     ...
-     * }
+     * <span style="color: #0000C0">nextSchemaProductBhv</span>.<span style="color: #CC4747">update</span>(nextSchemaProduct);
      * </pre>
      * @param nextSchemaProduct The entity of update. (NotNull, PrimaryKeyNotNull)
      * @throws EntityAlreadyDeletedException When the entity has already been deleted. (not found)
@@ -782,9 +802,9 @@ public abstract class BsNextSchemaProductBhv extends AbstractBehaviorWritable<Ne
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
      * <span style="color: #3F7E5E">//nextSchemaProduct.setVersionNo(value);</span>
-     * NextSchemaProductCB cb = <span style="color: #70226C">new</span> NextSchemaProductCB();
-     * cb.query().setFoo...(value);
-     * <span style="color: #0000C0">nextSchemaProductBhv</span>.<span style="color: #CC4747">queryUpdate</span>(nextSchemaProduct, cb);
+     * <span style="color: #0000C0">nextSchemaProductBhv</span>.<span style="color: #CC4747">queryUpdate</span>(nextSchemaProduct, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * });
      * </pre>
      * @param nextSchemaProduct The entity that contains update values. (NotNull, PrimaryKeyNullAllowed)
      * @param cbLambda The callback for condition-bean of NextSchemaProduct. (NotNull)
@@ -824,9 +844,9 @@ public abstract class BsNextSchemaProductBhv extends AbstractBehaviorWritable<Ne
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * NextSchemaProductCB cb = new NextSchemaProductCB();
-     * cb.query().setFoo...(value);
-     * <span style="color: #0000C0">nextSchemaProductBhv</span>.<span style="color: #CC4747">queryDelete</span>(nextSchemaProduct, cb);
+     * <span style="color: #0000C0">nextSchemaProductBhv</span>.<span style="color: #CC4747">queryDelete</span>(nextSchemaProduct, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * });
      * </pre>
      * @param cbLambda The callback for condition-bean of NextSchemaProduct. (NotNull)
      * @return The deleted count.
@@ -866,10 +886,10 @@ public abstract class BsNextSchemaProductBhv extends AbstractBehaviorWritable<Ne
      * <span style="color: #3F7E5E">// if auto-increment, you don't need to set the PK value</span>
      * nextSchemaProduct.setFoo...(value);
      * nextSchemaProduct.setBar...(value);
-     * InsertOption&lt;NextSchemaProductCB&gt; option = new InsertOption&lt;NextSchemaProductCB&gt;();
-     * <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
-     * option.disableCommonColumnAutoSetup();
-     * <span style="color: #0000C0">nextSchemaProductBhv</span>.<span style="color: #CC4747">varyingInsert</span>(nextSchemaProduct, option);
+     * <span style="color: #0000C0">nextSchemaProductBhv</span>.<span style="color: #CC4747">varyingInsert</span>(nextSchemaProduct, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #3F7E5E">// you can insert by your values for common columns</span>
+     *     <span style="color: #553000">op</span>.disableCommonColumnAutoSetup();
+     * });
      * ... = nextSchemaProduct.getPK...(); <span style="color: #3F7E5E">// if auto-increment, you can get the value after</span>
      * </pre>
      * @param nextSchemaProduct The entity of insert. (NotNull, PrimaryKeyNullAllowed: when auto-increment)
@@ -890,18 +910,12 @@ public abstract class BsNextSchemaProductBhv extends AbstractBehaviorWritable<Ne
      * nextSchemaProduct.setOther...(value); <span style="color: #3F7E5E">// you should set only modified columns</span>
      * <span style="color: #3F7E5E">// if exclusive control, the value of concurrency column is required</span>
      * nextSchemaProduct.<span style="color: #CC4747">setVersionNo</span>(value);
-     * <span style="color: #70226C">try</span> {
-     *     <span style="color: #3F7E5E">// you can update by self calculation values</span>
-     *     UpdateOption&lt;NextSchemaProductCB&gt; option = new UpdateOption&lt;NextSchemaProductCB&gt;();
-     *     option.self(new SpecifyQuery&lt;NextSchemaProductCB&gt;() {
-     *         public void specify(NextSchemaProductCB cb) {
-     *             cb.specify().<span style="color: #CC4747">columnXxxCount()</span>;
-     *         }
+     * <span style="color: #3F7E5E">// you can update by self calculation values</span>
+     * <span style="color: #0000C0">nextSchemaProductBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(nextSchemaProduct, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">cb</span>.specify().<span style="color: #CC4747">columnXxxCount()</span>;
      *     }).plus(1); <span style="color: #3F7E5E">// XXX_COUNT = XXX_COUNT + 1</span>
-     *     <span style="color: #0000C0">nextSchemaProductBhv</span>.<span style="color: #CC4747">varyingUpdate</span>(nextSchemaProduct, option);
-     * } <span style="color: #70226C">catch</span> (EntityAlreadyUpdatedException e) { <span style="color: #3F7E5E">// if concurrent update</span>
-     *     ...
-     * }
+     * });
      * </pre>
      * @param nextSchemaProduct The entity of update. (NotNull, PrimaryKeyNotNull)
      * @param opLambda The callback for option of update for varying requests. (NotNull)
@@ -1010,15 +1024,13 @@ public abstract class BsNextSchemaProductBhv extends AbstractBehaviorWritable<Ne
      * <span style="color: #3F7E5E">// you don't need to set a value of concurrency column</span>
      * <span style="color: #3F7E5E">// (auto-increment for version number is valid though non-exclusive control)</span>
      * <span style="color: #3F7E5E">//nextSchemaProduct.setVersionNo(value);</span>
-     * NextSchemaProductCB cb = new NextSchemaProductCB();
-     * cb.query().setFoo...(value);
-     * UpdateOption&lt;NextSchemaProductCB&gt; option = <span style="color: #70226C">new</span> UpdateOption&lt;NextSchemaProductCB&gt;();
-     * option.self(new SpecifyQuery&lt;NextSchemaProductCB&gt;() {
-     *     public void specify(NextSchemaProductCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
-     *     }
-     * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * <span style="color: #0000C0">nextSchemaProductBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(nextSchemaProduct, cb, option);
+     * <span style="color: #0000C0">nextSchemaProductBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(nextSchemaProduct, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * }, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">colCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">colCB</span>.specify().<span style="color: #CC4747">columnFooCount()</span>;
+     *     }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
+     * });
      * </pre>
      * @param nextSchemaProduct The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cbLambda The callback for condition-bean of NextSchemaProduct. (NotNull)
@@ -1046,13 +1058,11 @@ public abstract class BsNextSchemaProductBhv extends AbstractBehaviorWritable<Ne
      * <span style="color: #3F7E5E">//nextSchemaProduct.setVersionNo(value);</span>
      * NextSchemaProductCB cb = <span style="color: #70226C">new</span> NextSchemaProductCB();
      * cb.query().setFoo...(value);
-     * UpdateOption&lt;NextSchemaProductCB&gt; option = <span style="color: #70226C">new</span> UpdateOption&lt;NextSchemaProductCB&gt;();
-     * option.self(new SpecifyQuery&lt;NextSchemaProductCB&gt;() {
-     *     public void specify(NextSchemaProductCB cb) {
-     *         cb.specify().<span style="color: #CC4747">columnFooCount()</span>;
-     *     }
-     * }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
-     * <span style="color: #0000C0">nextSchemaProductBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(nextSchemaProduct, cb, option);
+     * <span style="color: #0000C0">nextSchemaProductBhv</span>.<span style="color: #CC4747">varyingQueryUpdate</span>(nextSchemaProduct, cb, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>.self(<span style="color: #553000">colCB</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *         <span style="color: #553000">colCB</span>.specify().<span style="color: #CC4747">columnFooCount()</span>;
+     *     }).plus(1); <span style="color: #3F7E5E">// FOO_COUNT = FOO_COUNT + 1</span>
+     * });
      * </pre>
      * @param nextSchemaProduct The entity that contains update values. (NotNull) {PrimaryKeyNotRequired}
      * @param cb The condition-bean of NextSchemaProduct. (NotNull)
@@ -1067,7 +1077,14 @@ public abstract class BsNextSchemaProductBhv extends AbstractBehaviorWritable<Ne
     /**
      * Delete the several entities by query with varying requests non-strictly. <br>
      * For example, allowNonQueryDelete(). <br>
-     * Other specifications are same as batchUpdateNonstrict(entityList).
+     * Other specifications are same as queryDelete(cb).
+     * <pre>
+     * <span style="color: #0000C0">nextSchemaProductBhv</span>.<span style="color: #CC4747">queryDelete</span>(nextSchemaProduct, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">cb</span>.query().setFoo...
+     * }, <span style="color: #553000">op</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     *     <span style="color: #553000">op</span>...
+     * });
+     * </pre>
      * @param cbLambda The callback for condition-bean of NextSchemaProduct. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
@@ -1080,7 +1097,7 @@ public abstract class BsNextSchemaProductBhv extends AbstractBehaviorWritable<Ne
     /**
      * Delete the several entities by query with varying requests non-strictly. <br>
      * For example, allowNonQueryDelete(). <br>
-     * Other specifications are same as batchUpdateNonstrict(entityList).
+     * Other specifications are same as queryDelete(cb).
      * @param cb The condition-bean of NextSchemaProduct. (NotNull)
      * @param opLambda The callback for option of delete for varying requests. (NotNull)
      * @return The deleted count.
@@ -1121,9 +1138,8 @@ public abstract class BsNextSchemaProductBhv extends AbstractBehaviorWritable<Ne
      * <p>The invoker of behavior command should be not null when you call this method.</p>
      * @return The new-created all facade executor of outside-SQL. (NotNull)
      */
-    public OutsideSqlBasicExecutor<NextSchemaProductBhv> outsideSql() {
-        OutsideSqlAllFacadeExecutor<NextSchemaProductBhv> facadeExecutor = doOutsideSql();
-        return facadeExecutor.xbasicExecutor(); // variable to resolve generic type
+    public OutsideSqlAllFacadeExecutor<NextSchemaProductBhv> outsideSql() {
+        return doOutsideSql();
     }
 
     // ===================================================================================

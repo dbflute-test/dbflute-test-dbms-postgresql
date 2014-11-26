@@ -29,17 +29,14 @@ public abstract class AbstractBsNextSchemaProductCQ extends AbstractConditionQue
     }
 
     // ===================================================================================
-    //                                                                     DBMeta Provider
-    //                                                                     ===============
+    //                                                                             DB Meta
+    //                                                                             =======
     @Override
     protected DBMetaProvider xgetDBMetaProvider() {
         return DBMetaInstanceHandler.getProvider();
     }
 
-    // ===================================================================================
-    //                                                                          Table Name
-    //                                                                          ==========
-    public String getTableDbName() {
+    public String asTableDbName() {
         return "next_schema_product";
     }
 
@@ -152,13 +149,13 @@ public abstract class AbstractBsNextSchemaProductCQ extends AbstractConditionQue
      * {exists (select NEXT_SCHEMA_PRODUCT_ID from white_same_name where ...)} <br>
      * white_same_name by next_schema_product_id, named 'whiteSameNameAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">existsWhiteSameNameList</span>(nameCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">existsWhiteSameName</span>(nameCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     nameCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of WhiteSameNameList for 'exists'. (NotNull)
      */
-    public void existsWhiteSameNameList(SubQuery<WhiteSameNameCB> subCBLambda) {
+    public void existsWhiteSameName(SubQuery<WhiteSameNameCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteSameNameCB cb = new WhiteSameNameCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepProductId_ExistsReferrer_WhiteSameNameList(cb.query());
@@ -171,13 +168,13 @@ public abstract class AbstractBsNextSchemaProductCQ extends AbstractConditionQue
      * {not exists (select NEXT_SCHEMA_PRODUCT_ID from white_same_name where ...)} <br>
      * white_same_name by next_schema_product_id, named 'whiteSameNameAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">notExistsWhiteSameNameList</span>(nameCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">notExistsWhiteSameName</span>(nameCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     nameCB.query().set...
      * });
      * </pre>
      * @param subCBLambda The callback for sub-query of ProductId_NotExistsReferrer_WhiteSameNameList for 'not exists'. (NotNull)
      */
-    public void notExistsWhiteSameNameList(SubQuery<WhiteSameNameCB> subCBLambda) {
+    public void notExistsWhiteSameName(SubQuery<WhiteSameNameCB> subCBLambda) {
         assertObjectNotNull("subCBLambda", subCBLambda);
         WhiteSameNameCB cb = new WhiteSameNameCB(); cb.xsetupForExistsReferrer(this);
         lockCall(() -> subCBLambda.query(cb)); String pp = keepProductId_NotExistsReferrer_WhiteSameNameList(cb.query());
@@ -198,14 +195,14 @@ public abstract class AbstractBsNextSchemaProductCQ extends AbstractConditionQue
      * {FOO &lt;= (select max(BAR) from white_same_name where ...)} <br>
      * white_same_name by next_schema_product_id, named 'whiteSameNameAsOne'.
      * <pre>
-     * cb.query().<span style="color: #CC4747">derivedWhiteSameNameList()</span>.<span style="color: #CC4747">max</span>(nameCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * cb.query().<span style="color: #CC4747">derivedWhiteSameName()</span>.<span style="color: #CC4747">max</span>(nameCB <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     nameCB.specify().<span style="color: #CC4747">columnFoo...</span> <span style="color: #3F7E5E">// derived column by function</span>
      *     nameCB.query().setBar... <span style="color: #3F7E5E">// referrer condition</span>
      * }).<span style="color: #CC4747">greaterEqual</span>(123); <span style="color: #3F7E5E">// condition to derived column</span>
      * </pre>
      * @return The object to set up a function for referrer table. (NotNull)
      */
-    public HpQDRFunction<WhiteSameNameCB> derivedWhiteSameNameList() {
+    public HpQDRFunction<WhiteSameNameCB> derivedWhiteSameName() {
         return xcreateQDRFunctionWhiteSameNameList();
     }
     protected HpQDRFunction<WhiteSameNameCB> xcreateQDRFunctionWhiteSameNameList() {

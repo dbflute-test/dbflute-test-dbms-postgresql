@@ -11,7 +11,7 @@ public class VendorCheckNss {
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    protected VendorCheckCQ _query;
+    protected final VendorCheckCQ _query;
     public VendorCheckNss(VendorCheckCQ query) { _query = query; }
     public boolean hasConditionQuery() { return _query != null; }
 

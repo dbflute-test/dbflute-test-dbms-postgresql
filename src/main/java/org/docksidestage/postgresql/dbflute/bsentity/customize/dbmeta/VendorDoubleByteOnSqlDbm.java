@@ -37,7 +37,8 @@ public class VendorDoubleByteOnSqlDbm extends AbstractDBMeta {
     //                                       Column Property
     //                                       ---------------
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
-    {
+    { xsetupEpg(); }
+    protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((VendorDoubleByteOnSql)et).getMemberId(), (et, vl) -> ((VendorDoubleByteOnSql)et).setMemberId(cti(vl)), "memberId");
         setupEpg(_epgMap, et -> ((VendorDoubleByteOnSql)et).getMemberNameWithSpace(), (et, vl) -> ((VendorDoubleByteOnSql)et).setMemberNameWithSpace((String)vl), "memberNameWithSpace");
         setupEpg(_epgMap, et -> ((VendorDoubleByteOnSql)et).getMemberStatusName(), (et, vl) -> ((VendorDoubleByteOnSql)et).setMemberStatusName((String)vl), "memberStatusName");
@@ -59,9 +60,9 @@ public class VendorDoubleByteOnSqlDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnMemberId = cci("member_id", "member_id", null, "会員ID", Integer.class, "memberId", null, false, false, false, "serial", 10, 0, null, false, null, "会員を識別するID。連番として自動採番される。\n（会員IDだけに限らず）採番方法はDBMS次第。", null, null, null);
-    protected final ColumnInfo _columnMemberNameWithSpace = cci("member_name_with_space", "member_name_with_space", null, null, String.class, "memberNameWithSpace", null, false, false, false, "text", 2147483647, 0, null, false, null, null, null, null, null);
-    protected final ColumnInfo _columnMemberStatusName = cci("member_status_name", "member_status_name", null, "会員ステータス名称", String.class, "memberStatusName", null, false, false, false, "varchar", 50, 0, null, false, null, null, null, null, null);
+    protected final ColumnInfo _columnMemberId = cci("member_id", "member_id", null, "会員ID", Integer.class, "memberId", null, false, false, false, "serial", 10, 0, null, false, null, "会員を識別するID。連番として自動採番される。\n（会員IDだけに限らず）採番方法はDBMS次第。", null, null, null, false);
+    protected final ColumnInfo _columnMemberNameWithSpace = cci("member_name_with_space", "member_name_with_space", null, null, String.class, "memberNameWithSpace", null, false, false, false, "text", 2147483647, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnMemberStatusName = cci("member_status_name", "member_status_name", null, "会員ステータス名称", String.class, "memberStatusName", null, false, false, false, "varchar", 50, 0, null, false, null, null, null, null, null, false);
 
     /**
      * (会員ID)member_id: {serial(10), refers to member.member_id}

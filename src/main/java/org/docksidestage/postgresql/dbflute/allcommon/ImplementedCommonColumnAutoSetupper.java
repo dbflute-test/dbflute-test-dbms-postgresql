@@ -37,13 +37,13 @@ public class ImplementedCommonColumnAutoSetupper implements CommonColumnAutoSetu
     }
 
     protected void doHandleCommonColumnOfInsertIfNeeds(EntityDefinedCommonColumn entity) {
-        final java.sql.Timestamp registerDatetime = org.dbflute.hook.AccessContext.getAccessTimestampOnThread();
+        final java.time.LocalDateTime registerDatetime = org.dbflute.hook.AccessContext.getAccessLocalDateTimeOnThread();
         entity.setRegisterDatetime(registerDatetime);
         final String registerUser = org.dbflute.hook.AccessContext.getAccessUserOnThread();
         entity.setRegisterUser(registerUser);
         final String registerProcess = org.dbflute.hook.AccessContext.getAccessProcessOnThread();
         entity.setRegisterProcess(registerProcess);
-        final java.sql.Timestamp updateDatetime = entity.getRegisterDatetime();
+        final java.time.LocalDateTime updateDatetime = entity.getRegisterDatetime();
         entity.setUpdateDatetime(updateDatetime);
         final String updateUser = entity.getRegisterUser();
         entity.setUpdateUser(updateUser);
@@ -64,7 +64,7 @@ public class ImplementedCommonColumnAutoSetupper implements CommonColumnAutoSetu
     }
 
     protected void doHandleCommonColumnOfUpdateIfNeeds(EntityDefinedCommonColumn entity) {
-        final java.sql.Timestamp updateDatetime = org.dbflute.hook.AccessContext.getAccessTimestampOnThread();
+        final java.time.LocalDateTime updateDatetime = org.dbflute.hook.AccessContext.getAccessLocalDateTimeOnThread();
         entity.setUpdateDatetime(updateDatetime);
         final String updateUser = org.dbflute.hook.AccessContext.getAccessUserOnThread();
         entity.setUpdateUser(updateUser);
@@ -98,6 +98,6 @@ public class ImplementedCommonColumnAutoSetupper implements CommonColumnAutoSetu
     }
 
     protected void logSettingUp(EntityDefinedCommonColumn entity, String keyword) {
-        _log.debug("...Setting up column columns of " + entity.getTableDbName() + " before " + keyword);
+        _log.debug("...Setting up column columns of " + entity.asTableDbName() + " before " + keyword);
     }
 }
