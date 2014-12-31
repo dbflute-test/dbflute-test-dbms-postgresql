@@ -28,6 +28,9 @@ public class VendorInheritNekoDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                       Current DBDef
     //                                                                       =============
+    public String getProjectName() { return DBCurrent.getInstance().projectName(); }
+    public String getProjectPrefix() { return DBCurrent.getInstance().projectPrefix(); }
+    public String getGenerationGapBasePrefix() { return DBCurrent.getInstance().generationGapBasePrefix(); }
     public DBDef getCurrentDBDef() { return DBCurrent.getInstance().currentDBDef(); }
 
     // ===================================================================================
@@ -41,10 +44,10 @@ public class VendorInheritNekoDbm extends AbstractDBMeta {
     protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((VendorInheritNeko)et).getInuId(), (et, vl) -> ((VendorInheritNeko)et).setInuId(cti(vl)), "inuId");
         setupEpg(_epgMap, et -> ((VendorInheritNeko)et).getInuName(), (et, vl) -> ((VendorInheritNeko)et).setInuName((String)vl), "inuName");
-        setupEpg(_epgMap, et -> ((VendorInheritNeko)et).getInuDate(), (et, vl) -> ((VendorInheritNeko)et).setInuDate((java.time.LocalDate)vl), "inuDate");
+        setupEpg(_epgMap, et -> ((VendorInheritNeko)et).getInuDate(), (et, vl) -> ((VendorInheritNeko)et).setInuDate(ctld(vl)), "inuDate");
         setupEpg(_epgMap, et -> ((VendorInheritNeko)et).getNekoId(), (et, vl) -> ((VendorInheritNeko)et).setNekoId(cti(vl)), "nekoId");
         setupEpg(_epgMap, et -> ((VendorInheritNeko)et).getNekoName(), (et, vl) -> ((VendorInheritNeko)et).setNekoName((String)vl), "nekoName");
-        setupEpg(_epgMap, et -> ((VendorInheritNeko)et).getNekoDate(), (et, vl) -> ((VendorInheritNeko)et).setNekoDate((java.time.LocalDate)vl), "nekoDate");
+        setupEpg(_epgMap, et -> ((VendorInheritNeko)et).getNekoDate(), (et, vl) -> ((VendorInheritNeko)et).setNekoDate(ctld(vl)), "nekoDate");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }

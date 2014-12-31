@@ -28,6 +28,9 @@ public class SpReturnResultSetReturnValueDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                       Current DBDef
     //                                                                       =============
+    public String getProjectName() { return DBCurrent.getInstance().projectName(); }
+    public String getProjectPrefix() { return DBCurrent.getInstance().projectPrefix(); }
+    public String getGenerationGapBasePrefix() { return DBCurrent.getInstance().generationGapBasePrefix(); }
     public DBDef getCurrentDBDef() { return DBCurrent.getInstance().currentDBDef(); }
 
     // ===================================================================================
@@ -41,8 +44,8 @@ public class SpReturnResultSetReturnValueDbm extends AbstractDBMeta {
     protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((SpReturnResultSetReturnValue)et).getMemberId(), (et, vl) -> ((SpReturnResultSetReturnValue)et).setMemberId(cti(vl)), "memberId");
         setupEpg(_epgMap, et -> ((SpReturnResultSetReturnValue)et).getMemberName(), (et, vl) -> ((SpReturnResultSetReturnValue)et).setMemberName((String)vl), "memberName");
-        setupEpg(_epgMap, et -> ((SpReturnResultSetReturnValue)et).getBirthdate(), (et, vl) -> ((SpReturnResultSetReturnValue)et).setBirthdate((java.time.LocalDate)vl), "birthdate");
-        setupEpg(_epgMap, et -> ((SpReturnResultSetReturnValue)et).getFormalizedDatetime(), (et, vl) -> ((SpReturnResultSetReturnValue)et).setFormalizedDatetime((java.time.LocalDateTime)vl), "formalizedDatetime");
+        setupEpg(_epgMap, et -> ((SpReturnResultSetReturnValue)et).getBirthdate(), (et, vl) -> ((SpReturnResultSetReturnValue)et).setBirthdate(ctld(vl)), "birthdate");
+        setupEpg(_epgMap, et -> ((SpReturnResultSetReturnValue)et).getFormalizedDatetime(), (et, vl) -> ((SpReturnResultSetReturnValue)et).setFormalizedDatetime(ctldt(vl)), "formalizedDatetime");
         setupEpg(_epgMap, et -> ((SpReturnResultSetReturnValue)et).getMemberStatusCode(), (et, vl) -> {
             ColumnInfo col = columnMemberStatusCode();
             CDef.MemberStatus cls = (CDef.MemberStatus)gcls(col, vl);

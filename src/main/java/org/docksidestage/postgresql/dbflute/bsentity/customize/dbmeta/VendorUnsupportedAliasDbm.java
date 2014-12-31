@@ -28,6 +28,9 @@ public class VendorUnsupportedAliasDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                       Current DBDef
     //                                                                       =============
+    public String getProjectName() { return DBCurrent.getInstance().projectName(); }
+    public String getProjectPrefix() { return DBCurrent.getInstance().projectPrefix(); }
+    public String getGenerationGapBasePrefix() { return DBCurrent.getInstance().generationGapBasePrefix(); }
     public DBDef getCurrentDBDef() { return DBCurrent.getInstance().currentDBDef(); }
 
     // ===================================================================================
@@ -42,7 +45,7 @@ public class VendorUnsupportedAliasDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((VendorUnsupportedAlias)et).getVendorCheckId(), (et, vl) -> ((VendorUnsupportedAlias)et).setVendorCheckId(ctl(vl)), "vendorCheckId");
         setupEpg(_epgMap, et -> ((VendorUnsupportedAlias)et).getHyphen_exists(), (et, vl) -> ((VendorUnsupportedAlias)et).setHyphen_exists((String)vl), "hyphen_exists");
         setupEpg(_epgMap, et -> ((VendorUnsupportedAlias)et).getSpace_exists(), (et, vl) -> ((VendorUnsupportedAlias)et).setSpace_exists(cti(vl)), "space_exists");
-        setupEpg(_epgMap, et -> ((VendorUnsupportedAlias)et).getDollar$exists(), (et, vl) -> ((VendorUnsupportedAlias)et).setDollar$exists((java.time.LocalDate)vl), "dollar$exists");
+        setupEpg(_epgMap, et -> ((VendorUnsupportedAlias)et).getDollar$exists(), (et, vl) -> ((VendorUnsupportedAlias)et).setDollar$exists(ctld(vl)), "dollar$exists");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }

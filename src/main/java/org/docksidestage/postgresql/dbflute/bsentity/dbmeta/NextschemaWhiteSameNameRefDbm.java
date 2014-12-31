@@ -29,6 +29,9 @@ public class NextschemaWhiteSameNameRefDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                       Current DBDef
     //                                                                       =============
+    public String getProjectName() { return DBCurrent.getInstance().projectName(); }
+    public String getProjectPrefix() { return DBCurrent.getInstance().projectPrefix(); }
+    public String getGenerationGapBasePrefix() { return DBCurrent.getInstance().generationGapBasePrefix(); }
     public DBDef getCurrentDBDef() { return DBCurrent.getInstance().currentDBDef(); }
 
     // ===================================================================================
@@ -42,7 +45,7 @@ public class NextschemaWhiteSameNameRefDbm extends AbstractDBMeta {
     protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((NextschemaWhiteSameNameRef)et).getSameNameRefId(), (et, vl) -> ((NextschemaWhiteSameNameRef)et).setSameNameRefId(ctl(vl)), "sameNameRefId");
         setupEpg(_epgMap, et -> ((NextschemaWhiteSameNameRef)et).getSameNameId(), (et, vl) -> ((NextschemaWhiteSameNameRef)et).setSameNameId(cti(vl)), "sameNameId");
-        setupEpg(_epgMap, et -> ((NextschemaWhiteSameNameRef)et).getNextRefDate(), (et, vl) -> ((NextschemaWhiteSameNameRef)et).setNextRefDate((java.time.LocalDate)vl), "nextRefDate");
+        setupEpg(_epgMap, et -> ((NextschemaWhiteSameNameRef)et).getNextRefDate(), (et, vl) -> ((NextschemaWhiteSameNameRef)et).setNextRefDate(ctld(vl)), "nextRefDate");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }

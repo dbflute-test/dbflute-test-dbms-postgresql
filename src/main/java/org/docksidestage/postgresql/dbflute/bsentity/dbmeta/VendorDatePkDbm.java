@@ -28,6 +28,9 @@ public class VendorDatePkDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                       Current DBDef
     //                                                                       =============
+    public String getProjectName() { return DBCurrent.getInstance().projectName(); }
+    public String getProjectPrefix() { return DBCurrent.getInstance().projectPrefix(); }
+    public String getGenerationGapBasePrefix() { return DBCurrent.getInstance().generationGapBasePrefix(); }
     public DBDef getCurrentDBDef() { return DBCurrent.getInstance().currentDBDef(); }
 
     // ===================================================================================
@@ -39,7 +42,7 @@ public class VendorDatePkDbm extends AbstractDBMeta {
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     { xsetupEpg(); }
     protected void xsetupEpg() {
-        setupEpg(_epgMap, et -> ((VendorDatePk)et).getFooDate(), (et, vl) -> ((VendorDatePk)et).setFooDate((java.time.LocalDate)vl), "fooDate");
+        setupEpg(_epgMap, et -> ((VendorDatePk)et).getFooDate(), (et, vl) -> ((VendorDatePk)et).setFooDate(ctld(vl)), "fooDate");
         setupEpg(_epgMap, et -> ((VendorDatePk)et).getFooName(), (et, vl) -> ((VendorDatePk)et).setFooName((String)vl), "fooName");
     }
     public PropertyGateway findPropertyGateway(String prop)

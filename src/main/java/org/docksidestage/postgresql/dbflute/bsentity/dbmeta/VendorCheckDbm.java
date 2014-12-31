@@ -28,6 +28,9 @@ public class VendorCheckDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                       Current DBDef
     //                                                                       =============
+    public String getProjectName() { return DBCurrent.getInstance().projectName(); }
+    public String getProjectPrefix() { return DBCurrent.getInstance().projectPrefix(); }
+    public String getGenerationGapBasePrefix() { return DBCurrent.getInstance().generationGapBasePrefix(); }
     public DBDef getCurrentDBDef() { return DBCurrent.getInstance().currentDBDef(); }
 
     // ===================================================================================
@@ -55,10 +58,10 @@ public class VendorCheckDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfReal(), (et, vl) -> ((VendorCheck)et).setTypeOfReal(ctb(vl)), "typeOfReal");
         setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfFloat(), (et, vl) -> ((VendorCheck)et).setTypeOfFloat(ctb(vl)), "typeOfFloat");
         setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfMoney(), (et, vl) -> ((VendorCheck)et).setTypeOfMoney(ctb(vl)), "typeOfMoney");
-        setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfDate(), (et, vl) -> ((VendorCheck)et).setTypeOfDate((java.time.LocalDate)vl), "typeOfDate");
-        setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfTimestamp(), (et, vl) -> ((VendorCheck)et).setTypeOfTimestamp((java.time.LocalDateTime)vl), "typeOfTimestamp");
-        setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfTime(), (et, vl) -> ((VendorCheck)et).setTypeOfTime((java.time.LocalTime)vl), "typeOfTime");
-        setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfTimetz(), (et, vl) -> ((VendorCheck)et).setTypeOfTimetz((java.time.LocalTime)vl), "typeOfTimetz");
+        setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfDate(), (et, vl) -> ((VendorCheck)et).setTypeOfDate(ctld(vl)), "typeOfDate");
+        setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfTimestamp(), (et, vl) -> ((VendorCheck)et).setTypeOfTimestamp(ctldt(vl)), "typeOfTimestamp");
+        setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfTime(), (et, vl) -> ((VendorCheck)et).setTypeOfTime(ctlt(vl)), "typeOfTime");
+        setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfTimetz(), (et, vl) -> ((VendorCheck)et).setTypeOfTimetz(ctlt(vl)), "typeOfTimetz");
         setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfInterval(), (et, vl) -> ((VendorCheck)et).setTypeOfInterval((String)vl), "typeOfInterval");
         setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfBool(), (et, vl) -> {
             ColumnInfo col = columnTypeOfBool();

@@ -28,6 +28,9 @@ public class VendorPartManDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                       Current DBDef
     //                                                                       =============
+    public String getProjectName() { return DBCurrent.getInstance().projectName(); }
+    public String getProjectPrefix() { return DBCurrent.getInstance().projectPrefix(); }
+    public String getGenerationGapBasePrefix() { return DBCurrent.getInstance().generationGapBasePrefix(); }
     public DBDef getCurrentDBDef() { return DBCurrent.getInstance().currentDBDef(); }
 
     // ===================================================================================
@@ -42,7 +45,7 @@ public class VendorPartManDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((VendorPartMan)et).getPartManId(), (et, vl) -> ((VendorPartMan)et).setPartManId(cti(vl)), "partManId");
         setupEpg(_epgMap, et -> ((VendorPartMan)et).getPartManName(), (et, vl) -> ((VendorPartMan)et).setPartManName((String)vl), "partManName");
         setupEpg(_epgMap, et -> ((VendorPartMan)et).getPartManPoint(), (et, vl) -> ((VendorPartMan)et).setPartManPoint(cti(vl)), "partManPoint");
-        setupEpg(_epgMap, et -> ((VendorPartMan)et).getPartManDate(), (et, vl) -> ((VendorPartMan)et).setPartManDate((java.time.LocalDate)vl), "partManDate");
+        setupEpg(_epgMap, et -> ((VendorPartMan)et).getPartManDate(), (et, vl) -> ((VendorPartMan)et).setPartManDate(ctld(vl)), "partManDate");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
