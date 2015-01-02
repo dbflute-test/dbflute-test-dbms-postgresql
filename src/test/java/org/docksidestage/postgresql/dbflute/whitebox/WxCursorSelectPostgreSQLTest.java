@@ -76,7 +76,7 @@ public class WxCursorSelectPostgreSQLTest extends UnitContainerTestCase {
     }
 
     public void test_cursorSelectFetchSize_specified() {
-        // TODO jflute test: only execution OK, batch NG
+        // TODO jflute test: PostgreSQL, only execution OK, batch NG
         // ## Arrange ##
         Integer originally = DBFluteConfig.getInstance().getCursorSelectFetchSize();
         DBFluteConfig.getInstance().unlock();
