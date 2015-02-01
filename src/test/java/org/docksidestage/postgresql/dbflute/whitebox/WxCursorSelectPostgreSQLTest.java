@@ -8,6 +8,7 @@ import java.util.Vector;
 import org.dbflute.cbean.result.ListResultBean;
 import org.dbflute.util.DfReflectionUtil;
 import org.docksidestage.postgresql.dbflute.allcommon.DBFluteConfig;
+import org.docksidestage.postgresql.dbflute.allcommon.ImplementedInvokerAssistant;
 import org.docksidestage.postgresql.dbflute.cbean.MemberCB;
 import org.docksidestage.postgresql.dbflute.exbhv.MemberBhv;
 import org.docksidestage.postgresql.dbflute.exbhv.cursor.PurchaseSummaryMemberCursor;
@@ -26,6 +27,7 @@ public class WxCursorSelectPostgreSQLTest extends UnitContainerTestCase {
     //                                                                           Attribute
     //                                                                           =========
     private MemberBhv memberBhv;
+    private ImplementedInvokerAssistant invokerAssistant;
 
     // ===================================================================================
     //                                                                               Basic
@@ -76,8 +78,9 @@ public class WxCursorSelectPostgreSQLTest extends UnitContainerTestCase {
     }
 
     public void test_cursorSelectFetchSize_specified() {
-        // TODO jflute test: PostgreSQL, only execution OK, batch NG
         // ## Arrange ##
+        Field field = DfReflectionUtil.getWholeField(invokerAssistant.getClass(), "_statementFactory");
+        DfReflectionUtil.setValueForcedly(field, invokerAssistant, null); // to enable new setting
         Integer originally = DBFluteConfig.getInstance().getCursorSelectFetchSize();
         DBFluteConfig.getInstance().unlock();
         DBFluteConfig.getInstance().setCursorSelectFetchSize(4);

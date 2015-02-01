@@ -85,8 +85,8 @@ public abstract class BsNextschemaWhiteSameName extends AbstractEntity implement
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         if (_sameNameId == null) { return false; }

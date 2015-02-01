@@ -95,8 +95,8 @@ public abstract class BsSpReturnResultSetWithReturnValue extends AbstractEntity 
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         return false;

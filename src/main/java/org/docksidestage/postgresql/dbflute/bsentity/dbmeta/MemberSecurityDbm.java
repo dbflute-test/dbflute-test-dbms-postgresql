@@ -75,10 +75,12 @@ public class MemberSecurityDbm extends AbstractDBMeta {
     //                                                                          Table Info
     //                                                                          ==========
     protected final String _tableDbName = "member_security";
+    protected final String _tableDispName = "member_security";
     protected final String _tablePropertyName = "memberSecurity";
     protected final TableSqlName _tableSqlName = new TableSqlName("member_security", _tableDbName);
     { _tableSqlName.xacceptFilter(DBFluteConfig.getInstance().getTableSqlNameFilter()); }
     public String getTableDbName() { return _tableDbName; }
+    public String getTableDispName() { return _tableDispName; }
     public String getTablePropertyName() { return _tablePropertyName; }
     public TableSqlName getTableSqlName() { return _tableSqlName; }
     protected final String _tableAlias = "会員セキュリティ情報";
