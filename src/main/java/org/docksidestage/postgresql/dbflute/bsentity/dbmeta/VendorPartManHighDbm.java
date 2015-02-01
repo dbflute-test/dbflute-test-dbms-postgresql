@@ -28,6 +28,9 @@ public class VendorPartManHighDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                       Current DBDef
     //                                                                       =============
+    public String getProjectName() { return DBCurrent.getInstance().projectName(); }
+    public String getProjectPrefix() { return DBCurrent.getInstance().projectPrefix(); }
+    public String getGenerationGapBasePrefix() { return DBCurrent.getInstance().generationGapBasePrefix(); }
     public DBDef getCurrentDBDef() { return DBCurrent.getInstance().currentDBDef(); }
 
     // ===================================================================================
@@ -42,7 +45,7 @@ public class VendorPartManHighDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((VendorPartManHigh)et).getPartManId(), (et, vl) -> ((VendorPartManHigh)et).setPartManId(cti(vl)), "partManId");
         setupEpg(_epgMap, et -> ((VendorPartManHigh)et).getPartManName(), (et, vl) -> ((VendorPartManHigh)et).setPartManName((String)vl), "partManName");
         setupEpg(_epgMap, et -> ((VendorPartManHigh)et).getPartManPoint(), (et, vl) -> ((VendorPartManHigh)et).setPartManPoint(cti(vl)), "partManPoint");
-        setupEpg(_epgMap, et -> ((VendorPartManHigh)et).getPartManDate(), (et, vl) -> ((VendorPartManHigh)et).setPartManDate((java.time.LocalDate)vl), "partManDate");
+        setupEpg(_epgMap, et -> ((VendorPartManHigh)et).getPartManDate(), (et, vl) -> ((VendorPartManHigh)et).setPartManDate(ctld(vl)), "partManDate");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -51,10 +54,12 @@ public class VendorPartManHighDbm extends AbstractDBMeta {
     //                                                                          Table Info
     //                                                                          ==========
     protected final String _tableDbName = "vendor_part_man_high";
+    protected final String _tableDispName = "vendor_part_man_high";
     protected final String _tablePropertyName = "vendorPartManHigh";
     protected final TableSqlName _tableSqlName = new TableSqlName("vendor_part_man_high", _tableDbName);
     { _tableSqlName.xacceptFilter(DBFluteConfig.getInstance().getTableSqlNameFilter()); }
     public String getTableDbName() { return _tableDbName; }
+    public String getTableDispName() { return _tableDispName; }
     public String getTablePropertyName() { return _tablePropertyName; }
     public TableSqlName getTableSqlName() { return _tableSqlName; }
 

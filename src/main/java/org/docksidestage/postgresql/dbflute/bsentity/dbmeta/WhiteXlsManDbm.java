@@ -28,6 +28,9 @@ public class WhiteXlsManDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                       Current DBDef
     //                                                                       =============
+    public String getProjectName() { return DBCurrent.getInstance().projectName(); }
+    public String getProjectPrefix() { return DBCurrent.getInstance().projectPrefix(); }
+    public String getGenerationGapBasePrefix() { return DBCurrent.getInstance().generationGapBasePrefix(); }
     public DBDef getCurrentDBDef() { return DBCurrent.getInstance().currentDBDef(); }
 
     // ===================================================================================
@@ -41,9 +44,9 @@ public class WhiteXlsManDbm extends AbstractDBMeta {
     protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((WhiteXlsMan)et).getXlsManId(), (et, vl) -> ((WhiteXlsMan)et).setXlsManId(ctl(vl)), "xlsManId");
         setupEpg(_epgMap, et -> ((WhiteXlsMan)et).getStringConverted(), (et, vl) -> ((WhiteXlsMan)et).setStringConverted((String)vl), "stringConverted");
-        setupEpg(_epgMap, et -> ((WhiteXlsMan)et).getTimestampZeroDefaultMillis(), (et, vl) -> ((WhiteXlsMan)et).setTimestampZeroDefaultMillis((java.time.LocalDateTime)vl), "timestampZeroDefaultMillis");
-        setupEpg(_epgMap, et -> ((WhiteXlsMan)et).getTimestampZeroPrefixMillis(), (et, vl) -> ((WhiteXlsMan)et).setTimestampZeroPrefixMillis((java.time.LocalDateTime)vl), "timestampZeroPrefixMillis");
-        setupEpg(_epgMap, et -> ((WhiteXlsMan)et).getTimestampZeroSuffixMillis(), (et, vl) -> ((WhiteXlsMan)et).setTimestampZeroSuffixMillis((java.time.LocalDateTime)vl), "timestampZeroSuffixMillis");
+        setupEpg(_epgMap, et -> ((WhiteXlsMan)et).getTimestampZeroDefaultMillis(), (et, vl) -> ((WhiteXlsMan)et).setTimestampZeroDefaultMillis(ctldt(vl)), "timestampZeroDefaultMillis");
+        setupEpg(_epgMap, et -> ((WhiteXlsMan)et).getTimestampZeroPrefixMillis(), (et, vl) -> ((WhiteXlsMan)et).setTimestampZeroPrefixMillis(ctldt(vl)), "timestampZeroPrefixMillis");
+        setupEpg(_epgMap, et -> ((WhiteXlsMan)et).getTimestampZeroSuffixMillis(), (et, vl) -> ((WhiteXlsMan)et).setTimestampZeroSuffixMillis(ctldt(vl)), "timestampZeroSuffixMillis");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -52,10 +55,12 @@ public class WhiteXlsManDbm extends AbstractDBMeta {
     //                                                                          Table Info
     //                                                                          ==========
     protected final String _tableDbName = "white_xls_man";
+    protected final String _tableDispName = "white_xls_man";
     protected final String _tablePropertyName = "whiteXlsMan";
     protected final TableSqlName _tableSqlName = new TableSqlName("white_xls_man", _tableDbName);
     { _tableSqlName.xacceptFilter(DBFluteConfig.getInstance().getTableSqlNameFilter()); }
     public String getTableDbName() { return _tableDbName; }
+    public String getTableDispName() { return _tableDispName; }
     public String getTablePropertyName() { return _tablePropertyName; }
     public TableSqlName getTableSqlName() { return _tableSqlName; }
 

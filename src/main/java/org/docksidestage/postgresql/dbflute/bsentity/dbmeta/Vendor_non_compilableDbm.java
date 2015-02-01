@@ -29,6 +29,9 @@ public class Vendor_non_compilableDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                       Current DBDef
     //                                                                       =============
+    public String getProjectName() { return DBCurrent.getInstance().projectName(); }
+    public String getProjectPrefix() { return DBCurrent.getInstance().projectPrefix(); }
+    public String getGenerationGapBasePrefix() { return DBCurrent.getInstance().generationGapBasePrefix(); }
     public DBDef getCurrentDBDef() { return DBCurrent.getInstance().currentDBDef(); }
 
     // ===================================================================================
@@ -65,10 +68,12 @@ public class Vendor_non_compilableDbm extends AbstractDBMeta {
     //                                                                          Table Info
     //                                                                          ==========
     protected final String _tableDbName = "VENDOR-NON COMPILABLE";
+    protected final String _tableDispName = "VENDOR-NON COMPILABLE";
     protected final String _tablePropertyName = "vendor_non_compilable";
     protected final TableSqlName _tableSqlName = new TableSqlName("\"VENDOR-NON COMPILABLE\"", _tableDbName);
     { _tableSqlName.xacceptFilter(DBFluteConfig.getInstance().getTableSqlNameFilter()); }
     public String getTableDbName() { return _tableDbName; }
+    public String getTableDispName() { return _tableDispName; }
     public String getTablePropertyName() { return _tablePropertyName; }
     public TableSqlName getTableSqlName() { return _tableSqlName; }
 
@@ -121,6 +126,11 @@ public class Vendor_non_compilableDbm extends AbstractDBMeta {
     protected UniqueInfo cpui() { return hpcpui(columnNon_compilable_id()); }
     public boolean hasPrimaryKey() { return true; }
     public boolean hasCompoundPrimaryKey() { return false; }
+
+    // -----------------------------------------------------
+    //                                        Unique Element
+    //                                        --------------
+    public UniqueInfo uniqueOf() { return hpcui(columnNon_compilable_id()); }
 
     // ===================================================================================
     //                                                                       Relation Info

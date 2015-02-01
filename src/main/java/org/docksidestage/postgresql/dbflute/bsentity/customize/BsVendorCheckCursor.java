@@ -206,8 +206,8 @@ public abstract class BsVendorCheckCursor extends AbstractEntity implements Cust
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         return false;

@@ -126,4 +126,45 @@ public class VendorLockTest extends UnitContainerTestCase {
         }, new CannonballOption().commitTx().repeatCount(5).expectExceptionAny("deadlock detected"));
         assertMarked("success");
     }
+
+    // ===================================================================================
+    //                                                                          For Update
+    //                                                                          ==========
+    public void test_forUpdate_existingValue() throws Exception {
+        cannonball(car -> {
+            car.projectA(dragon -> {
+                dragon.expectNormallyDone();
+                memberBhv.selectEntity(cb -> {
+                    cb.query().setMemberId_Equal(3);
+                    cb.lockForUpdate();
+                });
+            }, 1);
+            car.projectA(dragon -> {
+                dragon.expectOvertime();
+                memberBhv.selectEntity(cb -> {
+                    cb.query().setMemberId_Equal(3);
+                    cb.lockForUpdate();
+                });
+            }, 2);
+        }, new CannonballOption().threadCount(2));
+    }
+
+    public void test_forUpdate_notExistingValue() throws Exception {
+        cannonball(car -> {
+            car.projectA(dragon -> {
+                dragon.expectNormallyDone();
+                memberBhv.selectEntity(cb -> {
+                    cb.query().setMemberId_Equal(99999);
+                    cb.lockForUpdate();
+                });
+            }, 1);
+            car.projectA(dragon -> {
+                dragon.expectNormallyDone(); /* no wait */
+                memberBhv.selectEntity(cb -> {
+                    cb.query().setMemberId_Equal(99999);
+                    cb.lockForUpdate();
+                });
+            }, 2);
+        }, new CannonballOption().threadCount(2));
+    }
 }

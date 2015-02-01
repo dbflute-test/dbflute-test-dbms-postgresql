@@ -90,8 +90,8 @@ public abstract class BsVendorPartManHigh extends AbstractEntity implements Doma
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         if (_partManId == null) { return false; }

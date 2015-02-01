@@ -28,6 +28,9 @@ public class SpResultSetParameterMoreCurMemberDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                       Current DBDef
     //                                                                       =============
+    public String getProjectName() { return DBCurrent.getInstance().projectName(); }
+    public String getProjectPrefix() { return DBCurrent.getInstance().projectPrefix(); }
+    public String getGenerationGapBasePrefix() { return DBCurrent.getInstance().generationGapBasePrefix(); }
     public DBDef getCurrentDBDef() { return DBCurrent.getInstance().currentDBDef(); }
 
     // ===================================================================================
@@ -41,8 +44,8 @@ public class SpResultSetParameterMoreCurMemberDbm extends AbstractDBMeta {
     protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((SpResultSetParameterMoreCurMember)et).getMemberId(), (et, vl) -> ((SpResultSetParameterMoreCurMember)et).setMemberId(cti(vl)), "memberId");
         setupEpg(_epgMap, et -> ((SpResultSetParameterMoreCurMember)et).getMemberName(), (et, vl) -> ((SpResultSetParameterMoreCurMember)et).setMemberName((String)vl), "memberName");
-        setupEpg(_epgMap, et -> ((SpResultSetParameterMoreCurMember)et).getBirthdate(), (et, vl) -> ((SpResultSetParameterMoreCurMember)et).setBirthdate((java.time.LocalDate)vl), "birthdate");
-        setupEpg(_epgMap, et -> ((SpResultSetParameterMoreCurMember)et).getFormalizedDatetime(), (et, vl) -> ((SpResultSetParameterMoreCurMember)et).setFormalizedDatetime((java.time.LocalDateTime)vl), "formalizedDatetime");
+        setupEpg(_epgMap, et -> ((SpResultSetParameterMoreCurMember)et).getBirthdate(), (et, vl) -> ((SpResultSetParameterMoreCurMember)et).setBirthdate(ctld(vl)), "birthdate");
+        setupEpg(_epgMap, et -> ((SpResultSetParameterMoreCurMember)et).getFormalizedDatetime(), (et, vl) -> ((SpResultSetParameterMoreCurMember)et).setFormalizedDatetime(ctldt(vl)), "formalizedDatetime");
         setupEpg(_epgMap, et -> ((SpResultSetParameterMoreCurMember)et).getMemberStatusCode(), (et, vl) -> {
             ColumnInfo col = columnMemberStatusCode();
             CDef.MemberStatus cls = (CDef.MemberStatus)gcls(col, vl);
@@ -60,10 +63,12 @@ public class SpResultSetParameterMoreCurMemberDbm extends AbstractDBMeta {
     //                                                                          Table Info
     //                                                                          ==========
     protected final String _tableDbName = "SpResultSetParameterMoreCurMember";
+    protected final String _tableDispName = "SpResultSetParameterMoreCurMember";
     protected final String _tablePropertyName = "spResultSetParameterMoreCurMember";
     protected final TableSqlName _tableSqlName = new TableSqlName("SpResultSetParameterMoreCurMember", _tableDbName);
     { _tableSqlName.xacceptFilter(DBFluteConfig.getInstance().getTableSqlNameFilter()); }
     public String getTableDbName() { return _tableDbName; }
+    public String getTableDispName() { return _tableDispName; }
     public String getTablePropertyName() { return _tablePropertyName; }
     public TableSqlName getTableSqlName() { return _tableSqlName; }
 

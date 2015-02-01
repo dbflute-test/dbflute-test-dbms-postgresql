@@ -28,6 +28,9 @@ public class VendorInheritInuDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                       Current DBDef
     //                                                                       =============
+    public String getProjectName() { return DBCurrent.getInstance().projectName(); }
+    public String getProjectPrefix() { return DBCurrent.getInstance().projectPrefix(); }
+    public String getGenerationGapBasePrefix() { return DBCurrent.getInstance().generationGapBasePrefix(); }
     public DBDef getCurrentDBDef() { return DBCurrent.getInstance().currentDBDef(); }
 
     // ===================================================================================
@@ -41,7 +44,7 @@ public class VendorInheritInuDbm extends AbstractDBMeta {
     protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((VendorInheritInu)et).getInuId(), (et, vl) -> ((VendorInheritInu)et).setInuId(cti(vl)), "inuId");
         setupEpg(_epgMap, et -> ((VendorInheritInu)et).getInuName(), (et, vl) -> ((VendorInheritInu)et).setInuName((String)vl), "inuName");
-        setupEpg(_epgMap, et -> ((VendorInheritInu)et).getInuDate(), (et, vl) -> ((VendorInheritInu)et).setInuDate((java.time.LocalDate)vl), "inuDate");
+        setupEpg(_epgMap, et -> ((VendorInheritInu)et).getInuDate(), (et, vl) -> ((VendorInheritInu)et).setInuDate(ctld(vl)), "inuDate");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -50,10 +53,12 @@ public class VendorInheritInuDbm extends AbstractDBMeta {
     //                                                                          Table Info
     //                                                                          ==========
     protected final String _tableDbName = "vendor_inherit_inu";
+    protected final String _tableDispName = "vendor_inherit_inu";
     protected final String _tablePropertyName = "vendorInheritInu";
     protected final TableSqlName _tableSqlName = new TableSqlName("vendor_inherit_inu", _tableDbName);
     { _tableSqlName.xacceptFilter(DBFluteConfig.getInstance().getTableSqlNameFilter()); }
     public String getTableDbName() { return _tableDbName; }
+    public String getTableDispName() { return _tableDispName; }
     public String getTablePropertyName() { return _tablePropertyName; }
     public TableSqlName getTableSqlName() { return _tableSqlName; }
 

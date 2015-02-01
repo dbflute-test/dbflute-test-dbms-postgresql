@@ -87,8 +87,8 @@ public abstract class BsWhiteSameNameRef extends AbstractEntity implements Domai
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         if (_sameNameRefId == null) { return false; }

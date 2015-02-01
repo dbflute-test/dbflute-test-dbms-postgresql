@@ -82,8 +82,8 @@ public abstract class BsVendorDateFk extends AbstractEntity implements DomainEnt
     }
 
     // ===================================================================================
-    //                                                                         Primary Key
-    //                                                                         ===========
+    //                                                                        Key Handling
+    //                                                                        ============
     /** {@inheritDoc} */
     public boolean hasPrimaryKeyValue() {
         if (_barId == null) { return false; }

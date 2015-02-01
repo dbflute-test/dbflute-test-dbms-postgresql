@@ -28,6 +28,9 @@ public class SpReturnResultSetWithReturnValueDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                       Current DBDef
     //                                                                       =============
+    public String getProjectName() { return DBCurrent.getInstance().projectName(); }
+    public String getProjectPrefix() { return DBCurrent.getInstance().projectPrefix(); }
+    public String getGenerationGapBasePrefix() { return DBCurrent.getInstance().generationGapBasePrefix(); }
     public DBDef getCurrentDBDef() { return DBCurrent.getInstance().currentDBDef(); }
 
     // ===================================================================================
@@ -41,8 +44,8 @@ public class SpReturnResultSetWithReturnValueDbm extends AbstractDBMeta {
     protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((SpReturnResultSetWithReturnValue)et).getMemberId(), (et, vl) -> ((SpReturnResultSetWithReturnValue)et).setMemberId(cti(vl)), "memberId");
         setupEpg(_epgMap, et -> ((SpReturnResultSetWithReturnValue)et).getMemberName(), (et, vl) -> ((SpReturnResultSetWithReturnValue)et).setMemberName((String)vl), "memberName");
-        setupEpg(_epgMap, et -> ((SpReturnResultSetWithReturnValue)et).getBirthdate(), (et, vl) -> ((SpReturnResultSetWithReturnValue)et).setBirthdate((java.time.LocalDate)vl), "birthdate");
-        setupEpg(_epgMap, et -> ((SpReturnResultSetWithReturnValue)et).getFormalizedDatetime(), (et, vl) -> ((SpReturnResultSetWithReturnValue)et).setFormalizedDatetime((java.time.LocalDateTime)vl), "formalizedDatetime");
+        setupEpg(_epgMap, et -> ((SpReturnResultSetWithReturnValue)et).getBirthdate(), (et, vl) -> ((SpReturnResultSetWithReturnValue)et).setBirthdate(ctld(vl)), "birthdate");
+        setupEpg(_epgMap, et -> ((SpReturnResultSetWithReturnValue)et).getFormalizedDatetime(), (et, vl) -> ((SpReturnResultSetWithReturnValue)et).setFormalizedDatetime(ctldt(vl)), "formalizedDatetime");
         setupEpg(_epgMap, et -> ((SpReturnResultSetWithReturnValue)et).getMemberStatusCode(), (et, vl) -> {
             ColumnInfo col = columnMemberStatusCode();
             CDef.MemberStatus cls = (CDef.MemberStatus)gcls(col, vl);
@@ -60,10 +63,12 @@ public class SpReturnResultSetWithReturnValueDbm extends AbstractDBMeta {
     //                                                                          Table Info
     //                                                                          ==========
     protected final String _tableDbName = "SpReturnResultSetWithReturnValue";
+    protected final String _tableDispName = "SpReturnResultSetWithReturnValue";
     protected final String _tablePropertyName = "spReturnResultSetWithReturnValue";
     protected final TableSqlName _tableSqlName = new TableSqlName("SpReturnResultSetWithReturnValue", _tableDbName);
     { _tableSqlName.xacceptFilter(DBFluteConfig.getInstance().getTableSqlNameFilter()); }
     public String getTableDbName() { return _tableDbName; }
+    public String getTableDispName() { return _tableDispName; }
     public String getTablePropertyName() { return _tablePropertyName; }
     public TableSqlName getTableSqlName() { return _tableSqlName; }
 
