@@ -10,5 +10,6 @@ import org.docksidestage.postgresql.dbflute.bsbhv.BsVendorInheritInuBhv;
  * </p>
  * @author DBFlute(AutoGenerator)
  */
+@org.springframework.stereotype.Component("vendorInheritInuBhv")
 public class VendorInheritInuBhv extends BsVendorInheritInuBhv {
 }

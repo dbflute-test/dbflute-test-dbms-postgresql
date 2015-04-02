@@ -10,5 +10,6 @@ import org.docksidestage.postgresql.dbflute.bsbhv.BsVendorPartManBhv;
  * </p>
  * @author DBFlute(AutoGenerator)
  */
+@org.springframework.stereotype.Component("vendorPartManBhv")
 public class VendorPartManBhv extends BsVendorPartManBhv {
 }

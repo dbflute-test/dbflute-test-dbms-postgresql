@@ -33,6 +33,7 @@ import org.docksidestage.postgresql.dbflute.exentity.VendorLargeDataRef;
  * @author DBFlute(AutoGenerator)
  * @author jflute
  */
+@org.springframework.stereotype.Component("vendorLargeDataRefBhv")
 public class VendorLargeDataRefBhv extends BsVendorLargeDataRefBhv {
 
     // ===================================================================================

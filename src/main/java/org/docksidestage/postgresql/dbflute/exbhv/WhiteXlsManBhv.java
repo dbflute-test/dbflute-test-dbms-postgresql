@@ -10,5 +10,6 @@ import org.docksidestage.postgresql.dbflute.bsbhv.BsWhiteXlsManBhv;
  * </p>
  * @author DBFlute(AutoGenerator)
  */
+@org.springframework.stereotype.Component("whiteXlsManBhv")
 public class WhiteXlsManBhv extends BsWhiteXlsManBhv {
 }

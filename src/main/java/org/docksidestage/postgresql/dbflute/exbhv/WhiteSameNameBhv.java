@@ -10,5 +10,6 @@ import org.docksidestage.postgresql.dbflute.bsbhv.BsWhiteSameNameBhv;
  * </p>
  * @author DBFlute(AutoGenerator)
  */
+@org.springframework.stereotype.Component("whiteSameNameBhv")
 public class WhiteSameNameBhv extends BsWhiteSameNameBhv {
 }
