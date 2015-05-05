@@ -269,7 +269,7 @@ public class BsVendorUuidFooCB extends AbstractConditionBean {
      */
     public VendorUuidBarNss setupSelect_VendorUuidBar() {
         assertSetupSelectPurpose("vendorUuidBar");
-        if (hasSpecifiedColumn()) { // if reverse call
+        if (hasSpecifiedLocalColumn()) {
             specify().columnBarId();
         }
         doSetupSelect(() -> query().queryVendorUuidBar());
@@ -314,8 +314,8 @@ public class BsVendorUuidFooCB extends AbstractConditionBean {
         return specify();
     }
 
-    public boolean hasSpecifiedColumn() {
-        return _specification != null && _specification.isAlreadySpecifiedRequiredColumn();
+    public boolean hasSpecifiedLocalColumn() {
+        return _specification != null && _specification.hasSpecifiedColumn();
     }
 
     public static class HpSpecification extends HpAbstractSpecification<VendorUuidFooCQ> {
