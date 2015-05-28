@@ -27,7 +27,7 @@ import org.docksidestage.postgresql.dbflute.cbean.*;
  *     
  *
  * [foreign table]
- *     NEXT_SCHEMA_PRODUCT
+ *     next_schema_product
  *
  * [referrer table]
  *     white_same_name_ref
