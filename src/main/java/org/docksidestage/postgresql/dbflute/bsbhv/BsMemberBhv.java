@@ -38,7 +38,7 @@ import org.docksidestage.postgresql.dbflute.cbean.*;
  *     version_no
  *
  * [foreign table]
- *     member_status, MEMBER_ADDRESS(AsValid), MEMBER_LOGIN(AsLatest), member_security(AsOne), member_service(AsOne), member_withdrawal(AsOne)
+ *     member_status, member_address(AsValid), member_login(AsLatest), member_security(AsOne), member_service(AsOne), member_withdrawal(AsOne)
  *
  * [referrer table]
  *     member_address, member_login, purchase, member_security, member_service, member_withdrawal

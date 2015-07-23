@@ -15,6 +15,7 @@ import org.docksidestage.postgresql.dbflute.exbhv.pmbean.PurchaseSummaryMemberPm
  * 
  * @author DBFlute(AutoGenerator)
  */
+@org.springframework.stereotype.Component("memberBhv")
 public class MemberBhv extends org.docksidestage.postgresql.dbflute.bsbhv.BsMemberBhv {
 
     // ===================================================================================

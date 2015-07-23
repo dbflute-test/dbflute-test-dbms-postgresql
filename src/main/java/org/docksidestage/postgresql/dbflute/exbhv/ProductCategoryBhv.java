@@ -10,5 +10,6 @@ import org.docksidestage.postgresql.dbflute.bsbhv.BsProductCategoryBhv;
  * </p>
  * @author DBFlute(AutoGenerator)
  */
+@org.springframework.stereotype.Component("productCategoryBhv")
 public class ProductCategoryBhv extends BsProductCategoryBhv {
 }

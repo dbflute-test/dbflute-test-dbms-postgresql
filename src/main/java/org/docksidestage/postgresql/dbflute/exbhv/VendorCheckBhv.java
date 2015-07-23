@@ -8,5 +8,6 @@ package org.docksidestage.postgresql.dbflute.exbhv;
  * </p>
  * @author DBFlute(AutoGenerator)
  */
+@org.springframework.stereotype.Component("vendorCheckBhv")
 public class VendorCheckBhv extends org.docksidestage.postgresql.dbflute.bsbhv.BsVendorCheckBhv {
 }

@@ -10,5 +10,6 @@ import org.docksidestage.postgresql.dbflute.bsbhv.BsVendor_non_compilableBhv;
  * </p>
  * @author DBFlute(AutoGenerator)
  */
+@org.springframework.stereotype.Component("vendor_non_compilableBhv")
 public class Vendor_non_compilableBhv extends BsVendor_non_compilableBhv {
 }

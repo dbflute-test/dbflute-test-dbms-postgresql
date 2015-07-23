@@ -281,7 +281,7 @@ public class BsVendor_non_compilableCB extends AbstractConditionBean {
      */
     public Vendor_non_compilableNss setupSelect_Vendor_non_compilableByNextParentidSelf() {
         assertSetupSelectPurpose("vendor_non_compilableByNextParentidSelf");
-        if (hasSpecifiedColumn()) { // if reverse call
+        if (hasSpecifiedLocalColumn()) {
             specify().columnNextParentid();
         }
         doSetupSelect(() -> query().queryVendor_non_compilableByNextParentidSelf());
@@ -310,7 +310,7 @@ public class BsVendor_non_compilableCB extends AbstractConditionBean {
      */
     public Vendor_non_compilableNss setupSelect_Vendor_non_compilableByParent_idSelf() {
         assertSetupSelectPurpose("vendor_non_compilableByParent_idSelf");
-        if (hasSpecifiedColumn()) { // if reverse call
+        if (hasSpecifiedLocalColumn()) {
             specify().columnParent_id();
         }
         doSetupSelect(() -> query().queryVendor_non_compilableByParent_idSelf());
@@ -355,8 +355,8 @@ public class BsVendor_non_compilableCB extends AbstractConditionBean {
         return specify();
     }
 
-    public boolean hasSpecifiedColumn() {
-        return _specification != null && _specification.isAlreadySpecifiedRequiredColumn();
+    public boolean hasSpecifiedLocalColumn() {
+        return _specification != null && _specification.hasSpecifiedColumn();
     }
 
     public static class HpSpecification extends HpAbstractSpecification<Vendor_non_compilableCQ> {

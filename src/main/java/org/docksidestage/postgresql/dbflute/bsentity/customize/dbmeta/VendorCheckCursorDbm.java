@@ -65,7 +65,7 @@ public class VendorCheckCursorDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((VendorCheckCursor)et).getTypeOfInterval(), (et, vl) -> ((VendorCheckCursor)et).setTypeOfInterval((String)vl), "typeOfInterval");
         setupEpg(_epgMap, et -> ((VendorCheckCursor)et).getTypeOfBool(), (et, vl) -> {
             ColumnInfo col = columnTypeOfBool();
-            CDef.TrueFalse cls = (CDef.TrueFalse)gcls(col, vl);
+            CDef.TrueFalse cls = (CDef.TrueFalse)gcls(et, col, vl);
             if (cls != null) {
                 ((VendorCheckCursor)et).setTypeOfBoolAsTrueFalse(cls);
             } else {

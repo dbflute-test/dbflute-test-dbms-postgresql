@@ -10,5 +10,6 @@ import org.docksidestage.postgresql.dbflute.bsbhv.BsVendorDateFkBhv;
  * </p>
  * @author DBFlute(AutoGenerator)
  */
+@org.springframework.stereotype.Component("vendorDateFkBhv")
 public class VendorDateFkBhv extends BsVendorDateFkBhv {
 }

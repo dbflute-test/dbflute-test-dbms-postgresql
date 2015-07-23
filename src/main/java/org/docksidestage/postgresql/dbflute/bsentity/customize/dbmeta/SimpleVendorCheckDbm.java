@@ -62,7 +62,7 @@ public class SimpleVendorCheckDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((SimpleVendorCheck)et).getTypeOfTimetz(), (et, vl) -> ((SimpleVendorCheck)et).setTypeOfTimetz(ctlt(vl)), "typeOfTimetz");
         setupEpg(_epgMap, et -> ((SimpleVendorCheck)et).getTypeOfBool(), (et, vl) -> {
             ColumnInfo col = columnTypeOfBool();
-            CDef.TrueFalse cls = (CDef.TrueFalse)gcls(col, vl);
+            CDef.TrueFalse cls = (CDef.TrueFalse)gcls(et, col, vl);
             if (cls != null) {
                 ((SimpleVendorCheck)et).setTypeOfBoolAsTrueFalse(cls);
             } else {

@@ -269,7 +269,7 @@ public class BsNextschemaWhiteSameNameRefCB extends AbstractConditionBean {
      */
     public NextschemaWhiteSameNameNss setupSelect_WhiteSameName() {
         assertSetupSelectPurpose("whiteSameName");
-        if (hasSpecifiedColumn()) { // if reverse call
+        if (hasSpecifiedLocalColumn()) {
             specify().columnSameNameId();
         }
         doSetupSelect(() -> query().queryWhiteSameName());
@@ -314,8 +314,8 @@ public class BsNextschemaWhiteSameNameRefCB extends AbstractConditionBean {
         return specify();
     }
 
-    public boolean hasSpecifiedColumn() {
-        return _specification != null && _specification.isAlreadySpecifiedRequiredColumn();
+    public boolean hasSpecifiedLocalColumn() {
+        return _specification != null && _specification.hasSpecifiedColumn();
     }
 
     public static class HpSpecification extends HpAbstractSpecification<NextschemaWhiteSameNameRefCQ> {

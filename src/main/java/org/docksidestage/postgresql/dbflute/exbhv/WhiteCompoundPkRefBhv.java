@@ -10,5 +10,6 @@ import org.docksidestage.postgresql.dbflute.bsbhv.BsWhiteCompoundPkRefBhv;
  * </p>
  * @author DBFlute(AutoGenerator)
  */
+@org.springframework.stereotype.Component("whiteCompoundPkRefBhv")
 public class WhiteCompoundPkRefBhv extends BsWhiteCompoundPkRefBhv {
 }

@@ -269,7 +269,7 @@ public class BsWhiteSameNameCB extends AbstractConditionBean {
      */
     public NextSchemaProductNss setupSelect_NextSchemaProduct() {
         assertSetupSelectPurpose("nextSchemaProduct");
-        if (hasSpecifiedColumn()) { // if reverse call
+        if (hasSpecifiedLocalColumn()) {
             specify().columnNextSchemaProductId();
         }
         doSetupSelect(() -> query().queryNextSchemaProduct());
@@ -314,8 +314,8 @@ public class BsWhiteSameNameCB extends AbstractConditionBean {
         return specify();
     }
 
-    public boolean hasSpecifiedColumn() {
-        return _specification != null && _specification.isAlreadySpecifiedRequiredColumn();
+    public boolean hasSpecifiedLocalColumn() {
+        return _specification != null && _specification.hasSpecifiedColumn();
     }
 
     public static class HpSpecification extends HpAbstractSpecification<WhiteSameNameCQ> {

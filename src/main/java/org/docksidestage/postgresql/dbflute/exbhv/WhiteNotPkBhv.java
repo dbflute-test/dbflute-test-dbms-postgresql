@@ -10,5 +10,6 @@ import org.docksidestage.postgresql.dbflute.bsbhv.BsWhiteNotPkBhv;
  * </p>
  * @author DBFlute(AutoGenerator)
  */
+@org.springframework.stereotype.Component("whiteNotPkBhv")
 public class WhiteNotPkBhv extends BsWhiteNotPkBhv {
 }

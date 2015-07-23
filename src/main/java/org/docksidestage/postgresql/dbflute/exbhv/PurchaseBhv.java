@@ -10,6 +10,7 @@ import org.docksidestage.postgresql.dbflute.bsbhv.BsPurchaseBhv;
  * </p>
  * @author DBFlute(AutoGenerator)
  */
+@org.springframework.stereotype.Component("purchaseBhv")
 public class PurchaseBhv extends BsPurchaseBhv {
 
     @Override

@@ -8,5 +8,6 @@ package org.docksidestage.postgresql.dbflute.exbhv;
  * </p>
  * @author DBFlute(AutoGenerator)
  */
+@org.springframework.stereotype.Component("summaryProductBhv")
 public class SummaryProductBhv extends org.docksidestage.postgresql.dbflute.bsbhv.BsSummaryProductBhv {
 }

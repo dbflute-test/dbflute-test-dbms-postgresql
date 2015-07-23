@@ -282,7 +282,7 @@ public class BsMemberAddressCB extends AbstractConditionBean {
      */
     public MemberNss setupSelect_Member() {
         assertSetupSelectPurpose("member");
-        if (hasSpecifiedColumn()) { // if reverse call
+        if (hasSpecifiedLocalColumn()) {
             specify().columnMemberId();
         }
         doSetupSelect(() -> query().queryMember());
@@ -311,7 +311,7 @@ public class BsMemberAddressCB extends AbstractConditionBean {
      */
     public RegionNss setupSelect_Region() {
         assertSetupSelectPurpose("region");
-        if (hasSpecifiedColumn()) { // if reverse call
+        if (hasSpecifiedLocalColumn()) {
             specify().columnRegionId();
         }
         doSetupSelect(() -> query().queryRegion());
@@ -356,8 +356,8 @@ public class BsMemberAddressCB extends AbstractConditionBean {
         return specify();
     }
 
-    public boolean hasSpecifiedColumn() {
-        return _specification != null && _specification.isAlreadySpecifiedRequiredColumn();
+    public boolean hasSpecifiedLocalColumn() {
+        return _specification != null && _specification.hasSpecifiedColumn();
     }
 
     public static class HpSpecification extends HpAbstractSpecification<MemberAddressCQ> {

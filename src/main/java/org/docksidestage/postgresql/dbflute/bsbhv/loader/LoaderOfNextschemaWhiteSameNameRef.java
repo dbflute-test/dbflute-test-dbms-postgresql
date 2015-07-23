@@ -25,7 +25,7 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  *     
  *
  * [foreign table]
- *     white_same_name
+ *     nextschema.white_same_name
  *
  * [referrer table]
  *     

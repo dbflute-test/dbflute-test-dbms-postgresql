@@ -48,7 +48,7 @@ public class SpResultSetParameterCurMemberDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((SpResultSetParameterCurMember)et).getFormalizedDatetime(), (et, vl) -> ((SpResultSetParameterCurMember)et).setFormalizedDatetime(ctldt(vl)), "formalizedDatetime");
         setupEpg(_epgMap, et -> ((SpResultSetParameterCurMember)et).getMemberStatusCode(), (et, vl) -> {
             ColumnInfo col = columnMemberStatusCode();
-            CDef.MemberStatus cls = (CDef.MemberStatus)gcls(col, vl);
+            CDef.MemberStatus cls = (CDef.MemberStatus)gcls(et, col, vl);
             if (cls != null) {
                 ((SpResultSetParameterCurMember)et).setMemberStatusCodeAsMemberStatus(cls);
             } else {
