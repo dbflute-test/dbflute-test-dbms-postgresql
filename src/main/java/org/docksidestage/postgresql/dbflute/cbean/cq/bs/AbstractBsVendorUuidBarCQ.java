@@ -46,7 +46,7 @@ public abstract class AbstractBsVendorUuidBarCQ extends AbstractConditionQuery {
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * bar_id: {PK, NotNull, uuid(2147483647)}
-     * @param barId The value of barId as equal. (NullAllowed: if null, no condition)
+     * @param barId The value of barId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setBarId_Equal(java.util.UUID barId) {
         regBarId(CK_EQ, barId);

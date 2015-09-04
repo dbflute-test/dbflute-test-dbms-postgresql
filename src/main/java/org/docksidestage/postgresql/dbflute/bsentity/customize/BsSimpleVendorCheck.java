@@ -773,6 +773,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity implements Cust
      * [get] type_of_bytea: {bytea(2147483647), refers to vendor_check.type_of_bytea} <br>
      * @return The value of the column 'type_of_bytea'. (NullAllowed even if selected: for no constraint)
      */
+    @MappingValueType(keyName = "postgreSqlByteaType")
     public byte[] getTypeOfBytea() {
         checkSpecifiedProperty("typeOfBytea");
         return _typeOfBytea;
@@ -809,7 +810,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity implements Cust
      * [get] type_of_oid: {oid(10), refers to vendor_check.type_of_oid} <br>
      * @return The value of the column 'type_of_oid'. (NullAllowed even if selected: for no constraint)
      */
-    @MappingValueType(keyName = "bytesOidType")
+    @MappingValueType(keyName = "postgreSqlOidType")
     public byte[] getTypeOfOid() {
         checkSpecifiedProperty("typeOfOid");
         return _typeOfOid;

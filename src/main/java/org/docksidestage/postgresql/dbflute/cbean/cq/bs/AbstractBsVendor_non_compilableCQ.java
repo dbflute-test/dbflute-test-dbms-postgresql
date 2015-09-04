@@ -46,7 +46,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * NON-COMPILABLE ID: {PK, NotNull, int4(10)}
-     * @param non_compilable_id The value of non_compilable_id as equal. (NullAllowed: if null, no condition)
+     * @param non_compilable_id The value of non_compilable_id as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setNon_compilable_id_Equal(Integer non_compilable_id) {
         doSetNon_compilable_id_Equal(non_compilable_id);
@@ -59,7 +59,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * NON-COMPILABLE ID: {PK, NotNull, int4(10)}
-     * @param non_compilable_id The value of non_compilable_id as greaterThan. (NullAllowed: if null, no condition)
+     * @param non_compilable_id The value of non_compilable_id as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setNon_compilable_id_GreaterThan(Integer non_compilable_id) {
         regNon_compilable_id(CK_GT, non_compilable_id);
@@ -68,7 +68,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * NON-COMPILABLE ID: {PK, NotNull, int4(10)}
-     * @param non_compilable_id The value of non_compilable_id as lessThan. (NullAllowed: if null, no condition)
+     * @param non_compilable_id The value of non_compilable_id as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setNon_compilable_id_LessThan(Integer non_compilable_id) {
         regNon_compilable_id(CK_LT, non_compilable_id);
@@ -77,7 +77,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * NON-COMPILABLE ID: {PK, NotNull, int4(10)}
-     * @param non_compilable_id The value of non_compilable_id as greaterEqual. (NullAllowed: if null, no condition)
+     * @param non_compilable_id The value of non_compilable_id as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setNon_compilable_id_GreaterEqual(Integer non_compilable_id) {
         regNon_compilable_id(CK_GE, non_compilable_id);
@@ -86,7 +86,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * NON-COMPILABLE ID: {PK, NotNull, int4(10)}
-     * @param non_compilable_id The value of non_compilable_id as lessEqual. (NullAllowed: if null, no condition)
+     * @param non_compilable_id The value of non_compilable_id as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setNon_compilable_id_LessEqual(Integer non_compilable_id) {
         regNon_compilable_id(CK_LE, non_compilable_id);
@@ -434,7 +434,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * PARENT-ID: {int4(10), FK to VENDOR-NON COMPILABLE}
-     * @param parent_id The value of parent_id as equal. (NullAllowed: if null, no condition)
+     * @param parent_id The value of parent_id as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setParent_id_Equal(Integer parent_id) {
         doSetParent_id_Equal(parent_id);
@@ -447,7 +447,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * PARENT-ID: {int4(10), FK to VENDOR-NON COMPILABLE}
-     * @param parent_id The value of parent_id as greaterThan. (NullAllowed: if null, no condition)
+     * @param parent_id The value of parent_id as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setParent_id_GreaterThan(Integer parent_id) {
         regParent_id(CK_GT, parent_id);
@@ -456,7 +456,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * PARENT-ID: {int4(10), FK to VENDOR-NON COMPILABLE}
-     * @param parent_id The value of parent_id as lessThan. (NullAllowed: if null, no condition)
+     * @param parent_id The value of parent_id as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setParent_id_LessThan(Integer parent_id) {
         regParent_id(CK_LT, parent_id);
@@ -465,7 +465,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * PARENT-ID: {int4(10), FK to VENDOR-NON COMPILABLE}
-     * @param parent_id The value of parent_id as greaterEqual. (NullAllowed: if null, no condition)
+     * @param parent_id The value of parent_id as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setParent_id_GreaterEqual(Integer parent_id) {
         regParent_id(CK_GE, parent_id);
@@ -474,7 +474,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * PARENT-ID: {int4(10), FK to VENDOR-NON COMPILABLE}
-     * @param parent_id The value of parent_id as lessEqual. (NullAllowed: if null, no condition)
+     * @param parent_id The value of parent_id as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setParent_id_LessEqual(Integer parent_id) {
         regParent_id(CK_LE, parent_id);
@@ -550,7 +550,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * Next_ParentID: {int4(10), FK to VENDOR-NON COMPILABLE}
-     * @param nextParentid The value of nextParentid as equal. (NullAllowed: if null, no condition)
+     * @param nextParentid The value of nextParentid as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setNextParentid_Equal(Integer nextParentid) {
         doSetNextParentid_Equal(nextParentid);
@@ -563,7 +563,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * Next_ParentID: {int4(10), FK to VENDOR-NON COMPILABLE}
-     * @param nextParentid The value of nextParentid as greaterThan. (NullAllowed: if null, no condition)
+     * @param nextParentid The value of nextParentid as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setNextParentid_GreaterThan(Integer nextParentid) {
         regNextParentid(CK_GT, nextParentid);
@@ -572,7 +572,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * Next_ParentID: {int4(10), FK to VENDOR-NON COMPILABLE}
-     * @param nextParentid The value of nextParentid as lessThan. (NullAllowed: if null, no condition)
+     * @param nextParentid The value of nextParentid as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setNextParentid_LessThan(Integer nextParentid) {
         regNextParentid(CK_LT, nextParentid);
@@ -581,7 +581,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * Next_ParentID: {int4(10), FK to VENDOR-NON COMPILABLE}
-     * @param nextParentid The value of nextParentid as greaterEqual. (NullAllowed: if null, no condition)
+     * @param nextParentid The value of nextParentid as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setNextParentid_GreaterEqual(Integer nextParentid) {
         regNextParentid(CK_GE, nextParentid);
@@ -590,7 +590,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * Next_ParentID: {int4(10), FK to VENDOR-NON COMPILABLE}
-     * @param nextParentid The value of nextParentid as lessEqual. (NullAllowed: if null, no condition)
+     * @param nextParentid The value of nextParentid as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setNextParentid_LessEqual(Integer nextParentid) {
         regNextParentid(CK_LE, nextParentid);

@@ -46,7 +46,7 @@ public abstract class AbstractBsVendorPartManHighCQ extends AbstractConditionQue
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * part_man_id: {PK, NotNull, int4(10)}
-     * @param partManId The value of partManId as equal. (NullAllowed: if null, no condition)
+     * @param partManId The value of partManId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setPartManId_Equal(Integer partManId) {
         doSetPartManId_Equal(partManId);
@@ -59,7 +59,7 @@ public abstract class AbstractBsVendorPartManHighCQ extends AbstractConditionQue
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * part_man_id: {PK, NotNull, int4(10)}
-     * @param partManId The value of partManId as greaterThan. (NullAllowed: if null, no condition)
+     * @param partManId The value of partManId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setPartManId_GreaterThan(Integer partManId) {
         regPartManId(CK_GT, partManId);
@@ -68,7 +68,7 @@ public abstract class AbstractBsVendorPartManHighCQ extends AbstractConditionQue
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * part_man_id: {PK, NotNull, int4(10)}
-     * @param partManId The value of partManId as lessThan. (NullAllowed: if null, no condition)
+     * @param partManId The value of partManId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setPartManId_LessThan(Integer partManId) {
         regPartManId(CK_LT, partManId);
@@ -77,7 +77,7 @@ public abstract class AbstractBsVendorPartManHighCQ extends AbstractConditionQue
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * part_man_id: {PK, NotNull, int4(10)}
-     * @param partManId The value of partManId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param partManId The value of partManId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setPartManId_GreaterEqual(Integer partManId) {
         regPartManId(CK_GE, partManId);
@@ -86,7 +86,7 @@ public abstract class AbstractBsVendorPartManHighCQ extends AbstractConditionQue
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * part_man_id: {PK, NotNull, int4(10)}
-     * @param partManId The value of partManId as lessEqual. (NullAllowed: if null, no condition)
+     * @param partManId The value of partManId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setPartManId_LessEqual(Integer partManId) {
         regPartManId(CK_LE, partManId);
@@ -270,7 +270,7 @@ public abstract class AbstractBsVendorPartManHighCQ extends AbstractConditionQue
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * part_man_point: {NotNull, int4(10)}
-     * @param partManPoint The value of partManPoint as equal. (NullAllowed: if null, no condition)
+     * @param partManPoint The value of partManPoint as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setPartManPoint_Equal(Integer partManPoint) {
         doSetPartManPoint_Equal(partManPoint);
@@ -283,7 +283,7 @@ public abstract class AbstractBsVendorPartManHighCQ extends AbstractConditionQue
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * part_man_point: {NotNull, int4(10)}
-     * @param partManPoint The value of partManPoint as greaterThan. (NullAllowed: if null, no condition)
+     * @param partManPoint The value of partManPoint as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setPartManPoint_GreaterThan(Integer partManPoint) {
         regPartManPoint(CK_GT, partManPoint);
@@ -292,7 +292,7 @@ public abstract class AbstractBsVendorPartManHighCQ extends AbstractConditionQue
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * part_man_point: {NotNull, int4(10)}
-     * @param partManPoint The value of partManPoint as lessThan. (NullAllowed: if null, no condition)
+     * @param partManPoint The value of partManPoint as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setPartManPoint_LessThan(Integer partManPoint) {
         regPartManPoint(CK_LT, partManPoint);
@@ -301,7 +301,7 @@ public abstract class AbstractBsVendorPartManHighCQ extends AbstractConditionQue
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * part_man_point: {NotNull, int4(10)}
-     * @param partManPoint The value of partManPoint as greaterEqual. (NullAllowed: if null, no condition)
+     * @param partManPoint The value of partManPoint as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setPartManPoint_GreaterEqual(Integer partManPoint) {
         regPartManPoint(CK_GE, partManPoint);
@@ -310,7 +310,7 @@ public abstract class AbstractBsVendorPartManHighCQ extends AbstractConditionQue
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * part_man_point: {NotNull, int4(10)}
-     * @param partManPoint The value of partManPoint as lessEqual. (NullAllowed: if null, no condition)
+     * @param partManPoint The value of partManPoint as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setPartManPoint_LessEqual(Integer partManPoint) {
         regPartManPoint(CK_LE, partManPoint);
@@ -374,7 +374,7 @@ public abstract class AbstractBsVendorPartManHighCQ extends AbstractConditionQue
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * part_man_date: {date(13)}
-     * @param partManDate The value of partManDate as equal. (NullAllowed: if null, no condition)
+     * @param partManDate The value of partManDate as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setPartManDate_Equal(java.time.LocalDate partManDate) {
         regPartManDate(CK_EQ,  partManDate);
@@ -383,7 +383,7 @@ public abstract class AbstractBsVendorPartManHighCQ extends AbstractConditionQue
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * part_man_date: {date(13)}
-     * @param partManDate The value of partManDate as greaterThan. (NullAllowed: if null, no condition)
+     * @param partManDate The value of partManDate as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setPartManDate_GreaterThan(java.time.LocalDate partManDate) {
         regPartManDate(CK_GT,  partManDate);
@@ -392,7 +392,7 @@ public abstract class AbstractBsVendorPartManHighCQ extends AbstractConditionQue
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * part_man_date: {date(13)}
-     * @param partManDate The value of partManDate as lessThan. (NullAllowed: if null, no condition)
+     * @param partManDate The value of partManDate as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setPartManDate_LessThan(java.time.LocalDate partManDate) {
         regPartManDate(CK_LT,  partManDate);
@@ -401,7 +401,7 @@ public abstract class AbstractBsVendorPartManHighCQ extends AbstractConditionQue
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * part_man_date: {date(13)}
-     * @param partManDate The value of partManDate as greaterEqual. (NullAllowed: if null, no condition)
+     * @param partManDate The value of partManDate as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setPartManDate_GreaterEqual(java.time.LocalDate partManDate) {
         regPartManDate(CK_GE,  partManDate);
@@ -410,7 +410,7 @@ public abstract class AbstractBsVendorPartManHighCQ extends AbstractConditionQue
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * part_man_date: {date(13)}
-     * @param partManDate The value of partManDate as lessEqual. (NullAllowed: if null, no condition)
+     * @param partManDate The value of partManDate as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setPartManDate_LessEqual(java.time.LocalDate partManDate) {
         regPartManDate(CK_LE, partManDate);

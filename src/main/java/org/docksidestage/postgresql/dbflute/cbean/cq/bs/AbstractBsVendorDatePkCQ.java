@@ -46,7 +46,7 @@ public abstract class AbstractBsVendorDatePkCQ extends AbstractConditionQuery {
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * foo_date: {PK, NotNull, date(13)}
-     * @param fooDate The value of fooDate as equal. (NullAllowed: if null, no condition)
+     * @param fooDate The value of fooDate as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setFooDate_Equal(java.time.LocalDate fooDate) {
         regFooDate(CK_EQ,  fooDate);
@@ -55,7 +55,7 @@ public abstract class AbstractBsVendorDatePkCQ extends AbstractConditionQuery {
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * foo_date: {PK, NotNull, date(13)}
-     * @param fooDate The value of fooDate as greaterThan. (NullAllowed: if null, no condition)
+     * @param fooDate The value of fooDate as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setFooDate_GreaterThan(java.time.LocalDate fooDate) {
         regFooDate(CK_GT,  fooDate);
@@ -64,7 +64,7 @@ public abstract class AbstractBsVendorDatePkCQ extends AbstractConditionQuery {
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * foo_date: {PK, NotNull, date(13)}
-     * @param fooDate The value of fooDate as lessThan. (NullAllowed: if null, no condition)
+     * @param fooDate The value of fooDate as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setFooDate_LessThan(java.time.LocalDate fooDate) {
         regFooDate(CK_LT,  fooDate);
@@ -73,7 +73,7 @@ public abstract class AbstractBsVendorDatePkCQ extends AbstractConditionQuery {
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * foo_date: {PK, NotNull, date(13)}
-     * @param fooDate The value of fooDate as greaterEqual. (NullAllowed: if null, no condition)
+     * @param fooDate The value of fooDate as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setFooDate_GreaterEqual(java.time.LocalDate fooDate) {
         regFooDate(CK_GE,  fooDate);
@@ -82,7 +82,7 @@ public abstract class AbstractBsVendorDatePkCQ extends AbstractConditionQuery {
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * foo_date: {PK, NotNull, date(13)}
-     * @param fooDate The value of fooDate as lessEqual. (NullAllowed: if null, no condition)
+     * @param fooDate The value of fooDate as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setFooDate_LessEqual(java.time.LocalDate fooDate) {
         regFooDate(CK_LE, fooDate);

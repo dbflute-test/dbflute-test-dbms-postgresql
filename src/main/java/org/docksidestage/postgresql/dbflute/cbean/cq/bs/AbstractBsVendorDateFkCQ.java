@@ -46,7 +46,7 @@ public abstract class AbstractBsVendorDateFkCQ extends AbstractConditionQuery {
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * bar_id: {PK, NotNull, int4(10)}
-     * @param barId The value of barId as equal. (NullAllowed: if null, no condition)
+     * @param barId The value of barId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setBarId_Equal(Integer barId) {
         doSetBarId_Equal(barId);
@@ -59,7 +59,7 @@ public abstract class AbstractBsVendorDateFkCQ extends AbstractConditionQuery {
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * bar_id: {PK, NotNull, int4(10)}
-     * @param barId The value of barId as greaterThan. (NullAllowed: if null, no condition)
+     * @param barId The value of barId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setBarId_GreaterThan(Integer barId) {
         regBarId(CK_GT, barId);
@@ -68,7 +68,7 @@ public abstract class AbstractBsVendorDateFkCQ extends AbstractConditionQuery {
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * bar_id: {PK, NotNull, int4(10)}
-     * @param barId The value of barId as lessThan. (NullAllowed: if null, no condition)
+     * @param barId The value of barId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setBarId_LessThan(Integer barId) {
         regBarId(CK_LT, barId);
@@ -77,7 +77,7 @@ public abstract class AbstractBsVendorDateFkCQ extends AbstractConditionQuery {
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * bar_id: {PK, NotNull, int4(10)}
-     * @param barId The value of barId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param barId The value of barId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setBarId_GreaterEqual(Integer barId) {
         regBarId(CK_GE, barId);
@@ -86,7 +86,7 @@ public abstract class AbstractBsVendorDateFkCQ extends AbstractConditionQuery {
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * bar_id: {PK, NotNull, int4(10)}
-     * @param barId The value of barId as lessEqual. (NullAllowed: if null, no condition)
+     * @param barId The value of barId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setBarId_LessEqual(Integer barId) {
         regBarId(CK_LE, barId);
@@ -162,7 +162,7 @@ public abstract class AbstractBsVendorDateFkCQ extends AbstractConditionQuery {
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * bar_date: {NotNull, date(13), FK to vendor_date_pk}
-     * @param barDate The value of barDate as equal. (NullAllowed: if null, no condition)
+     * @param barDate The value of barDate as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setBarDate_Equal(java.time.LocalDate barDate) {
         regBarDate(CK_EQ,  barDate);
@@ -171,7 +171,7 @@ public abstract class AbstractBsVendorDateFkCQ extends AbstractConditionQuery {
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * bar_date: {NotNull, date(13), FK to vendor_date_pk}
-     * @param barDate The value of barDate as greaterThan. (NullAllowed: if null, no condition)
+     * @param barDate The value of barDate as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setBarDate_GreaterThan(java.time.LocalDate barDate) {
         regBarDate(CK_GT,  barDate);
@@ -180,7 +180,7 @@ public abstract class AbstractBsVendorDateFkCQ extends AbstractConditionQuery {
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * bar_date: {NotNull, date(13), FK to vendor_date_pk}
-     * @param barDate The value of barDate as lessThan. (NullAllowed: if null, no condition)
+     * @param barDate The value of barDate as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setBarDate_LessThan(java.time.LocalDate barDate) {
         regBarDate(CK_LT,  barDate);
@@ -189,7 +189,7 @@ public abstract class AbstractBsVendorDateFkCQ extends AbstractConditionQuery {
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * bar_date: {NotNull, date(13), FK to vendor_date_pk}
-     * @param barDate The value of barDate as greaterEqual. (NullAllowed: if null, no condition)
+     * @param barDate The value of barDate as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setBarDate_GreaterEqual(java.time.LocalDate barDate) {
         regBarDate(CK_GE,  barDate);
@@ -198,7 +198,7 @@ public abstract class AbstractBsVendorDateFkCQ extends AbstractConditionQuery {
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * bar_date: {NotNull, date(13), FK to vendor_date_pk}
-     * @param barDate The value of barDate as lessEqual. (NullAllowed: if null, no condition)
+     * @param barDate The value of barDate as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setBarDate_LessEqual(java.time.LocalDate barDate) {
         regBarDate(CK_LE, barDate);

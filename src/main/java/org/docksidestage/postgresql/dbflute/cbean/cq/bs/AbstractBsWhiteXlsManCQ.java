@@ -46,7 +46,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * xls_man_id: {PK, NotNull, int8(19)}
-     * @param xlsManId The value of xlsManId as equal. (NullAllowed: if null, no condition)
+     * @param xlsManId The value of xlsManId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setXlsManId_Equal(Long xlsManId) {
         doSetXlsManId_Equal(xlsManId);
@@ -59,7 +59,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * xls_man_id: {PK, NotNull, int8(19)}
-     * @param xlsManId The value of xlsManId as greaterThan. (NullAllowed: if null, no condition)
+     * @param xlsManId The value of xlsManId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setXlsManId_GreaterThan(Long xlsManId) {
         regXlsManId(CK_GT, xlsManId);
@@ -68,7 +68,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * xls_man_id: {PK, NotNull, int8(19)}
-     * @param xlsManId The value of xlsManId as lessThan. (NullAllowed: if null, no condition)
+     * @param xlsManId The value of xlsManId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setXlsManId_LessThan(Long xlsManId) {
         regXlsManId(CK_LT, xlsManId);
@@ -77,7 +77,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * xls_man_id: {PK, NotNull, int8(19)}
-     * @param xlsManId The value of xlsManId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param xlsManId The value of xlsManId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setXlsManId_GreaterEqual(Long xlsManId) {
         regXlsManId(CK_GE, xlsManId);
@@ -86,7 +86,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * xls_man_id: {PK, NotNull, int8(19)}
-     * @param xlsManId The value of xlsManId as lessEqual. (NullAllowed: if null, no condition)
+     * @param xlsManId The value of xlsManId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setXlsManId_LessEqual(Long xlsManId) {
         regXlsManId(CK_LE, xlsManId);
@@ -288,7 +288,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * timestamp_zero_default_millis: {timestamp(26, 3)}
-     * @param timestampZeroDefaultMillis The value of timestampZeroDefaultMillis as equal. (NullAllowed: if null, no condition)
+     * @param timestampZeroDefaultMillis The value of timestampZeroDefaultMillis as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setTimestampZeroDefaultMillis_Equal(java.time.LocalDateTime timestampZeroDefaultMillis) {
         regTimestampZeroDefaultMillis(CK_EQ,  timestampZeroDefaultMillis);
@@ -297,7 +297,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * timestamp_zero_default_millis: {timestamp(26, 3)}
-     * @param timestampZeroDefaultMillis The value of timestampZeroDefaultMillis as greaterThan. (NullAllowed: if null, no condition)
+     * @param timestampZeroDefaultMillis The value of timestampZeroDefaultMillis as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setTimestampZeroDefaultMillis_GreaterThan(java.time.LocalDateTime timestampZeroDefaultMillis) {
         regTimestampZeroDefaultMillis(CK_GT,  timestampZeroDefaultMillis);
@@ -306,7 +306,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * timestamp_zero_default_millis: {timestamp(26, 3)}
-     * @param timestampZeroDefaultMillis The value of timestampZeroDefaultMillis as lessThan. (NullAllowed: if null, no condition)
+     * @param timestampZeroDefaultMillis The value of timestampZeroDefaultMillis as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setTimestampZeroDefaultMillis_LessThan(java.time.LocalDateTime timestampZeroDefaultMillis) {
         regTimestampZeroDefaultMillis(CK_LT,  timestampZeroDefaultMillis);
@@ -315,7 +315,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * timestamp_zero_default_millis: {timestamp(26, 3)}
-     * @param timestampZeroDefaultMillis The value of timestampZeroDefaultMillis as greaterEqual. (NullAllowed: if null, no condition)
+     * @param timestampZeroDefaultMillis The value of timestampZeroDefaultMillis as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setTimestampZeroDefaultMillis_GreaterEqual(java.time.LocalDateTime timestampZeroDefaultMillis) {
         regTimestampZeroDefaultMillis(CK_GE,  timestampZeroDefaultMillis);
@@ -324,7 +324,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * timestamp_zero_default_millis: {timestamp(26, 3)}
-     * @param timestampZeroDefaultMillis The value of timestampZeroDefaultMillis as lessEqual. (NullAllowed: if null, no condition)
+     * @param timestampZeroDefaultMillis The value of timestampZeroDefaultMillis as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setTimestampZeroDefaultMillis_LessEqual(java.time.LocalDateTime timestampZeroDefaultMillis) {
         regTimestampZeroDefaultMillis(CK_LE, timestampZeroDefaultMillis);
@@ -390,7 +390,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * timestamp_zero_prefix_millis: {timestamp(26, 3)}
-     * @param timestampZeroPrefixMillis The value of timestampZeroPrefixMillis as equal. (NullAllowed: if null, no condition)
+     * @param timestampZeroPrefixMillis The value of timestampZeroPrefixMillis as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setTimestampZeroPrefixMillis_Equal(java.time.LocalDateTime timestampZeroPrefixMillis) {
         regTimestampZeroPrefixMillis(CK_EQ,  timestampZeroPrefixMillis);
@@ -399,7 +399,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * timestamp_zero_prefix_millis: {timestamp(26, 3)}
-     * @param timestampZeroPrefixMillis The value of timestampZeroPrefixMillis as greaterThan. (NullAllowed: if null, no condition)
+     * @param timestampZeroPrefixMillis The value of timestampZeroPrefixMillis as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setTimestampZeroPrefixMillis_GreaterThan(java.time.LocalDateTime timestampZeroPrefixMillis) {
         regTimestampZeroPrefixMillis(CK_GT,  timestampZeroPrefixMillis);
@@ -408,7 +408,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * timestamp_zero_prefix_millis: {timestamp(26, 3)}
-     * @param timestampZeroPrefixMillis The value of timestampZeroPrefixMillis as lessThan. (NullAllowed: if null, no condition)
+     * @param timestampZeroPrefixMillis The value of timestampZeroPrefixMillis as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setTimestampZeroPrefixMillis_LessThan(java.time.LocalDateTime timestampZeroPrefixMillis) {
         regTimestampZeroPrefixMillis(CK_LT,  timestampZeroPrefixMillis);
@@ -417,7 +417,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * timestamp_zero_prefix_millis: {timestamp(26, 3)}
-     * @param timestampZeroPrefixMillis The value of timestampZeroPrefixMillis as greaterEqual. (NullAllowed: if null, no condition)
+     * @param timestampZeroPrefixMillis The value of timestampZeroPrefixMillis as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setTimestampZeroPrefixMillis_GreaterEqual(java.time.LocalDateTime timestampZeroPrefixMillis) {
         regTimestampZeroPrefixMillis(CK_GE,  timestampZeroPrefixMillis);
@@ -426,7 +426,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * timestamp_zero_prefix_millis: {timestamp(26, 3)}
-     * @param timestampZeroPrefixMillis The value of timestampZeroPrefixMillis as lessEqual. (NullAllowed: if null, no condition)
+     * @param timestampZeroPrefixMillis The value of timestampZeroPrefixMillis as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setTimestampZeroPrefixMillis_LessEqual(java.time.LocalDateTime timestampZeroPrefixMillis) {
         regTimestampZeroPrefixMillis(CK_LE, timestampZeroPrefixMillis);
@@ -492,7 +492,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * timestamp_zero_suffix_millis: {timestamp(26, 3)}
-     * @param timestampZeroSuffixMillis The value of timestampZeroSuffixMillis as equal. (NullAllowed: if null, no condition)
+     * @param timestampZeroSuffixMillis The value of timestampZeroSuffixMillis as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setTimestampZeroSuffixMillis_Equal(java.time.LocalDateTime timestampZeroSuffixMillis) {
         regTimestampZeroSuffixMillis(CK_EQ,  timestampZeroSuffixMillis);
@@ -501,7 +501,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * timestamp_zero_suffix_millis: {timestamp(26, 3)}
-     * @param timestampZeroSuffixMillis The value of timestampZeroSuffixMillis as greaterThan. (NullAllowed: if null, no condition)
+     * @param timestampZeroSuffixMillis The value of timestampZeroSuffixMillis as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setTimestampZeroSuffixMillis_GreaterThan(java.time.LocalDateTime timestampZeroSuffixMillis) {
         regTimestampZeroSuffixMillis(CK_GT,  timestampZeroSuffixMillis);
@@ -510,7 +510,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * timestamp_zero_suffix_millis: {timestamp(26, 3)}
-     * @param timestampZeroSuffixMillis The value of timestampZeroSuffixMillis as lessThan. (NullAllowed: if null, no condition)
+     * @param timestampZeroSuffixMillis The value of timestampZeroSuffixMillis as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setTimestampZeroSuffixMillis_LessThan(java.time.LocalDateTime timestampZeroSuffixMillis) {
         regTimestampZeroSuffixMillis(CK_LT,  timestampZeroSuffixMillis);
@@ -519,7 +519,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * timestamp_zero_suffix_millis: {timestamp(26, 3)}
-     * @param timestampZeroSuffixMillis The value of timestampZeroSuffixMillis as greaterEqual. (NullAllowed: if null, no condition)
+     * @param timestampZeroSuffixMillis The value of timestampZeroSuffixMillis as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setTimestampZeroSuffixMillis_GreaterEqual(java.time.LocalDateTime timestampZeroSuffixMillis) {
         regTimestampZeroSuffixMillis(CK_GE,  timestampZeroSuffixMillis);
@@ -528,7 +528,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * timestamp_zero_suffix_millis: {timestamp(26, 3)}
-     * @param timestampZeroSuffixMillis The value of timestampZeroSuffixMillis as lessEqual. (NullAllowed: if null, no condition)
+     * @param timestampZeroSuffixMillis The value of timestampZeroSuffixMillis as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setTimestampZeroSuffixMillis_LessEqual(java.time.LocalDateTime timestampZeroSuffixMillis) {
         regTimestampZeroSuffixMillis(CK_LE, timestampZeroSuffixMillis);

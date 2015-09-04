@@ -46,7 +46,7 @@ public abstract class AbstractBsVendorUuidFooCQ extends AbstractConditionQuery {
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * foo_id: {PK, NotNull, uuid(2147483647)}
-     * @param fooId The value of fooId as equal. (NullAllowed: if null, no condition)
+     * @param fooId The value of fooId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setFooId_Equal(java.util.UUID fooId) {
         regFooId(CK_EQ, fooId);
@@ -187,7 +187,7 @@ public abstract class AbstractBsVendorUuidFooCQ extends AbstractConditionQuery {
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * bar_id: {NotNull, uuid(2147483647), FK to vendor_uuid_bar}
-     * @param barId The value of barId as equal. (NullAllowed: if null, no condition)
+     * @param barId The value of barId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setBarId_Equal(java.util.UUID barId) {
         regBarId(CK_EQ, barId);

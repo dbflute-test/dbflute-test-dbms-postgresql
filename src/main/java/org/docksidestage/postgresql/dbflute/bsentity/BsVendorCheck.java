@@ -801,6 +801,7 @@ public abstract class BsVendorCheck extends AbstractEntity implements DomainEnti
      * [get] type_of_bytea: {bytea(2147483647)} <br>
      * @return The value of the column 'type_of_bytea'. (NullAllowed even if selected: for no constraint)
      */
+    @MappingValueType(keyName = "postgreSqlByteaType")
     public byte[] getTypeOfBytea() {
         checkSpecifiedProperty("typeOfBytea");
         return _typeOfBytea;
@@ -819,7 +820,7 @@ public abstract class BsVendorCheck extends AbstractEntity implements DomainEnti
      * [get] type_of_oid: {oid(10)} <br>
      * @return The value of the column 'type_of_oid'. (NullAllowed even if selected: for no constraint)
      */
-    @MappingValueType(keyName = "bytesOidType")
+    @MappingValueType(keyName = "postgreSqlOidType")
     public byte[] getTypeOfOid() {
         checkSpecifiedProperty("typeOfOid");
         return _typeOfOid;

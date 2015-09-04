@@ -46,7 +46,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * inu_id: {NotNull, int4(10)}
-     * @param inuId The value of inuId as equal. (NullAllowed: if null, no condition)
+     * @param inuId The value of inuId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setInuId_Equal(Integer inuId) {
         doSetInuId_Equal(inuId);
@@ -59,7 +59,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * inu_id: {NotNull, int4(10)}
-     * @param inuId The value of inuId as greaterThan. (NullAllowed: if null, no condition)
+     * @param inuId The value of inuId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setInuId_GreaterThan(Integer inuId) {
         regInuId(CK_GT, inuId);
@@ -68,7 +68,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * inu_id: {NotNull, int4(10)}
-     * @param inuId The value of inuId as lessThan. (NullAllowed: if null, no condition)
+     * @param inuId The value of inuId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setInuId_LessThan(Integer inuId) {
         regInuId(CK_LT, inuId);
@@ -77,7 +77,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * inu_id: {NotNull, int4(10)}
-     * @param inuId The value of inuId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param inuId The value of inuId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setInuId_GreaterEqual(Integer inuId) {
         regInuId(CK_GE, inuId);
@@ -86,7 +86,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * inu_id: {NotNull, int4(10)}
-     * @param inuId The value of inuId as lessEqual. (NullAllowed: if null, no condition)
+     * @param inuId The value of inuId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setInuId_LessEqual(Integer inuId) {
         regInuId(CK_LE, inuId);
@@ -258,7 +258,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * inu_date: {date(13)}
-     * @param inuDate The value of inuDate as equal. (NullAllowed: if null, no condition)
+     * @param inuDate The value of inuDate as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setInuDate_Equal(java.time.LocalDate inuDate) {
         regInuDate(CK_EQ,  inuDate);
@@ -267,7 +267,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * inu_date: {date(13)}
-     * @param inuDate The value of inuDate as greaterThan. (NullAllowed: if null, no condition)
+     * @param inuDate The value of inuDate as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setInuDate_GreaterThan(java.time.LocalDate inuDate) {
         regInuDate(CK_GT,  inuDate);
@@ -276,7 +276,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * inu_date: {date(13)}
-     * @param inuDate The value of inuDate as lessThan. (NullAllowed: if null, no condition)
+     * @param inuDate The value of inuDate as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setInuDate_LessThan(java.time.LocalDate inuDate) {
         regInuDate(CK_LT,  inuDate);
@@ -285,7 +285,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * inu_date: {date(13)}
-     * @param inuDate The value of inuDate as greaterEqual. (NullAllowed: if null, no condition)
+     * @param inuDate The value of inuDate as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setInuDate_GreaterEqual(java.time.LocalDate inuDate) {
         regInuDate(CK_GE,  inuDate);
@@ -294,7 +294,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * inu_date: {date(13)}
-     * @param inuDate The value of inuDate as lessEqual. (NullAllowed: if null, no condition)
+     * @param inuDate The value of inuDate as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setInuDate_LessEqual(java.time.LocalDate inuDate) {
         regInuDate(CK_LE, inuDate);
@@ -360,7 +360,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * neko_id: {PK, NotNull, int4(10)}
-     * @param nekoId The value of nekoId as equal. (NullAllowed: if null, no condition)
+     * @param nekoId The value of nekoId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setNekoId_Equal(Integer nekoId) {
         doSetNekoId_Equal(nekoId);
@@ -373,7 +373,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * neko_id: {PK, NotNull, int4(10)}
-     * @param nekoId The value of nekoId as greaterThan. (NullAllowed: if null, no condition)
+     * @param nekoId The value of nekoId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setNekoId_GreaterThan(Integer nekoId) {
         regNekoId(CK_GT, nekoId);
@@ -382,7 +382,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * neko_id: {PK, NotNull, int4(10)}
-     * @param nekoId The value of nekoId as lessThan. (NullAllowed: if null, no condition)
+     * @param nekoId The value of nekoId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setNekoId_LessThan(Integer nekoId) {
         regNekoId(CK_LT, nekoId);
@@ -391,7 +391,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * neko_id: {PK, NotNull, int4(10)}
-     * @param nekoId The value of nekoId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param nekoId The value of nekoId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setNekoId_GreaterEqual(Integer nekoId) {
         regNekoId(CK_GE, nekoId);
@@ -400,7 +400,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * neko_id: {PK, NotNull, int4(10)}
-     * @param nekoId The value of nekoId as lessEqual. (NullAllowed: if null, no condition)
+     * @param nekoId The value of nekoId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setNekoId_LessEqual(Integer nekoId) {
         regNekoId(CK_LE, nekoId);
@@ -584,7 +584,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * neko_date: {date(13)}
-     * @param nekoDate The value of nekoDate as equal. (NullAllowed: if null, no condition)
+     * @param nekoDate The value of nekoDate as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setNekoDate_Equal(java.time.LocalDate nekoDate) {
         regNekoDate(CK_EQ,  nekoDate);
@@ -593,7 +593,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * neko_date: {date(13)}
-     * @param nekoDate The value of nekoDate as greaterThan. (NullAllowed: if null, no condition)
+     * @param nekoDate The value of nekoDate as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setNekoDate_GreaterThan(java.time.LocalDate nekoDate) {
         regNekoDate(CK_GT,  nekoDate);
@@ -602,7 +602,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * neko_date: {date(13)}
-     * @param nekoDate The value of nekoDate as lessThan. (NullAllowed: if null, no condition)
+     * @param nekoDate The value of nekoDate as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setNekoDate_LessThan(java.time.LocalDate nekoDate) {
         regNekoDate(CK_LT,  nekoDate);
@@ -611,7 +611,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * neko_date: {date(13)}
-     * @param nekoDate The value of nekoDate as greaterEqual. (NullAllowed: if null, no condition)
+     * @param nekoDate The value of nekoDate as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setNekoDate_GreaterEqual(java.time.LocalDate nekoDate) {
         regNekoDate(CK_GE,  nekoDate);
@@ -620,7 +620,7 @@ public abstract class AbstractBsVendorInheritNekoCQ extends AbstractConditionQue
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * neko_date: {date(13)}
-     * @param nekoDate The value of nekoDate as lessEqual. (NullAllowed: if null, no condition)
+     * @param nekoDate The value of nekoDate as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setNekoDate_LessEqual(java.time.LocalDate nekoDate) {
         regNekoDate(CK_LE, nekoDate);
