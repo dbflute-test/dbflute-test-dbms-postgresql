@@ -44,8 +44,9 @@ public class BsSpVariousTypeParameterPmb implements ProcedurePmb, FetchBean {
     public static final String vvvInTime_PROCEDURE_PARAMETER = "in, 15";
     public static final String vvvvInBool_PROCEDURE_PARAMETER = "in, 16";
     public static final String vvvvInBytea_PROCEDURE_PARAMETER = "in, 17";
+    public static final String vvvvInBytea_VALUE_TYPE = "postgreSqlByteaType";
     public static final String vvvvInOid_PROCEDURE_PARAMETER = "in, 18";
-    public static final String vvvvInOid_VALUE_TYPE = "bytesOidType";
+    public static final String vvvvInOid_VALUE_TYPE = "postgreSqlOidType";
     public static final String vvvvInUuid_PROCEDURE_PARAMETER = "in, 19";
 
     // ===================================================================================

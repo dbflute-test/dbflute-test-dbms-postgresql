@@ -56,7 +56,7 @@ public abstract class AbstractBsServiceRankCQ extends AbstractConditionQuery {
      * Equal(=). As ServiceRank. And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * (サービスランクコード)service_rank_code: {PK, NotNull, bpchar(3), classification=ServiceRank} <br>
      * 会員が受けられるサービスのランクを示す
-     * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, no condition)
+     * @param cdef The instance of classification definition (as ENUM type). (basically NotNull: error as default, or no condition as option)
      */
     public void setServiceRankCode_Equal_AsServiceRank(CDef.ServiceRank cdef) {
         doSetServiceRankCode_Equal(cdef != null ? cdef.code() : null);
@@ -120,7 +120,7 @@ public abstract class AbstractBsServiceRankCQ extends AbstractConditionQuery {
      * NotEqual(&lt;&gt;). As ServiceRank. And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * (サービスランクコード)service_rank_code: {PK, NotNull, bpchar(3), classification=ServiceRank} <br>
      * 会員が受けられるサービスのランクを示す
-     * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, no condition)
+     * @param cdef The instance of classification definition (as ENUM type). (basically NotNull: error as default, or no condition as option)
      */
     public void setServiceRankCode_NotEqual_AsServiceRank(CDef.ServiceRank cdef) {
         doSetServiceRankCode_NotEqual(cdef != null ? cdef.code() : null);
@@ -416,7 +416,7 @@ public abstract class AbstractBsServiceRankCQ extends AbstractConditionQuery {
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * (サービスポイント発生率)service_point_incidence: {NotNull, numeric(5, 3)}
-     * @param servicePointIncidence The value of servicePointIncidence as equal. (NullAllowed: if null, no condition)
+     * @param servicePointIncidence The value of servicePointIncidence as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setServicePointIncidence_Equal(java.math.BigDecimal servicePointIncidence) {
         doSetServicePointIncidence_Equal(servicePointIncidence);
@@ -429,7 +429,7 @@ public abstract class AbstractBsServiceRankCQ extends AbstractConditionQuery {
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * (サービスポイント発生率)service_point_incidence: {NotNull, numeric(5, 3)}
-     * @param servicePointIncidence The value of servicePointIncidence as greaterThan. (NullAllowed: if null, no condition)
+     * @param servicePointIncidence The value of servicePointIncidence as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setServicePointIncidence_GreaterThan(java.math.BigDecimal servicePointIncidence) {
         regServicePointIncidence(CK_GT, servicePointIncidence);
@@ -438,7 +438,7 @@ public abstract class AbstractBsServiceRankCQ extends AbstractConditionQuery {
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * (サービスポイント発生率)service_point_incidence: {NotNull, numeric(5, 3)}
-     * @param servicePointIncidence The value of servicePointIncidence as lessThan. (NullAllowed: if null, no condition)
+     * @param servicePointIncidence The value of servicePointIncidence as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setServicePointIncidence_LessThan(java.math.BigDecimal servicePointIncidence) {
         regServicePointIncidence(CK_LT, servicePointIncidence);
@@ -447,7 +447,7 @@ public abstract class AbstractBsServiceRankCQ extends AbstractConditionQuery {
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * (サービスポイント発生率)service_point_incidence: {NotNull, numeric(5, 3)}
-     * @param servicePointIncidence The value of servicePointIncidence as greaterEqual. (NullAllowed: if null, no condition)
+     * @param servicePointIncidence The value of servicePointIncidence as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setServicePointIncidence_GreaterEqual(java.math.BigDecimal servicePointIncidence) {
         regServicePointIncidence(CK_GE, servicePointIncidence);
@@ -456,7 +456,7 @@ public abstract class AbstractBsServiceRankCQ extends AbstractConditionQuery {
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * (サービスポイント発生率)service_point_incidence: {NotNull, numeric(5, 3)}
-     * @param servicePointIncidence The value of servicePointIncidence as lessEqual. (NullAllowed: if null, no condition)
+     * @param servicePointIncidence The value of servicePointIncidence as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setServicePointIncidence_LessEqual(java.math.BigDecimal servicePointIncidence) {
         regServicePointIncidence(CK_LE, servicePointIncidence);
@@ -520,7 +520,7 @@ public abstract class AbstractBsServiceRankCQ extends AbstractConditionQuery {
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * (新規受け入れ可能フラグ)new_acceptable_flg: {NotNull, int4(10), classification=Flg}
-     * @param newAcceptableFlg The value of newAcceptableFlg as equal. (NullAllowed: if null, no condition)
+     * @param newAcceptableFlg The value of newAcceptableFlg as equal. (basically NotNull: error as default, or no condition as option)
      */
     protected void setNewAcceptableFlg_Equal(Integer newAcceptableFlg) {
         doSetNewAcceptableFlg_Equal(newAcceptableFlg);
@@ -530,7 +530,7 @@ public abstract class AbstractBsServiceRankCQ extends AbstractConditionQuery {
      * Equal(=). As Flg. And NullIgnored, OnlyOnceRegistered. <br>
      * (新規受け入れ可能フラグ)new_acceptable_flg: {NotNull, int4(10), classification=Flg} <br>
      * general boolean classification for every flg-column
-     * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, no condition)
+     * @param cdef The instance of classification definition (as ENUM type). (basically NotNull: error as default, or no condition as option)
      */
     public void setNewAcceptableFlg_Equal_AsFlg(CDef.Flg cdef) {
         doSetNewAcceptableFlg_Equal(cTNum(cdef != null ? cdef.code() : null, Integer.class));
@@ -716,7 +716,7 @@ public abstract class AbstractBsServiceRankCQ extends AbstractConditionQuery {
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * (表示順)display_order: {UQ, NotNull, int4(10)}
-     * @param displayOrder The value of displayOrder as equal. (NullAllowed: if null, no condition)
+     * @param displayOrder The value of displayOrder as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setDisplayOrder_Equal(Integer displayOrder) {
         doSetDisplayOrder_Equal(displayOrder);
@@ -729,7 +729,7 @@ public abstract class AbstractBsServiceRankCQ extends AbstractConditionQuery {
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * (表示順)display_order: {UQ, NotNull, int4(10)}
-     * @param displayOrder The value of displayOrder as greaterThan. (NullAllowed: if null, no condition)
+     * @param displayOrder The value of displayOrder as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setDisplayOrder_GreaterThan(Integer displayOrder) {
         regDisplayOrder(CK_GT, displayOrder);
@@ -738,7 +738,7 @@ public abstract class AbstractBsServiceRankCQ extends AbstractConditionQuery {
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * (表示順)display_order: {UQ, NotNull, int4(10)}
-     * @param displayOrder The value of displayOrder as lessThan. (NullAllowed: if null, no condition)
+     * @param displayOrder The value of displayOrder as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setDisplayOrder_LessThan(Integer displayOrder) {
         regDisplayOrder(CK_LT, displayOrder);
@@ -747,7 +747,7 @@ public abstract class AbstractBsServiceRankCQ extends AbstractConditionQuery {
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * (表示順)display_order: {UQ, NotNull, int4(10)}
-     * @param displayOrder The value of displayOrder as greaterEqual. (NullAllowed: if null, no condition)
+     * @param displayOrder The value of displayOrder as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setDisplayOrder_GreaterEqual(Integer displayOrder) {
         regDisplayOrder(CK_GE, displayOrder);
@@ -756,7 +756,7 @@ public abstract class AbstractBsServiceRankCQ extends AbstractConditionQuery {
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * (表示順)display_order: {UQ, NotNull, int4(10)}
-     * @param displayOrder The value of displayOrder as lessEqual. (NullAllowed: if null, no condition)
+     * @param displayOrder The value of displayOrder as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setDisplayOrder_LessEqual(Integer displayOrder) {
         regDisplayOrder(CK_LE, displayOrder);

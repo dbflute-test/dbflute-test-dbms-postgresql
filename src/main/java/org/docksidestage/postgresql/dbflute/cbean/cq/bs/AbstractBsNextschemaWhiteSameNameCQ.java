@@ -46,7 +46,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * same_name_id: {PK, NotNull, int4(10)}
-     * @param sameNameId The value of sameNameId as equal. (NullAllowed: if null, no condition)
+     * @param sameNameId The value of sameNameId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setSameNameId_Equal(Integer sameNameId) {
         doSetSameNameId_Equal(sameNameId);
@@ -59,7 +59,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * same_name_id: {PK, NotNull, int4(10)}
-     * @param sameNameId The value of sameNameId as greaterThan. (NullAllowed: if null, no condition)
+     * @param sameNameId The value of sameNameId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setSameNameId_GreaterThan(Integer sameNameId) {
         regSameNameId(CK_GT, sameNameId);
@@ -68,7 +68,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * same_name_id: {PK, NotNull, int4(10)}
-     * @param sameNameId The value of sameNameId as lessThan. (NullAllowed: if null, no condition)
+     * @param sameNameId The value of sameNameId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setSameNameId_LessThan(Integer sameNameId) {
         regSameNameId(CK_LT, sameNameId);
@@ -77,7 +77,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * same_name_id: {PK, NotNull, int4(10)}
-     * @param sameNameId The value of sameNameId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param sameNameId The value of sameNameId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setSameNameId_GreaterEqual(Integer sameNameId) {
         regSameNameId(CK_GE, sameNameId);
@@ -86,7 +86,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * same_name_id: {PK, NotNull, int4(10)}
-     * @param sameNameId The value of sameNameId as lessEqual. (NullAllowed: if null, no condition)
+     * @param sameNameId The value of sameNameId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setSameNameId_LessEqual(Integer sameNameId) {
         regSameNameId(CK_LE, sameNameId);
@@ -361,7 +361,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * same_name_long: {int8(19)}
-     * @param sameNameLong The value of sameNameLong as equal. (NullAllowed: if null, no condition)
+     * @param sameNameLong The value of sameNameLong as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setSameNameLong_Equal(Long sameNameLong) {
         doSetSameNameLong_Equal(sameNameLong);
@@ -374,7 +374,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * same_name_long: {int8(19)}
-     * @param sameNameLong The value of sameNameLong as greaterThan. (NullAllowed: if null, no condition)
+     * @param sameNameLong The value of sameNameLong as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setSameNameLong_GreaterThan(Long sameNameLong) {
         regSameNameLong(CK_GT, sameNameLong);
@@ -383,7 +383,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * same_name_long: {int8(19)}
-     * @param sameNameLong The value of sameNameLong as lessThan. (NullAllowed: if null, no condition)
+     * @param sameNameLong The value of sameNameLong as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setSameNameLong_LessThan(Long sameNameLong) {
         regSameNameLong(CK_LT, sameNameLong);
@@ -392,7 +392,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * same_name_long: {int8(19)}
-     * @param sameNameLong The value of sameNameLong as greaterEqual. (NullAllowed: if null, no condition)
+     * @param sameNameLong The value of sameNameLong as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setSameNameLong_GreaterEqual(Long sameNameLong) {
         regSameNameLong(CK_GE, sameNameLong);
@@ -401,7 +401,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * same_name_long: {int8(19)}
-     * @param sameNameLong The value of sameNameLong as lessEqual. (NullAllowed: if null, no condition)
+     * @param sameNameLong The value of sameNameLong as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setSameNameLong_LessEqual(Long sameNameLong) {
         regSameNameLong(CK_LE, sameNameLong);

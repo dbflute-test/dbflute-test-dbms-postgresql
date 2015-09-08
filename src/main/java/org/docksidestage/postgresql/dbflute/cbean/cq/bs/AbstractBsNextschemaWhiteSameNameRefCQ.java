@@ -46,7 +46,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameRefCQ extends AbstractCon
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * same_name_ref_id: {PK, NotNull, int8(19)}
-     * @param sameNameRefId The value of sameNameRefId as equal. (NullAllowed: if null, no condition)
+     * @param sameNameRefId The value of sameNameRefId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setSameNameRefId_Equal(Long sameNameRefId) {
         doSetSameNameRefId_Equal(sameNameRefId);
@@ -59,7 +59,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameRefCQ extends AbstractCon
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * same_name_ref_id: {PK, NotNull, int8(19)}
-     * @param sameNameRefId The value of sameNameRefId as greaterThan. (NullAllowed: if null, no condition)
+     * @param sameNameRefId The value of sameNameRefId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setSameNameRefId_GreaterThan(Long sameNameRefId) {
         regSameNameRefId(CK_GT, sameNameRefId);
@@ -68,7 +68,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameRefCQ extends AbstractCon
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * same_name_ref_id: {PK, NotNull, int8(19)}
-     * @param sameNameRefId The value of sameNameRefId as lessThan. (NullAllowed: if null, no condition)
+     * @param sameNameRefId The value of sameNameRefId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setSameNameRefId_LessThan(Long sameNameRefId) {
         regSameNameRefId(CK_LT, sameNameRefId);
@@ -77,7 +77,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameRefCQ extends AbstractCon
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * same_name_ref_id: {PK, NotNull, int8(19)}
-     * @param sameNameRefId The value of sameNameRefId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param sameNameRefId The value of sameNameRefId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setSameNameRefId_GreaterEqual(Long sameNameRefId) {
         regSameNameRefId(CK_GE, sameNameRefId);
@@ -86,7 +86,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameRefCQ extends AbstractCon
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * same_name_ref_id: {PK, NotNull, int8(19)}
-     * @param sameNameRefId The value of sameNameRefId as lessEqual. (NullAllowed: if null, no condition)
+     * @param sameNameRefId The value of sameNameRefId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setSameNameRefId_LessEqual(Long sameNameRefId) {
         regSameNameRefId(CK_LE, sameNameRefId);
@@ -162,7 +162,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameRefCQ extends AbstractCon
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * same_name_id: {NotNull, int4(10), FK to white_same_name}
-     * @param sameNameId The value of sameNameId as equal. (NullAllowed: if null, no condition)
+     * @param sameNameId The value of sameNameId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setSameNameId_Equal(Integer sameNameId) {
         doSetSameNameId_Equal(sameNameId);
@@ -175,7 +175,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameRefCQ extends AbstractCon
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * same_name_id: {NotNull, int4(10), FK to white_same_name}
-     * @param sameNameId The value of sameNameId as greaterThan. (NullAllowed: if null, no condition)
+     * @param sameNameId The value of sameNameId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setSameNameId_GreaterThan(Integer sameNameId) {
         regSameNameId(CK_GT, sameNameId);
@@ -184,7 +184,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameRefCQ extends AbstractCon
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * same_name_id: {NotNull, int4(10), FK to white_same_name}
-     * @param sameNameId The value of sameNameId as lessThan. (NullAllowed: if null, no condition)
+     * @param sameNameId The value of sameNameId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setSameNameId_LessThan(Integer sameNameId) {
         regSameNameId(CK_LT, sameNameId);
@@ -193,7 +193,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameRefCQ extends AbstractCon
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * same_name_id: {NotNull, int4(10), FK to white_same_name}
-     * @param sameNameId The value of sameNameId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param sameNameId The value of sameNameId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setSameNameId_GreaterEqual(Integer sameNameId) {
         regSameNameId(CK_GE, sameNameId);
@@ -202,7 +202,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameRefCQ extends AbstractCon
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * same_name_id: {NotNull, int4(10), FK to white_same_name}
-     * @param sameNameId The value of sameNameId as lessEqual. (NullAllowed: if null, no condition)
+     * @param sameNameId The value of sameNameId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setSameNameId_LessEqual(Integer sameNameId) {
         regSameNameId(CK_LE, sameNameId);
@@ -266,7 +266,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameRefCQ extends AbstractCon
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * next_ref_date: {date(13)}
-     * @param nextRefDate The value of nextRefDate as equal. (NullAllowed: if null, no condition)
+     * @param nextRefDate The value of nextRefDate as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setNextRefDate_Equal(java.time.LocalDate nextRefDate) {
         regNextRefDate(CK_EQ,  nextRefDate);
@@ -275,7 +275,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameRefCQ extends AbstractCon
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * next_ref_date: {date(13)}
-     * @param nextRefDate The value of nextRefDate as greaterThan. (NullAllowed: if null, no condition)
+     * @param nextRefDate The value of nextRefDate as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setNextRefDate_GreaterThan(java.time.LocalDate nextRefDate) {
         regNextRefDate(CK_GT,  nextRefDate);
@@ -284,7 +284,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameRefCQ extends AbstractCon
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * next_ref_date: {date(13)}
-     * @param nextRefDate The value of nextRefDate as lessThan. (NullAllowed: if null, no condition)
+     * @param nextRefDate The value of nextRefDate as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setNextRefDate_LessThan(java.time.LocalDate nextRefDate) {
         regNextRefDate(CK_LT,  nextRefDate);
@@ -293,7 +293,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameRefCQ extends AbstractCon
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * next_ref_date: {date(13)}
-     * @param nextRefDate The value of nextRefDate as greaterEqual. (NullAllowed: if null, no condition)
+     * @param nextRefDate The value of nextRefDate as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setNextRefDate_GreaterEqual(java.time.LocalDate nextRefDate) {
         regNextRefDate(CK_GE,  nextRefDate);
@@ -302,7 +302,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameRefCQ extends AbstractCon
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * next_ref_date: {date(13)}
-     * @param nextRefDate The value of nextRefDate as lessEqual. (NullAllowed: if null, no condition)
+     * @param nextRefDate The value of nextRefDate as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setNextRefDate_LessEqual(java.time.LocalDate nextRefDate) {
         regNextRefDate(CK_LE, nextRefDate);

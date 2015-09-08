@@ -46,7 +46,7 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * inu_id: {PK, NotNull, int4(10)}
-     * @param inuId The value of inuId as equal. (NullAllowed: if null, no condition)
+     * @param inuId The value of inuId as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setInuId_Equal(Integer inuId) {
         doSetInuId_Equal(inuId);
@@ -59,7 +59,7 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * inu_id: {PK, NotNull, int4(10)}
-     * @param inuId The value of inuId as greaterThan. (NullAllowed: if null, no condition)
+     * @param inuId The value of inuId as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setInuId_GreaterThan(Integer inuId) {
         regInuId(CK_GT, inuId);
@@ -68,7 +68,7 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * inu_id: {PK, NotNull, int4(10)}
-     * @param inuId The value of inuId as lessThan. (NullAllowed: if null, no condition)
+     * @param inuId The value of inuId as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setInuId_LessThan(Integer inuId) {
         regInuId(CK_LT, inuId);
@@ -77,7 +77,7 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * inu_id: {PK, NotNull, int4(10)}
-     * @param inuId The value of inuId as greaterEqual. (NullAllowed: if null, no condition)
+     * @param inuId The value of inuId as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setInuId_GreaterEqual(Integer inuId) {
         regInuId(CK_GE, inuId);
@@ -86,7 +86,7 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * inu_id: {PK, NotNull, int4(10)}
-     * @param inuId The value of inuId as lessEqual. (NullAllowed: if null, no condition)
+     * @param inuId The value of inuId as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setInuId_LessEqual(Integer inuId) {
         regInuId(CK_LE, inuId);
@@ -270,7 +270,7 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
      * inu_date: {date(13)}
-     * @param inuDate The value of inuDate as equal. (NullAllowed: if null, no condition)
+     * @param inuDate The value of inuDate as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setInuDate_Equal(java.time.LocalDate inuDate) {
         regInuDate(CK_EQ,  inuDate);
@@ -279,7 +279,7 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
      * inu_date: {date(13)}
-     * @param inuDate The value of inuDate as greaterThan. (NullAllowed: if null, no condition)
+     * @param inuDate The value of inuDate as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setInuDate_GreaterThan(java.time.LocalDate inuDate) {
         regInuDate(CK_GT,  inuDate);
@@ -288,7 +288,7 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
      * inu_date: {date(13)}
-     * @param inuDate The value of inuDate as lessThan. (NullAllowed: if null, no condition)
+     * @param inuDate The value of inuDate as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setInuDate_LessThan(java.time.LocalDate inuDate) {
         regInuDate(CK_LT,  inuDate);
@@ -297,7 +297,7 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * inu_date: {date(13)}
-     * @param inuDate The value of inuDate as greaterEqual. (NullAllowed: if null, no condition)
+     * @param inuDate The value of inuDate as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setInuDate_GreaterEqual(java.time.LocalDate inuDate) {
         regInuDate(CK_GE,  inuDate);
@@ -306,7 +306,7 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
      * inu_date: {date(13)}
-     * @param inuDate The value of inuDate as lessEqual. (NullAllowed: if null, no condition)
+     * @param inuDate The value of inuDate as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setInuDate_LessEqual(java.time.LocalDate inuDate) {
         regInuDate(CK_LE, inuDate);

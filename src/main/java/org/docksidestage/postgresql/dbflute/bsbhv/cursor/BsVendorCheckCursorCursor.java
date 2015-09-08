@@ -129,7 +129,7 @@ public class BsVendorCheckCursorCursor {
     protected ValueType _vtTypeOfBool = vt(Boolean.class);
     protected ValueType _vtTypeOfBit = vt(Boolean.class);
     protected ValueType _vtTypeOfBytea = vt(byte[].class);
-    protected ValueType _vtTypeOfOid = vt(byte[].class, "bytesOidType");
+    protected ValueType _vtTypeOfOid = vt(byte[].class);
     protected ValueType _vtTypeOfUuid = vt(java.util.UUID.class);
     protected ValueType _vtTypeOfXml = vt(org.docksidestage.postgresql.mytype.MyXML.class);
 
