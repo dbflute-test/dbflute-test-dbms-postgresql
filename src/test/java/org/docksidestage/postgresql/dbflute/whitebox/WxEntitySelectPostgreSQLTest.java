@@ -59,8 +59,8 @@ public class WxEntitySelectPostgreSQLTest extends UnitContainerTestCase {
         } catch (EntityDuplicatedException e) { // needs manual test by large data
             log(e.getMessage());
         }
-        assertEquals(1, vendorLargeDataRefBhv.getFetchSizeMap().get("selectList"));
-        assertEquals(1, vendorLargeDataRefBhv.getRowDataClassMap().get("selectList").size());
+        assertEquals(1, vendorLargeDataRefBhv.getFetchSizeMap().get("selectEntity"));
+        assertEquals(1, vendorLargeDataRefBhv.getRowDataClassMap().get("selectEntity").size());
     }
 
     public void test_entitySelectFetchSize_selectList_static() {
