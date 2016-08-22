@@ -22,6 +22,12 @@
 # *The line that starts with '#' means comment-out.
 #
 map:{
+    # /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
+    # [Attention]
+    # *This is old style.
+    # typeMappingMap can be defined at databaseInfoMap.dfprop since "DBFlute-1.1.x".
+    # = = = = = = = = = =/
+
     # AutoMapping for Numeric and Decimal
     ; NUMERIC = $$AutoMapping$$ ; DECIMAL = $$AutoMapping$$
 
@@ -33,6 +39,11 @@ map:{
     # which does not exist in JDBC types.
     ; $$xml$$ = XML
     ; XML = org.docksidestage.postgresql.mytype.MyXML
+
+    # Original Torque type and Java type for XML type
+    # which does not exist in JDBC types.
+    ; $$json$$ = JSON
+    ; JSON = org.docksidestage.postgresql.mytype.MyJSON
 }
 # ----------------/
 #

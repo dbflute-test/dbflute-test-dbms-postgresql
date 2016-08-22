@@ -99,6 +99,9 @@ public class BsVendorCheckCursorCursor {
     /** DB name of type_of_xml. */
     public static final String DB_NAME_type_of_xml = "type_of_xml";
 
+    /** DB name of type_of_json. */
+    public static final String DB_NAME_type_of_json = "type_of_json";
+
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
@@ -132,6 +135,7 @@ public class BsVendorCheckCursorCursor {
     protected ValueType _vtTypeOfOid = vt(byte[].class);
     protected ValueType _vtTypeOfUuid = vt(java.util.UUID.class);
     protected ValueType _vtTypeOfXml = vt(org.docksidestage.postgresql.mytype.MyXML.class);
+    protected ValueType _vtTypeOfJson = vt(org.docksidestage.postgresql.mytype.MyJSON.class);
 
     protected ValueType vt(Class<?> type) {
         return TnValueTypes.getValueType(type);
@@ -426,6 +430,15 @@ public class BsVendorCheckCursorCursor {
      */
     public org.docksidestage.postgresql.mytype.MyXML getTypeOfXml() throws SQLException {
         return (org.docksidestage.postgresql.mytype.MyXML)_vtTypeOfXml.getValue(_rs, DB_NAME_type_of_xml);
+    }
+
+    /**
+     * [get] type_of_json: {json(2147483647), refers to vendor_check.type_of_json} <br>
+     * @return The value of typeOfJson. (NullAllowed)
+     * @throws SQLException When it fails to get the value from result set.
+     */
+    public org.docksidestage.postgresql.mytype.MyJSON getTypeOfJson() throws SQLException {
+        return (org.docksidestage.postgresql.mytype.MyJSON)_vtTypeOfJson.getValue(_rs, DB_NAME_type_of_json);
     }
 
 }

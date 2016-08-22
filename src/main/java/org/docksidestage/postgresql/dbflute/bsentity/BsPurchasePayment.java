@@ -19,31 +19,31 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  * <pre>
  * [primary-key]
  *     purchase_payment_id
- * 
+ *
  * [column]
  *     purchase_payment_id, purchase_id, payment_amount, payment_datetime, payment_method_code, register_datetime, register_user, update_datetime, update_user
- * 
+ *
  * [sequence]
  *     purchase_payment_purchase_payment_id_seq
- * 
+ *
  * [identity]
  *     
- * 
+ *
  * [version-no]
  *     
- * 
+ *
  * [foreign table]
  *     purchase
- * 
+ *
  * [referrer table]
  *     
- * 
+ *
  * [foreign property]
  *     purchase
- * 
+ *
  * [referrer property]
  *     
- * 
+ *
  * [get/set template]
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * Long purchasePaymentId = entity.getPurchasePaymentId();
@@ -273,7 +273,7 @@ public abstract class BsPurchasePayment extends AbstractEntity implements Domain
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-    protected <ELEMENT> List<ELEMENT> newReferrerList() {
+    protected <ELEMENT> List<ELEMENT> newReferrerList() { // overriding to import
         return new ArrayList<ELEMENT>();
     }
 

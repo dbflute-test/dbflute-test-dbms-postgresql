@@ -1,7 +1,7 @@
 package org.docksidestage.postgresql.mytype;
 
 /**
- * Simple example of extending Array Type.
+ * Simple example of extending XML Type.
  * @author jflute
  */
 public class MyXML {
@@ -13,14 +13,10 @@ public class MyXML {
         return this;
     }
 
-    public String getArrayString() {
+    public String getXmlString() {
         return xmlString;
     }
 
-    public void setArrayString(String arrayString) {
-        this.xmlString = arrayString;
-    }
-    
     @Override
     public String toString() {
         return xmlString != null ? xmlString : "<empty />";

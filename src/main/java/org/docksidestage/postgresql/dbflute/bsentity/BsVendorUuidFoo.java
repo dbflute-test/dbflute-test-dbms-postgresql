@@ -16,31 +16,31 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  * <pre>
  * [primary-key]
  *     foo_id
- * 
+ *
  * [column]
  *     foo_id, foo_name, bar_id
- * 
+ *
  * [sequence]
  *     
- * 
+ *
  * [identity]
  *     
- * 
+ *
  * [version-no]
  *     
- * 
+ *
  * [foreign table]
  *     vendor_uuid_bar
- * 
+ *
  * [referrer table]
  *     
- * 
+ *
  * [foreign property]
  *     vendorUuidBar
- * 
+ *
  * [referrer property]
  *     
- * 
+ *
  * [get/set template]
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * java.util.UUID fooId = entity.getFooId();
@@ -122,7 +122,7 @@ public abstract class BsVendorUuidFoo extends AbstractEntity implements DomainEn
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-    protected <ELEMENT> List<ELEMENT> newReferrerList() {
+    protected <ELEMENT> List<ELEMENT> newReferrerList() { // overriding to import
         return new ArrayList<ELEMENT>();
     }
 

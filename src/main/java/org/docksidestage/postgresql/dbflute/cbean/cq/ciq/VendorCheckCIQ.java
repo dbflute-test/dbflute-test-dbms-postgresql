@@ -88,6 +88,7 @@ public class VendorCheckCIQ extends AbstractBsVendorCheckCQ {
     protected ConditionValue xgetCValueTypeOfOid() { return _myCQ.xdfgetTypeOfOid(); }
     protected ConditionValue xgetCValueTypeOfUuid() { return _myCQ.xdfgetTypeOfUuid(); }
     protected ConditionValue xgetCValueTypeOfXml() { return _myCQ.xdfgetTypeOfXml(); }
+    protected ConditionValue xgetCValueTypeOfJson() { return _myCQ.xdfgetTypeOfJson(); }
     protected Map<String, Object> xfindFixedConditionDynamicParameterMap(String pp) { return null; }
     public String keepScalarCondition(VendorCheckCQ sq)
     { throwIICBOE("ScalarCondition"); return null; }

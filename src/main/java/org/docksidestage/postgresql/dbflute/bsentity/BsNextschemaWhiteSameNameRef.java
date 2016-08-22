@@ -16,31 +16,31 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  * <pre>
  * [primary-key]
  *     same_name_ref_id
- * 
+ *
  * [column]
  *     same_name_ref_id, same_name_id, next_ref_date
- * 
+ *
  * [sequence]
  *     
- * 
+ *
  * [identity]
  *     
- * 
+ *
  * [version-no]
  *     
- * 
+ *
  * [foreign table]
  *     nextschema.white_same_name
- * 
+ *
  * [referrer table]
  *     
- * 
+ *
  * [foreign property]
  *     whiteSameName
- * 
+ *
  * [referrer property]
  *     
- * 
+ *
  * [get/set template]
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * Long sameNameRefId = entity.getSameNameRefId();
@@ -122,7 +122,7 @@ public abstract class BsNextschemaWhiteSameNameRef extends AbstractEntity implem
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-    protected <ELEMENT> List<ELEMENT> newReferrerList() {
+    protected <ELEMENT> List<ELEMENT> newReferrerList() { // overriding to import
         return new ArrayList<ELEMENT>();
     }
 

@@ -19,31 +19,31 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  * <pre>
  * [primary-key]
  *     member_login_id
- * 
+ *
  * [column]
  *     member_login_id, member_id, login_datetime, mobile_login_flg, login_member_status_code
- * 
+ *
  * [sequence]
  *     member_login_member_login_id_seq
- * 
+ *
  * [identity]
  *     
- * 
+ *
  * [version-no]
  *     
- * 
+ *
  * [foreign table]
  *     member_status, member
- * 
+ *
  * [referrer table]
  *     
- * 
+ *
  * [foreign property]
  *     memberStatus, member
- * 
+ *
  * [referrer property]
  *     
- * 
+ *
  * [get/set template]
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * Long memberLoginId = entity.getMemberLoginId();
@@ -336,7 +336,7 @@ public abstract class BsMemberLogin extends AbstractEntity implements DomainEnti
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-    protected <ELEMENT> List<ELEMENT> newReferrerList() {
+    protected <ELEMENT> List<ELEMENT> newReferrerList() { // overriding to import
         return new ArrayList<ELEMENT>();
     }
 

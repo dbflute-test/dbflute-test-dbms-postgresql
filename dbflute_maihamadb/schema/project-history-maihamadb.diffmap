@@ -1,4 +1,46 @@
 map:{
+    ; 2016/08/22 12:16:15 = map:{
+        ; diffDate = 2016/08/22 12:16:15
+        ; tableDiff = map:{
+            ; vendor_check = map:{
+                ; tableName = vendor_check
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; type_of_json = map:{
+                        ; columnName = type_of_json
+                        ; diffType = CHANGE
+                        ; dbTypeDiff = map:{
+                            ; next = json
+                            ; previous = xml
+                        }
+                    }
+                }
+            }
+        }
+    }
+    ; 2016/08/22 12:12:39 = map:{
+        ; diffDate = 2016/08/22 12:12:39
+        ; tableCount = map:{
+            ; next = 39
+            ; previous = 38
+        }
+        ; tableDiff = map:{
+            ; white_compound_pk_wrong_order = map:{
+                ; tableName = white_compound_pk_wrong_order
+                ; diffType = ADD
+            }
+            ; vendor_check = map:{
+                ; tableName = vendor_check
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; type_of_json = map:{
+                        ; columnName = type_of_json
+                        ; diffType = ADD
+                    }
+                }
+            }
+        }
+    }
     ; 2014/10/12 21:45:29 = map:{
         ; diffDate = 2014/10/12 21:45:29
         ; tableDiff = map:{

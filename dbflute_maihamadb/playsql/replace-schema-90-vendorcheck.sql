@@ -29,7 +29,8 @@ create table VENDOR_CHECK (
 	TYPE_OF_BYTEA bytea,
 	TYPE_OF_OID oid,
 	TYPE_OF_UUID uuid,
-	TYPE_OF_XML xml
+	TYPE_OF_XML xml,
+	TYPE_OF_JSON JSON
 ) ;
 
 -- for the test of Array type

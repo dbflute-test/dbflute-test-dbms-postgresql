@@ -18,31 +18,31 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  * <pre>
  * [primary-key]
  *     region_id
- * 
+ *
  * [column]
  *     region_id, region_name
- * 
+ *
  * [sequence]
  *     
- * 
+ *
  * [identity]
  *     
- * 
+ *
  * [version-no]
  *     
- * 
+ *
  * [foreign table]
  *     
- * 
+ *
  * [referrer table]
  *     member_address
- * 
+ *
  * [foreign property]
  *     
- * 
+ *
  * [referrer property]
  *     memberAddressList
- * 
+ *
  * [get/set template]
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * Integer regionId = entity.getRegionId();
@@ -224,7 +224,7 @@ public abstract class BsRegion extends AbstractEntity implements DomainEntity {
         _memberAddressList = memberAddressList;
     }
 
-    protected <ELEMENT> List<ELEMENT> newReferrerList() {
+    protected <ELEMENT> List<ELEMENT> newReferrerList() { // overriding to import
         return new ArrayList<ELEMENT>();
     }
 

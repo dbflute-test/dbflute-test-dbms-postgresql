@@ -64,6 +64,7 @@ public class DBMetaInstanceHandler implements DBMetaProvider {
         tmpMap.put("vendor_uuid_foo", "org.docksidestage.postgresql.dbflute.bsentity.dbmeta.VendorUuidFooDbm");
         tmpMap.put("white_compound_pk", "org.docksidestage.postgresql.dbflute.bsentity.dbmeta.WhiteCompoundPkDbm");
         tmpMap.put("white_compound_pk_ref", "org.docksidestage.postgresql.dbflute.bsentity.dbmeta.WhiteCompoundPkRefDbm");
+        tmpMap.put("white_compound_pk_wrong_order", "org.docksidestage.postgresql.dbflute.bsentity.dbmeta.WhiteCompoundPkWrongOrderDbm");
         tmpMap.put("white_not_pk", "org.docksidestage.postgresql.dbflute.bsentity.dbmeta.WhiteNotPkDbm");
         tmpMap.put("white_same_name", "org.docksidestage.postgresql.dbflute.bsentity.dbmeta.WhiteSameNameDbm");
         tmpMap.put("white_same_name_ref", "org.docksidestage.postgresql.dbflute.bsentity.dbmeta.WhiteSameNameRefDbm");

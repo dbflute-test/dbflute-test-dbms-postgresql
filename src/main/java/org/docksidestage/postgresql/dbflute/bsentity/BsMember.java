@@ -19,31 +19,31 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  * <pre>
  * [primary-key]
  *     member_id
- * 
+ *
  * [column]
  *     member_id, member_name, member_account, member_status_code, formalized_datetime, birthdate, register_datetime, register_user, register_process, update_datetime, update_user, update_process, version_no
- * 
+ *
  * [sequence]
  *     member_member_id_seq
- * 
+ *
  * [identity]
  *     
- * 
+ *
  * [version-no]
  *     version_no
- * 
+ *
  * [foreign table]
  *     member_status, member_address(AsValid), member_login(AsLatest), member_security(AsOne), member_service(AsOne), member_withdrawal(AsOne)
- * 
+ *
  * [referrer table]
  *     member_address, member_login, purchase, member_security, member_service, member_withdrawal
- * 
+ *
  * [foreign property]
  *     memberStatus, memberAddressAsValid, memberLoginAsLatest, memberSecurityAsOne, memberServiceAsOne, memberWithdrawalAsOne
- * 
+ *
  * [referrer property]
  *     memberAddressList, memberLoginList, purchaseList
- * 
+ *
  * [get/set template]
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * Integer memberId = entity.getMemberId();
@@ -438,7 +438,7 @@ public abstract class BsMember extends AbstractEntity implements DomainEntity, E
         _purchaseList = purchaseList;
     }
 
-    protected <ELEMENT> List<ELEMENT> newReferrerList() {
+    protected <ELEMENT> List<ELEMENT> newReferrerList() { // overriding to import
         return new ArrayList<ELEMENT>();
     }
 

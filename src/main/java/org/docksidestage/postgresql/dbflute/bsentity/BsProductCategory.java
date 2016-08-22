@@ -18,31 +18,31 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  * <pre>
  * [primary-key]
  *     product_category_code
- * 
+ *
  * [column]
  *     product_category_code, product_category_name, parent_category_code
- * 
+ *
  * [sequence]
  *     
- * 
+ *
  * [identity]
  *     
- * 
+ *
  * [version-no]
  *     
- * 
+ *
  * [foreign table]
  *     product_category
- * 
+ *
  * [referrer table]
  *     product, product_category
- * 
+ *
  * [foreign property]
  *     productCategorySelf
- * 
+ *
  * [referrer property]
  *     productList, productCategorySelfList
- * 
+ *
  * [get/set template]
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * String productCategoryCode = entity.getProductCategoryCode();
@@ -164,7 +164,7 @@ public abstract class BsProductCategory extends AbstractEntity implements Domain
         _productCategorySelfList = productCategorySelfList;
     }
 
-    protected <ELEMENT> List<ELEMENT> newReferrerList() {
+    protected <ELEMENT> List<ELEMENT> newReferrerList() { // overriding to import
         return new ArrayList<ELEMENT>();
     }
 

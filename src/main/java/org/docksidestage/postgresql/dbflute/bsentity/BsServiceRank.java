@@ -17,31 +17,31 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  * <pre>
  * [primary-key]
  *     service_rank_code
- * 
+ *
  * [column]
  *     service_rank_code, service_rank_name, service_point_incidence, new_acceptable_flg, description, display_order
- * 
+ *
  * [sequence]
  *     
- * 
+ *
  * [identity]
  *     
- * 
+ *
  * [version-no]
  *     
- * 
+ *
  * [foreign table]
  *     
- * 
+ *
  * [referrer table]
  *     member_service
- * 
+ *
  * [foreign property]
  *     
- * 
+ *
  * [referrer property]
  *     memberServiceList
- * 
+ *
  * [get/set template]
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * String serviceRankCode = entity.getServiceRankCode();
@@ -355,7 +355,7 @@ public abstract class BsServiceRank extends AbstractEntity implements DomainEnti
         _memberServiceList = memberServiceList;
     }
 
-    protected <ELEMENT> List<ELEMENT> newReferrerList() {
+    protected <ELEMENT> List<ELEMENT> newReferrerList() { // overriding to import
         return new ArrayList<ELEMENT>();
     }
 

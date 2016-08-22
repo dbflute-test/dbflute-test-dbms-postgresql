@@ -17,10 +17,6 @@ public class MyArray {
         return arrayString;
     }
 
-    public void setArrayString(String arrayString) {
-        this.arrayString = arrayString;
-    }
-    
     @Override
     public String toString() {
         return arrayString != null ? arrayString : "{}";

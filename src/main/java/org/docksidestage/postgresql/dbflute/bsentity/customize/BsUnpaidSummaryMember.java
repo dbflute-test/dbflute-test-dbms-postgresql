@@ -14,31 +14,31 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  * <pre>
  * [primary-key]
  *     unpaid_man_id
- * 
+ *
  * [column]
  *     unpaid_man_id, unpaid_man_name, unpaid_price_summary, status_name
- * 
+ *
  * [sequence]
  *     
- * 
+ *
  * [identity]
  *     
- * 
+ *
  * [version-no]
  *     
- * 
+ *
  * [foreign table]
  *     
- * 
+ *
  * [referrer table]
  *     
- * 
+ *
  * [foreign property]
  *     
- * 
+ *
  * [referrer property]
  *     
- * 
+ *
  * [get/set template]
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * Integer unpaidManId = entity.getUnpaidManId();
@@ -158,7 +158,7 @@ public abstract class BsUnpaidSummaryMember extends AbstractEntity implements Cu
         return innerDomain().getPurchaseList();
     }
 
-    protected <ELEMENT> List<ELEMENT> newReferrerList() {
+    protected <ELEMENT> List<ELEMENT> newReferrerList() { // overriding to import
         return new ArrayList<ELEMENT>();
     }
 

@@ -15,31 +15,31 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  * <pre>
  * [primary-key]
  *     product_status_code
- * 
+ *
  * [column]
  *     product_status_code, product_status_name, display_order
- * 
+ *
  * [sequence]
  *     
- * 
+ *
  * [identity]
  *     
- * 
+ *
  * [version-no]
  *     
- * 
+ *
  * [foreign table]
  *     
- * 
+ *
  * [referrer table]
  *     product
- * 
+ *
  * [foreign property]
  *     
- * 
+ *
  * [referrer property]
  *     productList
- * 
+ *
  * [get/set template]
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * String productStatusCode = entity.getProductStatusCode();
@@ -131,7 +131,7 @@ public abstract class BsProductStatus extends AbstractEntity implements DomainEn
         _productList = productList;
     }
 
-    protected <ELEMENT> List<ELEMENT> newReferrerList() {
+    protected <ELEMENT> List<ELEMENT> newReferrerList() { // overriding to import
         return new ArrayList<ELEMENT>();
     }
 

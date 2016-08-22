@@ -77,6 +77,7 @@ public class VendorCheckDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfOid(), (et, vl) -> ((VendorCheck)et).setTypeOfOid((byte[])vl), "typeOfOid");
         setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfUuid(), (et, vl) -> ((VendorCheck)et).setTypeOfUuid((java.util.UUID)vl), "typeOfUuid");
         setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfXml(), (et, vl) -> ((VendorCheck)et).setTypeOfXml((org.docksidestage.postgresql.mytype.MyXML)vl), "typeOfXml");
+        setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfJson(), (et, vl) -> ((VendorCheck)et).setTypeOfJson((org.docksidestage.postgresql.mytype.MyJSON)vl), "typeOfJson");
     }
     public PropertyGateway findPropertyGateway(String prop)
     { return doFindEpg(_epgMap, prop); }
@@ -124,6 +125,7 @@ public class VendorCheckDbm extends AbstractDBMeta {
     protected final ColumnInfo _columnTypeOfOid = cci("type_of_oid", "type_of_oid", null, null, byte[].class, "typeOfOid", null, false, false, false, "oid", 10, 0, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnTypeOfUuid = cci("type_of_uuid", "type_of_uuid", null, null, java.util.UUID.class, "typeOfUuid", null, false, false, false, "uuid", 2147483647, 0, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnTypeOfXml = cci("type_of_xml", "type_of_xml", null, null, org.docksidestage.postgresql.mytype.MyXML.class, "typeOfXml", null, false, false, false, "xml", 2147483647, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfJson = cci("type_of_json", "type_of_json", null, null, org.docksidestage.postgresql.mytype.MyJSON.class, "typeOfJson", null, false, false, false, "json", 2147483647, 0, null, false, null, null, null, null, null, false);
 
     /**
      * vendor_check_id: {PK, NotNull, numeric(16)}
@@ -260,6 +262,11 @@ public class VendorCheckDbm extends AbstractDBMeta {
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnTypeOfXml() { return _columnTypeOfXml; }
+    /**
+     * type_of_json: {json(2147483647)}
+     * @return The information object of specified column. (NotNull)
+     */
+    public ColumnInfo columnTypeOfJson() { return _columnTypeOfJson; }
 
     protected List<ColumnInfo> ccil() {
         List<ColumnInfo> ls = newArrayList();
@@ -290,6 +297,7 @@ public class VendorCheckDbm extends AbstractDBMeta {
         ls.add(columnTypeOfOid());
         ls.add(columnTypeOfUuid());
         ls.add(columnTypeOfXml());
+        ls.add(columnTypeOfJson());
         return ls;
     }
 

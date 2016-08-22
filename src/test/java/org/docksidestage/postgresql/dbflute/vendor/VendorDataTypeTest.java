@@ -52,6 +52,7 @@ import org.docksidestage.postgresql.dbflute.exentity.customize.SimpleVendorCheck
 import org.docksidestage.postgresql.dbflute.exentity.customize.VendorNumericDecimalSum;
 import org.docksidestage.postgresql.dbflute.exentity.customize.VendorNumericIntegerSum;
 import org.docksidestage.postgresql.mytype.MyArray;
+import org.docksidestage.postgresql.mytype.MyJSON;
 import org.docksidestage.postgresql.mytype.MyXML;
 import org.docksidestage.postgresql.unit.UnitContainerTestCase;
 
@@ -943,9 +944,36 @@ public class VendorDataTypeTest extends UnitContainerTestCase {
         VendorCheckCB cb = new VendorCheckCB();
         cb.query().setVendorCheckId_Equal(88881L);
         VendorCheck actual = vendorCheckBhv.selectEntityWithDeletedCheck(cb);
-        assertEquals("{aaa,bbb,ccc,xml}", actual.getTypeOfXml().toString());
+        MyXML xml = actual.getTypeOfXml();
+        assertEquals("{aaa,bbb,ccc,xml}", xml.toString());
     }
 
+    // -----------------------------------------------------
+    //                                                 JSON
+    //                                                ------
+    public void test_JSON_of_varchar_type_select() throws Exception {
+        // ## Arrange ##
+        VendorCheck vendorCheck = createVendorCheck(88881);
+        vendorCheck.setTypeOfJson(new MyJSON().setup("{\"sea\": \"mystic\", \"land\": \"oneman\"}"));
+        // Caused by: org.postgresql.util.PSQLException: ERROR: column
+        // "type_of_json" is of type json but expression is of type character varying
+        // hint: You will need to rewrite or cast the expression.
+        //vendorCheck.setTypeOfJson("{\"sea\": \"mystic\", \"land\": \"oneman\"}");
+        // ## Act ##
+        vendorCheckBhv.insert(vendorCheck);
+
+        // ## Assert ##
+        // Basically unsupported type on DBFlute
+        VendorCheckCB cb = new VendorCheckCB();
+        cb.query().setVendorCheckId_Equal(88881L);
+        VendorCheck actual = vendorCheckBhv.selectEntityWithDeletedCheck(cb);
+        MyJSON json = actual.getTypeOfJson();
+        assertEquals("{\"sea\": \"mystic\", \"land\": \"oneman\"}", json.toString());
+    }
+
+    // ===================================================================================
+    //                                                                       Function Type
+    //                                                                       =============
     // -----------------------------------------------------
     //                                         SUM(function)
     //                                         -------------

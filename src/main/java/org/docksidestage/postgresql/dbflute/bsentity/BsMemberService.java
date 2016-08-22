@@ -20,31 +20,31 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  * <pre>
  * [primary-key]
  *     member_service_id
- * 
+ *
  * [column]
  *     member_service_id, member_id, service_point_count, service_rank_code, register_datetime, register_process, register_user, update_datetime, update_process, update_user, version_no
- * 
+ *
  * [sequence]
  *     member_service_member_service_id_seq
- * 
+ *
  * [identity]
  *     
- * 
+ *
  * [version-no]
  *     version_no
- * 
+ *
  * [foreign table]
  *     member, service_rank
- * 
+ *
  * [referrer table]
  *     
- * 
+ *
  * [foreign property]
  *     member, serviceRank
- * 
+ *
  * [referrer property]
  *     
- * 
+ *
  * [get/set template]
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * Integer memberServiceId = entity.getMemberServiceId();
@@ -325,7 +325,7 @@ public abstract class BsMemberService extends AbstractEntity implements DomainEn
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-    protected <ELEMENT> List<ELEMENT> newReferrerList() {
+    protected <ELEMENT> List<ELEMENT> newReferrerList() { // overriding to import
         return new ArrayList<ELEMENT>();
     }
 

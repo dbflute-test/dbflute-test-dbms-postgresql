@@ -613,6 +613,26 @@ public class BsVendorCheckCQ extends AbstractBsVendorCheckCQ {
      */
     public BsVendorCheckCQ addOrderBy_TypeOfXml_Desc() { regOBD("type_of_xml"); return this; }
 
+    protected ConditionValue _typeOfJson;
+    public ConditionValue xdfgetTypeOfJson()
+    { if (_typeOfJson == null) { _typeOfJson = nCV(); }
+      return _typeOfJson; }
+    protected ConditionValue xgetCValueTypeOfJson() { return xdfgetTypeOfJson(); }
+
+    /** 
+     * Add order-by as ascend. <br>
+     * type_of_json: {json(2147483647)}
+     * @return this. (NotNull)
+     */
+    public BsVendorCheckCQ addOrderBy_TypeOfJson_Asc() { regOBA("type_of_json"); return this; }
+
+    /**
+     * Add order-by as descend. <br>
+     * type_of_json: {json(2147483647)}
+     * @return this. (NotNull)
+     */
+    public BsVendorCheckCQ addOrderBy_TypeOfJson_Desc() { regOBD("type_of_json"); return this; }
+
     // ===================================================================================
     //                                                             SpecifiedDerivedOrderBy
     //                                                             =======================

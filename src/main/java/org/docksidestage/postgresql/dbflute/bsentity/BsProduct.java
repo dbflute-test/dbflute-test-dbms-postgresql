@@ -17,31 +17,31 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  * <pre>
  * [primary-key]
  *     product_id
- * 
+ *
  * [column]
  *     product_id, product_name, product_handle_code, product_category_code, product_status_code, regular_price, register_datetime, register_user, register_process, update_datetime, update_user, update_process, version_no
- * 
+ *
  * [sequence]
  *     product_product_id_seq
- * 
+ *
  * [identity]
  *     
- * 
+ *
  * [version-no]
  *     version_no
- * 
+ *
  * [foreign table]
  *     product_category, product_status
- * 
+ *
  * [referrer table]
  *     purchase
- * 
+ *
  * [foreign property]
  *     productCategory, productStatus
- * 
+ *
  * [referrer property]
  *     purchaseList
- * 
+ *
  * [get/set template]
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * Integer productId = entity.getProductId();
@@ -225,7 +225,7 @@ public abstract class BsProduct extends AbstractEntity implements DomainEntity, 
         _purchaseList = purchaseList;
     }
 
-    protected <ELEMENT> List<ELEMENT> newReferrerList() {
+    protected <ELEMENT> List<ELEMENT> newReferrerList() { // overriding to import
         return new ArrayList<ELEMENT>();
     }
 

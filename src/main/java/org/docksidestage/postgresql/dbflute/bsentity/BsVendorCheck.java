@@ -16,31 +16,31 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  * <pre>
  * [primary-key]
  *     vendor_check_id
- * 
+ *
  * [column]
- *     vendor_check_id, type_of_char, type_of_varchar, type_of_vc_array, type_of_text, type_of_numeric_integer, type_of_numeric_bigint, type_of_numeric_decimal, type_of_decimal, type_of_int8, type_of_int_array, type_of_int4, type_of_bigint, type_of_real, type_of_float, type_of_money, type_of_date, type_of_timestamp, type_of_time, type_of_timetz, type_of_interval, type_of_bool, type_of_bit, type_of_bytea, type_of_oid, type_of_uuid, type_of_xml
- * 
+ *     vendor_check_id, type_of_char, type_of_varchar, type_of_vc_array, type_of_text, type_of_numeric_integer, type_of_numeric_bigint, type_of_numeric_decimal, type_of_decimal, type_of_int8, type_of_int_array, type_of_int4, type_of_bigint, type_of_real, type_of_float, type_of_money, type_of_date, type_of_timestamp, type_of_time, type_of_timetz, type_of_interval, type_of_bool, type_of_bit, type_of_bytea, type_of_oid, type_of_uuid, type_of_xml, type_of_json
+ *
  * [sequence]
  *     
- * 
+ *
  * [identity]
  *     
- * 
+ *
  * [version-no]
  *     
- * 
+ *
  * [foreign table]
  *     
- * 
+ *
  * [referrer table]
  *     
- * 
+ *
  * [foreign property]
  *     
- * 
+ *
  * [referrer property]
  *     
- * 
+ *
  * [get/set template]
  * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
  * Long vendorCheckId = entity.getVendorCheckId();
@@ -70,6 +70,7 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  * byte[] typeOfOid = entity.getTypeOfOid();
  * java.util.UUID typeOfUuid = entity.getTypeOfUuid();
  * org.docksidestage.postgresql.mytype.MyXML typeOfXml = entity.getTypeOfXml();
+ * org.docksidestage.postgresql.mytype.MyJSON typeOfJson = entity.getTypeOfJson();
  * entity.setVendorCheckId(vendorCheckId);
  * entity.setTypeOfChar(typeOfChar);
  * entity.setTypeOfVarchar(typeOfVarchar);
@@ -97,6 +98,7 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  * entity.setTypeOfOid(typeOfOid);
  * entity.setTypeOfUuid(typeOfUuid);
  * entity.setTypeOfXml(typeOfXml);
+ * entity.setTypeOfJson(typeOfJson);
  * = = = = = = = = = =/
  * </pre>
  * @author DBFlute(AutoGenerator)
@@ -192,6 +194,9 @@ public abstract class BsVendorCheck extends AbstractEntity implements DomainEnti
 
     /** type_of_xml: {xml(2147483647)} */
     protected org.docksidestage.postgresql.mytype.MyXML _typeOfXml;
+
+    /** type_of_json: {json(2147483647)} */
+    protected org.docksidestage.postgresql.mytype.MyJSON _typeOfJson;
 
     // ===================================================================================
     //                                                                             DB Meta
@@ -301,7 +306,7 @@ public abstract class BsVendorCheck extends AbstractEntity implements DomainEnti
     // ===================================================================================
     //                                                                   Referrer Property
     //                                                                   =================
-    protected <ELEMENT> List<ELEMENT> newReferrerList() {
+    protected <ELEMENT> List<ELEMENT> newReferrerList() { // overriding to import
         return new ArrayList<ELEMENT>();
     }
 
@@ -362,6 +367,7 @@ public abstract class BsVendorCheck extends AbstractEntity implements DomainEnti
         sb.append(dm).append(xfBA(_typeOfOid));
         sb.append(dm).append(xfND(_typeOfUuid));
         sb.append(dm).append(xfND(_typeOfXml));
+        sb.append(dm).append(xfND(_typeOfJson));
         if (sb.length() > dm.length()) {
             sb.delete(0, dm.length());
         }
@@ -869,6 +875,24 @@ public abstract class BsVendorCheck extends AbstractEntity implements DomainEnti
     public void setTypeOfXml(org.docksidestage.postgresql.mytype.MyXML typeOfXml) {
         registerModifiedProperty("typeOfXml");
         _typeOfXml = typeOfXml;
+    }
+
+    /**
+     * [get] type_of_json: {json(2147483647)} <br>
+     * @return The value of the column 'type_of_json'. (NullAllowed even if selected: for no constraint)
+     */
+    public org.docksidestage.postgresql.mytype.MyJSON getTypeOfJson() {
+        checkSpecifiedProperty("typeOfJson");
+        return _typeOfJson;
+    }
+
+    /**
+     * [set] type_of_json: {json(2147483647)} <br>
+     * @param typeOfJson The value of the column 'type_of_json'. (NullAllowed: null update allowed for no constraint)
+     */
+    public void setTypeOfJson(org.docksidestage.postgresql.mytype.MyJSON typeOfJson) {
+        registerModifiedProperty("typeOfJson");
+        _typeOfJson = typeOfJson;
     }
 
     /**

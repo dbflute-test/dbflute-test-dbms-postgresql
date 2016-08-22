@@ -5,8 +5,10 @@ import javax.sql.DataSource;
 import org.docksidestage.postgresql.dbflute.allcommon.DBFluteConfig;
 import org.docksidestage.postgresql.dbflute.allcommon.DBFluteInitializer;
 import org.docksidestage.postgresql.mytype.MyArray;
+import org.docksidestage.postgresql.mytype.MyJSON;
 import org.docksidestage.postgresql.mytype.MyXML;
 import org.docksidestage.postgresql.mytype.valuetype.MyTypeOfArray;
+import org.docksidestage.postgresql.mytype.valuetype.MyTypeOfJSON;
 import org.docksidestage.postgresql.mytype.valuetype.MyTypeOfXML;
 
 /**
@@ -26,6 +28,7 @@ public class ExtendedDBFluteInitializer extends DBFluteInitializer {
         config.unlock();
         config.registerBasicValueType(MyArray.class, new MyTypeOfArray());
         config.registerBasicValueType(MyXML.class, new MyTypeOfXML());
+        config.registerBasicValueType(MyJSON.class, new MyTypeOfJSON());
         config.lock();
     }
 }

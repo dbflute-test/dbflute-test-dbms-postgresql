@@ -11,7 +11,7 @@ import org.dbflute.s2dao.valuetype.TnAbstractValueType;
 import org.docksidestage.postgresql.mytype.MyXML;
 
 /**
- * Simple example of extending Array Type.
+ * Simple example of extending XML Type.
  * @author jflute
  */
 public class MyTypeOfXML extends TnAbstractValueType {
