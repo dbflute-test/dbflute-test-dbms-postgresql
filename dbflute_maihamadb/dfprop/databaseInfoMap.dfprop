@@ -110,10 +110,21 @@ map:{
         # o typeMappingMap: (NotRequired - Default map:{NUMERIC=$$AutoMapping$$ ; DECIMAL=$$AutoMapping$$})
         #  If you want to change mappings from default mappings, you can specify your original mappings.
         #  But it is possible that unanticipated problems occurs, so be careful!
-        #; typeMappingMap = map:{
-        #    # AutoMapping for Numeric and Decimal, (1-9,0): INTEGER, (10-18,0): BIGINT, else: NUMERIC
-        #    ; NUMERIC = $$AutoMapping$$ ; DECIMAL = $$AutoMapping$$
-        #}
+        ; typeMappingMap = map:{
+            # Original Java type for Array type
+            # which exists in JDBC types.
+            ; ARRAY = org.docksidestage.postgresql.mytype.MyArray
+        
+            # Original Torque type and Java type for XML type
+            # which does not exist in JDBC types.
+            ; $$xml$$ = XML
+            ; XML = org.docksidestage.postgresql.mytype.MyXML
+        
+            # Original Torque type and Java type for XML type
+            # which does not exist in JDBC types.
+            ; $$json$$ = JSON
+            ; JSON = org.docksidestage.postgresql.mytype.MyJSON
+        }
     }
     # - - - - - - - - - -/
 }
