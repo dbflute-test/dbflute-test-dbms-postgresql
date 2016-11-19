@@ -63,6 +63,7 @@ public abstract class BsVendorCheckBhv extends AbstractBehaviorWritable<VendorCh
     public static final String PATH_whitebox_vendorcheck_selectVendorNumericDecimalSum = "whitebox:vendorcheck:selectVendorNumericDecimalSum";
     public static final String PATH_whitebox_vendorcheck_selectVendorNumericIntegerSum = "whitebox:vendorcheck:selectVendorNumericIntegerSum";
     public static final String PATH_whitebox_vendorcheck_selectVendorUnsupportedAlias = "whitebox:vendorcheck:selectVendorUnsupportedAlias";
+    public static final String PATH_whitebox_vendorcheck_selectVendorWithWith = "whitebox:vendorcheck:selectVendorWithWith";
     /*df:endQueryPath*/
 
     // ===================================================================================

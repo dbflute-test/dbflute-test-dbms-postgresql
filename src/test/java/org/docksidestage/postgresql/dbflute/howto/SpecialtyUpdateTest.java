@@ -1,8 +1,5 @@
 package org.docksidestage.postgresql.dbflute.howto;
 
-import org.docksidestage.postgresql.dbflute.exbhv.MemberBhv;
-import org.docksidestage.postgresql.dbflute.exbhv.MemberServiceBhv;
-import org.docksidestage.postgresql.dbflute.exbhv.MemberWithdrawalBhv;
 import org.docksidestage.postgresql.dbflute.exbhv.PurchaseBhv;
 import org.docksidestage.postgresql.dbflute.exentity.Purchase;
 import org.docksidestage.postgresql.unit.UnitContainerTestCase;
@@ -22,12 +19,6 @@ public class SpecialtyUpdateTest extends UnitContainerTestCase {
     //                                                                           Attribute
     //                                                                           =========
     // The behavior provides DB access methods. (defined as DI component)
-    @Autowired
-    private MemberBhv memberBhv;
-    @Autowired
-    private MemberServiceBhv memberServiceBhv;
-    @Autowired
-    private MemberWithdrawalBhv memberWithdrawalBhv;
     @Autowired
     private PurchaseBhv purchaseBhv;
 

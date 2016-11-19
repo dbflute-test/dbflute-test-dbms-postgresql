@@ -1,4 +1,4 @@
-package org.docksidestage.postgresql.dbflute.whitebox;
+package org.docksidestage.postgresql.dbflute.whitebox.outsidesql;
 
 import org.dbflute.cbean.result.PagingResultBean;
 import org.dbflute.exception.EntityDuplicatedException;
@@ -14,7 +14,7 @@ import org.docksidestage.postgresql.unit.UnitContainerTestCase;
  * @author jflute
  * @since 1.1.0 (2014/11/11 Tuesday)
  */
-public class WxOutsideSqlAutoPagingMySQLTest extends UnitContainerTestCase {
+public class WxOutsideSqlAutoPagingPostgreSQLTest extends UnitContainerTestCase {
 
     private VendorLargeDataRefBhv vendorLargeDataRefBhv;
 
