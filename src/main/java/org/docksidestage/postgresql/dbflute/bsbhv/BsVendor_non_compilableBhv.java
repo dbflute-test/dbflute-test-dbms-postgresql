@@ -251,31 +251,6 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
         return newConditionBean().acceptPK(non_compilable_id);
     }
 
-    /**
-     * Select the entity by the unique-key value.
-     * @param non_compilable_id : PK, NotNull, int4(10). (NotNull)
-     * @return The optional entity selected by the unique key. (NotNull: if no data, empty entity)
-     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
-     * @throws EntityDuplicatedException When the entity has been duplicated.
-     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
-     */
-    public OptionalEntity<Vendor_non_compilable> selectByUniqueOf(Integer non_compilable_id) {
-        return facadeSelectByUniqueOf(non_compilable_id);
-    }
-
-    protected OptionalEntity<Vendor_non_compilable> facadeSelectByUniqueOf(Integer non_compilable_id) {
-        return doSelectByUniqueOf(non_compilable_id, typeOfSelectedEntity());
-    }
-
-    protected <ENTITY extends Vendor_non_compilable> OptionalEntity<ENTITY> doSelectByUniqueOf(Integer non_compilable_id, Class<? extends ENTITY> tp) {
-        return createOptionalEntity(doSelectEntity(xprepareCBAsUniqueOf(non_compilable_id), tp), non_compilable_id);
-    }
-
-    protected Vendor_non_compilableCB xprepareCBAsUniqueOf(Integer non_compilable_id) {
-        assertObjectNotNull("non_compilable_id", non_compilable_id);
-        return newConditionBean().acceptUniqueOf(non_compilable_id);
-    }
-
     // ===================================================================================
     //                                                                         List Select
     //                                                                         ===========

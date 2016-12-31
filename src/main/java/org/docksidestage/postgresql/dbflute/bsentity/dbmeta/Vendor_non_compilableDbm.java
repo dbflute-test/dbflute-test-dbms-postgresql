@@ -101,7 +101,7 @@ public class Vendor_non_compilableDbm extends AbstractDBMeta {
      */
     public ColumnInfo columnParent_id() { return _columnParent_id; }
     /**
-     * Next_ParentID: {int4(10), FK to VENDOR-NON COMPILABLE}
+     * Next_ParentID: {IX, int4(10), FK to VENDOR-NON COMPILABLE}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnNextParentid() { return _columnNextParentid; }
@@ -126,11 +126,6 @@ public class Vendor_non_compilableDbm extends AbstractDBMeta {
     protected UniqueInfo cpui() { return hpcpui(columnNon_compilable_id()); }
     public boolean hasPrimaryKey() { return true; }
     public boolean hasCompoundPrimaryKey() { return false; }
-
-    // -----------------------------------------------------
-    //                                        Unique Element
-    //                                        --------------
-    public UniqueInfo uniqueOf() { return hpcui(columnNon_compilable_id()); }
 
     // ===================================================================================
     //                                                                       Relation Info

@@ -169,14 +169,14 @@ public class BsVendor_non_compilableCQ extends AbstractBsVendor_non_compilableCQ
 
     /** 
      * Add order-by as ascend. <br>
-     * Next_ParentID: {int4(10), FK to VENDOR-NON COMPILABLE}
+     * Next_ParentID: {IX, int4(10), FK to VENDOR-NON COMPILABLE}
      * @return this. (NotNull)
      */
     public BsVendor_non_compilableCQ addOrderBy_NextParentid_Asc() { regOBA("Next_ParentID"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * Next_ParentID: {int4(10), FK to VENDOR-NON COMPILABLE}
+     * Next_ParentID: {IX, int4(10), FK to VENDOR-NON COMPILABLE}
      * @return this. (NotNull)
      */
     public BsVendor_non_compilableCQ addOrderBy_NextParentid_Desc() { regOBD("Next_ParentID"); return this; }

@@ -88,17 +88,6 @@ public abstract class BsVendor$Dollar extends AbstractEntity implements DomainEn
         return true;
     }
 
-    /**
-     * To be unique by the unique column. <br>
-     * You can update the entity by the key when entity update (NOT batch update).
-     * @param vendor$DollarId : PK, NotNull, int4(10). (NotNull)
-     */
-    public void uniqueBy(Integer vendor$DollarId) {
-        __uniqueDrivenProperties.clear();
-        __uniqueDrivenProperties.addPropertyName("vendor$DollarId");
-        setVendor$DollarId(vendor$DollarId);
-    }
-
     // ===================================================================================
     //                                                                    Foreign Property
     //                                                                    ================

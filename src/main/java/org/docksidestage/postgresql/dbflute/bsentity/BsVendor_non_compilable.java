@@ -75,7 +75,7 @@ public abstract class BsVendor_non_compilable extends AbstractEntity implements 
     /** PARENT-ID: {int4(10), FK to VENDOR-NON COMPILABLE} */
     protected Integer _parent_id;
 
-    /** Next_ParentID: {int4(10), FK to VENDOR-NON COMPILABLE} */
+    /** Next_ParentID: {IX, int4(10), FK to VENDOR-NON COMPILABLE} */
     protected Integer _nextParentid;
 
     // ===================================================================================
@@ -98,17 +98,6 @@ public abstract class BsVendor_non_compilable extends AbstractEntity implements 
     public boolean hasPrimaryKeyValue() {
         if (_non_compilable_id == null) { return false; }
         return true;
-    }
-
-    /**
-     * To be unique by the unique column. <br>
-     * You can update the entity by the key when entity update (NOT batch update).
-     * @param non_compilable_id : PK, NotNull, int4(10). (NotNull)
-     */
-    public void uniqueBy(Integer non_compilable_id) {
-        __uniqueDrivenProperties.clear();
-        __uniqueDrivenProperties.addPropertyName("non_compilable_id");
-        setNon_compilable_id(non_compilable_id);
     }
 
     // ===================================================================================
@@ -336,7 +325,7 @@ public abstract class BsVendor_non_compilable extends AbstractEntity implements 
     }
 
     /**
-     * [get] Next_ParentID: {int4(10), FK to VENDOR-NON COMPILABLE} <br>
+     * [get] Next_ParentID: {IX, int4(10), FK to VENDOR-NON COMPILABLE} <br>
      * @return The value of the column 'Next_ParentID'. (NullAllowed even if selected: for no constraint)
      */
     public Integer getNextParentid() {
@@ -345,7 +334,7 @@ public abstract class BsVendor_non_compilable extends AbstractEntity implements 
     }
 
     /**
-     * [set] Next_ParentID: {int4(10), FK to VENDOR-NON COMPILABLE} <br>
+     * [set] Next_ParentID: {IX, int4(10), FK to VENDOR-NON COMPILABLE} <br>
      * @param nextParentid The value of the column 'Next_ParentID'. (NullAllowed: null update allowed for no constraint)
      */
     public void setNextParentid(Integer nextParentid) {

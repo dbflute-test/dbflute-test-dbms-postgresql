@@ -307,8 +307,8 @@ public class VendorQueryTest extends UnitContainerTestCase {
                 subCB.specify().columnPurchaseDatetime();
             }
         }, Member.ALIAS_latestLoginDatetime); // rental
-        Date fromDate = toDate("2007/11/01");
-        Date toDate = toDate("2007/11/02");
+        Date fromDate = toUtilDate("2007/11/01");
+        Date toDate = toUtilDate("2007/11/02");
         cb.query().derivedPurchase().max(new SubQuery<PurchaseCB>() {
             public void query(PurchaseCB subCB) {
                 subCB.specify().columnPurchaseDatetime();

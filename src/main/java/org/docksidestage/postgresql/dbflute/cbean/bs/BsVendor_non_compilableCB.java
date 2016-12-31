@@ -44,6 +44,9 @@ public class BsVendor_non_compilableCB extends AbstractConditionBean {
         if (DBFluteConfig.getInstance().isNonSpecifiedColumnAccessAllowed()) {
             enableNonSpecifiedColumnAccess();
         }
+        if (DBFluteConfig.getInstance().isSpecifyColumnRequired()) {
+            enableSpecifyColumnRequired();
+        }
         if (DBFluteConfig.getInstance().isQueryUpdateCountPreCheck()) {
             enableQueryUpdateCountPreCheck();
         }
@@ -82,18 +85,6 @@ public class BsVendor_non_compilableCB extends AbstractConditionBean {
      * @return this. (NotNull)
      */
     public Vendor_non_compilableCB acceptPK(Integer non_compilable_id) {
-        assertObjectNotNull("non_compilable_id", non_compilable_id);
-        BsVendor_non_compilableCB cb = this;
-        cb.query().setNon_compilable_id_Equal(non_compilable_id);
-        return (Vendor_non_compilableCB)this;
-    }
-
-    /**
-     * Accept the query condition of unique key as equal.
-     * @param non_compilable_id : PK, NotNull, int4(10). (NotNull)
-     * @return this. (NotNull)
-     */
-    public Vendor_non_compilableCB acceptUniqueOf(Integer non_compilable_id) {
         assertObjectNotNull("non_compilable_id", non_compilable_id);
         BsVendor_non_compilableCB cb = this;
         cb.query().setNon_compilable_id_Equal(non_compilable_id);
@@ -382,7 +373,7 @@ public class BsVendor_non_compilableCB extends AbstractConditionBean {
          */
         public SpecifiedColumn columnParent_id() { return doColumn("PARENT-ID"); }
         /**
-         * Next_ParentID: {int4(10), FK to VENDOR-NON COMPILABLE}
+         * Next_ParentID: {IX, int4(10), FK to VENDOR-NON COMPILABLE}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnNextParentid() { return doColumn("Next_ParentID"); }

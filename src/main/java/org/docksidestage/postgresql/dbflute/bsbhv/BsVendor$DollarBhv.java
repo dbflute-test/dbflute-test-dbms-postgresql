@@ -251,31 +251,6 @@ public abstract class BsVendor$DollarBhv extends AbstractBehaviorWritable<Vendor
         return newConditionBean().acceptPK(vendor$DollarId);
     }
 
-    /**
-     * Select the entity by the unique-key value.
-     * @param vendor$DollarId : PK, NotNull, int4(10). (NotNull)
-     * @return The optional entity selected by the unique key. (NotNull: if no data, empty entity)
-     * @throws EntityAlreadyDeletedException When get(), required() of return value is called and the value is null, which means entity has already been deleted (not found).
-     * @throws EntityDuplicatedException When the entity has been duplicated.
-     * @throws SelectEntityConditionNotFoundException When the condition for selecting an entity is not found.
-     */
-    public OptionalEntity<Vendor$Dollar> selectByUniqueOf(Integer vendor$DollarId) {
-        return facadeSelectByUniqueOf(vendor$DollarId);
-    }
-
-    protected OptionalEntity<Vendor$Dollar> facadeSelectByUniqueOf(Integer vendor$DollarId) {
-        return doSelectByUniqueOf(vendor$DollarId, typeOfSelectedEntity());
-    }
-
-    protected <ENTITY extends Vendor$Dollar> OptionalEntity<ENTITY> doSelectByUniqueOf(Integer vendor$DollarId, Class<? extends ENTITY> tp) {
-        return createOptionalEntity(doSelectEntity(xprepareCBAsUniqueOf(vendor$DollarId), tp), vendor$DollarId);
-    }
-
-    protected Vendor$DollarCB xprepareCBAsUniqueOf(Integer vendor$DollarId) {
-        assertObjectNotNull("vendor$DollarId", vendor$DollarId);
-        return newConditionBean().acceptUniqueOf(vendor$DollarId);
-    }
-
     // ===================================================================================
     //                                                                         List Select
     //                                                                         ===========

@@ -693,7 +693,7 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      * (会員ステータスコード)member_status_code: {NotNull, bpchar(3), FK to member_status, classification=MemberStatus}
      * @param memberStatusCodeList The collection of memberStatusCode as inScope. (NullAllowed: if null (or empty), no condition)
      */
-    public void setMemberStatusCode_InScope(Collection<String> memberStatusCodeList) {
+    protected void setMemberStatusCode_InScope(Collection<String> memberStatusCodeList) {
         doSetMemberStatusCode_InScope(memberStatusCodeList);
     }
 
@@ -1699,7 +1699,6 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      *     <span style="color: #553000">purchaseCB</span>.query().setPaymentCompleteFlg_Equal_True();
      * });
      * </pre> 
-     * </pre>
      * @return The object to set up a function. (NotNull)
      */
     public HpSLCFunction<MemberCB> scalar_GreaterThan() {
@@ -1715,7 +1714,6 @@ public abstract class AbstractBsMemberCQ extends AbstractConditionQuery {
      *     <span style="color: #553000">purchaseCB</span>.query().setPaymentCompleteFlg_Equal_True();
      * });
      * </pre> 
-     * </pre>
      * @return The object to set up a function. (NotNull)
      */
     public HpSLCFunction<MemberCB> scalar_LessThan() {

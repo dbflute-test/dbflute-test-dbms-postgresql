@@ -97,11 +97,6 @@ public class Vendor$DollarDbm extends AbstractDBMeta {
     public boolean hasPrimaryKey() { return true; }
     public boolean hasCompoundPrimaryKey() { return false; }
 
-    // -----------------------------------------------------
-    //                                        Unique Element
-    //                                        --------------
-    public UniqueInfo uniqueOf() { return hpcui(columnVendor$DollarId()); }
-
     // ===================================================================================
     //                                                                       Relation Info
     //                                                                       =============

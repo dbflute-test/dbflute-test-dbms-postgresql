@@ -549,7 +549,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
-     * Next_ParentID: {int4(10), FK to VENDOR-NON COMPILABLE}
+     * Next_ParentID: {IX, int4(10), FK to VENDOR-NON COMPILABLE}
      * @param nextParentid The value of nextParentid as equal. (basically NotNull: error as default, or no condition as option)
      */
     public void setNextParentid_Equal(Integer nextParentid) {
@@ -562,7 +562,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
 
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * Next_ParentID: {int4(10), FK to VENDOR-NON COMPILABLE}
+     * Next_ParentID: {IX, int4(10), FK to VENDOR-NON COMPILABLE}
      * @param nextParentid The value of nextParentid as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setNextParentid_GreaterThan(Integer nextParentid) {
@@ -571,7 +571,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
 
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * Next_ParentID: {int4(10), FK to VENDOR-NON COMPILABLE}
+     * Next_ParentID: {IX, int4(10), FK to VENDOR-NON COMPILABLE}
      * @param nextParentid The value of nextParentid as lessThan. (basically NotNull: error as default, or no condition as option)
      */
     public void setNextParentid_LessThan(Integer nextParentid) {
@@ -580,7 +580,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
 
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * Next_ParentID: {int4(10), FK to VENDOR-NON COMPILABLE}
+     * Next_ParentID: {IX, int4(10), FK to VENDOR-NON COMPILABLE}
      * @param nextParentid The value of nextParentid as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setNextParentid_GreaterEqual(Integer nextParentid) {
@@ -589,7 +589,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
 
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * Next_ParentID: {int4(10), FK to VENDOR-NON COMPILABLE}
+     * Next_ParentID: {IX, int4(10), FK to VENDOR-NON COMPILABLE}
      * @param nextParentid The value of nextParentid as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
     public void setNextParentid_LessEqual(Integer nextParentid) {
@@ -600,7 +600,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
      * RangeOf with various options. (versatile) <br>
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * Next_ParentID: {int4(10), FK to VENDOR-NON COMPILABLE}
+     * Next_ParentID: {IX, int4(10), FK to VENDOR-NON COMPILABLE}
      * @param minNumber The min number of nextParentid. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of nextParentid. (NullAllowed: if null, no to-condition)
      * @param opLambda The callback for option of range-of. (NotNull)
@@ -613,7 +613,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
      * RangeOf with various options. (versatile) <br>
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * Next_ParentID: {int4(10), FK to VENDOR-NON COMPILABLE}
+     * Next_ParentID: {IX, int4(10), FK to VENDOR-NON COMPILABLE}
      * @param minNumber The min number of nextParentid. (NullAllowed: if null, no from-condition)
      * @param maxNumber The max number of nextParentid. (NullAllowed: if null, no to-condition)
      * @param rangeOfOption The option of range-of. (NotNull)
@@ -624,7 +624,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
 
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
-     * Next_ParentID: {int4(10), FK to VENDOR-NON COMPILABLE}
+     * Next_ParentID: {IX, int4(10), FK to VENDOR-NON COMPILABLE}
      * @param nextParentidList The collection of nextParentid as inScope. (NullAllowed: if null (or empty), no condition)
      */
     public void setNextParentid_InScope(Collection<Integer> nextParentidList) {
@@ -637,7 +637,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
 
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
-     * Next_ParentID: {int4(10), FK to VENDOR-NON COMPILABLE}
+     * Next_ParentID: {IX, int4(10), FK to VENDOR-NON COMPILABLE}
      * @param nextParentidList The collection of nextParentid as notInScope. (NullAllowed: if null (or empty), no condition)
      */
     public void setNextParentid_NotInScope(Collection<Integer> nextParentidList) {
@@ -650,13 +650,13 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
 
     /**
      * IsNull {is null}. And OnlyOnceRegistered. <br>
-     * Next_ParentID: {int4(10), FK to VENDOR-NON COMPILABLE}
+     * Next_ParentID: {IX, int4(10), FK to VENDOR-NON COMPILABLE}
      */
     public void setNextParentid_IsNull() { regNextParentid(CK_ISN, DOBJ); }
 
     /**
      * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
-     * Next_ParentID: {int4(10), FK to VENDOR-NON COMPILABLE}
+     * Next_ParentID: {IX, int4(10), FK to VENDOR-NON COMPILABLE}
      */
     public void setNextParentid_IsNotNull() { regNextParentid(CK_ISNN, DOBJ); }
 
@@ -705,7 +705,6 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
      *     <span style="color: #553000">purchaseCB</span>.query().setPaymentCompleteFlg_Equal_True();
      * });
      * </pre> 
-     * </pre>
      * @return The object to set up a function. (NotNull)
      */
     public HpSLCFunction<Vendor_non_compilableCB> scalar_GreaterThan() {
@@ -721,7 +720,6 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
      *     <span style="color: #553000">purchaseCB</span>.query().setPaymentCompleteFlg_Equal_True();
      * });
      * </pre> 
-     * </pre>
      * @return The object to set up a function. (NotNull)
      */
     public HpSLCFunction<Vendor_non_compilableCB> scalar_LessThan() {

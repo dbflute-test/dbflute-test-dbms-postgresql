@@ -337,7 +337,7 @@ public class VendorDataTypeTest extends UnitContainerTestCase {
         // ## Assert ##
         Member actual = memberBhv.selectByPK(member.getMemberId()).get();
         log(actual.getBirthdate());
-        assertTrue(DfTypeUtil.isDateBC(toDate(actual.getBirthdate())));
+        assertTrue(DfTypeUtil.isDateBC(toUtilDate(actual.getBirthdate())));
         String formatted = toString(actual.getBirthdate(), "Gyyyy/MM/dd");
         assertTrue("formatted=" + formatted, formatted.contains("1234/12/24")); // 12/24???
     }
@@ -357,7 +357,7 @@ public class VendorDataTypeTest extends UnitContainerTestCase {
         // ## Assert ##
         Member actual = memberBhv.selectByPK(member.getMemberId()).get();
         log(actual.getFormalizedDatetime());
-        assertTrue(DfTypeUtil.isDateBC(toDate(actual.getFormalizedDatetime())));
+        assertTrue(DfTypeUtil.isDateBC(toUtilDate(actual.getFormalizedDatetime())));
         assertTrue(toString(actual.getFormalizedDatetime(), "Gyyyy/MM/dd").contains("1234/12/25"));
     }
 

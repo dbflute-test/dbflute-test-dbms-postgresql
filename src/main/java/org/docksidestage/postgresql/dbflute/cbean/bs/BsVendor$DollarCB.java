@@ -43,6 +43,9 @@ public class BsVendor$DollarCB extends AbstractConditionBean {
         if (DBFluteConfig.getInstance().isNonSpecifiedColumnAccessAllowed()) {
             enableNonSpecifiedColumnAccess();
         }
+        if (DBFluteConfig.getInstance().isSpecifyColumnRequired()) {
+            enableSpecifyColumnRequired();
+        }
         if (DBFluteConfig.getInstance().isQueryUpdateCountPreCheck()) {
             enableQueryUpdateCountPreCheck();
         }
@@ -81,18 +84,6 @@ public class BsVendor$DollarCB extends AbstractConditionBean {
      * @return this. (NotNull)
      */
     public Vendor$DollarCB acceptPK(Integer vendor$DollarId) {
-        assertObjectNotNull("vendor$DollarId", vendor$DollarId);
-        BsVendor$DollarCB cb = this;
-        cb.query().setVendor$DollarId_Equal(vendor$DollarId);
-        return (Vendor$DollarCB)this;
-    }
-
-    /**
-     * Accept the query condition of unique key as equal.
-     * @param vendor$DollarId : PK, NotNull, int4(10). (NotNull)
-     * @return this. (NotNull)
-     */
-    public Vendor$DollarCB acceptUniqueOf(Integer vendor$DollarId) {
         assertObjectNotNull("vendor$DollarId", vendor$DollarId);
         BsVendor$DollarCB cb = this;
         cb.query().setVendor$DollarId_Equal(vendor$DollarId);
