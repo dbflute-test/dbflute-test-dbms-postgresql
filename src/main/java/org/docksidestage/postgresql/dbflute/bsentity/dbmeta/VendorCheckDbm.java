@@ -64,13 +64,7 @@ public class VendorCheckDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfTimetz(), (et, vl) -> ((VendorCheck)et).setTypeOfTimetz(ctlt(vl)), "typeOfTimetz");
         setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfInterval(), (et, vl) -> ((VendorCheck)et).setTypeOfInterval((String)vl), "typeOfInterval");
         setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfBool(), (et, vl) -> {
-            ColumnInfo col = columnTypeOfBool();
-            CDef.TrueFalse cls = (CDef.TrueFalse)gcls(et, col, vl);
-            if (cls != null) {
-                ((VendorCheck)et).setTypeOfBoolAsTrueFalse(cls);
-            } else {
-                ((VendorCheck)et).mynativeMappingTypeOfBool((Boolean)vl);
-            }
+            ((VendorCheck)et).setTypeOfBool((Boolean)vl);
         }, "typeOfBool");
         setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfBit(), (et, vl) -> ((VendorCheck)et).setTypeOfBit((Boolean)vl), "typeOfBit");
         setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfBytea(), (et, vl) -> ((VendorCheck)et).setTypeOfBytea((byte[])vl), "typeOfBytea");

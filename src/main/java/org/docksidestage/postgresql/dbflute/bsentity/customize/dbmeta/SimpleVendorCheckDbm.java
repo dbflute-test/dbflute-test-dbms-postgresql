@@ -61,13 +61,7 @@ public class SimpleVendorCheckDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((SimpleVendorCheck)et).getTypeOfInterval(), (et, vl) -> ((SimpleVendorCheck)et).setTypeOfInterval((String)vl), "typeOfInterval");
         setupEpg(_epgMap, et -> ((SimpleVendorCheck)et).getTypeOfTimetz(), (et, vl) -> ((SimpleVendorCheck)et).setTypeOfTimetz(ctlt(vl)), "typeOfTimetz");
         setupEpg(_epgMap, et -> ((SimpleVendorCheck)et).getTypeOfBool(), (et, vl) -> {
-            ColumnInfo col = columnTypeOfBool();
-            CDef.TrueFalse cls = (CDef.TrueFalse)gcls(et, col, vl);
-            if (cls != null) {
-                ((SimpleVendorCheck)et).setTypeOfBoolAsTrueFalse(cls);
-            } else {
-                ((SimpleVendorCheck)et).mynativeMappingTypeOfBool((Boolean)vl);
-            }
+            ((SimpleVendorCheck)et).setTypeOfBool((Boolean)vl);
         }, "typeOfBool");
         setupEpg(_epgMap, et -> ((SimpleVendorCheck)et).getTypeOfBit(), (et, vl) -> ((SimpleVendorCheck)et).setTypeOfBit((Boolean)vl), "typeOfBit");
         setupEpg(_epgMap, et -> ((SimpleVendorCheck)et).getTypeOfBytea(), (et, vl) -> ((SimpleVendorCheck)et).setTypeOfBytea((byte[])vl), "typeOfBytea");

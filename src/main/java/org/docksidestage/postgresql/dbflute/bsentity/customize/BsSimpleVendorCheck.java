@@ -745,7 +745,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity implements Cust
      * [set] type_of_bool: {bool(1), refers to vendor_check.type_of_bool, classification=TrueFalse} <br>
      * @param typeOfBool The value of the column 'type_of_bool'. (NullAllowed: null update allowed for no constraint)
      */
-    protected void setTypeOfBool(Boolean typeOfBool) {
+    public void setTypeOfBool(Boolean typeOfBool) {
         checkClassificationCode("type_of_bool", CDef.DefMeta.TrueFalse, typeOfBool);
         registerModifiedProperty("typeOfBool");
         _typeOfBool = typeOfBool;
@@ -841,13 +841,5 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity implements Cust
     public void setTypeOfXml(org.docksidestage.postgresql.mytype.MyXML typeOfXml) {
         registerModifiedProperty("typeOfXml");
         _typeOfXml = typeOfXml;
-    }
-
-    /**
-     * For framework so basically DON'T use this method.
-     * @param typeOfBool The value of the column 'type_of_bool'. (NullAllowed: null update allowed for no constraint)
-     */
-    public void mynativeMappingTypeOfBool(Boolean typeOfBool) {
-        setTypeOfBool(typeOfBool);
     }
 }

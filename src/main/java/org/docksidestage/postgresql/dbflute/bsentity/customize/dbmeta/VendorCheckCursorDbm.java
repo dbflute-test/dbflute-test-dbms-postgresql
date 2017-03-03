@@ -64,13 +64,7 @@ public class VendorCheckCursorDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((VendorCheckCursor)et).getTypeOfTimetz(), (et, vl) -> ((VendorCheckCursor)et).setTypeOfTimetz(ctlt(vl)), "typeOfTimetz");
         setupEpg(_epgMap, et -> ((VendorCheckCursor)et).getTypeOfInterval(), (et, vl) -> ((VendorCheckCursor)et).setTypeOfInterval((String)vl), "typeOfInterval");
         setupEpg(_epgMap, et -> ((VendorCheckCursor)et).getTypeOfBool(), (et, vl) -> {
-            ColumnInfo col = columnTypeOfBool();
-            CDef.TrueFalse cls = (CDef.TrueFalse)gcls(et, col, vl);
-            if (cls != null) {
-                ((VendorCheckCursor)et).setTypeOfBoolAsTrueFalse(cls);
-            } else {
-                ((VendorCheckCursor)et).mynativeMappingTypeOfBool((Boolean)vl);
-            }
+            ((VendorCheckCursor)et).setTypeOfBool((Boolean)vl);
         }, "typeOfBool");
         setupEpg(_epgMap, et -> ((VendorCheckCursor)et).getTypeOfBit(), (et, vl) -> ((VendorCheckCursor)et).setTypeOfBit((Boolean)vl), "typeOfBit");
         setupEpg(_epgMap, et -> ((VendorCheckCursor)et).getTypeOfBytea(), (et, vl) -> ((VendorCheckCursor)et).setTypeOfBytea((byte[])vl), "typeOfBytea");

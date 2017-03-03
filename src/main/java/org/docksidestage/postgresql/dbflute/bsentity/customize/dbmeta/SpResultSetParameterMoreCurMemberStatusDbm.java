@@ -43,8 +43,7 @@ public class SpResultSetParameterMoreCurMemberStatusDbm extends AbstractDBMeta {
     { xsetupEpg(); }
     protected void xsetupEpg() {
         setupEpg(_epgMap, et -> ((SpResultSetParameterMoreCurMemberStatus)et).getMemberStatusCode(), (et, vl) -> {
-            ColumnInfo col = columnMemberStatusCode();
-            CDef.MemberStatus cls = (CDef.MemberStatus)gcls(et, col, vl);
+            CDef.MemberStatus cls = (CDef.MemberStatus)gcls(et, columnMemberStatusCode(), vl);
             if (cls != null) {
                 ((SpResultSetParameterMoreCurMemberStatus)et).setMemberStatusCodeAsMemberStatus(cls);
             } else {

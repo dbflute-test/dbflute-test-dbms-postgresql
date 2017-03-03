@@ -47,8 +47,7 @@ public class SpReturnResultSetReturnValueDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((SpReturnResultSetReturnValue)et).getBirthdate(), (et, vl) -> ((SpReturnResultSetReturnValue)et).setBirthdate(ctld(vl)), "birthdate");
         setupEpg(_epgMap, et -> ((SpReturnResultSetReturnValue)et).getFormalizedDatetime(), (et, vl) -> ((SpReturnResultSetReturnValue)et).setFormalizedDatetime(ctldt(vl)), "formalizedDatetime");
         setupEpg(_epgMap, et -> ((SpReturnResultSetReturnValue)et).getMemberStatusCode(), (et, vl) -> {
-            ColumnInfo col = columnMemberStatusCode();
-            CDef.MemberStatus cls = (CDef.MemberStatus)gcls(et, col, vl);
+            CDef.MemberStatus cls = (CDef.MemberStatus)gcls(et, columnMemberStatusCode(), vl);
             if (cls != null) {
                 ((SpReturnResultSetReturnValue)et).setMemberStatusCodeAsMemberStatus(cls);
             } else {
