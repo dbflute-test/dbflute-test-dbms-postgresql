@@ -1,0 +1,11 @@
+
+* * * * * * * * * *
+*                 *
+* Tsv Data Result *
+*                 *
+* * * * * * * * * *
+data-directory: playsql/data/ut/tsv/UTF-8
+
+90-VENDOR_LARGE_DATA.tsv (1203)
+91-VENDOR_LARGE_DATA_REF.tsv (30000)
+VENDOR_CHECK.tsv (1)
