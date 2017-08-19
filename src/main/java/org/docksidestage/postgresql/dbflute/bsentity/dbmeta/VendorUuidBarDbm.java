@@ -64,8 +64,8 @@ public class VendorUuidBarDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnBarId = cci("bar_id", "bar_id", null, null, java.util.UUID.class, "barId", null, true, false, true, "uuid", 2147483647, 0, null, false, null, null, null, "vendorUuidFooList", null, false);
-    protected final ColumnInfo _columnBarName = cci("bar_name", "bar_name", null, null, String.class, "barName", null, false, false, true, "varchar", 2147483647, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnBarId = cci("bar_id", "bar_id", null, null, java.util.UUID.class, "barId", null, true, false, true, "uuid", 2147483647, 0, null, null, false, null, null, null, "vendorUuidFooList", null, false);
+    protected final ColumnInfo _columnBarName = cci("bar_name", "bar_name", null, null, String.class, "barName", null, false, false, true, "varchar", 2147483647, 0, null, null, false, null, null, null, null, null, false);
 
     /**
      * bar_id: {PK, NotNull, uuid(2147483647)}

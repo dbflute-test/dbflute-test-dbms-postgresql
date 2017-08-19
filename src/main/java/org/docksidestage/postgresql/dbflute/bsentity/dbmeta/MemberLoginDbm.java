@@ -99,11 +99,11 @@ public class MemberLoginDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnMemberLoginId = cci("member_login_id", "member_login_id", null, "会員ログインID", Long.class, "memberLoginId", null, true, true, true, "bigserial", 19, 0, "nextval('member_login_member_login_id_seq'::regclass)", false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnMemberId = cci("member_id", "member_id", null, "会員ID", Integer.class, "memberId", null, false, false, true, "int4", 10, 0, null, false, null, null, "member", null, null, false);
-    protected final ColumnInfo _columnLoginDatetime = cci("login_datetime", "login_datetime", null, "ログイン日時", java.time.LocalDateTime.class, "loginDatetime", null, false, false, true, "timestamp", 26, 3, null, false, null, "ログインした瞬間の日時。", null, null, null, false);
-    protected final ColumnInfo _columnMobileLoginFlg = cci("mobile_login_flg", "mobile_login_flg", null, "モバイルログインフラグ", Integer.class, "mobileLoginFlg", null, false, false, true, "int4", 10, 0, null, false, null, "モバイル機器からのログインか否か。", null, null, CDef.DefMeta.Flg, false);
-    protected final ColumnInfo _columnLoginMemberStatusCode = cci("login_member_status_code", "login_member_status_code", null, "ログイン会員ステータスコード", String.class, "loginMemberStatusCode", null, false, false, true, "bpchar", 3, 0, null, false, null, "ログイン時の会員ステータス", "memberStatus", null, CDef.DefMeta.MemberStatus, false);
+    protected final ColumnInfo _columnMemberLoginId = cci("member_login_id", "member_login_id", null, "会員ログインID", Long.class, "memberLoginId", null, true, true, true, "bigserial", 19, 0, null, "nextval('member_login_member_login_id_seq'::regclass)", false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnMemberId = cci("member_id", "member_id", null, "会員ID", Integer.class, "memberId", null, false, false, true, "int4", 10, 0, null, null, false, null, null, "member", null, null, false);
+    protected final ColumnInfo _columnLoginDatetime = cci("login_datetime", "login_datetime", null, "ログイン日時", java.time.LocalDateTime.class, "loginDatetime", null, false, false, true, "timestamp", 26, 3, null, null, false, null, "ログインした瞬間の日時。", null, null, null, false);
+    protected final ColumnInfo _columnMobileLoginFlg = cci("mobile_login_flg", "mobile_login_flg", null, "モバイルログインフラグ", Integer.class, "mobileLoginFlg", null, false, false, true, "int4", 10, 0, null, null, false, null, "モバイル機器からのログインか否か。", null, null, CDef.DefMeta.Flg, false);
+    protected final ColumnInfo _columnLoginMemberStatusCode = cci("login_member_status_code", "login_member_status_code", null, "ログイン会員ステータスコード", String.class, "loginMemberStatusCode", null, false, false, true, "bpchar", 3, 0, null, null, false, null, "ログイン時の会員ステータス", "memberStatus", null, CDef.DefMeta.MemberStatus, false);
 
     /**
      * (会員ログインID)member_login_id: {PK, ID, NotNull, bigserial(19)}

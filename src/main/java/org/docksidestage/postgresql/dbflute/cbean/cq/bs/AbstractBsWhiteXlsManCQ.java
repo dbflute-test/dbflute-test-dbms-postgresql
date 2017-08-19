@@ -97,8 +97,8 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * xls_man_id: {PK, NotNull, int8(19)}
-     * @param minNumber The min number of xlsManId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of xlsManId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of xlsManId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of xlsManId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setXlsManId_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -110,8 +110,8 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * xls_man_id: {PK, NotNull, int8(19)}
-     * @param minNumber The min number of xlsManId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of xlsManId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of xlsManId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of xlsManId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setXlsManId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
@@ -121,7 +121,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * xls_man_id: {PK, NotNull, int8(19)}
-     * @param xlsManIdList The collection of xlsManId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param xlsManIdList The collection of xlsManId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setXlsManId_InScope(Collection<Long> xlsManIdList) {
         doSetXlsManId_InScope(xlsManIdList);
@@ -134,7 +134,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * xls_man_id: {PK, NotNull, int8(19)}
-     * @param xlsManIdList The collection of xlsManId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param xlsManIdList The collection of xlsManId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setXlsManId_NotInScope(Collection<Long> xlsManIdList) {
         doSetXlsManId_NotInScope(xlsManIdList);
@@ -162,7 +162,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * string_converted: {varchar(2147483647)}
-     * @param stringConverted The value of stringConverted as equal. (NullAllowed: if null (or empty), no condition)
+     * @param stringConverted The value of stringConverted as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setStringConverted_Equal(String stringConverted) {
         doSetStringConverted_Equal(fRES(stringConverted));
@@ -175,7 +175,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * string_converted: {varchar(2147483647)}
-     * @param stringConverted The value of stringConverted as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param stringConverted The value of stringConverted as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setStringConverted_NotEqual(String stringConverted) {
         doSetStringConverted_NotEqual(fRES(stringConverted));
@@ -188,7 +188,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * string_converted: {varchar(2147483647)}
-     * @param stringConvertedList The collection of stringConverted as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param stringConvertedList The collection of stringConverted as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setStringConverted_InScope(Collection<String> stringConvertedList) {
         doSetStringConverted_InScope(stringConvertedList);
@@ -201,7 +201,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * string_converted: {varchar(2147483647)}
-     * @param stringConvertedList The collection of stringConverted as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param stringConvertedList The collection of stringConverted as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setStringConverted_NotInScope(Collection<String> stringConvertedList) {
         doSetStringConverted_NotInScope(stringConvertedList);
@@ -215,7 +215,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * string_converted: {varchar(2147483647)} <br>
      * <pre>e.g. setStringConverted_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param stringConverted The value of stringConverted as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param stringConverted The value of stringConverted as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setStringConverted_LikeSearch(String stringConverted, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -226,7 +226,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * string_converted: {varchar(2147483647)} <br>
      * <pre>e.g. setStringConverted_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param stringConverted The value of stringConverted as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param stringConverted The value of stringConverted as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setStringConverted_LikeSearch(String stringConverted, LikeSearchOption likeSearchOption) {
@@ -237,7 +237,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * string_converted: {varchar(2147483647)}
-     * @param stringConverted The value of stringConverted as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param stringConverted The value of stringConverted as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setStringConverted_NotLikeSearch(String stringConverted, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -248,7 +248,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * string_converted: {varchar(2147483647)}
-     * @param stringConverted The value of stringConverted as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param stringConverted The value of stringConverted as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setStringConverted_NotLikeSearch(String stringConverted, LikeSearchOption likeSearchOption) {
@@ -258,7 +258,7 @@ public abstract class AbstractBsWhiteXlsManCQ extends AbstractConditionQuery {
     /**
      * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * string_converted: {varchar(2147483647)}
-     * @param stringConverted The value of stringConverted as prefixSearch. (NullAllowed: if null (or empty), no condition)
+     * @param stringConverted The value of stringConverted as prefixSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setStringConverted_PrefixSearch(String stringConverted) {
         setStringConverted_LikeSearch(stringConverted, xcLSOPPre());

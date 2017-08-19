@@ -78,9 +78,9 @@ public class VendorUuidFooDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnFooId = cci("foo_id", "foo_id", null, null, java.util.UUID.class, "fooId", null, true, false, true, "uuid", 2147483647, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnFooName = cci("foo_name", "foo_name", null, null, String.class, "fooName", null, false, false, true, "varchar", 2147483647, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnBarId = cci("bar_id", "bar_id", null, null, java.util.UUID.class, "barId", null, false, false, true, "uuid", 2147483647, 0, null, false, null, null, "vendorUuidBar", null, null, false);
+    protected final ColumnInfo _columnFooId = cci("foo_id", "foo_id", null, null, java.util.UUID.class, "fooId", null, true, false, true, "uuid", 2147483647, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnFooName = cci("foo_name", "foo_name", null, null, String.class, "fooName", null, false, false, true, "varchar", 2147483647, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnBarId = cci("bar_id", "bar_id", null, null, java.util.UUID.class, "barId", null, false, false, true, "uuid", 2147483647, 0, null, null, false, null, null, "vendorUuidBar", null, null, false);
 
     /**
      * foo_id: {PK, NotNull, uuid(2147483647)}

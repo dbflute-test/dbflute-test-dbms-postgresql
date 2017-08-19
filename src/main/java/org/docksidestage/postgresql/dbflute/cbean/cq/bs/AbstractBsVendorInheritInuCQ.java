@@ -97,8 +97,8 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * inu_id: {PK, NotNull, int4(10)}
-     * @param minNumber The min number of inuId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of inuId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of inuId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of inuId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setInuId_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -110,8 +110,8 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * inu_id: {PK, NotNull, int4(10)}
-     * @param minNumber The min number of inuId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of inuId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of inuId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of inuId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setInuId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -121,7 +121,7 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * inu_id: {PK, NotNull, int4(10)}
-     * @param inuIdList The collection of inuId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param inuIdList The collection of inuId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setInuId_InScope(Collection<Integer> inuIdList) {
         doSetInuId_InScope(inuIdList);
@@ -134,7 +134,7 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * inu_id: {PK, NotNull, int4(10)}
-     * @param inuIdList The collection of inuId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param inuIdList The collection of inuId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setInuId_NotInScope(Collection<Integer> inuIdList) {
         doSetInuId_NotInScope(inuIdList);
@@ -162,7 +162,7 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * inu_name: {NotNull, varchar(2147483647)}
-     * @param inuName The value of inuName as equal. (NullAllowed: if null (or empty), no condition)
+     * @param inuName The value of inuName as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setInuName_Equal(String inuName) {
         doSetInuName_Equal(fRES(inuName));
@@ -175,7 +175,7 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * inu_name: {NotNull, varchar(2147483647)}
-     * @param inuName The value of inuName as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param inuName The value of inuName as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setInuName_NotEqual(String inuName) {
         doSetInuName_NotEqual(fRES(inuName));
@@ -188,7 +188,7 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * inu_name: {NotNull, varchar(2147483647)}
-     * @param inuNameList The collection of inuName as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param inuNameList The collection of inuName as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setInuName_InScope(Collection<String> inuNameList) {
         doSetInuName_InScope(inuNameList);
@@ -201,7 +201,7 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * inu_name: {NotNull, varchar(2147483647)}
-     * @param inuNameList The collection of inuName as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param inuNameList The collection of inuName as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setInuName_NotInScope(Collection<String> inuNameList) {
         doSetInuName_NotInScope(inuNameList);
@@ -215,7 +215,7 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * inu_name: {NotNull, varchar(2147483647)} <br>
      * <pre>e.g. setInuName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param inuName The value of inuName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param inuName The value of inuName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setInuName_LikeSearch(String inuName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -226,7 +226,7 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * inu_name: {NotNull, varchar(2147483647)} <br>
      * <pre>e.g. setInuName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param inuName The value of inuName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param inuName The value of inuName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setInuName_LikeSearch(String inuName, LikeSearchOption likeSearchOption) {
@@ -237,7 +237,7 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * inu_name: {NotNull, varchar(2147483647)}
-     * @param inuName The value of inuName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param inuName The value of inuName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setInuName_NotLikeSearch(String inuName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -248,7 +248,7 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * inu_name: {NotNull, varchar(2147483647)}
-     * @param inuName The value of inuName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param inuName The value of inuName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setInuName_NotLikeSearch(String inuName, LikeSearchOption likeSearchOption) {
@@ -258,7 +258,7 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
     /**
      * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * inu_name: {NotNull, varchar(2147483647)}
-     * @param inuName The value of inuName as prefixSearch. (NullAllowed: if null (or empty), no condition)
+     * @param inuName The value of inuName as prefixSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setInuName_PrefixSearch(String inuName) {
         setInuName_LikeSearch(inuName, xcLSOPPre());

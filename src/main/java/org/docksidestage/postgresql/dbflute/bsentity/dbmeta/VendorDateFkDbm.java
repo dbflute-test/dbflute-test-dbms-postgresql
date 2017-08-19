@@ -77,8 +77,8 @@ public class VendorDateFkDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnBarId = cci("bar_id", "bar_id", null, null, Integer.class, "barId", null, true, false, true, "int4", 10, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnBarDate = cci("bar_date", "bar_date", null, null, java.time.LocalDate.class, "barDate", null, false, false, true, "date", 13, 0, null, false, null, null, "vendorDatePk", null, null, false);
+    protected final ColumnInfo _columnBarId = cci("bar_id", "bar_id", null, null, Integer.class, "barId", null, true, false, true, "int4", 10, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnBarDate = cci("bar_date", "bar_date", null, null, java.time.LocalDate.class, "barDate", null, false, false, true, "date", 13, 0, null, null, false, null, null, "vendorDatePk", null, null, false);
 
     /**
      * bar_id: {PK, NotNull, int4(10)}

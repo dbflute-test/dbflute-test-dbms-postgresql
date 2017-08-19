@@ -65,9 +65,9 @@ public class WhiteNotPkDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnNotPkId = cci("not_pk_id", "not_pk_id", null, null, Long.class, "notPkId", null, false, false, true, "int8", 19, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnNotPkName = cci("not_pk_name", "not_pk_name", null, null, String.class, "notPkName", null, false, false, false, "varchar", 2147483647, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnNotPkInteger = cci("not_pk_integer", "not_pk_integer", null, null, Integer.class, "notPkInteger", null, false, false, false, "int4", 10, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnNotPkId = cci("not_pk_id", "not_pk_id", null, null, Long.class, "notPkId", null, false, false, true, "int8", 19, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnNotPkName = cci("not_pk_name", "not_pk_name", null, null, String.class, "notPkName", null, false, false, false, "varchar", 2147483647, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnNotPkInteger = cci("not_pk_integer", "not_pk_integer", null, null, Integer.class, "notPkInteger", null, false, false, false, "int4", 10, 0, null, null, false, null, null, null, null, null, false);
 
     /**
      * not_pk_id: {NotNull, int8(19)}

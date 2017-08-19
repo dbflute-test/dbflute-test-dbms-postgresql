@@ -66,10 +66,10 @@ public class SummaryProductDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnProductId = cci("product_id", "product_id", null, null, Integer.class, "productId", null, false, false, false, "int4", 10, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnProductName = cci("product_name", "product_name", null, null, String.class, "productName", null, false, false, false, "varchar", 50, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnProductStatusCode = cci("product_status_code", "product_status_code", null, null, String.class, "productStatusCode", null, false, false, false, "bpchar", 3, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnLatestPurchaseDatetime = cci("latest_purchase_datetime", "latest_purchase_datetime", null, null, java.time.LocalDateTime.class, "latestPurchaseDatetime", null, false, false, false, "timestamp", 29, 6, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnProductId = cci("product_id", "product_id", null, null, Integer.class, "productId", null, false, false, false, "int4", 10, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnProductName = cci("product_name", "product_name", null, null, String.class, "productName", null, false, false, false, "varchar", 50, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnProductStatusCode = cci("product_status_code", "product_status_code", null, null, String.class, "productStatusCode", null, false, false, false, "bpchar", 3, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnLatestPurchaseDatetime = cci("latest_purchase_datetime", "latest_purchase_datetime", null, null, java.time.LocalDateTime.class, "latestPurchaseDatetime", null, false, false, false, "timestamp", 29, 6, null, null, false, null, null, null, null, null, false);
 
     /**
      * product_id: {int4(10)}

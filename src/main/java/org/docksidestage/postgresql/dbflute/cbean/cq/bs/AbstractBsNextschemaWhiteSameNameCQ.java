@@ -97,8 +97,8 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * same_name_id: {PK, NotNull, int4(10)}
-     * @param minNumber The min number of sameNameId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of sameNameId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of sameNameId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of sameNameId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setSameNameId_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -110,8 +110,8 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * same_name_id: {PK, NotNull, int4(10)}
-     * @param minNumber The min number of sameNameId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of sameNameId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of sameNameId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of sameNameId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setSameNameId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -121,7 +121,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * same_name_id: {PK, NotNull, int4(10)}
-     * @param sameNameIdList The collection of sameNameId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param sameNameIdList The collection of sameNameId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setSameNameId_InScope(Collection<Integer> sameNameIdList) {
         doSetSameNameId_InScope(sameNameIdList);
@@ -134,7 +134,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * same_name_id: {PK, NotNull, int4(10)}
-     * @param sameNameIdList The collection of sameNameId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param sameNameIdList The collection of sameNameId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setSameNameId_NotInScope(Collection<Integer> sameNameIdList) {
         doSetSameNameId_NotInScope(sameNameIdList);
@@ -235,7 +235,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * same_name_name: {varchar(100)}
-     * @param sameNameName The value of sameNameName as equal. (NullAllowed: if null (or empty), no condition)
+     * @param sameNameName The value of sameNameName as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setSameNameName_Equal(String sameNameName) {
         doSetSameNameName_Equal(fRES(sameNameName));
@@ -248,7 +248,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * same_name_name: {varchar(100)}
-     * @param sameNameName The value of sameNameName as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param sameNameName The value of sameNameName as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setSameNameName_NotEqual(String sameNameName) {
         doSetSameNameName_NotEqual(fRES(sameNameName));
@@ -261,7 +261,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * same_name_name: {varchar(100)}
-     * @param sameNameNameList The collection of sameNameName as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param sameNameNameList The collection of sameNameName as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setSameNameName_InScope(Collection<String> sameNameNameList) {
         doSetSameNameName_InScope(sameNameNameList);
@@ -274,7 +274,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * same_name_name: {varchar(100)}
-     * @param sameNameNameList The collection of sameNameName as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param sameNameNameList The collection of sameNameName as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setSameNameName_NotInScope(Collection<String> sameNameNameList) {
         doSetSameNameName_NotInScope(sameNameNameList);
@@ -288,7 +288,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * same_name_name: {varchar(100)} <br>
      * <pre>e.g. setSameNameName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param sameNameName The value of sameNameName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param sameNameName The value of sameNameName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setSameNameName_LikeSearch(String sameNameName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -299,7 +299,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * same_name_name: {varchar(100)} <br>
      * <pre>e.g. setSameNameName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param sameNameName The value of sameNameName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param sameNameName The value of sameNameName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setSameNameName_LikeSearch(String sameNameName, LikeSearchOption likeSearchOption) {
@@ -310,7 +310,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * same_name_name: {varchar(100)}
-     * @param sameNameName The value of sameNameName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param sameNameName The value of sameNameName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setSameNameName_NotLikeSearch(String sameNameName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -321,7 +321,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * same_name_name: {varchar(100)}
-     * @param sameNameName The value of sameNameName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param sameNameName The value of sameNameName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setSameNameName_NotLikeSearch(String sameNameName, LikeSearchOption likeSearchOption) {
@@ -331,7 +331,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
     /**
      * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * same_name_name: {varchar(100)}
-     * @param sameNameName The value of sameNameName as prefixSearch. (NullAllowed: if null (or empty), no condition)
+     * @param sameNameName The value of sameNameName as prefixSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setSameNameName_PrefixSearch(String sameNameName) {
         setSameNameName_LikeSearch(sameNameName, xcLSOPPre());
@@ -412,8 +412,8 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * same_name_long: {int8(19)}
-     * @param minNumber The min number of sameNameLong. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of sameNameLong. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of sameNameLong. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of sameNameLong. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setSameNameLong_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -425,8 +425,8 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * same_name_long: {int8(19)}
-     * @param minNumber The min number of sameNameLong. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of sameNameLong. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of sameNameLong. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of sameNameLong. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setSameNameLong_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
@@ -436,7 +436,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * same_name_long: {int8(19)}
-     * @param sameNameLongList The collection of sameNameLong as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param sameNameLongList The collection of sameNameLong as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setSameNameLong_InScope(Collection<Long> sameNameLongList) {
         doSetSameNameLong_InScope(sameNameLongList);
@@ -449,7 +449,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * same_name_long: {int8(19)}
-     * @param sameNameLongList The collection of sameNameLong as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param sameNameLongList The collection of sameNameLong as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setSameNameLong_NotInScope(Collection<Long> sameNameLongList) {
         doSetSameNameLong_NotInScope(sameNameLongList);

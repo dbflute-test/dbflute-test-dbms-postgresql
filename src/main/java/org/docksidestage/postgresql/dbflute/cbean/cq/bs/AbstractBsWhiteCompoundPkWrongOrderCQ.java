@@ -97,8 +97,8 @@ public abstract class AbstractBsWhiteCompoundPkWrongOrderCQ extends AbstractCond
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * first_id: {PK, NotNull, int4(10)}
-     * @param minNumber The min number of firstId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of firstId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of firstId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of firstId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setFirstId_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -110,8 +110,8 @@ public abstract class AbstractBsWhiteCompoundPkWrongOrderCQ extends AbstractCond
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * first_id: {PK, NotNull, int4(10)}
-     * @param minNumber The min number of firstId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of firstId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of firstId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of firstId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setFirstId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -121,7 +121,7 @@ public abstract class AbstractBsWhiteCompoundPkWrongOrderCQ extends AbstractCond
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * first_id: {PK, NotNull, int4(10)}
-     * @param firstIdList The collection of firstId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param firstIdList The collection of firstId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setFirstId_InScope(Collection<Integer> firstIdList) {
         doSetFirstId_InScope(firstIdList);
@@ -134,7 +134,7 @@ public abstract class AbstractBsWhiteCompoundPkWrongOrderCQ extends AbstractCond
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * first_id: {PK, NotNull, int4(10)}
-     * @param firstIdList The collection of firstId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param firstIdList The collection of firstId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setFirstId_NotInScope(Collection<Integer> firstIdList) {
         doSetFirstId_NotInScope(firstIdList);
@@ -213,8 +213,8 @@ public abstract class AbstractBsWhiteCompoundPkWrongOrderCQ extends AbstractCond
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * second_id: {PK, NotNull, int4(10)}
-     * @param minNumber The min number of secondId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of secondId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of secondId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of secondId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setSecondId_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -226,8 +226,8 @@ public abstract class AbstractBsWhiteCompoundPkWrongOrderCQ extends AbstractCond
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * second_id: {PK, NotNull, int4(10)}
-     * @param minNumber The min number of secondId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of secondId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of secondId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of secondId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setSecondId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -237,7 +237,7 @@ public abstract class AbstractBsWhiteCompoundPkWrongOrderCQ extends AbstractCond
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * second_id: {PK, NotNull, int4(10)}
-     * @param secondIdList The collection of secondId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param secondIdList The collection of secondId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setSecondId_InScope(Collection<Integer> secondIdList) {
         doSetSecondId_InScope(secondIdList);
@@ -250,7 +250,7 @@ public abstract class AbstractBsWhiteCompoundPkWrongOrderCQ extends AbstractCond
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * second_id: {PK, NotNull, int4(10)}
-     * @param secondIdList The collection of secondId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param secondIdList The collection of secondId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setSecondId_NotInScope(Collection<Integer> secondIdList) {
         doSetSecondId_NotInScope(secondIdList);
@@ -329,8 +329,8 @@ public abstract class AbstractBsWhiteCompoundPkWrongOrderCQ extends AbstractCond
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * third_id: {PK, NotNull, int4(10)}
-     * @param minNumber The min number of thirdId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of thirdId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of thirdId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of thirdId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setThirdId_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -342,8 +342,8 @@ public abstract class AbstractBsWhiteCompoundPkWrongOrderCQ extends AbstractCond
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * third_id: {PK, NotNull, int4(10)}
-     * @param minNumber The min number of thirdId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of thirdId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of thirdId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of thirdId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setThirdId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -353,7 +353,7 @@ public abstract class AbstractBsWhiteCompoundPkWrongOrderCQ extends AbstractCond
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * third_id: {PK, NotNull, int4(10)}
-     * @param thirdIdList The collection of thirdId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param thirdIdList The collection of thirdId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setThirdId_InScope(Collection<Integer> thirdIdList) {
         doSetThirdId_InScope(thirdIdList);
@@ -366,7 +366,7 @@ public abstract class AbstractBsWhiteCompoundPkWrongOrderCQ extends AbstractCond
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * third_id: {PK, NotNull, int4(10)}
-     * @param thirdIdList The collection of thirdId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param thirdIdList The collection of thirdId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setThirdId_NotInScope(Collection<Integer> thirdIdList) {
         doSetThirdId_NotInScope(thirdIdList);
@@ -394,7 +394,7 @@ public abstract class AbstractBsWhiteCompoundPkWrongOrderCQ extends AbstractCond
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * wrong_name: {varchar(200)}
-     * @param wrongName The value of wrongName as equal. (NullAllowed: if null (or empty), no condition)
+     * @param wrongName The value of wrongName as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setWrongName_Equal(String wrongName) {
         doSetWrongName_Equal(fRES(wrongName));
@@ -407,7 +407,7 @@ public abstract class AbstractBsWhiteCompoundPkWrongOrderCQ extends AbstractCond
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * wrong_name: {varchar(200)}
-     * @param wrongName The value of wrongName as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param wrongName The value of wrongName as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setWrongName_NotEqual(String wrongName) {
         doSetWrongName_NotEqual(fRES(wrongName));
@@ -420,7 +420,7 @@ public abstract class AbstractBsWhiteCompoundPkWrongOrderCQ extends AbstractCond
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * wrong_name: {varchar(200)}
-     * @param wrongNameList The collection of wrongName as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param wrongNameList The collection of wrongName as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setWrongName_InScope(Collection<String> wrongNameList) {
         doSetWrongName_InScope(wrongNameList);
@@ -433,7 +433,7 @@ public abstract class AbstractBsWhiteCompoundPkWrongOrderCQ extends AbstractCond
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * wrong_name: {varchar(200)}
-     * @param wrongNameList The collection of wrongName as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param wrongNameList The collection of wrongName as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setWrongName_NotInScope(Collection<String> wrongNameList) {
         doSetWrongName_NotInScope(wrongNameList);
@@ -447,7 +447,7 @@ public abstract class AbstractBsWhiteCompoundPkWrongOrderCQ extends AbstractCond
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * wrong_name: {varchar(200)} <br>
      * <pre>e.g. setWrongName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param wrongName The value of wrongName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param wrongName The value of wrongName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setWrongName_LikeSearch(String wrongName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -458,7 +458,7 @@ public abstract class AbstractBsWhiteCompoundPkWrongOrderCQ extends AbstractCond
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * wrong_name: {varchar(200)} <br>
      * <pre>e.g. setWrongName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param wrongName The value of wrongName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param wrongName The value of wrongName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setWrongName_LikeSearch(String wrongName, LikeSearchOption likeSearchOption) {
@@ -469,7 +469,7 @@ public abstract class AbstractBsWhiteCompoundPkWrongOrderCQ extends AbstractCond
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * wrong_name: {varchar(200)}
-     * @param wrongName The value of wrongName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param wrongName The value of wrongName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setWrongName_NotLikeSearch(String wrongName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -480,7 +480,7 @@ public abstract class AbstractBsWhiteCompoundPkWrongOrderCQ extends AbstractCond
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * wrong_name: {varchar(200)}
-     * @param wrongName The value of wrongName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param wrongName The value of wrongName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setWrongName_NotLikeSearch(String wrongName, LikeSearchOption likeSearchOption) {
@@ -490,7 +490,7 @@ public abstract class AbstractBsWhiteCompoundPkWrongOrderCQ extends AbstractCond
     /**
      * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * wrong_name: {varchar(200)}
-     * @param wrongName The value of wrongName as prefixSearch. (NullAllowed: if null (or empty), no condition)
+     * @param wrongName The value of wrongName as prefixSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setWrongName_PrefixSearch(String wrongName) {
         setWrongName_LikeSearch(wrongName, xcLSOPPre());

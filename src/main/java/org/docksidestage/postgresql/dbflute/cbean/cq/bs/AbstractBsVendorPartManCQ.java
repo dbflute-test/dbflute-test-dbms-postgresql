@@ -97,8 +97,8 @@ public abstract class AbstractBsVendorPartManCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * part_man_id: {PK, NotNull, int4(10)}
-     * @param minNumber The min number of partManId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of partManId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of partManId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of partManId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setPartManId_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -110,8 +110,8 @@ public abstract class AbstractBsVendorPartManCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * part_man_id: {PK, NotNull, int4(10)}
-     * @param minNumber The min number of partManId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of partManId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of partManId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of partManId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setPartManId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -121,7 +121,7 @@ public abstract class AbstractBsVendorPartManCQ extends AbstractConditionQuery {
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * part_man_id: {PK, NotNull, int4(10)}
-     * @param partManIdList The collection of partManId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param partManIdList The collection of partManId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPartManId_InScope(Collection<Integer> partManIdList) {
         doSetPartManId_InScope(partManIdList);
@@ -134,7 +134,7 @@ public abstract class AbstractBsVendorPartManCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * part_man_id: {PK, NotNull, int4(10)}
-     * @param partManIdList The collection of partManId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param partManIdList The collection of partManId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPartManId_NotInScope(Collection<Integer> partManIdList) {
         doSetPartManId_NotInScope(partManIdList);
@@ -162,7 +162,7 @@ public abstract class AbstractBsVendorPartManCQ extends AbstractConditionQuery {
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * part_man_name: {NotNull, varchar(2147483647)}
-     * @param partManName The value of partManName as equal. (NullAllowed: if null (or empty), no condition)
+     * @param partManName The value of partManName as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPartManName_Equal(String partManName) {
         doSetPartManName_Equal(fRES(partManName));
@@ -175,7 +175,7 @@ public abstract class AbstractBsVendorPartManCQ extends AbstractConditionQuery {
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * part_man_name: {NotNull, varchar(2147483647)}
-     * @param partManName The value of partManName as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param partManName The value of partManName as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPartManName_NotEqual(String partManName) {
         doSetPartManName_NotEqual(fRES(partManName));
@@ -188,7 +188,7 @@ public abstract class AbstractBsVendorPartManCQ extends AbstractConditionQuery {
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * part_man_name: {NotNull, varchar(2147483647)}
-     * @param partManNameList The collection of partManName as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param partManNameList The collection of partManName as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPartManName_InScope(Collection<String> partManNameList) {
         doSetPartManName_InScope(partManNameList);
@@ -201,7 +201,7 @@ public abstract class AbstractBsVendorPartManCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * part_man_name: {NotNull, varchar(2147483647)}
-     * @param partManNameList The collection of partManName as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param partManNameList The collection of partManName as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPartManName_NotInScope(Collection<String> partManNameList) {
         doSetPartManName_NotInScope(partManNameList);
@@ -215,7 +215,7 @@ public abstract class AbstractBsVendorPartManCQ extends AbstractConditionQuery {
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * part_man_name: {NotNull, varchar(2147483647)} <br>
      * <pre>e.g. setPartManName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param partManName The value of partManName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param partManName The value of partManName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setPartManName_LikeSearch(String partManName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -226,7 +226,7 @@ public abstract class AbstractBsVendorPartManCQ extends AbstractConditionQuery {
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * part_man_name: {NotNull, varchar(2147483647)} <br>
      * <pre>e.g. setPartManName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param partManName The value of partManName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param partManName The value of partManName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setPartManName_LikeSearch(String partManName, LikeSearchOption likeSearchOption) {
@@ -237,7 +237,7 @@ public abstract class AbstractBsVendorPartManCQ extends AbstractConditionQuery {
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * part_man_name: {NotNull, varchar(2147483647)}
-     * @param partManName The value of partManName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param partManName The value of partManName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setPartManName_NotLikeSearch(String partManName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -248,7 +248,7 @@ public abstract class AbstractBsVendorPartManCQ extends AbstractConditionQuery {
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * part_man_name: {NotNull, varchar(2147483647)}
-     * @param partManName The value of partManName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param partManName The value of partManName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setPartManName_NotLikeSearch(String partManName, LikeSearchOption likeSearchOption) {
@@ -258,7 +258,7 @@ public abstract class AbstractBsVendorPartManCQ extends AbstractConditionQuery {
     /**
      * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * part_man_name: {NotNull, varchar(2147483647)}
-     * @param partManName The value of partManName as prefixSearch. (NullAllowed: if null (or empty), no condition)
+     * @param partManName The value of partManName as prefixSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPartManName_PrefixSearch(String partManName) {
         setPartManName_LikeSearch(partManName, xcLSOPPre());
@@ -321,8 +321,8 @@ public abstract class AbstractBsVendorPartManCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * part_man_point: {NotNull, int4(10)}
-     * @param minNumber The min number of partManPoint. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of partManPoint. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of partManPoint. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of partManPoint. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setPartManPoint_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -334,8 +334,8 @@ public abstract class AbstractBsVendorPartManCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * part_man_point: {NotNull, int4(10)}
-     * @param minNumber The min number of partManPoint. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of partManPoint. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of partManPoint. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of partManPoint. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setPartManPoint_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -345,7 +345,7 @@ public abstract class AbstractBsVendorPartManCQ extends AbstractConditionQuery {
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * part_man_point: {NotNull, int4(10)}
-     * @param partManPointList The collection of partManPoint as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param partManPointList The collection of partManPoint as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPartManPoint_InScope(Collection<Integer> partManPointList) {
         doSetPartManPoint_InScope(partManPointList);
@@ -358,7 +358,7 @@ public abstract class AbstractBsVendorPartManCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * part_man_point: {NotNull, int4(10)}
-     * @param partManPointList The collection of partManPoint as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param partManPointList The collection of partManPoint as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setPartManPoint_NotInScope(Collection<Integer> partManPointList) {
         doSetPartManPoint_NotInScope(partManPointList);

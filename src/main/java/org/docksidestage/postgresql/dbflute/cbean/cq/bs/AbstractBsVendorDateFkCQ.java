@@ -97,8 +97,8 @@ public abstract class AbstractBsVendorDateFkCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * bar_id: {PK, NotNull, int4(10)}
-     * @param minNumber The min number of barId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of barId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of barId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of barId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setBarId_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -110,8 +110,8 @@ public abstract class AbstractBsVendorDateFkCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * bar_id: {PK, NotNull, int4(10)}
-     * @param minNumber The min number of barId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of barId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of barId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of barId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setBarId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -121,7 +121,7 @@ public abstract class AbstractBsVendorDateFkCQ extends AbstractConditionQuery {
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * bar_id: {PK, NotNull, int4(10)}
-     * @param barIdList The collection of barId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param barIdList The collection of barId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setBarId_InScope(Collection<Integer> barIdList) {
         doSetBarId_InScope(barIdList);
@@ -134,7 +134,7 @@ public abstract class AbstractBsVendorDateFkCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * bar_id: {PK, NotNull, int4(10)}
-     * @param barIdList The collection of barId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param barIdList The collection of barId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setBarId_NotInScope(Collection<Integer> barIdList) {
         doSetBarId_NotInScope(barIdList);
@@ -249,7 +249,7 @@ public abstract class AbstractBsVendorDateFkCQ extends AbstractConditionQuery {
     /**
      * InScope {in ('1965-03-03', '1966-09-15')}. And NullOrEmptyIgnored, NullElementIgnored, SeveralRegistered. <br>
      * bar_date: {NotNull, date(13), FK to vendor_date_pk}
-     * @param barDateList The collection of barDate as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param barDateList The collection of barDate as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setBarDate_InScope(Collection<java.time.LocalDate> barDateList) {
         doSetBarDate_InScope(barDateList);

@@ -97,8 +97,8 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * NON-COMPILABLE ID: {PK, NotNull, int4(10)}
-     * @param minNumber The min number of non_compilable_id. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of non_compilable_id. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of non_compilable_id. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of non_compilable_id. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setNon_compilable_id_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -110,8 +110,8 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * NON-COMPILABLE ID: {PK, NotNull, int4(10)}
-     * @param minNumber The min number of non_compilable_id. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of non_compilable_id. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of non_compilable_id. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of non_compilable_id. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setNon_compilable_id_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -121,7 +121,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * NON-COMPILABLE ID: {PK, NotNull, int4(10)}
-     * @param non_compilable_idList The collection of non_compilable_id as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param non_compilable_idList The collection of non_compilable_id as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setNon_compilable_id_InScope(Collection<Integer> non_compilable_idList) {
         doSetNon_compilable_id_InScope(non_compilable_idList);
@@ -134,7 +134,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * NON-COMPILABLE ID: {PK, NotNull, int4(10)}
-     * @param non_compilable_idList The collection of non_compilable_id as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param non_compilable_idList The collection of non_compilable_id as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setNon_compilable_id_NotInScope(Collection<Integer> non_compilable_idList) {
         doSetNon_compilable_id_NotInScope(non_compilable_idList);
@@ -308,7 +308,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * NON COMPILABLE-NAME: {varchar(64)}
-     * @param non_compilable_name The value of non_compilable_name as equal. (NullAllowed: if null (or empty), no condition)
+     * @param non_compilable_name The value of non_compilable_name as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setNon_compilable_name_Equal(String non_compilable_name) {
         doSetNon_compilable_name_Equal(fRES(non_compilable_name));
@@ -321,7 +321,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * NON COMPILABLE-NAME: {varchar(64)}
-     * @param non_compilable_name The value of non_compilable_name as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param non_compilable_name The value of non_compilable_name as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setNon_compilable_name_NotEqual(String non_compilable_name) {
         doSetNon_compilable_name_NotEqual(fRES(non_compilable_name));
@@ -334,7 +334,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * NON COMPILABLE-NAME: {varchar(64)}
-     * @param non_compilable_nameList The collection of non_compilable_name as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param non_compilable_nameList The collection of non_compilable_name as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setNon_compilable_name_InScope(Collection<String> non_compilable_nameList) {
         doSetNon_compilable_name_InScope(non_compilable_nameList);
@@ -347,7 +347,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * NON COMPILABLE-NAME: {varchar(64)}
-     * @param non_compilable_nameList The collection of non_compilable_name as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param non_compilable_nameList The collection of non_compilable_name as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setNon_compilable_name_NotInScope(Collection<String> non_compilable_nameList) {
         doSetNon_compilable_name_NotInScope(non_compilable_nameList);
@@ -361,7 +361,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * NON COMPILABLE-NAME: {varchar(64)} <br>
      * <pre>e.g. setNon_compilable_name_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param non_compilable_name The value of non_compilable_name as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param non_compilable_name The value of non_compilable_name as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setNon_compilable_name_LikeSearch(String non_compilable_name, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -372,7 +372,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * NON COMPILABLE-NAME: {varchar(64)} <br>
      * <pre>e.g. setNon_compilable_name_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param non_compilable_name The value of non_compilable_name as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param non_compilable_name The value of non_compilable_name as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setNon_compilable_name_LikeSearch(String non_compilable_name, LikeSearchOption likeSearchOption) {
@@ -383,7 +383,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * NON COMPILABLE-NAME: {varchar(64)}
-     * @param non_compilable_name The value of non_compilable_name as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param non_compilable_name The value of non_compilable_name as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setNon_compilable_name_NotLikeSearch(String non_compilable_name, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -394,7 +394,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * NON COMPILABLE-NAME: {varchar(64)}
-     * @param non_compilable_name The value of non_compilable_name as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param non_compilable_name The value of non_compilable_name as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setNon_compilable_name_NotLikeSearch(String non_compilable_name, LikeSearchOption likeSearchOption) {
@@ -404,7 +404,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     /**
      * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * NON COMPILABLE-NAME: {varchar(64)}
-     * @param non_compilable_name The value of non_compilable_name as prefixSearch. (NullAllowed: if null (or empty), no condition)
+     * @param non_compilable_name The value of non_compilable_name as prefixSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setNon_compilable_name_PrefixSearch(String non_compilable_name) {
         setNon_compilable_name_LikeSearch(non_compilable_name, xcLSOPPre());
@@ -485,8 +485,8 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * PARENT-ID: {int4(10), FK to VENDOR-NON COMPILABLE}
-     * @param minNumber The min number of parent_id. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of parent_id. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of parent_id. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of parent_id. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setParent_id_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -498,8 +498,8 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * PARENT-ID: {int4(10), FK to VENDOR-NON COMPILABLE}
-     * @param minNumber The min number of parent_id. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of parent_id. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of parent_id. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of parent_id. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setParent_id_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -509,7 +509,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * PARENT-ID: {int4(10), FK to VENDOR-NON COMPILABLE}
-     * @param parent_idList The collection of parent_id as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param parent_idList The collection of parent_id as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setParent_id_InScope(Collection<Integer> parent_idList) {
         doSetParent_id_InScope(parent_idList);
@@ -522,7 +522,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * PARENT-ID: {int4(10), FK to VENDOR-NON COMPILABLE}
-     * @param parent_idList The collection of parent_id as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param parent_idList The collection of parent_id as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setParent_id_NotInScope(Collection<Integer> parent_idList) {
         doSetParent_id_NotInScope(parent_idList);
@@ -601,8 +601,8 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * Next_ParentID: {IX, int4(10), FK to VENDOR-NON COMPILABLE}
-     * @param minNumber The min number of nextParentid. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of nextParentid. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of nextParentid. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of nextParentid. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setNextParentid_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -614,8 +614,8 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * Next_ParentID: {IX, int4(10), FK to VENDOR-NON COMPILABLE}
-     * @param minNumber The min number of nextParentid. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of nextParentid. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of nextParentid. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of nextParentid. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setNextParentid_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -625,7 +625,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * Next_ParentID: {IX, int4(10), FK to VENDOR-NON COMPILABLE}
-     * @param nextParentidList The collection of nextParentid as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param nextParentidList The collection of nextParentid as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setNextParentid_InScope(Collection<Integer> nextParentidList) {
         doSetNextParentid_InScope(nextParentidList);
@@ -638,7 +638,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * Next_ParentID: {IX, int4(10), FK to VENDOR-NON COMPILABLE}
-     * @param nextParentidList The collection of nextParentid as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param nextParentidList The collection of nextParentid as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setNextParentid_NotInScope(Collection<Integer> nextParentidList) {
         doSetNextParentid_NotInScope(nextParentidList);

@@ -55,7 +55,7 @@ public abstract class AbstractBsVendorUuidFooCQ extends AbstractConditionQuery {
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * foo_id: {PK, NotNull, uuid(2147483647)}
-     * @param fooIdList The collection of fooId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param fooIdList The collection of fooId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setFooId_InScope(Collection<java.util.UUID> fooIdList) {
         regINS(CK_INS, cTL(fooIdList), xgetCValueFooId(), "foo_id");
@@ -79,7 +79,7 @@ public abstract class AbstractBsVendorUuidFooCQ extends AbstractConditionQuery {
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * foo_name: {NotNull, varchar(2147483647)}
-     * @param fooName The value of fooName as equal. (NullAllowed: if null (or empty), no condition)
+     * @param fooName The value of fooName as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setFooName_Equal(String fooName) {
         doSetFooName_Equal(fRES(fooName));
@@ -92,7 +92,7 @@ public abstract class AbstractBsVendorUuidFooCQ extends AbstractConditionQuery {
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * foo_name: {NotNull, varchar(2147483647)}
-     * @param fooName The value of fooName as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param fooName The value of fooName as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setFooName_NotEqual(String fooName) {
         doSetFooName_NotEqual(fRES(fooName));
@@ -105,7 +105,7 @@ public abstract class AbstractBsVendorUuidFooCQ extends AbstractConditionQuery {
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * foo_name: {NotNull, varchar(2147483647)}
-     * @param fooNameList The collection of fooName as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param fooNameList The collection of fooName as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setFooName_InScope(Collection<String> fooNameList) {
         doSetFooName_InScope(fooNameList);
@@ -118,7 +118,7 @@ public abstract class AbstractBsVendorUuidFooCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * foo_name: {NotNull, varchar(2147483647)}
-     * @param fooNameList The collection of fooName as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param fooNameList The collection of fooName as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setFooName_NotInScope(Collection<String> fooNameList) {
         doSetFooName_NotInScope(fooNameList);
@@ -132,7 +132,7 @@ public abstract class AbstractBsVendorUuidFooCQ extends AbstractConditionQuery {
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * foo_name: {NotNull, varchar(2147483647)} <br>
      * <pre>e.g. setFooName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param fooName The value of fooName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param fooName The value of fooName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setFooName_LikeSearch(String fooName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -143,7 +143,7 @@ public abstract class AbstractBsVendorUuidFooCQ extends AbstractConditionQuery {
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * foo_name: {NotNull, varchar(2147483647)} <br>
      * <pre>e.g. setFooName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param fooName The value of fooName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param fooName The value of fooName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setFooName_LikeSearch(String fooName, LikeSearchOption likeSearchOption) {
@@ -154,7 +154,7 @@ public abstract class AbstractBsVendorUuidFooCQ extends AbstractConditionQuery {
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * foo_name: {NotNull, varchar(2147483647)}
-     * @param fooName The value of fooName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param fooName The value of fooName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setFooName_NotLikeSearch(String fooName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -165,7 +165,7 @@ public abstract class AbstractBsVendorUuidFooCQ extends AbstractConditionQuery {
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * foo_name: {NotNull, varchar(2147483647)}
-     * @param fooName The value of fooName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param fooName The value of fooName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setFooName_NotLikeSearch(String fooName, LikeSearchOption likeSearchOption) {
@@ -175,7 +175,7 @@ public abstract class AbstractBsVendorUuidFooCQ extends AbstractConditionQuery {
     /**
      * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * foo_name: {NotNull, varchar(2147483647)}
-     * @param fooName The value of fooName as prefixSearch. (NullAllowed: if null (or empty), no condition)
+     * @param fooName The value of fooName as prefixSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setFooName_PrefixSearch(String fooName) {
         setFooName_LikeSearch(fooName, xcLSOPPre());
@@ -196,7 +196,7 @@ public abstract class AbstractBsVendorUuidFooCQ extends AbstractConditionQuery {
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * bar_id: {NotNull, uuid(2147483647), FK to vendor_uuid_bar}
-     * @param barIdList The collection of barId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param barIdList The collection of barId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setBarId_InScope(Collection<java.util.UUID> barIdList) {
         regINS(CK_INS, cTL(barIdList), xgetCValueBarId(), "bar_id");

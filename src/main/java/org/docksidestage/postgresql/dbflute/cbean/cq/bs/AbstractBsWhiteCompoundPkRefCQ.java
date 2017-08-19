@@ -97,8 +97,8 @@ public abstract class AbstractBsWhiteCompoundPkRefCQ extends AbstractConditionQu
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * multiple_first_id: {PK, NotNull, int4(10)}
-     * @param minNumber The min number of multipleFirstId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of multipleFirstId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of multipleFirstId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of multipleFirstId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setMultipleFirstId_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -110,8 +110,8 @@ public abstract class AbstractBsWhiteCompoundPkRefCQ extends AbstractConditionQu
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * multiple_first_id: {PK, NotNull, int4(10)}
-     * @param minNumber The min number of multipleFirstId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of multipleFirstId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of multipleFirstId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of multipleFirstId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setMultipleFirstId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -121,7 +121,7 @@ public abstract class AbstractBsWhiteCompoundPkRefCQ extends AbstractConditionQu
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * multiple_first_id: {PK, NotNull, int4(10)}
-     * @param multipleFirstIdList The collection of multipleFirstId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param multipleFirstIdList The collection of multipleFirstId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMultipleFirstId_InScope(Collection<Integer> multipleFirstIdList) {
         doSetMultipleFirstId_InScope(multipleFirstIdList);
@@ -134,7 +134,7 @@ public abstract class AbstractBsWhiteCompoundPkRefCQ extends AbstractConditionQu
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * multiple_first_id: {PK, NotNull, int4(10)}
-     * @param multipleFirstIdList The collection of multipleFirstId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param multipleFirstIdList The collection of multipleFirstId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMultipleFirstId_NotInScope(Collection<Integer> multipleFirstIdList) {
         doSetMultipleFirstId_NotInScope(multipleFirstIdList);
@@ -213,8 +213,8 @@ public abstract class AbstractBsWhiteCompoundPkRefCQ extends AbstractConditionQu
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * multiple_second_id: {PK, NotNull, int4(10)}
-     * @param minNumber The min number of multipleSecondId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of multipleSecondId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of multipleSecondId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of multipleSecondId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setMultipleSecondId_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -226,8 +226,8 @@ public abstract class AbstractBsWhiteCompoundPkRefCQ extends AbstractConditionQu
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * multiple_second_id: {PK, NotNull, int4(10)}
-     * @param minNumber The min number of multipleSecondId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of multipleSecondId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of multipleSecondId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of multipleSecondId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setMultipleSecondId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -237,7 +237,7 @@ public abstract class AbstractBsWhiteCompoundPkRefCQ extends AbstractConditionQu
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * multiple_second_id: {PK, NotNull, int4(10)}
-     * @param multipleSecondIdList The collection of multipleSecondId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param multipleSecondIdList The collection of multipleSecondId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMultipleSecondId_InScope(Collection<Integer> multipleSecondIdList) {
         doSetMultipleSecondId_InScope(multipleSecondIdList);
@@ -250,7 +250,7 @@ public abstract class AbstractBsWhiteCompoundPkRefCQ extends AbstractConditionQu
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * multiple_second_id: {PK, NotNull, int4(10)}
-     * @param multipleSecondIdList The collection of multipleSecondId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param multipleSecondIdList The collection of multipleSecondId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setMultipleSecondId_NotInScope(Collection<Integer> multipleSecondIdList) {
         doSetMultipleSecondId_NotInScope(multipleSecondIdList);
@@ -329,8 +329,8 @@ public abstract class AbstractBsWhiteCompoundPkRefCQ extends AbstractConditionQu
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * ref_first_id: {NotNull, int4(10), FK to white_compound_pk}
-     * @param minNumber The min number of refFirstId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of refFirstId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of refFirstId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of refFirstId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setRefFirstId_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -342,8 +342,8 @@ public abstract class AbstractBsWhiteCompoundPkRefCQ extends AbstractConditionQu
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * ref_first_id: {NotNull, int4(10), FK to white_compound_pk}
-     * @param minNumber The min number of refFirstId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of refFirstId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of refFirstId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of refFirstId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setRefFirstId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -353,7 +353,7 @@ public abstract class AbstractBsWhiteCompoundPkRefCQ extends AbstractConditionQu
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ref_first_id: {NotNull, int4(10), FK to white_compound_pk}
-     * @param refFirstIdList The collection of refFirstId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param refFirstIdList The collection of refFirstId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setRefFirstId_InScope(Collection<Integer> refFirstIdList) {
         doSetRefFirstId_InScope(refFirstIdList);
@@ -366,7 +366,7 @@ public abstract class AbstractBsWhiteCompoundPkRefCQ extends AbstractConditionQu
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ref_first_id: {NotNull, int4(10), FK to white_compound_pk}
-     * @param refFirstIdList The collection of refFirstId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param refFirstIdList The collection of refFirstId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setRefFirstId_NotInScope(Collection<Integer> refFirstIdList) {
         doSetRefFirstId_NotInScope(refFirstIdList);
@@ -433,8 +433,8 @@ public abstract class AbstractBsWhiteCompoundPkRefCQ extends AbstractConditionQu
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * ref_second_id: {NotNull, int4(10), FK to white_compound_pk}
-     * @param minNumber The min number of refSecondId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of refSecondId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of refSecondId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of refSecondId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setRefSecondId_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -446,8 +446,8 @@ public abstract class AbstractBsWhiteCompoundPkRefCQ extends AbstractConditionQu
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * ref_second_id: {NotNull, int4(10), FK to white_compound_pk}
-     * @param minNumber The min number of refSecondId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of refSecondId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of refSecondId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of refSecondId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setRefSecondId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -457,7 +457,7 @@ public abstract class AbstractBsWhiteCompoundPkRefCQ extends AbstractConditionQu
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ref_second_id: {NotNull, int4(10), FK to white_compound_pk}
-     * @param refSecondIdList The collection of refSecondId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param refSecondIdList The collection of refSecondId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setRefSecondId_InScope(Collection<Integer> refSecondIdList) {
         doSetRefSecondId_InScope(refSecondIdList);
@@ -470,7 +470,7 @@ public abstract class AbstractBsWhiteCompoundPkRefCQ extends AbstractConditionQu
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * ref_second_id: {NotNull, int4(10), FK to white_compound_pk}
-     * @param refSecondIdList The collection of refSecondId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param refSecondIdList The collection of refSecondId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setRefSecondId_NotInScope(Collection<Integer> refSecondIdList) {
         doSetRefSecondId_NotInScope(refSecondIdList);

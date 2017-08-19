@@ -66,10 +66,10 @@ public class VendorPartManDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnPartManId = cci("part_man_id", "part_man_id", null, null, Integer.class, "partManId", null, true, false, true, "int4", 10, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnPartManName = cci("part_man_name", "part_man_name", null, null, String.class, "partManName", null, false, false, true, "varchar", 2147483647, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnPartManPoint = cci("part_man_point", "part_man_point", null, null, Integer.class, "partManPoint", null, false, false, true, "int4", 10, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnPartManDate = cci("part_man_date", "part_man_date", null, null, java.time.LocalDate.class, "partManDate", null, false, false, false, "date", 13, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnPartManId = cci("part_man_id", "part_man_id", null, null, Integer.class, "partManId", null, true, false, true, "int4", 10, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnPartManName = cci("part_man_name", "part_man_name", null, null, String.class, "partManName", null, false, false, true, "varchar", 2147483647, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnPartManPoint = cci("part_man_point", "part_man_point", null, null, Integer.class, "partManPoint", null, false, false, true, "int4", 10, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnPartManDate = cci("part_man_date", "part_man_date", null, null, java.time.LocalDate.class, "partManDate", null, false, false, false, "date", 13, 0, null, null, false, null, null, null, null, null, false);
 
     /**
      * part_man_id: {PK, NotNull, int4(10)}

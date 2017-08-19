@@ -101,7 +101,7 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * (地域ID)region_id: {PK, NotNull, int4(10), classification=Region}
-     * @param regionIdList The collection of regionId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param regionIdList The collection of regionId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     protected void setRegionId_InScope(Collection<Integer> regionIdList) {
         doSetRegionId_InScope(regionIdList);
@@ -111,7 +111,7 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
      * InScope {in (1, 2)}. As Region. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * (地域ID)region_id: {PK, NotNull, int4(10), classification=Region} <br>
      * mainly region of member address
-     * @param cdefList The list of classification definition (as ENUM type). (NullAllowed: if null (or empty), no condition)
+     * @param cdefList The list of classification definition (as ENUM type). (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setRegionId_InScope_AsRegion(Collection<CDef.Region> cdefList) {
         doSetRegionId_InScope(cTNumL(cdefList, Integer.class));
@@ -124,7 +124,7 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * (地域ID)region_id: {PK, NotNull, int4(10), classification=Region}
-     * @param regionIdList The collection of regionId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param regionIdList The collection of regionId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     protected void setRegionId_NotInScope(Collection<Integer> regionIdList) {
         doSetRegionId_NotInScope(regionIdList);
@@ -134,7 +134,7 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
      * NotInScope {not in (1, 2)}. As Region. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * (地域ID)region_id: {PK, NotNull, int4(10), classification=Region} <br>
      * mainly region of member address
-     * @param cdefList The list of classification definition (as ENUM type). (NullAllowed: if null (or empty), no condition)
+     * @param cdefList The list of classification definition (as ENUM type). (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setRegionId_NotInScope_AsRegion(Collection<CDef.Region> cdefList) {
         doSetRegionId_NotInScope(cTNumL(cdefList, Integer.class));
@@ -235,7 +235,7 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * (地域名称)region_name: {NotNull, varchar(50)}
-     * @param regionName The value of regionName as equal. (NullAllowed: if null (or empty), no condition)
+     * @param regionName The value of regionName as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setRegionName_Equal(String regionName) {
         doSetRegionName_Equal(fRES(regionName));
@@ -248,7 +248,7 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * (地域名称)region_name: {NotNull, varchar(50)}
-     * @param regionName The value of regionName as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param regionName The value of regionName as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setRegionName_NotEqual(String regionName) {
         doSetRegionName_NotEqual(fRES(regionName));
@@ -261,7 +261,7 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * (地域名称)region_name: {NotNull, varchar(50)}
-     * @param regionNameList The collection of regionName as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param regionNameList The collection of regionName as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setRegionName_InScope(Collection<String> regionNameList) {
         doSetRegionName_InScope(regionNameList);
@@ -274,7 +274,7 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * (地域名称)region_name: {NotNull, varchar(50)}
-     * @param regionNameList The collection of regionName as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param regionNameList The collection of regionName as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setRegionName_NotInScope(Collection<String> regionNameList) {
         doSetRegionName_NotInScope(regionNameList);
@@ -288,7 +288,7 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * (地域名称)region_name: {NotNull, varchar(50)} <br>
      * <pre>e.g. setRegionName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param regionName The value of regionName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param regionName The value of regionName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setRegionName_LikeSearch(String regionName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -299,7 +299,7 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * (地域名称)region_name: {NotNull, varchar(50)} <br>
      * <pre>e.g. setRegionName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param regionName The value of regionName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param regionName The value of regionName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setRegionName_LikeSearch(String regionName, LikeSearchOption likeSearchOption) {
@@ -310,7 +310,7 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * (地域名称)region_name: {NotNull, varchar(50)}
-     * @param regionName The value of regionName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param regionName The value of regionName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setRegionName_NotLikeSearch(String regionName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -321,7 +321,7 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * (地域名称)region_name: {NotNull, varchar(50)}
-     * @param regionName The value of regionName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param regionName The value of regionName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setRegionName_NotLikeSearch(String regionName, LikeSearchOption likeSearchOption) {
@@ -331,7 +331,7 @@ public abstract class AbstractBsRegionCQ extends AbstractConditionQuery {
     /**
      * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * (地域名称)region_name: {NotNull, varchar(50)}
-     * @param regionName The value of regionName as prefixSearch. (NullAllowed: if null (or empty), no condition)
+     * @param regionName The value of regionName as prefixSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setRegionName_PrefixSearch(String regionName) {
         setRegionName_LikeSearch(regionName, xcLSOPPre());

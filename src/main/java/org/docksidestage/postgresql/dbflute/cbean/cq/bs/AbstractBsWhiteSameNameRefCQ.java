@@ -97,8 +97,8 @@ public abstract class AbstractBsWhiteSameNameRefCQ extends AbstractConditionQuer
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * same_name_ref_id: {PK, NotNull, int4(10)}
-     * @param minNumber The min number of sameNameRefId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of sameNameRefId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of sameNameRefId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of sameNameRefId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setSameNameRefId_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -110,8 +110,8 @@ public abstract class AbstractBsWhiteSameNameRefCQ extends AbstractConditionQuer
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * same_name_ref_id: {PK, NotNull, int4(10)}
-     * @param minNumber The min number of sameNameRefId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of sameNameRefId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of sameNameRefId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of sameNameRefId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setSameNameRefId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -121,7 +121,7 @@ public abstract class AbstractBsWhiteSameNameRefCQ extends AbstractConditionQuer
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * same_name_ref_id: {PK, NotNull, int4(10)}
-     * @param sameNameRefIdList The collection of sameNameRefId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param sameNameRefIdList The collection of sameNameRefId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setSameNameRefId_InScope(Collection<Integer> sameNameRefIdList) {
         doSetSameNameRefId_InScope(sameNameRefIdList);
@@ -134,7 +134,7 @@ public abstract class AbstractBsWhiteSameNameRefCQ extends AbstractConditionQuer
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * same_name_ref_id: {PK, NotNull, int4(10)}
-     * @param sameNameRefIdList The collection of sameNameRefId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param sameNameRefIdList The collection of sameNameRefId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setSameNameRefId_NotInScope(Collection<Integer> sameNameRefIdList) {
         doSetSameNameRefId_NotInScope(sameNameRefIdList);
@@ -213,8 +213,8 @@ public abstract class AbstractBsWhiteSameNameRefCQ extends AbstractConditionQuer
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * same_name_id: {NotNull, int8(19), FK to white_same_name}
-     * @param minNumber The min number of sameNameId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of sameNameId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of sameNameId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of sameNameId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setSameNameId_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -226,8 +226,8 @@ public abstract class AbstractBsWhiteSameNameRefCQ extends AbstractConditionQuer
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * same_name_id: {NotNull, int8(19), FK to white_same_name}
-     * @param minNumber The min number of sameNameId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of sameNameId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of sameNameId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of sameNameId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setSameNameId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
@@ -237,7 +237,7 @@ public abstract class AbstractBsWhiteSameNameRefCQ extends AbstractConditionQuer
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * same_name_id: {NotNull, int8(19), FK to white_same_name}
-     * @param sameNameIdList The collection of sameNameId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param sameNameIdList The collection of sameNameId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setSameNameId_InScope(Collection<Long> sameNameIdList) {
         doSetSameNameId_InScope(sameNameIdList);
@@ -250,7 +250,7 @@ public abstract class AbstractBsWhiteSameNameRefCQ extends AbstractConditionQuer
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * same_name_id: {NotNull, int8(19), FK to white_same_name}
-     * @param sameNameIdList The collection of sameNameId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param sameNameIdList The collection of sameNameId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setSameNameId_NotInScope(Collection<Long> sameNameIdList) {
         doSetSameNameId_NotInScope(sameNameIdList);
@@ -317,8 +317,8 @@ public abstract class AbstractBsWhiteSameNameRefCQ extends AbstractConditionQuer
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * next_same_name_id: {NotNull, int8(19)}
-     * @param minNumber The min number of nextSameNameId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of nextSameNameId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of nextSameNameId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of nextSameNameId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setNextSameNameId_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -330,8 +330,8 @@ public abstract class AbstractBsWhiteSameNameRefCQ extends AbstractConditionQuer
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * next_same_name_id: {NotNull, int8(19)}
-     * @param minNumber The min number of nextSameNameId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of nextSameNameId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of nextSameNameId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of nextSameNameId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setNextSameNameId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
@@ -341,7 +341,7 @@ public abstract class AbstractBsWhiteSameNameRefCQ extends AbstractConditionQuer
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * next_same_name_id: {NotNull, int8(19)}
-     * @param nextSameNameIdList The collection of nextSameNameId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param nextSameNameIdList The collection of nextSameNameId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setNextSameNameId_InScope(Collection<Long> nextSameNameIdList) {
         doSetNextSameNameId_InScope(nextSameNameIdList);
@@ -354,7 +354,7 @@ public abstract class AbstractBsWhiteSameNameRefCQ extends AbstractConditionQuer
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * next_same_name_id: {NotNull, int8(19)}
-     * @param nextSameNameIdList The collection of nextSameNameId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param nextSameNameIdList The collection of nextSameNameId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setNextSameNameId_NotInScope(Collection<Long> nextSameNameIdList) {
         doSetNextSameNameId_NotInScope(nextSameNameIdList);

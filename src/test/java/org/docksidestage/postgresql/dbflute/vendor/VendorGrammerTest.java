@@ -183,6 +183,7 @@ public class VendorGrammerTest extends UnitContainerTestCase {
             // common columns
             AccessContext accessContext = AccessContext.getAccessContextOnThread();
             String registerTimestamp = DfTypeUtil.toString(accessContext.getAccessTimestamp(), fmt);
+            // #for_now has round of millisecond headache
             assertEquals(registerTimestamp, DfTypeUtil.toString(actual.getRegisterDatetime(), fmt));
             assertEquals(accessContext.getAccessUser(), actual.getRegisterUser());
             assertEquals(accessContext.getAccessProcess(), actual.getRegisterProcess());

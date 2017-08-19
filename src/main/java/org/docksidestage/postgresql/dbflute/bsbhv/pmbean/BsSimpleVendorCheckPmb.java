@@ -138,6 +138,15 @@ public class BsSimpleVendorCheckPmb implements ListHandlingPmb<VendorCheckBhv, S
     }
 
     /**
+     * [set as TrueFalse] typeOfBoolean:cls(TrueFalse) <br>
+     * boolean type classification
+     * @param cdef The instance of classification definition (as ENUM type). (NullAllowed: if null, null value is set to the property)
+     */
+    public void setTypeOfBooleanAsTrueFalse(CDef.TrueFalse cdef) {
+        _typeOfBoolean = cdef != null ? toBoolean(cdef.code()) : null;
+    }
+
+    /**
      * [set as True] typeOfBoolean:cls(TrueFalse) <br>
      * means valid
      */

@@ -97,8 +97,8 @@ public abstract class AbstractBsWhiteNotPkCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * not_pk_id: {NotNull, int8(19)}
-     * @param minNumber The min number of notPkId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of notPkId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of notPkId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of notPkId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setNotPkId_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -110,8 +110,8 @@ public abstract class AbstractBsWhiteNotPkCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * not_pk_id: {NotNull, int8(19)}
-     * @param minNumber The min number of notPkId. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of notPkId. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of notPkId. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of notPkId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setNotPkId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
@@ -121,7 +121,7 @@ public abstract class AbstractBsWhiteNotPkCQ extends AbstractConditionQuery {
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * not_pk_id: {NotNull, int8(19)}
-     * @param notPkIdList The collection of notPkId as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param notPkIdList The collection of notPkId as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setNotPkId_InScope(Collection<Long> notPkIdList) {
         doSetNotPkId_InScope(notPkIdList);
@@ -134,7 +134,7 @@ public abstract class AbstractBsWhiteNotPkCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * not_pk_id: {NotNull, int8(19)}
-     * @param notPkIdList The collection of notPkId as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param notPkIdList The collection of notPkId as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setNotPkId_NotInScope(Collection<Long> notPkIdList) {
         doSetNotPkId_NotInScope(notPkIdList);
@@ -150,7 +150,7 @@ public abstract class AbstractBsWhiteNotPkCQ extends AbstractConditionQuery {
     /**
      * Equal(=). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * not_pk_name: {varchar(2147483647)}
-     * @param notPkName The value of notPkName as equal. (NullAllowed: if null (or empty), no condition)
+     * @param notPkName The value of notPkName as equal. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setNotPkName_Equal(String notPkName) {
         doSetNotPkName_Equal(fRES(notPkName));
@@ -163,7 +163,7 @@ public abstract class AbstractBsWhiteNotPkCQ extends AbstractConditionQuery {
     /**
      * NotEqual(&lt;&gt;). And NullOrEmptyIgnored, OnlyOnceRegistered. <br>
      * not_pk_name: {varchar(2147483647)}
-     * @param notPkName The value of notPkName as notEqual. (NullAllowed: if null (or empty), no condition)
+     * @param notPkName The value of notPkName as notEqual. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setNotPkName_NotEqual(String notPkName) {
         doSetNotPkName_NotEqual(fRES(notPkName));
@@ -176,7 +176,7 @@ public abstract class AbstractBsWhiteNotPkCQ extends AbstractConditionQuery {
     /**
      * InScope {in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * not_pk_name: {varchar(2147483647)}
-     * @param notPkNameList The collection of notPkName as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param notPkNameList The collection of notPkName as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setNotPkName_InScope(Collection<String> notPkNameList) {
         doSetNotPkName_InScope(notPkNameList);
@@ -189,7 +189,7 @@ public abstract class AbstractBsWhiteNotPkCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in ('a', 'b')}. And NullOrEmptyIgnored, NullOrEmptyElementIgnored, SeveralRegistered. <br>
      * not_pk_name: {varchar(2147483647)}
-     * @param notPkNameList The collection of notPkName as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param notPkNameList The collection of notPkName as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setNotPkName_NotInScope(Collection<String> notPkNameList) {
         doSetNotPkName_NotInScope(notPkNameList);
@@ -203,7 +203,7 @@ public abstract class AbstractBsWhiteNotPkCQ extends AbstractConditionQuery {
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * not_pk_name: {varchar(2147483647)} <br>
      * <pre>e.g. setNotPkName_LikeSearch("xxx", op <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> op.<span style="color: #CC4747">likeContain()</span>);</pre>
-     * @param notPkName The value of notPkName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param notPkName The value of notPkName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setNotPkName_LikeSearch(String notPkName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -214,7 +214,7 @@ public abstract class AbstractBsWhiteNotPkCQ extends AbstractConditionQuery {
      * LikeSearch with various options. (versatile) {like '%xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * not_pk_name: {varchar(2147483647)} <br>
      * <pre>e.g. setNotPkName_LikeSearch("xxx", new <span style="color: #CC4747">LikeSearchOption</span>().likeContain());</pre>
-     * @param notPkName The value of notPkName as likeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param notPkName The value of notPkName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
     public void setNotPkName_LikeSearch(String notPkName, LikeSearchOption likeSearchOption) {
@@ -225,7 +225,7 @@ public abstract class AbstractBsWhiteNotPkCQ extends AbstractConditionQuery {
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * not_pk_name: {varchar(2147483647)}
-     * @param notPkName The value of notPkName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param notPkName The value of notPkName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param opLambda The callback for option of like-search. (NotNull)
      */
     public void setNotPkName_NotLikeSearch(String notPkName, ConditionOptionCall<LikeSearchOption> opLambda) {
@@ -236,7 +236,7 @@ public abstract class AbstractBsWhiteNotPkCQ extends AbstractConditionQuery {
      * NotLikeSearch with various options. (versatile) {not like 'xxx%' escape ...} <br>
      * And NullOrEmptyIgnored, SeveralRegistered. <br>
      * not_pk_name: {varchar(2147483647)}
-     * @param notPkName The value of notPkName as notLikeSearch. (NullAllowed: if null (or empty), no condition)
+     * @param notPkName The value of notPkName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
     public void setNotPkName_NotLikeSearch(String notPkName, LikeSearchOption likeSearchOption) {
@@ -246,7 +246,7 @@ public abstract class AbstractBsWhiteNotPkCQ extends AbstractConditionQuery {
     /**
      * PrefixSearch {like 'xxx%' escape ...}. And NullOrEmptyIgnored, SeveralRegistered. <br>
      * not_pk_name: {varchar(2147483647)}
-     * @param notPkName The value of notPkName as prefixSearch. (NullAllowed: if null (or empty), no condition)
+     * @param notPkName The value of notPkName as prefixSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setNotPkName_PrefixSearch(String notPkName) {
         setNotPkName_LikeSearch(notPkName, xcLSOPPre());
@@ -327,8 +327,8 @@ public abstract class AbstractBsWhiteNotPkCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * not_pk_integer: {int4(10)}
-     * @param minNumber The min number of notPkInteger. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of notPkInteger. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of notPkInteger. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of notPkInteger. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
     public void setNotPkInteger_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
@@ -340,8 +340,8 @@ public abstract class AbstractBsWhiteNotPkCQ extends AbstractConditionQuery {
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
      * not_pk_integer: {int4(10)}
-     * @param minNumber The min number of notPkInteger. (NullAllowed: if null, no from-condition)
-     * @param maxNumber The max number of notPkInteger. (NullAllowed: if null, no to-condition)
+     * @param minNumber The min number of notPkInteger. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of notPkInteger. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
     public void setNotPkInteger_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
@@ -351,7 +351,7 @@ public abstract class AbstractBsWhiteNotPkCQ extends AbstractConditionQuery {
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * not_pk_integer: {int4(10)}
-     * @param notPkIntegerList The collection of notPkInteger as inScope. (NullAllowed: if null (or empty), no condition)
+     * @param notPkIntegerList The collection of notPkInteger as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setNotPkInteger_InScope(Collection<Integer> notPkIntegerList) {
         doSetNotPkInteger_InScope(notPkIntegerList);
@@ -364,7 +364,7 @@ public abstract class AbstractBsWhiteNotPkCQ extends AbstractConditionQuery {
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
      * not_pk_integer: {int4(10)}
-     * @param notPkIntegerList The collection of notPkInteger as notInScope. (NullAllowed: if null (or empty), no condition)
+     * @param notPkIntegerList The collection of notPkInteger as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
     public void setNotPkInteger_NotInScope(Collection<Integer> notPkIntegerList) {
         doSetNotPkInteger_NotInScope(notPkIntegerList);

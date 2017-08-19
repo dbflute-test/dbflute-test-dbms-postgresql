@@ -82,9 +82,9 @@ public class ProductCategoryDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnProductCategoryCode = cci("product_category_code", "product_category_code", null, "商品カテゴリコード", String.class, "productCategoryCode", null, true, false, true, "bpchar", 3, 0, null, false, null, null, null, "productList,productCategorySelfList", null, false);
-    protected final ColumnInfo _columnProductCategoryName = cci("product_category_name", "product_category_name", null, "商品カテゴリ名称", String.class, "productCategoryName", null, false, false, true, "varchar", 50, 0, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnParentCategoryCode = cci("parent_category_code", "parent_category_code", null, "親カテゴリコード", String.class, "parentCategoryCode", null, false, false, false, "bpchar", 3, 0, null, false, null, "最上位の場合はデータなし。", "productCategorySelf", null, null, false);
+    protected final ColumnInfo _columnProductCategoryCode = cci("product_category_code", "product_category_code", null, "商品カテゴリコード", String.class, "productCategoryCode", null, true, false, true, "bpchar", 3, 0, null, null, false, null, null, null, "productList,productCategorySelfList", null, false);
+    protected final ColumnInfo _columnProductCategoryName = cci("product_category_name", "product_category_name", null, "商品カテゴリ名称", String.class, "productCategoryName", null, false, false, true, "varchar", 50, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnParentCategoryCode = cci("parent_category_code", "parent_category_code", null, "親カテゴリコード", String.class, "parentCategoryCode", null, false, false, false, "bpchar", 3, 0, null, null, false, null, "最上位の場合はデータなし。", "productCategorySelf", null, null, false);
 
     /**
      * (商品カテゴリコード)product_category_code: {PK, NotNull, bpchar(3)}

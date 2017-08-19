@@ -76,9 +76,9 @@ public class WithdrawalReasonDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                         Column Info
     //                                                                         ===========
-    protected final ColumnInfo _columnWithdrawalReasonCode = cci("withdrawal_reason_code", "withdrawal_reason_code", null, "退会理由コード", String.class, "withdrawalReasonCode", null, true, false, true, "bpchar", 3, 0, null, false, null, null, null, "memberWithdrawalList", CDef.DefMeta.WithdrawalReason, false);
-    protected final ColumnInfo _columnWithdrawalReasonText = cci("withdrawal_reason_text", "withdrawal_reason_text", null, "退会理由テキスト", String.class, "withdrawalReasonText", null, false, false, true, "text", 2147483647, 0, null, false, null, "退会理由の内容。テキスト形式なので目いっぱい書けるが、\nそうするとUI側できれいに見せるのが大変でしょうね。", null, null, null, false);
-    protected final ColumnInfo _columnDisplayOrder = cci("display_order", "display_order", null, null, Integer.class, "displayOrder", null, false, false, true, "int4", 10, 0, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnWithdrawalReasonCode = cci("withdrawal_reason_code", "withdrawal_reason_code", null, "退会理由コード", String.class, "withdrawalReasonCode", null, true, false, true, "bpchar", 3, 0, null, null, false, null, null, null, "memberWithdrawalList", CDef.DefMeta.WithdrawalReason, false);
+    protected final ColumnInfo _columnWithdrawalReasonText = cci("withdrawal_reason_text", "withdrawal_reason_text", null, "退会理由テキスト", String.class, "withdrawalReasonText", null, false, false, true, "text", 2147483647, 0, null, null, false, null, "退会理由の内容。テキスト形式なので目いっぱい書けるが、\nそうするとUI側できれいに見せるのが大変でしょうね。", null, null, null, false);
+    protected final ColumnInfo _columnDisplayOrder = cci("display_order", "display_order", null, null, Integer.class, "displayOrder", null, false, false, true, "int4", 10, 0, null, null, false, null, null, null, null, null, false);
 
     /**
      * (退会理由コード)withdrawal_reason_code: {PK, NotNull, bpchar(3), classification=WithdrawalReason}
