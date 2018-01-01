@@ -79,7 +79,7 @@ public class BsVendorUuidFooCQ extends AbstractBsVendorUuidFooCQ {
       return _fooId; }
     protected ConditionValue xgetCValueFooId() { return xdfgetFooId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * foo_id: {PK, NotNull, uuid(2147483647)}
      * @return this. (NotNull)
@@ -99,7 +99,7 @@ public class BsVendorUuidFooCQ extends AbstractBsVendorUuidFooCQ {
       return _fooName; }
     protected ConditionValue xgetCValueFooName() { return xdfgetFooName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * foo_name: {NotNull, varchar(2147483647)}
      * @return this. (NotNull)
@@ -119,7 +119,7 @@ public class BsVendorUuidFooCQ extends AbstractBsVendorUuidFooCQ {
       return _barId; }
     protected ConditionValue xgetCValueBarId() { return xdfgetBarId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * bar_id: {NotNull, uuid(2147483647), FK to vendor_uuid_bar}
      * @return this. (NotNull)

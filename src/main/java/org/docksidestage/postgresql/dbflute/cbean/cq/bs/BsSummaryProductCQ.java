@@ -79,7 +79,7 @@ public class BsSummaryProductCQ extends AbstractBsSummaryProductCQ {
       return _productId; }
     protected ConditionValue xgetCValueProductId() { return xdfgetProductId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * product_id: {int4(10)}
      * @return this. (NotNull)
@@ -99,7 +99,7 @@ public class BsSummaryProductCQ extends AbstractBsSummaryProductCQ {
       return _productName; }
     protected ConditionValue xgetCValueProductName() { return xdfgetProductName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * product_name: {varchar(50)}
      * @return this. (NotNull)
@@ -119,7 +119,7 @@ public class BsSummaryProductCQ extends AbstractBsSummaryProductCQ {
       return _productStatusCode; }
     protected ConditionValue xgetCValueProductStatusCode() { return xdfgetProductStatusCode(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * product_status_code: {bpchar(3)}
      * @return this. (NotNull)
@@ -139,7 +139,7 @@ public class BsSummaryProductCQ extends AbstractBsSummaryProductCQ {
       return _latestPurchaseDatetime; }
     protected ConditionValue xgetCValueLatestPurchaseDatetime() { return xdfgetLatestPurchaseDatetime(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * latest_purchase_datetime: {timestamp(29, 6)}
      * @return this. (NotNull)

@@ -93,7 +93,7 @@ public class BsNextschemaWhiteSameNameCQ extends AbstractBsNextschemaWhiteSameNa
     public Map<String, Object> xdfgetSameNameId_QueryDerivedReferrer_WhiteSameNameRefListParameter() { return xgetSQuePmMap("sameNameId_QueryDerivedReferrer_WhiteSameNameRefList"); }
     public String keepSameNameId_QueryDerivedReferrer_WhiteSameNameRefListParameter(Object pm) { return xkeepSQuePm("sameNameId_QueryDerivedReferrer_WhiteSameNameRefList", pm); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * same_name_id: {PK, NotNull, int4(10)}
      * @return this. (NotNull)
@@ -113,7 +113,7 @@ public class BsNextschemaWhiteSameNameCQ extends AbstractBsNextschemaWhiteSameNa
       return _sameNameName; }
     protected ConditionValue xgetCValueSameNameName() { return xdfgetSameNameName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * same_name_name: {varchar(100)}
      * @return this. (NotNull)
@@ -133,7 +133,7 @@ public class BsNextschemaWhiteSameNameCQ extends AbstractBsNextschemaWhiteSameNa
       return _sameNameLong; }
     protected ConditionValue xgetCValueSameNameLong() { return xdfgetSameNameLong(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * same_name_long: {int8(19)}
      * @return this. (NotNull)

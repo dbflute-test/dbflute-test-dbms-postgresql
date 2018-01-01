@@ -79,7 +79,7 @@ public class BsVendor$DollarCQ extends AbstractBsVendor$DollarCQ {
       return _vendor$DollarId; }
     protected ConditionValue xgetCValueVendor$DollarId() { return xdfgetVendor$DollarId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * vendor_$_dollar_id: {PK, NotNull, int4(10)}
      * @return this. (NotNull)
@@ -99,7 +99,7 @@ public class BsVendor$DollarCQ extends AbstractBsVendor$DollarCQ {
       return _vendor$DollarName; }
     protected ConditionValue xgetCValueVendor$DollarName() { return xdfgetVendor$DollarName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * vendor_$_dollar_name: {varchar(64)}
      * @return this. (NotNull)

@@ -122,7 +122,7 @@ public abstract class BsVendorInheritNekoBhv extends AbstractBehaviorWritable<Ve
      *     <span style="color: #3F7E5E">// called if present, or exception</span>
      *     ... = <span style="color: #553000">vendorInheritNeko</span>.get...
      * });
-     * 
+     *
      * <span style="color: #3F7E5E">// if it might be no data, ...</span>
      * <span style="color: #0000C0">vendorInheritNekoBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().set...
@@ -151,13 +151,13 @@ public abstract class BsVendorInheritNekoBhv extends AbstractBehaviorWritable<Ve
      * <pre>
      * VendorInheritNekoCB cb = <span style="color: #70226C">new</span> VendorInheritNekoCB();
      * cb.query().set...
-     * 
+     *
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
      * <span style="color: #0000C0">vendorInheritNekoBhv</span>.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(vendorInheritNeko <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present, or exception</span>
      *     ... = vendorInheritNeko.get...
      * });
-     * 
+     *
      * <span style="color: #3F7E5E">// if it might be no data, ...</span>
      * <span style="color: #0000C0">vendorInheritNekoBhv</span>.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(vendorInheritNeko <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present</span>
@@ -1010,8 +1010,8 @@ public abstract class BsVendorInheritNekoBhv extends AbstractBehaviorWritable<Ve
     /**
      * Prepare the all facade executor of outside-SQL to execute it.
      * <pre>
-     * <span style="color: #3F7E5E">// main style</span> 
-     * vendorInheritNekoBhv.outideSql().selectEntity(pmb); <span style="color: #3F7E5E">// optional</span> 
+     * <span style="color: #3F7E5E">// main style</span>
+     * vendorInheritNekoBhv.outideSql().selectEntity(pmb); <span style="color: #3F7E5E">// optional</span>
      * vendorInheritNekoBhv.outideSql().selectList(pmb); <span style="color: #3F7E5E">// ListResultBean</span>
      * vendorInheritNekoBhv.outideSql().selectPage(pmb); <span style="color: #3F7E5E">// PagingResultBean</span>
      * vendorInheritNekoBhv.outideSql().selectPagedListOnly(pmb); <span style="color: #3F7E5E">// ListResultBean</span>
@@ -1019,7 +1019,7 @@ public abstract class BsVendorInheritNekoBhv extends AbstractBehaviorWritable<Ve
      * vendorInheritNekoBhv.outideSql().execute(pmb); <span style="color: #3F7E5E">// int (updated count)</span>
      * vendorInheritNekoBhv.outideSql().call(pmb); <span style="color: #3F7E5E">// void (pmb has OUT parameters)</span>
      *
-     * <span style="color: #3F7E5E">// traditional style</span> 
+     * <span style="color: #3F7E5E">// traditional style</span>
      * vendorInheritNekoBhv.outideSql().traditionalStyle().selectEntity(path, pmb, entityType);
      * vendorInheritNekoBhv.outideSql().traditionalStyle().selectList(path, pmb, entityType);
      * vendorInheritNekoBhv.outideSql().traditionalStyle().selectPage(path, pmb, entityType);
@@ -1027,7 +1027,7 @@ public abstract class BsVendorInheritNekoBhv extends AbstractBehaviorWritable<Ve
      * vendorInheritNekoBhv.outideSql().traditionalStyle().selectCursor(path, pmb, handler);
      * vendorInheritNekoBhv.outideSql().traditionalStyle().execute(path, pmb);
      *
-     * <span style="color: #3F7E5E">// options</span> 
+     * <span style="color: #3F7E5E">// options</span>
      * vendorInheritNekoBhv.outideSql().removeBlockComment().selectList()
      * vendorInheritNekoBhv.outideSql().removeLineComment().selectList()
      * vendorInheritNekoBhv.outideSql().formatSql().selectList()

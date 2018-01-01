@@ -79,7 +79,7 @@ public class BsWhiteCompoundPkWrongOrderCQ extends AbstractBsWhiteCompoundPkWron
       return _firstId; }
     protected ConditionValue xgetCValueFirstId() { return xdfgetFirstId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * first_id: {PK, NotNull, int4(10)}
      * @return this. (NotNull)
@@ -99,7 +99,7 @@ public class BsWhiteCompoundPkWrongOrderCQ extends AbstractBsWhiteCompoundPkWron
       return _secondId; }
     protected ConditionValue xgetCValueSecondId() { return xdfgetSecondId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * second_id: {PK, NotNull, int4(10)}
      * @return this. (NotNull)
@@ -119,7 +119,7 @@ public class BsWhiteCompoundPkWrongOrderCQ extends AbstractBsWhiteCompoundPkWron
       return _thirdId; }
     protected ConditionValue xgetCValueThirdId() { return xdfgetThirdId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * third_id: {PK, NotNull, int4(10)}
      * @return this. (NotNull)
@@ -139,7 +139,7 @@ public class BsWhiteCompoundPkWrongOrderCQ extends AbstractBsWhiteCompoundPkWron
       return _wrongName; }
     protected ConditionValue xgetCValueWrongName() { return xdfgetWrongName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * wrong_name: {varchar(200)}
      * @return this. (NotNull)

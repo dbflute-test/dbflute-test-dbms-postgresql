@@ -79,7 +79,7 @@ public class BsVendorCheckCQ extends AbstractBsVendorCheckCQ {
       return _vendorCheckId; }
     protected ConditionValue xgetCValueVendorCheckId() { return xdfgetVendorCheckId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * vendor_check_id: {PK, NotNull, numeric(16)}
      * @return this. (NotNull)
@@ -99,7 +99,7 @@ public class BsVendorCheckCQ extends AbstractBsVendorCheckCQ {
       return _typeOfChar; }
     protected ConditionValue xgetCValueTypeOfChar() { return xdfgetTypeOfChar(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * type_of_char: {bpchar(3)}
      * @return this. (NotNull)
@@ -119,7 +119,7 @@ public class BsVendorCheckCQ extends AbstractBsVendorCheckCQ {
       return _typeOfVarchar; }
     protected ConditionValue xgetCValueTypeOfVarchar() { return xdfgetTypeOfVarchar(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * type_of_varchar: {varchar(2147483647)}
      * @return this. (NotNull)
@@ -139,7 +139,7 @@ public class BsVendorCheckCQ extends AbstractBsVendorCheckCQ {
       return _typeOfVcArray; }
     protected ConditionValue xgetCValueTypeOfVcArray() { return xdfgetTypeOfVcArray(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * type_of_vc_array: {_varchar(2147483647)}
      * @return this. (NotNull)
@@ -159,7 +159,7 @@ public class BsVendorCheckCQ extends AbstractBsVendorCheckCQ {
       return _typeOfText; }
     protected ConditionValue xgetCValueTypeOfText() { return xdfgetTypeOfText(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * type_of_text: {text(2147483647)}
      * @return this. (NotNull)
@@ -179,7 +179,7 @@ public class BsVendorCheckCQ extends AbstractBsVendorCheckCQ {
       return _typeOfNumericInteger; }
     protected ConditionValue xgetCValueTypeOfNumericInteger() { return xdfgetTypeOfNumericInteger(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * type_of_numeric_integer: {numeric(5)}
      * @return this. (NotNull)
@@ -199,7 +199,7 @@ public class BsVendorCheckCQ extends AbstractBsVendorCheckCQ {
       return _typeOfNumericBigint; }
     protected ConditionValue xgetCValueTypeOfNumericBigint() { return xdfgetTypeOfNumericBigint(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * type_of_numeric_bigint: {numeric(12)}
      * @return this. (NotNull)
@@ -219,7 +219,7 @@ public class BsVendorCheckCQ extends AbstractBsVendorCheckCQ {
       return _typeOfNumericDecimal; }
     protected ConditionValue xgetCValueTypeOfNumericDecimal() { return xdfgetTypeOfNumericDecimal(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * type_of_numeric_decimal: {numeric(5, 3)}
      * @return this. (NotNull)
@@ -239,7 +239,7 @@ public class BsVendorCheckCQ extends AbstractBsVendorCheckCQ {
       return _typeOfDecimal; }
     protected ConditionValue xgetCValueTypeOfDecimal() { return xdfgetTypeOfDecimal(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * type_of_decimal: {numeric(131089)}
      * @return this. (NotNull)
@@ -259,7 +259,7 @@ public class BsVendorCheckCQ extends AbstractBsVendorCheckCQ {
       return _typeOfInt8; }
     protected ConditionValue xgetCValueTypeOfInt8() { return xdfgetTypeOfInt8(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * type_of_int8: {int8(19)}
      * @return this. (NotNull)
@@ -279,7 +279,7 @@ public class BsVendorCheckCQ extends AbstractBsVendorCheckCQ {
       return _typeOfIntArray; }
     protected ConditionValue xgetCValueTypeOfIntArray() { return xdfgetTypeOfIntArray(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * type_of_int_array: {_int8(19)}
      * @return this. (NotNull)
@@ -299,7 +299,7 @@ public class BsVendorCheckCQ extends AbstractBsVendorCheckCQ {
       return _typeOfInt4; }
     protected ConditionValue xgetCValueTypeOfInt4() { return xdfgetTypeOfInt4(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * type_of_int4: {int4(10)}
      * @return this. (NotNull)
@@ -319,7 +319,7 @@ public class BsVendorCheckCQ extends AbstractBsVendorCheckCQ {
       return _typeOfBigint; }
     protected ConditionValue xgetCValueTypeOfBigint() { return xdfgetTypeOfBigint(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * type_of_bigint: {int8(19)}
      * @return this. (NotNull)
@@ -339,7 +339,7 @@ public class BsVendorCheckCQ extends AbstractBsVendorCheckCQ {
       return _typeOfReal; }
     protected ConditionValue xgetCValueTypeOfReal() { return xdfgetTypeOfReal(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * type_of_real: {float4(8, 8)}
      * @return this. (NotNull)
@@ -359,7 +359,7 @@ public class BsVendorCheckCQ extends AbstractBsVendorCheckCQ {
       return _typeOfFloat; }
     protected ConditionValue xgetCValueTypeOfFloat() { return xdfgetTypeOfFloat(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * type_of_float: {float8(17, 17)}
      * @return this. (NotNull)
@@ -379,7 +379,7 @@ public class BsVendorCheckCQ extends AbstractBsVendorCheckCQ {
       return _typeOfMoney; }
     protected ConditionValue xgetCValueTypeOfMoney() { return xdfgetTypeOfMoney(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * type_of_money: {money(2147483647)}
      * @return this. (NotNull)
@@ -399,7 +399,7 @@ public class BsVendorCheckCQ extends AbstractBsVendorCheckCQ {
       return _typeOfDate; }
     protected ConditionValue xgetCValueTypeOfDate() { return xdfgetTypeOfDate(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * type_of_date: {date(13)}
      * @return this. (NotNull)
@@ -419,7 +419,7 @@ public class BsVendorCheckCQ extends AbstractBsVendorCheckCQ {
       return _typeOfTimestamp; }
     protected ConditionValue xgetCValueTypeOfTimestamp() { return xdfgetTypeOfTimestamp(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * type_of_timestamp: {timestamp(29, 6)}
      * @return this. (NotNull)
@@ -439,7 +439,7 @@ public class BsVendorCheckCQ extends AbstractBsVendorCheckCQ {
       return _typeOfTime; }
     protected ConditionValue xgetCValueTypeOfTime() { return xdfgetTypeOfTime(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * type_of_time: {time(15, 6)}
      * @return this. (NotNull)
@@ -459,7 +459,7 @@ public class BsVendorCheckCQ extends AbstractBsVendorCheckCQ {
       return _typeOfTimetz; }
     protected ConditionValue xgetCValueTypeOfTimetz() { return xdfgetTypeOfTimetz(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * type_of_timetz: {timetz(21, 6)}
      * @return this. (NotNull)
@@ -479,7 +479,7 @@ public class BsVendorCheckCQ extends AbstractBsVendorCheckCQ {
       return _typeOfInterval; }
     protected ConditionValue xgetCValueTypeOfInterval() { return xdfgetTypeOfInterval(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * type_of_interval: {interval(49, 6)}
      * @return this. (NotNull)
@@ -499,7 +499,7 @@ public class BsVendorCheckCQ extends AbstractBsVendorCheckCQ {
       return _typeOfBool; }
     protected ConditionValue xgetCValueTypeOfBool() { return xdfgetTypeOfBool(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * type_of_bool: {bool(1), classification=TrueFalse}
      * @return this. (NotNull)
@@ -519,7 +519,7 @@ public class BsVendorCheckCQ extends AbstractBsVendorCheckCQ {
       return _typeOfBit; }
     protected ConditionValue xgetCValueTypeOfBit() { return xdfgetTypeOfBit(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * type_of_bit: {bit(1)}
      * @return this. (NotNull)
@@ -539,7 +539,7 @@ public class BsVendorCheckCQ extends AbstractBsVendorCheckCQ {
       return _typeOfBytea; }
     protected ConditionValue xgetCValueTypeOfBytea() { return xdfgetTypeOfBytea(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * type_of_bytea: {bytea(2147483647)}
      * @return this. (NotNull)
@@ -559,7 +559,7 @@ public class BsVendorCheckCQ extends AbstractBsVendorCheckCQ {
       return _typeOfOid; }
     protected ConditionValue xgetCValueTypeOfOid() { return xdfgetTypeOfOid(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * type_of_oid: {oid(10)}
      * @return this. (NotNull)
@@ -579,7 +579,7 @@ public class BsVendorCheckCQ extends AbstractBsVendorCheckCQ {
       return _typeOfUuid; }
     protected ConditionValue xgetCValueTypeOfUuid() { return xdfgetTypeOfUuid(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * type_of_uuid: {uuid(2147483647)}
      * @return this. (NotNull)
@@ -599,7 +599,7 @@ public class BsVendorCheckCQ extends AbstractBsVendorCheckCQ {
       return _typeOfXml; }
     protected ConditionValue xgetCValueTypeOfXml() { return xdfgetTypeOfXml(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * type_of_xml: {xml(2147483647)}
      * @return this. (NotNull)
@@ -619,7 +619,7 @@ public class BsVendorCheckCQ extends AbstractBsVendorCheckCQ {
       return _typeOfJson; }
     protected ConditionValue xgetCValueTypeOfJson() { return xdfgetTypeOfJson(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * type_of_json: {json(2147483647)}
      * @return this. (NotNull)

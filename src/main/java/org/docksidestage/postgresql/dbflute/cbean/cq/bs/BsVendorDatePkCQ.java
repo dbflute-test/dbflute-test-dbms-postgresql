@@ -79,7 +79,7 @@ public class BsVendorDatePkCQ extends AbstractBsVendorDatePkCQ {
       return _fooDate; }
     protected ConditionValue xgetCValueFooDate() { return xdfgetFooDate(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * foo_date: {PK, NotNull, date(13)}
      * @return this. (NotNull)
@@ -99,7 +99,7 @@ public class BsVendorDatePkCQ extends AbstractBsVendorDatePkCQ {
       return _fooName; }
     protected ConditionValue xgetCValueFooName() { return xdfgetFooName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * foo_name: {NotNull, varchar(2147483647)}
      * @return this. (NotNull)

@@ -121,7 +121,7 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
     public Map<String, Object> xdfgetMemberId_QueryDerivedReferrer_PurchaseListParameter() { return xgetSQuePmMap("memberId_QueryDerivedReferrer_PurchaseList"); }
     public String keepMemberId_QueryDerivedReferrer_PurchaseListParameter(Object pm) { return xkeepSQuePm("memberId_QueryDerivedReferrer_PurchaseList", pm); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * (会員ID)member_id: {PK, ID, NotNull, serial(10), FK to MEMBER_ADDRESS}
      * @return this. (NotNull)
@@ -141,7 +141,7 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
       return _memberName; }
     protected ConditionValue xgetCValueMemberName() { return xdfgetMemberName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * (会員名称)member_name: {IX, NotNull, varchar(200)}
      * @return this. (NotNull)
@@ -161,7 +161,7 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
       return _memberAccount; }
     protected ConditionValue xgetCValueMemberAccount() { return xdfgetMemberAccount(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * (会員アカウント)member_account: {UQ, NotNull, varchar(50)}
      * @return this. (NotNull)
@@ -181,7 +181,7 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
       return _memberStatusCode; }
     protected ConditionValue xgetCValueMemberStatusCode() { return xdfgetMemberStatusCode(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * (会員ステータスコード)member_status_code: {NotNull, bpchar(3), FK to member_status, classification=MemberStatus}
      * @return this. (NotNull)
@@ -201,7 +201,7 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
       return _formalizedDatetime; }
     protected ConditionValue xgetCValueFormalizedDatetime() { return xdfgetFormalizedDatetime(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * (正式会員日時)formalized_datetime: {IX, timestamp(26, 3)}
      * @return this. (NotNull)
@@ -221,7 +221,7 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
       return _birthdate; }
     protected ConditionValue xgetCValueBirthdate() { return xdfgetBirthdate(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * (生年月日)birthdate: {date(13)}
      * @return this. (NotNull)
@@ -241,7 +241,7 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
       return _registerDatetime; }
     protected ConditionValue xgetCValueRegisterDatetime() { return xdfgetRegisterDatetime(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * (登録日時)register_datetime: {NotNull, timestamp(26, 3)}
      * @return this. (NotNull)
@@ -261,7 +261,7 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
       return _registerUser; }
     protected ConditionValue xgetCValueRegisterUser() { return xdfgetRegisterUser(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * (登録ユーザ)register_user: {NotNull, varchar(200)}
      * @return this. (NotNull)
@@ -281,7 +281,7 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
       return _registerProcess; }
     protected ConditionValue xgetCValueRegisterProcess() { return xdfgetRegisterProcess(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * register_process: {NotNull, varchar(200)}
      * @return this. (NotNull)
@@ -301,7 +301,7 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
       return _updateDatetime; }
     protected ConditionValue xgetCValueUpdateDatetime() { return xdfgetUpdateDatetime(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * (更新日時)update_datetime: {NotNull, timestamp(26, 3)}
      * @return this. (NotNull)
@@ -321,7 +321,7 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
       return _updateUser; }
     protected ConditionValue xgetCValueUpdateUser() { return xdfgetUpdateUser(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * (更新ユーザ)update_user: {NotNull, varchar(200)}
      * @return this. (NotNull)
@@ -341,7 +341,7 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
       return _updateProcess; }
     protected ConditionValue xgetCValueUpdateProcess() { return xdfgetUpdateProcess(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * update_process: {NotNull, varchar(200)}
      * @return this. (NotNull)
@@ -361,7 +361,7 @@ public class BsMemberCQ extends AbstractBsMemberCQ {
       return _versionNo; }
     protected ConditionValue xgetCValueVersionNo() { return xdfgetVersionNo(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * (バージョンNO)version_no: {NotNull, int8(19)}
      * @return this. (NotNull)

@@ -122,7 +122,7 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      *     <span style="color: #3F7E5E">// called if present, or exception</span>
      *     ... = <span style="color: #553000">vendor_non_compilable</span>.get...
      * });
-     * 
+     *
      * <span style="color: #3F7E5E">// if it might be no data, ...</span>
      * <span style="color: #0000C0">vendor_non_compilableBhv</span>.<span style="color: #CC4747">selectEntity</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().set...
@@ -151,13 +151,13 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      * <pre>
      * Vendor_non_compilableCB cb = <span style="color: #70226C">new</span> Vendor_non_compilableCB();
      * cb.query().set...
-     * 
+     *
      * <span style="color: #3F7E5E">// if the data always exists as your business rule</span>
      * <span style="color: #0000C0">vendor_non_compilableBhv</span>.<span style="color: #DD4747">selectEntity</span>(cb)}).<span style="color: #CC4747">alwaysPresent</span>(vendor_non_compilable <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present, or exception</span>
      *     ... = vendor_non_compilable.get...
      * });
-     * 
+     *
      * <span style="color: #3F7E5E">// if it might be no data, ...</span>
      * <span style="color: #0000C0">vendor_non_compilableBhv</span>.<span style="color: #CC4747">selectEntity</span>(cb).<span style="color: #CC4747">ifPresent</span>(vendor_non_compilable <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #3F7E5E">// called if present</span>
@@ -1202,8 +1202,8 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
     /**
      * Prepare the all facade executor of outside-SQL to execute it.
      * <pre>
-     * <span style="color: #3F7E5E">// main style</span> 
-     * vendor_non_compilableBhv.outideSql().selectEntity(pmb); <span style="color: #3F7E5E">// optional</span> 
+     * <span style="color: #3F7E5E">// main style</span>
+     * vendor_non_compilableBhv.outideSql().selectEntity(pmb); <span style="color: #3F7E5E">// optional</span>
      * vendor_non_compilableBhv.outideSql().selectList(pmb); <span style="color: #3F7E5E">// ListResultBean</span>
      * vendor_non_compilableBhv.outideSql().selectPage(pmb); <span style="color: #3F7E5E">// PagingResultBean</span>
      * vendor_non_compilableBhv.outideSql().selectPagedListOnly(pmb); <span style="color: #3F7E5E">// ListResultBean</span>
@@ -1211,7 +1211,7 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      * vendor_non_compilableBhv.outideSql().execute(pmb); <span style="color: #3F7E5E">// int (updated count)</span>
      * vendor_non_compilableBhv.outideSql().call(pmb); <span style="color: #3F7E5E">// void (pmb has OUT parameters)</span>
      *
-     * <span style="color: #3F7E5E">// traditional style</span> 
+     * <span style="color: #3F7E5E">// traditional style</span>
      * vendor_non_compilableBhv.outideSql().traditionalStyle().selectEntity(path, pmb, entityType);
      * vendor_non_compilableBhv.outideSql().traditionalStyle().selectList(path, pmb, entityType);
      * vendor_non_compilableBhv.outideSql().traditionalStyle().selectPage(path, pmb, entityType);
@@ -1219,7 +1219,7 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
      * vendor_non_compilableBhv.outideSql().traditionalStyle().selectCursor(path, pmb, handler);
      * vendor_non_compilableBhv.outideSql().traditionalStyle().execute(path, pmb);
      *
-     * <span style="color: #3F7E5E">// options</span> 
+     * <span style="color: #3F7E5E">// options</span>
      * vendor_non_compilableBhv.outideSql().removeBlockComment().selectList()
      * vendor_non_compilableBhv.outideSql().removeLineComment().selectList()
      * vendor_non_compilableBhv.outideSql().formatSql().selectList()

@@ -80,7 +80,7 @@ public class BsWhiteCompoundPkCQ extends AbstractBsWhiteCompoundPkCQ {
       return _pkFirstId; }
     protected ConditionValue xgetCValuePkFirstId() { return xdfgetPkFirstId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * pk_first_id: {PK, NotNull, int4(10)}
      * @return this. (NotNull)
@@ -100,7 +100,7 @@ public class BsWhiteCompoundPkCQ extends AbstractBsWhiteCompoundPkCQ {
       return _pkSecondId; }
     protected ConditionValue xgetCValuePkSecondId() { return xdfgetPkSecondId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * pk_second_id: {PK, NotNull, int4(10)}
      * @return this. (NotNull)
@@ -120,7 +120,7 @@ public class BsWhiteCompoundPkCQ extends AbstractBsWhiteCompoundPkCQ {
       return _pkName; }
     protected ConditionValue xgetCValuePkName() { return xdfgetPkName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * pk_name: {NotNull, varchar(200)}
      * @return this. (NotNull)

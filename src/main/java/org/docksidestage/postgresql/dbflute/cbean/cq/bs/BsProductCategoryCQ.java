@@ -107,7 +107,7 @@ public class BsProductCategoryCQ extends AbstractBsProductCategoryCQ {
     public Map<String, Object> xdfgetProductCategoryCode_QueryDerivedReferrer_ProductCategorySelfListParameter() { return xgetSQuePmMap("productCategoryCode_QueryDerivedReferrer_ProductCategorySelfList"); }
     public String keepProductCategoryCode_QueryDerivedReferrer_ProductCategorySelfListParameter(Object pm) { return xkeepSQuePm("productCategoryCode_QueryDerivedReferrer_ProductCategorySelfList", pm); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * (商品カテゴリコード)product_category_code: {PK, NotNull, bpchar(3)}
      * @return this. (NotNull)
@@ -127,7 +127,7 @@ public class BsProductCategoryCQ extends AbstractBsProductCategoryCQ {
       return _productCategoryName; }
     protected ConditionValue xgetCValueProductCategoryName() { return xdfgetProductCategoryName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * (商品カテゴリ名称)product_category_name: {NotNull, varchar(50)}
      * @return this. (NotNull)
@@ -147,7 +147,7 @@ public class BsProductCategoryCQ extends AbstractBsProductCategoryCQ {
       return _parentCategoryCode; }
     protected ConditionValue xgetCValueParentCategoryCode() { return xdfgetParentCategoryCode(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * (親カテゴリコード)parent_category_code: {bpchar(3), FK to product_category}
      * @return this. (NotNull)

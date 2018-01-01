@@ -79,7 +79,7 @@ public class BsVendorPartManCQ extends AbstractBsVendorPartManCQ {
       return _partManId; }
     protected ConditionValue xgetCValuePartManId() { return xdfgetPartManId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * part_man_id: {PK, NotNull, int4(10)}
      * @return this. (NotNull)
@@ -99,7 +99,7 @@ public class BsVendorPartManCQ extends AbstractBsVendorPartManCQ {
       return _partManName; }
     protected ConditionValue xgetCValuePartManName() { return xdfgetPartManName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * part_man_name: {NotNull, varchar(2147483647)}
      * @return this. (NotNull)
@@ -119,7 +119,7 @@ public class BsVendorPartManCQ extends AbstractBsVendorPartManCQ {
       return _partManPoint; }
     protected ConditionValue xgetCValuePartManPoint() { return xdfgetPartManPoint(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * part_man_point: {NotNull, int4(10)}
      * @return this. (NotNull)
@@ -139,7 +139,7 @@ public class BsVendorPartManCQ extends AbstractBsVendorPartManCQ {
       return _partManDate; }
     protected ConditionValue xgetCValuePartManDate() { return xdfgetPartManDate(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * part_man_date: {date(13)}
      * @return this. (NotNull)

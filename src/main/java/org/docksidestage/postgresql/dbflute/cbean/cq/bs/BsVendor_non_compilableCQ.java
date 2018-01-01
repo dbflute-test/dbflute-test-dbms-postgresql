@@ -107,7 +107,7 @@ public class BsVendor_non_compilableCQ extends AbstractBsVendor_non_compilableCQ
     public Map<String, Object> xdfgetNon_compilable_id_QueryDerivedReferrer_Vendor_non_compilableByParent_idSelfListParameter() { return xgetSQuePmMap("non_compilable_id_QueryDerivedReferrer_Vendor_non_compilableByParent_idSelfList"); }
     public String keepNon_compilable_id_QueryDerivedReferrer_Vendor_non_compilableByParent_idSelfListParameter(Object pm) { return xkeepSQuePm("non_compilable_id_QueryDerivedReferrer_Vendor_non_compilableByParent_idSelfList", pm); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * NON-COMPILABLE ID: {PK, NotNull, int4(10)}
      * @return this. (NotNull)
@@ -127,7 +127,7 @@ public class BsVendor_non_compilableCQ extends AbstractBsVendor_non_compilableCQ
       return _non_compilable_name; }
     protected ConditionValue xgetCValueNon_compilable_name() { return xdfgetNon_compilable_name(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * NON COMPILABLE-NAME: {varchar(64)}
      * @return this. (NotNull)
@@ -147,7 +147,7 @@ public class BsVendor_non_compilableCQ extends AbstractBsVendor_non_compilableCQ
       return _parent_id; }
     protected ConditionValue xgetCValueParent_id() { return xdfgetParent_id(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * PARENT-ID: {int4(10), FK to VENDOR-NON COMPILABLE}
      * @return this. (NotNull)
@@ -167,7 +167,7 @@ public class BsVendor_non_compilableCQ extends AbstractBsVendor_non_compilableCQ
       return _nextParentid; }
     protected ConditionValue xgetCValueNextParentid() { return xdfgetNextParentid(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * Next_ParentID: {IX, int4(10), FK to VENDOR-NON COMPILABLE}
      * @return this. (NotNull)

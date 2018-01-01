@@ -93,7 +93,7 @@ public class BsWhiteSameNameCQ extends AbstractBsWhiteSameNameCQ {
     public Map<String, Object> xdfgetSameNameId_QueryDerivedReferrer_WhiteSameNameRefListParameter() { return xgetSQuePmMap("sameNameId_QueryDerivedReferrer_WhiteSameNameRefList"); }
     public String keepSameNameId_QueryDerivedReferrer_WhiteSameNameRefListParameter(Object pm) { return xkeepSQuePm("sameNameId_QueryDerivedReferrer_WhiteSameNameRefList", pm); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * same_name_id: {PK, NotNull, int8(19)}
      * @return this. (NotNull)
@@ -113,7 +113,7 @@ public class BsWhiteSameNameCQ extends AbstractBsWhiteSameNameCQ {
       return _sameNameName; }
     protected ConditionValue xgetCValueSameNameName() { return xdfgetSameNameName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * same_name_name: {varchar(200)}
      * @return this. (NotNull)
@@ -133,7 +133,7 @@ public class BsWhiteSameNameCQ extends AbstractBsWhiteSameNameCQ {
       return _sameNameInteger; }
     protected ConditionValue xgetCValueSameNameInteger() { return xdfgetSameNameInteger(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * same_name_integer: {int4(10)}
      * @return this. (NotNull)
@@ -153,7 +153,7 @@ public class BsWhiteSameNameCQ extends AbstractBsWhiteSameNameCQ {
       return _nextSchemaProductId; }
     protected ConditionValue xgetCValueNextSchemaProductId() { return xdfgetNextSchemaProductId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * next_schema_product_id: {int4(10), FK to NEXT_SCHEMA_PRODUCT}
      * @return this. (NotNull)

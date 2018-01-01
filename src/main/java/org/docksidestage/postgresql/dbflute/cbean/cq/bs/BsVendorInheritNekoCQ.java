@@ -79,7 +79,7 @@ public class BsVendorInheritNekoCQ extends AbstractBsVendorInheritNekoCQ {
       return _inuId; }
     protected ConditionValue xgetCValueInuId() { return xdfgetInuId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * inu_id: {NotNull, int4(10)}
      * @return this. (NotNull)
@@ -99,7 +99,7 @@ public class BsVendorInheritNekoCQ extends AbstractBsVendorInheritNekoCQ {
       return _inuName; }
     protected ConditionValue xgetCValueInuName() { return xdfgetInuName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * inu_name: {NotNull, varchar(2147483647)}
      * @return this. (NotNull)
@@ -119,7 +119,7 @@ public class BsVendorInheritNekoCQ extends AbstractBsVendorInheritNekoCQ {
       return _inuDate; }
     protected ConditionValue xgetCValueInuDate() { return xdfgetInuDate(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * inu_date: {date(13)}
      * @return this. (NotNull)
@@ -139,7 +139,7 @@ public class BsVendorInheritNekoCQ extends AbstractBsVendorInheritNekoCQ {
       return _nekoId; }
     protected ConditionValue xgetCValueNekoId() { return xdfgetNekoId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * neko_id: {PK, NotNull, int4(10)}
      * @return this. (NotNull)
@@ -159,7 +159,7 @@ public class BsVendorInheritNekoCQ extends AbstractBsVendorInheritNekoCQ {
       return _nekoName; }
     protected ConditionValue xgetCValueNekoName() { return xdfgetNekoName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * neko_name: {NotNull, varchar(2147483647)}
      * @return this. (NotNull)
@@ -179,7 +179,7 @@ public class BsVendorInheritNekoCQ extends AbstractBsVendorInheritNekoCQ {
       return _nekoDate; }
     protected ConditionValue xgetCValueNekoDate() { return xdfgetNekoDate(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * neko_date: {date(13)}
      * @return this. (NotNull)

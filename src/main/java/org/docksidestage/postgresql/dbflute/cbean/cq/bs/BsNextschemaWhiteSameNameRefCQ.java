@@ -79,7 +79,7 @@ public class BsNextschemaWhiteSameNameRefCQ extends AbstractBsNextschemaWhiteSam
       return _sameNameRefId; }
     protected ConditionValue xgetCValueSameNameRefId() { return xdfgetSameNameRefId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * same_name_ref_id: {PK, NotNull, int8(19)}
      * @return this. (NotNull)
@@ -99,7 +99,7 @@ public class BsNextschemaWhiteSameNameRefCQ extends AbstractBsNextschemaWhiteSam
       return _sameNameId; }
     protected ConditionValue xgetCValueSameNameId() { return xdfgetSameNameId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * same_name_id: {NotNull, int4(10), FK to white_same_name}
      * @return this. (NotNull)
@@ -119,7 +119,7 @@ public class BsNextschemaWhiteSameNameRefCQ extends AbstractBsNextschemaWhiteSam
       return _nextRefDate; }
     protected ConditionValue xgetCValueNextRefDate() { return xdfgetNextRefDate(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * next_ref_date: {date(13)}
      * @return this. (NotNull)

@@ -79,7 +79,7 @@ public class BsVendorInheritInuCQ extends AbstractBsVendorInheritInuCQ {
       return _inuId; }
     protected ConditionValue xgetCValueInuId() { return xdfgetInuId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * inu_id: {PK, NotNull, int4(10)}
      * @return this. (NotNull)
@@ -99,7 +99,7 @@ public class BsVendorInheritInuCQ extends AbstractBsVendorInheritInuCQ {
       return _inuName; }
     protected ConditionValue xgetCValueInuName() { return xdfgetInuName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * inu_name: {NotNull, varchar(2147483647)}
      * @return this. (NotNull)
@@ -119,7 +119,7 @@ public class BsVendorInheritInuCQ extends AbstractBsVendorInheritInuCQ {
       return _inuDate; }
     protected ConditionValue xgetCValueInuDate() { return xdfgetInuDate(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * inu_date: {date(13)}
      * @return this. (NotNull)

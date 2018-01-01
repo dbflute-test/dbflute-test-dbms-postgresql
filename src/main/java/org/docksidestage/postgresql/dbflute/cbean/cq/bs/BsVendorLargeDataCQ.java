@@ -93,7 +93,7 @@ public class BsVendorLargeDataCQ extends AbstractBsVendorLargeDataCQ {
     public Map<String, Object> xdfgetLargeDataId_QueryDerivedReferrer_VendorLargeDataRefListParameter() { return xgetSQuePmMap("largeDataId_QueryDerivedReferrer_VendorLargeDataRefList"); }
     public String keepLargeDataId_QueryDerivedReferrer_VendorLargeDataRefListParameter(Object pm) { return xkeepSQuePm("largeDataId_QueryDerivedReferrer_VendorLargeDataRefList", pm); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * large_data_id: {PK, NotNull, int8(19)}
      * @return this. (NotNull)
@@ -113,7 +113,7 @@ public class BsVendorLargeDataCQ extends AbstractBsVendorLargeDataCQ {
       return _stringIndex; }
     protected ConditionValue xgetCValueStringIndex() { return xdfgetStringIndex(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * string_index: {IX, NotNull, varchar(200)}
      * @return this. (NotNull)
@@ -133,7 +133,7 @@ public class BsVendorLargeDataCQ extends AbstractBsVendorLargeDataCQ {
       return _stringNoIndex; }
     protected ConditionValue xgetCValueStringNoIndex() { return xdfgetStringNoIndex(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * string_no_index: {NotNull, varchar(200)}
      * @return this. (NotNull)
@@ -153,7 +153,7 @@ public class BsVendorLargeDataCQ extends AbstractBsVendorLargeDataCQ {
       return _stringUniqueIndex; }
     protected ConditionValue xgetCValueStringUniqueIndex() { return xdfgetStringUniqueIndex(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * string_unique_index: {UQ, NotNull, varchar(200)}
      * @return this. (NotNull)
@@ -173,7 +173,7 @@ public class BsVendorLargeDataCQ extends AbstractBsVendorLargeDataCQ {
       return _intflgIndex; }
     protected ConditionValue xgetCValueIntflgIndex() { return xdfgetIntflgIndex(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * intflg_index: {NotNull, int4(10)}
      * @return this. (NotNull)
@@ -193,7 +193,7 @@ public class BsVendorLargeDataCQ extends AbstractBsVendorLargeDataCQ {
       return _numericIntegerIndex; }
     protected ConditionValue xgetCValueNumericIntegerIndex() { return xdfgetNumericIntegerIndex(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * numeric_integer_index: {IX, NotNull, numeric(8)}
      * @return this. (NotNull)
@@ -213,7 +213,7 @@ public class BsVendorLargeDataCQ extends AbstractBsVendorLargeDataCQ {
       return _numericIntegerNoIndex; }
     protected ConditionValue xgetCValueNumericIntegerNoIndex() { return xdfgetNumericIntegerNoIndex(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * numeric_integer_no_index: {NotNull, numeric(8)}
      * @return this. (NotNull)

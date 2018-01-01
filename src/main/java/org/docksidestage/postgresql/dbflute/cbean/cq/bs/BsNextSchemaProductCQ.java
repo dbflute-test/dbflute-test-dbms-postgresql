@@ -93,7 +93,7 @@ public class BsNextSchemaProductCQ extends AbstractBsNextSchemaProductCQ {
     public Map<String, Object> xdfgetProductId_QueryDerivedReferrer_WhiteSameNameListParameter() { return xgetSQuePmMap("productId_QueryDerivedReferrer_WhiteSameNameList"); }
     public String keepProductId_QueryDerivedReferrer_WhiteSameNameListParameter(Object pm) { return xkeepSQuePm("productId_QueryDerivedReferrer_WhiteSameNameList", pm); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * product_id: {PK, ID, NotNull, serial(10)}
      * @return this. (NotNull)
@@ -113,7 +113,7 @@ public class BsNextSchemaProductCQ extends AbstractBsNextSchemaProductCQ {
       return _productName; }
     protected ConditionValue xgetCValueProductName() { return xdfgetProductName(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * product_name: {NotNull, varchar(200)}
      * @return this. (NotNull)

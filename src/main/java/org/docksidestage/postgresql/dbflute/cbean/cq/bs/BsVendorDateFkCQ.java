@@ -79,7 +79,7 @@ public class BsVendorDateFkCQ extends AbstractBsVendorDateFkCQ {
       return _barId; }
     protected ConditionValue xgetCValueBarId() { return xdfgetBarId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * bar_id: {PK, NotNull, int4(10)}
      * @return this. (NotNull)
@@ -99,7 +99,7 @@ public class BsVendorDateFkCQ extends AbstractBsVendorDateFkCQ {
       return _barDate; }
     protected ConditionValue xgetCValueBarDate() { return xdfgetBarDate(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * bar_date: {NotNull, date(13), FK to vendor_date_pk}
      * @return this. (NotNull)

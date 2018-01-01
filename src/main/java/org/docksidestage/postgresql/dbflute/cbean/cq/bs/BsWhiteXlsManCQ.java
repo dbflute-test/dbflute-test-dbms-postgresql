@@ -79,7 +79,7 @@ public class BsWhiteXlsManCQ extends AbstractBsWhiteXlsManCQ {
       return _xlsManId; }
     protected ConditionValue xgetCValueXlsManId() { return xdfgetXlsManId(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * xls_man_id: {PK, NotNull, int8(19)}
      * @return this. (NotNull)
@@ -99,7 +99,7 @@ public class BsWhiteXlsManCQ extends AbstractBsWhiteXlsManCQ {
       return _stringConverted; }
     protected ConditionValue xgetCValueStringConverted() { return xdfgetStringConverted(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * string_converted: {varchar(2147483647)}
      * @return this. (NotNull)
@@ -119,7 +119,7 @@ public class BsWhiteXlsManCQ extends AbstractBsWhiteXlsManCQ {
       return _timestampZeroDefaultMillis; }
     protected ConditionValue xgetCValueTimestampZeroDefaultMillis() { return xdfgetTimestampZeroDefaultMillis(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * timestamp_zero_default_millis: {timestamp(26, 3)}
      * @return this. (NotNull)
@@ -139,7 +139,7 @@ public class BsWhiteXlsManCQ extends AbstractBsWhiteXlsManCQ {
       return _timestampZeroPrefixMillis; }
     protected ConditionValue xgetCValueTimestampZeroPrefixMillis() { return xdfgetTimestampZeroPrefixMillis(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * timestamp_zero_prefix_millis: {timestamp(26, 3)}
      * @return this. (NotNull)
@@ -159,7 +159,7 @@ public class BsWhiteXlsManCQ extends AbstractBsWhiteXlsManCQ {
       return _timestampZeroSuffixMillis; }
     protected ConditionValue xgetCValueTimestampZeroSuffixMillis() { return xdfgetTimestampZeroSuffixMillis(); }
 
-    /** 
+    /**
      * Add order-by as ascend. <br>
      * timestamp_zero_suffix_millis: {timestamp(26, 3)}
      * @return this. (NotNull)
