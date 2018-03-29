@@ -1,4 +1,17 @@
 map:{
+    ; 2018/03/30 02:23:33 = map:{
+        ; diffDate = 2018/03/30 02:23:33
+        ; sequenceDiff = map:{
+            ; maihamadb.nextschema.next_schema_product_product_id_seq = map:{
+                ; sequenceName = maihamadb.nextschema.next_schema_product_product_id_seq
+                ; diffType = CHANGE
+                ; maximumValueDiff = map:{
+                    ; next = 2147483647
+                    ; previous = 9223372036854775807
+                }
+            }
+        }
+    }
     ; 2014/10/12 21:45:15 = map:{
         ; diffDate = 2014/10/12 21:45:15
         ; tableDiff = map:{

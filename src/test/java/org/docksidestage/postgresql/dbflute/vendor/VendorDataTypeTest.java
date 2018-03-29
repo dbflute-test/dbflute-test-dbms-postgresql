@@ -821,7 +821,7 @@ public class VendorDataTypeTest extends UnitContainerTestCase {
 
         // ## Assert ##
         // Basically unsupported type on DBFlute
-        assertEquals("{aaa,bbb,ccc}", actual.getTypeOfVcArray().toString());
+        assertEquals("{\"aaa\",\"bbb\",\"ccc\"}", actual.getTypeOfVcArray().toString());
     }
 
     public void test_ARRAY_of_int_type_select() throws Exception {
@@ -834,7 +834,7 @@ public class VendorDataTypeTest extends UnitContainerTestCase {
 
         // ## Assert ##
         // Basically unsupported type on DBFlute
-        assertEquals("{1,2,3}", actual.getTypeOfIntArray().toString());
+        assertEquals("{\"1\",\"2\",\"3\"}", actual.getTypeOfIntArray().toString());
     }
 
     public void test_ARRAY_type_insert() throws Exception {
@@ -850,7 +850,7 @@ public class VendorDataTypeTest extends UnitContainerTestCase {
         cb.query().setVendorCheckId_Equal(88881L);
         VendorCheck actual = vendorCheckBhv.selectEntityWithDeletedCheck(cb);
         assertNotNull(actual.getTypeOfVcArray());
-        assertEquals("{aaa,bbb,ccc}", actual.getTypeOfVcArray().toString());
+        assertEquals("{\"aaa\",\"bbb\",\"ccc\"}", actual.getTypeOfVcArray().toString());
     }
 
     public void test_ARRAY_type_JDBC_check() throws Exception {

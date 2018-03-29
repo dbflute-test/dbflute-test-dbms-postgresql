@@ -14,7 +14,6 @@ import java.util.ArrayList;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Set;
-import java.util.Vector;
 
 import javax.sql.DataSource;
 
@@ -44,6 +43,7 @@ import org.docksidestage.postgresql.dbflute.exbhv.pmbean.SpInOutParameterPmb;
 import org.docksidestage.postgresql.dbflute.exentity.Member;
 import org.docksidestage.postgresql.dbflute.exentity.VendorCheck;
 import org.docksidestage.postgresql.unit.UnitContainerTestCase;
+import org.postgresql.jdbc.PgResultSet;
 
 /**
  * @author jflute
@@ -77,9 +77,9 @@ public class VendorJDBCTest extends UnitContainerTestCase {
                 memberIdList.add(cursor.getMemberId());
 
                 log("ResultSet   = " + rs.getClass());
-                org.postgresql.jdbc3.Jdbc3ResultSet physicalRs = extractPhysicalRs(rs);
+                PgResultSet physicalRs = extractPhysicalRs(rs);
                 log("Physical    = " + physicalRs.getClass());
-                Vector<?> rows = extractRowsOnResultSet(physicalRs);
+                List<?> rows = extractRowsOnResultSet(physicalRs);
 
                 log("1: rows.size() = " + rows.size());
                 assertEquals(20, rows.size());
@@ -117,9 +117,9 @@ public class VendorJDBCTest extends UnitContainerTestCase {
                 memberIdList.add(cursor.getMemberId());
 
                 log("ResultSet   = " + rs.getClass());
-                org.postgresql.jdbc3.Jdbc3ResultSet physicalRs = extractPhysicalRs(rs);
+                PgResultSet physicalRs = extractPhysicalRs(rs);
                 log("Physical    = " + physicalRs.getClass());
-                Vector<?> rows = extractRowsOnResultSet(physicalRs);
+                List<?> rows = extractRowsOnResultSet(physicalRs);
 
                 log("1: rows.size() = " + rows.size());
                 assertEquals(3, rows.size());
@@ -144,15 +144,15 @@ public class VendorJDBCTest extends UnitContainerTestCase {
         return memberBhv.selectCount(new MemberCB());
     }
 
-    protected org.postgresql.jdbc3.Jdbc3ResultSet extractPhysicalRs(ResultSet rs) { // nested
+    protected PgResultSet extractPhysicalRs(ResultSet rs) { // nested
         Field field = DfReflectionUtil.getWholeField(org.apache.commons.dbcp.DelegatingResultSet.class, "_res");
         ResultSet firstRs = (ResultSet) DfReflectionUtil.getValueForcedly(field, rs);
-        return (org.postgresql.jdbc3.Jdbc3ResultSet) DfReflectionUtil.getValueForcedly(field, firstRs);
+        return (PgResultSet) DfReflectionUtil.getValueForcedly(field, firstRs);
     }
 
-    protected Vector<?> extractRowsOnResultSet(org.postgresql.jdbc3.Jdbc3ResultSet rs) {
-        Field physicalRsField = DfReflectionUtil.getWholeField(org.postgresql.jdbc3.Jdbc3ResultSet.class, "rows");
-        return (Vector<?>) DfReflectionUtil.getValueForcedly(physicalRsField, rs);
+    protected List<?> extractRowsOnResultSet(PgResultSet rs) {
+        Field physicalRsField = DfReflectionUtil.getWholeField(PgResultSet.class, "rows");
+        return (List<?>) DfReflectionUtil.getValueForcedly(physicalRsField, rs);
     }
 
     // ===================================================================================

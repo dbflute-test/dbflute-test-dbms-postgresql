@@ -3,7 +3,7 @@ package org.docksidestage.postgresql.dbflute.whitebox;
 import java.lang.reflect.Field;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Vector;
+import java.util.List;
 
 import org.dbflute.cbean.result.ListResultBean;
 import org.dbflute.util.DfReflectionUtil;
@@ -51,7 +51,7 @@ public class WxCursorSelectPostgreSQLTest extends UnitContainerTestCase {
                 log("ResultSet   = " + rs.getClass());
                 log(rs.getClass());
 
-                Vector<Object> rows = extractRowDataOnResutSet(rs);
+                List<Object> rows = extractRowDataOnResutSet(rs);
                 assertEquals(countAll, rows.size());
                 assertDbAccess();
 
@@ -94,7 +94,7 @@ public class WxCursorSelectPostgreSQLTest extends UnitContainerTestCase {
                     log("ResultSet   = " + rs.getClass());
                     log(rs.getClass());
 
-                    Vector<Object> rows = extractRowDataOnResutSet(rs);
+                    List<Object> rows = extractRowDataOnResutSet(rs);
                     assertEquals(4, rows.size());
                     assertDbAccess();
 
@@ -151,7 +151,7 @@ public class WxCursorSelectPostgreSQLTest extends UnitContainerTestCase {
     //                                                                   Reflection Helper
     //                                                                   =================
     @SuppressWarnings("unchecked")
-    protected Vector<Object> extractRowDataOnResutSet(ResultSet rs) {
+    protected List<Object> extractRowDataOnResutSet(ResultSet rs) {
         Class<? extends ResultSet> rsType = rs.getClass();
         ResultSet nativeRs = null;
         if (org.apache.commons.dbcp.DelegatingResultSet.class.isAssignableFrom(rsType)) {
@@ -165,6 +165,6 @@ public class WxCursorSelectPostgreSQLTest extends UnitContainerTestCase {
         Class<? extends ResultSet> nativeType = nativeRs.getClass();
         log(nativeType);
         Field rowDataField = DfReflectionUtil.getWholeField(nativeType, "rows");
-        return (Vector<Object>) DfReflectionUtil.getValueForcedly(rowDataField, nativeRs);
+        return (List<Object>) DfReflectionUtil.getValueForcedly(rowDataField, nativeRs);
     }
 }

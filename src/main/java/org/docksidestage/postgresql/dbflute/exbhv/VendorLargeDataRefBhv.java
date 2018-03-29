@@ -5,8 +5,8 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Map;
-import java.util.Vector;
 import java.util.concurrent.ConcurrentHashMap;
 
 import org.dbflute.bhv.core.BehaviorCommand;
@@ -24,6 +24,7 @@ import org.dbflute.s2dao.sqlhandler.TnBatchUpdateHandler;
 import org.dbflute.util.DfReflectionUtil;
 import org.docksidestage.postgresql.dbflute.bsbhv.BsVendorLargeDataRefBhv;
 import org.docksidestage.postgresql.dbflute.exentity.VendorLargeDataRef;
+import org.postgresql.jdbc.PgResultSet;
 
 /**
  * The behavior of vendor_large_data_ref.
@@ -42,7 +43,7 @@ public class VendorLargeDataRefBhv extends BsVendorLargeDataRefBhv {
     //                                                                       =============
     protected ConcurrentHashMap<String, Object> _loggingMarkMap = new ConcurrentHashMap<String, Object>();
     protected ConcurrentHashMap<String, Integer> _fetchSizeMap = new ConcurrentHashMap<String, Integer>();
-    protected ConcurrentHashMap<String, Vector<?>> _rowDataClassMap = new ConcurrentHashMap<String, Vector<?>>();
+    protected ConcurrentHashMap<String, List<?>> _rowDataClassMap = new ConcurrentHashMap<String, List<?>>();
     protected Integer _latestFetchSize = null;
 
     public boolean contains_doLogSql() {
@@ -61,7 +62,7 @@ public class VendorLargeDataRefBhv extends BsVendorLargeDataRefBhv {
         return _fetchSizeMap;
     }
 
-    public ConcurrentHashMap<String, Vector<?>> getRowDataClassMap() {
+    public ConcurrentHashMap<String, List<?>> getRowDataClassMap() {
         return _rowDataClassMap;
     }
 
@@ -113,7 +114,7 @@ public class VendorLargeDataRefBhv extends BsVendorLargeDataRefBhv {
                             @Override
                             protected ResultSet executeQuery(PreparedStatement ps) throws SQLException {
                                 ResultSet rs = super.executeQuery(ps);
-                                Vector<?> rowData = extractRowsOnResultSet(extractPhysicalRs(rs));
+                                List<?> rowData = extractRowsOnResultSet(extractPhysicalRs(rs));
                                 _rowDataClassMap.put("selectEntity", rowData);
                                 return rs;
                             }
@@ -166,7 +167,7 @@ public class VendorLargeDataRefBhv extends BsVendorLargeDataRefBhv {
                             @Override
                             protected ResultSet executeQuery(PreparedStatement ps) throws SQLException {
                                 ResultSet rs = super.executeQuery(ps);
-                                Vector<?> rowData = extractRowsOnResultSet(extractPhysicalRs(rs));
+                                List<?> rowData = extractRowsOnResultSet(extractPhysicalRs(rs));
                                 _rowDataClassMap.put("selectList", rowData);
                                 return rs;
                             }
@@ -214,14 +215,14 @@ public class VendorLargeDataRefBhv extends BsVendorLargeDataRefBhv {
     // ===================================================================================
     //                                                                   Reflection Helper
     //                                                                   =================
-    protected org.postgresql.jdbc3.Jdbc3ResultSet extractPhysicalRs(ResultSet rs) { // nested
+    protected PgResultSet extractPhysicalRs(ResultSet rs) { // nested
         Field field = DfReflectionUtil.getWholeField(org.apache.commons.dbcp.DelegatingResultSet.class, "_res");
         ResultSet firstRs = (ResultSet) DfReflectionUtil.getValueForcedly(field, rs);
-        return (org.postgresql.jdbc3.Jdbc3ResultSet) DfReflectionUtil.getValueForcedly(field, firstRs);
+        return (PgResultSet) DfReflectionUtil.getValueForcedly(field, firstRs);
     }
 
-    protected Vector<?> extractRowsOnResultSet(org.postgresql.jdbc3.Jdbc3ResultSet rs) {
-        Field physicalRsField = DfReflectionUtil.getWholeField(org.postgresql.jdbc3.Jdbc3ResultSet.class, "rows");
-        return (Vector<?>) DfReflectionUtil.getValueForcedly(physicalRsField, rs);
+    protected List<?> extractRowsOnResultSet(PgResultSet rs) {
+        Field physicalRsField = DfReflectionUtil.getWholeField(PgResultSet.class, "rows");
+        return (List<?>) DfReflectionUtil.getValueForcedly(physicalRsField, rs);
     }
 }

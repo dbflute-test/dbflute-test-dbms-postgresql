@@ -467,7 +467,7 @@ public class VendorMetaDataTest extends UnitContainerTestCase {
                 String columnLabel = metaData.getColumnLabel(paramIndex);
                 String tableName = metaData.getTableName(paramIndex);
                 log(tableName + "." + columnLabel);
-                assertEquals("", tableName); // couldn't get related table
+                assertEquals("member", tableName);
             }
         } finally {
             if (rs != null) {
@@ -499,7 +499,7 @@ public class VendorMetaDataTest extends UnitContainerTestCase {
                 String columnName = metaData.getColumnName(paramIndex);
                 String tableName = metaData.getTableName(paramIndex);
                 log(tableName + "." + columnLabel + "(" + columnName + ")");
-                assertEquals("", tableName); // couldn't get related table
+                assertEquals("member", tableName);
             }
         } finally {
             if (rs != null) {
