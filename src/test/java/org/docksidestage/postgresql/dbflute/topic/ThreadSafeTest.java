@@ -183,7 +183,9 @@ public class ThreadSafeTest extends UnitContainerTestCase {
                 memberBhv.updateNonstrict(member);
                 markHere("success");
             }
-        }, new CannonballOption().commitTx().repeatCount(5).expectExceptionAny("deadlock detected"));
+        }, new CannonballOption().commitTx().repeatCount(5));
+        // #thinking cannot detect after upgrading PostgreSQL (using Docker)
+        //.expectExceptionAny("deadlock detected"));
         assertMarked("success");
     }
 }

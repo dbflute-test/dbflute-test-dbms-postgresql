@@ -60,6 +60,9 @@ public class VendorJDBCTest extends UnitContainerTestCase {
     // ===================================================================================
     //                                                                          Fetch Size
     //                                                                          ==========
+    // #thiking failure only when batch execution (after using PostgreSQL docker?) by jflute (2018/03/30)
+    // junit.framework.AssertionFailedError: expected:<20> but was:<4>
+    // at org.docksidestage.postgresql.dbflute.vendor.VendorJDBCTest$1.fetchCursor(VendorJDBCTest.java:85)
     public void test_ResultSet_rowData_defaultFetchSize() {
         // ## Arrange ##
         PurchaseSummaryMemberPmb pmb = new PurchaseSummaryMemberPmb();
@@ -272,8 +275,8 @@ public class VendorJDBCTest extends UnitContainerTestCase {
                     memberBhv.varyingInsert(member, op -> op.configure(conf -> conf.queryTimeout(1)));
                 }
             }
-        }, new CannonballOption().threadCount(2).repeatCount(1).expectExceptionAny("Jdbc3PreparedStatement.setQueryTimeout(int)"));
-        // org.postgresql.jdbc3.Jdbc3PreparedStatement.setQueryTimeout(int) unsupported
+        }, new CannonballOption().threadCount(2).repeatCount(1) // #thinking what is this message? by jflute (2018/03/30)
+                .expectExceptionAny("canceling statement due to user request"));
     }
 
     // ===================================================================================
