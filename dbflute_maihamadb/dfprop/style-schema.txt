@@ -1,3 +1,6 @@
+/* -------------------------------------------------
+                                             Core
+------------------------------------------------- */
 * {
 	margin: 0;
 	padding: 0;
@@ -9,7 +12,9 @@ body {
 	background-color: #cceeaa;
 }
 
-/* heading */
+/* -------------------------------------------------
+                                        Structure
+------------------------------------------------- */
 h1 {
 	font-size: 1.5em;
 	border-bottom: 2px solid #af0000;
@@ -39,7 +44,9 @@ h4 {
 	color: #333333;
 }
 
-/* total info */
+/* -------------------------------------------------
+                                     Whole Header
+------------------------------------------------- */
 .updatedate {
 	text-align: right;
 }
@@ -54,14 +61,42 @@ h4 {
 }
 .sisterlink {
 	margin-top: 0.6em;
-	font-size: 110%;
+	font-size: 120%;
 }
 .sistersublink {
 	margin-top: 0.6em;
-	font-size: 80%;
+	font-size: 85%;
+}
+.sisterneighborlink {
+	margin-top: 0.6em;
+	font-size: 100%;
 }
 
-/* table */
+/* -------------------------------------------------
+                                   Keyword Search
+------------------------------------------------- */
+.keywordsearch {
+	padding: 0.7em 0 0.7em 0;
+}
+.searchmemo {
+	font-size: 0.9em;
+	color: #114488;
+}
+.suggestionarea {
+	padding: 0 0.2em 0.2em 0.2em;
+	margin: 0;
+	position: absolute;
+	zindex: 100;
+	background-color: #DDFFDD;
+	border-width: 1px;
+	border-style: solid;
+	border-color: #CCCCCC;
+	list-style-type: none;
+}
+
+/* -------------------------------------------------
+                                   Database Table
+------------------------------------------------- */
 table {
 	border-collapse:collapse;
 }
@@ -76,6 +111,11 @@ td {
 	border-bottom: 1px dotted #aaa;
 	border-left: 1px solid #555;
 	padding:2px;
+}
+.tablecomment {
+	font-size: 0.8em;
+	color: #3F7E5E;
+	padding:0 0 0.2em 1em;
 }
 .rownumhead {
 	text-align: center;
@@ -111,10 +151,14 @@ td {
 	font-size: 0.6em;
 }
 .relcell {
-	font-size: 0.6em;
+	font-size: 0.7em;
 }
 .commentcell {
 	font-size: 0.7em;
+	color: #3F7E5E;
+}
+.commentcellerror {
+	color: red;
 }
 .subcell {
 	font-size: 0.6em;
@@ -135,6 +179,9 @@ td {
 	text-align: center;
 	font-size: 0.8em;
 }
+.commentdesc {
+	color: #3F7E5E;
+}
 
 /* inner table */
 table.child {
@@ -149,11 +196,25 @@ table.child, table.child td, table.child th {
 	border-bottom: 1px solid #aaa;
 	border-right: 1px solid #aaa;
 }
+.clsgroup {
+	font-size: 1.2em;
+	padding-left: 4px;
+	padding-right: 4px;
+}
 
 /* table supplementary info */
-span.tableschema {
-	font-size: 0.6em;
+span.tableschematitle {
+	font-size: 0.5em;
+	color: #888888;
 }
+span.tablefirstdatetitle {
+	font-size: 0.5em;
+	color: #888888;
+}
+
+/* -------------------------------------------------
+                             Behavior Query Path
+------------------------------------------------- */
 span.bqpcount {
 	font-size: 0.5em;
 }
@@ -188,6 +249,10 @@ dl.bqplist dd.subinfo span.ctet {
 dl.bqplist dd.subinfo span.pmb {
 	color: green;
 }
+
+/* -------------------------------------------------
+                                 Stored Procedure
+------------------------------------------------- */
 dl.procedurelist {
 	padding-left: 2em;
 }
@@ -220,4 +285,63 @@ dl.procedurelist dd.column span.type {
 }
 dl.procedurelist dd.column pre {
 	padding-left: 1em;
+}
+
+/* -------------------------------------------------
+                                  Decomment Modal
+------------------------------------------------- */
+.decommentmodal {
+	display: none;
+	position: fixed;
+	z-index: 5;
+	height: 100%;
+	width: 100%;
+	top: 0;
+	left: 0;
+	padding-top: 50px;
+	background-color: rgba(0, 0, 0, 0.5);
+}
+.decommentmodalcontent {
+	position: relative;
+	z-index: 10;
+	width: 50%;
+	margin: 0 auto;
+	border: 1px solid #999999;
+	padding: 15px;
+	background-color: #ffffff;
+	border-radius: 4px;
+}
+.decommentmodalcontent p {
+	font-size: 14px;
+}
+.decommentinput {
+	display: block;
+	width: 100%;
+	margin-top: 10px;
+	font-size: 12px;
+}
+.decommentmodal-ok-btn {
+	margin: 10px 5px 0 0;
+	padding: 5px 10px;
+	border-radius: 4px;
+}
+.decommentmodal-close-btn {
+	position: absolute;
+	margin-left: 10px;
+	padding: 0;
+	right: 10px;
+	top: 5px;
+	cursor: pointer;
+	width: 28px;
+	height: 28px;
+	border: 0;
+	border-radius: 50%;
+	color: #657786;
+	font-size: 14px;
+	line-height: 24px;
+	text-align: center;
+	transition: box-shadow .15s ease-in-out;
+}
+.decommentmodal-close-btn:hover {
+	background-color: #eed;
 }
