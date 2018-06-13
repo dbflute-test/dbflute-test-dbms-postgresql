@@ -1,4 +1,291 @@
 map:{
+    ; 2018/06/13 23:53:27 = map:{
+        ; diffDate = 2018/06/13 23:53:27
+        ; tableCount = map:{
+            ; next = 39
+            ; previous = 72
+        }
+        ; diffAuthor = jflute
+        ; diffGitBranch = master
+        ; tableDiff = map:{
+            ; next_schema_product = map:{
+                ; tableName = next_schema_product
+                ; diffType = ADD
+            }
+            ; nextschema.white_same_name = map:{
+                ; tableName = nextschema.white_same_name
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; same_name_long = map:{
+                        ; columnName = same_name_long
+                        ; diffType = ADD
+                    }
+                    ; same_name_id = map:{
+                        ; columnName = same_name_id
+                        ; diffType = CHANGE
+                        ; dbTypeDiff = map:{
+                            ; next = int4
+                            ; previous = int8
+                        }
+                        ; columnSizeDiff = map:{
+                            ; next = 10
+                            ; previous = 19
+                        }
+                    }
+                    ; same_name_name = map:{
+                        ; columnName = same_name_name
+                        ; diffType = CHANGE
+                        ; columnSizeDiff = map:{
+                            ; next = 100
+                            ; previous = 200
+                        }
+                    }
+                    ; same_name_integer = map:{
+                        ; columnName = same_name_integer
+                        ; diffType = DELETE
+                    }
+                    ; next_schema_product_id = map:{
+                        ; columnName = next_schema_product_id
+                        ; diffType = DELETE
+                    }
+                }
+            }
+            ; nextschema.white_same_name_ref = map:{
+                ; tableName = nextschema.white_same_name_ref
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; next_ref_date = map:{
+                        ; columnName = next_ref_date
+                        ; diffType = ADD
+                    }
+                    ; same_name_ref_id = map:{
+                        ; columnName = same_name_ref_id
+                        ; diffType = CHANGE
+                        ; dbTypeDiff = map:{
+                            ; next = int8
+                            ; previous = int4
+                        }
+                        ; columnSizeDiff = map:{
+                            ; next = 19
+                            ; previous = 10
+                        }
+                    }
+                    ; same_name_id = map:{
+                        ; columnName = same_name_id
+                        ; diffType = CHANGE
+                        ; dbTypeDiff = map:{
+                            ; next = int4
+                            ; previous = int8
+                        }
+                        ; columnSizeDiff = map:{
+                            ; next = 10
+                            ; previous = 19
+                        }
+                    }
+                    ; next_same_name_id = map:{
+                        ; columnName = next_same_name_id
+                        ; diffType = DELETE
+                    }
+                }
+            }
+            ; nextschema.VENDOR-NON COMPILABLE = map:{
+                ; tableName = nextschema.VENDOR-NON COMPILABLE
+                ; diffType = DELETE
+            }
+            ; nextschema.member = map:{
+                ; tableName = nextschema.member
+                ; diffType = DELETE
+            }
+            ; nextschema.member_address = map:{
+                ; tableName = nextschema.member_address
+                ; diffType = DELETE
+            }
+            ; nextschema.member_login = map:{
+                ; tableName = nextschema.member_login
+                ; diffType = DELETE
+            }
+            ; nextschema.member_security = map:{
+                ; tableName = nextschema.member_security
+                ; diffType = DELETE
+            }
+            ; nextschema.member_service = map:{
+                ; tableName = nextschema.member_service
+                ; diffType = DELETE
+            }
+            ; nextschema.member_status = map:{
+                ; tableName = nextschema.member_status
+                ; diffType = DELETE
+            }
+            ; nextschema.member_withdrawal = map:{
+                ; tableName = nextschema.member_withdrawal
+                ; diffType = DELETE
+            }
+            ; nextschema.product = map:{
+                ; tableName = nextschema.product
+                ; diffType = DELETE
+            }
+            ; nextschema.product_category = map:{
+                ; tableName = nextschema.product_category
+                ; diffType = DELETE
+            }
+            ; nextschema.product_status = map:{
+                ; tableName = nextschema.product_status
+                ; diffType = DELETE
+            }
+            ; nextschema.purchase = map:{
+                ; tableName = nextschema.purchase
+                ; diffType = DELETE
+            }
+            ; nextschema.purchase_payment = map:{
+                ; tableName = nextschema.purchase_payment
+                ; diffType = DELETE
+            }
+            ; nextschema.region = map:{
+                ; tableName = nextschema.region
+                ; diffType = DELETE
+            }
+            ; nextschema.service_rank = map:{
+                ; tableName = nextschema.service_rank
+                ; diffType = DELETE
+            }
+            ; nextschema.summary_product = map:{
+                ; tableName = nextschema.summary_product
+                ; diffType = DELETE
+            }
+            ; nextschema.vendor_$_dollar = map:{
+                ; tableName = nextschema.vendor_$_dollar
+                ; diffType = DELETE
+            }
+            ; nextschema.vendor_check = map:{
+                ; tableName = nextschema.vendor_check
+                ; diffType = DELETE
+            }
+            ; nextschema.vendor_date_fk = map:{
+                ; tableName = nextschema.vendor_date_fk
+                ; diffType = DELETE
+            }
+            ; nextschema.vendor_date_pk = map:{
+                ; tableName = nextschema.vendor_date_pk
+                ; diffType = DELETE
+            }
+            ; nextschema.vendor_inherit_inu = map:{
+                ; tableName = nextschema.vendor_inherit_inu
+                ; diffType = DELETE
+            }
+            ; nextschema.vendor_inherit_neko = map:{
+                ; tableName = nextschema.vendor_inherit_neko
+                ; diffType = DELETE
+            }
+            ; nextschema.vendor_large_data = map:{
+                ; tableName = nextschema.vendor_large_data
+                ; diffType = DELETE
+            }
+            ; nextschema.vendor_large_data_ref = map:{
+                ; tableName = nextschema.vendor_large_data_ref
+                ; diffType = DELETE
+            }
+            ; nextschema.vendor_part_man = map:{
+                ; tableName = nextschema.vendor_part_man
+                ; diffType = DELETE
+            }
+            ; nextschema.vendor_part_man_high = map:{
+                ; tableName = nextschema.vendor_part_man_high
+                ; diffType = DELETE
+            }
+            ; nextschema.vendor_uuid_bar = map:{
+                ; tableName = nextschema.vendor_uuid_bar
+                ; diffType = DELETE
+            }
+            ; nextschema.vendor_uuid_foo = map:{
+                ; tableName = nextschema.vendor_uuid_foo
+                ; diffType = DELETE
+            }
+            ; nextschema.white_compound_pk = map:{
+                ; tableName = nextschema.white_compound_pk
+                ; diffType = DELETE
+            }
+            ; nextschema.white_compound_pk_ref = map:{
+                ; tableName = nextschema.white_compound_pk_ref
+                ; diffType = DELETE
+            }
+            ; nextschema.white_compound_pk_wrong_order = map:{
+                ; tableName = nextschema.white_compound_pk_wrong_order
+                ; diffType = DELETE
+            }
+            ; nextschema.white_not_pk = map:{
+                ; tableName = nextschema.white_not_pk
+                ; diffType = DELETE
+            }
+            ; nextschema.white_xls_man = map:{
+                ; tableName = nextschema.white_xls_man
+                ; diffType = DELETE
+            }
+            ; nextschema.withdrawal_reason = map:{
+                ; tableName = nextschema.withdrawal_reason
+                ; diffType = DELETE
+            }
+        }
+        ; sequenceDiff = map:{
+            ; maihamadb.nextschema.next_schema_product_product_id_seq = map:{
+                ; sequenceName = maihamadb.nextschema.next_schema_product_product_id_seq
+                ; diffType = ADD
+            }
+            ; maihamadb.nextschema.member_member_id_seq = map:{
+                ; sequenceName = maihamadb.nextschema.member_member_id_seq
+                ; diffType = DELETE
+            }
+            ; maihamadb.nextschema.member_address_member_address_id_seq = map:{
+                ; sequenceName = maihamadb.nextschema.member_address_member_address_id_seq
+                ; diffType = DELETE
+            }
+            ; maihamadb.nextschema.member_login_member_login_id_seq = map:{
+                ; sequenceName = maihamadb.nextschema.member_login_member_login_id_seq
+                ; diffType = DELETE
+            }
+            ; maihamadb.nextschema.member_service_member_service_id_seq = map:{
+                ; sequenceName = maihamadb.nextschema.member_service_member_service_id_seq
+                ; diffType = DELETE
+            }
+            ; maihamadb.nextschema.purchase_purchase_id_seq = map:{
+                ; sequenceName = maihamadb.nextschema.purchase_purchase_id_seq
+                ; diffType = DELETE
+            }
+            ; maihamadb.nextschema.purchase_payment_purchase_payment_id_seq = map:{
+                ; sequenceName = maihamadb.nextschema.purchase_payment_purchase_payment_id_seq
+                ; diffType = DELETE
+            }
+            ; maihamadb.nextschema.product_product_id_seq = map:{
+                ; sequenceName = maihamadb.nextschema.product_product_id_seq
+                ; diffType = DELETE
+            }
+            ; maihamadb.nextschema.seq_not_related_to_table = map:{
+                ; sequenceName = maihamadb.nextschema.seq_not_related_to_table
+                ; diffType = DELETE
+            }
+            ; maihamadb.nextschema.seq_purchase = map:{
+                ; sequenceName = maihamadb.nextschema.seq_purchase
+                ; diffType = DELETE
+            }
+            ; maihamadb.nextschema.seq_sub_display_order = map:{
+                ; sequenceName = maihamadb.nextschema.seq_sub_display_order
+                ; diffType = DELETE
+            }
+            ; maihamadb.nextschema.seq_sub_purchase_count = map:{
+                ; sequenceName = maihamadb.nextschema.seq_sub_purchase_count
+                ; diffType = DELETE
+            }
+        }
+        ; procedureDiff = map:{
+            ; maihamadb.nextschema.sp_next_in_out_parameter = map:{
+                ; procedureName = maihamadb.nextschema.sp_next_in_out_parameter
+                ; diffType = ADD
+            }
+            ; maihamadb.nextschema.sp_next_no_parameter = map:{
+                ; procedureName = maihamadb.nextschema.sp_next_no_parameter
+                ; diffType = ADD
+            }
+        }
+    }
     ; 2018/03/30 02:23:53 = map:{
         ; diffDate = 2018/03/30 02:23:53
         ; sequenceDiff = map:{
@@ -3224,14 +3511,12 @@ map:{
             ; diff_first = map:{
                 ; tableName = diff_first
                 ; diffType = ADD
-                ; columnDiff = map:{
-                }
+                ; columnDiff = map:{}
             }
             ; diff_second = map:{
                 ; tableName = diff_second
                 ; diffType = ADD
-                ; columnDiff = map:{
-                }
+                ; columnDiff = map:{}
             }
         }
     }
