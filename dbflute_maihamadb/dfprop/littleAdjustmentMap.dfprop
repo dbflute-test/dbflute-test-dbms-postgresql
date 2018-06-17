@@ -7,28 +7,21 @@
 # o isAvailableAddingCatalogToTableSqlName: (NotRequired - Default false)
 # o isAvailableDatabaseDependency: (NotRequired - Default false)
 # o isAvailableDatabaseNativeJDBC: (NotRequired - Default false)
-# o isAvailableNonPrimaryKeyWritable: (NotRequired - Default false)
-# o isCheckSelectedClassification: (NotRequired - Default false)
-# o isForceClassificationSetting: (NotRequired - Default false)
-# o isMakeEntityChaseRelation: (NotRequired - Default false)
+# o classificationUndefinedHandlingType: (NotRequired - Default LOGGING)
 # o isEntityConvertEmptyStringToNull: (NotRequired - Default false)
-# o isMakeConditionQueryEqualEmptyString: (NotRequired - Default false)
-# o isPagingCountLater: (NotRequired - Default true)
-# o isPagingCountLeastJoin: (NotRequired - Default true)
-# o isInnerJoinAutoDetect: (NotRequired - Default false)
 # o isTableDispNameUpperCase: (NotRequired - Default false)
 # o isTableSqlNameUpperCase: (NotRequired - Default false)
 # o isColumnSqlNameUpperCase: (NotRequired - Default false)
-# o isMakeDeprecated: (NotRequired - Default false)
-# o isMakeRecentlyDeprecated: (NotRequired - Default true)
-# o extendedDBFluteInitializerClass: (NotRequired - Default '')
-# o extendedImplementedInvokerAssistantClass: (NotRequired - Default '')
-# o extendedImplementedCommonColumnAutoSetupperClass: (NotRequired - Default '')
-# o extendedS2DaoSettingClass: (NotRequired - Default '')
+# o isSpecifyColumnRequired: (NotRequired - Default false)
+# o extendedDBFluteInitializerClass: (NotRequired - Default null)
 # o shortCharHandlingMode: (NotRequired - Default NONE)
 # o quoteTableNameList: (NotRequired - Default list:{})
 # o quoteColumnNameList: (NotRequired - Default list:{})
+# o columnNullObjectMap: (NotRequired - Default map:{})
 # o relationalNullObjectMap: (NotRequired - Default map:{})
+# o cursorSelectFetchSize: (NotRequired - Default null)
+# o refreshMap: (NotRequired - Default map:{})
+# o optimisticLockMap: (NotRequired - Default map:{})
 #
 # *The line that starts with '#' means comment-out.
 #
@@ -219,13 +212,37 @@ map:{
     # - - - - - - - - - -/
 
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    # o classificationUndefinedHandlingType: (NotRequired - Default LOGGING)
+    #  The handling type when undefined classification is found.
+    #
+    #   EXCEPTION - throws exception when found
+    #   LOGGING   - logging only when found (exception if ReplaceSchema)
+    #   ALLOWED   - no action
+    #
+    #; classificationUndefinedHandlingType = LOGGING
+    # - - - - - - - - - -/
+
+    # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    # o isEntityConvertEmptyStringToNull: (NotRequired - Default false)
+    #   [true]
+    #     Convert empty-string data to null in entity.
+    #
+    #; isEntityConvertEmptyStringToNull = false
+    # - - - - - - - - - -/
+
+    # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    # o isTableDispNameUpperCase: (NotRequired - Default false)
+    #   [true]
+    #     Table names for display, e.g. on documents, are forcedly treated as upper case.
+    #
+    #; isTableDispNameUpperCase = false
+    # - - - - - - - - - -/
+
+    # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     # o isTableSqlNameUpperCase: (NotRequired - Default false)
     #   [true]
     #     Table names on SQL executed by condition-bean or behavior
     #     are forcedly treated as upper case. (except outside-SQL)
-    #
-    #   [false]
-    #     Non.
     #
     #; isTableSqlNameUpperCase = false
     # - - - - - - - - - -/
@@ -235,9 +252,6 @@ map:{
     #   [true]
     #     Column names on SQL executed by condition-bean or behavior
     #     are forcedly treated as upper case. (except outside-SQL)
-    #
-    #   [false]
-    #     Non.
     #
     #; isColumnSqlNameUpperCase = false
     # - - - - - - - - - -/
