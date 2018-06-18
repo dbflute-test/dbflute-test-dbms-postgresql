@@ -16,7 +16,7 @@
 		<spring.version>4.2.1.RELEASE</spring.version>
 		<dbflute.version>1.1.8</dbflute.version>
 		<postgresql.jdbc.version>42.2.1</postgresql.jdbc.version>
-		<utflute.version>0.8.6</utflute.version>
+		<utflute.version>0.8.7</utflute.version>
 	</properties>
 
 	<licenses>
