@@ -1,4 +1,54 @@
 map:{
+    ; 2018/06/20 22:32:52 = map:{
+        ; diffDate = 2018/06/20 22:32:52
+        ; diffAuthor = jflute
+        ; diffGitBranch = master
+        ; tableDiff = map:{
+            ; vendor_check = map:{
+                ; tableName = vendor_check
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; type_of_int4_array = map:{
+                        ; columnName = type_of_int4_array
+                        ; diffType = ADD
+                    }
+                    ; type_of_int8_array = map:{
+                        ; columnName = type_of_int8_array
+                        ; diffType = ADD
+                    }
+                    ; type_of_int_array = map:{
+                        ; columnName = type_of_int_array
+                        ; diffType = CHANGE
+                        ; dbTypeDiff = map:{
+                            ; next = _int4
+                            ; previous = _int8
+                        }
+                        ; columnSizeDiff = map:{
+                            ; next = 10
+                            ; previous = 19
+                        }
+                    }
+                }
+            }
+        }
+    }
+    ; 2018/06/20 18:56:23 = map:{
+        ; diffDate = 2018/06/20 18:56:23
+        ; diffAuthor = jflute
+        ; diffGitBranch = master
+        ; tableDiff = map:{
+            ; vendor_check = map:{
+                ; tableName = vendor_check
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; type_of_int = map:{
+                        ; columnName = type_of_int
+                        ; diffType = ADD
+                    }
+                }
+            }
+        }
+    }
     ; 2018/06/13 23:53:27 = map:{
         ; diffDate = 2018/06/13 23:53:27
         ; tableCount = map:{

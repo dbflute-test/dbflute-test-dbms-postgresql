@@ -1019,130 +1019,130 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
-     * type_of_int8: {int8(19)}
-     * @param typeOfInt8 The value of typeOfInt8 as equal. (basically NotNull: error as default, or no condition as option)
+     * type_of_int: {int4(10)}
+     * @param typeOfInt The value of typeOfInt as equal. (basically NotNull: error as default, or no condition as option)
      */
-    public void setTypeOfInt8_Equal(Long typeOfInt8) {
-        doSetTypeOfInt8_Equal(typeOfInt8);
+    public void setTypeOfInt_Equal(Integer typeOfInt) {
+        doSetTypeOfInt_Equal(typeOfInt);
     }
 
-    protected void doSetTypeOfInt8_Equal(Long typeOfInt8) {
-        regTypeOfInt8(CK_EQ, typeOfInt8);
+    protected void doSetTypeOfInt_Equal(Integer typeOfInt) {
+        regTypeOfInt(CK_EQ, typeOfInt);
     }
 
     /**
      * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * type_of_int8: {int8(19)}
-     * @param typeOfInt8 The value of typeOfInt8 as greaterThan. (basically NotNull: error as default, or no condition as option)
+     * type_of_int: {int4(10)}
+     * @param typeOfInt The value of typeOfInt as greaterThan. (basically NotNull: error as default, or no condition as option)
      */
-    public void setTypeOfInt8_GreaterThan(Long typeOfInt8) {
-        regTypeOfInt8(CK_GT, typeOfInt8);
+    public void setTypeOfInt_GreaterThan(Integer typeOfInt) {
+        regTypeOfInt(CK_GT, typeOfInt);
     }
 
     /**
      * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
-     * type_of_int8: {int8(19)}
-     * @param typeOfInt8 The value of typeOfInt8 as lessThan. (basically NotNull: error as default, or no condition as option)
+     * type_of_int: {int4(10)}
+     * @param typeOfInt The value of typeOfInt as lessThan. (basically NotNull: error as default, or no condition as option)
      */
-    public void setTypeOfInt8_LessThan(Long typeOfInt8) {
-        regTypeOfInt8(CK_LT, typeOfInt8);
+    public void setTypeOfInt_LessThan(Integer typeOfInt) {
+        regTypeOfInt(CK_LT, typeOfInt);
     }
 
     /**
      * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * type_of_int8: {int8(19)}
-     * @param typeOfInt8 The value of typeOfInt8 as greaterEqual. (basically NotNull: error as default, or no condition as option)
+     * type_of_int: {int4(10)}
+     * @param typeOfInt The value of typeOfInt as greaterEqual. (basically NotNull: error as default, or no condition as option)
      */
-    public void setTypeOfInt8_GreaterEqual(Long typeOfInt8) {
-        regTypeOfInt8(CK_GE, typeOfInt8);
+    public void setTypeOfInt_GreaterEqual(Integer typeOfInt) {
+        regTypeOfInt(CK_GE, typeOfInt);
     }
 
     /**
      * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
-     * type_of_int8: {int8(19)}
-     * @param typeOfInt8 The value of typeOfInt8 as lessEqual. (basically NotNull: error as default, or no condition as option)
+     * type_of_int: {int4(10)}
+     * @param typeOfInt The value of typeOfInt as lessEqual. (basically NotNull: error as default, or no condition as option)
      */
-    public void setTypeOfInt8_LessEqual(Long typeOfInt8) {
-        regTypeOfInt8(CK_LE, typeOfInt8);
+    public void setTypeOfInt_LessEqual(Integer typeOfInt) {
+        regTypeOfInt(CK_LE, typeOfInt);
     }
 
     /**
      * RangeOf with various options. (versatile) <br>
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * type_of_int8: {int8(19)}
-     * @param minNumber The min number of typeOfInt8. (basically NotNull: if op.allowOneSide(), null allowed)
-     * @param maxNumber The max number of typeOfInt8. (basically NotNull: if op.allowOneSide(), null allowed)
+     * type_of_int: {int4(10)}
+     * @param minNumber The min number of typeOfInt. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of typeOfInt. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param opLambda The callback for option of range-of. (NotNull)
      */
-    public void setTypeOfInt8_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
-        setTypeOfInt8_RangeOf(minNumber, maxNumber, xcROOP(opLambda));
+    public void setTypeOfInt_RangeOf(Integer minNumber, Integer maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
+        setTypeOfInt_RangeOf(minNumber, maxNumber, xcROOP(opLambda));
     }
 
     /**
      * RangeOf with various options. (versatile) <br>
      * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
      * And NullIgnored, OnlyOnceRegistered. <br>
-     * type_of_int8: {int8(19)}
-     * @param minNumber The min number of typeOfInt8. (basically NotNull: if op.allowOneSide(), null allowed)
-     * @param maxNumber The max number of typeOfInt8. (basically NotNull: if op.allowOneSide(), null allowed)
+     * type_of_int: {int4(10)}
+     * @param minNumber The min number of typeOfInt. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of typeOfInt. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
-    public void setTypeOfInt8_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
-        regROO(minNumber, maxNumber, xgetCValueTypeOfInt8(), "type_of_int8", rangeOfOption);
+    public void setTypeOfInt_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
+        regROO(minNumber, maxNumber, xgetCValueTypeOfInt(), "type_of_int", rangeOfOption);
     }
 
     /**
      * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
-     * type_of_int8: {int8(19)}
-     * @param typeOfInt8List The collection of typeOfInt8 as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     * type_of_int: {int4(10)}
+     * @param typeOfIntList The collection of typeOfInt as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
-    public void setTypeOfInt8_InScope(Collection<Long> typeOfInt8List) {
-        doSetTypeOfInt8_InScope(typeOfInt8List);
+    public void setTypeOfInt_InScope(Collection<Integer> typeOfIntList) {
+        doSetTypeOfInt_InScope(typeOfIntList);
     }
 
-    protected void doSetTypeOfInt8_InScope(Collection<Long> typeOfInt8List) {
-        regINS(CK_INS, cTL(typeOfInt8List), xgetCValueTypeOfInt8(), "type_of_int8");
+    protected void doSetTypeOfInt_InScope(Collection<Integer> typeOfIntList) {
+        regINS(CK_INS, cTL(typeOfIntList), xgetCValueTypeOfInt(), "type_of_int");
     }
 
     /**
      * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
-     * type_of_int8: {int8(19)}
-     * @param typeOfInt8List The collection of typeOfInt8 as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     * type_of_int: {int4(10)}
+     * @param typeOfIntList The collection of typeOfInt as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
      */
-    public void setTypeOfInt8_NotInScope(Collection<Long> typeOfInt8List) {
-        doSetTypeOfInt8_NotInScope(typeOfInt8List);
+    public void setTypeOfInt_NotInScope(Collection<Integer> typeOfIntList) {
+        doSetTypeOfInt_NotInScope(typeOfIntList);
     }
 
-    protected void doSetTypeOfInt8_NotInScope(Collection<Long> typeOfInt8List) {
-        regINS(CK_NINS, cTL(typeOfInt8List), xgetCValueTypeOfInt8(), "type_of_int8");
+    protected void doSetTypeOfInt_NotInScope(Collection<Integer> typeOfIntList) {
+        regINS(CK_NINS, cTL(typeOfIntList), xgetCValueTypeOfInt(), "type_of_int");
     }
 
     /**
      * IsNull {is null}. And OnlyOnceRegistered. <br>
-     * type_of_int8: {int8(19)}
+     * type_of_int: {int4(10)}
      */
-    public void setTypeOfInt8_IsNull() { regTypeOfInt8(CK_ISN, DOBJ); }
+    public void setTypeOfInt_IsNull() { regTypeOfInt(CK_ISN, DOBJ); }
 
     /**
      * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
-     * type_of_int8: {int8(19)}
+     * type_of_int: {int4(10)}
      */
-    public void setTypeOfInt8_IsNotNull() { regTypeOfInt8(CK_ISNN, DOBJ); }
+    public void setTypeOfInt_IsNotNull() { regTypeOfInt(CK_ISNN, DOBJ); }
 
-    protected void regTypeOfInt8(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueTypeOfInt8(), "type_of_int8"); }
-    protected abstract ConditionValue xgetCValueTypeOfInt8();
+    protected void regTypeOfInt(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueTypeOfInt(), "type_of_int"); }
+    protected abstract ConditionValue xgetCValueTypeOfInt();
 
 
     /**
      * IsNull {is null}. And OnlyOnceRegistered. <br>
-     * type_of_int_array: {_int8(19)}
+     * type_of_int_array: {_int4(10)}
      */
     public void setTypeOfIntArray_IsNull() { regTypeOfIntArray(CK_ISN, DOBJ); }
 
     /**
      * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
-     * type_of_int_array: {_int8(19)}
+     * type_of_int_array: {_int4(10)}
      */
     public void setTypeOfIntArray_IsNotNull() { regTypeOfIntArray(CK_ISNN, DOBJ); }
 
@@ -1264,6 +1264,154 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
 
     protected void regTypeOfInt4(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueTypeOfInt4(), "type_of_int4"); }
     protected abstract ConditionValue xgetCValueTypeOfInt4();
+
+
+    /**
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
+     * type_of_int4_array: {_int4(10)}
+     */
+    public void setTypeOfInt4Array_IsNull() { regTypeOfInt4Array(CK_ISN, DOBJ); }
+
+    /**
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
+     * type_of_int4_array: {_int4(10)}
+     */
+    public void setTypeOfInt4Array_IsNotNull() { regTypeOfInt4Array(CK_ISNN, DOBJ); }
+
+    protected void regTypeOfInt4Array(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueTypeOfInt4Array(), "type_of_int4_array"); }
+    protected abstract ConditionValue xgetCValueTypeOfInt4Array();
+
+    /**
+     * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>
+     * type_of_int8: {int8(19)}
+     * @param typeOfInt8 The value of typeOfInt8 as equal. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setTypeOfInt8_Equal(Long typeOfInt8) {
+        doSetTypeOfInt8_Equal(typeOfInt8);
+    }
+
+    protected void doSetTypeOfInt8_Equal(Long typeOfInt8) {
+        regTypeOfInt8(CK_EQ, typeOfInt8);
+    }
+
+    /**
+     * GreaterThan(&gt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * type_of_int8: {int8(19)}
+     * @param typeOfInt8 The value of typeOfInt8 as greaterThan. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setTypeOfInt8_GreaterThan(Long typeOfInt8) {
+        regTypeOfInt8(CK_GT, typeOfInt8);
+    }
+
+    /**
+     * LessThan(&lt;). And NullIgnored, OnlyOnceRegistered. <br>
+     * type_of_int8: {int8(19)}
+     * @param typeOfInt8 The value of typeOfInt8 as lessThan. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setTypeOfInt8_LessThan(Long typeOfInt8) {
+        regTypeOfInt8(CK_LT, typeOfInt8);
+    }
+
+    /**
+     * GreaterEqual(&gt;=). And NullIgnored, OnlyOnceRegistered. <br>
+     * type_of_int8: {int8(19)}
+     * @param typeOfInt8 The value of typeOfInt8 as greaterEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setTypeOfInt8_GreaterEqual(Long typeOfInt8) {
+        regTypeOfInt8(CK_GE, typeOfInt8);
+    }
+
+    /**
+     * LessEqual(&lt;=). And NullIgnored, OnlyOnceRegistered. <br>
+     * type_of_int8: {int8(19)}
+     * @param typeOfInt8 The value of typeOfInt8 as lessEqual. (basically NotNull: error as default, or no condition as option)
+     */
+    public void setTypeOfInt8_LessEqual(Long typeOfInt8) {
+        regTypeOfInt8(CK_LE, typeOfInt8);
+    }
+
+    /**
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
+     * type_of_int8: {int8(19)}
+     * @param minNumber The min number of typeOfInt8. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of typeOfInt8. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param opLambda The callback for option of range-of. (NotNull)
+     */
+    public void setTypeOfInt8_RangeOf(Long minNumber, Long maxNumber, ConditionOptionCall<RangeOfOption> opLambda) {
+        setTypeOfInt8_RangeOf(minNumber, maxNumber, xcROOP(opLambda));
+    }
+
+    /**
+     * RangeOf with various options. (versatile) <br>
+     * {(default) minNumber &lt;= column &lt;= maxNumber} <br>
+     * And NullIgnored, OnlyOnceRegistered. <br>
+     * type_of_int8: {int8(19)}
+     * @param minNumber The min number of typeOfInt8. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param maxNumber The max number of typeOfInt8. (basically NotNull: if op.allowOneSide(), null allowed)
+     * @param rangeOfOption The option of range-of. (NotNull)
+     */
+    public void setTypeOfInt8_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
+        regROO(minNumber, maxNumber, xgetCValueTypeOfInt8(), "type_of_int8", rangeOfOption);
+    }
+
+    /**
+     * InScope {in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
+     * type_of_int8: {int8(19)}
+     * @param typeOfInt8List The collection of typeOfInt8 as inScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setTypeOfInt8_InScope(Collection<Long> typeOfInt8List) {
+        doSetTypeOfInt8_InScope(typeOfInt8List);
+    }
+
+    protected void doSetTypeOfInt8_InScope(Collection<Long> typeOfInt8List) {
+        regINS(CK_INS, cTL(typeOfInt8List), xgetCValueTypeOfInt8(), "type_of_int8");
+    }
+
+    /**
+     * NotInScope {not in (1, 2)}. And NullIgnored, NullElementIgnored, SeveralRegistered. <br>
+     * type_of_int8: {int8(19)}
+     * @param typeOfInt8List The collection of typeOfInt8 as notInScope. (basically NotNull, NotEmpty: error as default, or no condition as option)
+     */
+    public void setTypeOfInt8_NotInScope(Collection<Long> typeOfInt8List) {
+        doSetTypeOfInt8_NotInScope(typeOfInt8List);
+    }
+
+    protected void doSetTypeOfInt8_NotInScope(Collection<Long> typeOfInt8List) {
+        regINS(CK_NINS, cTL(typeOfInt8List), xgetCValueTypeOfInt8(), "type_of_int8");
+    }
+
+    /**
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
+     * type_of_int8: {int8(19)}
+     */
+    public void setTypeOfInt8_IsNull() { regTypeOfInt8(CK_ISN, DOBJ); }
+
+    /**
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
+     * type_of_int8: {int8(19)}
+     */
+    public void setTypeOfInt8_IsNotNull() { regTypeOfInt8(CK_ISNN, DOBJ); }
+
+    protected void regTypeOfInt8(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueTypeOfInt8(), "type_of_int8"); }
+    protected abstract ConditionValue xgetCValueTypeOfInt8();
+
+
+    /**
+     * IsNull {is null}. And OnlyOnceRegistered. <br>
+     * type_of_int8_array: {_int8(19)}
+     */
+    public void setTypeOfInt8Array_IsNull() { regTypeOfInt8Array(CK_ISN, DOBJ); }
+
+    /**
+     * IsNotNull {is not null}. And OnlyOnceRegistered. <br>
+     * type_of_int8_array: {_int8(19)}
+     */
+    public void setTypeOfInt8Array_IsNotNull() { regTypeOfInt8Array(CK_ISNN, DOBJ); }
+
+    protected void regTypeOfInt8Array(ConditionKey ky, Object vl) { regQ(ky, vl, xgetCValueTypeOfInt8Array(), "type_of_int8_array"); }
+    protected abstract ConditionValue xgetCValueTypeOfInt8Array();
 
     /**
      * Equal(=). And NullIgnored, OnlyOnceRegistered. <br>

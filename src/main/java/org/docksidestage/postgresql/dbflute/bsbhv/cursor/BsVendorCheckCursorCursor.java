@@ -45,14 +45,23 @@ public class BsVendorCheckCursorCursor {
     /** DB name of type_of_decimal. */
     public static final String DB_NAME_type_of_decimal = "type_of_decimal";
 
-    /** DB name of type_of_int8. */
-    public static final String DB_NAME_type_of_int8 = "type_of_int8";
+    /** DB name of type_of_int. */
+    public static final String DB_NAME_type_of_int = "type_of_int";
 
     /** DB name of type_of_int_array. */
     public static final String DB_NAME_type_of_int_array = "type_of_int_array";
 
     /** DB name of type_of_int4. */
     public static final String DB_NAME_type_of_int4 = "type_of_int4";
+
+    /** DB name of type_of_int4_array. */
+    public static final String DB_NAME_type_of_int4_array = "type_of_int4_array";
+
+    /** DB name of type_of_int8. */
+    public static final String DB_NAME_type_of_int8 = "type_of_int8";
+
+    /** DB name of type_of_int8_array. */
+    public static final String DB_NAME_type_of_int8_array = "type_of_int8_array";
 
     /** DB name of type_of_bigint. */
     public static final String DB_NAME_type_of_bigint = "type_of_bigint";
@@ -117,9 +126,12 @@ public class BsVendorCheckCursorCursor {
     protected ValueType _vtTypeOfNumericBigint = vt(Long.class);
     protected ValueType _vtTypeOfNumericDecimal = vt(java.math.BigDecimal.class);
     protected ValueType _vtTypeOfDecimal = vt(java.math.BigDecimal.class);
-    protected ValueType _vtTypeOfInt8 = vt(Long.class);
+    protected ValueType _vtTypeOfInt = vt(Integer.class);
     protected ValueType _vtTypeOfIntArray = vt(org.docksidestage.postgresql.mytype.MyArray.class);
     protected ValueType _vtTypeOfInt4 = vt(Integer.class);
+    protected ValueType _vtTypeOfInt4Array = vt(org.docksidestage.postgresql.mytype.MyArray.class);
+    protected ValueType _vtTypeOfInt8 = vt(Long.class);
+    protected ValueType _vtTypeOfInt8Array = vt(org.docksidestage.postgresql.mytype.MyArray.class);
     protected ValueType _vtTypeOfBigint = vt(Long.class);
     protected ValueType _vtTypeOfReal = vt(java.math.BigDecimal.class);
     protected ValueType _vtTypeOfFloat = vt(java.math.BigDecimal.class);
@@ -271,16 +283,16 @@ public class BsVendorCheckCursorCursor {
     }
 
     /**
-     * [get] type_of_int8: {int8(19), refers to vendor_check.type_of_int8} <br>
-     * @return The value of typeOfInt8. (NullAllowed)
+     * [get] type_of_int: {int4(10), refers to vendor_check.type_of_int} <br>
+     * @return The value of typeOfInt. (NullAllowed)
      * @throws SQLException When it fails to get the value from result set.
      */
-    public Long getTypeOfInt8() throws SQLException {
-        return (Long)_vtTypeOfInt8.getValue(_rs, DB_NAME_type_of_int8);
+    public Integer getTypeOfInt() throws SQLException {
+        return (Integer)_vtTypeOfInt.getValue(_rs, DB_NAME_type_of_int);
     }
 
     /**
-     * [get] type_of_int_array: {_int8(19), refers to vendor_check.type_of_int_array} <br>
+     * [get] type_of_int_array: {_int4(10), refers to vendor_check.type_of_int_array} <br>
      * @return The value of typeOfIntArray. (NullAllowed)
      * @throws SQLException When it fails to get the value from result set.
      */
@@ -295,6 +307,33 @@ public class BsVendorCheckCursorCursor {
      */
     public Integer getTypeOfInt4() throws SQLException {
         return (Integer)_vtTypeOfInt4.getValue(_rs, DB_NAME_type_of_int4);
+    }
+
+    /**
+     * [get] type_of_int4_array: {_int4(10), refers to vendor_check.type_of_int4_array} <br>
+     * @return The value of typeOfInt4Array. (NullAllowed)
+     * @throws SQLException When it fails to get the value from result set.
+     */
+    public org.docksidestage.postgresql.mytype.MyArray getTypeOfInt4Array() throws SQLException {
+        return (org.docksidestage.postgresql.mytype.MyArray)_vtTypeOfInt4Array.getValue(_rs, DB_NAME_type_of_int4_array);
+    }
+
+    /**
+     * [get] type_of_int8: {int8(19), refers to vendor_check.type_of_int8} <br>
+     * @return The value of typeOfInt8. (NullAllowed)
+     * @throws SQLException When it fails to get the value from result set.
+     */
+    public Long getTypeOfInt8() throws SQLException {
+        return (Long)_vtTypeOfInt8.getValue(_rs, DB_NAME_type_of_int8);
+    }
+
+    /**
+     * [get] type_of_int8_array: {_int8(19), refers to vendor_check.type_of_int8_array} <br>
+     * @return The value of typeOfInt8Array. (NullAllowed)
+     * @throws SQLException When it fails to get the value from result set.
+     */
+    public org.docksidestage.postgresql.mytype.MyArray getTypeOfInt8Array() throws SQLException {
+        return (org.docksidestage.postgresql.mytype.MyArray)_vtTypeOfInt8Array.getValue(_rs, DB_NAME_type_of_int8_array);
     }
 
     /**

@@ -343,12 +343,12 @@ public class BsVendorCheckCB extends AbstractConditionBean {
          */
         public SpecifiedColumn columnTypeOfDecimal() { return doColumn("type_of_decimal"); }
         /**
-         * type_of_int8: {int8(19)}
+         * type_of_int: {int4(10)}
          * @return The information object of specified column. (NotNull)
          */
-        public SpecifiedColumn columnTypeOfInt8() { return doColumn("type_of_int8"); }
+        public SpecifiedColumn columnTypeOfInt() { return doColumn("type_of_int"); }
         /**
-         * type_of_int_array: {_int8(19)}
+         * type_of_int_array: {_int4(10)}
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnTypeOfIntArray() { return doColumn("type_of_int_array"); }
@@ -357,6 +357,21 @@ public class BsVendorCheckCB extends AbstractConditionBean {
          * @return The information object of specified column. (NotNull)
          */
         public SpecifiedColumn columnTypeOfInt4() { return doColumn("type_of_int4"); }
+        /**
+         * type_of_int4_array: {_int4(10)}
+         * @return The information object of specified column. (NotNull)
+         */
+        public SpecifiedColumn columnTypeOfInt4Array() { return doColumn("type_of_int4_array"); }
+        /**
+         * type_of_int8: {int8(19)}
+         * @return The information object of specified column. (NotNull)
+         */
+        public SpecifiedColumn columnTypeOfInt8() { return doColumn("type_of_int8"); }
+        /**
+         * type_of_int8_array: {_int8(19)}
+         * @return The information object of specified column. (NotNull)
+         */
+        public SpecifiedColumn columnTypeOfInt8Array() { return doColumn("type_of_int8_array"); }
         /**
          * type_of_bigint: {int8(19)}
          * @return The information object of specified column. (NotNull)

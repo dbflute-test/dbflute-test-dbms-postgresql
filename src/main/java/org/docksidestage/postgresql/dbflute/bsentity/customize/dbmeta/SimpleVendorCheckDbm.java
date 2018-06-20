@@ -98,7 +98,7 @@ public class SimpleVendorCheckDbm extends AbstractDBMeta {
     protected final ColumnInfo _columnTypeOfDecimal = cci("type_of_decimal", "type_of_decimal", null, null, java.math.BigDecimal.class, "typeOfDecimal", null, false, false, false, "numeric", 131089, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnTypeOfBigint = cci("type_of_bigint", "type_of_bigint", null, null, Long.class, "typeOfBigint", null, false, false, false, "int8", 19, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnTypeOfInt8 = cci("type_of_int8", "type_of_int8", null, null, Long.class, "typeOfInt8", null, false, false, false, "int8", 19, 0, null, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnTypeOfIntArray = cci("type_of_int_array", "type_of_int_array", null, null, org.docksidestage.postgresql.mytype.MyArray.class, "typeOfIntArray", null, false, false, false, "_int8", 19, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfIntArray = cci("type_of_int_array", "type_of_int_array", null, null, org.docksidestage.postgresql.mytype.MyArray.class, "typeOfIntArray", null, false, false, false, "_int4", 10, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnTypeOfInt4 = cci("type_of_int4", "type_of_int4", null, null, Integer.class, "typeOfInt4", null, false, false, false, "int4", 10, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnTypeOfMoney = cci("type_of_money", "type_of_money", null, null, java.math.BigDecimal.class, "typeOfMoney", null, false, false, false, "money", 2147483647, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnTypeOfDate = cci("type_of_date", "type_of_date", null, null, java.time.LocalDate.class, "typeOfDate", null, false, false, false, "date", 13, 0, null, null, false, null, null, null, null, null, false);
@@ -164,7 +164,7 @@ public class SimpleVendorCheckDbm extends AbstractDBMeta {
      */
     public ColumnInfo columnTypeOfInt8() { return _columnTypeOfInt8; }
     /**
-     * type_of_int_array: {_int8(19), refers to vendor_check.type_of_int_array}
+     * type_of_int_array: {_int4(10), refers to vendor_check.type_of_int_array}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnTypeOfIntArray() { return _columnTypeOfIntArray; }

@@ -70,9 +70,12 @@ public class VendorCheckCIQ extends AbstractBsVendorCheckCQ {
     protected ConditionValue xgetCValueTypeOfNumericBigint() { return _myCQ.xdfgetTypeOfNumericBigint(); }
     protected ConditionValue xgetCValueTypeOfNumericDecimal() { return _myCQ.xdfgetTypeOfNumericDecimal(); }
     protected ConditionValue xgetCValueTypeOfDecimal() { return _myCQ.xdfgetTypeOfDecimal(); }
-    protected ConditionValue xgetCValueTypeOfInt8() { return _myCQ.xdfgetTypeOfInt8(); }
+    protected ConditionValue xgetCValueTypeOfInt() { return _myCQ.xdfgetTypeOfInt(); }
     protected ConditionValue xgetCValueTypeOfIntArray() { return _myCQ.xdfgetTypeOfIntArray(); }
     protected ConditionValue xgetCValueTypeOfInt4() { return _myCQ.xdfgetTypeOfInt4(); }
+    protected ConditionValue xgetCValueTypeOfInt4Array() { return _myCQ.xdfgetTypeOfInt4Array(); }
+    protected ConditionValue xgetCValueTypeOfInt8() { return _myCQ.xdfgetTypeOfInt8(); }
+    protected ConditionValue xgetCValueTypeOfInt8Array() { return _myCQ.xdfgetTypeOfInt8Array(); }
     protected ConditionValue xgetCValueTypeOfBigint() { return _myCQ.xdfgetTypeOfBigint(); }
     protected ConditionValue xgetCValueTypeOfReal() { return _myCQ.xdfgetTypeOfReal(); }
     protected ConditionValue xgetCValueTypeOfFloat() { return _myCQ.xdfgetTypeOfFloat(); }

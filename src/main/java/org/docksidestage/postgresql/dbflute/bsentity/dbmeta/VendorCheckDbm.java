@@ -51,9 +51,12 @@ public class VendorCheckDbm extends AbstractDBMeta {
         setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfNumericBigint(), (et, vl) -> ((VendorCheck)et).setTypeOfNumericBigint(ctl(vl)), "typeOfNumericBigint");
         setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfNumericDecimal(), (et, vl) -> ((VendorCheck)et).setTypeOfNumericDecimal(ctb(vl)), "typeOfNumericDecimal");
         setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfDecimal(), (et, vl) -> ((VendorCheck)et).setTypeOfDecimal(ctb(vl)), "typeOfDecimal");
-        setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfInt8(), (et, vl) -> ((VendorCheck)et).setTypeOfInt8(ctl(vl)), "typeOfInt8");
+        setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfInt(), (et, vl) -> ((VendorCheck)et).setTypeOfInt(cti(vl)), "typeOfInt");
         setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfIntArray(), (et, vl) -> ((VendorCheck)et).setTypeOfIntArray((org.docksidestage.postgresql.mytype.MyArray)vl), "typeOfIntArray");
         setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfInt4(), (et, vl) -> ((VendorCheck)et).setTypeOfInt4(cti(vl)), "typeOfInt4");
+        setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfInt4Array(), (et, vl) -> ((VendorCheck)et).setTypeOfInt4Array((org.docksidestage.postgresql.mytype.MyArray)vl), "typeOfInt4Array");
+        setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfInt8(), (et, vl) -> ((VendorCheck)et).setTypeOfInt8(ctl(vl)), "typeOfInt8");
+        setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfInt8Array(), (et, vl) -> ((VendorCheck)et).setTypeOfInt8Array((org.docksidestage.postgresql.mytype.MyArray)vl), "typeOfInt8Array");
         setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfBigint(), (et, vl) -> ((VendorCheck)et).setTypeOfBigint(ctl(vl)), "typeOfBigint");
         setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfReal(), (et, vl) -> ((VendorCheck)et).setTypeOfReal(ctb(vl)), "typeOfReal");
         setupEpg(_epgMap, et -> ((VendorCheck)et).getTypeOfFloat(), (et, vl) -> ((VendorCheck)et).setTypeOfFloat(ctb(vl)), "typeOfFloat");
@@ -101,9 +104,12 @@ public class VendorCheckDbm extends AbstractDBMeta {
     protected final ColumnInfo _columnTypeOfNumericBigint = cci("type_of_numeric_bigint", "type_of_numeric_bigint", null, null, Long.class, "typeOfNumericBigint", null, false, false, false, "numeric", 12, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnTypeOfNumericDecimal = cci("type_of_numeric_decimal", "type_of_numeric_decimal", null, null, java.math.BigDecimal.class, "typeOfNumericDecimal", null, false, false, false, "numeric", 5, 3, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnTypeOfDecimal = cci("type_of_decimal", "type_of_decimal", null, null, java.math.BigDecimal.class, "typeOfDecimal", null, false, false, false, "numeric", 131089, 0, null, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnTypeOfInt8 = cci("type_of_int8", "type_of_int8", null, null, Long.class, "typeOfInt8", null, false, false, false, "int8", 19, 0, null, null, false, null, null, null, null, null, false);
-    protected final ColumnInfo _columnTypeOfIntArray = cci("type_of_int_array", "type_of_int_array", null, null, org.docksidestage.postgresql.mytype.MyArray.class, "typeOfIntArray", null, false, false, false, "_int8", 19, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfInt = cci("type_of_int", "type_of_int", null, null, Integer.class, "typeOfInt", null, false, false, false, "int4", 10, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfIntArray = cci("type_of_int_array", "type_of_int_array", null, null, org.docksidestage.postgresql.mytype.MyArray.class, "typeOfIntArray", null, false, false, false, "_int4", 10, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnTypeOfInt4 = cci("type_of_int4", "type_of_int4", null, null, Integer.class, "typeOfInt4", null, false, false, false, "int4", 10, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfInt4Array = cci("type_of_int4_array", "type_of_int4_array", null, null, org.docksidestage.postgresql.mytype.MyArray.class, "typeOfInt4Array", null, false, false, false, "_int4", 10, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfInt8 = cci("type_of_int8", "type_of_int8", null, null, Long.class, "typeOfInt8", null, false, false, false, "int8", 19, 0, null, null, false, null, null, null, null, null, false);
+    protected final ColumnInfo _columnTypeOfInt8Array = cci("type_of_int8_array", "type_of_int8_array", null, null, org.docksidestage.postgresql.mytype.MyArray.class, "typeOfInt8Array", null, false, false, false, "_int8", 19, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnTypeOfBigint = cci("type_of_bigint", "type_of_bigint", null, null, Long.class, "typeOfBigint", null, false, false, false, "int8", 19, 0, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnTypeOfReal = cci("type_of_real", "type_of_real", null, null, java.math.BigDecimal.class, "typeOfReal", null, false, false, false, "float4", 8, 8, null, null, false, null, null, null, null, null, false);
     protected final ColumnInfo _columnTypeOfFloat = cci("type_of_float", "type_of_float", null, null, java.math.BigDecimal.class, "typeOfFloat", null, false, false, false, "float8", 17, 17, null, null, false, null, null, null, null, null, false);
@@ -167,12 +173,12 @@ public class VendorCheckDbm extends AbstractDBMeta {
      */
     public ColumnInfo columnTypeOfDecimal() { return _columnTypeOfDecimal; }
     /**
-     * type_of_int8: {int8(19)}
+     * type_of_int: {int4(10)}
      * @return The information object of specified column. (NotNull)
      */
-    public ColumnInfo columnTypeOfInt8() { return _columnTypeOfInt8; }
+    public ColumnInfo columnTypeOfInt() { return _columnTypeOfInt; }
     /**
-     * type_of_int_array: {_int8(19)}
+     * type_of_int_array: {_int4(10)}
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnTypeOfIntArray() { return _columnTypeOfIntArray; }
@@ -181,6 +187,21 @@ public class VendorCheckDbm extends AbstractDBMeta {
      * @return The information object of specified column. (NotNull)
      */
     public ColumnInfo columnTypeOfInt4() { return _columnTypeOfInt4; }
+    /**
+     * type_of_int4_array: {_int4(10)}
+     * @return The information object of specified column. (NotNull)
+     */
+    public ColumnInfo columnTypeOfInt4Array() { return _columnTypeOfInt4Array; }
+    /**
+     * type_of_int8: {int8(19)}
+     * @return The information object of specified column. (NotNull)
+     */
+    public ColumnInfo columnTypeOfInt8() { return _columnTypeOfInt8; }
+    /**
+     * type_of_int8_array: {_int8(19)}
+     * @return The information object of specified column. (NotNull)
+     */
+    public ColumnInfo columnTypeOfInt8Array() { return _columnTypeOfInt8Array; }
     /**
      * type_of_bigint: {int8(19)}
      * @return The information object of specified column. (NotNull)
@@ -273,9 +294,12 @@ public class VendorCheckDbm extends AbstractDBMeta {
         ls.add(columnTypeOfNumericBigint());
         ls.add(columnTypeOfNumericDecimal());
         ls.add(columnTypeOfDecimal());
-        ls.add(columnTypeOfInt8());
+        ls.add(columnTypeOfInt());
         ls.add(columnTypeOfIntArray());
         ls.add(columnTypeOfInt4());
+        ls.add(columnTypeOfInt4Array());
+        ls.add(columnTypeOfInt8());
+        ls.add(columnTypeOfInt8Array());
         ls.add(columnTypeOfBigint());
         ls.add(columnTypeOfReal());
         ls.add(columnTypeOfFloat());

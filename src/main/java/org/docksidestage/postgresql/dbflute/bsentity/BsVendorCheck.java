@@ -18,7 +18,7 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  *     vendor_check_id
  *
  * [column]
- *     vendor_check_id, type_of_char, type_of_varchar, type_of_vc_array, type_of_text, type_of_numeric_integer, type_of_numeric_bigint, type_of_numeric_decimal, type_of_decimal, type_of_int8, type_of_int_array, type_of_int4, type_of_bigint, type_of_real, type_of_float, type_of_money, type_of_date, type_of_timestamp, type_of_time, type_of_timetz, type_of_interval, type_of_bool, type_of_bit, type_of_bytea, type_of_oid, type_of_uuid, type_of_xml, type_of_json
+ *     vendor_check_id, type_of_char, type_of_varchar, type_of_vc_array, type_of_text, type_of_numeric_integer, type_of_numeric_bigint, type_of_numeric_decimal, type_of_decimal, type_of_int, type_of_int_array, type_of_int4, type_of_int4_array, type_of_int8, type_of_int8_array, type_of_bigint, type_of_real, type_of_float, type_of_money, type_of_date, type_of_timestamp, type_of_time, type_of_timetz, type_of_interval, type_of_bool, type_of_bit, type_of_bytea, type_of_oid, type_of_uuid, type_of_xml, type_of_json
  *
  * [sequence]
  *     
@@ -52,9 +52,12 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  * Long typeOfNumericBigint = entity.getTypeOfNumericBigint();
  * java.math.BigDecimal typeOfNumericDecimal = entity.getTypeOfNumericDecimal();
  * java.math.BigDecimal typeOfDecimal = entity.getTypeOfDecimal();
- * Long typeOfInt8 = entity.getTypeOfInt8();
+ * Integer typeOfInt = entity.getTypeOfInt();
  * org.docksidestage.postgresql.mytype.MyArray typeOfIntArray = entity.getTypeOfIntArray();
  * Integer typeOfInt4 = entity.getTypeOfInt4();
+ * org.docksidestage.postgresql.mytype.MyArray typeOfInt4Array = entity.getTypeOfInt4Array();
+ * Long typeOfInt8 = entity.getTypeOfInt8();
+ * org.docksidestage.postgresql.mytype.MyArray typeOfInt8Array = entity.getTypeOfInt8Array();
  * Long typeOfBigint = entity.getTypeOfBigint();
  * java.math.BigDecimal typeOfReal = entity.getTypeOfReal();
  * java.math.BigDecimal typeOfFloat = entity.getTypeOfFloat();
@@ -80,9 +83,12 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  * entity.setTypeOfNumericBigint(typeOfNumericBigint);
  * entity.setTypeOfNumericDecimal(typeOfNumericDecimal);
  * entity.setTypeOfDecimal(typeOfDecimal);
- * entity.setTypeOfInt8(typeOfInt8);
+ * entity.setTypeOfInt(typeOfInt);
  * entity.setTypeOfIntArray(typeOfIntArray);
  * entity.setTypeOfInt4(typeOfInt4);
+ * entity.setTypeOfInt4Array(typeOfInt4Array);
+ * entity.setTypeOfInt8(typeOfInt8);
+ * entity.setTypeOfInt8Array(typeOfInt8Array);
  * entity.setTypeOfBigint(typeOfBigint);
  * entity.setTypeOfReal(typeOfReal);
  * entity.setTypeOfFloat(typeOfFloat);
@@ -141,14 +147,23 @@ public abstract class BsVendorCheck extends AbstractEntity implements DomainEnti
     /** type_of_decimal: {numeric(131089)} */
     protected java.math.BigDecimal _typeOfDecimal;
 
-    /** type_of_int8: {int8(19)} */
-    protected Long _typeOfInt8;
+    /** type_of_int: {int4(10)} */
+    protected Integer _typeOfInt;
 
-    /** type_of_int_array: {_int8(19)} */
+    /** type_of_int_array: {_int4(10)} */
     protected org.docksidestage.postgresql.mytype.MyArray _typeOfIntArray;
 
     /** type_of_int4: {int4(10)} */
     protected Integer _typeOfInt4;
+
+    /** type_of_int4_array: {_int4(10)} */
+    protected org.docksidestage.postgresql.mytype.MyArray _typeOfInt4Array;
+
+    /** type_of_int8: {int8(19)} */
+    protected Long _typeOfInt8;
+
+    /** type_of_int8_array: {_int8(19)} */
+    protected org.docksidestage.postgresql.mytype.MyArray _typeOfInt8Array;
 
     /** type_of_bigint: {int8(19)} */
     protected Long _typeOfBigint;
@@ -349,9 +364,12 @@ public abstract class BsVendorCheck extends AbstractEntity implements DomainEnti
         sb.append(dm).append(xfND(_typeOfNumericBigint));
         sb.append(dm).append(xfND(_typeOfNumericDecimal));
         sb.append(dm).append(xfND(_typeOfDecimal));
-        sb.append(dm).append(xfND(_typeOfInt8));
+        sb.append(dm).append(xfND(_typeOfInt));
         sb.append(dm).append(xfND(_typeOfIntArray));
         sb.append(dm).append(xfND(_typeOfInt4));
+        sb.append(dm).append(xfND(_typeOfInt4Array));
+        sb.append(dm).append(xfND(_typeOfInt8));
+        sb.append(dm).append(xfND(_typeOfInt8Array));
         sb.append(dm).append(xfND(_typeOfBigint));
         sb.append(dm).append(xfND(_typeOfReal));
         sb.append(dm).append(xfND(_typeOfFloat));
@@ -551,25 +569,25 @@ public abstract class BsVendorCheck extends AbstractEntity implements DomainEnti
     }
 
     /**
-     * [get] type_of_int8: {int8(19)} <br>
-     * @return The value of the column 'type_of_int8'. (NullAllowed even if selected: for no constraint)
+     * [get] type_of_int: {int4(10)} <br>
+     * @return The value of the column 'type_of_int'. (NullAllowed even if selected: for no constraint)
      */
-    public Long getTypeOfInt8() {
-        checkSpecifiedProperty("typeOfInt8");
-        return _typeOfInt8;
+    public Integer getTypeOfInt() {
+        checkSpecifiedProperty("typeOfInt");
+        return _typeOfInt;
     }
 
     /**
-     * [set] type_of_int8: {int8(19)} <br>
-     * @param typeOfInt8 The value of the column 'type_of_int8'. (NullAllowed: null update allowed for no constraint)
+     * [set] type_of_int: {int4(10)} <br>
+     * @param typeOfInt The value of the column 'type_of_int'. (NullAllowed: null update allowed for no constraint)
      */
-    public void setTypeOfInt8(Long typeOfInt8) {
-        registerModifiedProperty("typeOfInt8");
-        _typeOfInt8 = typeOfInt8;
+    public void setTypeOfInt(Integer typeOfInt) {
+        registerModifiedProperty("typeOfInt");
+        _typeOfInt = typeOfInt;
     }
 
     /**
-     * [get] type_of_int_array: {_int8(19)} <br>
+     * [get] type_of_int_array: {_int4(10)} <br>
      * @return The value of the column 'type_of_int_array'. (NullAllowed even if selected: for no constraint)
      */
     public org.docksidestage.postgresql.mytype.MyArray getTypeOfIntArray() {
@@ -578,7 +596,7 @@ public abstract class BsVendorCheck extends AbstractEntity implements DomainEnti
     }
 
     /**
-     * [set] type_of_int_array: {_int8(19)} <br>
+     * [set] type_of_int_array: {_int4(10)} <br>
      * @param typeOfIntArray The value of the column 'type_of_int_array'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTypeOfIntArray(org.docksidestage.postgresql.mytype.MyArray typeOfIntArray) {
@@ -602,6 +620,60 @@ public abstract class BsVendorCheck extends AbstractEntity implements DomainEnti
     public void setTypeOfInt4(Integer typeOfInt4) {
         registerModifiedProperty("typeOfInt4");
         _typeOfInt4 = typeOfInt4;
+    }
+
+    /**
+     * [get] type_of_int4_array: {_int4(10)} <br>
+     * @return The value of the column 'type_of_int4_array'. (NullAllowed even if selected: for no constraint)
+     */
+    public org.docksidestage.postgresql.mytype.MyArray getTypeOfInt4Array() {
+        checkSpecifiedProperty("typeOfInt4Array");
+        return _typeOfInt4Array;
+    }
+
+    /**
+     * [set] type_of_int4_array: {_int4(10)} <br>
+     * @param typeOfInt4Array The value of the column 'type_of_int4_array'. (NullAllowed: null update allowed for no constraint)
+     */
+    public void setTypeOfInt4Array(org.docksidestage.postgresql.mytype.MyArray typeOfInt4Array) {
+        registerModifiedProperty("typeOfInt4Array");
+        _typeOfInt4Array = typeOfInt4Array;
+    }
+
+    /**
+     * [get] type_of_int8: {int8(19)} <br>
+     * @return The value of the column 'type_of_int8'. (NullAllowed even if selected: for no constraint)
+     */
+    public Long getTypeOfInt8() {
+        checkSpecifiedProperty("typeOfInt8");
+        return _typeOfInt8;
+    }
+
+    /**
+     * [set] type_of_int8: {int8(19)} <br>
+     * @param typeOfInt8 The value of the column 'type_of_int8'. (NullAllowed: null update allowed for no constraint)
+     */
+    public void setTypeOfInt8(Long typeOfInt8) {
+        registerModifiedProperty("typeOfInt8");
+        _typeOfInt8 = typeOfInt8;
+    }
+
+    /**
+     * [get] type_of_int8_array: {_int8(19)} <br>
+     * @return The value of the column 'type_of_int8_array'. (NullAllowed even if selected: for no constraint)
+     */
+    public org.docksidestage.postgresql.mytype.MyArray getTypeOfInt8Array() {
+        checkSpecifiedProperty("typeOfInt8Array");
+        return _typeOfInt8Array;
+    }
+
+    /**
+     * [set] type_of_int8_array: {_int8(19)} <br>
+     * @param typeOfInt8Array The value of the column 'type_of_int8_array'. (NullAllowed: null update allowed for no constraint)
+     */
+    public void setTypeOfInt8Array(org.docksidestage.postgresql.mytype.MyArray typeOfInt8Array) {
+        registerModifiedProperty("typeOfInt8Array");
+        _typeOfInt8Array = typeOfInt8Array;
     }
 
     /**

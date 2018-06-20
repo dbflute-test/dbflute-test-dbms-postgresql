@@ -135,7 +135,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity implements Cust
     /** type_of_int8: {int8(19), refers to vendor_check.type_of_int8} */
     protected Long _typeOfInt8;
 
-    /** type_of_int_array: {_int8(19), refers to vendor_check.type_of_int_array} */
+    /** type_of_int_array: {_int4(10), refers to vendor_check.type_of_int_array} */
     protected org.docksidestage.postgresql.mytype.MyArray _typeOfIntArray;
 
     /** type_of_int4: {int4(10), refers to vendor_check.type_of_int4} */
@@ -589,7 +589,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity implements Cust
     }
 
     /**
-     * [get] type_of_int_array: {_int8(19), refers to vendor_check.type_of_int_array} <br>
+     * [get] type_of_int_array: {_int4(10), refers to vendor_check.type_of_int_array} <br>
      * @return The value of the column 'type_of_int_array'. (NullAllowed even if selected: for no constraint)
      */
     public org.docksidestage.postgresql.mytype.MyArray getTypeOfIntArray() {
@@ -598,7 +598,7 @@ public abstract class BsSimpleVendorCheck extends AbstractEntity implements Cust
     }
 
     /**
-     * [set] type_of_int_array: {_int8(19), refers to vendor_check.type_of_int_array} <br>
+     * [set] type_of_int_array: {_int4(10), refers to vendor_check.type_of_int_array} <br>
      * @param typeOfIntArray The value of the column 'type_of_int_array'. (NullAllowed: null update allowed for no constraint)
      */
     public void setTypeOfIntArray(org.docksidestage.postgresql.mytype.MyArray typeOfIntArray) {

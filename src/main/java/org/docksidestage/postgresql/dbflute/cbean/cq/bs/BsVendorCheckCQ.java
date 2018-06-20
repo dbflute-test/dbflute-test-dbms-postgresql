@@ -253,25 +253,25 @@ public class BsVendorCheckCQ extends AbstractBsVendorCheckCQ {
      */
     public BsVendorCheckCQ addOrderBy_TypeOfDecimal_Desc() { regOBD("type_of_decimal"); return this; }
 
-    protected ConditionValue _typeOfInt8;
-    public ConditionValue xdfgetTypeOfInt8()
-    { if (_typeOfInt8 == null) { _typeOfInt8 = nCV(); }
-      return _typeOfInt8; }
-    protected ConditionValue xgetCValueTypeOfInt8() { return xdfgetTypeOfInt8(); }
+    protected ConditionValue _typeOfInt;
+    public ConditionValue xdfgetTypeOfInt()
+    { if (_typeOfInt == null) { _typeOfInt = nCV(); }
+      return _typeOfInt; }
+    protected ConditionValue xgetCValueTypeOfInt() { return xdfgetTypeOfInt(); }
 
     /**
      * Add order-by as ascend. <br>
-     * type_of_int8: {int8(19)}
+     * type_of_int: {int4(10)}
      * @return this. (NotNull)
      */
-    public BsVendorCheckCQ addOrderBy_TypeOfInt8_Asc() { regOBA("type_of_int8"); return this; }
+    public BsVendorCheckCQ addOrderBy_TypeOfInt_Asc() { regOBA("type_of_int"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * type_of_int8: {int8(19)}
+     * type_of_int: {int4(10)}
      * @return this. (NotNull)
      */
-    public BsVendorCheckCQ addOrderBy_TypeOfInt8_Desc() { regOBD("type_of_int8"); return this; }
+    public BsVendorCheckCQ addOrderBy_TypeOfInt_Desc() { regOBD("type_of_int"); return this; }
 
     protected ConditionValue _typeOfIntArray;
     public ConditionValue xdfgetTypeOfIntArray()
@@ -281,14 +281,14 @@ public class BsVendorCheckCQ extends AbstractBsVendorCheckCQ {
 
     /**
      * Add order-by as ascend. <br>
-     * type_of_int_array: {_int8(19)}
+     * type_of_int_array: {_int4(10)}
      * @return this. (NotNull)
      */
     public BsVendorCheckCQ addOrderBy_TypeOfIntArray_Asc() { regOBA("type_of_int_array"); return this; }
 
     /**
      * Add order-by as descend. <br>
-     * type_of_int_array: {_int8(19)}
+     * type_of_int_array: {_int4(10)}
      * @return this. (NotNull)
      */
     public BsVendorCheckCQ addOrderBy_TypeOfIntArray_Desc() { regOBD("type_of_int_array"); return this; }
@@ -312,6 +312,66 @@ public class BsVendorCheckCQ extends AbstractBsVendorCheckCQ {
      * @return this. (NotNull)
      */
     public BsVendorCheckCQ addOrderBy_TypeOfInt4_Desc() { regOBD("type_of_int4"); return this; }
+
+    protected ConditionValue _typeOfInt4Array;
+    public ConditionValue xdfgetTypeOfInt4Array()
+    { if (_typeOfInt4Array == null) { _typeOfInt4Array = nCV(); }
+      return _typeOfInt4Array; }
+    protected ConditionValue xgetCValueTypeOfInt4Array() { return xdfgetTypeOfInt4Array(); }
+
+    /**
+     * Add order-by as ascend. <br>
+     * type_of_int4_array: {_int4(10)}
+     * @return this. (NotNull)
+     */
+    public BsVendorCheckCQ addOrderBy_TypeOfInt4Array_Asc() { regOBA("type_of_int4_array"); return this; }
+
+    /**
+     * Add order-by as descend. <br>
+     * type_of_int4_array: {_int4(10)}
+     * @return this. (NotNull)
+     */
+    public BsVendorCheckCQ addOrderBy_TypeOfInt4Array_Desc() { regOBD("type_of_int4_array"); return this; }
+
+    protected ConditionValue _typeOfInt8;
+    public ConditionValue xdfgetTypeOfInt8()
+    { if (_typeOfInt8 == null) { _typeOfInt8 = nCV(); }
+      return _typeOfInt8; }
+    protected ConditionValue xgetCValueTypeOfInt8() { return xdfgetTypeOfInt8(); }
+
+    /**
+     * Add order-by as ascend. <br>
+     * type_of_int8: {int8(19)}
+     * @return this. (NotNull)
+     */
+    public BsVendorCheckCQ addOrderBy_TypeOfInt8_Asc() { regOBA("type_of_int8"); return this; }
+
+    /**
+     * Add order-by as descend. <br>
+     * type_of_int8: {int8(19)}
+     * @return this. (NotNull)
+     */
+    public BsVendorCheckCQ addOrderBy_TypeOfInt8_Desc() { regOBD("type_of_int8"); return this; }
+
+    protected ConditionValue _typeOfInt8Array;
+    public ConditionValue xdfgetTypeOfInt8Array()
+    { if (_typeOfInt8Array == null) { _typeOfInt8Array = nCV(); }
+      return _typeOfInt8Array; }
+    protected ConditionValue xgetCValueTypeOfInt8Array() { return xdfgetTypeOfInt8Array(); }
+
+    /**
+     * Add order-by as ascend. <br>
+     * type_of_int8_array: {_int8(19)}
+     * @return this. (NotNull)
+     */
+    public BsVendorCheckCQ addOrderBy_TypeOfInt8Array_Asc() { regOBA("type_of_int8_array"); return this; }
+
+    /**
+     * Add order-by as descend. <br>
+     * type_of_int8_array: {_int8(19)}
+     * @return this. (NotNull)
+     */
+    public BsVendorCheckCQ addOrderBy_TypeOfInt8Array_Desc() { regOBD("type_of_int8_array"); return this; }
 
     protected ConditionValue _typeOfBigint;
     public ConditionValue xdfgetTypeOfBigint()
