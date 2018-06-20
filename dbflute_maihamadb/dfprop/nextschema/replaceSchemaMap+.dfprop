@@ -1,5 +1,13 @@
 map:{
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    # o isIncrementSequenceToDataMax (NotRequired - Default 'false')
+    #  Does it increment sequence values to max value of table data?
+    #  Referring the property 'sequenceDefinitionMap'.
+    #
+    ; isIncrementSequenceToDataMax = false
+    # - - - - - - - - - -/
+
+    # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     # o playSqlDirectory: (NotRequired - Default 'playsql' relative to DBFlute client)
     #  This property is relative path to (main) PlaySql directory,
     #  You should not use this property easily.
