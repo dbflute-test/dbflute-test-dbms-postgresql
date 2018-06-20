@@ -10,4 +10,4 @@ create database /*$dfprop.mainCatalog*/ with encoding='UTF8' owner=/*$dfprop.mai
 
 -- #df:reviveUser()#
 -- #df:checkUser(nextSchema, grant)#
-create schema /*nextSchema*/ authorization /*$dfprop.mainUser*/;
+create schema /*$nextSchema*/ authorization /*$dfprop.mainUser*/;
