@@ -1,0 +1,13 @@
+-- #df:checkEnv(ut)#
+
+-- #df:changeUser(system)#
+-- #df:checkUser(mainUser)#
+create user /*$dfprop.mainUser*/ password '/*$dfprop.mainPassword*/';
+
+-- #df:reviveUser()#
+-- #df:checkUser(mainSchema, grant)#
+create database /*$dfprop.mainCatalog*/ with encoding='UTF8' owner=/*$dfprop.mainUser*/;
+
+-- #df:reviveUser()#
+-- #df:checkUser(nextSchema, grant)#
+create schema /*nextSchema*/ authorization /*$dfprop.mainUser*/;

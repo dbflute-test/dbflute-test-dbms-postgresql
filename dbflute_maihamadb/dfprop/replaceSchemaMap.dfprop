@@ -112,7 +112,9 @@ map:{
     # o filterVariablesMap: (NotRequired - Default map:{})
     #  You can specify the filter variables for DDL.
     # 
-    #; filterVariablesMap = map:{abc=AAA}
+    ; filterVariablesMap = map:{
+        ; nextSchema = nextschema
+    }
     # - - - - - - - - - -/
 
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
@@ -125,12 +127,13 @@ map:{
     #   o user: (Required)
     #   o password: (NotRequired - Default '')
     #
+    # #hope trying by jflute (2018/06/20)
     #; additionalUserMap = map:{
     #    ; system = map:{
-    #        #; url = ...
+    #        ; url = jdbc:postgresql://localhost:5432/
     #        #; schema = ...
-    #        ; user = system
-    #        ; password = system
+    #        ; user = postgres
+    #        ; password = df:dfprop/system-password.txt|postgres
     #    }
     #}
     # - - - - - - - - - -/
