@@ -1,4 +1,42 @@
 map:{
+    ; 2019/01/01 01:07:04 = map:{
+        ; diffDate = 2019/01/01 01:07:04
+        ; tableCount = map:{
+            ; next = 39
+            ; previous = 36
+        }
+        ; diffAuthor = jflute
+        ; tableDiff = map:{
+            ; next_schema_product = map:{
+                ; tableName = next_schema_product
+                ; diffType = ADD
+            }
+            ; nextschema.white_same_name = map:{
+                ; tableName = nextschema.white_same_name
+                ; diffType = ADD
+            }
+            ; nextschema.white_same_name_ref = map:{
+                ; tableName = nextschema.white_same_name_ref
+                ; diffType = ADD
+            }
+        }
+        ; sequenceDiff = map:{
+            ; maihamadb.nextschema.next_schema_product_product_id_seq = map:{
+                ; sequenceName = maihamadb.nextschema.next_schema_product_product_id_seq
+                ; diffType = ADD
+            }
+        }
+        ; procedureDiff = map:{
+            ; maihamadb.nextschema.sp_next_in_out_parameter = map:{
+                ; procedureName = maihamadb.nextschema.sp_next_in_out_parameter
+                ; diffType = ADD
+            }
+            ; maihamadb.nextschema.sp_next_no_parameter = map:{
+                ; procedureName = maihamadb.nextschema.sp_next_no_parameter
+                ; diffType = ADD
+            }
+        }
+    }
     ; 2018/06/20 22:32:52 = map:{
         ; diffDate = 2018/06/20 22:32:52
         ; diffAuthor = jflute
