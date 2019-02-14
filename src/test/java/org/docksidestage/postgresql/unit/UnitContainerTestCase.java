@@ -30,11 +30,17 @@ public abstract class UnitContainerTestCase extends ContainerTestCase {
     // ===================================================================================
     //                                                                            Settings
     //                                                                            ========
+    // because ContextSingletonBeanFactoryLocator is removed since Spring5
+    @Override
+    protected String[] prepareConfigFiles() {
+        return new String[] { "jdbcBeans.xml", "dbfluteBeans.xml" };
+    }
+
     @Override
     protected boolean isUseTestCaseLooseBinding() {
         return true;
     }
-    
+
     // ===================================================================================
     //                                                                         Data Helper
     //                                                                         ===========
