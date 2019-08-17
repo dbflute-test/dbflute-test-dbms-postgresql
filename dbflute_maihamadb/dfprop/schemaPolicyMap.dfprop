@@ -35,14 +35,20 @@
 # *The line that starts with '#' means comment-out.
 #
 map:{
-    ; tableExceptList = list:{
-    }
+    ; tableExceptList = list:{}
     ; tableTargetList = list:{}
-    ; columnExceptMap = map:{}
-    ; isMainSchemaOnly = false
+    ; columnExceptMap = map:{
+        # vendor and white test is freedom so except here
+        ; prefix:VENDOR = list:{ bar_id }
+    }
+    
+    # next schema has different policy (violation of sameColumnDbTypeIfSameColumnName)
+    ; isMainSchemaOnly = true
 
     ; wholeMap = map:{
         ; themeList = list:{
+            # failure until 1.2.0: next_schema_product.product_id=serial, purchase.product_id=int4
+            ; sameColumnDbTypeIfSameColumnName
         }
     }
     ; tableMap = map:{
