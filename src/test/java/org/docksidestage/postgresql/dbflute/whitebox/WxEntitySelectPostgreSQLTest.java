@@ -20,26 +20,10 @@ public class WxEntitySelectPostgreSQLTest extends UnitContainerTestCase {
     //                                                                            Settings
     //                                                                            ========
     @Override
-    public void setUp() throws Exception {
-        xclearCachedContainer();
-        super.setUp();
-    }
-
-    @Override
     public void tearDown() throws Exception {
         vendorLargeDataRefBhv.getFetchSizeMap().clear();
         vendorLargeDataRefBhv.getRowDataClassMap().clear();
         super.tearDown();
-    }
-
-    @Override
-    protected boolean isUseOneTimeContainer() {
-        return true;
-    }
-
-    @Override
-    protected boolean isDestroyContainerAtTearDown() {
-        return true;
     }
 
     // ===================================================================================
