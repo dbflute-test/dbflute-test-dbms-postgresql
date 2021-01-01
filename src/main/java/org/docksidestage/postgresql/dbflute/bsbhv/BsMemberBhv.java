@@ -57,26 +57,26 @@ public abstract class BsMemberBhv extends AbstractBehaviorWritable<Member, Membe
     //                                                                          Definition
     //                                                                          ==========
     /*df:beginQueryPath*/
-    public static final String PATH_selectUnpaidSummaryMember = "selectUnpaidSummaryMember";
+    public static final String PATH_selectLatestFormalizedDatetime = "selectLatestFormalizedDatetime";
+    /** The example for scalar select */
+    public static final String PATH_selectMemberName = "selectMemberName";
+    public static final String PATH_selectOptionMember = "selectOptionMember";
     /** Example for ManualPaging */
     public static final String PATH_selectPurchaseMaxPriceMember = "selectPurchaseMaxPriceMember";
     public static final String PATH_selectPurchaseSummaryMember = "selectPurchaseSummaryMember";
-    public static final String PATH_selectOptionMember = "selectOptionMember";
-    public static final String PATH_selectLatestFormalizedDatetime = "selectLatestFormalizedDatetime";
-    /** Force Withdrawal Update */
-    public static final String PATH_updateMemberChangedToWithdrawalForcedly = "updateMemberChangedToWithdrawalForcedly";
     /** Simple Member Select */
     public static final String PATH_selectSimpleMember = "selectSimpleMember";
-    /** The example for scalar select */
-    public static final String PATH_selectMemberName = "selectMemberName";
+    public static final String PATH_selectUnpaidSummaryMember = "selectUnpaidSummaryMember";
+    /** Force Withdrawal Update */
+    public static final String PATH_updateMemberChangedToWithdrawalForcedly = "updateMemberChangedToWithdrawalForcedly";
     public static final String PATH_subdirectory_selectSubDirectoryCheck = "subdirectory:selectSubDirectoryCheck";
+    public static final String PATH_whitebox_cmentity_selectCommonColumnMember = "whitebox:cmentity:selectCommonColumnMember";
+    public static final String PATH_whitebox_cmentity_selectForcedType = "whitebox:cmentity:selectForcedType";
+    public static final String PATH_whitebox_pmbean_selectCompareDate = "whitebox:pmbean:selectCompareDate";
+    public static final String PATH_whitebox_pmbean_selectResolvedPackageName = "whitebox:pmbean:selectResolvedPackageName";
     public static final String PATH_whitebox_wrongexample_selectBindVariableNotFoundProperty = "whitebox:wrongexample:selectBindVariableNotFoundProperty";
     public static final String PATH_whitebox_wrongexample_selectIfCommentNotBooleanResult = "whitebox:wrongexample:selectIfCommentNotBooleanResult";
     public static final String PATH_whitebox_wrongexample_selectIfCommentWrongExpression = "whitebox:wrongexample:selectIfCommentWrongExpression";
-    public static final String PATH_whitebox_pmbean_selectCompareDate = "whitebox:pmbean:selectCompareDate";
-    public static final String PATH_whitebox_pmbean_selectResolvedPackageName = "whitebox:pmbean:selectResolvedPackageName";
-    public static final String PATH_whitebox_cmentity_selectCommonColumnMember = "whitebox:cmentity:selectCommonColumnMember";
-    public static final String PATH_whitebox_cmentity_selectForcedType = "whitebox:cmentity:selectForcedType";
     /*df:endQueryPath*/
 
     // ===================================================================================
