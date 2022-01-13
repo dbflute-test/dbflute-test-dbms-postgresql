@@ -169,7 +169,6 @@
 			<groupId>org.postgresql</groupId>
 			<artifactId>postgresql</artifactId>
 			<version>${postgresql.jdbc.version}</version>
-			<scope>runtime</scope>
 		</dependency>
 
 		<!-- spring -->
