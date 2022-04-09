@@ -94,7 +94,7 @@ public class VendorMetaDataTest extends UnitContainerTestCase {
     //                                           -----------
     public void test_DatabaseMetaData_getTables_basic() throws SQLException {
         DatabaseMetaData metaData = _conn.getMetaData();
-        ResultSet rs = metaData.getTables("exampledb", "public", "%", new String[] { "TABLE", "VIEW" });
+        ResultSet rs = metaData.getTables("maihamadb", "public", "%", new String[] { "TABLE", "VIEW" });
         log("[Table]");
         boolean exists = false;
         while (rs.next()) {
@@ -114,7 +114,7 @@ public class VendorMetaDataTest extends UnitContainerTestCase {
     public void test_DatabaseMetaData_getTables_catalog() throws SQLException {
         DatabaseMetaData metaData = _conn.getMetaData();
         // catalog does not work!
-        ResultSet rs = metaData.getTables("nextexampledb", "public", "%", new String[] { "TABLE", "VIEW" });
+        ResultSet rs = metaData.getTables("maihamadb", "public", "%", new String[] { "TABLE", "VIEW" });
         log("[Table]");
         boolean exists = false;
         while (rs.next()) {
@@ -135,7 +135,7 @@ public class VendorMetaDataTest extends UnitContainerTestCase {
     public void test_DatabaseMetaData_getTables_schema() throws SQLException {
         DatabaseMetaData metaData = _conn.getMetaData();
         // catalog does not work!
-        ResultSet rs = metaData.getTables("exampledb", "nextschema", "%", new String[] { "TABLE", "VIEW" });
+        ResultSet rs = metaData.getTables("maihamadb", "nextschema", "%", new String[] { "TABLE", "VIEW" });
         log("[Table]");
         boolean exists = false;
         while (rs.next()) {
@@ -155,7 +155,7 @@ public class VendorMetaDataTest extends UnitContainerTestCase {
 
     public void test_DatabaseMetaData_getTables_schema_empty() throws SQLException {
         DatabaseMetaData metaData = _conn.getMetaData();
-        ResultSet rs = metaData.getTables("exampledb", "", "%", new String[] { "TABLE", "VIEW" });
+        ResultSet rs = metaData.getTables("maihamadb", "", "%", new String[] { "TABLE", "VIEW" });
         log("[Table]");
         boolean exists = false;
         while (rs.next()) {
@@ -175,7 +175,7 @@ public class VendorMetaDataTest extends UnitContainerTestCase {
 
     public void test_DatabaseMetaData_getTables_schema_null() throws SQLException {
         DatabaseMetaData metaData = _conn.getMetaData();
-        ResultSet rs = metaData.getTables("exampledb", null, "%", new String[] { "TABLE", "VIEW" });
+        ResultSet rs = metaData.getTables("maihamadb", null, "%", new String[] { "TABLE", "VIEW" });
         log("[Table]");
         boolean exists = false;
         while (rs.next()) {
@@ -219,7 +219,7 @@ public class VendorMetaDataTest extends UnitContainerTestCase {
     public void test_DatabaseMetaData_getColumns_nextSchema() throws SQLException {
         DatabaseMetaData metaData = _conn.getMetaData();
         String tableDbName = NextSchemaProductDbm.getInstance().getTableDbName();
-        ResultSet rs = metaData.getColumns(null, "nextschema", tableDbName, null);
+        ResultSet rs = metaData.getColumns("maihamadb", "nextschema", tableDbName, null);
         log("[Column]");
         boolean exists = false;
         while (rs.next()) {
@@ -243,7 +243,7 @@ public class VendorMetaDataTest extends UnitContainerTestCase {
     public void test_DatabaseMetaData_getImportedKeys_basic() throws SQLException {
         DatabaseMetaData metaData = getDataSource().getConnection().getMetaData();
         String tableDbName = PurchaseDbm.getInstance().getTableDbName();
-        ResultSet rs = metaData.getImportedKeys("exampledb", "public", tableDbName);
+        ResultSet rs = metaData.getImportedKeys("maihamadb", "public", tableDbName);
         boolean exists = false;
         int count = 0;
         Set<String> fkSet = new HashSet<String>();
@@ -277,7 +277,7 @@ public class VendorMetaDataTest extends UnitContainerTestCase {
     public void test_DatabaseMetaData_getIndexInfo_unique() throws SQLException {
         DatabaseMetaData metaData = getDataSource().getConnection().getMetaData();
         String tableDbName = PurchaseDbm.getInstance().getTableDbName();
-        ResultSet rs = metaData.getIndexInfo("exampledb", "public", tableDbName, true, true);
+        ResultSet rs = metaData.getIndexInfo("maihamadb", "public", tableDbName, true, true);
         boolean exists = false;
         while (rs.next()) {
             exists = true;
@@ -301,7 +301,7 @@ public class VendorMetaDataTest extends UnitContainerTestCase {
     public void test_DatabaseMetaData_getIndexInfo_with_nonUnique() throws SQLException {
         DatabaseMetaData metaData = getDataSource().getConnection().getMetaData();
         String tableDbName = PurchaseDbm.getInstance().getTableDbName();
-        ResultSet rs = metaData.getIndexInfo("exampledb", "public", tableDbName, false, true);
+        ResultSet rs = metaData.getIndexInfo("maihamadb", "public", tableDbName, false, true);
         boolean exists = false;
         boolean existsNonUnique = false;
         while (rs.next()) {
@@ -332,7 +332,7 @@ public class VendorMetaDataTest extends UnitContainerTestCase {
     //                                       ---------------
     public void test_DatabaseMetaData_getProcedures_mainSchema() throws SQLException {
         DatabaseMetaData metaData = _conn.getMetaData();
-        ResultSet rs = metaData.getProcedures("exampledb", "public", null);
+        ResultSet rs = metaData.getProcedures("maihamadb", "public", null);
         boolean exists = false;
         log("[Procedure]");
         while (rs.next()) {
@@ -352,7 +352,7 @@ public class VendorMetaDataTest extends UnitContainerTestCase {
 
     public void test_DatabaseMetaData_getProcedures_nextSchema() throws SQLException {
         DatabaseMetaData metaData = _conn.getMetaData();
-        ResultSet rs = metaData.getProcedures("exampledb", "nextschema", null);
+        ResultSet rs = metaData.getProcedures("maihamadb", "nextschema", null);
         boolean exists = false;
         log("[Procedure]");
         while (rs.next()) {
@@ -375,7 +375,7 @@ public class VendorMetaDataTest extends UnitContainerTestCase {
     //                                 ---------------------
     public void test_DatabaseMetaData_getProcedureColumns_mainSchema() throws SQLException {
         DatabaseMetaData metaData = _conn.getMetaData();
-        ResultSet rs = metaData.getProcedures("exampledb", "public", null);
+        ResultSet rs = metaData.getProcedures("maihamadb", "public", null);
         boolean exists = false;
         log("[Procedure]");
         while (rs.next()) {
@@ -410,7 +410,7 @@ public class VendorMetaDataTest extends UnitContainerTestCase {
 
     public void test_DatabaseMetaData_getProcedureColumns_nextSchema() throws SQLException {
         DatabaseMetaData metaData = _conn.getMetaData();
-        ResultSet rs = metaData.getProcedures("exampledb", "nextschema", null);
+        ResultSet rs = metaData.getProcedures("maihamadb", "nextschema", null);
         boolean exists = false;
         log("[Procedure]");
         while (rs.next()) {
