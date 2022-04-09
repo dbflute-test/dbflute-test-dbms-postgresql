@@ -145,7 +145,7 @@ create table VENDOR_PART_MAN_HIGH (
 ) inherits (VENDOR_PART_MAN);
 
 -- #df:begin#
-create function PART_MAN_INSERT_TRIGGER() returns trigger as
+create or replace function PART_MAN_INSERT_TRIGGER() returns trigger as
 $BODY$
 begin
   execute 'insert into VENDOR_PART_MAN_HIGH values(($1).*)' USING new;
@@ -155,7 +155,7 @@ $BODY$
 LANGUAGE plpgsql;
 -- #df:end#
 
-create trigger PART_MAN_INSERT_TRIGGER before insert or update on VENDOR_PART_MAN
+create or replace trigger PART_MAN_INSERT_TRIGGER before insert or update on VENDOR_PART_MAN
    for each row execute procedure PART_MAN_INSERT_TRIGGER();
 
 
