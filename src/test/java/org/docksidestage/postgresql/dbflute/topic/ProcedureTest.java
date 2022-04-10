@@ -100,32 +100,28 @@ public class ProcedureTest extends UnitContainerTestCase {
         pmb.setVvvvInOid("grault".getBytes("UTF-8"));
 
         // ## Act ##
-        assertException(SQLFailureException.class, () -> {
-            // #thinking jflute why this error? (2022/04/10)
-            // org.postgresql.util.PSQLException
-            // ERROR: invalid input syntax for type numeric: "null"
-            //   場所: unnamed portal parameter $9 = '...'
-            vendorCheckBhv.outsideSql().call(pmb);
-        }).handle(cause -> {
-            // ## Assert ##
-            assertContains(cause.getMessage(), "unnamed portal parameter $9");
-        });
-        // for future
-        //// ## Assert ##
-        //log(pmb.toString());
-        //assertEquals("foo", pmb.getVOutVarchar());
-        //assertEquals("qux", pmb.getVOutChar().trim()); // needs to trim
-        //assertEquals(pmb.getVInText(), pmb.getVOutText());
-        //assertEquals(new BigDecimal("987.654"), pmb.getVvOutDecimal());
-        //assertEquals(Integer.valueOf(6789), pmb.getVvOutInteger());
-        //assertEquals(Integer.valueOf(4567), pmb.getVvInoutInteger());
-        //assertEquals(Long.valueOf(2345), pmb.getVvOutBigint());
-        //assertNull(pmb.getVvInoutBigint());
-        //// expect no changed
-        //assertEquals(pmb.getVvvvInBool(), pmb.getVvvvInBool());
-        //assertEquals(pmb.getVvvvInBytea(), pmb.getVvvvInBytea());
-        //assertEquals(pmb.getVvvvInUuid(), pmb.getVvvvInUuid());
-        //assertEquals(pmb.getVvvvInOid(), pmb.getVvvvInOid());
+        // done jflute why this error? (2022/04/10)
+        // org.postgresql.util.PSQLException
+        // ERROR: invalid input syntax for type numeric: "null"
+        //   場所: unnamed portal parameter $9 = '...'
+        //  -> it works well on JDBC 42.3.3 so runtime JDBC version should be latest
+        vendorCheckBhv.outsideSql().call(pmb);
+
+        // ## Assert ##
+        log(pmb.toString());
+        assertEquals("foo", pmb.getVOutVarchar());
+        assertEquals("qux", pmb.getVOutChar().trim()); // needs to trim
+        assertEquals(pmb.getVInText(), pmb.getVOutText());
+        assertEquals(new BigDecimal("987.654"), pmb.getVvOutDecimal());
+        assertEquals(Integer.valueOf(6789), pmb.getVvOutInteger());
+        assertEquals(Integer.valueOf(4567), pmb.getVvInoutInteger());
+        assertEquals(Long.valueOf(2345), pmb.getVvOutBigint());
+        assertNull(pmb.getVvInoutBigint());
+        // expect no changed
+        assertEquals(pmb.getVvvvInBool(), pmb.getVvvvInBool());
+        assertEquals(pmb.getVvvvInBytea(), pmb.getVvvvInBytea());
+        assertEquals(pmb.getVvvvInUuid(), pmb.getVvvvInUuid());
+        assertEquals(pmb.getVvvvInOid(), pmb.getVvvvInOid());
     }
 
     // ===================================================================================
@@ -256,6 +252,27 @@ public class ProcedureTest extends UnitContainerTestCase {
         // ## Assert ##
         assertEquals("ddd", pmb.getVdonparam());
         assertEquals("eee", pmb.getPooParamname());
+    }
+
+    // ===================================================================================
+    //                                                                         JDBC Escape
+    //                                                                         ===========
+    public void test_call_Procedure_jdbcEscape() {
+        // ## Arrange ##
+        SpNoParameterPmb pmb = new SpNoParameterPmb() {
+            @Override
+            public boolean isEscapeStatement() {
+                return true;
+            }
+        };
+
+        // ## Act & Assert ##
+        // #for_now jflute real procedure cannot use JDBC escape on (at least) 42.3.3 (2022/04/10)
+        assertException(SQLFailureException.class, () -> {
+            vendorCheckBhv.outsideSql().call(pmb);
+        }).handle(cause -> {
+            assertContains(cause.getMessage(), "To call a procedure, use CALL.");
+        });
     }
 
     // ===================================================================================

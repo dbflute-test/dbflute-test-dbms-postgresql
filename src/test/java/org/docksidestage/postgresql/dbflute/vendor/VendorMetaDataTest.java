@@ -367,7 +367,9 @@ public class VendorMetaDataTest extends UnitContainerTestCase {
             assertNotNull(procedure);
             assertNotNull(procedureType);
         }
-        assertTrue(exists);
+        // #for_now jflute nextSchema does not have real procedure yet (2022/04/10)
+        //assertTrue(exists);
+        assertFalse(exists);
     }
 
     // -----------------------------------------------------
@@ -440,7 +442,9 @@ public class VendorMetaDataTest extends UnitContainerTestCase {
                 assertNotNull(dataType);
             }
         }
-        assertTrue(exists);
+        // #for_now jflute nextSchema does not have real procedure yet (2022/04/10)
+        //assertTrue(exists);
+        assertFalse(exists);
     }
 
     // -----------------------------------------------------
@@ -528,7 +532,7 @@ public class VendorMetaDataTest extends UnitContainerTestCase {
         ResultSet rs = null;
         try {
             _conn = getDataSource().getConnection();
-            cs = _conn.prepareCall("{? = call SP_RETURN_RESULT_SET()}");
+            cs = _conn.prepareCall("{? = call FN_RETURN_RESULT_SET()}");
             cs.registerOutParameter(1, valueType.getSqlType());
             boolean executed = cs.execute();
             log("executed = " + executed);

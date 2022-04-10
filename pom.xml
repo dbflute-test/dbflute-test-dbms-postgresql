@@ -14,7 +14,7 @@
 
 	<properties>
 		<dbflute.version>1.2.6-A-SNAPSHOT</dbflute.version>
-		<postgresql.jdbc.version>42.2.10</postgresql.jdbc.version>
+		<postgresql.jdbc.version>42.3.3</postgresql.jdbc.version>
 		<spring.version>5.3.18</spring.version>
 		<utflute.version>0.9.4</utflute.version>
 	</properties>
