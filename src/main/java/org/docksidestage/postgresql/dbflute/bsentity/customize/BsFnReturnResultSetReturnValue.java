@@ -10,7 +10,7 @@ import org.docksidestage.postgresql.dbflute.allcommon.CDef;
 import org.docksidestage.postgresql.dbflute.exentity.customize.*;
 
 /**
- * The entity of SpReturnResultSetWithReturnValue. <br>
+ * The entity of FnReturnResultSetReturnValue. <br>
  * <pre>
  * [primary-key]
  *     
@@ -55,7 +55,7 @@ import org.docksidestage.postgresql.dbflute.exentity.customize.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsSpReturnResultSetWithReturnValue extends AbstractEntity implements CustomizeEntity {
+public abstract class BsFnReturnResultSetReturnValue extends AbstractEntity implements CustomizeEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -86,12 +86,12 @@ public abstract class BsSpReturnResultSetWithReturnValue extends AbstractEntity 
     //                                                                             =======
     /** {@inheritDoc} */
     public DBMeta asDBMeta() {
-        return org.docksidestage.postgresql.dbflute.bsentity.customize.dbmeta.SpReturnResultSetWithReturnValueDbm.getInstance();
+        return org.docksidestage.postgresql.dbflute.bsentity.customize.dbmeta.FnReturnResultSetReturnValueDbm.getInstance();
     }
 
     /** {@inheritDoc} */
     public String asTableDbName() {
-        return "SpReturnResultSetWithReturnValue";
+        return "FnReturnResultSetReturnValue";
     }
 
     // ===================================================================================
@@ -204,8 +204,8 @@ public abstract class BsSpReturnResultSetWithReturnValue extends AbstractEntity 
     //                                                                      ==============
     @Override
     protected boolean doEquals(Object obj) {
-        if (obj instanceof BsSpReturnResultSetWithReturnValue) {
-            BsSpReturnResultSetWithReturnValue other = (BsSpReturnResultSetWithReturnValue)obj;
+        if (obj instanceof BsFnReturnResultSetReturnValue) {
+            BsFnReturnResultSetReturnValue other = (BsFnReturnResultSetReturnValue)obj;
             if (!xSV(_memberId, other._memberId)) { return false; }
             if (!xSV(_memberName, other._memberName)) { return false; }
             if (!xSV(_birthdate, other._birthdate)) { return false; }
@@ -255,8 +255,8 @@ public abstract class BsSpReturnResultSetWithReturnValue extends AbstractEntity 
     }
 
     @Override
-    public SpReturnResultSetWithReturnValue clone() {
-        return (SpReturnResultSetWithReturnValue)super.clone();
+    public FnReturnResultSetReturnValue clone() {
+        return (FnReturnResultSetReturnValue)super.clone();
     }
 
     // ===================================================================================

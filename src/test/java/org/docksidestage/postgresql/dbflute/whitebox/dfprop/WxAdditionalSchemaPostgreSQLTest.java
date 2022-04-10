@@ -12,8 +12,8 @@ import org.docksidestage.postgresql.dbflute.cbean.WhiteSameNameCB;
 import org.docksidestage.postgresql.dbflute.exbhv.NextschemaWhiteSameNameBhv;
 import org.docksidestage.postgresql.dbflute.exbhv.NextschemaWhiteSameNameRefBhv;
 import org.docksidestage.postgresql.dbflute.exbhv.WhiteSameNameBhv;
-import org.docksidestage.postgresql.dbflute.exbhv.pmbean.SpNextNoParameterPmb;
-import org.docksidestage.postgresql.dbflute.exbhv.pmbean.SpReturnParameterPmb;
+import org.docksidestage.postgresql.dbflute.exbhv.pmbean.FnNextNoParameterPmb;
+import org.docksidestage.postgresql.dbflute.exbhv.pmbean.FnReturnParameterPmb;
 import org.docksidestage.postgresql.dbflute.exentity.NextschemaWhiteSameName;
 import org.docksidestage.postgresql.dbflute.exentity.NextschemaWhiteSameNameRef;
 import org.docksidestage.postgresql.dbflute.exentity.WhiteSameName;
@@ -37,8 +37,8 @@ public class WxAdditionalSchemaPostgreSQLTest extends UnitContainerTestCase {
     }
 
     public void test_SqlNamePrefix_procedure() {
-        assertFalse(new SpReturnParameterPmb().getProcedureName().contains("."));
-        assertTrue(new SpNextNoParameterPmb().getProcedureName().contains("."));
+        assertFalse(new FnReturnParameterPmb().getProcedureName().contains("."));
+        assertTrue(new FnNextNoParameterPmb().getProcedureName().contains("."));
     }
 
     // ===================================================================================

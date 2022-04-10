@@ -9,11 +9,11 @@ import org.dbflute.util.DfTypeUtil;
 import org.docksidestage.postgresql.dbflute.allcommon.*;
 
 /**
- * The base class for procedure parameter-bean of SpTransactionInherit. <br>
- * This is related to "<span style="color: #AD4747">sp_transaction_inherit</span>".
+ * The base class for procedure parameter-bean of Fncamelcaseprocedure. <br>
+ * This is related to "<span style="color: #AD4747">fncamelcaseprocedure</span>".
  * @author DBFlute(AutoGenerator)
  */
-public class BsSpTransactionInheritPmb implements ProcedurePmb, FetchBean {
+public class BsFncamelcaseprocedurePmb implements ProcedurePmb, FetchBean {
 
     // ===================================================================================
     //                                                                          Definition
@@ -21,10 +21,30 @@ public class BsSpTransactionInheritPmb implements ProcedurePmb, FetchBean {
     // -----------------------------------------------------
     //                                   Procedure Parameter
     //                                   -------------------
+    public static final String fooparam_PROCEDURE_PARAMETER = "in, 0";
+    public static final String barparam_PROCEDURE_PARAMETER = "in, 1";
+    public static final String vdonparam_PROCEDURE_PARAMETER = "out, 2";
+    public static final String vheeparam_PROCEDURE_PARAMETER = "in, 3";
+    public static final String pooParamname_PROCEDURE_PARAMETER = "out, 4";
 
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
+    /** The parameter of fooparam: {varchar as In}. */
+    protected String _fooparam;
+
+    /** The parameter of barparam: {varchar as In}. */
+    protected String _barparam;
+
+    /** The parameter of vdonparam: {varchar as Out}. */
+    protected String _vdonparam;
+
+    /** The parameter of vheeparam: {varchar as In}. */
+    protected String _vheeparam;
+
+    /** The parameter of pooParamname: {varchar as Out}. */
+    protected String _pooParamname;
+
     /** The max size of safety result. */
     protected int _safetyMaxResultSize;
 
@@ -35,10 +55,10 @@ public class BsSpTransactionInheritPmb implements ProcedurePmb, FetchBean {
     //                                                                         Constructor
     //                                                                         ===========
     /**
-     * Constructor for the procedure parameter-bean of SpTransactionInherit. <br>
-     * This is related to "<span style="color: #AD4747">sp_transaction_inherit</span>".
+     * Constructor for the procedure parameter-bean of Fncamelcaseprocedure. <br>
+     * This is related to "<span style="color: #AD4747">fncamelcaseprocedure</span>".
      */
-    public BsSpTransactionInheritPmb() {
+    public BsFncamelcaseprocedurePmb() {
     }
 
     // ===================================================================================
@@ -47,7 +67,7 @@ public class BsSpTransactionInheritPmb implements ProcedurePmb, FetchBean {
     /**
      * {@inheritDoc}
      */
-    public String getProcedureName() { return "sp_transaction_inherit"; }
+    public String getProcedureName() { return "fncamelcaseprocedure"; }
 
     /**
      * {@inheritDoc}
@@ -126,9 +146,96 @@ public class BsSpTransactionInheritPmb implements ProcedurePmb, FetchBean {
     protected String xbuildColumnString() {
         final String dm = ", ";
         final StringBuilder sb = new StringBuilder();
+        sb.append(dm).append(_fooparam);
+        sb.append(dm).append(_barparam);
+        sb.append(dm).append(_vdonparam);
+        sb.append(dm).append(_vheeparam);
+        sb.append(dm).append(_pooParamname);
         if (sb.length() > 0) { sb.delete(0, dm.length()); }
         sb.insert(0, "{").append("}");
         return sb.toString();
     }
 
+    // ===================================================================================
+    //                                                                            Accessor
+    //                                                                            ========
+    /**
+     * [get] fooparam: {varchar as In} <br>
+     * @return The value of fooparam. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
+     */
+    public String getFooparam() {
+        return filterStringParameter(_fooparam);
+    }
+
+    /**
+     * [set] fooparam: {varchar as In} <br>
+     * @param fooparam The value of fooparam. (NullAllowed)
+     */
+    public void setFooparam(String fooparam) {
+        _fooparam = fooparam;
+    }
+
+    /**
+     * [get] barparam: {varchar as In} <br>
+     * @return The value of barparam. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
+     */
+    public String getBarparam() {
+        return filterStringParameter(_barparam);
+    }
+
+    /**
+     * [set] barparam: {varchar as In} <br>
+     * @param barparam The value of barparam. (NullAllowed)
+     */
+    public void setBarparam(String barparam) {
+        _barparam = barparam;
+    }
+
+    /**
+     * [get] vdonparam: {varchar as Out} <br>
+     * @return The value of vdonparam. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
+     */
+    public String getVdonparam() {
+        return filterStringParameter(_vdonparam);
+    }
+
+    /**
+     * [set] vdonparam: {varchar as Out} <br>
+     * @param vdonparam The value of vdonparam. (NullAllowed)
+     */
+    public void setVdonparam(String vdonparam) {
+        _vdonparam = vdonparam;
+    }
+
+    /**
+     * [get] vheeparam: {varchar as In} <br>
+     * @return The value of vheeparam. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
+     */
+    public String getVheeparam() {
+        return filterStringParameter(_vheeparam);
+    }
+
+    /**
+     * [set] vheeparam: {varchar as In} <br>
+     * @param vheeparam The value of vheeparam. (NullAllowed)
+     */
+    public void setVheeparam(String vheeparam) {
+        _vheeparam = vheeparam;
+    }
+
+    /**
+     * [get] pooParamname: {varchar as Out} <br>
+     * @return The value of pooParamname. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
+     */
+    public String getPooParamname() {
+        return filterStringParameter(_pooParamname);
+    }
+
+    /**
+     * [set] pooParamname: {varchar as Out} <br>
+     * @param pooParamname The value of pooParamname. (NullAllowed)
+     */
+    public void setPooParamname(String pooParamname) {
+        _pooParamname = pooParamname;
+    }
 }

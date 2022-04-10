@@ -9,11 +9,11 @@ import org.dbflute.util.DfTypeUtil;
 import org.docksidestage.postgresql.dbflute.allcommon.*;
 
 /**
- * The base class for procedure parameter-bean of SpTransactionInherit. <br>
- * This is related to "<span style="color: #AD4747">sp_transaction_inherit</span>".
+ * The base class for procedure parameter-bean of FnNextInOutParameter. <br>
+ * This is related to "<span style="color: #AD4747">nextschema.fn_next_in_out_parameter</span>".
  * @author DBFlute(AutoGenerator)
  */
-public class BsSpTransactionInheritPmb implements ProcedurePmb, FetchBean {
+public class BsFnNextInOutParameterPmb implements ProcedurePmb, FetchBean {
 
     // ===================================================================================
     //                                                                          Definition
@@ -21,10 +21,22 @@ public class BsSpTransactionInheritPmb implements ProcedurePmb, FetchBean {
     // -----------------------------------------------------
     //                                   Procedure Parameter
     //                                   -------------------
+    public static final String VInVarchar_PROCEDURE_PARAMETER = "in, 0";
+    public static final String VOutVarchar_PROCEDURE_PARAMETER = "out, 1";
+    public static final String VInoutVarchar_PROCEDURE_PARAMETER = "out, 2";
 
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
+    /** The parameter of VInVarchar: {varchar as In}. */
+    protected String _vInVarchar;
+
+    /** The parameter of VOutVarchar: {varchar as Out}. */
+    protected String _vOutVarchar;
+
+    /** The parameter of VInoutVarchar: {varchar as Out}. */
+    protected String _vInoutVarchar;
+
     /** The max size of safety result. */
     protected int _safetyMaxResultSize;
 
@@ -35,10 +47,10 @@ public class BsSpTransactionInheritPmb implements ProcedurePmb, FetchBean {
     //                                                                         Constructor
     //                                                                         ===========
     /**
-     * Constructor for the procedure parameter-bean of SpTransactionInherit. <br>
-     * This is related to "<span style="color: #AD4747">sp_transaction_inherit</span>".
+     * Constructor for the procedure parameter-bean of FnNextInOutParameter. <br>
+     * This is related to "<span style="color: #AD4747">nextschema.fn_next_in_out_parameter</span>".
      */
-    public BsSpTransactionInheritPmb() {
+    public BsFnNextInOutParameterPmb() {
     }
 
     // ===================================================================================
@@ -47,7 +59,7 @@ public class BsSpTransactionInheritPmb implements ProcedurePmb, FetchBean {
     /**
      * {@inheritDoc}
      */
-    public String getProcedureName() { return "sp_transaction_inherit"; }
+    public String getProcedureName() { return "nextschema.fn_next_in_out_parameter"; }
 
     /**
      * {@inheritDoc}
@@ -126,9 +138,62 @@ public class BsSpTransactionInheritPmb implements ProcedurePmb, FetchBean {
     protected String xbuildColumnString() {
         final String dm = ", ";
         final StringBuilder sb = new StringBuilder();
+        sb.append(dm).append(_vInVarchar);
+        sb.append(dm).append(_vOutVarchar);
+        sb.append(dm).append(_vInoutVarchar);
         if (sb.length() > 0) { sb.delete(0, dm.length()); }
         sb.insert(0, "{").append("}");
         return sb.toString();
     }
 
+    // ===================================================================================
+    //                                                                            Accessor
+    //                                                                            ========
+    /**
+     * [get] VInVarchar: {varchar as In} <br>
+     * @return The value of VInVarchar. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
+     */
+    public String getVInVarchar() {
+        return filterStringParameter(_vInVarchar);
+    }
+
+    /**
+     * [set] VInVarchar: {varchar as In} <br>
+     * @param vInVarchar The value of VInVarchar. (NullAllowed)
+     */
+    public void setVInVarchar(String vInVarchar) {
+        _vInVarchar = vInVarchar;
+    }
+
+    /**
+     * [get] VOutVarchar: {varchar as Out} <br>
+     * @return The value of VOutVarchar. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
+     */
+    public String getVOutVarchar() {
+        return filterStringParameter(_vOutVarchar);
+    }
+
+    /**
+     * [set] VOutVarchar: {varchar as Out} <br>
+     * @param vOutVarchar The value of VOutVarchar. (NullAllowed)
+     */
+    public void setVOutVarchar(String vOutVarchar) {
+        _vOutVarchar = vOutVarchar;
+    }
+
+    /**
+     * [get] VInoutVarchar: {varchar as Out} <br>
+     * @return The value of VInoutVarchar. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
+     */
+    public String getVInoutVarchar() {
+        return filterStringParameter(_vInoutVarchar);
+    }
+
+    /**
+     * [set] VInoutVarchar: {varchar as Out} <br>
+     * @param vInoutVarchar The value of VInoutVarchar. (NullAllowed)
+     */
+    public void setVInoutVarchar(String vInoutVarchar) {
+        _vInoutVarchar = vInoutVarchar;
+    }
 }

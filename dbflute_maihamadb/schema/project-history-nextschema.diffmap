@@ -1,4 +1,19 @@
 map:{
+    ; 2022/04/09 18:50:35 = map:{
+        ; diffDate = 2022/04/09 18:50:35
+        ; diffAuthor = jflute
+        ; diffGitBranch = master
+        ; procedureDiff = map:{
+            ; maihamadb.nextschema.fn_next_in_out_parameter = map:{
+                ; procedureName = maihamadb.nextschema.fn_next_in_out_parameter
+                ; diffType = ADD
+            }
+            ; maihamadb.nextschema.fn_next_no_parameter = map:{
+                ; procedureName = maihamadb.nextschema.fn_next_no_parameter
+                ; diffType = ADD
+            }
+        }
+    }
     ; 2018/03/30 02:23:33 = map:{
         ; diffDate = 2018/03/30 02:23:33
         ; sequenceDiff = map:{

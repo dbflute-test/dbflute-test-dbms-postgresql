@@ -394,8 +394,8 @@ public class VendorMetaDataTest extends UnitContainerTestCase {
                 String scale = columnRs.getString("SCALE");
                 String dataType = columnRs.getString("DATA_TYPE");
                 String remarks = columnRs.getString("REMARKS");
-                log("  " + columnName + "(" + columnType + ") " + typeName + "(" + precision + ", " + length + ", "
-                        + scale + ") dataType=" + dataType + " // " + remarks);
+                log("  " + columnName + "(" + columnType + ") " + typeName + "(" + precision + ", " + length + ", " + scale + ") dataType="
+                        + dataType + " // " + remarks);
                 assertNotNull(columnName);
                 assertNotNull(columnType);
                 assertNotNull(typeName);
@@ -429,8 +429,8 @@ public class VendorMetaDataTest extends UnitContainerTestCase {
                 String scale = columnRs.getString("SCALE");
                 String dataType = columnRs.getString("DATA_TYPE");
                 String remarks = columnRs.getString("REMARKS");
-                log("  " + columnName + "(" + columnType + ") " + typeName + "(" + precision + ", " + length + ", "
-                        + scale + ") dataType=" + dataType + " // " + remarks);
+                log("  " + columnName + "(" + columnType + ") " + typeName + "(" + precision + ", " + length + ", " + scale + ") dataType="
+                        + dataType + " // " + remarks);
                 assertNotNull(columnName);
                 assertNotNull(columnType);
                 assertNotNull(typeName);
@@ -439,6 +439,49 @@ public class VendorMetaDataTest extends UnitContainerTestCase {
                 assertNull(scale);
                 assertNotNull(dataType);
             }
+        }
+        assertTrue(exists);
+    }
+
+    // -----------------------------------------------------
+    //                                        getFunctions()
+    //                                        --------------
+    public void test_DatabaseMetaData_getFunctions_mainSchema() throws SQLException {
+        DatabaseMetaData metaData = _conn.getMetaData();
+        ResultSet rs = metaData.getFunctions("maihamadb", "public", null);
+        boolean exists = false;
+        log("[Procedure]");
+        while (rs.next()) {
+            exists = true;
+            String catalog = rs.getString("FUNCTION_CAT");
+            String schema = rs.getString("FUNCTION_SCHEM");
+            String procedure = rs.getString("FUNCTION_NAME");
+            Integer procedureType = new Integer(rs.getString("FUNCTION_TYPE"));
+            log(catalog + "." + schema + "." + procedure + ", type=" + procedureType);
+            assertNotNull(catalog);
+            assertNotNull(schema);
+            assertNotNull(procedure);
+            assertNotNull(procedureType);
+        }
+        assertTrue(exists);
+    }
+
+    public void test_DatabaseMetaData_getFunctions_nextSchema() throws SQLException {
+        DatabaseMetaData metaData = _conn.getMetaData();
+        ResultSet rs = metaData.getFunctions("maihamadb", "nextschema", null);
+        boolean exists = false;
+        log("[Procedure]");
+        while (rs.next()) {
+            exists = true;
+            String catalog = rs.getString("FUNCTION_CAT");
+            String schema = rs.getString("FUNCTION_SCHEM");
+            String procedure = rs.getString("FUNCTION_NAME");
+            Integer procedureType = new Integer(rs.getString("FUNCTION_TYPE"));
+            log(catalog + "." + schema + "." + procedure + ", type=" + procedureType);
+            assertNotNull(catalog);
+            assertNotNull(schema);
+            assertNotNull(procedure);
+            assertNotNull(procedureType);
         }
         assertTrue(exists);
     }
@@ -454,7 +497,7 @@ public class VendorMetaDataTest extends UnitContainerTestCase {
         CallableStatement cs = null;
         ResultSet rs = null;
         try {
-            cs = _conn.prepareCall("{call SP_RESULT_SET_PARAMETER(?)}");
+            cs = _conn.prepareCall("call SP_RESULT_SET_PARAMETER(?)");
             cs.registerOutParameter(1, valueType.getSqlType());
             boolean executed = cs.execute();
             log("executed = " + executed);

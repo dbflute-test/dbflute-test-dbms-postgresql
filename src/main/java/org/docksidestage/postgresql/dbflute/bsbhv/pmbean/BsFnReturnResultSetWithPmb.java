@@ -7,13 +7,14 @@ import org.dbflute.jdbc.*;
 import org.dbflute.outsidesql.PmbCustodial;
 import org.dbflute.util.DfTypeUtil;
 import org.docksidestage.postgresql.dbflute.allcommon.*;
+import org.docksidestage.postgresql.dbflute.exentity.customize.*;
 
 /**
- * The base class for procedure parameter-bean of SpTransactionInherit. <br>
- * This is related to "<span style="color: #AD4747">sp_transaction_inherit</span>".
+ * The base class for procedure parameter-bean of FnReturnResultSetWith. <br>
+ * This is related to "<span style="color: #AD4747">fn_return_result_set_with</span>".
  * @author DBFlute(AutoGenerator)
  */
-public class BsSpTransactionInheritPmb implements ProcedurePmb, FetchBean {
+public class BsFnReturnResultSetWithPmb implements ProcedurePmb, FetchBean {
 
     // ===================================================================================
     //                                                                          Definition
@@ -21,10 +22,27 @@ public class BsSpTransactionInheritPmb implements ProcedurePmb, FetchBean {
     // -----------------------------------------------------
     //                                   Procedure Parameter
     //                                   -------------------
+    public static final String returnValue_PROCEDURE_PARAMETER = "return, -1";
+    public static final String VInChar_PROCEDURE_PARAMETER = "in, 0";
+    public static final String VInChar_VALUE_TYPE = "fixedLengthStringType";
+    public static final String VOutVarchar_PROCEDURE_PARAMETER = "in, 1";
+    public static final String VInoutVarchar_PROCEDURE_PARAMETER = "in, 2";
 
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
+    /** The parameter of returnValue: {refcursor as Return}. */
+    protected List<FnReturnResultSetWithReturnValue> _returnValue;
+
+    /** The parameter of VInChar: {bpchar as In}. */
+    protected String _vInChar;
+
+    /** The parameter of VOutVarchar: {varchar as In}. */
+    protected String _vOutVarchar;
+
+    /** The parameter of VInoutVarchar: {varchar as In}. */
+    protected String _vInoutVarchar;
+
     /** The max size of safety result. */
     protected int _safetyMaxResultSize;
 
@@ -35,10 +53,10 @@ public class BsSpTransactionInheritPmb implements ProcedurePmb, FetchBean {
     //                                                                         Constructor
     //                                                                         ===========
     /**
-     * Constructor for the procedure parameter-bean of SpTransactionInherit. <br>
-     * This is related to "<span style="color: #AD4747">sp_transaction_inherit</span>".
+     * Constructor for the procedure parameter-bean of FnReturnResultSetWith. <br>
+     * This is related to "<span style="color: #AD4747">fn_return_result_set_with</span>".
      */
-    public BsSpTransactionInheritPmb() {
+    public BsFnReturnResultSetWithPmb() {
     }
 
     // ===================================================================================
@@ -47,7 +65,7 @@ public class BsSpTransactionInheritPmb implements ProcedurePmb, FetchBean {
     /**
      * {@inheritDoc}
      */
-    public String getProcedureName() { return "sp_transaction_inherit"; }
+    public String getProcedureName() { return "fn_return_result_set_with"; }
 
     /**
      * {@inheritDoc}
@@ -126,9 +144,79 @@ public class BsSpTransactionInheritPmb implements ProcedurePmb, FetchBean {
     protected String xbuildColumnString() {
         final String dm = ", ";
         final StringBuilder sb = new StringBuilder();
+        sb.append(dm).append(_returnValue);
+        sb.append(dm).append(_vInChar);
+        sb.append(dm).append(_vOutVarchar);
+        sb.append(dm).append(_vInoutVarchar);
         if (sb.length() > 0) { sb.delete(0, dm.length()); }
         sb.insert(0, "{").append("}");
         return sb.toString();
     }
 
+    // ===================================================================================
+    //                                                                            Accessor
+    //                                                                            ========
+    /**
+     * [get] returnValue: {refcursor as Return} <br>
+     * @return The value of returnValue. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
+     */
+    public List<FnReturnResultSetWithReturnValue> getReturnValue() {
+        return _returnValue;
+    }
+
+    /**
+     * [set] returnValue: {refcursor as Return} <br>
+     * @param returnValue The value of returnValue. (NullAllowed)
+     */
+    public void setReturnValue(List<FnReturnResultSetWithReturnValue> returnValue) {
+        _returnValue = returnValue;
+    }
+
+    /**
+     * [get] VInChar: {bpchar as In} <br>
+     * @return The value of VInChar. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
+     */
+    public String getVInChar() {
+        return filterStringParameter(_vInChar);
+    }
+
+    /**
+     * [set] VInChar: {bpchar as In} <br>
+     * @param vInChar The value of VInChar. (NullAllowed)
+     */
+    public void setVInChar(String vInChar) {
+        _vInChar = vInChar;
+    }
+
+    /**
+     * [get] VOutVarchar: {varchar as In} <br>
+     * @return The value of VOutVarchar. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
+     */
+    public String getVOutVarchar() {
+        return filterStringParameter(_vOutVarchar);
+    }
+
+    /**
+     * [set] VOutVarchar: {varchar as In} <br>
+     * @param vOutVarchar The value of VOutVarchar. (NullAllowed)
+     */
+    public void setVOutVarchar(String vOutVarchar) {
+        _vOutVarchar = vOutVarchar;
+    }
+
+    /**
+     * [get] VInoutVarchar: {varchar as In} <br>
+     * @return The value of VInoutVarchar. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
+     */
+    public String getVInoutVarchar() {
+        return filterStringParameter(_vInoutVarchar);
+    }
+
+    /**
+     * [set] VInoutVarchar: {varchar as In} <br>
+     * @param vInoutVarchar The value of VInoutVarchar. (NullAllowed)
+     */
+    public void setVInoutVarchar(String vInoutVarchar) {
+        _vInoutVarchar = vInoutVarchar;
+    }
 }

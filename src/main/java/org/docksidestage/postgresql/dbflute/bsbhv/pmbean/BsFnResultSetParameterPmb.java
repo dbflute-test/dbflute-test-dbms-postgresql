@@ -7,13 +7,14 @@ import org.dbflute.jdbc.*;
 import org.dbflute.outsidesql.PmbCustodial;
 import org.dbflute.util.DfTypeUtil;
 import org.docksidestage.postgresql.dbflute.allcommon.*;
+import org.docksidestage.postgresql.dbflute.exentity.customize.*;
 
 /**
- * The base class for procedure parameter-bean of SpNextNoParameter. <br>
- * This is related to "<span style="color: #AD4747">nextschema.sp_next_no_parameter</span>".
+ * The base class for procedure parameter-bean of FnResultSetParameter. <br>
+ * This is related to "<span style="color: #AD4747">fn_result_set_parameter</span>".
  * @author DBFlute(AutoGenerator)
  */
-public class BsSpNextNoParameterPmb implements ProcedurePmb, FetchBean {
+public class BsFnResultSetParameterPmb implements ProcedurePmb, FetchBean {
 
     // ===================================================================================
     //                                                                          Definition
@@ -21,13 +22,13 @@ public class BsSpNextNoParameterPmb implements ProcedurePmb, FetchBean {
     // -----------------------------------------------------
     //                                   Procedure Parameter
     //                                   -------------------
-    public static final String returnValue_PROCEDURE_PARAMETER = "return, -1";
+    public static final String curMember_PROCEDURE_PARAMETER = "out, 0";
 
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    /** The parameter of returnValue: {int4 as Return}. */
-    protected Integer _returnValue;
+    /** The parameter of curMember: {refcursor as Out}. */
+    protected List<FnResultSetParameterCurMember> _curMember;
 
     /** The max size of safety result. */
     protected int _safetyMaxResultSize;
@@ -39,10 +40,10 @@ public class BsSpNextNoParameterPmb implements ProcedurePmb, FetchBean {
     //                                                                         Constructor
     //                                                                         ===========
     /**
-     * Constructor for the procedure parameter-bean of SpNextNoParameter. <br>
-     * This is related to "<span style="color: #AD4747">nextschema.sp_next_no_parameter</span>".
+     * Constructor for the procedure parameter-bean of FnResultSetParameter. <br>
+     * This is related to "<span style="color: #AD4747">fn_result_set_parameter</span>".
      */
-    public BsSpNextNoParameterPmb() {
+    public BsFnResultSetParameterPmb() {
     }
 
     // ===================================================================================
@@ -51,7 +52,7 @@ public class BsSpNextNoParameterPmb implements ProcedurePmb, FetchBean {
     /**
      * {@inheritDoc}
      */
-    public String getProcedureName() { return "nextschema.sp_next_no_parameter"; }
+    public String getProcedureName() { return "fn_result_set_parameter"; }
 
     /**
      * {@inheritDoc}
@@ -130,7 +131,7 @@ public class BsSpNextNoParameterPmb implements ProcedurePmb, FetchBean {
     protected String xbuildColumnString() {
         final String dm = ", ";
         final StringBuilder sb = new StringBuilder();
-        sb.append(dm).append(_returnValue);
+        sb.append(dm).append(_curMember);
         if (sb.length() > 0) { sb.delete(0, dm.length()); }
         sb.insert(0, "{").append("}");
         return sb.toString();
@@ -140,18 +141,18 @@ public class BsSpNextNoParameterPmb implements ProcedurePmb, FetchBean {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] returnValue: {int4 as Return} <br>
-     * @return The value of returnValue. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
+     * [get] curMember: {refcursor as Out} <br>
+     * @return The value of curMember. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
-    public Integer getReturnValue() {
-        return _returnValue;
+    public List<FnResultSetParameterCurMember> getCurMember() {
+        return _curMember;
     }
 
     /**
-     * [set] returnValue: {int4 as Return} <br>
-     * @param returnValue The value of returnValue. (NullAllowed)
+     * [set] curMember: {refcursor as Out} <br>
+     * @param curMember The value of curMember. (NullAllowed)
      */
-    public void setReturnValue(Integer returnValue) {
-        _returnValue = returnValue;
+    public void setCurMember(List<FnResultSetParameterCurMember> curMember) {
+        _curMember = curMember;
     }
 }

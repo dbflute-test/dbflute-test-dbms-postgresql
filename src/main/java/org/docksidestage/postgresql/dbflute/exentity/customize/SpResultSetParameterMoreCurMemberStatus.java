@@ -12,6 +12,6 @@ import org.docksidestage.postgresql.dbflute.bsentity.customize.BsSpResultSetPara
  */
 public class SpResultSetParameterMoreCurMemberStatus extends BsSpResultSetParameterMoreCurMemberStatus {
 
-    /** Serial version UID. (Default) */
+    /** The serial version UID for object serialization. (Default) */
     private static final long serialVersionUID = 1L;
 }

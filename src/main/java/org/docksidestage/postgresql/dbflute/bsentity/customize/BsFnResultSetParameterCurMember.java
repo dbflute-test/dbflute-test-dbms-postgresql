@@ -10,7 +10,7 @@ import org.docksidestage.postgresql.dbflute.allcommon.CDef;
 import org.docksidestage.postgresql.dbflute.exentity.customize.*;
 
 /**
- * The entity of SpReturnResultSetReturnValue. <br>
+ * The entity of FnResultSetParameterCurMember. <br>
  * <pre>
  * [primary-key]
  *     
@@ -55,7 +55,7 @@ import org.docksidestage.postgresql.dbflute.exentity.customize.*;
  * </pre>
  * @author DBFlute(AutoGenerator)
  */
-public abstract class BsSpReturnResultSetReturnValue extends AbstractEntity implements CustomizeEntity {
+public abstract class BsFnResultSetParameterCurMember extends AbstractEntity implements CustomizeEntity {
 
     // ===================================================================================
     //                                                                          Definition
@@ -86,12 +86,12 @@ public abstract class BsSpReturnResultSetReturnValue extends AbstractEntity impl
     //                                                                             =======
     /** {@inheritDoc} */
     public DBMeta asDBMeta() {
-        return org.docksidestage.postgresql.dbflute.bsentity.customize.dbmeta.SpReturnResultSetReturnValueDbm.getInstance();
+        return org.docksidestage.postgresql.dbflute.bsentity.customize.dbmeta.FnResultSetParameterCurMemberDbm.getInstance();
     }
 
     /** {@inheritDoc} */
     public String asTableDbName() {
-        return "SpReturnResultSetReturnValue";
+        return "FnResultSetParameterCurMember";
     }
 
     // ===================================================================================
@@ -204,8 +204,8 @@ public abstract class BsSpReturnResultSetReturnValue extends AbstractEntity impl
     //                                                                      ==============
     @Override
     protected boolean doEquals(Object obj) {
-        if (obj instanceof BsSpReturnResultSetReturnValue) {
-            BsSpReturnResultSetReturnValue other = (BsSpReturnResultSetReturnValue)obj;
+        if (obj instanceof BsFnResultSetParameterCurMember) {
+            BsFnResultSetParameterCurMember other = (BsFnResultSetParameterCurMember)obj;
             if (!xSV(_memberId, other._memberId)) { return false; }
             if (!xSV(_memberName, other._memberName)) { return false; }
             if (!xSV(_birthdate, other._birthdate)) { return false; }
@@ -255,8 +255,8 @@ public abstract class BsSpReturnResultSetReturnValue extends AbstractEntity impl
     }
 
     @Override
-    public SpReturnResultSetReturnValue clone() {
-        return (SpReturnResultSetReturnValue)super.clone();
+    public FnResultSetParameterCurMember clone() {
+        return (FnResultSetParameterCurMember)super.clone();
     }
 
     // ===================================================================================

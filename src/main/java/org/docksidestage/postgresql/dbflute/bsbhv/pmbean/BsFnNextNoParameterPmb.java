@@ -9,11 +9,11 @@ import org.dbflute.util.DfTypeUtil;
 import org.docksidestage.postgresql.dbflute.allcommon.*;
 
 /**
- * The base class for procedure parameter-bean of SpReturnParameter. <br>
- * This is related to "<span style="color: #AD4747">sp_return_parameter</span>".
+ * The base class for procedure parameter-bean of FnNextNoParameter. <br>
+ * This is related to "<span style="color: #AD4747">nextschema.fn_next_no_parameter</span>".
  * @author DBFlute(AutoGenerator)
  */
-public class BsSpReturnParameterPmb implements ProcedurePmb, FetchBean {
+public class BsFnNextNoParameterPmb implements ProcedurePmb, FetchBean {
 
     // ===================================================================================
     //                                                                          Definition
@@ -39,10 +39,10 @@ public class BsSpReturnParameterPmb implements ProcedurePmb, FetchBean {
     //                                                                         Constructor
     //                                                                         ===========
     /**
-     * Constructor for the procedure parameter-bean of SpReturnParameter. <br>
-     * This is related to "<span style="color: #AD4747">sp_return_parameter</span>".
+     * Constructor for the procedure parameter-bean of FnNextNoParameter. <br>
+     * This is related to "<span style="color: #AD4747">nextschema.fn_next_no_parameter</span>".
      */
-    public BsSpReturnParameterPmb() {
+    public BsFnNextNoParameterPmb() {
     }
 
     // ===================================================================================
@@ -51,7 +51,7 @@ public class BsSpReturnParameterPmb implements ProcedurePmb, FetchBean {
     /**
      * {@inheritDoc}
      */
-    public String getProcedureName() { return "sp_return_parameter"; }
+    public String getProcedureName() { return "nextschema.fn_next_no_parameter"; }
 
     /**
      * {@inheritDoc}

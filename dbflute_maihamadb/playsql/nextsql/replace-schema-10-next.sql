@@ -27,7 +27,7 @@ ALTER TABLE WHITE_SAME_NAME_REF ADD CONSTRAINT FK_WHITE_SAME_NAME_REF
 	REFERENCES WHITE_SAME_NAME (SAME_NAME_ID);
 
 -- #df:begin#
-create or replace function SP_NEXT_NO_PARAMETER()
+create or replace function FN_NEXT_NO_PARAMETER()
 returns integer as
 $BODY$
 begin
@@ -37,7 +37,7 @@ $BODY$ LANGUAGE 'plpgsql';
 -- #df:end#
 
 -- #df:begin#
-create or replace function SP_NEXT_IN_OUT_PARAMETER(
+create or replace function FN_NEXT_IN_OUT_PARAMETER(
   v_in_varchar in varchar
   , v_out_varchar out varchar
   , v_inout_varchar out varchar)

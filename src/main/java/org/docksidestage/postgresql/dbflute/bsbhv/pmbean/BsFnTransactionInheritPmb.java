@@ -7,14 +7,13 @@ import org.dbflute.jdbc.*;
 import org.dbflute.outsidesql.PmbCustodial;
 import org.dbflute.util.DfTypeUtil;
 import org.docksidestage.postgresql.dbflute.allcommon.*;
-import org.docksidestage.postgresql.dbflute.exentity.customize.*;
 
 /**
- * The base class for procedure parameter-bean of SpReturnResultSet. <br>
- * This is related to "<span style="color: #AD4747">sp_return_result_set</span>".
+ * The base class for procedure parameter-bean of FnTransactionInherit. <br>
+ * This is related to "<span style="color: #AD4747">fn_transaction_inherit</span>".
  * @author DBFlute(AutoGenerator)
  */
-public class BsSpReturnResultSetPmb implements ProcedurePmb, FetchBean {
+public class BsFnTransactionInheritPmb implements ProcedurePmb, FetchBean {
 
     // ===================================================================================
     //                                                                          Definition
@@ -27,8 +26,8 @@ public class BsSpReturnResultSetPmb implements ProcedurePmb, FetchBean {
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
-    /** The parameter of returnValue: {refcursor as Return}. */
-    protected List<SpReturnResultSetReturnValue> _returnValue;
+    /** The parameter of returnValue: {int4 as Return}. */
+    protected Integer _returnValue;
 
     /** The max size of safety result. */
     protected int _safetyMaxResultSize;
@@ -40,10 +39,10 @@ public class BsSpReturnResultSetPmb implements ProcedurePmb, FetchBean {
     //                                                                         Constructor
     //                                                                         ===========
     /**
-     * Constructor for the procedure parameter-bean of SpReturnResultSet. <br>
-     * This is related to "<span style="color: #AD4747">sp_return_result_set</span>".
+     * Constructor for the procedure parameter-bean of FnTransactionInherit. <br>
+     * This is related to "<span style="color: #AD4747">fn_transaction_inherit</span>".
      */
-    public BsSpReturnResultSetPmb() {
+    public BsFnTransactionInheritPmb() {
     }
 
     // ===================================================================================
@@ -52,7 +51,7 @@ public class BsSpReturnResultSetPmb implements ProcedurePmb, FetchBean {
     /**
      * {@inheritDoc}
      */
-    public String getProcedureName() { return "sp_return_result_set"; }
+    public String getProcedureName() { return "fn_transaction_inherit"; }
 
     /**
      * {@inheritDoc}
@@ -141,18 +140,18 @@ public class BsSpReturnResultSetPmb implements ProcedurePmb, FetchBean {
     //                                                                            Accessor
     //                                                                            ========
     /**
-     * [get] returnValue: {refcursor as Return} <br>
+     * [get] returnValue: {int4 as Return} <br>
      * @return The value of returnValue. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
      */
-    public List<SpReturnResultSetReturnValue> getReturnValue() {
+    public Integer getReturnValue() {
         return _returnValue;
     }
 
     /**
-     * [set] returnValue: {refcursor as Return} <br>
+     * [set] returnValue: {int4 as Return} <br>
      * @param returnValue The value of returnValue. (NullAllowed)
      */
-    public void setReturnValue(List<SpReturnResultSetReturnValue> returnValue) {
+    public void setReturnValue(Integer returnValue) {
         _returnValue = returnValue;
     }
 }

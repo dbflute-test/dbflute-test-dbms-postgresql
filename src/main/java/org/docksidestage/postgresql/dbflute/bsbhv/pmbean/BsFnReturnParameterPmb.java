@@ -9,11 +9,11 @@ import org.dbflute.util.DfTypeUtil;
 import org.docksidestage.postgresql.dbflute.allcommon.*;
 
 /**
- * The base class for procedure parameter-bean of SpTransactionInherit. <br>
- * This is related to "<span style="color: #AD4747">sp_transaction_inherit</span>".
+ * The base class for procedure parameter-bean of FnReturnParameter. <br>
+ * This is related to "<span style="color: #AD4747">fn_return_parameter</span>".
  * @author DBFlute(AutoGenerator)
  */
-public class BsSpTransactionInheritPmb implements ProcedurePmb, FetchBean {
+public class BsFnReturnParameterPmb implements ProcedurePmb, FetchBean {
 
     // ===================================================================================
     //                                                                          Definition
@@ -21,10 +21,14 @@ public class BsSpTransactionInheritPmb implements ProcedurePmb, FetchBean {
     // -----------------------------------------------------
     //                                   Procedure Parameter
     //                                   -------------------
+    public static final String returnValue_PROCEDURE_PARAMETER = "return, -1";
 
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
+    /** The parameter of returnValue: {int4 as Return}. */
+    protected Integer _returnValue;
+
     /** The max size of safety result. */
     protected int _safetyMaxResultSize;
 
@@ -35,10 +39,10 @@ public class BsSpTransactionInheritPmb implements ProcedurePmb, FetchBean {
     //                                                                         Constructor
     //                                                                         ===========
     /**
-     * Constructor for the procedure parameter-bean of SpTransactionInherit. <br>
-     * This is related to "<span style="color: #AD4747">sp_transaction_inherit</span>".
+     * Constructor for the procedure parameter-bean of FnReturnParameter. <br>
+     * This is related to "<span style="color: #AD4747">fn_return_parameter</span>".
      */
-    public BsSpTransactionInheritPmb() {
+    public BsFnReturnParameterPmb() {
     }
 
     // ===================================================================================
@@ -47,7 +51,7 @@ public class BsSpTransactionInheritPmb implements ProcedurePmb, FetchBean {
     /**
      * {@inheritDoc}
      */
-    public String getProcedureName() { return "sp_transaction_inherit"; }
+    public String getProcedureName() { return "fn_return_parameter"; }
 
     /**
      * {@inheritDoc}
@@ -126,9 +130,28 @@ public class BsSpTransactionInheritPmb implements ProcedurePmb, FetchBean {
     protected String xbuildColumnString() {
         final String dm = ", ";
         final StringBuilder sb = new StringBuilder();
+        sb.append(dm).append(_returnValue);
         if (sb.length() > 0) { sb.delete(0, dm.length()); }
         sb.insert(0, "{").append("}");
         return sb.toString();
     }
 
+    // ===================================================================================
+    //                                                                            Accessor
+    //                                                                            ========
+    /**
+     * [get] returnValue: {int4 as Return} <br>
+     * @return The value of returnValue. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
+     */
+    public Integer getReturnValue() {
+        return _returnValue;
+    }
+
+    /**
+     * [set] returnValue: {int4 as Return} <br>
+     * @param returnValue The value of returnValue. (NullAllowed)
+     */
+    public void setReturnValue(Integer returnValue) {
+        _returnValue = returnValue;
+    }
 }

@@ -2,18 +2,11 @@
 -- =======================================================================================
 --                                                                                   Basic
 --                                                                                   =====
--- PostgreSQL's procedure is supported since PostgreSQL-11
+-- PostgreSQL's function needs a parameter or a return parameter
+-- so SP_NO_PARAMETER does not exist
 
 -- #df:begin#
-create or replace procedure SP_NO_PARAMETER() as
-$BODY$
-begin
-end;
-$BODY$ LANGUAGE 'plpgsql';
--- #df:end#
-
--- #df:begin#
-create or replace procedure SP_IN_OUT_PARAMETER(
+create or replace function FN_IN_OUT_PARAMETER(
   v_in_varchar in varchar
   , v_out_varchar out varchar
   , v_inout_varchar inout varchar
@@ -27,7 +20,17 @@ $BODY$ LANGUAGE 'plpgsql';
 -- #df:end#
 
 -- #df:begin#
-create or replace procedure SP_VARIOUS_TYPE_PARAMETER(
+create or replace function FN_RETURN_PARAMETER()
+returns integer as
+$BODY$
+begin
+  return 1;
+end;
+$BODY$ LANGUAGE 'plpgsql';
+-- #df:end#
+
+-- #df:begin#
+create or replace function FN_VARIOUS_TYPE_PARAMETER(
   v_in_varchar in varchar
   , v_out_varchar out varchar
   , v_out_char out char
@@ -68,7 +71,7 @@ $BODY$ LANGUAGE 'plpgsql';
 --                                                                     ResultSet Parameter
 --                                                                     ===================
 -- #df:begin#
-create or replace procedure SP_RESULT_SET_PARAMETER(cur_member out refcursor)
+create or replace function FN_RESULT_SET_PARAMETER(cur_member out refcursor)
 as
 $BODY$
 begin
@@ -80,7 +83,7 @@ $BODY$ LANGUAGE 'plpgsql';
 -- #df:end#
 
 -- #df:begin#
-create or replace procedure SP_RESULT_SET_PARAMETER_MORE(
+create or replace function FN_RESULT_SET_PARAMETER_MORE(
   cur_member out refcursor
   , cur_member_status out refcursor
 ) as
@@ -95,14 +98,53 @@ $BODY$ LANGUAGE 'plpgsql';
 -- #df:end#
 
 -- =======================================================================================
+--                                                                        Return ResultSet
+--                                                                        ================
+-- #df:begin#
+create or replace function FN_RETURN_RESULT_SET()
+returns refcursor as
+$BODY$
+declare
+  cur_member refcursor;
+begin
+  open cur_member for
+    select MEMBER_ID, MEMBER_NAME, BIRTHDATE, FORMALIZED_DATETIME, MEMBER_STATUS_CODE
+      from MEMBER;
+  return cur_member;
+end;
+$BODY$ LANGUAGE 'plpgsql';
+-- #df:end#
+
+-- #df:begin#
+create or replace function FN_RETURN_RESULT_SET_WITH(
+  v_in_char in char
+  , v_out_varchar in varchar
+  , v_inout_varchar in varchar
+) returns refcursor as
+$BODY$
+declare
+  cur_member refcursor;
+begin
+  open cur_member for
+    select MEMBER_ID, MEMBER_NAME, BIRTHDATE, FORMALIZED_DATETIME, MEMBER_STATUS_CODE
+      from MEMBER
+     where MEMBER_STATUS_CODE = v_in_char;
+  return cur_member;
+end;
+$BODY$ LANGUAGE 'plpgsql';
+-- #df:end#
+
+-- =======================================================================================
 --                                                                             Transaction
 --                                                                             ===========
 -- #df:begin#
 -- test for being called from Sql2Entity and Application Execution
-create or replace procedure SP_TRANSACTION_INHERIT() as
+create or replace function FN_TRANSACTION_INHERIT()
+returns integer as
 $BODY$
 begin
   delete from MEMBER_LOGIN;
+  return 1;
 end;
 $BODY$ LANGUAGE 'plpgsql';
 -- #df:end#
@@ -111,7 +153,7 @@ $BODY$ LANGUAGE 'plpgsql';
 --                                                                                  Naming
 --                                                                                  ======
 -- #df:begin#
-create or replace procedure SpCamelCaseProcedure(
+create or replace function FnCamelCaseProcedure(
   fooParam in varchar
   , BarParam in varchar
   , vDonParam out varchar

@@ -7,13 +7,14 @@ import org.dbflute.jdbc.*;
 import org.dbflute.outsidesql.PmbCustodial;
 import org.dbflute.util.DfTypeUtil;
 import org.docksidestage.postgresql.dbflute.allcommon.*;
+import org.docksidestage.postgresql.dbflute.exentity.customize.*;
 
 /**
- * The base class for procedure parameter-bean of SpTransactionInherit. <br>
- * This is related to "<span style="color: #AD4747">sp_transaction_inherit</span>".
+ * The base class for procedure parameter-bean of FnResultSetParameterMore. <br>
+ * This is related to "<span style="color: #AD4747">fn_result_set_parameter_more</span>".
  * @author DBFlute(AutoGenerator)
  */
-public class BsSpTransactionInheritPmb implements ProcedurePmb, FetchBean {
+public class BsFnResultSetParameterMorePmb implements ProcedurePmb, FetchBean {
 
     // ===================================================================================
     //                                                                          Definition
@@ -21,10 +22,18 @@ public class BsSpTransactionInheritPmb implements ProcedurePmb, FetchBean {
     // -----------------------------------------------------
     //                                   Procedure Parameter
     //                                   -------------------
+    public static final String curMember_PROCEDURE_PARAMETER = "out, 0";
+    public static final String curMemberStatus_PROCEDURE_PARAMETER = "out, 1";
 
     // ===================================================================================
     //                                                                           Attribute
     //                                                                           =========
+    /** The parameter of curMember: {refcursor as Out}. */
+    protected List<FnResultSetParameterMoreCurMember> _curMember;
+
+    /** The parameter of curMemberStatus: {refcursor as Out}. */
+    protected List<FnResultSetParameterMoreCurMemberStatus> _curMemberStatus;
+
     /** The max size of safety result. */
     protected int _safetyMaxResultSize;
 
@@ -35,10 +44,10 @@ public class BsSpTransactionInheritPmb implements ProcedurePmb, FetchBean {
     //                                                                         Constructor
     //                                                                         ===========
     /**
-     * Constructor for the procedure parameter-bean of SpTransactionInherit. <br>
-     * This is related to "<span style="color: #AD4747">sp_transaction_inherit</span>".
+     * Constructor for the procedure parameter-bean of FnResultSetParameterMore. <br>
+     * This is related to "<span style="color: #AD4747">fn_result_set_parameter_more</span>".
      */
-    public BsSpTransactionInheritPmb() {
+    public BsFnResultSetParameterMorePmb() {
     }
 
     // ===================================================================================
@@ -47,7 +56,7 @@ public class BsSpTransactionInheritPmb implements ProcedurePmb, FetchBean {
     /**
      * {@inheritDoc}
      */
-    public String getProcedureName() { return "sp_transaction_inherit"; }
+    public String getProcedureName() { return "fn_result_set_parameter_more"; }
 
     /**
      * {@inheritDoc}
@@ -126,9 +135,45 @@ public class BsSpTransactionInheritPmb implements ProcedurePmb, FetchBean {
     protected String xbuildColumnString() {
         final String dm = ", ";
         final StringBuilder sb = new StringBuilder();
+        sb.append(dm).append(_curMember);
+        sb.append(dm).append(_curMemberStatus);
         if (sb.length() > 0) { sb.delete(0, dm.length()); }
         sb.insert(0, "{").append("}");
         return sb.toString();
     }
 
+    // ===================================================================================
+    //                                                                            Accessor
+    //                                                                            ========
+    /**
+     * [get] curMember: {refcursor as Out} <br>
+     * @return The value of curMember. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
+     */
+    public List<FnResultSetParameterMoreCurMember> getCurMember() {
+        return _curMember;
+    }
+
+    /**
+     * [set] curMember: {refcursor as Out} <br>
+     * @param curMember The value of curMember. (NullAllowed)
+     */
+    public void setCurMember(List<FnResultSetParameterMoreCurMember> curMember) {
+        _curMember = curMember;
+    }
+
+    /**
+     * [get] curMemberStatus: {refcursor as Out} <br>
+     * @return The value of curMemberStatus. (NullAllowed, NotEmptyString(when String): if empty string, returns null)
+     */
+    public List<FnResultSetParameterMoreCurMemberStatus> getCurMemberStatus() {
+        return _curMemberStatus;
+    }
+
+    /**
+     * [set] curMemberStatus: {refcursor as Out} <br>
+     * @param curMemberStatus The value of curMemberStatus. (NullAllowed)
+     */
+    public void setCurMemberStatus(List<FnResultSetParameterMoreCurMemberStatus> curMemberStatus) {
+        _curMemberStatus = curMemberStatus;
+    }
 }

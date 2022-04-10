@@ -13,17 +13,17 @@ import org.docksidestage.postgresql.dbflute.allcommon.*;
 import org.docksidestage.postgresql.dbflute.exentity.customize.*;
 
 /**
- * The DB meta of SpReturnResultSetReturnValue. (Singleton)
+ * The DB meta of FnReturnResultSetWithReturnValue. (Singleton)
  * @author DBFlute(AutoGenerator)
  */
-public class SpReturnResultSetReturnValueDbm extends AbstractDBMeta {
+public class FnReturnResultSetWithReturnValueDbm extends AbstractDBMeta {
 
     // ===================================================================================
     //                                                                           Singleton
     //                                                                           =========
-    private static final SpReturnResultSetReturnValueDbm _instance = new SpReturnResultSetReturnValueDbm();
-    private SpReturnResultSetReturnValueDbm() {}
-    public static SpReturnResultSetReturnValueDbm getInstance() { return _instance; }
+    private static final FnReturnResultSetWithReturnValueDbm _instance = new FnReturnResultSetWithReturnValueDbm();
+    private FnReturnResultSetWithReturnValueDbm() {}
+    public static FnReturnResultSetWithReturnValueDbm getInstance() { return _instance; }
 
     // ===================================================================================
     //                                                                       Current DBDef
@@ -42,16 +42,16 @@ public class SpReturnResultSetReturnValueDbm extends AbstractDBMeta {
     protected final Map<String, PropertyGateway> _epgMap = newHashMap();
     { xsetupEpg(); }
     protected void xsetupEpg() {
-        setupEpg(_epgMap, et -> ((SpReturnResultSetReturnValue)et).getMemberId(), (et, vl) -> ((SpReturnResultSetReturnValue)et).setMemberId(cti(vl)), "memberId");
-        setupEpg(_epgMap, et -> ((SpReturnResultSetReturnValue)et).getMemberName(), (et, vl) -> ((SpReturnResultSetReturnValue)et).setMemberName((String)vl), "memberName");
-        setupEpg(_epgMap, et -> ((SpReturnResultSetReturnValue)et).getBirthdate(), (et, vl) -> ((SpReturnResultSetReturnValue)et).setBirthdate(ctld(vl)), "birthdate");
-        setupEpg(_epgMap, et -> ((SpReturnResultSetReturnValue)et).getFormalizedDatetime(), (et, vl) -> ((SpReturnResultSetReturnValue)et).setFormalizedDatetime(ctldt(vl)), "formalizedDatetime");
-        setupEpg(_epgMap, et -> ((SpReturnResultSetReturnValue)et).getMemberStatusCode(), (et, vl) -> {
+        setupEpg(_epgMap, et -> ((FnReturnResultSetWithReturnValue)et).getMemberId(), (et, vl) -> ((FnReturnResultSetWithReturnValue)et).setMemberId(cti(vl)), "memberId");
+        setupEpg(_epgMap, et -> ((FnReturnResultSetWithReturnValue)et).getMemberName(), (et, vl) -> ((FnReturnResultSetWithReturnValue)et).setMemberName((String)vl), "memberName");
+        setupEpg(_epgMap, et -> ((FnReturnResultSetWithReturnValue)et).getBirthdate(), (et, vl) -> ((FnReturnResultSetWithReturnValue)et).setBirthdate(ctld(vl)), "birthdate");
+        setupEpg(_epgMap, et -> ((FnReturnResultSetWithReturnValue)et).getFormalizedDatetime(), (et, vl) -> ((FnReturnResultSetWithReturnValue)et).setFormalizedDatetime(ctldt(vl)), "formalizedDatetime");
+        setupEpg(_epgMap, et -> ((FnReturnResultSetWithReturnValue)et).getMemberStatusCode(), (et, vl) -> {
             CDef.MemberStatus cls = (CDef.MemberStatus)gcls(et, columnMemberStatusCode(), vl);
             if (cls != null) {
-                ((SpReturnResultSetReturnValue)et).setMemberStatusCodeAsMemberStatus(cls);
+                ((FnReturnResultSetWithReturnValue)et).setMemberStatusCodeAsMemberStatus(cls);
             } else {
-                ((SpReturnResultSetReturnValue)et).mynativeMappingMemberStatusCode((String)vl);
+                ((FnReturnResultSetWithReturnValue)et).mynativeMappingMemberStatusCode((String)vl);
             }
         }, "memberStatusCode");
     }
@@ -61,10 +61,10 @@ public class SpReturnResultSetReturnValueDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                          Table Info
     //                                                                          ==========
-    protected final String _tableDbName = "SpReturnResultSetReturnValue";
-    protected final String _tableDispName = "SpReturnResultSetReturnValue";
-    protected final String _tablePropertyName = "spReturnResultSetReturnValue";
-    protected final TableSqlName _tableSqlName = new TableSqlName("SpReturnResultSetReturnValue", _tableDbName);
+    protected final String _tableDbName = "FnReturnResultSetWithReturnValue";
+    protected final String _tableDispName = "FnReturnResultSetWithReturnValue";
+    protected final String _tablePropertyName = "fnReturnResultSetWithReturnValue";
+    protected final TableSqlName _tableSqlName = new TableSqlName("FnReturnResultSetWithReturnValue", _tableDbName);
     { _tableSqlName.xacceptFilter(DBFluteConfig.getInstance().getTableSqlNameFilter()); }
     public String getTableDbName() { return _tableDbName; }
     public String getTableDispName() { return _tableDispName; }
@@ -150,27 +150,27 @@ public class SpReturnResultSetReturnValueDbm extends AbstractDBMeta {
     // ===================================================================================
     //                                                                           Type Name
     //                                                                           =========
-    public String getEntityTypeName() { return "org.docksidestage.postgresql.dbflute.exentity.customize.SpReturnResultSetReturnValue"; }
+    public String getEntityTypeName() { return "org.docksidestage.postgresql.dbflute.exentity.customize.FnReturnResultSetWithReturnValue"; }
     public String getConditionBeanTypeName() { return null; }
     public String getBehaviorTypeName() { return null; }
 
     // ===================================================================================
     //                                                                         Object Type
     //                                                                         ===========
-    public Class<SpReturnResultSetReturnValue> getEntityType() { return SpReturnResultSetReturnValue.class; }
+    public Class<FnReturnResultSetWithReturnValue> getEntityType() { return FnReturnResultSetWithReturnValue.class; }
 
     // ===================================================================================
     //                                                                     Object Instance
     //                                                                     ===============
-    public SpReturnResultSetReturnValue newEntity() { return new SpReturnResultSetReturnValue(); }
+    public FnReturnResultSetWithReturnValue newEntity() { return new FnReturnResultSetWithReturnValue(); }
 
     // ===================================================================================
     //                                                                   Map Communication
     //                                                                   =================
     public void acceptPrimaryKeyMap(Entity et, Map<String, ? extends Object> mp)
-    { doAcceptPrimaryKeyMap((SpReturnResultSetReturnValue)et, mp); }
+    { doAcceptPrimaryKeyMap((FnReturnResultSetWithReturnValue)et, mp); }
     public void acceptAllColumnMap(Entity et, Map<String, ? extends Object> mp)
-    { doAcceptAllColumnMap((SpReturnResultSetReturnValue)et, mp); }
+    { doAcceptAllColumnMap((FnReturnResultSetWithReturnValue)et, mp); }
     public Map<String, Object> extractPrimaryKeyMap(Entity et) { return doExtractPrimaryKeyMap(et); }
     public Map<String, Object> extractAllColumnMap(Entity et) { return doExtractAllColumnMap(et); }
 }
