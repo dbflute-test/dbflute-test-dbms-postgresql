@@ -27,17 +27,14 @@ public class DBCurrent {
 
     protected DBDef _currentDBDef;
     {
-        _currentDBDef = DBDef.codeOf("postgresql");
-        if (_currentDBDef == null) {
-            _currentDBDef = DBDef.Unknown;
-        }
+        _currentDBDef = DBDef.of("postgresql").orElse(DBDef.Unknown);
     }
 
     // ===================================================================================
     //                                                                         Constructor
     //                                                                         ===========
     /**
-     * Constructor.
+     * Only for singleton.
      */
     private DBCurrent() {
     }
@@ -46,8 +43,8 @@ public class DBCurrent {
     //                                                                           Singleton
     //                                                                           =========
     /**
-     * Get singleton instance.
-     * @return Singleton instance. (NotNull)
+     * Get the saved singleton instance.
+     * @return always same instance. (NotNull)
      */
     public static DBCurrent getInstance() {
         return _instance;

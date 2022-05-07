@@ -246,7 +246,7 @@ public abstract class BsVendorCheck extends AbstractEntity implements DomainEnti
      * @return The instance of classification definition (as ENUM type). (NullAllowed: when the column value is null)
      */
     public CDef.TrueFalse getTypeOfBoolAsTrueFalse() {
-        return CDef.TrueFalse.codeOf(getTypeOfBool());
+        return CDef.TrueFalse.of(getTypeOfBool()).orElse(null);
     }
 
     /**
