@@ -241,6 +241,7 @@ public class VendorJDBCTest extends UnitContainerTestCase {
     private enum TestingResultSetType {
         FORWARD_ONLY(ResultSet.TYPE_FORWARD_ONLY), SCROLL_INSENSITIVE(ResultSet.TYPE_SCROLL_INSENSITIVE), SCROLL_SENSITIVE(
                 ResultSet.TYPE_SCROLL_SENSITIVE);
+
         private int type;
 
         private TestingResultSetType(int type) {
@@ -527,7 +528,7 @@ public class VendorJDBCTest extends UnitContainerTestCase {
     //                                                                   CallableStatement
     //                                                                   =================
     public void test_CallableStatement_ResultSet_returnValue() throws SQLException {
-        doTest_CallableResultSet("{? = call SP_RETURN_RESULT_SET()}", new CallableResultSetCallback() {
+        doTest_CallableResultSet("{? = call FN_RETURN_RESULT_SET()}", new CallableResultSetCallback() {
             public ResultSet call(CallableStatement cs) throws SQLException {
                 cs.registerOutParameter(1, Types.OTHER);
                 boolean executed = cs.execute();
