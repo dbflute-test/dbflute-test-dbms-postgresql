@@ -3,6 +3,10 @@
 cd `dirname $0`
 . _project.sh
 
+# #for_now needs ApplicationBehavior test project but already unused function? by jflute (2022/05/15)
+echo *ApplicationBehavior environment is not complete so cannot execute it
+exit 0;
+
 echo "/nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn"
 echo "Specify the environment type to use bhvap."
 echo "nnnnnnnnnn/"

@@ -1,3 +1,4 @@
 map:{
-    ; applicationPlaySqlDirectory = ../../../dbflute-example-referrerpj/dbflute-bhvap-spring-example/dbflute_apbranch/playsql
+    # set if you generate at your application
+    #; applicationPlaySqlDirectory = ../../../dbflute-example-referrerpj/dbflute-bhvap-spring-example/dbflute_apbranch/playsql
 }
