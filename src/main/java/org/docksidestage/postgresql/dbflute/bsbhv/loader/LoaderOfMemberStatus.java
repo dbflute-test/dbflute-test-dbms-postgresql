@@ -9,35 +9,7 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
 import org.docksidestage.postgresql.dbflute.cbean.*;
 
 /**
- * The referrer loader of (会員ステータス)member_status as TABLE. <br>
- * <pre>
- * [primary key]
- *     member_status_code
- *
- * [column]
- *     member_status_code, member_status_name, description, display_order
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     member, member_login
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     memberList, memberLoginList
- * </pre>
+ * The referrer loader of (会員ステータス)member_status as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfMemberStatus {

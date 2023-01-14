@@ -7,35 +7,7 @@ import org.docksidestage.postgresql.dbflute.exbhv.*;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
 /**
- * The referrer loader of white_not_pk as TABLE. <br>
- * <pre>
- * [primary key]
- *     
- *
- * [column]
- *     not_pk_id, not_pk_name, not_pk_integer
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The referrer loader of white_not_pk as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhiteNotPk {

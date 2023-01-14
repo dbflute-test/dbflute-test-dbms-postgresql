@@ -7,35 +7,7 @@ import org.docksidestage.postgresql.dbflute.exbhv.*;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
 /**
- * The referrer loader of (会員サービス)member_service as TABLE. <br>
- * <pre>
- * [primary key]
- *     member_service_id
- *
- * [column]
- *     member_service_id, member_id, service_point_count, service_rank_code, register_datetime, register_process, register_user, update_datetime, update_process, update_user, version_no
- *
- * [sequence]
- *     member_service_member_service_id_seq
- *
- * [identity]
- *     
- *
- * [version-no]
- *     version_no
- *
- * [foreign table]
- *     member, service_rank
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     member, serviceRank
- *
- * [referrer property]
- *     
- * </pre>
+ * The referrer loader of (会員サービス)member_service as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfMemberService {

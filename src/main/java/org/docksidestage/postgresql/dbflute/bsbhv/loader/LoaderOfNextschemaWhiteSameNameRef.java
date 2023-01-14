@@ -7,35 +7,7 @@ import org.docksidestage.postgresql.dbflute.exbhv.*;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
 /**
- * The referrer loader of nextschema.white_same_name_ref as TABLE. <br>
- * <pre>
- * [primary key]
- *     same_name_ref_id
- *
- * [column]
- *     same_name_ref_id, same_name_id, next_ref_date
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     nextschema.white_same_name
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     whiteSameName
- *
- * [referrer property]
- *     
- * </pre>
+ * The referrer loader of nextschema.white_same_name_ref as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfNextschemaWhiteSameNameRef {

@@ -9,35 +9,7 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
 import org.docksidestage.postgresql.dbflute.cbean.*;
 
 /**
- * The referrer loader of vendor_uuid_bar as TABLE. <br>
- * <pre>
- * [primary key]
- *     bar_id
- *
- * [column]
- *     bar_id, bar_name
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     vendor_uuid_foo
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     vendorUuidFooList
- * </pre>
+ * The referrer loader of vendor_uuid_bar as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfVendorUuidBar {

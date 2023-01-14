@@ -9,35 +9,7 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
 import org.docksidestage.postgresql.dbflute.cbean.*;
 
 /**
- * The referrer loader of vendor_large_data_ref as TABLE. <br>
- * <pre>
- * [primary key]
- *     large_data_ref_id
- *
- * [column]
- *     large_data_ref_id, large_data_id, date_index, date_no_index, timestamp_index, timestamp_no_index, nullable_decimal_index, nullable_decimal_no_index, self_parent_id
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     vendor_large_data, vendor_large_data_ref
- *
- * [referrer table]
- *     vendor_large_data_ref
- *
- * [foreign property]
- *     vendorLargeData, vendorLargeDataRefSelf
- *
- * [referrer property]
- *     vendorLargeDataRefSelfList
- * </pre>
+ * The referrer loader of vendor_large_data_ref as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfVendorLargeDataRef {

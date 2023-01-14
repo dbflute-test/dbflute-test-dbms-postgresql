@@ -7,35 +7,7 @@ import org.docksidestage.postgresql.dbflute.exbhv.*;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
 /**
- * The referrer loader of summary_product as VIEW. <br>
- * <pre>
- * [primary key]
- *     
- *
- * [column]
- *     product_id, product_name, product_status_code, latest_purchase_datetime
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The referrer loader of summary_product as VIEW.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfSummaryProduct {

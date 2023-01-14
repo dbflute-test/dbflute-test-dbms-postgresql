@@ -9,35 +9,7 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
 import org.docksidestage.postgresql.dbflute.cbean.*;
 
 /**
- * The referrer loader of next_schema_product as TABLE. <br>
- * <pre>
- * [primary key]
- *     product_id
- *
- * [column]
- *     product_id, product_name
- *
- * [sequence]
- *     nextschema.next_schema_product_product_id_seq
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     white_same_name
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     whiteSameNameList
- * </pre>
+ * The referrer loader of next_schema_product as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfNextSchemaProduct {

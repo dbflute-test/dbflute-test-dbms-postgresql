@@ -7,35 +7,7 @@ import org.docksidestage.postgresql.dbflute.exbhv.*;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
 /**
- * The referrer loader of vendor_part_man as TABLE. <br>
- * <pre>
- * [primary key]
- *     part_man_id
- *
- * [column]
- *     part_man_id, part_man_name, part_man_point, part_man_date
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The referrer loader of vendor_part_man as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfVendorPartMan {

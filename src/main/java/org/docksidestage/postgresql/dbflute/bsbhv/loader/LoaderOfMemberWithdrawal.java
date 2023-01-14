@@ -7,35 +7,7 @@ import org.docksidestage.postgresql.dbflute.exbhv.*;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
 /**
- * The referrer loader of (会員退会情報)member_withdrawal as TABLE. <br>
- * <pre>
- * [primary key]
- *     member_id
- *
- * [column]
- *     member_id, withdrawal_reason_code, withdrawal_reason_input_text, withdrawal_datetime, register_datetime, register_process, register_user, update_datetime, update_process, update_user
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     member, withdrawal_reason
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     member, withdrawalReason
- *
- * [referrer property]
- *     
- * </pre>
+ * The referrer loader of (会員退会情報)member_withdrawal as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfMemberWithdrawal {

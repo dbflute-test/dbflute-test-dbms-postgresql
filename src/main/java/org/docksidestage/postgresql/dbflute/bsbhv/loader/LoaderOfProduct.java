@@ -9,35 +9,7 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
 import org.docksidestage.postgresql.dbflute.cbean.*;
 
 /**
- * The referrer loader of (商品)product as TABLE. <br>
- * <pre>
- * [primary key]
- *     product_id
- *
- * [column]
- *     product_id, product_name, product_handle_code, product_category_code, product_status_code, regular_price, register_datetime, register_user, register_process, update_datetime, update_user, update_process, version_no
- *
- * [sequence]
- *     product_product_id_seq
- *
- * [identity]
- *     
- *
- * [version-no]
- *     version_no
- *
- * [foreign table]
- *     product_category, product_status
- *
- * [referrer table]
- *     purchase
- *
- * [foreign property]
- *     productCategory, productStatus
- *
- * [referrer property]
- *     purchaseList
- * </pre>
+ * The referrer loader of (商品)product as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfProduct {

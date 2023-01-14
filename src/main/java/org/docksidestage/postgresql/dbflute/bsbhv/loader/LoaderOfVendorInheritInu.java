@@ -7,35 +7,7 @@ import org.docksidestage.postgresql.dbflute.exbhv.*;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
 /**
- * The referrer loader of vendor_inherit_inu as TABLE. <br>
- * <pre>
- * [primary key]
- *     inu_id
- *
- * [column]
- *     inu_id, inu_name, inu_date
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The referrer loader of vendor_inherit_inu as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfVendorInheritInu {

@@ -7,35 +7,7 @@ import org.docksidestage.postgresql.dbflute.exbhv.*;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
 /**
- * The referrer loader of white_compound_pk_ref as TABLE. <br>
- * <pre>
- * [primary key]
- *     multiple_first_id, multiple_second_id
- *
- * [column]
- *     multiple_first_id, multiple_second_id, ref_first_id, ref_second_id
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     white_compound_pk
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     whiteCompoundPk
- *
- * [referrer property]
- *     
- * </pre>
+ * The referrer loader of white_compound_pk_ref as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhiteCompoundPkRef {

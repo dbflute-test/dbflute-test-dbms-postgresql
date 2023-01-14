@@ -9,35 +9,7 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
 import org.docksidestage.postgresql.dbflute.cbean.*;
 
 /**
- * The referrer loader of vendor_date_pk as TABLE. <br>
- * <pre>
- * [primary key]
- *     foo_date
- *
- * [column]
- *     foo_date, foo_name
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     vendor_date_fk
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     vendorDateFkList
- * </pre>
+ * The referrer loader of vendor_date_pk as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfVendorDatePk {

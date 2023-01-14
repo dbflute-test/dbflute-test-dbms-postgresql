@@ -9,35 +9,7 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
 import org.docksidestage.postgresql.dbflute.cbean.*;
 
 /**
- * The referrer loader of VENDOR-NON COMPILABLE as TABLE. <br>
- * <pre>
- * [primary key]
- *     NON-COMPILABLE ID
- *
- * [column]
- *     NON-COMPILABLE ID, NON COMPILABLE-NAME, PARENT-ID, Next_ParentID
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     VENDOR-NON COMPILABLE
- *
- * [referrer table]
- *     VENDOR-NON COMPILABLE
- *
- * [foreign property]
- *     vendor_non_compilableByNextParentidSelf, vendor_non_compilableByParent_idSelf
- *
- * [referrer property]
- *     vendor_non_compilableByNextParentidSelfList, vendor_non_compilableByParent_idSelfList
- * </pre>
+ * The referrer loader of VENDOR-NON COMPILABLE as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfVendor_non_compilable {

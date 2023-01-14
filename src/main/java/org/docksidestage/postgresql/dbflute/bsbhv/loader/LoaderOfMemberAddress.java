@@ -7,35 +7,7 @@ import org.docksidestage.postgresql.dbflute.exbhv.*;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
 /**
- * The referrer loader of (会員住所情報)member_address as TABLE. <br>
- * <pre>
- * [primary key]
- *     member_address_id
- *
- * [column]
- *     member_address_id, member_id, valid_begin_date, valid_end_date, address, region_id, register_datetime, register_process, register_user, update_datetime, update_process, update_user, version_no
- *
- * [sequence]
- *     member_address_member_address_id_seq
- *
- * [identity]
- *     
- *
- * [version-no]
- *     version_no
- *
- * [foreign table]
- *     member, region
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     member, region
- *
- * [referrer property]
- *     
- * </pre>
+ * The referrer loader of (会員住所情報)member_address as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfMemberAddress {

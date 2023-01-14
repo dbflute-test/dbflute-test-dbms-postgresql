@@ -7,35 +7,7 @@ import org.docksidestage.postgresql.dbflute.exbhv.*;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
 /**
- * The referrer loader of (会員セキュリティ情報)member_security as TABLE. <br>
- * <pre>
- * [primary key]
- *     member_id
- *
- * [column]
- *     member_id, login_password, reminder_question, reminder_answer, reminder_use_count, register_datetime, register_process, register_user, update_datetime, update_process, update_user, version_no
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     version_no
- *
- * [foreign table]
- *     member
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     member
- *
- * [referrer property]
- *     
- * </pre>
+ * The referrer loader of (会員セキュリティ情報)member_security as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfMemberSecurity {

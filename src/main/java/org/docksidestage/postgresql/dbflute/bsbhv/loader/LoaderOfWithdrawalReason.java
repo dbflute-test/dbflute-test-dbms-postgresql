@@ -9,35 +9,7 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
 import org.docksidestage.postgresql.dbflute.cbean.*;
 
 /**
- * The referrer loader of (退会理由)withdrawal_reason as TABLE. <br>
- * <pre>
- * [primary key]
- *     withdrawal_reason_code
- *
- * [column]
- *     withdrawal_reason_code, withdrawal_reason_text, display_order
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     member_withdrawal
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     memberWithdrawalList
- * </pre>
+ * The referrer loader of (退会理由)withdrawal_reason as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWithdrawalReason {

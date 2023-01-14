@@ -9,35 +9,7 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
 import org.docksidestage.postgresql.dbflute.cbean.*;
 
 /**
- * The referrer loader of white_same_name as TABLE. <br>
- * <pre>
- * [primary key]
- *     same_name_id
- *
- * [column]
- *     same_name_id, same_name_name, same_name_integer, next_schema_product_id
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     next_schema_product
- *
- * [referrer table]
- *     white_same_name_ref
- *
- * [foreign property]
- *     nextSchemaProduct
- *
- * [referrer property]
- *     whiteSameNameRefList
- * </pre>
+ * The referrer loader of white_same_name as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhiteSameName {

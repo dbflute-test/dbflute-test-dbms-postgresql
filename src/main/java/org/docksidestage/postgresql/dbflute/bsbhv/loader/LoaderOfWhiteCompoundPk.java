@@ -9,35 +9,7 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
 import org.docksidestage.postgresql.dbflute.cbean.*;
 
 /**
- * The referrer loader of white_compound_pk as TABLE. <br>
- * <pre>
- * [primary key]
- *     pk_first_id, pk_second_id
- *
- * [column]
- *     pk_first_id, pk_second_id, pk_name
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     white_compound_pk_ref
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     whiteCompoundPkRefList
- * </pre>
+ * The referrer loader of white_compound_pk as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfWhiteCompoundPk {

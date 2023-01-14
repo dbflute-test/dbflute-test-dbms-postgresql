@@ -9,35 +9,7 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
 import org.docksidestage.postgresql.dbflute.cbean.*;
 
 /**
- * The referrer loader of (購入)purchase as TABLE. <br>
- * <pre>
- * [primary key]
- *     purchase_id
- *
- * [column]
- *     purchase_id, member_id, product_id, purchase_datetime, purchase_count, purchase_price, payment_complete_flg, register_datetime, register_user, register_process, update_datetime, update_user, update_process, version_no
- *
- * [sequence]
- *     SEQ_PURCHASE
- *
- * [identity]
- *     
- *
- * [version-no]
- *     version_no
- *
- * [foreign table]
- *     member, product
- *
- * [referrer table]
- *     purchase_payment
- *
- * [foreign property]
- *     member, product
- *
- * [referrer property]
- *     purchasePaymentList
- * </pre>
+ * The referrer loader of (購入)purchase as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public class LoaderOfPurchase {
