@@ -63,7 +63,8 @@ map:{
     #  Does it generate JavaConfig for DBFluteBeans? (not use XML configuration)
     #
     # @SpringOnly
-    #; isDBFluteBeansGeneratedAsJavaConfig = false
+    # this example still uses traditional style
+    ; isDBFluteBeansGeneratedAsJavaConfig = false
     # - - - - - - - - - -/
 
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
