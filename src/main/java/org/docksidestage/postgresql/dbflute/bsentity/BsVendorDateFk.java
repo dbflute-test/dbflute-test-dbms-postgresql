@@ -12,43 +12,7 @@ import org.docksidestage.postgresql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
 /**
- * The entity of vendor_date_fk as TABLE. <br>
- * <pre>
- * [primary-key]
- *     bar_id
- *
- * [column]
- *     bar_id, bar_date
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     vendor_date_pk
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     vendorDatePk
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Integer barId = entity.getBarId();
- * java.time.LocalDate barDate = entity.getBarDate();
- * entity.setBarId(barId);
- * entity.setBarDate(barDate);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of vendor_date_fk as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsVendorDateFk extends AbstractEntity implements DomainEntity {

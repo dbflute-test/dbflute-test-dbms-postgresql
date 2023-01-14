@@ -10,47 +10,7 @@ import org.docksidestage.postgresql.dbflute.allcommon.CDef;
 import org.docksidestage.postgresql.dbflute.exentity.customize.*;
 
 /**
- * The entity of SpResultSetParameterMoreCurMemberStatus. <br>
- * <pre>
- * [primary-key]
- *     
- *
- * [column]
- *     member_status_code, member_status_name, description, display_order
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * String memberStatusCode = entity.getMemberStatusCode();
- * String memberStatusName = entity.getMemberStatusName();
- * String description = entity.getDescription();
- * Integer displayOrder = entity.getDisplayOrder();
- * entity.setMemberStatusCode(memberStatusCode);
- * entity.setMemberStatusName(memberStatusName);
- * entity.setDescription(description);
- * entity.setDisplayOrder(displayOrder);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of SpResultSetParameterMoreCurMemberStatus.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsSpResultSetParameterMoreCurMemberStatus extends AbstractEntity implements CustomizeEntity {

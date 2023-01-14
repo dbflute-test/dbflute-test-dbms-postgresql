@@ -20,35 +20,7 @@ import org.docksidestage.postgresql.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.postgresql.dbflute.cbean.*;
 
 /**
- * The behavior of white_same_name as TABLE. <br>
- * <pre>
- * [primary key]
- *     same_name_id
- *
- * [column]
- *     same_name_id, same_name_name, same_name_integer, next_schema_product_id
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     next_schema_product
- *
- * [referrer table]
- *     white_same_name_ref
- *
- * [foreign property]
- *     nextSchemaProduct
- *
- * [referrer property]
- *     whiteSameNameRefList
- * </pre>
+ * The behavior of white_same_name as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteSameNameBhv extends AbstractBehaviorWritable<WhiteSameName, WhiteSameNameCB> {
@@ -837,7 +809,7 @@ public abstract class BsWhiteSameNameBhv extends AbstractBehaviorWritable<WhiteS
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">whiteSameNameBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteSameName, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteSameNameBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

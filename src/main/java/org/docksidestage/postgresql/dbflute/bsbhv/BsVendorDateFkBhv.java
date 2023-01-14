@@ -20,35 +20,7 @@ import org.docksidestage.postgresql.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.postgresql.dbflute.cbean.*;
 
 /**
- * The behavior of vendor_date_fk as TABLE. <br>
- * <pre>
- * [primary key]
- *     bar_id
- *
- * [column]
- *     bar_id, bar_date
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     vendor_date_pk
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     vendorDatePk
- *
- * [referrer property]
- *     
- * </pre>
+ * The behavior of vendor_date_fk as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsVendorDateFkBhv extends AbstractBehaviorWritable<VendorDateFk, VendorDateFkCB> {
@@ -749,7 +721,7 @@ public abstract class BsVendorDateFkBhv extends AbstractBehaviorWritable<VendorD
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">vendorDateFkBhv</span>.<span style="color: #CC4747">queryDelete</span>(vendorDateFk, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">vendorDateFkBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

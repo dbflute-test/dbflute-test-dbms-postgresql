@@ -19,35 +19,7 @@ import org.docksidestage.postgresql.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.postgresql.dbflute.cbean.*;
 
 /**
- * The behavior of white_not_pk as TABLE. <br>
- * <pre>
- * [primary key]
- *     
- *
- * [column]
- *     not_pk_id, not_pk_name, not_pk_integer
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The behavior of white_not_pk as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteNotPkBhv extends AbstractBehaviorReadable<WhiteNotPk, WhiteNotPkCB> {

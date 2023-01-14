@@ -12,47 +12,7 @@ import org.docksidestage.postgresql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
 /**
- * The entity of white_compound_pk_ref as TABLE. <br>
- * <pre>
- * [primary-key]
- *     multiple_first_id, multiple_second_id
- *
- * [column]
- *     multiple_first_id, multiple_second_id, ref_first_id, ref_second_id
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     white_compound_pk
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     whiteCompoundPk
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Integer multipleFirstId = entity.getMultipleFirstId();
- * Integer multipleSecondId = entity.getMultipleSecondId();
- * Integer refFirstId = entity.getRefFirstId();
- * Integer refSecondId = entity.getRefSecondId();
- * entity.setMultipleFirstId(multipleFirstId);
- * entity.setMultipleSecondId(multipleSecondId);
- * entity.setRefFirstId(refFirstId);
- * entity.setRefSecondId(refSecondId);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of white_compound_pk_ref as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteCompoundPkRef extends AbstractEntity implements DomainEntity {

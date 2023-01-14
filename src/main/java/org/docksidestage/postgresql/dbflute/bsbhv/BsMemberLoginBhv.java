@@ -20,35 +20,7 @@ import org.docksidestage.postgresql.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.postgresql.dbflute.cbean.*;
 
 /**
- * The behavior of (会員ログイン)member_login as TABLE. <br>
- * <pre>
- * [primary key]
- *     member_login_id
- *
- * [column]
- *     member_login_id, member_id, login_datetime, mobile_login_flg, login_member_status_code
- *
- * [sequence]
- *     member_login_member_login_id_seq
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     member_status, member
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     memberStatus, member
- *
- * [referrer property]
- *     
- * </pre>
+ * The behavior of (会員ログイン)member_login as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLogin, MemberLoginCB> {
@@ -800,7 +772,7 @@ public abstract class BsMemberLoginBhv extends AbstractBehaviorWritable<MemberLo
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">memberLoginBhv</span>.<span style="color: #CC4747">queryDelete</span>(memberLogin, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">memberLoginBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

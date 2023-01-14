@@ -18,64 +18,6 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  * 会員の住所に関する情報で、同時に有効期間ごとに履歴管理されている。<br>
  * 会員を基点に考えた場合、構造的にはone-to-many だが、業務的な定型条件でone-to-one になる。このような構造を「業務的one-to-one」と呼ぶ。<br>
  * 有効期間は隙間なく埋められるが、ここでは住所情報のない会員も存在し、厳密には(業務的な) "1 : 0...1" である。
- * <pre>
- * [primary-key]
- *     member_address_id
- *
- * [column]
- *     member_address_id, member_id, valid_begin_date, valid_end_date, address, region_id, register_datetime, register_process, register_user, update_datetime, update_process, update_user, version_no
- *
- * [sequence]
- *     member_address_member_address_id_seq
- *
- * [identity]
- *     
- *
- * [version-no]
- *     version_no
- *
- * [foreign table]
- *     member, region
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     member, region
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Integer memberAddressId = entity.getMemberAddressId();
- * Integer memberId = entity.getMemberId();
- * java.time.LocalDate validBeginDate = entity.getValidBeginDate();
- * java.time.LocalDate validEndDate = entity.getValidEndDate();
- * String address = entity.getAddress();
- * Integer regionId = entity.getRegionId();
- * java.time.LocalDateTime registerDatetime = entity.getRegisterDatetime();
- * String registerProcess = entity.getRegisterProcess();
- * String registerUser = entity.getRegisterUser();
- * java.time.LocalDateTime updateDatetime = entity.getUpdateDatetime();
- * String updateProcess = entity.getUpdateProcess();
- * String updateUser = entity.getUpdateUser();
- * Long versionNo = entity.getVersionNo();
- * entity.setMemberAddressId(memberAddressId);
- * entity.setMemberId(memberId);
- * entity.setValidBeginDate(validBeginDate);
- * entity.setValidEndDate(validEndDate);
- * entity.setAddress(address);
- * entity.setRegionId(regionId);
- * entity.setRegisterDatetime(registerDatetime);
- * entity.setRegisterProcess(registerProcess);
- * entity.setRegisterUser(registerUser);
- * entity.setUpdateDatetime(updateDatetime);
- * entity.setUpdateProcess(updateProcess);
- * entity.setUpdateUser(updateUser);
- * entity.setVersionNo(versionNo);
- * = = = = = = = = = =/
- * </pre>
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsMemberAddress extends AbstractEntity implements DomainEntity, EntityDefinedCommonColumn {

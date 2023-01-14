@@ -10,43 +10,7 @@ import org.docksidestage.postgresql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
 /**
- * The entity of vendor_uuid_bar as TABLE. <br>
- * <pre>
- * [primary-key]
- *     bar_id
- *
- * [column]
- *     bar_id, bar_name
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     vendor_uuid_foo
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     vendorUuidFooList
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * java.util.UUID barId = entity.getBarId();
- * String barName = entity.getBarName();
- * entity.setBarId(barId);
- * entity.setBarName(barName);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of vendor_uuid_bar as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsVendorUuidBar extends AbstractEntity implements DomainEntity {

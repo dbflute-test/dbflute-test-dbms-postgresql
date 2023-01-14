@@ -20,35 +20,7 @@ import org.docksidestage.postgresql.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.postgresql.dbflute.cbean.*;
 
 /**
- * The behavior of (商品)product as TABLE. <br>
- * <pre>
- * [primary key]
- *     product_id
- *
- * [column]
- *     product_id, product_name, product_handle_code, product_category_code, product_status_code, regular_price, register_datetime, register_user, register_process, update_datetime, update_user, update_process, version_no
- *
- * [sequence]
- *     product_product_id_seq
- *
- * [identity]
- *     
- *
- * [version-no]
- *     version_no
- *
- * [foreign table]
- *     product_category, product_status
- *
- * [referrer table]
- *     purchase
- *
- * [foreign property]
- *     productCategory, productStatus
- *
- * [referrer property]
- *     purchaseList
- * </pre>
+ * The behavior of (商品)product as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsProductBhv extends AbstractBehaviorWritable<Product, ProductCB> {
@@ -990,7 +962,7 @@ public abstract class BsProductBhv extends AbstractBehaviorWritable<Product, Pro
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">productBhv</span>.<span style="color: #CC4747">queryDelete</span>(product, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">productBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

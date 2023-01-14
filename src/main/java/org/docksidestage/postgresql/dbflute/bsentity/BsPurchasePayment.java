@@ -16,56 +16,6 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  * The entity of (購入支払)purchase_payment as TABLE. <br>
  * 購入に対する支払。<br>
  * 分割払いもできるのでmanyとなり、会員からの孫テーブルのテストができてうれしい。
- * <pre>
- * [primary-key]
- *     purchase_payment_id
- *
- * [column]
- *     purchase_payment_id, purchase_id, payment_amount, payment_datetime, payment_method_code, register_datetime, register_user, update_datetime, update_user
- *
- * [sequence]
- *     purchase_payment_purchase_payment_id_seq
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     purchase
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     purchase
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Long purchasePaymentId = entity.getPurchasePaymentId();
- * Long purchaseId = entity.getPurchaseId();
- * java.math.BigDecimal paymentAmount = entity.getPaymentAmount();
- * java.time.LocalDateTime paymentDatetime = entity.getPaymentDatetime();
- * String paymentMethodCode = entity.getPaymentMethodCode();
- * java.time.LocalDateTime registerDatetime = entity.getRegisterDatetime();
- * String registerUser = entity.getRegisterUser();
- * java.time.LocalDateTime updateDatetime = entity.getUpdateDatetime();
- * String updateUser = entity.getUpdateUser();
- * entity.setPurchasePaymentId(purchasePaymentId);
- * entity.setPurchaseId(purchaseId);
- * entity.setPaymentAmount(paymentAmount);
- * entity.setPaymentDatetime(paymentDatetime);
- * entity.setPaymentMethodCode(paymentMethodCode);
- * entity.setRegisterDatetime(registerDatetime);
- * entity.setRegisterUser(registerUser);
- * entity.setUpdateDatetime(updateDatetime);
- * entity.setUpdateUser(updateUser);
- * = = = = = = = = = =/
- * </pre>
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsPurchasePayment extends AbstractEntity implements DomainEntity {

@@ -17,60 +17,6 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  * The entity of (会員サービス)member_service as TABLE. <br>
  * 会員のサービス情報（ポイントサービスなど）。<br>
  * ExampleDBとして、あえて統一性を崩してユニーク制約経由の one-to-one を表現している。
- * <pre>
- * [primary-key]
- *     member_service_id
- *
- * [column]
- *     member_service_id, member_id, service_point_count, service_rank_code, register_datetime, register_process, register_user, update_datetime, update_process, update_user, version_no
- *
- * [sequence]
- *     member_service_member_service_id_seq
- *
- * [identity]
- *     
- *
- * [version-no]
- *     version_no
- *
- * [foreign table]
- *     member, service_rank
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     member, serviceRank
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Integer memberServiceId = entity.getMemberServiceId();
- * Integer memberId = entity.getMemberId();
- * Integer servicePointCount = entity.getServicePointCount();
- * String serviceRankCode = entity.getServiceRankCode();
- * java.time.LocalDateTime registerDatetime = entity.getRegisterDatetime();
- * String registerProcess = entity.getRegisterProcess();
- * String registerUser = entity.getRegisterUser();
- * java.time.LocalDateTime updateDatetime = entity.getUpdateDatetime();
- * String updateProcess = entity.getUpdateProcess();
- * String updateUser = entity.getUpdateUser();
- * Long versionNo = entity.getVersionNo();
- * entity.setMemberServiceId(memberServiceId);
- * entity.setMemberId(memberId);
- * entity.setServicePointCount(servicePointCount);
- * entity.setServiceRankCode(serviceRankCode);
- * entity.setRegisterDatetime(registerDatetime);
- * entity.setRegisterProcess(registerProcess);
- * entity.setRegisterUser(registerUser);
- * entity.setUpdateDatetime(updateDatetime);
- * entity.setUpdateProcess(updateProcess);
- * entity.setUpdateUser(updateUser);
- * entity.setVersionNo(versionNo);
- * = = = = = = = = = =/
- * </pre>
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsMemberService extends AbstractEntity implements DomainEntity, EntityDefinedCommonColumn {

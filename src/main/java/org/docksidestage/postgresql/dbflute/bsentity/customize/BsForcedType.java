@@ -9,41 +9,7 @@ import org.dbflute.dbmeta.accessory.CustomizeEntity;
 import org.docksidestage.postgresql.dbflute.exentity.customize.*;
 
 /**
- * The entity of ForcedType. <br>
- * <pre>
- * [primary-key]
- *     
- *
- * [column]
- *     max_member_id
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * java.math.BigInteger maxMemberId = entity.getMaxMemberId();
- * entity.setMaxMemberId(maxMemberId);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of ForcedType.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsForcedType extends AbstractEntity implements CustomizeEntity {

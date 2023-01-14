@@ -20,35 +20,7 @@ import org.docksidestage.postgresql.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.postgresql.dbflute.cbean.*;
 
 /**
- * The behavior of (会員サービス)member_service as TABLE. <br>
- * <pre>
- * [primary key]
- *     member_service_id
- *
- * [column]
- *     member_service_id, member_id, service_point_count, service_rank_code, register_datetime, register_process, register_user, update_datetime, update_process, update_user, version_no
- *
- * [sequence]
- *     member_service_member_service_id_seq
- *
- * [identity]
- *     
- *
- * [version-no]
- *     version_no
- *
- * [foreign table]
- *     member, service_rank
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     member, serviceRank
- *
- * [referrer property]
- *     
- * </pre>
+ * The behavior of (会員サービス)member_service as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsMemberServiceBhv extends AbstractBehaviorWritable<MemberService, MemberServiceCB> {
@@ -902,7 +874,7 @@ public abstract class BsMemberServiceBhv extends AbstractBehaviorWritable<Member
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">memberServiceBhv</span>.<span style="color: #CC4747">queryDelete</span>(memberService, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">memberServiceBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

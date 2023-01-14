@@ -10,5 +10,6 @@ import org.docksidestage.postgresql.dbflute.bsbhv.BsWhiteCompoundPkWrongOrderBhv
  * </p>
  * @author DBFlute(AutoGenerator)
  */
+@org.springframework.stereotype.Component("whiteCompoundPkWrongOrderBhv")
 public class WhiteCompoundPkWrongOrderBhv extends BsWhiteCompoundPkWrongOrderBhv {
 }

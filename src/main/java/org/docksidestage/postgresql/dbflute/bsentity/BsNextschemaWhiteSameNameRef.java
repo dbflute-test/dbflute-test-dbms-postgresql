@@ -12,45 +12,7 @@ import org.docksidestage.postgresql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
 /**
- * The entity of nextschema.white_same_name_ref as TABLE. <br>
- * <pre>
- * [primary-key]
- *     same_name_ref_id
- *
- * [column]
- *     same_name_ref_id, same_name_id, next_ref_date
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     nextschema.white_same_name
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     whiteSameName
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Long sameNameRefId = entity.getSameNameRefId();
- * Integer sameNameId = entity.getSameNameId();
- * java.time.LocalDate nextRefDate = entity.getNextRefDate();
- * entity.setSameNameRefId(sameNameRefId);
- * entity.setSameNameId(sameNameId);
- * entity.setNextRefDate(nextRefDate);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of nextschema.white_same_name_ref as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsNextschemaWhiteSameNameRef extends AbstractEntity implements DomainEntity {

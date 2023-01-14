@@ -12,44 +12,6 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
 /**
  * The entity of (商品ステータス)product_status as TABLE. <br>
  * 商品のステータスを表現する固定的なマスタ。
- * <pre>
- * [primary-key]
- *     product_status_code
- *
- * [column]
- *     product_status_code, product_status_name, display_order
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     product
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     productList
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * String productStatusCode = entity.getProductStatusCode();
- * String productStatusName = entity.getProductStatusName();
- * Integer displayOrder = entity.getDisplayOrder();
- * entity.setProductStatusCode(productStatusCode);
- * entity.setProductStatusName(productStatusName);
- * entity.setDisplayOrder(displayOrder);
- * = = = = = = = = = =/
- * </pre>
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsProductStatus extends AbstractEntity implements DomainEntity {

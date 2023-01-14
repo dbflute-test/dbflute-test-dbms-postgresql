@@ -10,45 +10,7 @@ import org.docksidestage.postgresql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
 /**
- * The entity of vendor_inherit_inu as TABLE. <br>
- * <pre>
- * [primary-key]
- *     inu_id
- *
- * [column]
- *     inu_id, inu_name, inu_date
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Integer inuId = entity.getInuId();
- * String inuName = entity.getInuName();
- * java.time.LocalDate inuDate = entity.getInuDate();
- * entity.setInuId(inuId);
- * entity.setInuName(inuName);
- * entity.setInuDate(inuDate);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of vendor_inherit_inu as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsVendorInheritInu extends AbstractEntity implements DomainEntity {

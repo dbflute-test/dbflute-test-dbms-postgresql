@@ -10,43 +10,7 @@ import org.docksidestage.postgresql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
 /**
- * The entity of next_schema_product as TABLE. <br>
- * <pre>
- * [primary-key]
- *     product_id
- *
- * [column]
- *     product_id, product_name
- *
- * [sequence]
- *     nextschema.next_schema_product_product_id_seq
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     white_same_name
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     whiteSameNameList
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Integer productId = entity.getProductId();
- * String productName = entity.getProductName();
- * entity.setProductId(productId);
- * entity.setProductName(productName);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of next_schema_product as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsNextSchemaProduct extends AbstractEntity implements DomainEntity {

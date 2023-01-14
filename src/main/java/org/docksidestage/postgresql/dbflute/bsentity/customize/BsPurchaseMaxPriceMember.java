@@ -9,47 +9,7 @@ import org.dbflute.dbmeta.accessory.CustomizeEntity;
 import org.docksidestage.postgresql.dbflute.exentity.customize.*;
 
 /**
- * The entity of PurchaseMaxPriceMember. <br>
- * <pre>
- * [primary-key]
- *     
- *
- * [column]
- *     member_id, member_name, purchase_max_price, member_status_name
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Integer memberId = entity.getMemberId();
- * String memberName = entity.getMemberName();
- * Integer purchaseMaxPrice = entity.getPurchaseMaxPrice();
- * String memberStatusName = entity.getMemberStatusName();
- * entity.setMemberId(memberId);
- * entity.setMemberName(memberName);
- * entity.setPurchaseMaxPrice(purchaseMaxPrice);
- * entity.setMemberStatusName(memberStatusName);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of PurchaseMaxPriceMember.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsPurchaseMaxPriceMember extends AbstractEntity implements CustomizeEntity {

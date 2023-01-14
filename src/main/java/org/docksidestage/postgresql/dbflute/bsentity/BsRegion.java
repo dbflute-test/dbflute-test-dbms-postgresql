@@ -15,42 +15,6 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  * 主に会員の住所に対応する地域。<br>
  * かなりざっくりした感じではある。<br>
  * 業務的one-to-oneの親テーブル。
- * <pre>
- * [primary-key]
- *     region_id
- *
- * [column]
- *     region_id, region_name
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     member_address
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     memberAddressList
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Integer regionId = entity.getRegionId();
- * String regionName = entity.getRegionName();
- * entity.setRegionId(regionId);
- * entity.setRegionName(regionName);
- * = = = = = = = = = =/
- * </pre>
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsRegion extends AbstractEntity implements DomainEntity {

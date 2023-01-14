@@ -10,57 +10,7 @@ import org.docksidestage.postgresql.dbflute.allcommon.CDef;
 import org.docksidestage.postgresql.dbflute.exentity.customize.*;
 
 /**
- * The entity of OptionMember. <br>
- * <pre>
- * [primary-key]
- *     
- *
- * [column]
- *     member_id, member_name, birthdate, formalized_datetime, member_status_code, member_status_name, status_display_order, dummy_flg, dummy_noflg
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Integer memberId = entity.getMemberId();
- * String memberName = entity.getMemberName();
- * java.time.LocalDate birthdate = entity.getBirthdate();
- * java.time.LocalDateTime formalizedDatetime = entity.getFormalizedDatetime();
- * String memberStatusCode = entity.getMemberStatusCode();
- * String memberStatusName = entity.getMemberStatusName();
- * Integer statusDisplayOrder = entity.getStatusDisplayOrder();
- * Integer dummyFlg = entity.getDummyFlg();
- * Integer dummyNoflg = entity.getDummyNoflg();
- * entity.setMemberId(memberId);
- * entity.setMemberName(memberName);
- * entity.setBirthdate(birthdate);
- * entity.setFormalizedDatetime(formalizedDatetime);
- * entity.setMemberStatusCode(memberStatusCode);
- * entity.setMemberStatusName(memberStatusName);
- * entity.setStatusDisplayOrder(statusDisplayOrder);
- * entity.setDummyFlg(dummyFlg);
- * entity.setDummyNoflg(dummyNoflg);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of OptionMember.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsOptionMember extends AbstractEntity implements CustomizeEntity {

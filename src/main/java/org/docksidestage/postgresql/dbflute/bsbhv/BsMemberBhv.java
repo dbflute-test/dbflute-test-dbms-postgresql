@@ -20,35 +20,7 @@ import org.docksidestage.postgresql.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.postgresql.dbflute.cbean.*;
 
 /**
- * The behavior of (会員)member as TABLE. <br>
- * <pre>
- * [primary key]
- *     member_id
- *
- * [column]
- *     member_id, member_name, member_account, member_status_code, formalized_datetime, birthdate, register_datetime, register_user, register_process, update_datetime, update_user, update_process, version_no
- *
- * [sequence]
- *     member_member_id_seq
- *
- * [identity]
- *     
- *
- * [version-no]
- *     version_no
- *
- * [foreign table]
- *     member_status, member_address(AsValid), member_login(AsLatest), member_security(AsOne), member_service(AsOne), member_withdrawal(AsOne)
- *
- * [referrer table]
- *     member_address, member_login, purchase, member_security, member_service, member_withdrawal
- *
- * [foreign property]
- *     memberStatus, memberAddressAsValid, memberLoginAsLatest, memberSecurityAsOne, memberServiceAsOne, memberWithdrawalAsOne
- *
- * [referrer property]
- *     memberAddressList, memberLoginList, purchaseList
- * </pre>
+ * The behavior of (会員)member as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsMemberBhv extends AbstractBehaviorWritable<Member, MemberCB> {
@@ -1218,7 +1190,7 @@ public abstract class BsMemberBhv extends AbstractBehaviorWritable<Member, Membe
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">memberBhv</span>.<span style="color: #CC4747">queryDelete</span>(member, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">memberBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

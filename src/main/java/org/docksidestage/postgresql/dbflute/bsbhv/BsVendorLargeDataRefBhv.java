@@ -20,35 +20,7 @@ import org.docksidestage.postgresql.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.postgresql.dbflute.cbean.*;
 
 /**
- * The behavior of vendor_large_data_ref as TABLE. <br>
- * <pre>
- * [primary key]
- *     large_data_ref_id
- *
- * [column]
- *     large_data_ref_id, large_data_id, date_index, date_no_index, timestamp_index, timestamp_no_index, nullable_decimal_index, nullable_decimal_no_index, self_parent_id
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     vendor_large_data, vendor_large_data_ref
- *
- * [referrer table]
- *     vendor_large_data_ref
- *
- * [foreign property]
- *     vendorLargeData, vendorLargeDataRefSelf
- *
- * [referrer property]
- *     vendorLargeDataRefSelfList
- * </pre>
+ * The behavior of vendor_large_data_ref as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<VendorLargeDataRef, VendorLargeDataRefCB> {
@@ -849,7 +821,7 @@ public abstract class BsVendorLargeDataRefBhv extends AbstractBehaviorWritable<V
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">vendorLargeDataRefBhv</span>.<span style="color: #CC4747">queryDelete</span>(vendorLargeDataRef, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">vendorLargeDataRefBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

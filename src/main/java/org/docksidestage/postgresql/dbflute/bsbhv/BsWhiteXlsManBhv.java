@@ -20,35 +20,7 @@ import org.docksidestage.postgresql.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.postgresql.dbflute.cbean.*;
 
 /**
- * The behavior of white_xls_man as TABLE. <br>
- * <pre>
- * [primary key]
- *     xls_man_id
- *
- * [column]
- *     xls_man_id, string_converted, timestamp_zero_default_millis, timestamp_zero_prefix_millis, timestamp_zero_suffix_millis
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The behavior of white_xls_man as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteXlsManBhv extends AbstractBehaviorWritable<WhiteXlsMan, WhiteXlsManCB> {
@@ -741,7 +713,7 @@ public abstract class BsWhiteXlsManBhv extends AbstractBehaviorWritable<WhiteXls
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">whiteXlsManBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteXlsMan, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteXlsManBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

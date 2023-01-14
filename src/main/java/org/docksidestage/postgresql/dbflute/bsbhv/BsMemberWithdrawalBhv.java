@@ -20,35 +20,7 @@ import org.docksidestage.postgresql.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.postgresql.dbflute.cbean.*;
 
 /**
- * The behavior of (会員退会情報)member_withdrawal as TABLE. <br>
- * <pre>
- * [primary key]
- *     member_id
- *
- * [column]
- *     member_id, withdrawal_reason_code, withdrawal_reason_input_text, withdrawal_datetime, register_datetime, register_process, register_user, update_datetime, update_process, update_user
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     member, withdrawal_reason
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     member, withdrawalReason
- *
- * [referrer property]
- *     
- * </pre>
+ * The behavior of (会員退会情報)member_withdrawal as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsMemberWithdrawalBhv extends AbstractBehaviorWritable<MemberWithdrawal, MemberWithdrawalCB> {
@@ -757,7 +729,7 @@ public abstract class BsMemberWithdrawalBhv extends AbstractBehaviorWritable<Mem
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">memberWithdrawalBhv</span>.<span style="color: #CC4747">queryDelete</span>(memberWithdrawal, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">memberWithdrawalBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

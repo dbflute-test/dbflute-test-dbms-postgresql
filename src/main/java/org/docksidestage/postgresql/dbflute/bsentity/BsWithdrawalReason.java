@@ -13,44 +13,6 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
 /**
  * The entity of (退会理由)withdrawal_reason as TABLE. <br>
  * 会員に選ばせる定型的な退会理由のマスタ。
- * <pre>
- * [primary-key]
- *     withdrawal_reason_code
- *
- * [column]
- *     withdrawal_reason_code, withdrawal_reason_text, display_order
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     member_withdrawal
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     memberWithdrawalList
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * String withdrawalReasonCode = entity.getWithdrawalReasonCode();
- * String withdrawalReasonText = entity.getWithdrawalReasonText();
- * Integer displayOrder = entity.getDisplayOrder();
- * entity.setWithdrawalReasonCode(withdrawalReasonCode);
- * entity.setWithdrawalReasonText(withdrawalReasonText);
- * entity.setDisplayOrder(displayOrder);
- * = = = = = = = = = =/
- * </pre>
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWithdrawalReason extends AbstractEntity implements DomainEntity {

@@ -20,35 +20,7 @@ import org.docksidestage.postgresql.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.postgresql.dbflute.cbean.*;
 
 /**
- * The behavior of vendor_inherit_neko as TABLE. <br>
- * <pre>
- * [primary key]
- *     neko_id
- *
- * [column]
- *     inu_id, inu_name, inu_date, neko_id, neko_name, neko_date
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The behavior of vendor_inherit_neko as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsVendorInheritNekoBhv extends AbstractBehaviorWritable<VendorInheritNeko, VendorInheritNekoCB> {
@@ -741,7 +713,7 @@ public abstract class BsVendorInheritNekoBhv extends AbstractBehaviorWritable<Ve
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">vendorInheritNekoBhv</span>.<span style="color: #CC4747">queryDelete</span>(vendorInheritNeko, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">vendorInheritNekoBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

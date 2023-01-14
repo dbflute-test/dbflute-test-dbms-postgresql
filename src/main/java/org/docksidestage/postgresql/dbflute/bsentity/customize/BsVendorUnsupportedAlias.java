@@ -9,47 +9,7 @@ import org.dbflute.dbmeta.accessory.CustomizeEntity;
 import org.docksidestage.postgresql.dbflute.exentity.customize.*;
 
 /**
- * The entity of VendorUnsupportedAlias. <br>
- * <pre>
- * [primary-key]
- *     
- *
- * [column]
- *     vendor_check_id, HYPHEN-EXISTS, SPACE EXISTS, DOLLAR$EXISTS
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Long vendorCheckId = entity.getVendorCheckId();
- * String hyphen_exists = entity.getHyphen_exists();
- * Integer space_exists = entity.getSpace_exists();
- * java.time.LocalDate dollar$exists = entity.getDollar$exists();
- * entity.setVendorCheckId(vendorCheckId);
- * entity.setHyphen_exists(hyphen_exists);
- * entity.setSpace_exists(space_exists);
- * entity.setDollar$exists(dollar$exists);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of VendorUnsupportedAlias.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsVendorUnsupportedAlias extends AbstractEntity implements CustomizeEntity {

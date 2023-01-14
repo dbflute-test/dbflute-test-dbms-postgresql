@@ -17,66 +17,6 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  * The entity of (購入)purchase as TABLE. <br>
  * 一つの商品に対する購入を表現する。<br>
  * 実業務であれば購入詳細というテーブルを作り、「購入という行為」と「その中身（詳細）」を違う粒度のデータとしてそれぞれ管理するのが一般的と言えるでしょう。というか、注文とか請求とかそういうことを考え始めたらもっと複雑になるはずですが、ExampleDBということで割り切っています。
- * <pre>
- * [primary-key]
- *     purchase_id
- *
- * [column]
- *     purchase_id, member_id, product_id, purchase_datetime, purchase_count, purchase_price, payment_complete_flg, register_datetime, register_user, register_process, update_datetime, update_user, update_process, version_no
- *
- * [sequence]
- *     SEQ_PURCHASE
- *
- * [identity]
- *     
- *
- * [version-no]
- *     version_no
- *
- * [foreign table]
- *     member, product
- *
- * [referrer table]
- *     purchase_payment
- *
- * [foreign property]
- *     member, product
- *
- * [referrer property]
- *     purchasePaymentList
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Long purchaseId = entity.getPurchaseId();
- * Integer memberId = entity.getMemberId();
- * Integer productId = entity.getProductId();
- * java.time.LocalDateTime purchaseDatetime = entity.getPurchaseDatetime();
- * Integer purchaseCount = entity.getPurchaseCount();
- * Integer purchasePrice = entity.getPurchasePrice();
- * Integer paymentCompleteFlg = entity.getPaymentCompleteFlg();
- * java.time.LocalDateTime registerDatetime = entity.getRegisterDatetime();
- * String registerUser = entity.getRegisterUser();
- * String registerProcess = entity.getRegisterProcess();
- * java.time.LocalDateTime updateDatetime = entity.getUpdateDatetime();
- * String updateUser = entity.getUpdateUser();
- * String updateProcess = entity.getUpdateProcess();
- * Long versionNo = entity.getVersionNo();
- * entity.setPurchaseId(purchaseId);
- * entity.setMemberId(memberId);
- * entity.setProductId(productId);
- * entity.setPurchaseDatetime(purchaseDatetime);
- * entity.setPurchaseCount(purchaseCount);
- * entity.setPurchasePrice(purchasePrice);
- * entity.setPaymentCompleteFlg(paymentCompleteFlg);
- * entity.setRegisterDatetime(registerDatetime);
- * entity.setRegisterUser(registerUser);
- * entity.setRegisterProcess(registerProcess);
- * entity.setUpdateDatetime(updateDatetime);
- * entity.setUpdateUser(updateUser);
- * entity.setUpdateProcess(updateProcess);
- * entity.setVersionNo(versionNo);
- * = = = = = = = = = =/
- * </pre>
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsPurchase extends AbstractEntity implements DomainEntity, EntityDefinedCommonColumn {

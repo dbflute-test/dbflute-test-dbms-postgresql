@@ -17,46 +17,6 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  * <br>
  * こういった固定的なマスタテーブルには、更新日時などの共通カラムは定義していないが、業務上そういった情報を管理する必要性が低いという理由に加え、ExampleDBとして共通カラムでER図が埋め尽くされてしまい見づらくなるという<br>
  * ところで割り切っている。実業務では統一的に定義することもある。
- * <pre>
- * [primary-key]
- *     member_status_code
- *
- * [column]
- *     member_status_code, member_status_name, description, display_order
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     member, member_login
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     memberList, memberLoginList
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * String memberStatusCode = entity.getMemberStatusCode();
- * String memberStatusName = entity.getMemberStatusName();
- * String description = entity.getDescription();
- * Integer displayOrder = entity.getDisplayOrder();
- * entity.setMemberStatusCode(memberStatusCode);
- * entity.setMemberStatusName(memberStatusName);
- * entity.setDescription(description);
- * entity.setDisplayOrder(displayOrder);
- * = = = = = = = = = =/
- * </pre>
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsMemberStatus extends AbstractEntity implements DomainEntity {

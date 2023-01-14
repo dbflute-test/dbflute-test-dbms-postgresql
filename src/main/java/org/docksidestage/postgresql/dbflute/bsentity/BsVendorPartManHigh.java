@@ -10,47 +10,7 @@ import org.docksidestage.postgresql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
 /**
- * The entity of vendor_part_man_high as TABLE. <br>
- * <pre>
- * [primary-key]
- *     part_man_id
- *
- * [column]
- *     part_man_id, part_man_name, part_man_point, part_man_date
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Integer partManId = entity.getPartManId();
- * String partManName = entity.getPartManName();
- * Integer partManPoint = entity.getPartManPoint();
- * java.time.LocalDate partManDate = entity.getPartManDate();
- * entity.setPartManId(partManId);
- * entity.setPartManName(partManName);
- * entity.setPartManPoint(partManPoint);
- * entity.setPartManDate(partManDate);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of vendor_part_man_high as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsVendorPartManHigh extends AbstractEntity implements DomainEntity {

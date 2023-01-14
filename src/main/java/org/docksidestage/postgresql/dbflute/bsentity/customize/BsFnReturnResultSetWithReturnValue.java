@@ -10,49 +10,7 @@ import org.docksidestage.postgresql.dbflute.allcommon.CDef;
 import org.docksidestage.postgresql.dbflute.exentity.customize.*;
 
 /**
- * The entity of FnReturnResultSetWithReturnValue. <br>
- * <pre>
- * [primary-key]
- *     
- *
- * [column]
- *     member_id, member_name, birthdate, formalized_datetime, member_status_code
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Integer memberId = entity.getMemberId();
- * String memberName = entity.getMemberName();
- * java.time.LocalDate birthdate = entity.getBirthdate();
- * java.time.LocalDateTime formalizedDatetime = entity.getFormalizedDatetime();
- * String memberStatusCode = entity.getMemberStatusCode();
- * entity.setMemberId(memberId);
- * entity.setMemberName(memberName);
- * entity.setBirthdate(birthdate);
- * entity.setFormalizedDatetime(formalizedDatetime);
- * entity.setMemberStatusCode(memberStatusCode);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of FnReturnResultSetWithReturnValue.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsFnReturnResultSetWithReturnValue extends AbstractEntity implements CustomizeEntity {

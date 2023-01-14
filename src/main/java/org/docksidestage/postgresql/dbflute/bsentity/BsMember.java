@@ -16,64 +16,6 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
 /**
  * The entity of (会員)member as TABLE. <br>
  * 会員登録時にデータが登録される。基本的に物理削除はなく、退会したらステータスが退会会員になる。ライフサイクルやカテゴリの違う会員それぞれの詳細情報は、別途 one-to-one のテーブルに。
- * <pre>
- * [primary-key]
- *     member_id
- *
- * [column]
- *     member_id, member_name, member_account, member_status_code, formalized_datetime, birthdate, register_datetime, register_user, register_process, update_datetime, update_user, update_process, version_no
- *
- * [sequence]
- *     member_member_id_seq
- *
- * [identity]
- *     
- *
- * [version-no]
- *     version_no
- *
- * [foreign table]
- *     member_status, member_address(AsValid), member_login(AsLatest), member_security(AsOne), member_service(AsOne), member_withdrawal(AsOne)
- *
- * [referrer table]
- *     member_address, member_login, purchase, member_security, member_service, member_withdrawal
- *
- * [foreign property]
- *     memberStatus, memberAddressAsValid, memberLoginAsLatest, memberSecurityAsOne, memberServiceAsOne, memberWithdrawalAsOne
- *
- * [referrer property]
- *     memberAddressList, memberLoginList, purchaseList
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Integer memberId = entity.getMemberId();
- * String memberName = entity.getMemberName();
- * String memberAccount = entity.getMemberAccount();
- * String memberStatusCode = entity.getMemberStatusCode();
- * java.time.LocalDateTime formalizedDatetime = entity.getFormalizedDatetime();
- * java.time.LocalDate birthdate = entity.getBirthdate();
- * java.time.LocalDateTime registerDatetime = entity.getRegisterDatetime();
- * String registerUser = entity.getRegisterUser();
- * String registerProcess = entity.getRegisterProcess();
- * java.time.LocalDateTime updateDatetime = entity.getUpdateDatetime();
- * String updateUser = entity.getUpdateUser();
- * String updateProcess = entity.getUpdateProcess();
- * Long versionNo = entity.getVersionNo();
- * entity.setMemberId(memberId);
- * entity.setMemberName(memberName);
- * entity.setMemberAccount(memberAccount);
- * entity.setMemberStatusCode(memberStatusCode);
- * entity.setFormalizedDatetime(formalizedDatetime);
- * entity.setBirthdate(birthdate);
- * entity.setRegisterDatetime(registerDatetime);
- * entity.setRegisterUser(registerUser);
- * entity.setRegisterProcess(registerProcess);
- * entity.setUpdateDatetime(updateDatetime);
- * entity.setUpdateUser(updateUser);
- * entity.setUpdateProcess(updateProcess);
- * entity.setVersionNo(versionNo);
- * = = = = = = = = = =/
- * </pre>
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsMember extends AbstractEntity implements DomainEntity, EntityDefinedCommonColumn {

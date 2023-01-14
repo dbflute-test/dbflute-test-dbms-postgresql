@@ -15,62 +15,6 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
 /**
  * The entity of (会員セキュリティ情報)member_security as TABLE. <br>
  * 会員とは one-to-one で、会員一人につき必ず一つのセキュリティ情報がある
- * <pre>
- * [primary-key]
- *     member_id
- *
- * [column]
- *     member_id, login_password, reminder_question, reminder_answer, reminder_use_count, register_datetime, register_process, register_user, update_datetime, update_process, update_user, version_no
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     version_no
- *
- * [foreign table]
- *     member
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     member
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Integer memberId = entity.getMemberId();
- * String loginPassword = entity.getLoginPassword();
- * String reminderQuestion = entity.getReminderQuestion();
- * String reminderAnswer = entity.getReminderAnswer();
- * Integer reminderUseCount = entity.getReminderUseCount();
- * java.time.LocalDateTime registerDatetime = entity.getRegisterDatetime();
- * String registerProcess = entity.getRegisterProcess();
- * String registerUser = entity.getRegisterUser();
- * java.time.LocalDateTime updateDatetime = entity.getUpdateDatetime();
- * String updateProcess = entity.getUpdateProcess();
- * String updateUser = entity.getUpdateUser();
- * Long versionNo = entity.getVersionNo();
- * entity.setMemberId(memberId);
- * entity.setLoginPassword(loginPassword);
- * entity.setReminderQuestion(reminderQuestion);
- * entity.setReminderAnswer(reminderAnswer);
- * entity.setReminderUseCount(reminderUseCount);
- * entity.setRegisterDatetime(registerDatetime);
- * entity.setRegisterProcess(registerProcess);
- * entity.setRegisterUser(registerUser);
- * entity.setUpdateDatetime(updateDatetime);
- * entity.setUpdateProcess(updateProcess);
- * entity.setUpdateUser(updateUser);
- * entity.setVersionNo(versionNo);
- * = = = = = = = = = =/
- * </pre>
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsMemberSecurity extends AbstractEntity implements DomainEntity, EntityDefinedCommonColumn {

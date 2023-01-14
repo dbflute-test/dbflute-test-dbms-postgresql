@@ -9,45 +9,7 @@ import org.dbflute.dbmeta.accessory.CustomizeEntity;
 import org.docksidestage.postgresql.dbflute.exentity.customize.*;
 
 /**
- * The entity of VendorWithWith. <br>
- * <pre>
- * [primary-key]
- *     
- *
- * [column]
- *     vendor_check_id, type_of_varchar, type_of_numeric_integer
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Long vendorCheckId = entity.getVendorCheckId();
- * String typeOfVarchar = entity.getTypeOfVarchar();
- * Integer typeOfNumericInteger = entity.getTypeOfNumericInteger();
- * entity.setVendorCheckId(vendorCheckId);
- * entity.setTypeOfVarchar(typeOfVarchar);
- * entity.setTypeOfNumericInteger(typeOfNumericInteger);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of VendorWithWith.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsVendorWithWith extends AbstractEntity implements CustomizeEntity {

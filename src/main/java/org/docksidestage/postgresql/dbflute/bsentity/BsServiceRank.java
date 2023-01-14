@@ -14,50 +14,6 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  * The entity of (サービスランク)service_rank as TABLE. <br>
  * 会員のサービスレベルを表現するランク。<br>
  * （ゴールドとかプラチナとか）
- * <pre>
- * [primary-key]
- *     service_rank_code
- *
- * [column]
- *     service_rank_code, service_rank_name, service_point_incidence, new_acceptable_flg, description, display_order
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     member_service
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     memberServiceList
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * String serviceRankCode = entity.getServiceRankCode();
- * String serviceRankName = entity.getServiceRankName();
- * java.math.BigDecimal servicePointIncidence = entity.getServicePointIncidence();
- * Integer newAcceptableFlg = entity.getNewAcceptableFlg();
- * String description = entity.getDescription();
- * Integer displayOrder = entity.getDisplayOrder();
- * entity.setServiceRankCode(serviceRankCode);
- * entity.setServiceRankName(serviceRankName);
- * entity.setServicePointIncidence(servicePointIncidence);
- * entity.setNewAcceptableFlg(newAcceptableFlg);
- * entity.setDescription(description);
- * entity.setDisplayOrder(displayOrder);
- * = = = = = = = = = =/
- * </pre>
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsServiceRank extends AbstractEntity implements DomainEntity {

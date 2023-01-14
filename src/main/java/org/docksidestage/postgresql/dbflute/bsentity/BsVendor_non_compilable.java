@@ -12,47 +12,7 @@ import org.docksidestage.postgresql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
 /**
- * The entity of VENDOR-NON COMPILABLE as TABLE. <br>
- * <pre>
- * [primary-key]
- *     NON-COMPILABLE ID
- *
- * [column]
- *     NON-COMPILABLE ID, NON COMPILABLE-NAME, PARENT-ID, Next_ParentID
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     VENDOR-NON COMPILABLE
- *
- * [referrer table]
- *     VENDOR-NON COMPILABLE
- *
- * [foreign property]
- *     vendor_non_compilableByNextParentidSelf, vendor_non_compilableByParent_idSelf
- *
- * [referrer property]
- *     vendor_non_compilableByNextParentidSelfList, vendor_non_compilableByParent_idSelfList
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Integer non_compilable_id = entity.getNon_compilable_id();
- * String non_compilable_name = entity.getNon_compilable_name();
- * Integer parent_id = entity.getParent_id();
- * Integer nextParentid = entity.getNextParentid();
- * entity.setNon_compilable_id(non_compilable_id);
- * entity.setNon_compilable_name(non_compilable_name);
- * entity.setParent_id(parent_id);
- * entity.setNextParentid(nextParentid);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of VENDOR-NON COMPILABLE as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsVendor_non_compilable extends AbstractEntity implements DomainEntity {

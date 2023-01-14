@@ -20,35 +20,7 @@ import org.docksidestage.postgresql.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.postgresql.dbflute.cbean.*;
 
 /**
- * The behavior of white_compound_pk_wrong_order as TABLE. <br>
- * <pre>
- * [primary key]
- *     first_id, third_id, second_id
- *
- * [column]
- *     first_id, second_id, third_id, wrong_name
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The behavior of white_compound_pk_wrong_order as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteCompoundPkWrongOrderBhv extends AbstractBehaviorWritable<WhiteCompoundPkWrongOrder, WhiteCompoundPkWrongOrderCB> {
@@ -735,7 +707,7 @@ public abstract class BsWhiteCompoundPkWrongOrderBhv extends AbstractBehaviorWri
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">whiteCompoundPkWrongOrderBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteCompoundPkWrongOrder, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteCompoundPkWrongOrderBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

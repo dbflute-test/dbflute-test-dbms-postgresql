@@ -19,35 +19,7 @@ import org.docksidestage.postgresql.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.postgresql.dbflute.cbean.*;
 
 /**
- * The behavior of summary_product as VIEW. <br>
- * <pre>
- * [primary key]
- *     
- *
- * [column]
- *     product_id, product_name, product_status_code, latest_purchase_datetime
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The behavior of summary_product as VIEW.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsSummaryProductBhv extends AbstractBehaviorReadable<SummaryProduct, SummaryProductCB> {

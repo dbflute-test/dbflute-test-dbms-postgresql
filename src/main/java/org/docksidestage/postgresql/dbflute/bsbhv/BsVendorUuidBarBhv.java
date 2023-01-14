@@ -20,35 +20,7 @@ import org.docksidestage.postgresql.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.postgresql.dbflute.cbean.*;
 
 /**
- * The behavior of vendor_uuid_bar as TABLE. <br>
- * <pre>
- * [primary key]
- *     bar_id
- *
- * [column]
- *     bar_id, bar_name
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     vendor_uuid_foo
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     vendorUuidFooList
- * </pre>
+ * The behavior of vendor_uuid_bar as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsVendorUuidBarBhv extends AbstractBehaviorWritable<VendorUuidBar, VendorUuidBarCB> {
@@ -829,7 +801,7 @@ public abstract class BsVendorUuidBarBhv extends AbstractBehaviorWritable<Vendor
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">vendorUuidBarBhv</span>.<span style="color: #CC4747">queryDelete</span>(vendorUuidBar, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">vendorUuidBarBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

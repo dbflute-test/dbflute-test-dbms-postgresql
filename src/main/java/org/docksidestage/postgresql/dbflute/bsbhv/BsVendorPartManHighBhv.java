@@ -20,35 +20,7 @@ import org.docksidestage.postgresql.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.postgresql.dbflute.cbean.*;
 
 /**
- * The behavior of vendor_part_man_high as TABLE. <br>
- * <pre>
- * [primary key]
- *     part_man_id
- *
- * [column]
- *     part_man_id, part_man_name, part_man_point, part_man_date
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- * </pre>
+ * The behavior of vendor_part_man_high as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsVendorPartManHighBhv extends AbstractBehaviorWritable<VendorPartManHigh, VendorPartManHighCB> {
@@ -741,7 +713,7 @@ public abstract class BsVendorPartManHighBhv extends AbstractBehaviorWritable<Ve
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">vendorPartManHighBhv</span>.<span style="color: #CC4747">queryDelete</span>(vendorPartManHigh, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">vendorPartManHighBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

@@ -10,45 +10,7 @@ import org.docksidestage.postgresql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
 /**
- * The entity of white_not_pk as TABLE. <br>
- * <pre>
- * [primary-key]
- *     
- *
- * [column]
- *     not_pk_id, not_pk_name, not_pk_integer
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Long notPkId = entity.getNotPkId();
- * String notPkName = entity.getNotPkName();
- * Integer notPkInteger = entity.getNotPkInteger();
- * entity.setNotPkId(notPkId);
- * entity.setNotPkName(notPkName);
- * entity.setNotPkInteger(notPkInteger);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of white_not_pk as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteNotPk extends AbstractEntity implements DomainEntity {

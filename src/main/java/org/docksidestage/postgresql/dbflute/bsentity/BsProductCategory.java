@@ -15,44 +15,6 @@ import org.docksidestage.postgresql.dbflute.exentity.*;
  * The entity of (商品カテゴリ)product_category as TABLE. <br>
  * 商品のカテゴリを表現するマスタ。<br>
  * 自己参照の階層になっている。
- * <pre>
- * [primary-key]
- *     product_category_code
- *
- * [column]
- *     product_category_code, product_category_name, parent_category_code
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     product_category
- *
- * [referrer table]
- *     product, product_category
- *
- * [foreign property]
- *     productCategorySelf
- *
- * [referrer property]
- *     productList, productCategorySelfList
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * String productCategoryCode = entity.getProductCategoryCode();
- * String productCategoryName = entity.getProductCategoryName();
- * String parentCategoryCode = entity.getParentCategoryCode();
- * entity.setProductCategoryCode(productCategoryCode);
- * entity.setProductCategoryName(productCategoryName);
- * entity.setParentCategoryCode(parentCategoryCode);
- * = = = = = = = = = =/
- * </pre>
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsProductCategory extends AbstractEntity implements DomainEntity {

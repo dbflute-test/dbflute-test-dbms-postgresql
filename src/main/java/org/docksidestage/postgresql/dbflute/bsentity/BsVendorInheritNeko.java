@@ -10,51 +10,7 @@ import org.docksidestage.postgresql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
 /**
- * The entity of vendor_inherit_neko as TABLE. <br>
- * <pre>
- * [primary-key]
- *     neko_id
- *
- * [column]
- *     inu_id, inu_name, inu_date, neko_id, neko_name, neko_date
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Integer inuId = entity.getInuId();
- * String inuName = entity.getInuName();
- * java.time.LocalDate inuDate = entity.getInuDate();
- * Integer nekoId = entity.getNekoId();
- * String nekoName = entity.getNekoName();
- * java.time.LocalDate nekoDate = entity.getNekoDate();
- * entity.setInuId(inuId);
- * entity.setInuName(inuName);
- * entity.setInuDate(inuDate);
- * entity.setNekoId(nekoId);
- * entity.setNekoName(nekoName);
- * entity.setNekoDate(nekoDate);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of vendor_inherit_neko as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsVendorInheritNeko extends AbstractEntity implements DomainEntity {

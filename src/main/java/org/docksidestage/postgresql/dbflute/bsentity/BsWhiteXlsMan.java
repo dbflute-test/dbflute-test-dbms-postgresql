@@ -10,49 +10,7 @@ import org.docksidestage.postgresql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
 /**
- * The entity of white_xls_man as TABLE. <br>
- * <pre>
- * [primary-key]
- *     xls_man_id
- *
- * [column]
- *     xls_man_id, string_converted, timestamp_zero_default_millis, timestamp_zero_prefix_millis, timestamp_zero_suffix_millis
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Long xlsManId = entity.getXlsManId();
- * String stringConverted = entity.getStringConverted();
- * java.time.LocalDateTime timestampZeroDefaultMillis = entity.getTimestampZeroDefaultMillis();
- * java.time.LocalDateTime timestampZeroPrefixMillis = entity.getTimestampZeroPrefixMillis();
- * java.time.LocalDateTime timestampZeroSuffixMillis = entity.getTimestampZeroSuffixMillis();
- * entity.setXlsManId(xlsManId);
- * entity.setStringConverted(stringConverted);
- * entity.setTimestampZeroDefaultMillis(timestampZeroDefaultMillis);
- * entity.setTimestampZeroPrefixMillis(timestampZeroPrefixMillis);
- * entity.setTimestampZeroSuffixMillis(timestampZeroSuffixMillis);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of white_xls_man as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteXlsMan extends AbstractEntity implements DomainEntity {

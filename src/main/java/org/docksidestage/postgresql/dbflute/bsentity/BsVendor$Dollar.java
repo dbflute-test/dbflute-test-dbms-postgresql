@@ -10,43 +10,7 @@ import org.docksidestage.postgresql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
 /**
- * The entity of vendor_$_dollar as TABLE. <br>
- * <pre>
- * [primary-key]
- *     vendor_$_dollar_id
- *
- * [column]
- *     vendor_$_dollar_id, vendor_$_dollar_name
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Integer vendor$DollarId = entity.getVendor$DollarId();
- * String vendor$DollarName = entity.getVendor$DollarName();
- * entity.setVendor$DollarId(vendor$DollarId);
- * entity.setVendor$DollarName(vendor$DollarName);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of vendor_$_dollar as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsVendor$Dollar extends AbstractEntity implements DomainEntity {

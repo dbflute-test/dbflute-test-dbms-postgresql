@@ -20,35 +20,7 @@ import org.docksidestage.postgresql.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.postgresql.dbflute.cbean.*;
 
 /**
- * The behavior of white_compound_pk_ref as TABLE. <br>
- * <pre>
- * [primary key]
- *     multiple_first_id, multiple_second_id
- *
- * [column]
- *     multiple_first_id, multiple_second_id, ref_first_id, ref_second_id
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     white_compound_pk
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     whiteCompoundPk
- *
- * [referrer property]
- *     
- * </pre>
+ * The behavior of white_compound_pk_ref as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsWhiteCompoundPkRefBhv extends AbstractBehaviorWritable<WhiteCompoundPkRef, WhiteCompoundPkRefCB> {
@@ -742,7 +714,7 @@ public abstract class BsWhiteCompoundPkRefBhv extends AbstractBehaviorWritable<W
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">whiteCompoundPkRefBhv</span>.<span style="color: #CC4747">queryDelete</span>(whiteCompoundPkRef, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">whiteCompoundPkRefBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

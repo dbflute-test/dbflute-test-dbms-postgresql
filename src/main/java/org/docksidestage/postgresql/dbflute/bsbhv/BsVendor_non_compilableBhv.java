@@ -20,35 +20,7 @@ import org.docksidestage.postgresql.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.postgresql.dbflute.cbean.*;
 
 /**
- * The behavior of VENDOR-NON COMPILABLE as TABLE. <br>
- * <pre>
- * [primary key]
- *     NON-COMPILABLE ID
- *
- * [column]
- *     NON-COMPILABLE ID, NON COMPILABLE-NAME, PARENT-ID, Next_ParentID
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     VENDOR-NON COMPILABLE
- *
- * [referrer table]
- *     VENDOR-NON COMPILABLE
- *
- * [foreign property]
- *     vendor_non_compilableByNextParentidSelf, vendor_non_compilableByParent_idSelf
- *
- * [referrer property]
- *     vendor_non_compilableByNextParentidSelfList, vendor_non_compilableByParent_idSelfList
- * </pre>
+ * The behavior of VENDOR-NON COMPILABLE as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritable<Vendor_non_compilable, Vendor_non_compilableCB> {
@@ -933,7 +905,7 @@ public abstract class BsVendor_non_compilableBhv extends AbstractBehaviorWritabl
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">vendor_non_compilableBhv</span>.<span style="color: #CC4747">queryDelete</span>(vendor_non_compilable, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">vendor_non_compilableBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

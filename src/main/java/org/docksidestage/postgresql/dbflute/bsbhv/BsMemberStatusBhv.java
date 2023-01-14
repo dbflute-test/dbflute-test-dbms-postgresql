@@ -21,35 +21,7 @@ import org.docksidestage.postgresql.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.postgresql.dbflute.cbean.*;
 
 /**
- * The behavior of (会員ステータス)member_status as TABLE. <br>
- * <pre>
- * [primary key]
- *     member_status_code
- *
- * [column]
- *     member_status_code, member_status_name, description, display_order
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     member, member_login
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     memberList, memberLoginList
- * </pre>
+ * The behavior of (会員ステータス)member_status as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsMemberStatusBhv extends AbstractBehaviorWritable<MemberStatus, MemberStatusCB> {
@@ -964,7 +936,7 @@ public abstract class BsMemberStatusBhv extends AbstractBehaviorWritable<MemberS
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">memberStatusBhv</span>.<span style="color: #CC4747">queryDelete</span>(memberStatus, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">memberStatusBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>

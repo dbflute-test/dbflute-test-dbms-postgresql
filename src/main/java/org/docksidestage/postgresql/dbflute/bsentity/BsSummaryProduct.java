@@ -10,47 +10,7 @@ import org.docksidestage.postgresql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
 /**
- * The entity of summary_product as VIEW. <br>
- * <pre>
- * [primary-key]
- *     
- *
- * [column]
- *     product_id, product_name, product_status_code, latest_purchase_datetime
- *
- * [sequence]
- *     
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     
- *
- * [get/set template]
- * /= = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = = =
- * Integer productId = entity.getProductId();
- * String productName = entity.getProductName();
- * String productStatusCode = entity.getProductStatusCode();
- * java.time.LocalDateTime latestPurchaseDatetime = entity.getLatestPurchaseDatetime();
- * entity.setProductId(productId);
- * entity.setProductName(productName);
- * entity.setProductStatusCode(productStatusCode);
- * entity.setLatestPurchaseDatetime(latestPurchaseDatetime);
- * = = = = = = = = = =/
- * </pre>
+ * The entity of summary_product as VIEW.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsSummaryProduct extends AbstractEntity implements DomainEntity {

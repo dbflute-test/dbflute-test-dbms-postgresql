@@ -20,35 +20,7 @@ import org.docksidestage.postgresql.dbflute.bsentity.dbmeta.*;
 import org.docksidestage.postgresql.dbflute.cbean.*;
 
 /**
- * The behavior of next_schema_product as TABLE. <br>
- * <pre>
- * [primary key]
- *     product_id
- *
- * [column]
- *     product_id, product_name
- *
- * [sequence]
- *     nextschema.next_schema_product_product_id_seq
- *
- * [identity]
- *     
- *
- * [version-no]
- *     
- *
- * [foreign table]
- *     
- *
- * [referrer table]
- *     white_same_name
- *
- * [foreign property]
- *     
- *
- * [referrer property]
- *     whiteSameNameList
- * </pre>
+ * The behavior of next_schema_product as TABLE.
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsNextSchemaProductBhv extends AbstractBehaviorWritable<NextSchemaProduct, NextSchemaProductCB> {
@@ -846,7 +818,7 @@ public abstract class BsNextSchemaProductBhv extends AbstractBehaviorWritable<Ne
     /**
      * Delete the several entities by query. (NonExclusiveControl)
      * <pre>
-     * <span style="color: #0000C0">nextSchemaProductBhv</span>.<span style="color: #CC4747">queryDelete</span>(nextSchemaProduct, <span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
+     * <span style="color: #0000C0">nextSchemaProductBhv</span>.<span style="color: #CC4747">queryDelete</span>(<span style="color: #553000">cb</span> <span style="color: #90226C; font-weight: bold"><span style="font-size: 120%">-</span>&gt;</span> {
      *     <span style="color: #553000">cb</span>.query().setFoo...
      * });
      * </pre>
