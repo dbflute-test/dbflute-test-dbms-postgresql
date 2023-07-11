@@ -1,13 +1,16 @@
 package org.docksidestage.postgresql.dbflute.vendor;
 
+import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.Set;
 
+import org.dbflute.cbean.result.ListResultBean;
 import org.dbflute.exception.EntityAlreadyUpdatedException;
 import org.dbflute.helper.HandyDate;
 import org.dbflute.utflute.core.cannonball.CannonballCar;
 import org.dbflute.utflute.core.cannonball.CannonballOption;
 import org.dbflute.utflute.core.cannonball.CannonballRun;
+import org.dbflute.utflute.core.transaction.TransactionPerformer;
 import org.dbflute.util.DfCollectionUtil;
 import org.docksidestage.postgresql.dbflute.cbean.MemberCB;
 import org.docksidestage.postgresql.dbflute.exbhv.MemberBhv;
@@ -169,5 +172,117 @@ public class VendorLockTest extends UnitContainerTestCase {
                 });
             }, 2);
         }, new CannonballOption().threadCount(2));
+    }
+
+    // ===================================================================================
+    //                                                                      RepeatableRead
+    //                                                                      ==============
+    public void test_RepeatableRead_MVCC() throws Exception {
+        // ## Assert ##
+        int memberId = 1;
+        String previousName = selectRepeatableReadMemberName(memberId); // to rollback manually
+        try {
+            // ## Act ##
+            // ## Assert ##
+            cannonball(car -> {
+                adjustTransactionIsolationLevel_RepeatableRead();
+                car.projectA(dragon -> {
+                    log("[step1]: " + selectRepeatableReadMemberName(memberId));
+                }, 1);
+                car.projectA(dragon -> {
+                    log("[step2]: " + memberBhv.selectByPK(2).get().getMemberName());
+                }, 2);
+                car.projectA(dragon -> {
+                    log("[step3]");
+                    performNewTransaction(new TransactionPerformer() {
+                        public boolean perform() throws SQLException {
+                            Member member = new Member();
+                            member.setMemberId(memberId);
+                            member.setMemberName("sea");
+                            memberBhv.updateNonstrict(member);
+                            return true;
+                        }
+                    });
+                }, 1);
+                car.projectA(dragon -> { // no wait by MVCC
+                    log("[step4]: " + selectRepeatableReadMemberName(memberId)); // previous name
+                }, 2);
+            }, new CannonballOption().threadCount(2));
+        } finally {
+            performNewTransaction(new TransactionPerformer() {
+                public boolean perform() throws SQLException {
+                    Member member = new Member();
+                    member.setMemberId(memberId);
+                    member.setMemberName(previousName);
+                    memberBhv.updateNonstrict(member); // rollback
+                    return true;
+                }
+            });
+        }
+    }
+
+    private String selectRepeatableReadMemberName(int memberId) {
+        return memberBhv.selectByPK(memberId).get().getMemberName();
+    }
+
+    public void test_RepeatableRead_phantom() throws Exception {
+        // ## Arrange ##
+        Integer maxId = memberBhv.selectScalar(Integer.class).max(cb -> {
+            cb.specify().columnMemberId();
+        }).orElseThrow();
+        String insertedAccount = "mystic";
+        try {
+            // ## Act ##
+            // ## Assert ##
+            cannonball(car -> {
+                adjustTransactionIsolationLevel_RepeatableRead();
+                car.projectA(dragon -> {
+                    ListResultBean<Member> memberList = selectRepeatableReadPhantomMember(maxId);
+                    log("[step1]: " + memberList);
+                    assertHasOnlyOneElement(memberList);
+                }, 1);
+                car.projectA(dragon -> {
+                    ListResultBean<Member> memberList = selectRepeatableReadPhantomMember(maxId);
+                    log("[step2]: " + memberList);
+                    assertHasOnlyOneElement(memberList);
+                }, 2);
+                car.projectA(dragon -> {
+                    log("[step3]");
+                    performNewTransaction(new TransactionPerformer() {
+                        public boolean perform() throws SQLException {
+                            Member baseMember = memberBhv.selectEntity(cb -> {
+                                cb.query().setMemberId_Equal(maxId);
+                            }).orElseThrow();
+                            baseMember.setMemberId(null); // just in case
+                            baseMember.setMemberName("sea");
+                            baseMember.setMemberAccount(insertedAccount);
+                            memberBhv.insert(baseMember);
+                            return true;
+                        }
+                    });
+                }, 1);
+                car.projectA(dragon -> {
+                    ListResultBean<Member> memberList = selectRepeatableReadPhantomMember(maxId);
+                    log("[step4]: " + memberList);
+                    assertHasOnlyOneElement(memberList); // suppressing phantom read
+                }, 2);
+            }, new CannonballOption().threadCount(2));
+        } finally {
+            performNewTransaction(new TransactionPerformer() {
+                public boolean perform() throws SQLException {
+                    Member member = new Member();
+                    member.uniqueBy(insertedAccount);
+                    memberBhv.deleteNonstrict(member); // rollback
+                    return true;
+                }
+            });
+        }
+    }
+
+    private ListResultBean<Member> selectRepeatableReadPhantomMember(Integer maxId) {
+        ListResultBean<Member> memberList = memberBhv.selectList(cb -> {
+            cb.query().setMemberId_GreaterEqual(maxId);
+        });
+        return memberList;
     }
 }

@@ -1,5 +1,11 @@
 package org.docksidestage.postgresql.unit;
 
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Statement;
+
+import javax.sql.DataSource;
+
 import org.dbflute.bhv.BehaviorSelector;
 import org.dbflute.bhv.BehaviorWritable;
 import org.dbflute.bhv.writable.DeleteOption;
@@ -71,6 +77,50 @@ public abstract class UnitContainerTestCase extends ContainerTestCase {
             fail();
         } catch (NonSpecifiedColumnAccessException e) {
             log(e.getMessage());
+        }
+    }
+
+    // ===================================================================================
+    //                                                                     Isolation Level
+    //                                                                     ===============
+    /**
+     * Adjust transaction isolation level to READ COMMITTED on this session. <br>
+     * This method depends on the PostgreSQL. (you cannot use for other DBMSs)
+     */
+    protected void adjustTransactionIsolationLevel_ReadCommitted() {
+        doAdjustTransactionIsolationLevelCommitted("READ COMMITTED");
+    }
+
+    /**
+     * Adjust transaction isolation level to REPEATABLE READ on this session. <br>
+     * This method depends on the PostgreSQL. (you cannot use for other DBMSs)
+     */
+    protected void adjustTransactionIsolationLevel_RepeatableRead() {
+        doAdjustTransactionIsolationLevelCommitted("REPEATABLE READ");
+    }
+
+    private void doAdjustTransactionIsolationLevelCommitted(String isolationExp) {
+        String sql = "SET TRANSACTION ISOLATION LEVEL " + isolationExp;
+        DataSource dataSource = getDataSource();
+        Connection conn = null;
+        Statement st = null;
+        try {
+            conn = dataSource.getConnection();
+            st = conn.createStatement();
+            st.execute(sql);
+        } catch (SQLException e) {
+            throw new IllegalStateException("Failed to execute the SQL: " + sql, e);
+        } finally {
+            if (st != null) {
+                try {
+                    st.close();
+                } catch (SQLException ignored) {}
+            }
+            if (conn != null) {
+                try {
+                    conn.close();
+                } catch (SQLException ignored) {}
+            }
         }
     }
 }
