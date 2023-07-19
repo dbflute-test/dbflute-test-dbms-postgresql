@@ -19,9 +19,14 @@ select mb.MEMBER_ID -- // grouping item
      -- non grouping, cannot execute one-to-many data on PostgreSQL
      --  ERROR: column "pur.purchase_count" must appear in the GROUP BY clause or be used in an aggregate function
      -- , pur.PURCHASE_COUNT
+     -- non grouping item (relationship 1:1 data) is NOT allowed on PostgreSQL
+     --  ERROR: column "serv.service_point_count" must appear in the GROUP BY clause or be used in an aggregate function
+     -- , serv.SERVICE_POINT_COUNT
   from PURCHASE pur
     left outer join MEMBER mb
       on pur.MEMBER_ID = mb.MEMBER_ID
+    left outer join MEMBER_SERVICE serv
+      on mb.MEMBER_ID = serv.MEMBER_ID
  /*BEGIN*/
  where
    /*IF pmb.memberId != null*/
