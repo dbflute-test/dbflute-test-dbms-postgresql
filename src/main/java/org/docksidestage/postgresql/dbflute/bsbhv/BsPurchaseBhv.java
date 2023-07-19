@@ -29,6 +29,8 @@ public abstract class BsPurchaseBhv extends AbstractBehaviorWritable<Purchase, P
     //                                                                          Definition
     //                                                                          ==========
     /*df:beginQueryPath*/
+    /** Example for group-by on PostgreSQL */
+    public static final String PATH_selectMemberMonthlyPurchase = "selectMemberMonthlyPurchase";
     /*df:endQueryPath*/
 
     // ===================================================================================
