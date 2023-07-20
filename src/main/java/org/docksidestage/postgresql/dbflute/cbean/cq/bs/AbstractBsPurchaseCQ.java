@@ -1733,7 +1733,7 @@ public abstract class AbstractBsPurchaseCQ extends AbstractConditionQuery {
     }
 
     @Override
-    protected org.dbflute.dbway.ExtensionOperand xgetPostgreSQLMatchOperand() {
+    protected org.dbflute.dbway.topic.ExtensionOperand xgetPostgreSQLMatchOperand() {
         return DBFluteConfig.getInstance().getFullTextSearchOperand();
     }
 

@@ -629,7 +629,7 @@ public abstract class AbstractBsWhiteCompoundPkRefCQ extends AbstractConditionQu
     }
 
     @Override
-    protected org.dbflute.dbway.ExtensionOperand xgetPostgreSQLMatchOperand() {
+    protected org.dbflute.dbway.topic.ExtensionOperand xgetPostgreSQLMatchOperand() {
         return DBFluteConfig.getInstance().getFullTextSearchOperand();
     }
 

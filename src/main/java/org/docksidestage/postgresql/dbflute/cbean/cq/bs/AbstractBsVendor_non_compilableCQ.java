@@ -854,7 +854,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
     }
 
     @Override
-    protected org.dbflute.dbway.ExtensionOperand xgetPostgreSQLMatchOperand() {
+    protected org.dbflute.dbway.topic.ExtensionOperand xgetPostgreSQLMatchOperand() {
         return DBFluteConfig.getInstance().getFullTextSearchOperand();
     }
 

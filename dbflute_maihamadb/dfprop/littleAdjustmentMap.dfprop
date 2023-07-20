@@ -78,6 +78,11 @@ map:{
     #     Generate the method that depends on the database. e.g. cb.lockWithRR() at DB2.
     #
     ; isAvailableDatabaseDependency = true
+    #
+    # you can use PGroonga basic operand "&@" in match() method
+    # this works only when isAvailableDatabaseDependency=true
+    ; isUseFullTextSearchPGroongaBasic = true
+    #
     # - - - - - - - - - -/
 
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
