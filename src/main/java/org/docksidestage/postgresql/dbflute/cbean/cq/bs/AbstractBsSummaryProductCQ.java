@@ -114,7 +114,7 @@ public abstract class AbstractBsSummaryProductCQ extends AbstractConditionQuery 
      * @param maxNumber The max number of productId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
-    public void setProductId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
+    protected void setProductId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
         regROO(minNumber, maxNumber, xgetCValueProductId(), "product_id", rangeOfOption);
     }
 
@@ -229,7 +229,7 @@ public abstract class AbstractBsSummaryProductCQ extends AbstractConditionQuery 
      * @param productName The value of productName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setProductName_LikeSearch(String productName, LikeSearchOption likeSearchOption) {
+    protected void setProductName_LikeSearch(String productName, LikeSearchOption likeSearchOption) {
         regLSQ(CK_LS, fRES(productName), xgetCValueProductName(), "product_name", likeSearchOption);
     }
 
@@ -251,7 +251,7 @@ public abstract class AbstractBsSummaryProductCQ extends AbstractConditionQuery 
      * @param productName The value of productName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setProductName_NotLikeSearch(String productName, LikeSearchOption likeSearchOption) {
+    protected void setProductName_NotLikeSearch(String productName, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(productName), xgetCValueProductName(), "product_name", likeSearchOption);
     }
 
@@ -355,7 +355,7 @@ public abstract class AbstractBsSummaryProductCQ extends AbstractConditionQuery 
      * @param productStatusCode The value of productStatusCode as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setProductStatusCode_LikeSearch(String productStatusCode, LikeSearchOption likeSearchOption) {
+    protected void setProductStatusCode_LikeSearch(String productStatusCode, LikeSearchOption likeSearchOption) {
         regLSQ(CK_LS, fRES(productStatusCode), xgetCValueProductStatusCode(), "product_status_code", likeSearchOption);
     }
 
@@ -377,7 +377,7 @@ public abstract class AbstractBsSummaryProductCQ extends AbstractConditionQuery 
      * @param productStatusCode The value of productStatusCode as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setProductStatusCode_NotLikeSearch(String productStatusCode, LikeSearchOption likeSearchOption) {
+    protected void setProductStatusCode_NotLikeSearch(String productStatusCode, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(productStatusCode), xgetCValueProductStatusCode(), "product_status_code", likeSearchOption);
     }
 
@@ -478,7 +478,7 @@ public abstract class AbstractBsSummaryProductCQ extends AbstractConditionQuery 
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of latestPurchaseDatetime. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param fromToOption The option of from-to. (NotNull)
      */
-    public void setLatestPurchaseDatetime_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, FromToOption fromToOption) {
+    protected void setLatestPurchaseDatetime_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, FromToOption fromToOption) {
         String nm = "latest_purchase_datetime"; FromToOption op = fromToOption;
         regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValueLatestPurchaseDatetime(), nm, op);
     }

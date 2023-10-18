@@ -114,7 +114,7 @@ public abstract class AbstractBsVendorPartManCQ extends AbstractConditionQuery {
      * @param maxNumber The max number of partManId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
-    public void setPartManId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
+    protected void setPartManId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
         regROO(minNumber, maxNumber, xgetCValuePartManId(), "part_man_id", rangeOfOption);
     }
 
@@ -229,7 +229,7 @@ public abstract class AbstractBsVendorPartManCQ extends AbstractConditionQuery {
      * @param partManName The value of partManName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setPartManName_LikeSearch(String partManName, LikeSearchOption likeSearchOption) {
+    protected void setPartManName_LikeSearch(String partManName, LikeSearchOption likeSearchOption) {
         regLSQ(CK_LS, fRES(partManName), xgetCValuePartManName(), "part_man_name", likeSearchOption);
     }
 
@@ -251,7 +251,7 @@ public abstract class AbstractBsVendorPartManCQ extends AbstractConditionQuery {
      * @param partManName The value of partManName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setPartManName_NotLikeSearch(String partManName, LikeSearchOption likeSearchOption) {
+    protected void setPartManName_NotLikeSearch(String partManName, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(partManName), xgetCValuePartManName(), "part_man_name", likeSearchOption);
     }
 
@@ -338,7 +338,7 @@ public abstract class AbstractBsVendorPartManCQ extends AbstractConditionQuery {
      * @param maxNumber The max number of partManPoint. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
-    public void setPartManPoint_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
+    protected void setPartManPoint_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
         regROO(minNumber, maxNumber, xgetCValuePartManPoint(), "part_man_point", rangeOfOption);
     }
 
@@ -438,7 +438,7 @@ public abstract class AbstractBsVendorPartManCQ extends AbstractConditionQuery {
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of partManDate. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param fromToOption The option of from-to. (NotNull)
      */
-    public void setPartManDate_FromTo(java.time.LocalDate fromDatetime, java.time.LocalDate toDatetime, FromToOption fromToOption) {
+    protected void setPartManDate_FromTo(java.time.LocalDate fromDatetime, java.time.LocalDate toDatetime, FromToOption fromToOption) {
         String nm = "part_man_date"; FromToOption op = fromToOption;
         regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValuePartManDate(), nm, op);
     }

@@ -114,7 +114,7 @@ public abstract class AbstractBsWhiteNotPkCQ extends AbstractConditionQuery {
      * @param maxNumber The max number of notPkId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
-    public void setNotPkId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
+    protected void setNotPkId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
         regROO(minNumber, maxNumber, xgetCValueNotPkId(), "not_pk_id", rangeOfOption);
     }
 
@@ -217,7 +217,7 @@ public abstract class AbstractBsWhiteNotPkCQ extends AbstractConditionQuery {
      * @param notPkName The value of notPkName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setNotPkName_LikeSearch(String notPkName, LikeSearchOption likeSearchOption) {
+    protected void setNotPkName_LikeSearch(String notPkName, LikeSearchOption likeSearchOption) {
         regLSQ(CK_LS, fRES(notPkName), xgetCValueNotPkName(), "not_pk_name", likeSearchOption);
     }
 
@@ -239,7 +239,7 @@ public abstract class AbstractBsWhiteNotPkCQ extends AbstractConditionQuery {
      * @param notPkName The value of notPkName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setNotPkName_NotLikeSearch(String notPkName, LikeSearchOption likeSearchOption) {
+    protected void setNotPkName_NotLikeSearch(String notPkName, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(notPkName), xgetCValueNotPkName(), "not_pk_name", likeSearchOption);
     }
 
@@ -344,7 +344,7 @@ public abstract class AbstractBsWhiteNotPkCQ extends AbstractConditionQuery {
      * @param maxNumber The max number of notPkInteger. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
-    public void setNotPkInteger_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
+    protected void setNotPkInteger_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
         regROO(minNumber, maxNumber, xgetCValueNotPkInteger(), "not_pk_integer", rangeOfOption);
     }
 

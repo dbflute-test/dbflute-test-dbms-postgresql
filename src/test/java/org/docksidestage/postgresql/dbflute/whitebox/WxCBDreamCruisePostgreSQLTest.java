@@ -4,7 +4,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.dbflute.cbean.coption.LikeSearchOption;
 import org.dbflute.cbean.dream.SpecifiedColumn;
 import org.dbflute.cbean.ordering.ManualOrderOption;
 import org.dbflute.cbean.result.ListResultBean;
@@ -176,9 +175,10 @@ public class WxCBDreamCruisePostgreSQLTest extends UnitContainerTestCase {
         // ## Arrange ##
         MemberCB cb = new MemberCB();
         MemberCB dreamCruiseCB = cb.dreamCruiseCB();
-        LikeSearchOption option = new LikeSearchOption().likeContain();
-        option.addCompoundColumn(dreamCruiseCB.specify().columnMemberAccount());
-        cb.query().setMemberName_LikeSearch("P", option);
+        cb.query().setMemberName_LikeSearch("P", op -> {
+            op.likeContain();
+            op.addCompoundColumn(dreamCruiseCB.specify().columnMemberAccount());
+        });
 
         // ## Act ##
         ListResultBean<Member> memberList = memberBhv.selectList(cb);
@@ -314,8 +314,7 @@ public class WxCBDreamCruisePostgreSQLTest extends UnitContainerTestCase {
         String sql = cb.toDisplaySql();
         assertContains(sql,
                 "where dfloc.formalized_datetime <= cast('2015-04-05 12:34:56.000' as timestamp) + (dfloc.version_no || 'months')::interval");
-        assertContains(
-                sql,
+        assertContains(sql,
                 "and dfloc.formalized_datetime <= cast(cast('2014-09-01 15:00:00.000' as timestamp) + (dfloc.member_id || 'days')::interval as timestamp) + '-3 hours'");
         assertContains(sql, "and dfloc.formalized_datetime >= '2006-09-26 12:34:56.789'");
     }

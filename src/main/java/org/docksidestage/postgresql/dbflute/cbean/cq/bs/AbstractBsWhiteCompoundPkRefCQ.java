@@ -114,7 +114,7 @@ public abstract class AbstractBsWhiteCompoundPkRefCQ extends AbstractConditionQu
      * @param maxNumber The max number of multipleFirstId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
-    public void setMultipleFirstId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
+    protected void setMultipleFirstId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
         regROO(minNumber, maxNumber, xgetCValueMultipleFirstId(), "multiple_first_id", rangeOfOption);
     }
 
@@ -230,7 +230,7 @@ public abstract class AbstractBsWhiteCompoundPkRefCQ extends AbstractConditionQu
      * @param maxNumber The max number of multipleSecondId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
-    public void setMultipleSecondId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
+    protected void setMultipleSecondId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
         regROO(minNumber, maxNumber, xgetCValueMultipleSecondId(), "multiple_second_id", rangeOfOption);
     }
 
@@ -346,7 +346,7 @@ public abstract class AbstractBsWhiteCompoundPkRefCQ extends AbstractConditionQu
      * @param maxNumber The max number of refFirstId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
-    public void setRefFirstId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
+    protected void setRefFirstId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
         regROO(minNumber, maxNumber, xgetCValueRefFirstId(), "ref_first_id", rangeOfOption);
     }
 
@@ -450,7 +450,7 @@ public abstract class AbstractBsWhiteCompoundPkRefCQ extends AbstractConditionQu
      * @param maxNumber The max number of refSecondId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
-    public void setRefSecondId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
+    protected void setRefSecondId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
         regROO(minNumber, maxNumber, xgetCValueRefSecondId(), "ref_second_id", rangeOfOption);
     }
 

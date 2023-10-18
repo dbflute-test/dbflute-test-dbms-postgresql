@@ -146,7 +146,7 @@ public abstract class AbstractBsVendorUuidFooCQ extends AbstractConditionQuery {
      * @param fooName The value of fooName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setFooName_LikeSearch(String fooName, LikeSearchOption likeSearchOption) {
+    protected void setFooName_LikeSearch(String fooName, LikeSearchOption likeSearchOption) {
         regLSQ(CK_LS, fRES(fooName), xgetCValueFooName(), "foo_name", likeSearchOption);
     }
 
@@ -168,7 +168,7 @@ public abstract class AbstractBsVendorUuidFooCQ extends AbstractConditionQuery {
      * @param fooName The value of fooName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setFooName_NotLikeSearch(String fooName, LikeSearchOption likeSearchOption) {
+    protected void setFooName_NotLikeSearch(String fooName, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(fooName), xgetCValueFooName(), "foo_name", likeSearchOption);
     }
 

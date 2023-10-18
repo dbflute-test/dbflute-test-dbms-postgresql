@@ -114,7 +114,7 @@ public abstract class AbstractBsWhiteSameNameRefCQ extends AbstractConditionQuer
      * @param maxNumber The max number of sameNameRefId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
-    public void setSameNameRefId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
+    protected void setSameNameRefId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
         regROO(minNumber, maxNumber, xgetCValueSameNameRefId(), "same_name_ref_id", rangeOfOption);
     }
 
@@ -230,7 +230,7 @@ public abstract class AbstractBsWhiteSameNameRefCQ extends AbstractConditionQuer
      * @param maxNumber The max number of sameNameId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
-    public void setSameNameId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
+    protected void setSameNameId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
         regROO(minNumber, maxNumber, xgetCValueSameNameId(), "same_name_id", rangeOfOption);
     }
 
@@ -334,7 +334,7 @@ public abstract class AbstractBsWhiteSameNameRefCQ extends AbstractConditionQuer
      * @param maxNumber The max number of nextSameNameId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
-    public void setNextSameNameId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
+    protected void setNextSameNameId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
         regROO(minNumber, maxNumber, xgetCValueNextSameNameId(), "next_same_name_id", rangeOfOption);
     }
 

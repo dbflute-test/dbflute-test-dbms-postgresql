@@ -10,7 +10,6 @@ import org.dbflute.cbean.result.ListResultBean;
 import org.dbflute.cbean.scoping.SubQuery;
 import org.dbflute.dbway.DBWay;
 import org.dbflute.dbway.WayOfPostgreSQL;
-import org.dbflute.dbway.topic.ExtensionOperand;
 import org.dbflute.exception.SQLFailureException;
 import org.docksidestage.postgresql.dbflute.allcommon.DBCurrent;
 import org.docksidestage.postgresql.dbflute.cbean.MemberCB;
@@ -59,13 +58,12 @@ public class VendorQueryTest extends UnitContainerTestCase {
         MemberCB checkCB = new MemberCB();
 
         // Check!
-        checkCB.query().setMemberName_LikeSearch(keyword, new LikeSearchOption().likeContain().notEscape());
+        checkCB.query().setMemberName_LikeSearch(keyword, op -> op.likeContain().notEscape());
         assertEquals("escapeなしでも1件だけHITすること", 1, memberBhv.selectList(checkCB).size());
 
         // /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
         MemberCB cb = new MemberCB();
-        LikeSearchOption option = new LikeSearchOption().likeContain(); // *Point!
-        cb.query().setMemberName_LikeSearch(keyword, option);
+        cb.query().setMemberName_LikeSearch(keyword, op -> op.likeContain());
         // - - - - - - - - - -/
 
         String displaySql = cb.toDisplaySql();
@@ -92,7 +90,7 @@ public class VendorQueryTest extends UnitContainerTestCase {
         member.setMemberName("fo[v]％barc%o");
         memberBhv.updateNonstrict(member);
         MemberCB cb = new MemberCB();
-        cb.query().setMemberName_LikeSearch("[v]％c", new LikeSearchOption().likeContain());
+        cb.query().setMemberName_LikeSearch("[v]％c", op -> op.likeContain());
 
         // ## Act ##
         ListResultBean<Member> memberList = memberBhv.selectList(cb);
@@ -153,15 +151,12 @@ public class VendorQueryTest extends UnitContainerTestCase {
     public void test_LikeSearch_caseInsensitive() {
         // ## Arrange ##
         MemberCB checkCB = new MemberCB();
-        checkCB.query().setMemberName_LikeSearch("s", new LikeSearchOption().likePrefix());
+        checkCB.query().setMemberName_LikeSearch("s", op -> op.likePrefix());
         assertEquals(0, memberBhv.selectCount(checkCB));
         MemberCB cb = new MemberCB();
-        cb.query().setMemberName_LikeSearch("s", new LikeSearchOption() {
-            @Override
-            public ExtensionOperand getExtensionOperand() {
-                return WayOfPostgreSQL.OperandOfLikeSearch.CASE_INSENSITIVE;
-            }
-        }.likePrefix());
+        cb.query().setMemberName_LikeSearch("s", op -> {
+            op.acceptExtensionOperand(WayOfPostgreSQL.OperandOfLikeSearch.CASE_INSENSITIVE).likePrefix();
+        });
 
         // ## Act ##
         ListResultBean<Member> memberList = memberBhv.selectList(cb);
@@ -181,11 +176,8 @@ public class VendorQueryTest extends UnitContainerTestCase {
     public void test_likeSearch_fullTextSearch() {
         // ## Arrange ##
         MemberCB cb = new MemberCB();
-        cb.query().setMemberName_LikeSearch("S", new LikeSearchOption() {
-            @Override
-            public ExtensionOperand getExtensionOperand() {
-                return WayOfPostgreSQL.OperandOfLikeSearch.OLD_FULL_TEXT_SEARCH;
-            }
+        cb.query().setMemberName_LikeSearch("S", op -> {
+            op.acceptExtensionOperand(WayOfPostgreSQL.OperandOfLikeSearch.OLD_FULL_TEXT_SEARCH);
         });
 
         // ## Act ##
@@ -198,12 +190,9 @@ public class VendorQueryTest extends UnitContainerTestCase {
     public void test_notLikeSearch_caseInsensitive() {
         // ## Arrange ##
         MemberCB cb = new MemberCB();
-        cb.query().setMemberName_NotLikeSearch("s", new LikeSearchOption() {
-            @Override
-            public ExtensionOperand getExtensionOperand() {
-                return WayOfPostgreSQL.OperandOfLikeSearch.CASE_INSENSITIVE;
-            }
-        }.likePrefix());
+        cb.query().setMemberName_NotLikeSearch("s", op -> {
+            op.acceptExtensionOperand(WayOfPostgreSQL.OperandOfLikeSearch.CASE_INSENSITIVE).likePrefix();
+        });
 
         // ## Act ##
         ListResultBean<Member> memberList = memberBhv.selectList(cb);
@@ -223,11 +212,8 @@ public class VendorQueryTest extends UnitContainerTestCase {
     public void test_notLikeSearch_fullTextSearch_unsupported() {
         // ## Arrange ##
         MemberCB cb = new MemberCB();
-        cb.query().setMemberName_NotLikeSearch("S", new LikeSearchOption() {
-            @Override
-            public ExtensionOperand getExtensionOperand() {
-                return WayOfPostgreSQL.OperandOfLikeSearch.OLD_FULL_TEXT_SEARCH;
-            }
+        cb.query().setMemberName_NotLikeSearch("S", op -> {
+            op.acceptExtensionOperand(WayOfPostgreSQL.OperandOfLikeSearch.OLD_FULL_TEXT_SEARCH);
         });
 
         // ## Act ##

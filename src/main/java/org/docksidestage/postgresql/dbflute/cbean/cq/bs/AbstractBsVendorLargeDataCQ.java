@@ -114,7 +114,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
      * @param maxNumber The max number of largeDataId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
-    public void setLargeDataId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
+    protected void setLargeDataId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
         regROO(minNumber, maxNumber, xgetCValueLargeDataId(), "large_data_id", rangeOfOption);
     }
 
@@ -302,7 +302,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
      * @param stringIndex The value of stringIndex as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setStringIndex_LikeSearch(String stringIndex, LikeSearchOption likeSearchOption) {
+    protected void setStringIndex_LikeSearch(String stringIndex, LikeSearchOption likeSearchOption) {
         regLSQ(CK_LS, fRES(stringIndex), xgetCValueStringIndex(), "string_index", likeSearchOption);
     }
 
@@ -324,7 +324,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
      * @param stringIndex The value of stringIndex as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setStringIndex_NotLikeSearch(String stringIndex, LikeSearchOption likeSearchOption) {
+    protected void setStringIndex_NotLikeSearch(String stringIndex, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(stringIndex), xgetCValueStringIndex(), "string_index", likeSearchOption);
     }
 
@@ -410,7 +410,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
      * @param stringNoIndex The value of stringNoIndex as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setStringNoIndex_LikeSearch(String stringNoIndex, LikeSearchOption likeSearchOption) {
+    protected void setStringNoIndex_LikeSearch(String stringNoIndex, LikeSearchOption likeSearchOption) {
         regLSQ(CK_LS, fRES(stringNoIndex), xgetCValueStringNoIndex(), "string_no_index", likeSearchOption);
     }
 
@@ -432,7 +432,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
      * @param stringNoIndex The value of stringNoIndex as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setStringNoIndex_NotLikeSearch(String stringNoIndex, LikeSearchOption likeSearchOption) {
+    protected void setStringNoIndex_NotLikeSearch(String stringNoIndex, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(stringNoIndex), xgetCValueStringNoIndex(), "string_no_index", likeSearchOption);
     }
 
@@ -518,7 +518,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
      * @param stringUniqueIndex The value of stringUniqueIndex as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setStringUniqueIndex_LikeSearch(String stringUniqueIndex, LikeSearchOption likeSearchOption) {
+    protected void setStringUniqueIndex_LikeSearch(String stringUniqueIndex, LikeSearchOption likeSearchOption) {
         regLSQ(CK_LS, fRES(stringUniqueIndex), xgetCValueStringUniqueIndex(), "string_unique_index", likeSearchOption);
     }
 
@@ -540,7 +540,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
      * @param stringUniqueIndex The value of stringUniqueIndex as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setStringUniqueIndex_NotLikeSearch(String stringUniqueIndex, LikeSearchOption likeSearchOption) {
+    protected void setStringUniqueIndex_NotLikeSearch(String stringUniqueIndex, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(stringUniqueIndex), xgetCValueStringUniqueIndex(), "string_unique_index", likeSearchOption);
     }
 
@@ -627,7 +627,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
      * @param maxNumber The max number of intflgIndex. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
-    public void setIntflgIndex_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
+    protected void setIntflgIndex_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
         regROO(minNumber, maxNumber, xgetCValueIntflgIndex(), "intflg_index", rangeOfOption);
     }
 
@@ -731,7 +731,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
      * @param maxNumber The max number of numericIntegerIndex. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
-    public void setNumericIntegerIndex_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
+    protected void setNumericIntegerIndex_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
         regROO(minNumber, maxNumber, xgetCValueNumericIntegerIndex(), "numeric_integer_index", rangeOfOption);
     }
 
@@ -835,7 +835,7 @@ public abstract class AbstractBsVendorLargeDataCQ extends AbstractConditionQuery
      * @param maxNumber The max number of numericIntegerNoIndex. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
-    public void setNumericIntegerNoIndex_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
+    protected void setNumericIntegerNoIndex_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
         regROO(minNumber, maxNumber, xgetCValueNumericIntegerNoIndex(), "numeric_integer_no_index", rangeOfOption);
     }
 

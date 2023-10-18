@@ -114,7 +114,7 @@ public abstract class AbstractBsVendor$DollarCQ extends AbstractConditionQuery {
      * @param maxNumber The max number of vendor$DollarId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
-    public void setVendor$DollarId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
+    protected void setVendor$DollarId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
         regROO(minNumber, maxNumber, xgetCValueVendor$DollarId(), "vendor_$_dollar_id", rangeOfOption);
     }
 
@@ -229,7 +229,7 @@ public abstract class AbstractBsVendor$DollarCQ extends AbstractConditionQuery {
      * @param vendor$DollarName The value of vendor$DollarName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setVendor$DollarName_LikeSearch(String vendor$DollarName, LikeSearchOption likeSearchOption) {
+    protected void setVendor$DollarName_LikeSearch(String vendor$DollarName, LikeSearchOption likeSearchOption) {
         regLSQ(CK_LS, fRES(vendor$DollarName), xgetCValueVendor$DollarName(), "vendor_$_dollar_name", likeSearchOption);
     }
 
@@ -251,7 +251,7 @@ public abstract class AbstractBsVendor$DollarCQ extends AbstractConditionQuery {
      * @param vendor$DollarName The value of vendor$DollarName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setVendor$DollarName_NotLikeSearch(String vendor$DollarName, LikeSearchOption likeSearchOption) {
+    protected void setVendor$DollarName_NotLikeSearch(String vendor$DollarName, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(vendor$DollarName), xgetCValueVendor$DollarName(), "vendor_$_dollar_name", likeSearchOption);
     }
 

@@ -114,7 +114,7 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
      * @param maxNumber The max number of pkFirstId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
-    public void setPkFirstId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
+    protected void setPkFirstId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
         regROO(minNumber, maxNumber, xgetCValuePkFirstId(), "pk_first_id", rangeOfOption);
     }
 
@@ -230,7 +230,7 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
      * @param maxNumber The max number of pkSecondId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
-    public void setPkSecondId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
+    protected void setPkSecondId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
         regROO(minNumber, maxNumber, xgetCValuePkSecondId(), "pk_second_id", rangeOfOption);
     }
 
@@ -345,7 +345,7 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
      * @param pkName The value of pkName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setPkName_LikeSearch(String pkName, LikeSearchOption likeSearchOption) {
+    protected void setPkName_LikeSearch(String pkName, LikeSearchOption likeSearchOption) {
         regLSQ(CK_LS, fRES(pkName), xgetCValuePkName(), "pk_name", likeSearchOption);
     }
 
@@ -367,7 +367,7 @@ public abstract class AbstractBsWhiteCompoundPkCQ extends AbstractConditionQuery
      * @param pkName The value of pkName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setPkName_NotLikeSearch(String pkName, LikeSearchOption likeSearchOption) {
+    protected void setPkName_NotLikeSearch(String pkName, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(pkName), xgetCValuePkName(), "pk_name", likeSearchOption);
     }
 

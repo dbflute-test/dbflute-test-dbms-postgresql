@@ -113,7 +113,7 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
      * @param productCategoryCode The value of productCategoryCode as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setProductCategoryCode_LikeSearch(String productCategoryCode, LikeSearchOption likeSearchOption) {
+    protected void setProductCategoryCode_LikeSearch(String productCategoryCode, LikeSearchOption likeSearchOption) {
         regLSQ(CK_LS, fRES(productCategoryCode), xgetCValueProductCategoryCode(), "product_category_code", likeSearchOption);
     }
 
@@ -135,7 +135,7 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
      * @param productCategoryCode The value of productCategoryCode as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setProductCategoryCode_NotLikeSearch(String productCategoryCode, LikeSearchOption likeSearchOption) {
+    protected void setProductCategoryCode_NotLikeSearch(String productCategoryCode, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(productCategoryCode), xgetCValueProductCategoryCode(), "product_category_code", likeSearchOption);
     }
 
@@ -379,7 +379,7 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
      * @param productCategoryName The value of productCategoryName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setProductCategoryName_LikeSearch(String productCategoryName, LikeSearchOption likeSearchOption) {
+    protected void setProductCategoryName_LikeSearch(String productCategoryName, LikeSearchOption likeSearchOption) {
         regLSQ(CK_LS, fRES(productCategoryName), xgetCValueProductCategoryName(), "product_category_name", likeSearchOption);
     }
 
@@ -401,7 +401,7 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
      * @param productCategoryName The value of productCategoryName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setProductCategoryName_NotLikeSearch(String productCategoryName, LikeSearchOption likeSearchOption) {
+    protected void setProductCategoryName_NotLikeSearch(String productCategoryName, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(productCategoryName), xgetCValueProductCategoryName(), "product_category_name", likeSearchOption);
     }
 
@@ -487,7 +487,7 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
      * @param parentCategoryCode The value of parentCategoryCode as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setParentCategoryCode_LikeSearch(String parentCategoryCode, LikeSearchOption likeSearchOption) {
+    protected void setParentCategoryCode_LikeSearch(String parentCategoryCode, LikeSearchOption likeSearchOption) {
         regLSQ(CK_LS, fRES(parentCategoryCode), xgetCValueParentCategoryCode(), "parent_category_code", likeSearchOption);
     }
 
@@ -509,7 +509,7 @@ public abstract class AbstractBsProductCategoryCQ extends AbstractConditionQuery
      * @param parentCategoryCode The value of parentCategoryCode as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setParentCategoryCode_NotLikeSearch(String parentCategoryCode, LikeSearchOption likeSearchOption) {
+    protected void setParentCategoryCode_NotLikeSearch(String parentCategoryCode, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(parentCategoryCode), xgetCValueParentCategoryCode(), "parent_category_code", likeSearchOption);
     }
 

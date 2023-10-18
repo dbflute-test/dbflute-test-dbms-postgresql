@@ -114,7 +114,7 @@ public abstract class AbstractBsWhiteCompoundPkWrongOrderCQ extends AbstractCond
      * @param maxNumber The max number of firstId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
-    public void setFirstId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
+    protected void setFirstId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
         regROO(minNumber, maxNumber, xgetCValueFirstId(), "first_id", rangeOfOption);
     }
 
@@ -230,7 +230,7 @@ public abstract class AbstractBsWhiteCompoundPkWrongOrderCQ extends AbstractCond
      * @param maxNumber The max number of secondId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
-    public void setSecondId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
+    protected void setSecondId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
         regROO(minNumber, maxNumber, xgetCValueSecondId(), "second_id", rangeOfOption);
     }
 
@@ -346,7 +346,7 @@ public abstract class AbstractBsWhiteCompoundPkWrongOrderCQ extends AbstractCond
      * @param maxNumber The max number of thirdId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
-    public void setThirdId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
+    protected void setThirdId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
         regROO(minNumber, maxNumber, xgetCValueThirdId(), "third_id", rangeOfOption);
     }
 
@@ -461,7 +461,7 @@ public abstract class AbstractBsWhiteCompoundPkWrongOrderCQ extends AbstractCond
      * @param wrongName The value of wrongName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setWrongName_LikeSearch(String wrongName, LikeSearchOption likeSearchOption) {
+    protected void setWrongName_LikeSearch(String wrongName, LikeSearchOption likeSearchOption) {
         regLSQ(CK_LS, fRES(wrongName), xgetCValueWrongName(), "wrong_name", likeSearchOption);
     }
 
@@ -483,7 +483,7 @@ public abstract class AbstractBsWhiteCompoundPkWrongOrderCQ extends AbstractCond
      * @param wrongName The value of wrongName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setWrongName_NotLikeSearch(String wrongName, LikeSearchOption likeSearchOption) {
+    protected void setWrongName_NotLikeSearch(String wrongName, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(wrongName), xgetCValueWrongName(), "wrong_name", likeSearchOption);
     }
 

@@ -36,7 +36,7 @@ map:{
     ; isAvailableRelationPlainEntity = false
     ; isMakeConditionQueryPrefixSearch = true
     ; isMakeConditionQueryDateFromTo = true
-    ; isMakeDirectConditionOptionSetup = true
+    ; isMakeDirectConditionOptionSetup = false
     ; isMakeDirectConditionManualOrder = true
     ; isCompatibleLoadReferrerOldOption = true
     ; isCompatibleOutsideSqlSqlCommentCheckDefault = true

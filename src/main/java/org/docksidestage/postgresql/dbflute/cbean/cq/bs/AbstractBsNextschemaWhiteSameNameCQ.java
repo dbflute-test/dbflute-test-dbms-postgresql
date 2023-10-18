@@ -114,7 +114,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
      * @param maxNumber The max number of sameNameId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
-    public void setSameNameId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
+    protected void setSameNameId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
         regROO(minNumber, maxNumber, xgetCValueSameNameId(), "same_name_id", rangeOfOption);
     }
 
@@ -302,7 +302,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
      * @param sameNameName The value of sameNameName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setSameNameName_LikeSearch(String sameNameName, LikeSearchOption likeSearchOption) {
+    protected void setSameNameName_LikeSearch(String sameNameName, LikeSearchOption likeSearchOption) {
         regLSQ(CK_LS, fRES(sameNameName), xgetCValueSameNameName(), "same_name_name", likeSearchOption);
     }
 
@@ -324,7 +324,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
      * @param sameNameName The value of sameNameName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setSameNameName_NotLikeSearch(String sameNameName, LikeSearchOption likeSearchOption) {
+    protected void setSameNameName_NotLikeSearch(String sameNameName, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(sameNameName), xgetCValueSameNameName(), "same_name_name", likeSearchOption);
     }
 
@@ -429,7 +429,7 @@ public abstract class AbstractBsNextschemaWhiteSameNameCQ extends AbstractCondit
      * @param maxNumber The max number of sameNameLong. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
-    public void setSameNameLong_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
+    protected void setSameNameLong_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
         regROO(minNumber, maxNumber, xgetCValueSameNameLong(), "same_name_long", rangeOfOption);
     }
 

@@ -110,7 +110,7 @@ public abstract class AbstractBsVendorDatePkCQ extends AbstractConditionQuery {
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of fooDate. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param fromToOption The option of from-to. (NotNull)
      */
-    public void setFooDate_FromTo(java.time.LocalDate fromDatetime, java.time.LocalDate toDatetime, FromToOption fromToOption) {
+    protected void setFooDate_FromTo(java.time.LocalDate fromDatetime, java.time.LocalDate toDatetime, FromToOption fromToOption) {
         String nm = "foo_date"; FromToOption op = fromToOption;
         regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValueFooDate(), nm, op);
     }
@@ -228,7 +228,7 @@ public abstract class AbstractBsVendorDatePkCQ extends AbstractConditionQuery {
      * @param fooName The value of fooName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setFooName_LikeSearch(String fooName, LikeSearchOption likeSearchOption) {
+    protected void setFooName_LikeSearch(String fooName, LikeSearchOption likeSearchOption) {
         regLSQ(CK_LS, fRES(fooName), xgetCValueFooName(), "foo_name", likeSearchOption);
     }
 
@@ -250,7 +250,7 @@ public abstract class AbstractBsVendorDatePkCQ extends AbstractConditionQuery {
      * @param fooName The value of fooName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setFooName_NotLikeSearch(String fooName, LikeSearchOption likeSearchOption) {
+    protected void setFooName_NotLikeSearch(String fooName, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(fooName), xgetCValueFooName(), "foo_name", likeSearchOption);
     }
 

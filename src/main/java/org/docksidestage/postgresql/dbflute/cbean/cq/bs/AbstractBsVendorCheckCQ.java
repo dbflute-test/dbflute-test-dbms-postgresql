@@ -114,7 +114,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * @param maxNumber The max number of vendorCheckId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
-    public void setVendorCheckId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
+    protected void setVendorCheckId_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
         regROO(minNumber, maxNumber, xgetCValueVendorCheckId(), "vendor_check_id", rangeOfOption);
     }
 
@@ -229,7 +229,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * @param typeOfChar The value of typeOfChar as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setTypeOfChar_LikeSearch(String typeOfChar, LikeSearchOption likeSearchOption) {
+    protected void setTypeOfChar_LikeSearch(String typeOfChar, LikeSearchOption likeSearchOption) {
         regLSQ(CK_LS, fRES(typeOfChar), xgetCValueTypeOfChar(), "type_of_char", likeSearchOption);
     }
 
@@ -251,7 +251,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * @param typeOfChar The value of typeOfChar as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setTypeOfChar_NotLikeSearch(String typeOfChar, LikeSearchOption likeSearchOption) {
+    protected void setTypeOfChar_NotLikeSearch(String typeOfChar, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(typeOfChar), xgetCValueTypeOfChar(), "type_of_char", likeSearchOption);
     }
 
@@ -355,7 +355,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * @param typeOfVarchar The value of typeOfVarchar as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setTypeOfVarchar_LikeSearch(String typeOfVarchar, LikeSearchOption likeSearchOption) {
+    protected void setTypeOfVarchar_LikeSearch(String typeOfVarchar, LikeSearchOption likeSearchOption) {
         regLSQ(CK_LS, fRES(typeOfVarchar), xgetCValueTypeOfVarchar(), "type_of_varchar", likeSearchOption);
     }
 
@@ -377,7 +377,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * @param typeOfVarchar The value of typeOfVarchar as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setTypeOfVarchar_NotLikeSearch(String typeOfVarchar, LikeSearchOption likeSearchOption) {
+    protected void setTypeOfVarchar_NotLikeSearch(String typeOfVarchar, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(typeOfVarchar), xgetCValueTypeOfVarchar(), "type_of_varchar", likeSearchOption);
     }
 
@@ -497,7 +497,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * @param typeOfText The value of typeOfText as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setTypeOfText_LikeSearch(String typeOfText, LikeSearchOption likeSearchOption) {
+    protected void setTypeOfText_LikeSearch(String typeOfText, LikeSearchOption likeSearchOption) {
         regLSQ(CK_LS, fRES(typeOfText), xgetCValueTypeOfText(), "type_of_text", likeSearchOption);
     }
 
@@ -519,7 +519,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * @param typeOfText The value of typeOfText as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setTypeOfText_NotLikeSearch(String typeOfText, LikeSearchOption likeSearchOption) {
+    protected void setTypeOfText_NotLikeSearch(String typeOfText, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(typeOfText), xgetCValueTypeOfText(), "type_of_text", likeSearchOption);
     }
 
@@ -624,7 +624,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * @param maxNumber The max number of typeOfNumericInteger. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
-    public void setTypeOfNumericInteger_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
+    protected void setTypeOfNumericInteger_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
         regROO(minNumber, maxNumber, xgetCValueTypeOfNumericInteger(), "type_of_numeric_integer", rangeOfOption);
     }
 
@@ -740,7 +740,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * @param maxNumber The max number of typeOfNumericBigint. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
-    public void setTypeOfNumericBigint_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
+    protected void setTypeOfNumericBigint_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
         regROO(minNumber, maxNumber, xgetCValueTypeOfNumericBigint(), "type_of_numeric_bigint", rangeOfOption);
     }
 
@@ -856,7 +856,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * @param maxNumber The max number of typeOfNumericDecimal. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
-    public void setTypeOfNumericDecimal_RangeOf(java.math.BigDecimal minNumber, java.math.BigDecimal maxNumber, RangeOfOption rangeOfOption) {
+    protected void setTypeOfNumericDecimal_RangeOf(java.math.BigDecimal minNumber, java.math.BigDecimal maxNumber, RangeOfOption rangeOfOption) {
         regROO(minNumber, maxNumber, xgetCValueTypeOfNumericDecimal(), "type_of_numeric_decimal", rangeOfOption);
     }
 
@@ -972,7 +972,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * @param maxNumber The max number of typeOfDecimal. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
-    public void setTypeOfDecimal_RangeOf(java.math.BigDecimal minNumber, java.math.BigDecimal maxNumber, RangeOfOption rangeOfOption) {
+    protected void setTypeOfDecimal_RangeOf(java.math.BigDecimal minNumber, java.math.BigDecimal maxNumber, RangeOfOption rangeOfOption) {
         regROO(minNumber, maxNumber, xgetCValueTypeOfDecimal(), "type_of_decimal", rangeOfOption);
     }
 
@@ -1088,7 +1088,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * @param maxNumber The max number of typeOfInt. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
-    public void setTypeOfInt_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
+    protected void setTypeOfInt_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
         regROO(minNumber, maxNumber, xgetCValueTypeOfInt(), "type_of_int", rangeOfOption);
     }
 
@@ -1220,7 +1220,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * @param maxNumber The max number of typeOfInt4. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
-    public void setTypeOfInt4_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
+    protected void setTypeOfInt4_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
         regROO(minNumber, maxNumber, xgetCValueTypeOfInt4(), "type_of_int4", rangeOfOption);
     }
 
@@ -1352,7 +1352,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * @param maxNumber The max number of typeOfInt8. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
-    public void setTypeOfInt8_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
+    protected void setTypeOfInt8_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
         regROO(minNumber, maxNumber, xgetCValueTypeOfInt8(), "type_of_int8", rangeOfOption);
     }
 
@@ -1484,7 +1484,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * @param maxNumber The max number of typeOfBigint. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
-    public void setTypeOfBigint_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
+    protected void setTypeOfBigint_RangeOf(Long minNumber, Long maxNumber, RangeOfOption rangeOfOption) {
         regROO(minNumber, maxNumber, xgetCValueTypeOfBigint(), "type_of_bigint", rangeOfOption);
     }
 
@@ -1600,7 +1600,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * @param maxNumber The max number of typeOfReal. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
-    public void setTypeOfReal_RangeOf(java.math.BigDecimal minNumber, java.math.BigDecimal maxNumber, RangeOfOption rangeOfOption) {
+    protected void setTypeOfReal_RangeOf(java.math.BigDecimal minNumber, java.math.BigDecimal maxNumber, RangeOfOption rangeOfOption) {
         regROO(minNumber, maxNumber, xgetCValueTypeOfReal(), "type_of_real", rangeOfOption);
     }
 
@@ -1716,7 +1716,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * @param maxNumber The max number of typeOfFloat. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
-    public void setTypeOfFloat_RangeOf(java.math.BigDecimal minNumber, java.math.BigDecimal maxNumber, RangeOfOption rangeOfOption) {
+    protected void setTypeOfFloat_RangeOf(java.math.BigDecimal minNumber, java.math.BigDecimal maxNumber, RangeOfOption rangeOfOption) {
         regROO(minNumber, maxNumber, xgetCValueTypeOfFloat(), "type_of_float", rangeOfOption);
     }
 
@@ -1832,7 +1832,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * @param maxNumber The max number of typeOfMoney. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
-    public void setTypeOfMoney_RangeOf(java.math.BigDecimal minNumber, java.math.BigDecimal maxNumber, RangeOfOption rangeOfOption) {
+    protected void setTypeOfMoney_RangeOf(java.math.BigDecimal minNumber, java.math.BigDecimal maxNumber, RangeOfOption rangeOfOption) {
         regROO(minNumber, maxNumber, xgetCValueTypeOfMoney(), "type_of_money", rangeOfOption);
     }
 
@@ -1944,7 +1944,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of typeOfDate. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param fromToOption The option of from-to. (NotNull)
      */
-    public void setTypeOfDate_FromTo(java.time.LocalDate fromDatetime, java.time.LocalDate toDatetime, FromToOption fromToOption) {
+    protected void setTypeOfDate_FromTo(java.time.LocalDate fromDatetime, java.time.LocalDate toDatetime, FromToOption fromToOption) {
         String nm = "type_of_date"; FromToOption op = fromToOption;
         regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValueTypeOfDate(), nm, op);
     }
@@ -2046,7 +2046,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of typeOfTimestamp. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param fromToOption The option of from-to. (NotNull)
      */
-    public void setTypeOfTimestamp_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, FromToOption fromToOption) {
+    protected void setTypeOfTimestamp_FromTo(java.time.LocalDateTime fromDatetime, java.time.LocalDateTime toDatetime, FromToOption fromToOption) {
         String nm = "type_of_timestamp"; FromToOption op = fromToOption;
         regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValueTypeOfTimestamp(), nm, op);
     }
@@ -2271,7 +2271,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * @param typeOfInterval The value of typeOfInterval as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setTypeOfInterval_LikeSearch(String typeOfInterval, LikeSearchOption likeSearchOption) {
+    protected void setTypeOfInterval_LikeSearch(String typeOfInterval, LikeSearchOption likeSearchOption) {
         regLSQ(CK_LS, fRES(typeOfInterval), xgetCValueTypeOfInterval(), "type_of_interval", likeSearchOption);
     }
 
@@ -2293,7 +2293,7 @@ public abstract class AbstractBsVendorCheckCQ extends AbstractConditionQuery {
      * @param typeOfInterval The value of typeOfInterval as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setTypeOfInterval_NotLikeSearch(String typeOfInterval, LikeSearchOption likeSearchOption) {
+    protected void setTypeOfInterval_NotLikeSearch(String typeOfInterval, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(typeOfInterval), xgetCValueTypeOfInterval(), "type_of_interval", likeSearchOption);
     }
 

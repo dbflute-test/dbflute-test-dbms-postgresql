@@ -114,7 +114,7 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
      * @param maxNumber The max number of inuId. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
-    public void setInuId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
+    protected void setInuId_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
         regROO(minNumber, maxNumber, xgetCValueInuId(), "inu_id", rangeOfOption);
     }
 
@@ -229,7 +229,7 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
      * @param inuName The value of inuName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setInuName_LikeSearch(String inuName, LikeSearchOption likeSearchOption) {
+    protected void setInuName_LikeSearch(String inuName, LikeSearchOption likeSearchOption) {
         regLSQ(CK_LS, fRES(inuName), xgetCValueInuName(), "inu_name", likeSearchOption);
     }
 
@@ -251,7 +251,7 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
      * @param inuName The value of inuName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setInuName_NotLikeSearch(String inuName, LikeSearchOption likeSearchOption) {
+    protected void setInuName_NotLikeSearch(String inuName, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(inuName), xgetCValueInuName(), "inu_name", likeSearchOption);
     }
 
@@ -334,7 +334,7 @@ public abstract class AbstractBsVendorInheritInuCQ extends AbstractConditionQuer
      * @param toDatetime The to-datetime(yyyy/MM/dd HH:mm:ss.SSS) of inuDate. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param fromToOption The option of from-to. (NotNull)
      */
-    public void setInuDate_FromTo(java.time.LocalDate fromDatetime, java.time.LocalDate toDatetime, FromToOption fromToOption) {
+    protected void setInuDate_FromTo(java.time.LocalDate fromDatetime, java.time.LocalDate toDatetime, FromToOption fromToOption) {
         String nm = "inu_date"; FromToOption op = fromToOption;
         regFTQ(xfFTHD(fromDatetime, nm, op), xfFTHD(toDatetime, nm, op), xgetCValueInuDate(), nm, op);
     }

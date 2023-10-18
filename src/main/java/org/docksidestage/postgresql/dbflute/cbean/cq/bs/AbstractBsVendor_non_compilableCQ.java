@@ -114,7 +114,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
      * @param maxNumber The max number of non_compilable_id. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
-    public void setNon_compilable_id_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
+    protected void setNon_compilable_id_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
         regROO(minNumber, maxNumber, xgetCValueNon_compilable_id(), "NON-COMPILABLE ID", rangeOfOption);
     }
 
@@ -375,7 +375,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
      * @param non_compilable_name The value of non_compilable_name as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setNon_compilable_name_LikeSearch(String non_compilable_name, LikeSearchOption likeSearchOption) {
+    protected void setNon_compilable_name_LikeSearch(String non_compilable_name, LikeSearchOption likeSearchOption) {
         regLSQ(CK_LS, fRES(non_compilable_name), xgetCValueNon_compilable_name(), "NON COMPILABLE-NAME", likeSearchOption);
     }
 
@@ -397,7 +397,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
      * @param non_compilable_name The value of non_compilable_name as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setNon_compilable_name_NotLikeSearch(String non_compilable_name, LikeSearchOption likeSearchOption) {
+    protected void setNon_compilable_name_NotLikeSearch(String non_compilable_name, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(non_compilable_name), xgetCValueNon_compilable_name(), "NON COMPILABLE-NAME", likeSearchOption);
     }
 
@@ -502,7 +502,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
      * @param maxNumber The max number of parent_id. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
-    public void setParent_id_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
+    protected void setParent_id_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
         regROO(minNumber, maxNumber, xgetCValueParent_id(), "PARENT-ID", rangeOfOption);
     }
 
@@ -618,7 +618,7 @@ public abstract class AbstractBsVendor_non_compilableCQ extends AbstractConditio
      * @param maxNumber The max number of nextParentid. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
-    public void setNextParentid_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
+    protected void setNextParentid_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
         regROO(minNumber, maxNumber, xgetCValueNextParentid(), "Next_ParentID", rangeOfOption);
     }
 

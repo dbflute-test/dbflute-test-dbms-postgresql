@@ -113,7 +113,7 @@ public abstract class AbstractBsProductStatusCQ extends AbstractConditionQuery {
      * @param productStatusCode The value of productStatusCode as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setProductStatusCode_LikeSearch(String productStatusCode, LikeSearchOption likeSearchOption) {
+    protected void setProductStatusCode_LikeSearch(String productStatusCode, LikeSearchOption likeSearchOption) {
         regLSQ(CK_LS, fRES(productStatusCode), xgetCValueProductStatusCode(), "product_status_code", likeSearchOption);
     }
 
@@ -135,7 +135,7 @@ public abstract class AbstractBsProductStatusCQ extends AbstractConditionQuery {
      * @param productStatusCode The value of productStatusCode as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setProductStatusCode_NotLikeSearch(String productStatusCode, LikeSearchOption likeSearchOption) {
+    protected void setProductStatusCode_NotLikeSearch(String productStatusCode, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(productStatusCode), xgetCValueProductStatusCode(), "product_status_code", likeSearchOption);
     }
 
@@ -306,7 +306,7 @@ public abstract class AbstractBsProductStatusCQ extends AbstractConditionQuery {
      * @param productStatusName The value of productStatusName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setProductStatusName_LikeSearch(String productStatusName, LikeSearchOption likeSearchOption) {
+    protected void setProductStatusName_LikeSearch(String productStatusName, LikeSearchOption likeSearchOption) {
         regLSQ(CK_LS, fRES(productStatusName), xgetCValueProductStatusName(), "product_status_name", likeSearchOption);
     }
 
@@ -328,7 +328,7 @@ public abstract class AbstractBsProductStatusCQ extends AbstractConditionQuery {
      * @param productStatusName The value of productStatusName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setProductStatusName_NotLikeSearch(String productStatusName, LikeSearchOption likeSearchOption) {
+    protected void setProductStatusName_NotLikeSearch(String productStatusName, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(productStatusName), xgetCValueProductStatusName(), "product_status_name", likeSearchOption);
     }
 
@@ -415,7 +415,7 @@ public abstract class AbstractBsProductStatusCQ extends AbstractConditionQuery {
      * @param maxNumber The max number of displayOrder. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
-    public void setDisplayOrder_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
+    protected void setDisplayOrder_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
         regROO(minNumber, maxNumber, xgetCValueDisplayOrder(), "display_order", rangeOfOption);
     }
 

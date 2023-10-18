@@ -414,7 +414,7 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
      * @param memberStatusName The value of memberStatusName as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setMemberStatusName_LikeSearch(String memberStatusName, LikeSearchOption likeSearchOption) {
+    protected void setMemberStatusName_LikeSearch(String memberStatusName, LikeSearchOption likeSearchOption) {
         regLSQ(CK_LS, fRES(memberStatusName), xgetCValueMemberStatusName(), "member_status_name", likeSearchOption);
     }
 
@@ -436,7 +436,7 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
      * @param memberStatusName The value of memberStatusName as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setMemberStatusName_NotLikeSearch(String memberStatusName, LikeSearchOption likeSearchOption) {
+    protected void setMemberStatusName_NotLikeSearch(String memberStatusName, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(memberStatusName), xgetCValueMemberStatusName(), "member_status_name", likeSearchOption);
     }
 
@@ -522,7 +522,7 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
      * @param description The value of description as likeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of like-search. (NotNull)
      */
-    public void setDescription_LikeSearch(String description, LikeSearchOption likeSearchOption) {
+    protected void setDescription_LikeSearch(String description, LikeSearchOption likeSearchOption) {
         regLSQ(CK_LS, fRES(description), xgetCValueDescription(), "description", likeSearchOption);
     }
 
@@ -544,7 +544,7 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
      * @param description The value of description as notLikeSearch. (basically NotNull, NotEmpty: error as default, or no condition as option)
      * @param likeSearchOption The option of not-like-search. (NotNull)
      */
-    public void setDescription_NotLikeSearch(String description, LikeSearchOption likeSearchOption) {
+    protected void setDescription_NotLikeSearch(String description, LikeSearchOption likeSearchOption) {
         regLSQ(CK_NLS, fRES(description), xgetCValueDescription(), "description", likeSearchOption);
     }
 
@@ -631,7 +631,7 @@ public abstract class AbstractBsMemberStatusCQ extends AbstractConditionQuery {
      * @param maxNumber The max number of displayOrder. (basically NotNull: if op.allowOneSide(), null allowed)
      * @param rangeOfOption The option of range-of. (NotNull)
      */
-    public void setDisplayOrder_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
+    protected void setDisplayOrder_RangeOf(Integer minNumber, Integer maxNumber, RangeOfOption rangeOfOption) {
         regROO(minNumber, maxNumber, xgetCValueDisplayOrder(), "display_order", rangeOfOption);
     }
 
