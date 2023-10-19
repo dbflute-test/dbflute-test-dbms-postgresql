@@ -173,14 +173,15 @@ map:{
     #   o propertiesMap: (NotRequired - Default map:{})
     #   o objectTypeTargetList: (NotRequired - Default list{TABLE;VIEW})
     #
+    # the test of ReplaceSchema additionalDrop (comment out for the test)
     #; additionalDropMapList = list:{
     #    ; map:{
-    #        ; url = jdbc:oracle:thin:...
-    #        ; schema = NEXTEXAMPLEDB
-    #        ; user = NEXTEXAMPLEDB
-    #        ; password = NEXTEXAMPLEDB
-    #        ; propertiesMap = map:{}
-    #        ; objectTypeTargetList = list:{TABLE;VIEW}
+    #        #; url = jdbc:oracle:thin:...
+    #        ; schema = public
+    #        #; user = NEXTEXAMPLEDB
+    #        #; password = NEXTEXAMPLEDB
+    #        #; propertiesMap = map:{}
+    #        #; objectTypeTargetList = list:{TABLE;VIEW}
     #    }
     #}
     # - - - - - - - - - -/
