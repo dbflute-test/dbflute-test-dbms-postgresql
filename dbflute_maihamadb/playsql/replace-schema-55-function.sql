@@ -67,6 +67,7 @@ end;
 $BODY$ LANGUAGE 'plpgsql';
 -- #df:end#
 
+
 -- =======================================================================================
 --                                                                     ResultSet Parameter
 --                                                                     ===================
@@ -96,6 +97,7 @@ begin
 end;
 $BODY$ LANGUAGE 'plpgsql';
 -- #df:end#
+
 
 -- =======================================================================================
 --                                                                        Return ResultSet
@@ -134,6 +136,7 @@ end;
 $BODY$ LANGUAGE 'plpgsql';
 -- #df:end#
 
+
 -- =======================================================================================
 --                                                                             Transaction
 --                                                                             ===========
@@ -148,6 +151,7 @@ begin
 end;
 $BODY$ LANGUAGE 'plpgsql';
 -- #df:end#
+
 
 -- =======================================================================================
 --                                                                                  Naming
@@ -166,4 +170,30 @@ begin
   Poo_ParamName := 'eee';
 end;
 $BODY$ LANGUAGE 'plpgsql';
+-- #df:end#
+
+
+-- =======================================================================================
+--                                                                         NoName Argument
+--                                                                         ===============
+-- #df:begin#
+create or replace function FN_NONAME_ARG_ADDING_DATE(date, integer) returns date
+    language plpgsql
+as
+$$
+begin
+    return $1 + ($2::text || ' month')::interval;
+end;
+$$;
+-- #df:end#
+
+-- #df:begin#
+create or replace function FN_NONAME_ARG_ADDING_TIMESTAMP(timestamp with time zone, integer) returns timestamp
+    language plpgsql
+as
+$$
+begin
+    return $1 + ($2::text || ' month')::interval;
+end;
+$$;
 -- #df:end#

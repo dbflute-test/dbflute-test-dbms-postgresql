@@ -1,0 +1,17 @@
+map:{
+    ; 2023/10/19 12:06:31.612 = map:{
+        ; diffDate = 2023/10/19 12:06:31.612
+        ; diffAuthor = jflute
+        ; diffGitBranch = master
+        ; procedureDiff = map:{
+            ; maihamadb.public.fn_noname_arg_adding_date = map:{
+                ; procedureName = maihamadb.public.fn_noname_arg_adding_date
+                ; diffType = ADD
+            }
+            ; maihamadb.public.fn_noname_arg_adding_timestamp = map:{
+                ; procedureName = maihamadb.public.fn_noname_arg_adding_timestamp
+                ; diffType = ADD
+            }
+        }
+    }
+}

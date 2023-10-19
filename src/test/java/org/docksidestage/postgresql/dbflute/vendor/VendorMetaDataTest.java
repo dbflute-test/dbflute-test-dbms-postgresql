@@ -490,6 +490,44 @@ public class VendorMetaDataTest extends UnitContainerTestCase {
         assertTrue(exists);
     }
 
+    // -----------------------------------------------------
+    //                                 getFunctionColumns()
+    //                                 ---------------------
+    public void test_DatabaseMetaData_getFunctionColumns_mainSchema() throws SQLException {
+        DatabaseMetaData metaData = _conn.getMetaData();
+        ResultSet rs = metaData.getFunctions("maihamadb", "public", null);
+        boolean exists = false;
+        log("[Function]");
+        while (rs.next()) {
+            String catalog = rs.getString("FUNCTION_CAT");
+            String schema = rs.getString("FUNCTION_SCHEM");
+            String procedure = rs.getString("FUNCTION_NAME");
+            ResultSet columnRs = metaData.getFunctionColumns(catalog, schema, procedure, null);
+            log(catalog + "." + schema + "." + procedure);
+            while (columnRs.next()) {
+                exists = true;
+                String columnName = columnRs.getString("COLUMN_NAME");
+                String columnType = columnRs.getString("COLUMN_TYPE");
+                String typeName = columnRs.getString("TYPE_NAME");
+                String precision = columnRs.getString("PRECISION");
+                String length = columnRs.getString("LENGTH");
+                String scale = columnRs.getString("SCALE");
+                String dataType = columnRs.getString("DATA_TYPE");
+                String remarks = columnRs.getString("REMARKS");
+                log("  " + columnName + "(" + columnType + ") " + typeName + "(" + precision + ", " + length + ", " + scale + ") dataType="
+                        + dataType + " // " + remarks);
+                assertNotNull(columnName);
+                assertNotNull(columnType);
+                assertNotNull(typeName);
+                assertNull(precision);
+                assertNull(length);
+                assertNull(scale);
+                assertNotNull(dataType);
+            }
+        }
+        assertTrue(exists);
+    }
+
     // ===================================================================================
     //                                                                   ResultSetMetaData
     //                                                                   =================
