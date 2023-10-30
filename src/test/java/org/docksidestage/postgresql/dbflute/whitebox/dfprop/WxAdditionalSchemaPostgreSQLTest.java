@@ -4,8 +4,10 @@ import java.util.List;
 
 import org.dbflute.bhv.referrer.ConditionBeanSetupper;
 import org.dbflute.cbean.result.ListResultBean;
+import org.dbflute.dbmeta.name.TableSqlName;
 import org.dbflute.helper.HandyDate;
 import org.docksidestage.postgresql.dbflute.bsentity.dbmeta.MemberDbm;
+import org.docksidestage.postgresql.dbflute.bsentity.dbmeta.NextSchemaProductDbm;
 import org.docksidestage.postgresql.dbflute.cbean.NextschemaWhiteSameNameCB;
 import org.docksidestage.postgresql.dbflute.cbean.NextschemaWhiteSameNameRefCB;
 import org.docksidestage.postgresql.dbflute.cbean.WhiteSameNameCB;
@@ -33,7 +35,16 @@ public class WxAdditionalSchemaPostgreSQLTest extends UnitContainerTestCase {
     //                                                                      SqlName Prefix
     //                                                                      ==============
     public void test_SqlNamePrefix_table() {
-        assertFalse(MemberDbm.getInstance().getTableSqlName().toString().contains("."));
+        {
+            TableSqlName tableSqlName = MemberDbm.getInstance().getTableSqlName();
+            log("tableSqlName: " + tableSqlName);
+            assertFalse(tableSqlName.toString().contains("."));
+        }
+        {
+            TableSqlName tableSqlName = NextSchemaProductDbm.getInstance().getTableSqlName();
+            log("tableSqlName: " + tableSqlName);
+            assertTrue(tableSqlName.toString().contains("."));
+        }
     }
 
     public void test_SqlNamePrefix_procedure() {

@@ -330,6 +330,10 @@ public class VendorMetaDataTest extends UnitContainerTestCase {
     // -----------------------------------------------------
     //                                       getProcedures()
     //                                       ---------------
+    // _/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+    // #for_now jflute getProcedures() returns both procedures and functions in PostgreSQL JDBC-42.2.10 (2023/10/30)
+    // however it returns only procedures (except functions) in 42.4.1, so attention to JDBC version
+    // _/_/_/_/_/_/_/_/_/_/
     public void test_DatabaseMetaData_getProcedures_mainSchema() throws SQLException {
         DatabaseMetaData metaData = _conn.getMetaData();
         ResultSet rs = metaData.getProcedures("maihamadb", "public", null);
@@ -384,8 +388,9 @@ public class VendorMetaDataTest extends UnitContainerTestCase {
             String catalog = rs.getString("PROCEDURE_CAT");
             String schema = rs.getString("PROCEDURE_SCHEM");
             String procedure = rs.getString("PROCEDURE_NAME");
+            String procedureSpecificName = rs.getString("SPECIFIC_NAME");
             ResultSet columnRs = metaData.getProcedureColumns(catalog, schema, procedure, null);
-            log(catalog + "." + schema + "." + procedure);
+            log(catalog + "." + schema + "." + procedure + " // " + procedureSpecificName);
             while (columnRs.next()) {
                 exists = true;
                 String columnName = columnRs.getString("COLUMN_NAME");
@@ -396,8 +401,9 @@ public class VendorMetaDataTest extends UnitContainerTestCase {
                 String scale = columnRs.getString("SCALE");
                 String dataType = columnRs.getString("DATA_TYPE");
                 String remarks = columnRs.getString("REMARKS");
+                String columnSpecificName = columnRs.getString("SPECIFIC_NAME"); // e.g. fn_overload_same_name_24598
                 log("  " + columnName + "(" + columnType + ") " + typeName + "(" + precision + ", " + length + ", " + scale + ") dataType="
-                        + dataType + " // " + remarks);
+                        + dataType + " // " + columnSpecificName + " " + remarks);
                 assertNotNull(columnName);
                 assertNotNull(columnType);
                 assertNotNull(typeName);
@@ -419,7 +425,8 @@ public class VendorMetaDataTest extends UnitContainerTestCase {
             String catalog = rs.getString("PROCEDURE_CAT");
             String schema = rs.getString("PROCEDURE_SCHEM");
             String procedure = rs.getString("PROCEDURE_NAME");
-            log(catalog + "." + schema + "." + procedure);
+            String procedureSpecificName = rs.getString("SPECIFIC_NAME");
+            log(catalog + "." + schema + "." + procedure + " // " + procedureSpecificName);
             ResultSet columnRs = metaData.getProcedureColumns(catalog, null, procedure, null);
             while (columnRs.next()) {
                 exists = true;
@@ -431,8 +438,10 @@ public class VendorMetaDataTest extends UnitContainerTestCase {
                 String scale = columnRs.getString("SCALE");
                 String dataType = columnRs.getString("DATA_TYPE");
                 String remarks = columnRs.getString("REMARKS");
+                String position = columnRs.getString("ORDINAL_POSITION");
+                String columnSpecificName = columnRs.getString("SPECIFIC_NAME"); // e.g. fn_overload_same_name_24598
                 log("  " + columnName + "(" + columnType + ") " + typeName + "(" + precision + ", " + length + ", " + scale + ") dataType="
-                        + dataType + " // " + remarks);
+                        + dataType + ", position=" + position + " // " + columnSpecificName + ": " + remarks);
                 assertNotNull(columnName);
                 assertNotNull(columnType);
                 assertNotNull(typeName);
@@ -440,6 +449,8 @@ public class VendorMetaDataTest extends UnitContainerTestCase {
                 assertNull(length);
                 assertNull(scale);
                 assertNotNull(dataType);
+                assertNotNull(position);
+                assertNotNull(columnSpecificName);
             }
         }
         // #for_now jflute nextSchema does not have real procedure yet (2022/04/10)
@@ -454,7 +465,7 @@ public class VendorMetaDataTest extends UnitContainerTestCase {
         DatabaseMetaData metaData = _conn.getMetaData();
         ResultSet rs = metaData.getFunctions("maihamadb", "public", null);
         boolean exists = false;
-        log("[Procedure]");
+        log("[Function]");
         while (rs.next()) {
             exists = true;
             String catalog = rs.getString("FUNCTION_CAT");
@@ -474,7 +485,7 @@ public class VendorMetaDataTest extends UnitContainerTestCase {
         DatabaseMetaData metaData = _conn.getMetaData();
         ResultSet rs = metaData.getFunctions("maihamadb", "nextschema", null);
         boolean exists = false;
-        log("[Procedure]");
+        log("[Function]");
         while (rs.next()) {
             exists = true;
             String catalog = rs.getString("FUNCTION_CAT");
@@ -502,8 +513,9 @@ public class VendorMetaDataTest extends UnitContainerTestCase {
             String catalog = rs.getString("FUNCTION_CAT");
             String schema = rs.getString("FUNCTION_SCHEM");
             String procedure = rs.getString("FUNCTION_NAME");
+            String functionSpecificName = rs.getString("SPECIFIC_NAME");
             ResultSet columnRs = metaData.getFunctionColumns(catalog, schema, procedure, null);
-            log(catalog + "." + schema + "." + procedure);
+            log(catalog + "." + schema + "." + procedure + " // " + functionSpecificName);
             while (columnRs.next()) {
                 exists = true;
                 String columnName = columnRs.getString("COLUMN_NAME");
@@ -514,8 +526,10 @@ public class VendorMetaDataTest extends UnitContainerTestCase {
                 String scale = columnRs.getString("SCALE");
                 String dataType = columnRs.getString("DATA_TYPE");
                 String remarks = columnRs.getString("REMARKS");
+                String position = columnRs.getString("ORDINAL_POSITION");
+                String columnSpecificName = columnRs.getString("SPECIFIC_NAME"); // e.g. fn_overload_same_name_24598
                 log("  " + columnName + "(" + columnType + ") " + typeName + "(" + precision + ", " + length + ", " + scale + ") dataType="
-                        + dataType + " // " + remarks);
+                        + dataType + ", position=" + position + " // " + columnSpecificName + ": " + remarks);
                 assertNotNull(columnName);
                 assertNotNull(columnType);
                 assertNotNull(typeName);
@@ -523,6 +537,8 @@ public class VendorMetaDataTest extends UnitContainerTestCase {
                 assertNull(length);
                 assertNull(scale);
                 assertNotNull(dataType);
+                assertNotNull(position);
+                assertNotNull(columnSpecificName);
             }
         }
         assertTrue(exists);

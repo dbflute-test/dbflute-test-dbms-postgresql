@@ -197,3 +197,52 @@ begin
 end;
 $$;
 -- #df:end#
+
+-- #df:begin#
+create or replace function FN_NONAME_ARG_OVERLOAD(date, integer) returns date
+    language plpgsql
+as
+$$
+begin
+    return $1 + ($2::text || ' month')::interval;
+end;
+$$;
+-- #df:end#
+
+-- #df:begin#
+create or replace function FN_NONAME_ARG_OVERLOAD(timestamp with time zone, integer) returns timestamp
+    language plpgsql
+as
+$$
+begin
+    return $1 + ($2::text || ' month')::interval;
+end;
+$$;
+-- #df:end#
+
+
+-- =======================================================================================
+--                                                                                Overload
+--                                                                                ========
+-- #df:begin#
+create or replace function FN_OVERLOAD_SAME_NAME(targetDate in date, months in integer) returns date
+    language plpgsql
+as
+$$
+begin
+    return targetDate + (months::text || ' month')::interval;
+end;
+$$;
+-- #df:end#
+
+-- #df:begin#
+create or replace function FN_OVERLOAD_SAME_NAME(targetTimestamp in timestamp with time zone, months in integer) returns date
+    language plpgsql
+as
+$$
+begin
+    return targetTimestamp + (months::text || ' month')::interval;
+end;
+$$;
+-- #df:end#
+
