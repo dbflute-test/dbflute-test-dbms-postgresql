@@ -121,10 +121,23 @@ map:{
             ; $$xml$$ = XML
             ; XML = org.docksidestage.postgresql.mytype.MyXML
         
-            # Original Torque type and Java type for XML type
+            # Original Torque type and Java type for JSON type
             # which does not exist in JDBC types.
             ; $$json$$ = JSON
             ; JSON = org.docksidestage.postgresql.mytype.MyJSON
+
+            # point type mapping, table/column and JDBC type
+            ; $$df:point$$ = map:{
+                ; WHITE_TYPE_MAPPING_POINT = map:{
+                    ; suffix:_LONG_INTEGER = INTEGER
+                    ; POINT_DATETIME_DATE = DATE
+                }
+                # example for naming policy type
+                #; $$ALL$$ = map:{
+                #    ; suffix:_DATE = DATE
+                #    ; suffix:_DATETIME = TIMESTAMP
+                #}
+            }
         }
     }
     # - - - - - - - - - -/

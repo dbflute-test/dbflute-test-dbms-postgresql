@@ -74,6 +74,10 @@
         <property name="behaviorSelector"><ref bean="behaviorSelector"/></property>
         <property name="commonColumnAutoSetupper"><ref bean="commonColumnAutoSetupper"/></property>
     </bean>
+	<bean id="nestedSummaryProductBhv" class="org.docksidestage.postgresql.dbflute.exbhv.NestedSummaryProductBhv" autowire="byType">
+        <property name="behaviorCommandInvoker"><ref bean="behaviorCommandInvoker"/></property>
+        <property name="behaviorSelector"><ref bean="behaviorSelector"/></property>
+    </bean>
 	<bean id="productBhv" class="org.docksidestage.postgresql.dbflute.exbhv.ProductBhv" autowire="byType">
         <property name="behaviorCommandInvoker"><ref bean="behaviorCommandInvoker"/></property>
         <property name="behaviorSelector"><ref bean="behaviorSelector"/></property>
@@ -192,6 +196,11 @@
         <property name="behaviorSelector"><ref bean="behaviorSelector"/></property>
         <property name="commonColumnAutoSetupper"><ref bean="commonColumnAutoSetupper"/></property>
     </bean>
+	<bean id="whiteTypeMappingPointBhv" class="org.docksidestage.postgresql.dbflute.exbhv.WhiteTypeMappingPointBhv" autowire="byType">
+        <property name="behaviorCommandInvoker"><ref bean="behaviorCommandInvoker"/></property>
+        <property name="behaviorSelector"><ref bean="behaviorSelector"/></property>
+        <property name="commonColumnAutoSetupper"><ref bean="commonColumnAutoSetupper"/></property>
+    </bean>
 	<bean id="whiteXlsManBhv" class="org.docksidestage.postgresql.dbflute.exbhv.WhiteXlsManBhv" autowire="byType">
         <property name="behaviorCommandInvoker"><ref bean="behaviorCommandInvoker"/></property>
         <property name="behaviorSelector"><ref bean="behaviorSelector"/></property>
@@ -201,5 +210,9 @@
         <property name="behaviorCommandInvoker"><ref bean="behaviorCommandInvoker"/></property>
         <property name="behaviorSelector"><ref bean="behaviorSelector"/></property>
         <property name="commonColumnAutoSetupper"><ref bean="commonColumnAutoSetupper"/></property>
+    </bean>
+	<bean id="wrappedSummaryProductBhv" class="org.docksidestage.postgresql.dbflute.exbhv.WrappedSummaryProductBhv" autowire="byType">
+        <property name="behaviorCommandInvoker"><ref bean="behaviorCommandInvoker"/></property>
+        <property name="behaviorSelector"><ref bean="behaviorSelector"/></property>
     </bean>
 </beans>

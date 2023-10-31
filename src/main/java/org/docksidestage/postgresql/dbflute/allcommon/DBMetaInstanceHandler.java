@@ -42,6 +42,7 @@ public class DBMetaInstanceHandler implements DBMetaProvider {
         tmpMap.put("member_service", "org.docksidestage.postgresql.dbflute.bsentity.dbmeta.MemberServiceDbm");
         tmpMap.put("member_status", "org.docksidestage.postgresql.dbflute.bsentity.dbmeta.MemberStatusDbm");
         tmpMap.put("member_withdrawal", "org.docksidestage.postgresql.dbflute.bsentity.dbmeta.MemberWithdrawalDbm");
+        tmpMap.put("nested_summary_product", "org.docksidestage.postgresql.dbflute.bsentity.dbmeta.NestedSummaryProductDbm");
         tmpMap.put("product", "org.docksidestage.postgresql.dbflute.bsentity.dbmeta.ProductDbm");
         tmpMap.put("product_category", "org.docksidestage.postgresql.dbflute.bsentity.dbmeta.ProductCategoryDbm");
         tmpMap.put("product_status", "org.docksidestage.postgresql.dbflute.bsentity.dbmeta.ProductStatusDbm");
@@ -68,8 +69,10 @@ public class DBMetaInstanceHandler implements DBMetaProvider {
         tmpMap.put("white_not_pk", "org.docksidestage.postgresql.dbflute.bsentity.dbmeta.WhiteNotPkDbm");
         tmpMap.put("white_same_name", "org.docksidestage.postgresql.dbflute.bsentity.dbmeta.WhiteSameNameDbm");
         tmpMap.put("white_same_name_ref", "org.docksidestage.postgresql.dbflute.bsentity.dbmeta.WhiteSameNameRefDbm");
+        tmpMap.put("white_type_mapping_point", "org.docksidestage.postgresql.dbflute.bsentity.dbmeta.WhiteTypeMappingPointDbm");
         tmpMap.put("white_xls_man", "org.docksidestage.postgresql.dbflute.bsentity.dbmeta.WhiteXlsManDbm");
         tmpMap.put("withdrawal_reason", "org.docksidestage.postgresql.dbflute.bsentity.dbmeta.WithdrawalReasonDbm");
+        tmpMap.put("wrapped_summary_product", "org.docksidestage.postgresql.dbflute.bsentity.dbmeta.WrappedSummaryProductDbm");
         _tableDbNameClassNameMap = Collections.unmodifiableMap(tmpMap);
     }
 

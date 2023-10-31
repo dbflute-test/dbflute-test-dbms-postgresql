@@ -1,0 +1,53 @@
+map:{
+    ; 2023/10/31 11:02:00.667 = map:{
+        ; diffDate = 2023/10/31 11:02:00.667
+        ; diffAuthor = jflute
+        ; diffGitBranch = master
+        ; tableDiff = map:{
+            ; white_type_mapping_point = map:{
+                ; tableName = white_type_mapping_point
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; point_long_integer = map:{
+                        ; columnName = point_long_integer
+                        ; diffType = CHANGE
+                        ; dbTypeDiff = map:{
+                            ; next = int8
+                            ; previous = int4
+                        }
+                        ; columnSizeDiff = map:{
+                            ; next = 19
+                            ; previous = 10
+                        }
+                    }
+                    ; point_datetime_date = map:{
+                        ; columnName = point_datetime_date
+                        ; diffType = CHANGE
+                        ; dbTypeDiff = map:{
+                            ; next = timestamp
+                            ; previous = date
+                        }
+                        ; columnSizeDiff = map:{
+                            ; next = 26, 3
+                            ; previous = 13
+                        }
+                    }
+                }
+            }
+        }
+        ; procedureDiff = map:{
+            ; maihamadb.public.fn_overload_same_name = map:{
+                ; procedureName = maihamadb.public.fn_overload_same_name
+                ; diffType = CHANGE
+                ; sourceSizeDiff = map:{
+                    ; next = "74"
+                    ; previous = "79"
+                }
+                ; sourceHashDiff = map:{
+                    ; next = "43d6c022"
+                    ; previous = "e7046966"
+                }
+            }
+        }
+    }
+}

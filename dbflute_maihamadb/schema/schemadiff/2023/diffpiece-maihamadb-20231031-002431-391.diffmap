@@ -1,0 +1,35 @@
+map:{
+    ; 2023/10/31 00:24:31.391 = map:{
+        ; diffDate = 2023/10/31 00:24:31.391
+        ; tableCount = map:{
+            ; next = 41
+            ; previous = 39
+        }
+        ; diffAuthor = jflute
+        ; diffGitBranch = master
+        ; tableDiff = map:{
+            ; nested_summary_product = map:{
+                ; tableName = nested_summary_product
+                ; diffType = ADD
+            }
+            ; wrapped_summary_product = map:{
+                ; tableName = wrapped_summary_product
+                ; diffType = ADD
+            }
+        }
+        ; procedureDiff = map:{
+            ; maihamadb.public.fn_overload_same_name = map:{
+                ; procedureName = maihamadb.public.fn_overload_same_name
+                ; diffType = CHANGE
+                ; sourceSizeDiff = map:{
+                    ; next = "74"
+                    ; previous = "79"
+                }
+                ; sourceHashDiff = map:{
+                    ; next = "43d6c022"
+                    ; previous = "e7046966"
+                }
+            }
+        }
+    }
+}

@@ -79,3 +79,18 @@ ALTER TABLE WHITE_SAME_NAME_REF ADD CONSTRAINT FK_WHITE_SAME_NAME_REF
 -- ALTER TABLE WHITE_SAME_NAME_REF ADD CONSTRAINT FK_WHITE_SAME_NAME_REF_NEXT
 --     FOREIGN KEY (NEXT_SAME_NAME_ID)
 --     REFERENCES nextschema.WHITE_SAME_NAME (SAME_NAME_ID);
+
+-- /= = = = = = = = = = = = = = = = = = = = =
+-- for the test of point type mapping
+-- = = = = = = = = = =/
+CREATE TABLE WHITE_TYPE_MAPPING_POINT (
+    TYPE_MAPPING_POINT_ID bigint NOT NULL PRIMARY KEY,
+    TYPE_MAPPING_POINT_NAME varchar(200),
+    NORMAL_INTEGER integer,
+    NORMAL_LONG bigint,
+    NORMAL_DATE date,
+    NORMAL_DATETIME timestamp(3),
+    POINT_LONG_INTEGER bigint,
+    POINT_DATETIME_DATE timestamp(3)
+);
+
