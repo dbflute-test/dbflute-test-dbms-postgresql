@@ -31,6 +31,10 @@
 # *The line that starts with '#' means comment-out.
 #
 map:{
+    # the test of cascade dropping
+    ## drop table ... cascade, to delete referrers from e.g. other schema tables
+    #; isUseDropTableCascadeAsPossible = true
+
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     # o repsEnvType: (NotRequired - Default inherits or 'ut')
     #  The environment type of ReplaceSchema.
