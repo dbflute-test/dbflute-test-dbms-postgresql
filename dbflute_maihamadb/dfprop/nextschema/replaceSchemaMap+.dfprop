@@ -13,7 +13,7 @@ map:{
     #  Does it increment sequence values to max value of table data?
     #  Referring the property 'sequenceDefinitionMap'.
     #
-    ; isIncrementSequenceToDataMax = false
+    ; isIncrementSequenceToDataMax = true
     # - - - - - - - - - -/
 
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
