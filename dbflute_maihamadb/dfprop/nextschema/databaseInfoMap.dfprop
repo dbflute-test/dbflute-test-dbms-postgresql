@@ -16,7 +16,7 @@
 #
 map:{
     ; driver   = org.postgresql.Driver
-    ; url      = jdbc:postgresql://localhost:5432/maihamadb?schema=nextschema
+    ; url      = jdbc:postgresql://localhost:5432/maihamadb
     ; schema   = nextschema
     ; user     = maihamadb
     ; password = maihamadb
