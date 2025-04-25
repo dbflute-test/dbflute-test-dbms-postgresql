@@ -4,11 +4,6 @@ CREATE TABLE NEXT_SCHEMA_PRODUCT(
 	PRODUCT_NAME varchar(200) NOT NULL
 );
 
--- for the test of increment sequence on ReplaceSchema
-insert into NEXT_SCHEMA_PRODUCT(PRODUCT_NAME) values('NAME1');
-insert into NEXT_SCHEMA_PRODUCT(PRODUCT_NAME) values('NAME2');
-insert into NEXT_SCHEMA_PRODUCT(PRODUCT_NAME) values('NAME3');
-
 -- for the test of same name as next schema's
 CREATE TABLE WHITE_SAME_NAME (
 	SAME_NAME_ID integer NOT NULL PRIMARY KEY,

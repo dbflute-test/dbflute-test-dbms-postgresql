@@ -1,5 +1,14 @@
 map:{
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    # o repsEnvType: (NotRequired - Default inherits or 'ut')
+    #  The environment type of ReplaceSchema.
+    #   e.g. if ut, data files in './playsql/data/ut/...' are loaded
+    #  If DBFlute environment type is specified, inherits it as default.
+    #
+    ; repsEnvType = next_ut
+    # - - - - - - - - - -/
+
+    # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     # o isIncrementSequenceToDataMax (NotRequired - Default 'false')
     #  Does it increment sequence values to max value of table data?
     #  Referring the property 'sequenceDefinitionMap'.

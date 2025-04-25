@@ -1,9 +1,0 @@
-
-* * * * * * * * * *
-*                 *
-* Tsv Data Result *
-*                 *
-* * * * * * * * * *
-data-directory: ./playsql/nextsql/data/nextschema/reversetsv/UTF-8
-
-cyclic_01_01-NEXT_SCHEMA_PRODUCT.tsv (2)
