@@ -175,6 +175,16 @@ map:{
         ; recordLimit = -1
         ; isReplaceSchemaDirectUse = false
         ; isOverrideExistingDataFile = true
+        ; isSynchronizeOriginDate = false
+
+        # test of additional schema TSV reverse
+        ; isDelimiterDataBasis = true
+        ; isIncludeAdditionalSchema = true
+
+        #; isDelimiterDataMinimallyQuoted = true
+        #; isDelimiterDataOnSectionDirectory = true
+        #; xlsLimit = 0
+        #; sectionTableGuidelineLimit = 30
     }
     # - - - - - - - - - -/
 
