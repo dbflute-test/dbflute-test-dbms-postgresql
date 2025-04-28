@@ -17,3 +17,8 @@ taskReturnCode=$?
 if [ $taskReturnCode -ne 0 ];then
   exit $taskReturnCode;
 fi
+
+echo "/nnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn"
+echo "Remove the environment type (closing)."
+echo "nnnnnnnnnn/"
+unset DBFLUTE_ENVIRONMENT_TYPE
