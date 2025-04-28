@@ -31,6 +31,11 @@
 # *The line that starts with '#' means comment-out.
 #
 map:{
+    # the test of data manager for Flyway collaboration with multiple schema
+    ; repsAsDataManagerMap = map:{
+        ; isUseRepsAsDataManager = true
+    }
+
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     # o repsEnvType: (NotRequired - Default inherits or 'ut')
     #  The environment type of ReplaceSchema.
@@ -172,10 +177,10 @@ map:{
     #
     #; additionalDropMapList = list:{
     #    ; map:{
-    #        ; url = jdbc:oracle:thin:...
-    #        ; schema = NEXTEXAMPLEDB
-    #        ; user = NEXTEXAMPLEDB
-    #        ; password = NEXTEXAMPLEDB
+    #        ; url = jdbc:postgresql://localhost:5432/maihamadb
+    #        ; schema = nextschema
+    #        ; user = maihamadb
+    #        ; password = maihamadb
     #        ; propertiesMap = map:{}
     #        ; objectTypeTargetList = list:{TABLE;VIEW}
     #    }

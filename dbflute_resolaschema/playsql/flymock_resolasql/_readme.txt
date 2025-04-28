@@ -1,0 +1,1 @@
+should be synchronized with dbflute_maihamadb/playsql/resolasql
