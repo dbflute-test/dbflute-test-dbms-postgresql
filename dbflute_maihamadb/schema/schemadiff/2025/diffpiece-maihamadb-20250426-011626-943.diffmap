@@ -1,0 +1,399 @@
+map:{
+    ; 2025/04/26 01:16:26.943 = map:{
+        ; diffDate = 2025/04/26 01:16:26.943
+        ; tableCount = map:{
+            ; next = 42
+            ; previous = 3
+        }
+        ; diffAuthor = jflute
+        ; diffGitBranch = master
+        ; tableDiff = map:{
+            ; nextschema.white_same_name = map:{
+                ; tableName = nextschema.white_same_name
+                ; diffType = ADD
+            }
+            ; nextschema.white_same_name_ref = map:{
+                ; tableName = nextschema.white_same_name_ref
+                ; diffType = ADD
+            }
+            ; VENDOR-NON COMPILABLE = map:{
+                ; tableName = VENDOR-NON COMPILABLE
+                ; diffType = ADD
+            }
+            ; member = map:{
+                ; tableName = member
+                ; diffType = ADD
+            }
+            ; member_address = map:{
+                ; tableName = member_address
+                ; diffType = ADD
+            }
+            ; member_login = map:{
+                ; tableName = member_login
+                ; diffType = ADD
+            }
+            ; member_security = map:{
+                ; tableName = member_security
+                ; diffType = ADD
+            }
+            ; member_service = map:{
+                ; tableName = member_service
+                ; diffType = ADD
+            }
+            ; member_status = map:{
+                ; tableName = member_status
+                ; diffType = ADD
+            }
+            ; member_withdrawal = map:{
+                ; tableName = member_withdrawal
+                ; diffType = ADD
+            }
+            ; nested_summary_product = map:{
+                ; tableName = nested_summary_product
+                ; diffType = ADD
+            }
+            ; product = map:{
+                ; tableName = product
+                ; diffType = ADD
+            }
+            ; product_category = map:{
+                ; tableName = product_category
+                ; diffType = ADD
+            }
+            ; product_status = map:{
+                ; tableName = product_status
+                ; diffType = ADD
+            }
+            ; purchase = map:{
+                ; tableName = purchase
+                ; diffType = ADD
+            }
+            ; purchase_payment = map:{
+                ; tableName = purchase_payment
+                ; diffType = ADD
+            }
+            ; region = map:{
+                ; tableName = region
+                ; diffType = ADD
+            }
+            ; service_rank = map:{
+                ; tableName = service_rank
+                ; diffType = ADD
+            }
+            ; summary_product = map:{
+                ; tableName = summary_product
+                ; diffType = ADD
+            }
+            ; vendor_$_dollar = map:{
+                ; tableName = vendor_$_dollar
+                ; diffType = ADD
+            }
+            ; vendor_check = map:{
+                ; tableName = vendor_check
+                ; diffType = ADD
+            }
+            ; vendor_date_fk = map:{
+                ; tableName = vendor_date_fk
+                ; diffType = ADD
+            }
+            ; vendor_date_pk = map:{
+                ; tableName = vendor_date_pk
+                ; diffType = ADD
+            }
+            ; vendor_inherit_inu = map:{
+                ; tableName = vendor_inherit_inu
+                ; diffType = ADD
+            }
+            ; vendor_inherit_neko = map:{
+                ; tableName = vendor_inherit_neko
+                ; diffType = ADD
+            }
+            ; vendor_large_data = map:{
+                ; tableName = vendor_large_data
+                ; diffType = ADD
+            }
+            ; vendor_large_data_ref = map:{
+                ; tableName = vendor_large_data_ref
+                ; diffType = ADD
+            }
+            ; vendor_part_man = map:{
+                ; tableName = vendor_part_man
+                ; diffType = ADD
+            }
+            ; vendor_part_man_high = map:{
+                ; tableName = vendor_part_man_high
+                ; diffType = ADD
+            }
+            ; vendor_uuid_bar = map:{
+                ; tableName = vendor_uuid_bar
+                ; diffType = ADD
+            }
+            ; vendor_uuid_foo = map:{
+                ; tableName = vendor_uuid_foo
+                ; diffType = ADD
+            }
+            ; white_compound_pk = map:{
+                ; tableName = white_compound_pk
+                ; diffType = ADD
+            }
+            ; white_compound_pk_ref = map:{
+                ; tableName = white_compound_pk_ref
+                ; diffType = ADD
+            }
+            ; white_compound_pk_wrong_order = map:{
+                ; tableName = white_compound_pk_wrong_order
+                ; diffType = ADD
+            }
+            ; white_not_pk = map:{
+                ; tableName = white_not_pk
+                ; diffType = ADD
+            }
+            ; white_type_mapping_point = map:{
+                ; tableName = white_type_mapping_point
+                ; diffType = ADD
+            }
+            ; white_xls_man = map:{
+                ; tableName = white_xls_man
+                ; diffType = ADD
+            }
+            ; withdrawal_reason = map:{
+                ; tableName = withdrawal_reason
+                ; diffType = ADD
+            }
+            ; wrapped_summary_product = map:{
+                ; tableName = wrapped_summary_product
+                ; diffType = ADD
+            }
+            ; next_schema_product = map:{
+                ; tableName = next_schema_product
+                ; diffType = CHANGE
+                ; columnDiff = map:{
+                    ; product_id = map:{
+                        ; columnName = product_id
+                        ; diffType = CHANGE
+                        ; defaultValueDiff = map:{
+                            ; next = "nextval('nextschema.next_schema_product_product_id_seq'::regclass)"
+                            ; previous = "nextval('next_schema_product_product_id_seq'::regclass)"
+                        }
+                    }
+                }
+            }
+            ; white_same_name = map:{
+                ; tableName = white_same_name
+                ; diffType = CHANGE
+                ; unifiedSchemaDiff = map:{
+                    ; next = maihamadb.public
+                    ; previous = maihamadb.nextschema
+                }
+                ; columnDiff = map:{
+                    ; same_name_integer = map:{
+                        ; columnName = same_name_integer
+                        ; diffType = ADD
+                    }
+                    ; next_schema_product_id = map:{
+                        ; columnName = next_schema_product_id
+                        ; diffType = ADD
+                    }
+                    ; same_name_id = map:{
+                        ; columnName = same_name_id
+                        ; diffType = CHANGE
+                        ; dbTypeDiff = map:{
+                            ; next = int8
+                            ; previous = int4
+                        }
+                        ; columnSizeDiff = map:{
+                            ; next = 19
+                            ; previous = 10
+                        }
+                    }
+                    ; same_name_name = map:{
+                        ; columnName = same_name_name
+                        ; diffType = CHANGE
+                        ; columnSizeDiff = map:{
+                            ; next = 200
+                            ; previous = 100
+                        }
+                    }
+                    ; same_name_long = map:{
+                        ; columnName = same_name_long
+                        ; diffType = DELETE
+                    }
+                }
+            }
+            ; white_same_name_ref = map:{
+                ; tableName = white_same_name_ref
+                ; diffType = CHANGE
+                ; unifiedSchemaDiff = map:{
+                    ; next = maihamadb.public
+                    ; previous = maihamadb.nextschema
+                }
+                ; columnDiff = map:{
+                    ; next_same_name_id = map:{
+                        ; columnName = next_same_name_id
+                        ; diffType = ADD
+                    }
+                    ; same_name_ref_id = map:{
+                        ; columnName = same_name_ref_id
+                        ; diffType = CHANGE
+                        ; dbTypeDiff = map:{
+                            ; next = int4
+                            ; previous = int8
+                        }
+                        ; columnSizeDiff = map:{
+                            ; next = 10
+                            ; previous = 19
+                        }
+                    }
+                    ; same_name_id = map:{
+                        ; columnName = same_name_id
+                        ; diffType = CHANGE
+                        ; dbTypeDiff = map:{
+                            ; next = int8
+                            ; previous = int4
+                        }
+                        ; columnSizeDiff = map:{
+                            ; next = 19
+                            ; previous = 10
+                        }
+                    }
+                    ; next_ref_date = map:{
+                        ; columnName = next_ref_date
+                        ; diffType = DELETE
+                    }
+                }
+            }
+        }
+        ; sequenceDiff = map:{
+            ; maihamadb.public.member_member_id_seq = map:{
+                ; sequenceName = maihamadb.public.member_member_id_seq
+                ; diffType = ADD
+            }
+            ; maihamadb.public.member_address_member_address_id_seq = map:{
+                ; sequenceName = maihamadb.public.member_address_member_address_id_seq
+                ; diffType = ADD
+            }
+            ; maihamadb.public.member_login_member_login_id_seq = map:{
+                ; sequenceName = maihamadb.public.member_login_member_login_id_seq
+                ; diffType = ADD
+            }
+            ; maihamadb.public.member_service_member_service_id_seq = map:{
+                ; sequenceName = maihamadb.public.member_service_member_service_id_seq
+                ; diffType = ADD
+            }
+            ; maihamadb.public.purchase_purchase_id_seq = map:{
+                ; sequenceName = maihamadb.public.purchase_purchase_id_seq
+                ; diffType = ADD
+            }
+            ; maihamadb.public.purchase_payment_purchase_payment_id_seq = map:{
+                ; sequenceName = maihamadb.public.purchase_payment_purchase_payment_id_seq
+                ; diffType = ADD
+            }
+            ; maihamadb.public.product_product_id_seq = map:{
+                ; sequenceName = maihamadb.public.product_product_id_seq
+                ; diffType = ADD
+            }
+            ; maihamadb.public.seq_not_related_to_table = map:{
+                ; sequenceName = maihamadb.public.seq_not_related_to_table
+                ; diffType = ADD
+            }
+            ; maihamadb.public.seq_purchase = map:{
+                ; sequenceName = maihamadb.public.seq_purchase
+                ; diffType = ADD
+            }
+            ; maihamadb.public.seq_sub_display_order = map:{
+                ; sequenceName = maihamadb.public.seq_sub_display_order
+                ; diffType = ADD
+            }
+            ; maihamadb.public.seq_sub_purchase_count = map:{
+                ; sequenceName = maihamadb.public.seq_sub_purchase_count
+                ; diffType = ADD
+            }
+        }
+        ; procedureDiff = map:{
+            ; maihamadb.public.fn_in_out_parameter = map:{
+                ; procedureName = maihamadb.public.fn_in_out_parameter
+                ; diffType = ADD
+            }
+            ; maihamadb.public.fn_noname_arg_adding_date = map:{
+                ; procedureName = maihamadb.public.fn_noname_arg_adding_date
+                ; diffType = ADD
+            }
+            ; maihamadb.public.fn_noname_arg_adding_timestamp = map:{
+                ; procedureName = maihamadb.public.fn_noname_arg_adding_timestamp
+                ; diffType = ADD
+            }
+            ; maihamadb.public.fn_noname_arg_overload = map:{
+                ; procedureName = maihamadb.public.fn_noname_arg_overload
+                ; diffType = ADD
+            }
+            ; maihamadb.public.fn_overload_same_name = map:{
+                ; procedureName = maihamadb.public.fn_overload_same_name
+                ; diffType = ADD
+            }
+            ; maihamadb.public.fn_result_set_parameter = map:{
+                ; procedureName = maihamadb.public.fn_result_set_parameter
+                ; diffType = ADD
+            }
+            ; maihamadb.public.fn_result_set_parameter_more = map:{
+                ; procedureName = maihamadb.public.fn_result_set_parameter_more
+                ; diffType = ADD
+            }
+            ; maihamadb.public.fn_return_parameter = map:{
+                ; procedureName = maihamadb.public.fn_return_parameter
+                ; diffType = ADD
+            }
+            ; maihamadb.public.fn_return_result_set = map:{
+                ; procedureName = maihamadb.public.fn_return_result_set
+                ; diffType = ADD
+            }
+            ; maihamadb.public.fn_return_result_set_with = map:{
+                ; procedureName = maihamadb.public.fn_return_result_set_with
+                ; diffType = ADD
+            }
+            ; maihamadb.public.fn_transaction_inherit = map:{
+                ; procedureName = maihamadb.public.fn_transaction_inherit
+                ; diffType = ADD
+            }
+            ; maihamadb.public.fn_various_type_parameter = map:{
+                ; procedureName = maihamadb.public.fn_various_type_parameter
+                ; diffType = ADD
+            }
+            ; maihamadb.public.fncamelcaseprocedure = map:{
+                ; procedureName = maihamadb.public.fncamelcaseprocedure
+                ; diffType = ADD
+            }
+            ; maihamadb.public.part_man_insert_trigger = map:{
+                ; procedureName = maihamadb.public.part_man_insert_trigger
+                ; diffType = ADD
+            }
+            ; maihamadb.public.sp_in_out_parameter = map:{
+                ; procedureName = maihamadb.public.sp_in_out_parameter
+                ; diffType = ADD
+            }
+            ; maihamadb.public.sp_no_parameter = map:{
+                ; procedureName = maihamadb.public.sp_no_parameter
+                ; diffType = ADD
+            }
+            ; maihamadb.public.sp_result_set_parameter = map:{
+                ; procedureName = maihamadb.public.sp_result_set_parameter
+                ; diffType = ADD
+            }
+            ; maihamadb.public.sp_result_set_parameter_more = map:{
+                ; procedureName = maihamadb.public.sp_result_set_parameter_more
+                ; diffType = ADD
+            }
+            ; maihamadb.public.sp_transaction_inherit = map:{
+                ; procedureName = maihamadb.public.sp_transaction_inherit
+                ; diffType = ADD
+            }
+            ; maihamadb.public.sp_various_type_parameter = map:{
+                ; procedureName = maihamadb.public.sp_various_type_parameter
+                ; diffType = ADD
+            }
+            ; maihamadb.public.spcamelcaseprocedure = map:{
+                ; procedureName = maihamadb.public.spcamelcaseprocedure
+                ; diffType = ADD
+            }
+        }
+    }
+}
