@@ -21,11 +21,13 @@ CREATE USER maihamadb PASSWORD 'maihamadb';
 CREATE DATABASE maihamadb WITH ENCODING='UTF8' OWNER=maihamadb;
 \connect maihamadb;
 CREATE SCHEMA nextschema AUTHORIZATION maihamadb;
+CREATE SCHEMA resolaschema AUTHORIZATION maihamadb;
 
 3. Execute ReplaceSchema task
 
   3-1. execute dbflute_maihamadb/nextschema-renewal.sh|bat
   3-2. execute dbflute_maihamadb/manage.sh|bat selecting replace-schema(0)
+  3-3. execute dbflute_resolaschema/manage.sh|bat selecting replace-schema(0)
 
 
 # ========================================================================================
