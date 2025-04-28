@@ -95,21 +95,17 @@ map:{
         #    o isSuppressCommonColumn: (NotRequired - Default false)
         #    o isSuppressProcedure: (NotRequired - Default false)
         #
-        #; additionalSchemaMap = map:{
-        #    ; nextexampledb.$$NoNameSchema$$ = map:{
-        #        ; objectTypeTargetList=list:{TABLE ; VIEW}
-        #        ; tableExceptList=list:{}
-        #        ; tableTargetList=list:{}
-        #        ; columnExceptMap=map:{
-        #            ; NEXT_SCHEMA_PRODUCT = list:{
-        #                ; COLUMN_EXCEPT_TEST
-        #                ; COLUMN_EXCEPT_GEN_ONLY_TEST@gen
-        #            }
-        #        }
-        #        ; isSuppressCommonColumn=true
-        #        ; isSuppressProcedure=true
-        #    }
-        #}
+        ; additionalSchemaMap = map:{
+            ; nextschema = map:{
+                ; objectTypeTargetList=list:{TABLE ; VIEW}
+                ; tableExceptList=list:{}
+                ; tableTargetList=list:{}
+                ; columnExceptMap=map:{
+                }
+                ; isSuppressCommonColumn=true
+                ; isSuppressProcedure=false
+            }
+        }
 
         # o typeMappingMap: (NotRequired - Default map:{NUMERIC=$$AutoMapping$$ ; DECIMAL=$$AutoMapping$$})
         #  If you want to change mappings from default mappings, you can specify your original mappings.

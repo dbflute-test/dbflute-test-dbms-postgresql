@@ -1,0 +1,5 @@
+"station_id"	"station_name"	"birthdate"	"formalized_datetime"	"home_count"	"working_kilometer"
+"1"	"Resort Gateway Station"	"2001-07-27 00:00:00"	"2001-07-27 06:00:00.000"	"2"	"0.00"
+"2"	"Land Station"	"2001-07-27 00:00:00"	"2001-07-27 06:12:34.000"	"1"	"0.60"
+"3"	"Bayside Station"	"2001-07-27 00:00:00"	"2001-07-27 18:23:45.000"	"1"	"1.80"
+"4"	"Sea Station"	"2001-09-04 00:00:00"	"2001-09-04 06:12:34.000"	"2"	"3.70"
