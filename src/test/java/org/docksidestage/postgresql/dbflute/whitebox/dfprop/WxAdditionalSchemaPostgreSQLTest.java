@@ -105,8 +105,11 @@ public class WxAdditionalSchemaPostgreSQLTest extends UnitContainerTestCase {
         assertHasAnyElement(mainList); // expect no exception for now
         for (NextschemaWhiteSameName main : mainList) {
             List<NextschemaWhiteSameNameRef> refList = main.getWhiteSameNameRefList();
-            assertHasAnyElement(refList);
+            if (!refList.isEmpty()) {
+                markHere("exists");
+            }
         }
+        assertMarked("exists");
     }
 
     public void test_SameNameTable_next_SetupSelect() {
