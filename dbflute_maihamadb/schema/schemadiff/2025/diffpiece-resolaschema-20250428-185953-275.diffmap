@@ -1,0 +1,21 @@
+map:{
+    ; 2025/04/28 18:59:53.275 = map:{
+        ; diffDate = 2025/04/28 18:59:53.275
+        ; tableCount = map:{
+            ; next = 2
+            ; previous = 0
+        }
+        ; diffAuthor = jflute
+        ; diffGitBranch = master
+        ; tableDiff = map:{
+            ; station = map:{
+                ; tableName = station
+                ; diffType = ADD
+            }
+            ; ticket_gate = map:{
+                ; tableName = ticket_gate
+                ; diffType = ADD
+            }
+        }
+    }
+}
