@@ -167,7 +167,7 @@ public class VendorMetaDataTest extends UnitContainerTestCase {
             log("catalog=" + catalog + ", schema=" + schema + ", table=" + table + ", comment=" + comment);
             assertNull(catalog);
             assertNotNull(schema);
-            assertTrue("public".equals(schema) || "nextschema".equals(schema));
+            assertTrue("public".equals(schema) || "nextschema".equals(schema) || "resolaschema".equals(schema));
             assertNotNull(table);
         }
         assertTrue(exists);
@@ -187,7 +187,7 @@ public class VendorMetaDataTest extends UnitContainerTestCase {
             log("catalog=" + catalog + ", schema=" + schema + ", table=" + table + ", comment=" + comment);
             assertNull(catalog);
             assertNotNull(schema);
-            assertTrue("public".equals(schema) || "nextschema".equals(schema));
+            assertTrue("public".equals(schema) || "nextschema".equals(schema) || "resolaschema".equals(schema));
             assertNotNull(table);
         }
         assertTrue(exists);
