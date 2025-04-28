@@ -1,0 +1,33 @@
+map:{
+    ; 2025/04/28 18:28:34.486 = map:{
+        ; diffDate = 2025/04/28 18:28:34.486
+        ; tableCount = map:{
+            ; next = 5
+            ; previous = 0
+        }
+        ; diffAuthor = jflute
+        ; diffGitBranch = master
+        ; tableDiff = map:{
+            ; nextschema.next_schema_product = map:{
+                ; tableName = nextschema.next_schema_product
+                ; diffType = ADD
+            }
+            ; nextschema.white_same_name = map:{
+                ; tableName = nextschema.white_same_name
+                ; diffType = ADD
+            }
+            ; nextschema.white_same_name_ref = map:{
+                ; tableName = nextschema.white_same_name_ref
+                ; diffType = ADD
+            }
+            ; resolaschema.station = map:{
+                ; tableName = resolaschema.station
+                ; diffType = ADD
+            }
+            ; resolaschema.ticket_gate = map:{
+                ; tableName = resolaschema.ticket_gate
+                ; diffType = ADD
+            }
+        }
+    }
+}

@@ -26,12 +26,21 @@
 # *The line that starts with '#' means comment-out.
 #
 map:{
+    # _/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+    # all table DB names are with schema prefix (also table SQL names)
+    # so SchemaHTML's table names are with schema prefix
+    # _/_/_/_/_/_/_/_/_/_/
+    #; isAvailableSchemaDrivenTable = true
+
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     # o isAvailableAddingSchemaToTableSqlName: (NotRequired - Default false)
     #   [true]
     #     Add schema to table SQL name. (The table name on query is SCHEMA.TABLE)
     #
-    #; isAvailableAddingSchemaToTableSqlName = false
+    # _/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/_/
+    # only table SQL names are with schema prefix so SchemaHTML's table names are simple
+    # _/_/_/_/_/_/_/_/_/_/
+    ; isAvailableAddingSchemaToTableSqlName = true
     # - - - - - - - - - -/
 
     # /- - - - - - - - - - - - - - - - - - - - - - - - - - - - - -

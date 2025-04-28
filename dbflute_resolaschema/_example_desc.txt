@@ -1,0 +1,25 @@
+// Japanese here
+
+[コンセプト]
+FlywayでDDLを管理しつつ、データ登録はReplaceSchemaを使う。
+ただ、PostgreSQLのpublicスキーマは使わず、メインスキーマが個別スキーマ (resolaschema) になる。
+また、additionalSchemaとして別のスキーマ (nextschema) を参照するパターン。
+
+その環境で、LoadDataReverseで循環テストデータ運用をする。
+resolaschema だけでなく、nextschema も循環テストデータ運用するパターン。
+
+
+[dfpropの設定]
+databaseInfoMap.dfprop :: additionalSchemaにnextschemaを追加
+documentMap.dfprop :: loadDataReverseにてadditionalSchemaを含めるように設定
+replaceSchemaMap.dfprop :: isUseRepsAsDataManagerを設定
+littleAdjustmentMap.dfprop :: SQL上のテーブル名でスキーマ名が付与されるように設定
+
+
+[テスト用のシェル]
+1. flymock-reps.sh :: flywayでDBをスクラップアンドビルドしたかのように振る舞う
+2. kick-data-reps.sh :: ReplaceSchemaでテストデータを登録する (DataManagerとして)
+3. lreverse-cyclic.sh :: LoadDataReverseでcyclicのTSVを出力する
+
+※実行順序は↑の通りに
+※kick-dataは2回実行するとデータ重複のエラーで落ちる (いつものReplaceSchemaと違う)
