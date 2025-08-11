@@ -10,7 +10,8 @@ import org.docksidestage.postgresql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
 /**
- * The entity of next_schema_product as TABLE.
+ * The entity of next_schema_product as TABLE. <br>
+ * maihama
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsNextSchemaProduct extends AbstractEntity implements DomainEntity {

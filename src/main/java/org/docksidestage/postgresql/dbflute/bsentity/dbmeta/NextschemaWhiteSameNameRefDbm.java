@@ -74,6 +74,8 @@ public class NextschemaWhiteSameNameRefDbm extends AbstractDBMeta {
     public String getTableDispName() { return _tableDispName; }
     public String getTablePropertyName() { return _tablePropertyName; }
     public TableSqlName getTableSqlName() { return _tableSqlName; }
+    protected final String _tableComment = "land";
+    public String getTableComment() { return _tableComment; }
 
     // ===================================================================================
     //                                                                         Column Info

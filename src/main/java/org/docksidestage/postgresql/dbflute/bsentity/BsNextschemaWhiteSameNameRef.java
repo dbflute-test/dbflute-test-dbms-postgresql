@@ -12,7 +12,8 @@ import org.docksidestage.postgresql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
 /**
- * The entity of nextschema.white_same_name_ref as TABLE.
+ * The entity of nextschema.white_same_name_ref as TABLE. <br>
+ * land
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsNextschemaWhiteSameNameRef extends AbstractEntity implements DomainEntity {

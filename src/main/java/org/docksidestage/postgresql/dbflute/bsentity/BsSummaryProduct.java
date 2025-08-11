@@ -10,7 +10,8 @@ import org.docksidestage.postgresql.dbflute.allcommon.DBMetaInstanceHandler;
 import org.docksidestage.postgresql.dbflute.exentity.*;
 
 /**
- * The entity of summary_product as VIEW.
+ * The entity of summary_product as VIEW. <br>
+ * chiba
  * @author DBFlute(AutoGenerator)
  */
 public abstract class BsSummaryProduct extends AbstractEntity implements DomainEntity {
